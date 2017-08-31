@@ -23,11 +23,13 @@
     <BranchName Condition=" '$(BranchName)' == '' ">$(APPVEYOR_REPO_BRANCH)</BranchName>
     <VersionSuffix Condition="'$(BranchName)' != 'master'">alpha</VersionSuffix>
     <VersionSuffix Condition="'$(BranchName)' == 'master'">beta</VersionSuffix>
+    <VersionSuffix Condition="'$(APPVEYOR_REPO_TAG)' == 'true'">rtm</VersionSuffix>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(APPVEYOR_BUILD_NUMBER)</BuildNumber>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
+    <FileVersion>$(VersionPrefix).$(BuildNumber)</FileVersion>
     <VersionSuffix Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix).$(BuildNumber)</VersionSuffix>
-    <VersionSuffix Condition="'$(APPVEYOR_REPO_TAG)' == 'true'"></VersionSuffix>
     <VersionSuffix Condition=" '$(VersionSuffix)' != '' AND '$(BranchName)' != '' ">$(VersionSuffix)+$(BranchName)</VersionSuffix>
+    <PackageVersion Condition="'$(APPVEYOR_REPO_TAG)' == 'true'">$(VersionPrefix)</PackageVersion>
   </PropertyGroup>
 
 </Project>

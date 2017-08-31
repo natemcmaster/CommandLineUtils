@@ -3,22 +3,32 @@
 
 namespace McMaster.Extensions.CommandLineUtils
 {
+    /// <summary>
+    /// A reporter that does nothing.
+    /// </summary>
     public class NullReporter : IReporter
     {
         private NullReporter()
         { }
 
+        /// <summary>
+        /// A shared instance of <see cref="NullReporter"/>.
+        /// </summary>
         public static IReporter Singleton { get; } = new NullReporter();
 
+        /// <inheritdoc />
         public void Verbose(string message)
         { }
 
+        /// <inheritdoc />
         public void Output(string message)
         { }
 
+        /// <inheritdoc />
         public void Warn(string message)
         { }
 
+        /// <inheritdoc />
         public void Error(string message)
         { }
     }

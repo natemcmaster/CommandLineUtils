@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
+    /// <summary>
+    /// Describes a set of command line arguments, options, and execution behavior. 
+    /// <see cref="CommandLineApplication"/> can be nested to support subcommands.
+    /// </summary>
     public class CommandLineApplication
     {
         // Indicates whether the parser should throw an exception when it runs into an unexpected argument.
@@ -18,6 +22,13 @@ namespace McMaster.Extensions.CommandLineUtils
         // remaining arguments, including the first unexpected argument, will be stored in RemainingArguments property.
         private readonly bool _throwOnUnexpectedArg;
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="CommandLineApplication"/>.
+        /// </summary>
+        /// <param name="throwOnUnexpectedArg">
+        /// Defaults to true. 
+        /// Determines if <see cref="CommandParsingException"/> should be thrown when <see cref="Execute(string[])"/> receives an unrecognzed argument.
+        /// </param>
         public CommandLineApplication(bool throwOnUnexpectedArg = true)
         {
             _throwOnUnexpectedArg = throwOnUnexpectedArg;
@@ -28,27 +39,109 @@ namespace McMaster.Extensions.CommandLineUtils
             Invoke = () => 0;
         }
 
+        /// <summary>
+        /// Defaults to null. A link to the parent command if this is instance is a subcommand.
+        /// </summary>
         public CommandLineApplication Parent { get; set; }
+
+        /// <summary>
+        /// The short name of the command. When this is a subcommand, it is the name of the word used to invoke the subcommand.
+        /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// The full name of the command.
+        /// </summary>
         public string FullName { get; set; }
+
+        /// <summary>
+        /// Overri
+        /// </summary>
         public string Syntax { get; set; }
+
+        /// <summary>
+        /// A description of the command.
+        /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// Determines if this command appears in generated help text.
+        /// </summary>
         public bool ShowInHelpText { get; set; } = true;
+
+        /// <summary>
+        /// Additional text that appears at the bottom of generated help text.
+        /// </summary>
         public string ExtendedHelpText { get; set; }
+
+        /// <summary>
+        /// Available command-line options on this command. Use <see cref="GetOptions"/> to get all available options, which may include inherited options.
+        /// </summary>
         public readonly List<CommandOption> Options;
+
+        /// <summary>
+        /// The option used to determine if help text should be displayed. This is set by calling <see cref="HelpOption(string)"/>.
+        /// </summary>
         public CommandOption OptionHelp { get; private set; }
+
+        /// <summary>
+        /// The options used to determine if the command version should be displayed. This is set by calling <see cref="VersionOption(string, Func{string}, Func{string})"/>.
+        /// </summary>
         public CommandOption OptionVersion { get; private set; }
+
+        /// <summary>
+        /// Required command-line arguments.
+        /// </summary>
         public readonly List<CommandArgument> Arguments;
+
+        /// <summary>
+        /// When initialized with throwOnUnexpectedArg to <c>false</c>, this will contain any unrecognized arguments.
+        /// </summary>
         public readonly List<string> RemainingArguments;
-        public bool IsShowingInformation { get; protected set; }  // Is showing help or version?
+
+        /// <summary>
+        /// True when <see cref="OptionHelp"/> or <see cref="OptionVersion"/> was matched.
+        /// </summary>
+        public bool IsShowingInformation { get; protected set; }
+
+        /// <summary>
+        /// The action to call when this command is matched and <see cref="IsShowingInformation"/> is <c>false</c>.
+        /// </summary>
         public Func<int> Invoke { get; set; }
+
+        /// <summary>
+        /// The long-form of the version to display in generated help text.
+        /// </summary>
         public Func<string> LongVersionGetter { get; set; }
+        /// <summary>
+        /// The short-form of the version to display in generated help text.
+        /// </summary>
         public Func<string> ShortVersionGetter { get; set; }
+
+        /// <summary>
+        /// Subcommands.
+        /// </summary>
         public readonly List<CommandLineApplication> Commands;
+
+        /// <summary>
+        /// Determines if '--' can be used to separate known arguments and options from additional content passed to <see cref="RemainingArguments"/>.
+        /// </summary>
         public bool AllowArgumentSeparator { get; set; }
+
+        /// <summary>
+        /// The writer used to display generated help text.
+        /// </summary>
         public TextWriter Out { get; set; } = Console.Out;
+
+        /// <summary>
+        /// The writer used to display generated error messages.
+        /// </summary>
         public TextWriter Error { get; set; } = Console.Error;
 
+        /// <summary>
+        /// Gets all command line options available to this command, including any inherited options.
+        /// </summary>
+        /// <returns>Command line options.</returns>
         public IEnumerable<CommandOption> GetOptions()
         {
             var expr = Options.AsEnumerable();
@@ -62,6 +155,13 @@ namespace McMaster.Extensions.CommandLineUtils
             return expr;
         }
 
+        /// <summary>
+        /// Adds a subcommand.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="configuration"></param>
+        /// <param name="throwOnUnexpectedArg"></param>
+        /// <returns></returns>
         public CommandLineApplication Command(string name, Action<CommandLineApplication> configuration,
             bool throwOnUnexpectedArg = true)
         {
@@ -71,15 +171,47 @@ namespace McMaster.Extensions.CommandLineUtils
             return command;
         }
 
+        /// <summary>
+        /// Adds a command-line option.
+        /// </summary>
+        /// <param name="template"></param>
+        /// <param name="description"></param>
+        /// <param name="optionType"></param>
+        /// <returns></returns>
         public CommandOption Option(string template, string description, CommandOptionType optionType)
             => Option(template, description, optionType, _ => { }, inherited: false);
 
+        /// <summary>
+        /// Adds a command-line option.
+        /// </summary>
+        /// <param name="template"></param>
+        /// <param name="description"></param>
+        /// <param name="optionType"></param>
+        /// <param name="inherited"></param>
+        /// <returns></returns>
         public CommandOption Option(string template, string description, CommandOptionType optionType, bool inherited)
             => Option(template, description, optionType, _ => { }, inherited);
 
+        /// <summary>
+        /// Adds a command-line option.
+        /// </summary>
+        /// <param name="template"></param>
+        /// <param name="description"></param>
+        /// <param name="optionType"></param>
+        /// <param name="configuration"></param>
+        /// <returns></returns>
         public CommandOption Option(string template, string description, CommandOptionType optionType, Action<CommandOption> configuration)
             => Option(template, description, optionType, configuration, inherited: false);
 
+        /// <summary>
+        /// Adds a command line options.
+        /// </summary>
+        /// <param name="template"></param>
+        /// <param name="description"></param>
+        /// <param name="optionType"></param>
+        /// <param name="configuration"></param>
+        /// <param name="inherited"></param>
+        /// <returns></returns>
         public CommandOption Option(string template, string description, CommandOptionType optionType, Action<CommandOption> configuration, bool inherited)
         {
             var option = new CommandOption(template, optionType)
@@ -92,11 +224,26 @@ namespace McMaster.Extensions.CommandLineUtils
             return option;
         }
 
+        /// <summary>
+        /// Adds a command line argument
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
+        /// <param name="multipleValues"></param>
+        /// <returns></returns>
         public CommandArgument Argument(string name, string description, bool multipleValues = false)
         {
             return Argument(name, description, _ => { }, multipleValues);
         }
 
+        /// <summary>
+        /// Adds a command line argument.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
+        /// <param name="configuration"></param>
+        /// <param name="multipleValues"></param>
+        /// <returns></returns>
         public CommandArgument Argument(string name, string description, Action<CommandArgument> configuration, bool multipleValues = false)
         {
             var lastArg = Arguments.LastOrDefault();
@@ -113,15 +260,30 @@ namespace McMaster.Extensions.CommandLineUtils
             return argument;
         }
 
+        /// <summary>
+        /// Defines a callback for when this command is invoked.
+        /// </summary>
+        /// <param name="invoke"></param>
         public void OnExecute(Func<int> invoke)
         {
             Invoke = invoke;
         }
 
+        /// <summary>
+        /// Defines an asynchronous callback.
+        /// </summary>
+        /// <param name="invoke"></param>
         public void OnExecute(Func<Task<int>> invoke)
         {
-            Invoke = () => invoke().Result;
+            Invoke = () => invoke().GetAwaiter().GetResult();
         }
+
+        /// <summary>
+        /// Parses an array of strings, matching them against <see cref="Options"/>, <see cref="Arguments"/>, and <see cref="Commands"/>.
+        /// If this command is matched, it will invoke <see cref="Invoke"/>.
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns>The return code from <see cref="Invoke"/>.</returns>
         public int Execute(params string[] args)
         {
             CommandLineApplication command = this;
@@ -296,7 +458,11 @@ namespace McMaster.Extensions.CommandLineUtils
             return command.Invoke();
         }
 
-        // Helper method that adds a help option
+        /// <summary>
+        /// Helper method that adds a help option.
+        /// </summary>
+        /// <param name="template"></param>
+        /// <returns></returns>
         public CommandOption HelpOption(string template)
         {
             // Help option is special because we stop parsing once we see it
@@ -306,6 +472,13 @@ namespace McMaster.Extensions.CommandLineUtils
             return OptionHelp;
         }
 
+        /// <summary>
+        /// Helper method that adds a version option from known versions strings.
+        /// </summary>
+        /// <param name="template"></param>
+        /// <param name="shortFormVersion"></param>
+        /// <param name="longFormVersion"></param>
+        /// <returns></returns>
         public CommandOption VersionOption(string template,
             string shortFormVersion,
             string longFormVersion = null)
@@ -320,7 +493,13 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        // Helper method that adds a version option
+        /// <summary>
+        /// Helper method that adds a version option.
+        /// </summary>
+        /// <param name="template"></param>
+        /// <param name="shortFormVersionGetter"></param>
+        /// <param name="longFormVersionGetter"></param>
+        /// <returns></returns>
         public CommandOption VersionOption(string template,
             Func<string> shortFormVersionGetter,
             Func<string> longFormVersionGetter = null)
@@ -334,7 +513,9 @@ namespace McMaster.Extensions.CommandLineUtils
             return OptionVersion;
         }
 
-        // Show short hint that reminds users to use help option
+        /// <summary>
+        /// Show short hint that reminds users to use help option.
+        /// </summary>
         public void ShowHint()
         {
             if (OptionHelp != null)
@@ -343,7 +524,10 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        // Show full help
+        /// <summary>
+        /// Show full help.
+        /// </summary>
+        /// <param name="commandName">The subcommand for which to show help. Leave null to show for the current command.</param>
         public void ShowHelp(string commandName = null)
         {
             for (var cmd = this; cmd != null; cmd = cmd.Parent)
@@ -354,6 +538,11 @@ namespace McMaster.Extensions.CommandLineUtils
             Out.WriteLine(GetHelpText(commandName));
         }
 
+        /// <summary>
+        /// Produces help text describing command usage.
+        /// </summary>
+        /// <param name="commandName"></param>
+        /// <returns></returns>
         public virtual string GetHelpText(string commandName = null)
         {
             var headerBuilder = new StringBuilder("Usage:");
@@ -462,6 +651,9 @@ namespace McMaster.Extensions.CommandLineUtils
                 + target.ExtendedHelpText;
         }
 
+        /// <summary>
+        /// Displays version information that includes <see cref="FullName"/> and <see cref="LongVersionGetter"/>.
+        /// </summary>
         public void ShowVersion()
         {
             for (var cmd = this; cmd != null; cmd = cmd.Parent)
@@ -473,11 +665,18 @@ namespace McMaster.Extensions.CommandLineUtils
             Out.WriteLine(LongVersionGetter());
         }
 
+        /// <summary>
+        /// Gets <see cref="FullName"/> and <see cref="ShortVersionGetter"/>. 
+        /// </summary>
+        /// <returns></returns>
         public string GetFullNameAndVersion()
         {
             return ShortVersionGetter == null ? FullName : string.Format("{0} {1}", FullName, ShortVersionGetter());
         }
 
+        /// <summary>
+        /// Traverses up <see cref="Parent"/> and displays the result of <see cref="GetFullNameAndVersion"/>.
+        /// </summary>
         public void ShowRootCommandFullNameAndVersion()
         {
             var rootCmd = this;
@@ -513,26 +712,11 @@ namespace McMaster.Extensions.CommandLineUtils
                 _enumerator = enumerator;
             }
 
-            public CommandArgument Current
-            {
-                get
-                {
-                    return _enumerator.Current;
-                }
-            }
+            public CommandArgument Current => _enumerator.Current;
 
-            object IEnumerator.Current
-            {
-                get
-                {
-                    return Current;
-                }
-            }
+            object IEnumerator.Current => Current;
 
-            public void Dispose()
-            {
-                _enumerator.Dispose();
-            }
+            public void Dispose() => _enumerator.Dispose();
 
             public bool MoveNext()
             {
@@ -546,10 +730,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 return true;
             }
 
-            public void Reset()
-            {
-                _enumerator.Reset();
-            }
+            public void Reset() => _enumerator.Reset();
         }
     }
 }

@@ -4,14 +4,15 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
-    <Description>Command-line parsing API. A drop-in replacement for Microsoft.Extensions.CommandLineUtils, plus extras.
+    <Description>Command-line parsing API. A community-maintained fork of Microsoft.Extensions.CommandLineUtils, plus extras.
 Commonly used types:
 
 McMaster.Extensions.CommandLineUtils.CommandLineApplication
 McMaster.Extensions.CommandLineUtils.CommandOption
+McMaster.Extensions.CommandLineUtils.IConsole
+McMaster.Extensions.CommandLineUtils.ArgumentEscaper
     </Description>
     <PackageTags>commandline;parsing</PackageTags>
-    <NoWarn>$(NoWarn);CS1591</NoWarn>
     <IncludeSymbols>true</IncludeSymbols>
     <IncludeSource>true</IncludeSource>
   </PropertyGroup>
