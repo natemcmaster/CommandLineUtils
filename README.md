@@ -1,11 +1,11 @@
 CommandLineUtils
 ================
 
-[![AppVeyor build status][appveyor-badge]](https://ci.appveyor.com/project/natemcmaster/CommandLineUtils/branch/dev)
+[![AppVeyor build status][appveyor-badge]](https://ci.appveyor.com/project/natemcmaster/CommandLineUtils/branch/master)
 
-[appveyor-badge]: https://img.shields.io/appveyor/ci/natemcmaster/CommandLineUtils/dev.svg?label=appveyor&style=flat-square
+[appveyor-badge]: https://img.shields.io/appveyor/ci/natemcmaster/CommandLineUtils/master.svg?label=appveyor&style=flat-square
 
-This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common). This project originally started as an ASP.NET Core class library. However, after a few releases, [active development was discontinued](https://github.com/aspnet/Common/issues/257).
+This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This fork, on the other hand, will continue release updates and take contributions.
 
 ## Install
 
