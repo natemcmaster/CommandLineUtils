@@ -1,2 +1,9 @@
 <Project>
+
+  <Target Name="UpdateBuildDetails" BeforeTargets="Pack" Condition="'$(APPVEYOR)' == 'true'">
+    <Exec Command="appveyor UpdateBuild -Version $(PackageVersion)"
+          IgnoreExitCode="true"
+          IgnoreStandardErrorWarningFormat="true" />
+  </Target>
+
 </Project>

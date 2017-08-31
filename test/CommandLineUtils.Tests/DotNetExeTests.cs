@@ -21,4 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
     }
 }
+#elif NET461
+#else
+#error Update target frameworks
 #endif
