@@ -17,21 +17,13 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public class CommandLineApplication
     {
-        // Indicates whether the parser should throw an exception when it runs into an unexpected argument.
-        // If this field is set to false, the parser will stop parsing when it sees an unexpected argument, and all
-        // remaining arguments, including the first unexpected argument, will be stored in RemainingArguments property.
-        private readonly bool _throwOnUnexpectedArg;
-
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
         /// </summary>
-        /// <param name="throwOnUnexpectedArg">
-        /// Defaults to true. 
-        /// Determines if <see cref="CommandParsingException"/> should be thrown when <see cref="Execute(string[])"/> receives an unrecognzed argument.
-        /// </param>
+        /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(bool throwOnUnexpectedArg = true)
         {
-            _throwOnUnexpectedArg = throwOnUnexpectedArg;
+            ThrowOnUnexpectedArgument = throwOnUnexpectedArg;
             Options = new List<CommandOption>();
             Arguments = new List<CommandArgument>();
             Commands = new List<CommandLineApplication>();
@@ -78,7 +70,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Available command-line options on this command. Use <see cref="GetOptions"/> to get all available options, which may include inherited options.
         /// </summary>
-        public readonly List<CommandOption> Options;
+        public List<CommandOption> Options { get; private set; }
 
         /// <summary>
         /// The option used to determine if help text should be displayed. This is set by calling <see cref="HelpOption(string)"/>.
@@ -93,12 +85,19 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Required command-line arguments.
         /// </summary>
-        public readonly List<CommandArgument> Arguments;
+        public List<CommandArgument> Arguments { get; private set; }
 
         /// <summary>
-        /// When initialized with throwOnUnexpectedArg to <c>false</c>, this will contain any unrecognized arguments.
+        /// When initialized with <see cref="ThrowOnUnexpectedArgument"/> to <c>false</c>, this will contain any unrecognized arguments.
         /// </summary>
-        public readonly List<string> RemainingArguments;
+        public List<string> RemainingArguments { get; private set; }
+
+        /// <summary>
+        /// Indicates whether the parser should throw an exception when it runs into an unexpected argument.
+        /// If this field is set to false, the parser will stop parsing when it sees an unexpected argument, and all
+        /// remaining arguments, including the first unexpected argument, will be stored in RemainingArguments property.
+        /// </summary>
+        public bool ThrowOnUnexpectedArgument { get; set; }
 
         /// <summary>
         /// True when <see cref="OptionHelp"/> or <see cref="OptionVersion"/> was matched.
@@ -122,7 +121,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Subcommands.
         /// </summary>
-        public readonly List<CommandLineApplication> Commands;
+        public List<CommandLineApplication> Commands { get; private set; }
 
         /// <summary>
         /// Determines if '--' can be used to separate known arguments and options from additional content passed to <see cref="RemainingArguments"/>.
@@ -316,7 +315,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                         if (option == null)
                         {
-                            if (string.IsNullOrEmpty(longOptionName) && !command._throwOnUnexpectedArg  && AllowArgumentSeparator)
+                            if (string.IsNullOrEmpty(longOptionName) && !command.ThrowOnUnexpectedArgument  && AllowArgumentSeparator)
                             {
                                 // skip over the '--' argument separator
                                 index++;
@@ -692,7 +691,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private void HandleUnexpectedArg(CommandLineApplication command, string[] args, int index, string argTypeName)
         {
-            if (command._throwOnUnexpectedArg)
+            if (command.ThrowOnUnexpectedArgument)
             {
                 command.ShowHint();
                 throw new CommandParsingException(command, $"Unrecognized {argTypeName} '{args[index]}'");
