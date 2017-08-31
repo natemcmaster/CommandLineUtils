@@ -55,8 +55,9 @@ namespace McMaster.Extensions.CommandLineUtils
         public string FullName { get; set; }
 
         /// <summary>
-        /// Overri
+        /// This API is obsolete and does nothing. The recommended replacement is <see cref="ExtendedHelpText"/>.
         /// </summary>
+        [Obsolete("This API is obsolete and does nothing. The recommended replacement is ExtendedHelpText")]
         public string Syntax { get; set; }
 
         /// <summary>
