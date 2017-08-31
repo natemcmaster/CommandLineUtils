@@ -1,8 +1,7 @@
 Common
-===
-AppVeyor: [![AppVeyor](https://ci.appveyor.com/api/projects/status/snawy2a2vt0vd7dv/branch/dev?svg=true)](https://ci.appveyor.com/project/aspnetci/Common/branch/dev)
+======
 
-Travis:   [![Travis](https://travis-ci.org/aspnet/Common.svg?branch=dev)](https://travis-ci.org/aspnet/Common)
+AppVeyor: [![AppVeyor](https://ci.appveyor.com/api/projects/status/snawy2a2vt0vd7dv/branch/dev?svg=true)](https://ci.appveyor.com/project/aspnetci/Common/branch/dev)
 
 The Common repository includes projects containing commonly used primitives and utility types.
 
