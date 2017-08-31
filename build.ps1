@@ -1,6 +1,6 @@
 param(
     [ValidateSet('Debug', 'Release')]
-    $Configuration = 'Debug'
+    $Configuration = $null
 )
 
 Set-StrictMode -Version 1
@@ -14,10 +14,14 @@ function exec([string]$_cmd) {
     }
 }
 
+if (!$Configuration) {
+    $Configuration = if ($env:CI) { 'Release' } else { 'Debug' }
+}
+
 $artifacts = "$PSScriptRoot/artifacts/"
 
 Remove-Item -Recurse $artifacts -ErrorAction Ignore
 
 exec dotnet restore /p:BuildNumber=t000
 exec dotnet pack -c $Configuration -o $artifacts
-exec dotnet test -c $Configuration --no-build "$PSScriptRoot/test/CommandLineUtils.Tests/McMaster.Extensions.CommandLineUtils.Tests.csproj"
+exec dotnet test -c $Configuration "$PSScriptRoot/test/CommandLineUtils.Tests/McMaster.Extensions.CommandLineUtils.Tests.csproj"
