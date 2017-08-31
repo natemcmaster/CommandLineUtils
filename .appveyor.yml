@@ -21,8 +21,16 @@ artifacts:
     type: NuGetPackages
 deploy:
   - provider: NuGet
-    skip_symbols: true
+    symbol_server: https://www.myget.org/F/natemcmaster/api/v2/package
     api_key:
       secure: MIhcKhOCOJ64Cdf6S+uBuvKS0mSHsDSLxuXCAASqPDL/Wcgo8TAJMIR3p2Y4OqvP
     on:
       appveyor_repo_tag: true
+deploy:
+  - provider: NuGet
+    server: https://www.myget.org/F/natemcmaster/api/v2/package
+    symbol_server: https://www.myget.org/F/natemcmaster/api/v2/package
+    api_key:
+      secure: KF1yGk4IHJyyfiHfFSCxJ+p5iZX+KPfCTnCihjD5iIZjasTS1lHeilpbaon4wvcM
+    on:
+      branch: master
