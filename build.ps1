@@ -1,7 +1,10 @@
 #!/usr/bin/env powershell
+[CmdletBinding(PositionalBinding = $false)]
 param(
     [ValidateSet('Debug', 'Release')]
-    $Configuration = $null
+    $Configuration = $null,
+    [Parameter(ValueFromRemainingArguments = $true)]
+    [string[]]$MSBuildArgs
 )
 
 Set-StrictMode -Version 1
@@ -30,6 +33,12 @@ $artifacts = "$PSScriptRoot/artifacts/"
 
 Remove-Item -Recurse $artifacts -ErrorAction Ignore
 
-exec dotnet restore
-exec dotnet pack -c $Configuration -o $artifacts
-exec dotnet test -c $Configuration "$PSScriptRoot/test/CommandLineUtils.Tests/McMaster.Extensions.CommandLineUtils.Tests.csproj"
+exec dotnet restore @MSBuildArgs
+exec dotnet pack `
+    -c $Configuration `
+    -o $artifacts `
+    @MSBuildArgs
+exec dotnet test `
+    -c $Configuration `
+    "$PSScriptRoot/test/CommandLineUtils.Tests/McMaster.Extensions.CommandLineUtils.Tests.csproj" `
+    @MSBuildArgs
