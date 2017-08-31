@@ -1,67 +1,44 @@
-$ErrorActionPreference = "Stop"
+#!/usr/bin/env powershell
+[CmdletBinding(PositionalBinding = $false)]
+param(
+    [ValidateSet('Debug', 'Release')]
+    $Configuration = $null,
+    [Parameter(ValueFromRemainingArguments = $true)]
+    [string[]]$MSBuildArgs
+)
 
-function DownloadWithRetry([string] $url, [string] $downloadLocation, [int] $retries) 
-{
-    while($true)
-    {
-        try
-        {
-            Invoke-WebRequest $url -OutFile $downloadLocation
-            break
-        }
-        catch
-        {
-            $exceptionMessage = $_.Exception.Message
-            Write-Host "Failed to download '$url': $exceptionMessage"
-            if ($retries -gt 0) {
-                $retries--
-                Write-Host "Waiting 10 seconds before retrying. Retries left: $retries"
-                Start-Sleep -Seconds 10
+Set-StrictMode -Version 1
+$ErrorActionPreference = 'Stop'
 
-            }
-            else 
-            {
-                $exception = $_.Exception
-                throw $exception
-            }
-        }
+function exec([string]$_cmd) {
+    write-host -ForegroundColor DarkGray ">>> $_cmd $args"
+    $ErrorActionPreference = 'Continue'
+    & $_cmd @args
+    $ErrorActionPreference = 'Stop'
+    if ($LASTEXITCODE -ne 0) {
+        write-error "Failed with exit code $LASTEXITCODE"
+        exit 1
     }
 }
 
-cd $PSScriptRoot
+#
+# Main
+#
 
-$repoFolder = $PSScriptRoot
-$env:REPO_FOLDER = $repoFolder
-
-$koreBuildZip="https://github.com/aspnet/KoreBuild/archive/1.0.0.zip"
-if ($env:KOREBUILD_ZIP)
-{
-    $koreBuildZip=$env:KOREBUILD_ZIP
+if (!$Configuration) {
+    $Configuration = if ($env:CI) { 'Release' } else { 'Debug' }
 }
 
-$buildFolder = ".build"
-$buildFile="$buildFolder\KoreBuild.ps1"
+$artifacts = "$PSScriptRoot/artifacts/"
 
-if (!(Test-Path $buildFolder)) {
-    Write-Host "Downloading KoreBuild from $koreBuildZip"    
-    
-    $tempFolder=$env:TEMP + "\KoreBuild-" + [guid]::NewGuid()
-    New-Item -Path "$tempFolder" -Type directory | Out-Null
+Remove-Item -Recurse $artifacts -ErrorAction Ignore
 
-    $localZipFile="$tempFolder\korebuild.zip"
-    
-    DownloadWithRetry -url $koreBuildZip -downloadLocation $localZipFile -retries 6
-
-    Add-Type -AssemblyName System.IO.Compression.FileSystem
-    [System.IO.Compression.ZipFile]::ExtractToDirectory($localZipFile, $tempFolder)
-    
-    New-Item -Path "$buildFolder" -Type directory | Out-Null
-    copy-item "$tempFolder\**\build\*" $buildFolder -Recurse
-
-    # Cleanup
-    if (Test-Path $tempFolder) {
-        Remove-Item -Recurse -Force $tempFolder
-    }
-}
-
-&"$buildFile" $args
+exec dotnet restore @MSBuildArgs
+exec dotnet pack `
+    -c $Configuration `
+    -o $artifacts `
+    @MSBuildArgs
+exec dotnet test `
+    -c $Configuration `
+    "$PSScriptRoot/test/CommandLineUtils.Tests/McMaster.Extensions.CommandLineUtils.Tests.csproj" `
+    @MSBuildArgs

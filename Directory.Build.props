@@ -1,0 +1,33 @@
+<Project>
+
+  <PropertyGroup>
+    <Authors>Microsoft;Nate McMaster</Authors>
+    <Product>CommandLineUtils</Product>
+    <Copyright>Copyright © Nate McMaster</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/natemcmaster/CommandLineUtils</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/natemcmaster/CommandLineUtils.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <IsPackable>false</IsPackable>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)build\StrongName.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>
+
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <VersionPrefix>2.0.0</VersionPrefix>
+    <BranchName Condition=" '$(BranchName)' == '' ">$(APPVEYOR_REPO_BRANCH)</BranchName>
+    <VersionSuffix Condition="'$(BranchName)' != 'master'">alpha</VersionSuffix>
+    <VersionSuffix Condition="'$(BranchName)' == 'master'">beta</VersionSuffix>
+    <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(APPVEYOR_BUILD_NUMBER)</BuildNumber>
+    <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
+    <VersionSuffix Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix).$(BuildNumber)</VersionSuffix>
+    <VersionSuffix Condition="'$(APPVEYOR_REPO_TAG)' == 'true'"></VersionSuffix>
+    <VersionSuffix Condition=" '$(VersionSuffix)' != '' AND '$(BranchName)' != '' ">$(VersionSuffix)+$(BranchName)</VersionSuffix>
+  </PropertyGroup>
+
+</Project>

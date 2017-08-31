@@ -1,0 +1,28 @@
+﻿version: 2.0.0-alpha.{build}+{branch}
+init:
+  - git config --global core.autocrlf true
+clone_depth: 1
+branches:
+  only:
+    - master
+    - dev
+    - appveyor
+build_script:
+  - ps: .\build.ps1
+environment:
+  global:
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+    DOTNET_CLI_TELEMETRY_OPTOUT: 1
+test: off
+os: Visual Studio 2017
+artifacts:
+  - path: artifacts/*.nupkg
+    name: Packages
+    type: NuGetPackages
+deploy:
+  - provider: NuGet
+    skip_symbols: true
+    api_key:
+      secure: MIhcKhOCOJ64Cdf6S+uBuvKS0mSHsDSLxuXCAASqPDL/Wcgo8TAJMIR3p2Y4OqvP
+    on:
+      appveyor_repo_tag: true
