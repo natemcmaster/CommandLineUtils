@@ -16,17 +16,10 @@ environment:
 test: off
 os: Visual Studio 2017
 artifacts:
-  - path: artifacts/*.nupkg
+  - path: 'artifacts\*.nupkg'
     name: Packages
     type: NuGetPackages
 deploy:
-  - provider: NuGet
-    name: nuget
-    symbol_server: https://www.myget.org/F/natemcmaster/api/v2/package
-    api_key:
-      secure: MIhcKhOCOJ64Cdf6S+uBuvKS0mSHsDSLxuXCAASqPDL/Wcgo8TAJMIR3p2Y4OqvP
-    on:
-      appveyor_repo_tag: true
   - provider: NuGet
     name: myget
     server: https://www.myget.org/F/natemcmaster/api/v2/package
