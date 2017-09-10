@@ -1,5 +1,7 @@
 <Project>
 
+  <Import Project="version.props" />
+
   <PropertyGroup>
     <Authors>Nate McMaster</Authors>
     <Product>CommandLineUtils</Product>
@@ -18,18 +20,6 @@
     <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>
 
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-
-    <VersionPrefix>2.0.0</VersionPrefix>
-    <VersionSuffix>rc</VersionSuffix>
-    <PackageVersion Condition="'$(APPVEYOR_REPO_TAG)' == 'true'">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
-
-    <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(APPVEYOR_BUILD_NUMBER)</BuildNumber>
-    <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
-    <FileVersion>$(VersionPrefix).$(BuildNumber)</FileVersion>
-    <VersionSuffix Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix).$(BuildNumber)</VersionSuffix>
-
-    <BranchName Condition=" '$(BranchName)' == '' ">$(APPVEYOR_REPO_BRANCH)</BranchName>
-    <VersionSuffix Condition=" '$(VersionSuffix)' != '' AND '$(BranchName)' != '' ">$(VersionSuffix)+$(BranchName)</VersionSuffix>
   </PropertyGroup>
 
 </Project>
