@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace McMaster.Extensions.CommandLineUtils
 {
     /// <summary>
-    /// Describes a set of command line arguments, options, and execution behavior. 
+    /// Describes a set of command line arguments, options, and execution behavior.
     /// <see cref="CommandLineApplication"/> can be nested to support subcommands.
     /// </summary>
     public class CommandLineApplication
@@ -46,12 +46,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// The full name of the command.
         /// </summary>
         public string FullName { get; set; }
-
-        /// <summary>
-        /// This API is obsolete and does nothing. The recommended replacement is <see cref="ExtendedHelpText"/>.
-        /// </summary>
-        [Obsolete("This API is obsolete and does nothing. The recommended replacement is ExtendedHelpText")]
-        public string Syntax { get; set; }
 
         /// <summary>
         /// A description of the command.
@@ -667,7 +661,7 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Gets <see cref="FullName"/> and <see cref="ShortVersionGetter"/>. 
+        /// Gets <see cref="FullName"/> and <see cref="ShortVersionGetter"/>.
         /// </summary>
         /// <returns></returns>
         public string GetFullNameAndVersion()
