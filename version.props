@@ -2,7 +2,6 @@
   <PropertyGroup>
     <VersionPrefix>2.0.0</VersionPrefix>
     <VersionSuffix>rc</VersionSuffix>
-    <VersionSuffix Condition="'$(APPVEYOR_REPO_TAG)' == 'true'"></VersionSuffix>
     <PackageVersion Condition="'$(APPVEYOR_REPO_TAG)' == 'true' AND '$(VersionSuffix)' != ''">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
 
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(APPVEYOR_BUILD_NUMBER)</BuildNumber>
