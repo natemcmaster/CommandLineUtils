@@ -36,6 +36,9 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private static string TryFindDotNetExePath()
         {
+#if NET45
+            return "dotnet.exe";
+#elif NETSTANDARD2_0
             var fileName = FileName;
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -75,6 +78,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return File.Exists(muxer)
                 ? muxer
                 : null;
+#endif
         }
     }
 }
