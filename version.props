@@ -7,9 +7,19 @@
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(APPVEYOR_BUILD_NUMBER)</BuildNumber>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
     <FileVersion>$(VersionPrefix).$(BuildNumber)</FileVersion>
-    <VersionSuffix Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix).$(BuildNumber)</VersionSuffix>
+    <VersionSuffix Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)-00$(BuildNumber)</VersionSuffix>
 
     <BranchName Condition=" '$(BranchName)' == '' ">$(APPVEYOR_REPO_BRANCH)</BranchName>
-    <VersionSuffix Condition=" '$(VersionSuffix)' != '' AND '$(BranchName)' != '' ">$(VersionSuffix)+$(BranchName)</VersionSuffix>
   </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>BuildNumber</_Parameter1>
+      <_Parameter2>$(BuildNumber)</_Parameter2>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>BranchName</_Parameter1>
+      <_Parameter2>$(BranchName)</_Parameter2>
+    </AssemblyAttribute>
+  </ItemGroup>
 </Project>
