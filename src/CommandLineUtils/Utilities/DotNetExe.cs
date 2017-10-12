@@ -38,7 +38,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
 #if NET45
             return "dotnet.exe";
-#elif NETSTANDARD2_0
+#elif NETSTANDARD1_6
             var fileName = FileName;
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
