@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net45;;netstandard1.6;netstandard2.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
     <Description>Command-line parsing API. A community-maintained fork of Microsoft.Extensions.CommandLineUtils, plus extras.
@@ -16,5 +16,11 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
     <IncludeSymbols>true</IncludeSymbols>
     <IncludeSource>true</IncludeSource>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Condition="'$(TargetFramework)'=='netstandard1.6'" Include="System.AppContext" Version="4.3.0" />
+    <PackageReference Condition="'$(TargetFramework)'=='netstandard1.6'" Include="System.Diagnostics.Process" Version="4.3.0" />
+    <PackageReference Condition="'$(TargetFramework)'=='netstandard1.6'" Include="System.Threading.Thread" Version="4.3.0" />
+  </ItemGroup>
 
 </Project>
