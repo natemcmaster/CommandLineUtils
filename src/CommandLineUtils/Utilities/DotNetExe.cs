@@ -78,6 +78,8 @@ namespace McMaster.Extensions.CommandLineUtils
             return File.Exists(muxer)
                 ? muxer
                 : null;
+#else
+#error Update target frameworks
 #endif
         }
     }
