@@ -17,10 +17,10 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
     <IncludeSource>true</IncludeSource>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Condition="'$(TargetFramework)'=='netstandard1.6'" Include="System.AppContext" Version="4.3.0" />
-    <PackageReference Condition="'$(TargetFramework)'=='netstandard1.6'" Include="System.Diagnostics.Process" Version="4.3.0" />
-    <PackageReference Condition="'$(TargetFramework)'=='netstandard1.6'" Include="System.Threading.Thread" Version="4.3.0" />
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.6'">
+    <PackageReference Include="System.AppContext" Version="4.3.0" />
+    <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
   </ItemGroup>
 
 </Project>
