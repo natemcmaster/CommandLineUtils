@@ -38,7 +38,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
 #if NET45
             return "dotnet.exe";
-#elif NETSTANDARD2_0
+#elif (NETSTANDARD1_6 || NETSTANDARD2_0)
             var fileName = FileName;
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -78,6 +78,8 @@ namespace McMaster.Extensions.CommandLineUtils
             return File.Exists(muxer)
                 ? muxer
                 : null;
+#else
+#error Update target frameworks
 #endif
         }
     }

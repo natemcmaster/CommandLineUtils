@@ -34,11 +34,8 @@ $artifacts = "$PSScriptRoot/artifacts/"
 Remove-Item -Recurse $artifacts -ErrorAction Ignore
 
 exec dotnet restore @MSBuildArgs
-exec dotnet pack `
-    -c $Configuration `
-    -o $artifacts `
-    @MSBuildArgs
-exec dotnet test `
-    -c $Configuration `
+exec dotnet build --no-restore -c $Configuration
+exec dotnet pack --no-restore --no-build -c $Configuration -o $artifacts @MSBuildArgs
+exec dotnet test --no-restore --no-build -c $Configuration `
     "$PSScriptRoot/test/CommandLineUtils.Tests/McMaster.Extensions.CommandLineUtils.Tests.csproj" `
     @MSBuildArgs
