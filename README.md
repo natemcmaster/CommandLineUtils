@@ -27,7 +27,7 @@ $ dotnet add package McMaster.Extensions.CommandLineUtils
 ```
 ```xml
 <ItemGroup>
-  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.0.0" />
+  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.0.1" />
 </ItemGroup>
 ```
 

@@ -20,8 +20,6 @@
     <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>
 
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-
-    <PackageReleaseNotes>2.0.1: Add .NETStandard 1.6 to the list of supported frameworks.</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
