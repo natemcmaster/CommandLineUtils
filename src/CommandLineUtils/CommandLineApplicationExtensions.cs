@@ -26,7 +26,16 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="app"></param>
         /// <returns></returns>
         public static CommandOption VerboseOption(this CommandLineApplication app)
-            => app.Option("-v|--verbose", "Show verbose output", CommandOptionType.NoValue, inherited: true);
+            => VerboseOption(app, "-v|--verbose");
+
+        /// <summary>
+        /// Adds the verbose option with the template <c>-v|--verbose</c>.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="template" />
+        /// <returns></returns>
+        public static CommandOption VerboseOption(this CommandLineApplication app, string template)
+            => app.Option(template, "Show verbose output", CommandOptionType.NoValue, inherited: true);
 
         /// <summary>
         /// Sets <see cref="CommandLineApplication.Invoke"/> with a return code of <c>0</c>.
