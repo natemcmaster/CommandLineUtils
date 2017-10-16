@@ -52,9 +52,14 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Finds <see cref="AssemblyInformationalVersionAttribute"/> on <paramref name="assembly"/> and uses that
         /// to set <see cref="CommandLineApplication.OptionVersion"/>.
+        /// <para>
+        /// Uses the Version that is part of the <see cref="AssemblyName"/> of the specified assembly
+        /// if no <see cref="AssemblyInformationalVersionAttribute"/> is applied.
+        /// </para>
         /// </summary>
         /// <param name="app"></param>
         /// <param name="assembly"></param>
+        /// <exception cref="ArgumentNullException">Either <paramref name="app"/> or <paramref name="assembly"/> is <c>null</c>.</exception>
         public static CommandOption VersionOptionFromAssemblyAttributes(this CommandLineApplication app, Assembly assembly)
             => VersionOptionFromAssemblyAttributes(app, "--version", assembly);
 
@@ -69,18 +74,36 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="app"></param>
         /// <param name="template"></param>
         /// <param name="assembly"></param>
+        /// <exception cref="ArgumentNullException">Either <paramref name="app"/> or <paramref name="assembly"/> is <c>null</c>.</exception>
         public static CommandOption VersionOptionFromAssemblyAttributes(CommandLineApplication app, string template, Assembly assembly)
-            => app.VersionOption(template, GetInformationalVersion(assembly));
-
-        private static string GetInformationalVersion(Assembly assembly)
         {
-            var attribute = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
+            if (app == null)
+                throw new ArgumentNullException(nameof(app));
+            GetVersionStringsFromAssemblyAttributes(assembly ?? throw new ArgumentNullException(nameof(assembly)), 
+                out string shortVersion, out string longVersion);
+            return app.VersionOption(template, shortVersion, longVersion);
+        }
 
-            var versionAttribute = attribute == null
-                ? assembly.GetName().Version.ToString()
-                : attribute.InformationalVersion;
+        private static void GetVersionStringsFromAssemblyAttributes(Assembly assembly, out string shortVersion, out string longVersion)
+        {
+            string infoVersion = assembly?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+            string nameVersion = assembly.GetName().Version.ToString();
 
-            return versionAttribute;
+            // A .NET Assembly always has a name, and that name always contains a version.
+            // Informational Version may be missing, so use AssemblyName as fallback.
+            if (string.IsNullOrWhiteSpace(infoVersion))
+            {
+                shortVersion = 'v' + nameVersion;
+                longVersion = shortVersion;
+            }
+            else
+            {
+                shortVersion = 'v' + infoVersion;
+                // Use both informational and machine-readable Version
+                // for long version string
+                // -> "v1.2.3-alpha-feature-x (v1.2.3.4242)"
+                longVersion = $"v{infoVersion} (v{nameVersion})";
+            }
         }
     }
 }
