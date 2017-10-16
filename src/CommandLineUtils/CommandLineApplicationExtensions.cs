@@ -55,8 +55,22 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="app"></param>
         /// <param name="assembly"></param>
-        public static void VersionOptionFromAssemblyAttributes(this CommandLineApplication app, Assembly assembly)
-            => app.VersionOption("--version", GetInformationalVersion(assembly));
+        public static CommandOption VersionOptionFromAssemblyAttributes(this CommandLineApplication app, Assembly assembly)
+            => VersionOptionFromAssemblyAttributes(app, "--version", assembly);
+
+        /// <summary>
+        /// Finds <see cref="AssemblyInformationalVersionAttribute"/> on <paramref name="assembly"/> and uses that
+        /// to set <see cref="CommandLineApplication.OptionVersion"/>.
+        /// <para>
+        /// Uses the Version that is part of the <see cref="AssemblyName"/> of the specified assembly
+        /// if no <see cref="AssemblyInformationalVersionAttribute"/> is applied.
+        /// </para>
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="template"></param>
+        /// <param name="assembly"></param>
+        public static CommandOption VersionOptionFromAssemblyAttributes(CommandLineApplication app, string template, Assembly assembly)
+            => app.VersionOption(template, GetInformationalVersion(assembly));
 
         private static string GetInformationalVersion(Assembly assembly)
         {
