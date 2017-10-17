@@ -76,34 +76,16 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="assembly"></param>
         /// <exception cref="ArgumentNullException">Either <paramref name="app"/> or <paramref name="assembly"/> is <c>null</c>.</exception>
         public static CommandOption VersionOptionFromAssemblyAttributes(CommandLineApplication app, string template, Assembly assembly)
-        {
-            if (app == null)
-                throw new ArgumentNullException(nameof(app));
-            GetVersionStringsFromAssemblyAttributes(assembly ?? throw new ArgumentNullException(nameof(assembly)), 
-                out string shortVersion, out string longVersion);
-            return app.VersionOption(template, shortVersion, longVersion);
-        }
+            => app.VersionOption(template, GetInformationalVersion(assembly));
 
-        private static void GetVersionStringsFromAssemblyAttributes(Assembly assembly, out string shortVersion, out string longVersion)
+        private static string GetInformationalVersion(Assembly assembly)
         {
-            string infoVersion = assembly?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
-            string nameVersion = assembly.GetName().Version.ToString();
-
-            // A .NET Assembly always has a name, and that name always contains a version.
-            // Informational Version may be missing, so use AssemblyName as fallback.
+            string infoVersion = assembly?
+                .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?
+                .InformationalVersion;
             if (string.IsNullOrWhiteSpace(infoVersion))
-            {
-                shortVersion = 'v' + nameVersion;
-                longVersion = shortVersion;
-            }
-            else
-            {
-                shortVersion = 'v' + infoVersion;
-                // Use both informational and machine-readable Version
-                // for long version string
-                // -> "v1.2.3-alpha-feature-x (v1.2.3.4242)"
-                longVersion = $"v{infoVersion} (v{nameVersion})";
-            }
+                return assembly?.GetName().Version.ToString();
+            return infoVersion;
         }
     }
 }
