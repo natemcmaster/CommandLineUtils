@@ -22,6 +22,18 @@ namespace McMaster.Extensions.CommandLineUtils
         private int _responseFileArgsEnd = -1;
 
         /// <summary>
+        /// Creates an instance of <typeparamref name="T" /> by matching <paramref name="args" />
+        /// with the properties on <typeparamref name="T" />. See <seealso cref="OptionAttribute" />
+        /// and <seealso cref="ArgumentAttribute" />.
+        /// </summary>
+        public static T ParseArgs<T>(params string[] args)
+            where T : class, new()
+        {
+            var applicationBuilder = new ReflectionCommandLineApplicationBuilder<T>();
+            return applicationBuilder.Execute(args);
+        }
+
+        /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
         /// </summary>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>

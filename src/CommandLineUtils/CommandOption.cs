@@ -23,7 +23,6 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             Template = template;
             OptionType = optionType;
-            Values = new List<string>();
 
             foreach (var part in Template.Split(new[] { ' ', '|' }, StringSplitOptions.RemoveEmptyEntries))
             {
@@ -61,6 +60,11 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
+        internal CommandOption(CommandOptionType type)
+        {
+            OptionType = type;
+        }
+
         /// <summary>
         /// The argument template.
         /// </summary>
@@ -95,7 +99,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Any values found during parsing, if any.
         /// </summary>
-        public List<string> Values { get; private set; }
+        public List<string> Values { get; } = new List<string>();
 
         /// <summary>
         /// Defines the type of the option.
