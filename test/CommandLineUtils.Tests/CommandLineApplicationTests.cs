@@ -728,5 +728,13 @@ Examples:
 
             Assert.Equal($"Unrecognized command or argument '{inputOption}'", exception.Message);
         }
+
+        [Fact]
+        public void PathCanBeRelativeOrAbsolute()
+        {
+            new CommandLineApplication(NullConsole.Singleton, "/path", false);
+            new CommandLineApplication(NullConsole.Singleton, "C:/path", false);
+            new CommandLineApplication(NullConsole.Singleton, "../path", false);
+        }
     }
 }

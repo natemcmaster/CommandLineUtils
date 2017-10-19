@@ -23,13 +23,45 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(bool throwOnUnexpectedArg = true)
+            : this(PhysicalConsole.Singleton, Directory.GetCurrentDirectory(), throwOnUnexpectedArg)
         {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="CommandLineApplication"/>.
+        /// </summary>
+        /// <param name="console">The console implementation to use.</param>
+        public CommandLineApplication(IConsole console)
+            : this(console, Directory.GetCurrentDirectory(), throwOnUnexpectedArg: true)
+        { }
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="CommandLineApplication"/>.
+        /// </summary>
+        /// <param name="console">The console implementation to use.</param>
+        /// <param name="workingDirectory">The current working directory.</param>
+        /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
+        public CommandLineApplication(IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
+        {
+            if (console == null)
+            {
+                throw new ArgumentNullException(nameof(console));
+            }
+
+            if (string.IsNullOrEmpty(workingDirectory))
+            {
+                throw new ArgumentException("Argument must not be null or empty", nameof(workingDirectory));
+            }
+
             ThrowOnUnexpectedArgument = throwOnUnexpectedArg;
+            WorkingDirectory = workingDirectory;
             Options = new List<CommandOption>();
             Arguments = new List<CommandArgument>();
             Commands = new List<CommandLineApplication>();
             RemainingArguments = new List<string>();
             Invoke = () => 0;
+            Out = console.Out;
+            Error = console.Error;
         }
 
         /// <summary>
@@ -124,14 +156,21 @@ namespace McMaster.Extensions.CommandLineUtils
         public bool AllowArgumentSeparator { get; set; }
 
         /// <summary>
+        /// <para>
+        /// Defines the working directory of the application. Defaults to <see cref="Directory.GetCurrentDirectory"/>.
+        /// </para>
+        /// </summary>
+        public string WorkingDirectory { get; }
+
+        /// <summary>
         /// The writer used to display generated help text.
         /// </summary>
-        public TextWriter Out { get; set; } = Console.Out;
+        public TextWriter Out { get; set; }
 
         /// <summary>
         /// The writer used to display generated error messages.
         /// </summary>
-        public TextWriter Error { get; set; } = Console.Error;
+        public TextWriter Error { get; set; }
 
         /// <summary>
         /// Gets all command line options available to this command, including any inherited options.
