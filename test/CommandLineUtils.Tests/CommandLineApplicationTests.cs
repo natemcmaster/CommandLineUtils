@@ -716,5 +716,17 @@ Examples:
 
             Assert.Equal($"Unrecognized option '{inputOption}'", exception.Message);
         }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void ThrowsExceptionOnInvalidArgument(string inputOption)
+        {
+            var app = new CommandLineApplication();
+
+            var exception = Assert.Throws<CommandParsingException>(() => app.Execute(inputOption));
+
+            Assert.Equal($"Unrecognized command or argument '{inputOption}'", exception.Message);
+        }
     }
 }

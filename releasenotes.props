@@ -1,7 +1,9 @@
 <Project>
   <PropertyGroup>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.0.2'">
-2.0.2: Add return types to .VerboseOption() and ensure .HasValue() is true when HelpOption or VerboseOption are matched
+2.0.2: Minor bug fixes 
+ - Add return types to .VerboseOption() and ensure .HasValue() is true when HelpOption or VerboseOption are matched
+ - Fix a NullReferenceException in some edge cases when parsing args
     </PackageReleaseNotes>
   </PropertyGroup>
 </Project>

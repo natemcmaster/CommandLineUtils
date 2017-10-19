@@ -294,14 +294,18 @@ namespace McMaster.Extensions.CommandLineUtils
                     string[] longOption = null;
                     string[] shortOption = null;
 
-                    if (arg.StartsWith("--"))
+                    if (arg != null)
                     {
-                        longOption = arg.Substring(2).Split(new[] { ':', '=' }, 2);
+                        if (arg.StartsWith("--"))
+                        {
+                            longOption = arg.Substring(2).Split(new[] { ':', '=' }, 2);
+                        }
+                        else if (arg.StartsWith("-"))
+                        {
+                            shortOption = arg.Substring(1).Split(new[] { ':', '=' }, 2);
+                        }
                     }
-                    else if (arg.StartsWith("-"))
-                    {
-                        shortOption = arg.Substring(1).Split(new[] { ':', '=' }, 2);
-                    }
+
                     if (longOption != null)
                     {
                         processed = true;
@@ -310,7 +314,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                         if (option == null)
                         {
-                            if (string.IsNullOrEmpty(longOptionName) && !command.ThrowOnUnexpectedArgument  && AllowArgumentSeparator)
+                            if (string.IsNullOrEmpty(longOptionName) && !command.ThrowOnUnexpectedArgument && AllowArgumentSeparator)
                             {
                                 // skip over the '--' argument separator
                                 index++;
@@ -350,6 +354,7 @@ namespace McMaster.Extensions.CommandLineUtils
                             option = null;
                         }
                     }
+
                     if (shortOption != null)
                     {
                         processed = true;
