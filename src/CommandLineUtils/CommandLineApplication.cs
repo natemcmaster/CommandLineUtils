@@ -157,7 +157,28 @@ namespace McMaster.Extensions.CommandLineUtils
 
         /// <summary>
         /// <para>
+        /// When <c>true</c>, the parser will treat any arguments beginning with '@' as a file path to a response file. 
+        /// Defaults to <c>false</c>.
+        /// </para>
+        /// <para>
+        /// A response file contains additional arguments that will be treated as if they were passed in on the command line.
+        /// In a response file, multiple options and arguments files can appear on one line. 
+        /// A single argument must appear on one line (cannot span multiple lines). 
+        /// Response files can have comments that begin with the # symbol.
+        /// </para>
+        /// </summary>
+        /// <remarks>
+        /// Nested response false are not supported.
+        /// You cannot use the backslash character (\) to concatenate lines.
+        /// </remarks>
+        public bool HandleResponseFiles { get; set; }
+
+        /// <summary>
+        /// <para>
         /// Defines the working directory of the application. Defaults to <see cref="Directory.GetCurrentDirectory"/>.
+        /// </para>
+        /// <para>
+        /// This will be used as the base path for opening response files when <see cref="HandleResponseFiles"/> is <c>true</c>.
         /// </para>
         /// </summary>
         public string WorkingDirectory { get; }
@@ -323,6 +344,122 @@ namespace McMaster.Extensions.CommandLineUtils
             CommandLineApplication command = this;
             CommandOption option = null;
             IEnumerator<CommandArgument> arguments = null;
+
+            if (command.HandleResponseFiles)
+            {
+                var expandedArgs = new List<string>();
+                for (var i = 0; i < args.Length; i++)
+                {
+                    var arg = args[i];
+                    if (arg == null) continue;
+
+                    if (command.AllowArgumentSeparator && arg == "--")
+                    {
+                        expandedArgs.Add(arg);
+                        i++;
+                        for (; i < args.Length; i++)
+                        {
+                            expandedArgs.Add(args[i]);
+                        }
+                        break;
+                    }
+
+                    if (arg.Length <= 1 || arg[0] != '@')
+                    {
+                        expandedArgs.Add(arg);
+                        continue;
+                    }
+
+                    var path = arg.Substring(1);
+                    var fullPath = Path.IsPathRooted(path)
+                        ? path
+                        : Path.Combine(command.WorkingDirectory, path);
+
+                    var rspLines = File.ReadAllLines(fullPath);
+                    var sb = new StringBuilder();
+                    foreach (var line in rspLines)
+                    {
+                        if (line.Length == 0) continue;
+                        if (line[0] == '#') continue;
+
+                        var breakOn = default(char?);
+
+                        var shouldCreateNewArg = false;
+
+                        for (var j = 0; j < line.Length; j++)
+                        {
+                            var ch = line[j];
+                            if (ch == '\\')
+                            {
+                                j++;
+                                if (j >= line.Length)
+                                {
+                                    // the backslash ended the document
+                                    sb.Append('\\');
+                                    break;
+                                }
+
+                                ch = line[j];
+
+                                if (ch != '"' && ch != '\'')
+                                {
+                                    // not a recognized special character, so add the backlash
+                                    sb.Append('\\');
+                                }
+
+                                sb.Append(ch);
+                                continue;
+                            }
+
+                            if (breakOn == ch)
+                            {
+                                shouldCreateNewArg = true;
+                                breakOn = null;
+                                continue;
+                            }
+
+                            if (breakOn.HasValue)
+                            {
+                                sb.Append(ch);
+                                continue;
+                            }
+
+                            if (char.IsWhiteSpace(ch))
+                            {
+                                if (sb.Length > 0 || shouldCreateNewArg)
+                                {
+                                    shouldCreateNewArg = false;
+                                    expandedArgs.Add(sb.ToString());
+                                    sb.Clear();
+                                }
+                            }
+                            else if (ch == '"')
+                            {
+                                // the loop will search for the next unescaped "
+                                breakOn = '"';
+                            }
+                            else if (ch == '\'')
+                            {
+                                // the loop will search for the next unescaped '
+                                breakOn = '\'';
+                            }
+                            else
+                            {
+                                sb.Append(ch);
+                            }
+                        }
+
+                        if (sb.Length > 0 || breakOn.HasValue || shouldCreateNewArg)
+                        {
+                            // if we hit the end of the line, regardless of quoting, append everything as an arg
+                            expandedArgs.Add(sb.ToString());
+                            sb.Clear();
+                        }
+                    }
+                }
+
+                args = expandedArgs.ToArray();
+            }
 
             for (var index = 0; index < args.Length; index++)
             {
