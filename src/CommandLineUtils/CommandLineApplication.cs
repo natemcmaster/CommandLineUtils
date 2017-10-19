@@ -324,11 +324,13 @@ namespace McMaster.Extensions.CommandLineUtils
                         if (command.OptionHelp == option)
                         {
                             command.ShowHelp();
+                            option.TryParse(null);
                             return 0;
                         }
                         else if (command.OptionVersion == option)
                         {
                             command.ShowVersion();
+                            option.TryParse(null);
                             return 0;
                         }
 

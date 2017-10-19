@@ -80,12 +80,12 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private static string GetInformationalVersion(Assembly assembly)
         {
-            string infoVersion = assembly?
-                .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?
-                .InformationalVersion;
-            if (string.IsNullOrWhiteSpace(infoVersion))
-                return assembly?.GetName().Version.ToString();
-            return infoVersion;
+            var infoVersion = assembly
+                ?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()
+                ?.InformationalVersion;
+            return string.IsNullOrWhiteSpace(infoVersion)
+                ? assembly?.GetName().Version.ToString()
+                : infoVersion;
         }
     }
 }

@@ -1,6 +1,7 @@
 <Project>
 
   <Import Project="version.props" />
+  <Import Project="releasenotes.props" />
 
   <PropertyGroup>
     <Authors>Nate McMaster</Authors>

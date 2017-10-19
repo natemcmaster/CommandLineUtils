@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
-#if (NETCOREAPP1_0 || NETCOREAPP2_0)
+#if (NETCOREAPP1_1 || NETCOREAPP2_0)
 using System.IO;
 using Xunit;
 

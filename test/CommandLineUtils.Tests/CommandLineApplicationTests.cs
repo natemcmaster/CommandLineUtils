@@ -7,11 +7,19 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class CommandLineApplicationTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public CommandLineApplicationTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         [Fact]
         public void CommandNameCanBeMatched()
         {
@@ -623,15 +631,34 @@ Examples:
             }
         }
 
-        // disable inaccurate analyzer error https://github.com/xunit/xunit/issues/1274
-#pragma warning disable xUnit1010
-#pragma warning disable xUnit1011
+        [Fact]
+        public void HelpOptionIsSet()
+        {
+            var app = new CommandLineApplication
+            {
+                Out = new XunitTextWriter(_output),
+            };
+            var helpOption = app.HelpOption();
+            app.Execute("--help");
+            Assert.True(helpOption.HasValue());
+        }
+
+        [Fact]
+        public void VersionOptionIsSet()
+        {
+            var app = new CommandLineApplication
+            {
+                Out = new XunitTextWriter(_output),
+            };
+            var versionOption = app.VersionOption("--version", "1.0");
+            app.Execute("--version");
+            Assert.True(versionOption.HasValue());
+        }
+
         [Theory]
         [InlineData("-f:File1", "-f:File2")]
         [InlineData("--file:File1", "--file:File2")]
         [InlineData("--file", "File1", "--file", "File2")]
-#pragma warning restore xUnit1010
-#pragma warning restore xUnit1011
         public void ThrowsExceptionOnSingleValueOptionHavingTwoValues(params string[] inputOptions)
         {
             var app = new CommandLineApplication();
