@@ -1,3 +1,6 @@
+// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -5,16 +8,15 @@ using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    internal class ReflectionCommandLineApplicationBuilder<T>
+    internal class ReflectionAppBuilder<T>
         where T : class, new()
     {
         private readonly CommandLineApplication _app;
         private readonly List<Action<T>> _binders = new List<Action<T>>();
 
-        public ReflectionCommandLineApplicationBuilder()
+        public ReflectionAppBuilder()
         {
             _app = new CommandLineApplication();
-            _app.OnExecute(() => 0);
 
             var type = typeof(T).GetTypeInfo();
             var appAttr = type.GetCustomAttribute<CommandLineApplicationAttribute>();
@@ -24,7 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 _app.ThrowOnUnexpectedArgument = appAttr.ThrowOnUnexpectedArgs;
             }
 
-            var props = type.GetProperties();
+            var props = typeof(T).GetRuntimeProperties();
             if (props != null)
             {
                 var argOrder = new SortedDictionary<int, CommandArgument>();
@@ -60,7 +62,17 @@ namespace McMaster.Extensions.CommandLineUtils
 
                     if (optionAttr != null)
                     {
-                        var optionType = optionAttr.OptionType ?? GetDefaultOptionType(prop.PropertyType);
+                        CommandOptionType optionType;
+                        if (optionAttr.OptionType.HasValue)
+                        {
+                            optionType = optionAttr.OptionType.Value;
+                        }
+                        else if (!CommandOptionTypeMapper.Default.TryGetOptionType(prop.PropertyType, out optionType))
+                        {
+                            throw new InvalidOperationException(
+                                $"Could not automatically determine the {nameof(CommandOptionType)} for type {prop.PropertyType.FullName}.");
+                        }
+
                         CommandOption option;
                         if (optionAttr.Template != null)
                         {
@@ -147,6 +159,8 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
+        internal CommandLineApplication App => _app;
+
         public T Execute(string[] args)
         {
             var options = new T();
@@ -163,29 +177,6 @@ namespace McMaster.Extensions.CommandLineUtils
         private void OnBind(Action<T> onBind)
         {
             _binders.Add(onBind);
-        }
-
-        private static CommandOptionType GetDefaultOptionType(Type type)
-        {
-            if (type == typeof(bool))
-            {
-                return CommandOptionType.NoValue;
-            }
-
-            // TODO make this more robust to handle other basic types
-            if (type == typeof(string) || type == typeof(int) || type == typeof(long))
-            {
-                return CommandOptionType.SingleValue;
-            }
-
-            // TODO make this more robust to handle types like ICollection, IList, IReadOnlyList
-            if (type.IsArray)
-            {
-                return CommandOptionType.MultipleValue;
-            }
-
-            // TODO better errors. Which property?
-            throw new InvalidOperationException("Cannot infer the " + nameof(CommandOptionType) + " based on the property's CLR type");
         }
     }
 }

@@ -11,7 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
     public class DotNetExeTests
     {
         [Fact]
-        public void FindsTheDoNetPath()
+        public void FindsTheDotNetPath()
         {
             var dotnetPath = DotNetExe.FullPath;
             Assert.NotNull(dotnetPath);

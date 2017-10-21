@@ -16,6 +16,7 @@
     <IsPackable>false</IsPackable>
     <NoPackageAnalysis>true</NoPackageAnalysis>
     <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
+    <LangVersion>7.1</LangVersion>
 
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)build\StrongName.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
