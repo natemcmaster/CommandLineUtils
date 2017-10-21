@@ -1,7 +1,12 @@
 <Project>
   <PropertyGroup>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.1.0'">
-2.1.0: Minor bug fixes
+2.1.0:
+New features:
+ - CommandLineApplication.HandleResponseFiles - the parser can expand response files. Response files contain arguments
+   that will be treated as if they were passed on command line
+
+Minor bug fixes:
  - Add return types to .VerboseOption() and ensure .HasValue() is true when HelpOption or VerboseOption are matched
  - Fix a NullReferenceException in some edge cases when parsing args
     </PackageReleaseNotes>
