@@ -9,7 +9,7 @@ namespace McMaster.Extensions.CommandLineUtils
 {
     internal class ResponseFileParser
     {
-        public static IEnumerable<string> Parse(string filePath)
+        public static IList<string> Parse(string filePath)
         {
             var rspLines = File.ReadAllLines(filePath);
             var args = new List<string>(capacity: rspLines.Length);

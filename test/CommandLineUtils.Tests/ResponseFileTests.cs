@@ -197,5 +197,40 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var arg = Assert.Single(app.RemainingArguments);
             Assert.Equal("@somepath.txt", arg);
         }
+
+        [Fact]
+        public void SubcommandsCanHandleResponseFiles()
+        {
+            var app = new CommandLineApplication();
+            CommandArgument wordArgs = null;
+            app.Command("save", c =>
+            {
+                c.HandleResponseFiles = true;
+                wordArgs = c.Argument("words", "more words", multipleValues: true);
+            });
+            var rspFile = CreateResponseFile(" 'lorem ipsum' ", "dolor sit amet");
+            app.Execute("save", "@" + rspFile);
+            Assert.Collection(wordArgs.Values,
+               a => Assert.Equal("lorem ipsum", a),
+               a => Assert.Equal("dolor", a),
+               a => Assert.Equal("sit", a),
+               a => Assert.Equal("amet", a));
+        }
+
+        [Fact]
+        public void HandlesResponseFilesWhenGivenAsOptionArg()
+        {
+            var app = new CommandLineApplication(throwOnUnexpectedArg: false) { HandleResponseFiles = true };
+            var opt = app.Option("--message <MESSAGE>", "Message", CommandOptionType.SingleValue);
+            var rspFile = CreateResponseFile(" 'lorem ipsum' ", "dolor sit amet");
+            app.Execute("--message", "@" + rspFile);
+
+            Assert.Equal("lorem ipsum", opt.Value());
+
+            Assert.Collection(app.RemainingArguments,
+               a => Assert.Equal("dolor", a),
+               a => Assert.Equal("sit", a),
+               a => Assert.Equal("amet", a));
+        }
     }
 }

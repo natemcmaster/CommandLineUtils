@@ -18,6 +18,9 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public class CommandLineApplication
     {
+        // used to keep track of arguments added from the response file
+        private int _responseFileArgsEnd = -1;
+
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
         /// </summary>
@@ -340,49 +343,30 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="args"></param>
         /// <returns>The return code from <see cref="Invoke"/>.</returns>
         public int Execute(params string[] args)
+            => Execute(new List<string>(args));
+
+        private int Execute(List<string> args)
         {
             CommandLineApplication command = this;
             CommandOption option = null;
             IEnumerator<CommandArgument> arguments = null;
 
-            if (command.HandleResponseFiles)
+            for (var index = 0; index < args.Count; index++)
             {
-                var expandedArgs = new List<string>();
-                for (var i = 0; i < args.Length; i++)
+                var arg = args[index];
+
+                if (command.HandleResponseFiles && index > _responseFileArgsEnd && arg.Length > 1 && arg[0] == '@')
                 {
-                    var arg = args[i];
-                    if (arg == null) continue;
-
-                    if (command.AllowArgumentSeparator && arg == "--")
-                    {
-                        expandedArgs.Add(arg);
-                        i++;
-                        for (; i < args.Length; i++)
-                        {
-                            expandedArgs.Add(args[i]);
-                        }
-                        break;
-                    }
-
-                    if (arg.Length <= 1 || arg[0] != '@')
-                    {
-                        expandedArgs.Add(arg);
-                        continue;
-                    }
-
                     var path = arg.Substring(1);
                     var fullPath = Path.IsPathRooted(path)
                         ? path
                         : Path.Combine(command.WorkingDirectory, path);
-                    expandedArgs.AddRange(ResponseFileParser.Parse(fullPath));
+                    var rspArgs = ResponseFileParser.Parse(fullPath);
+                    args.InsertRange(index + 1, rspArgs);
+                    _responseFileArgsEnd = index + rspArgs.Count;
+                    continue;
                 }
 
-                args = expandedArgs.ToArray();
-            }
-
-            for (var index = 0; index < args.Length; index++)
-            {
-                var arg = args[index];
                 var processed = false;
                 if (!processed && option == null)
                 {
@@ -786,7 +770,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Out.WriteLine();
         }
 
-        private void HandleUnexpectedArg(CommandLineApplication command, string[] args, int index, string argTypeName)
+        private void HandleUnexpectedArg(CommandLineApplication command, IReadOnlyList<string> args, int index, string argTypeName)
         {
             if (command.ThrowOnUnexpectedArgument)
             {
@@ -796,7 +780,7 @@ namespace McMaster.Extensions.CommandLineUtils
             else
             {
                 // All remaining arguments are stored for further use
-                command.RemainingArguments.AddRange(new ArraySegment<string>(args, index, args.Length - index));
+                command.RemainingArguments.AddRange(new ArraySegment<string>(args.ToArray(), index, args.Count - index));
             }
         }
 
