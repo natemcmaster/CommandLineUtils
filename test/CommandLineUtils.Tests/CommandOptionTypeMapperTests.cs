@@ -11,6 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
     {
         [Theory]
         [InlineData(typeof(bool), CommandOptionType.NoValue)]
+        [InlineData(typeof(bool?), CommandOptionType.NoValue)]
         [InlineData(typeof(byte), CommandOptionType.SingleValue)]
         [InlineData(typeof(short), CommandOptionType.SingleValue)]
         [InlineData(typeof(int), CommandOptionType.SingleValue)]
@@ -50,6 +51,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsForUnknownTypes()
         {
             Assert.Throws<ArgumentException>(() => CommandOptionTypeMapper.Default.GetOptionType(typeof(CommandOptionTypeMapperTests)));
+        }
+
+        private struct MyValueType { }
+
+        [Fact]
+        public void ThrowsForUnknownValueTypes()
+        {
+            Assert.Throws<ArgumentException>(() => CommandOptionTypeMapper.Default.GetOptionType(typeof(MyValueType)));
         }
     }
 }

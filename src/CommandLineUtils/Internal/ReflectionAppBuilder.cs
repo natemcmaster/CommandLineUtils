@@ -2,9 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -14,50 +14,82 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly CommandLineApplication _app;
         private readonly List<Action<T>> _binders = new List<Action<T>>();
 
+        private delegate void SetPropertyDelegate(object obj, object value);
+
         public ReflectionAppBuilder()
         {
             _app = new CommandLineApplication();
 
             var type = typeof(T).GetTypeInfo();
-            var appAttr = type.GetCustomAttribute<CommandLineApplicationAttribute>();
-
-            if (appAttr != null)
-            {
-                _app.ThrowOnUnexpectedArgument = appAttr.ThrowOnUnexpectedArgs;
-            }
 
             var props = typeof(T).GetRuntimeProperties();
             if (props != null)
             {
-                var argOrder = new SortedDictionary<int, CommandArgument>();
+                var argOrder = new SortedList<int, CommandArgument>();
+                var argPropOrder = new Dictionary<int, PropertyInfo>();
+                var shortOptions = new Dictionary<string, PropertyInfo>();
+                var longOptions = new Dictionary<string, PropertyInfo>();
 
-                // TODO extract methods
                 foreach (var prop in props)
                 {
                     var optionAttr = prop.GetCustomAttribute<OptionAttribute>();
                     var argumentAttr = prop.GetCustomAttribute<ArgumentAttribute>();
-                    var setter = prop.GetSetMethod();
+                    var setter = GetSetter(prop);
 
                     if (optionAttr != null && argumentAttr != null)
                     {
-                        throw new InvalidOperationException(
-                            "Cannot specify both " + nameof(OptionAttribute) + " and " + nameof(ArgumentAttribute)
-                            + " on a property " + type.Name + "." + prop.Name);
+                        throw new InvalidOperationException(Strings.BothOptionAndArgumentAttributesCannotBeSpecified(prop));
                     }
 
                     if (argumentAttr != null)
                     {
+                        if ((prop.PropertyType.IsArray
+                            || typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(prop.PropertyType))
+                            && prop.PropertyType != typeof(string)
+                            && !argumentAttr.MultipleValues)
+                        {
+                            throw new InvalidOperationException(Strings.MultipleValuesArgumentShouldBeCollection);
+                        }
+
                         var argument = new CommandArgument
                         {
-                            Name = argumentAttr.Name,
+                            Name = argumentAttr.Name ?? prop.Name,
                             Description = argumentAttr.Description,
                             ShowInHelpText = argumentAttr.ShowInHelpText,
                             MultipleValues = argumentAttr.MultipleValues,
                         };
 
+                        if (argPropOrder.TryGetValue(argumentAttr.Order, out var otherProp))
+                        {
+                            throw new InvalidOperationException(Strings.DuplicateArgumentPosition(argumentAttr.Order, prop, otherProp));
+                        }
+
+                        argPropOrder.Add(argumentAttr.Order, prop);
                         argOrder.Add(argumentAttr.Order, argument);
 
-                        OnBind(o => setter.Invoke(o, new[] { argument.Value }));
+                        if (argument.MultipleValues)
+                        {
+                            var collectionParser = CollectionParserProvider.Default.GetParser(prop.PropertyType);
+                            if (collectionParser == null)
+                            {
+                                throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
+                            }
+
+                            OnBind(o =>
+                            {
+                                setter.Invoke(o, collectionParser.Parse(argument.Name, argument.Values));
+                            });
+                        }
+                        else
+                        {
+                            var parser = ValueParserProvider.Default.GetParser(prop.PropertyType);
+                            if (parser == null)
+                            {
+                                throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
+                            }
+                            OnBind(o =>
+                            setter.Invoke(o, parser.Parse(argument.Name, argument.Value)));
+                        }
                     }
 
                     if (optionAttr != null)
@@ -65,12 +97,16 @@ namespace McMaster.Extensions.CommandLineUtils
                         CommandOptionType optionType;
                         if (optionAttr.OptionType.HasValue)
                         {
+                            if (optionAttr.OptionType.Value == CommandOptionType.NoValue && prop.PropertyType != typeof(bool))
+                            {
+                                throw new InvalidOperationException(Strings.NoValueTypesMustBeBoolean);
+                            }
+
                             optionType = optionAttr.OptionType.Value;
                         }
                         else if (!CommandOptionTypeMapper.Default.TryGetOptionType(prop.PropertyType, out optionType))
                         {
-                            throw new InvalidOperationException(
-                                $"Could not automatically determine the {nameof(CommandOptionType)} for type {prop.PropertyType.FullName}.");
+                            throw new InvalidOperationException(Strings.CannotDetermineOptionType(prop));
                         }
 
                         CommandOption option;
@@ -80,25 +116,11 @@ namespace McMaster.Extensions.CommandLineUtils
                         }
                         else
                         {
-                            var sb = new StringBuilder();
-                            sb.Append(char.ToLowerInvariant(prop.Name[0]));
-                            for (var i = 1; i < prop.Name.Length; i++)
-                            {
-                                var ch = prop.Name[i];
-                                if (char.IsUpper(ch))
-                                {
-                                    sb.Append('-').Append(char.ToLowerInvariant(ch));
-                                }
-                                else
-                                {
-                                    sb.Append(ch);
-                                }
-                            }
-
+                            var longName = prop.Name.ToKebabCase();
                             option = new CommandOption(optionType)
                             {
-                                ShortName = prop.Name.Substring(0, 1).ToLowerInvariant(),
-                                LongName = sb.ToString(),
+                                LongName = longName,
+                                ShortName = longName.Substring(0, 1),
                                 ValueName = prop.Name,
                             };
                         }
@@ -107,62 +129,110 @@ namespace McMaster.Extensions.CommandLineUtils
                         option.ShowInHelpText = optionAttr.ShowInHelpText;
                         option.Inherited = optionAttr.Inherited;
 
-                        _app.Options.Add(option);
-                        OnBind(o =>
+                        if (option.ShortName != null)
                         {
-                            switch (optionType)
+                            if (shortOptions.TryGetValue(option.ShortName, out var otherProp))
                             {
-                                case CommandOptionType.MultipleValue:
-                                    setter.Invoke(o, new[] { option.Values });
-                                    break;
-                                case CommandOptionType.SingleValue:
-                                    var value = option.Value();
-                                    if (prop.PropertyType == typeof(int))
-                                    {
-                                        if (!int.TryParse(value, out var intValue))
-                                        {
-                                            throw new CommandParsingException(_app, $"Invalid option given for --{option.LongName}. Expected a valid number.");
-                                        }
-                                        setter.Invoke(o, new object[] { intValue });
-                                    }
-                                    else if (prop.PropertyType == typeof(string))
-                                    {
-                                        setter.Invoke(o, new object[] { value });
-                                    }
-                                    else
-                                    {
-                                        throw new ArgumentException("Error parsing " + prop.DeclaringType.Name + "." + prop.Name + ". Not sure how to bind to a property of type " + prop.PropertyType.Name);
-                                    }
-                                    break;
-                                case CommandOptionType.NoValue:
-                                    setter.Invoke(o, new object[] { option.HasValue() });
-                                    break;
+                                throw new InvalidOperationException(Strings.OptionNameIsAmbiguous(option.ShortName, prop, otherProp));
                             }
-                        });
-                    }
-
-                    foreach (var arg in argOrder.Values)
-                    {
-                        if (_app.Arguments.Count > 0)
-                        {
-                            var lastArg = _app.Arguments[_app.Arguments.Count - 1];
-                            if (lastArg.MultipleValues)
-                            {
-                                throw new InvalidOperationException($"The last argument '{lastArg.Name}' accepts multiple values. No more argument can be added.");
-                            }
+                            shortOptions.Add(option.ShortName, prop);
                         }
 
-                        _app.Arguments.Add(arg);
+                        if (option.LongName != null)
+                        {
+                            if (longOptions.TryGetValue(option.LongName, out var otherProp))
+                            {
+                                throw new InvalidOperationException(Strings.OptionNameIsAmbiguous(option.LongName, prop, otherProp));
+                            }
+                            longOptions.Add(option.LongName, prop);
+                        }
+
+                        _app.Options.Add(option);
+
+                        switch (option.OptionType)
+                        {
+                            case CommandOptionType.MultipleValue:
+                                var collectionParser = CollectionParserProvider.Default.GetParser(prop.PropertyType);
+                                if (collectionParser == null)
+                                {
+                                    throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
+                                }
+                                OnBind(o =>
+                                {
+                                    setter.Invoke(o, collectionParser.Parse(option.LongName, option.Values));
+                                });
+                                break;
+                            case CommandOptionType.SingleValue:
+                                var parser = ValueParserProvider.Default.GetParser(prop.PropertyType);
+                                if (parser == null)
+                                {
+                                    throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
+                                }
+                                OnBind(o =>
+                                {
+                                    var value = option.Value();
+                                    if (value == null)
+                                    {
+                                        return;
+                                    }
+                                    setter.Invoke(o, parser.Parse(option.LongName, value));
+                                });
+                                break;
+                            case CommandOptionType.NoValue:
+                                OnBind(o =>
+                                {
+                                    setter.Invoke(o, option.HasValue());
+                                });
+                                break;
+                        }
                     }
                 }
 
+                foreach (var arg in argOrder)
+                {
+                    if (_app.Arguments.Count > 0)
+                    {
+                        var lastArg = _app.Arguments[_app.Arguments.Count - 1];
+                        if (lastArg.MultipleValues)
+                        {
+                            throw new InvalidOperationException(Strings.OnlyLastArgumentCanAllowMultipleValues(lastArg.Name));
+                        }
+                    }
+
+                    _app.Arguments.Add(arg.Value);
+                }
             }
         }
 
-        internal CommandLineApplication App => _app;
-
-        public T Execute(string[] args)
+        private static SetPropertyDelegate GetSetter(PropertyInfo prop)
         {
+            var setter = prop.GetSetMethod(nonPublic: true);
+            if (setter != null)
+            {
+                return (obj, value) => setter.Invoke(obj, new object[] { value });
+            }
+            else
+            {
+                var backingFieldName = string.Format("<{0}>k__BackingField", prop.Name);
+                var backingField = prop.DeclaringType.GetTypeInfo().GetDeclaredField(backingFieldName);
+                if (backingField == null)
+                {
+                    throw new InvalidOperationException($"Could not find a way to set {prop.DeclaringType.FullName}.{prop.Name}");
+                }
+
+                return (obj, value) => backingField.SetValue(obj, value);
+            }
+        }
+
+        public CommandLineApplication App => _app;
+
+        public T Execute(string[] args, CommandParsingOptions parsingOptions)
+        {
+            if ((parsingOptions & CommandParsingOptions.ThrowOnUnexpectedArgs) != 0)
+            {
+                _app.ThrowOnUnexpectedArgument = true;
+            }
+
             var options = new T();
             _app.Execute(args);
 

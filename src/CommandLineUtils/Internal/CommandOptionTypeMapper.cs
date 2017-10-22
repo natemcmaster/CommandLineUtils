@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -48,14 +47,20 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             var typeInfo = clrType.GetTypeInfo();
-            if (typeInfo.IsValueType)
-            {
-                return CommandOptionType.SingleValue;
-            }
-
-            if (typeof(Nullable<>).GetTypeInfo().IsAssignableFrom(typeInfo))
+            if (typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>))
             {
                 return GetOptionType(typeInfo.GetGenericArguments().First());
+            }
+
+            if (typeof(byte) == clrType
+                || typeof(short) == clrType
+                || typeof(int) == clrType
+                || typeof(long) == clrType
+                || typeof(ushort) == clrType
+                || typeof(uint) == clrType
+                || typeof(ulong) == clrType)
+            {
+                return CommandOptionType.SingleValue;
             }
 
             throw new ArgumentException("Could not determine CommandOptionType", nameof(clrType));

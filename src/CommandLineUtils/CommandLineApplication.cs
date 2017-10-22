@@ -28,9 +28,18 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public static T ParseArgs<T>(params string[] args)
             where T : class, new()
+            => ParseArgs<T>(CommandParsingOptions.ThrowOnUnexpectedArgs, args);
+
+        /// <summary>
+        /// Creates an instance of <typeparamref name="T" /> by matching <paramref name="args" />
+        /// with the properties on <typeparamref name="T" />. See <seealso cref="OptionAttribute" />
+        /// and <seealso cref="ArgumentAttribute" />.
+        /// </summary>
+        public static T ParseArgs<T>(CommandParsingOptions options, params string[] args)
+            where T : class, new()
         {
             var applicationBuilder = new ReflectionAppBuilder<T>();
-            return applicationBuilder.Execute(args);
+            return applicationBuilder.Execute(args, options);
         }
 
         /// <summary>
@@ -319,12 +328,15 @@ namespace McMaster.Extensions.CommandLineUtils
             var lastArg = Arguments.LastOrDefault();
             if (lastArg != null && lastArg.MultipleValues)
             {
-                var message = string.Format("The last argument '{0}' accepts multiple values. No more argument can be added.",
-                    lastArg.Name);
-                throw new InvalidOperationException(message);
+                throw new InvalidOperationException(Strings.OnlyLastArgumentCanAllowMultipleValues(lastArg.Name));
             }
 
-            var argument = new CommandArgument { Name = name, Description = description, MultipleValues = multipleValues };
+            var argument = new CommandArgument
+            {
+                Name = name,
+                Description = description,
+                MultipleValues = multipleValues
+            };
             Arguments.Add(argument);
             configuration(argument);
             return argument;
