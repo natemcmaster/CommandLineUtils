@@ -12,9 +12,19 @@ namespace McMaster.Extensions.CommandLineUtils
     public enum CommandParsingOptions
     {
         /// <summary>
-        /// Throw when unexpected arguments are encountered
+        /// Throw when unexpected arguments are encountered. <seealso cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>
         /// </summary>
-        ThrowOnUnexpectedArgs = 1 << 0,
+        ThrowOnUnexpectedArgument = 1 << 0,
+
+        /// <summary>
+        /// Allow '--' to be used to stop parsing arguments. <seealso cref="CommandLineApplication.AllowArgumentSeparator"/>
+        /// </summary>
+        AllowArgumentSeparator = 1 << 1,
+
+        /// <summary>
+        /// Treat arguments beginning as '@' as a response file. <seealso cref="CommandLineApplication.HandleResponseFiles"/>
+        /// </summary>
+        HandleResponseFiles = 1 << 2,
 
         /// <summary>
         /// Don't set any options

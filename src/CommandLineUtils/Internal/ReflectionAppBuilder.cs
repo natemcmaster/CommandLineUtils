@@ -228,9 +228,19 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public T Execute(string[] args, CommandParsingOptions parsingOptions)
         {
-            if ((parsingOptions & CommandParsingOptions.ThrowOnUnexpectedArgs) != 0)
+            if ((parsingOptions & CommandParsingOptions.ThrowOnUnexpectedArgument) != 0)
             {
                 _app.ThrowOnUnexpectedArgument = true;
+            }
+
+            if ((parsingOptions & CommandParsingOptions.AllowArgumentSeparator) != 0)
+            {
+                _app.AllowArgumentSeparator = true;
+            }
+
+            if ((parsingOptions & CommandParsingOptions.HandleResponseFiles) != 0)
+            {
+                _app.HandleResponseFiles = true;
             }
 
             var options = new T();

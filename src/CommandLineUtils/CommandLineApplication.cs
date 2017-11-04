@@ -28,7 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public static T ParseArgs<T>(params string[] args)
             where T : class, new()
-            => ParseArgs<T>(CommandParsingOptions.ThrowOnUnexpectedArgs, args);
+            => ParseArgs<T>(CommandParsingOptions.ThrowOnUnexpectedArgument, args);
 
         /// <summary>
         /// Creates an instance of <typeparamref name="T" /> by matching <paramref name="args" />
