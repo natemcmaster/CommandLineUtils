@@ -29,6 +29,15 @@ namespace McMaster.Extensions.CommandLineUtils
                 opt.Inherited = helpOptionAttrOnType.Inherited;
                 opt.ShowInHelpText = helpOptionAttrOnType.ShowInHelpText;
             }
+            
+            var versionOptionAttrOnType = type.GetCustomAttribute<VersionOptionAttribute>();
+            if (versionOptionAttrOnType != null)
+            {
+                var opt = _app.VersionOption(versionOptionAttrOnType.Template, versionOptionAttrOnType.Version);
+                opt.Description = versionOptionAttrOnType.Description;
+                opt.Inherited = versionOptionAttrOnType.Inherited;
+                opt.ShowInHelpText = versionOptionAttrOnType.ShowInHelpText;
+            }
 
             var props = typeof(T).GetRuntimeProperties();
             if (props != null)
@@ -42,9 +51,15 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     OptionAttributeBase optionAttr;
                     var helpOptionAttr = prop.GetCustomAttribute<HelpOptionAttribute>();
+                    var versionOptionAttr = prop.GetCustomAttribute<VersionOptionAttribute>();
                     var regularOptionAttr = prop.GetCustomAttribute<OptionAttribute>();
 
-                    if (helpOptionAttr != null)
+                    if (helpOptionAttr != null && versionOptionAttr != null)
+                    {
+                        throw new InvalidOperationException(
+                            Strings.BothHelpOptionAndVersionOptionAttributesCannotBeSpecified(prop));
+                    }
+                    else if (helpOptionAttr != null)
                     {
                         if (helpOptionAttrOnType != null)
                         {
@@ -63,6 +78,26 @@ namespace McMaster.Extensions.CommandLineUtils
                         }
 
                         optionAttr = helpOptionAttr;
+                    }
+                    else if (versionOptionAttr != null)
+                    {
+                        if (versionOptionAttrOnType != null)
+                        {
+                            throw new InvalidOperationException(Strings.VersionOptionOnTypeAndProperty);
+                        }
+
+                        if (_app.OptionVersion != null)
+                        {
+                            throw new InvalidOperationException(Strings.MultipleVersionOptionPropertiesFound);
+                        }
+                        
+                        if (regularOptionAttr != null)
+                        {
+                            throw new InvalidOperationException(
+                                Strings.BothOptionAndVersionOptionAttributesCannotBeSpecified(prop));
+                        }
+
+                        optionAttr = versionOptionAttr;
                     }
                     else
                     {
@@ -184,13 +219,18 @@ namespace McMaster.Extensions.CommandLineUtils
                             longOptions.Add(option.LongName, prop);
                         }
 
-                        if (optionAttr is HelpOptionAttribute)
+                        switch (optionAttr)
                         {
-                            _app.OptionHelp = option;
-                        }
-                        else
-                        {
-                            _app.Options.Add(option);
+                            case HelpOptionAttribute _:
+                                _app.OptionHelp = option;
+                                break;
+                            case VersionOptionAttribute v:
+                                _app.OptionVersion = option;
+                                _app.ShortVersionGetter = () => v.Version;
+                                break;
+                            default:
+                                _app.Options.Add(option);
+                                break;
                         }
 
                         switch (option.OptionType)

@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils
             => app.HelpOption(Strings.DefaultHelpTemplate);
 
         /// <summary>
-        /// Adds the verbose option with the template <c>-v|--verbose</c>.
+        /// Adds the verbose option with the template <c></c>.
         /// </summary>
         /// <param name="app"></param>
         /// <returns></returns>
@@ -61,7 +61,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="assembly"></param>
         /// <exception cref="ArgumentNullException">Either <paramref name="app"/> or <paramref name="assembly"/> is <c>null</c>.</exception>
         public static CommandOption VersionOptionFromAssemblyAttributes(this CommandLineApplication app, Assembly assembly)
-            => VersionOptionFromAssemblyAttributes(app, "--version", assembly);
+            => VersionOptionFromAssemblyAttributes(app, Strings.DefaultVersionTemplate, assembly);
 
         /// <summary>
         /// Finds <see cref="AssemblyInformationalVersionAttribute"/> on <paramref name="assembly"/> and uses that

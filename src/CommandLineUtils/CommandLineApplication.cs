@@ -131,7 +131,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The options used to determine if the command version should be displayed. This is set by calling <see cref="VersionOption(string, Func{string}, Func{string})"/>.
         /// </summary>
-        public CommandOption OptionVersion { get; private set; }
+        public CommandOption OptionVersion { get; internal set; }
 
         /// <summary>
         /// Required command-line arguments.
@@ -611,7 +611,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             // Version option is special because we stop parsing once we see it
             // So we store it separately for further use
-            OptionVersion = Option(template, "Show version information", CommandOptionType.NoValue);
+            OptionVersion = Option(template, Strings.DefaultVersionOptionDescription, CommandOptionType.NoValue);
             ShortVersionGetter = shortFormVersionGetter;
             LongVersionGetter = longFormVersionGetter ?? shortFormVersionGetter;
 

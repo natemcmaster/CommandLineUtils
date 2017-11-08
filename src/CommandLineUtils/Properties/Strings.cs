@@ -10,6 +10,9 @@ namespace McMaster.Extensions.CommandLineUtils
         public const string DefaultHelpTemplate = "-?|-h|--help";
         public const string DefaultHelpOptionDescription = "Show help information";
 
+        public const string DefaultVersionTemplate = "--version";
+        public const string DefaultVersionOptionDescription = "Show version information";
+
         public const string NoValueTypesMustBeBoolean
             = "Cannot specify CommandOptionType.NoValue unless the type is boolean.";
 
@@ -33,6 +36,16 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             return $"Cannot specify both {nameof(OptionAttribute)} and {nameof(HelpOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
         }
+        
+        public static string BothOptionAndVersionOptionAttributesCannotBeSpecified(PropertyInfo prop)
+        {
+            return $"Cannot specify both {nameof(OptionAttribute)} and {nameof(VersionOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
+        }
+        
+        public static string BothHelpOptionAndVersionOptionAttributesCannotBeSpecified(PropertyInfo prop)
+        {
+            return $"Cannot specify both {nameof(HelpOptionAttribute)} and {nameof(VersionOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
+        }
 
         public static string DuplicateArgumentPosition(int order, PropertyInfo first, PropertyInfo second)
         {
@@ -53,9 +66,15 @@ namespace McMaster.Extensions.CommandLineUtils
             = "ArgumentAttribute.MultipleValues should be true if the property type is an array or collection.";
 
         public const string HelpOptionOnTypeAndProperty
-            = "Multiple HelpOptions found. HelpOptionAttribute should only be used one per type, either on one property or on the type.";
+            = "Multiple HelpOptionAttributes found. HelpOptionAttribute should only be used one per type, either on one property or on the type.";
 
         public const string MultipleHelpOptionPropertiesFound
-            = "Multiple HelpOptions found. HelpOptionAttribute should only be used on one property per type.";
+            = "Multiple HelpOptionAttributes found. HelpOptionAttribute should only be used on one property per type.";
+        
+        public const string VersionOptionOnTypeAndProperty
+            = "Multiple VersionOptionAttributes found. VersionOptionAttribute should only be used one per type, either on one property or on the type.";
+
+        public const string MultipleVersionOptionPropertiesFound
+            = "Multiple VersionOptionAttributes found. VersionOptionAttribute should only be used on one property per type.";
     }
 }
