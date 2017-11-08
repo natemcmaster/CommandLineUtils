@@ -7,8 +7,11 @@ namespace McMaster.Extensions.CommandLineUtils
 {
     internal static class Strings
     {
-        public static string NoValueTypesMustBeBoolean
-            => "Cannot specify CommandOptionType.NoValue unless the type is boolean.";
+        public const string DefaultHelpTemplate = "-?|-h|--help";
+        public const string DefaultHelpOptionDescription = "Show help information";
+
+        public const string NoValueTypesMustBeBoolean
+            = "Cannot specify CommandOptionType.NoValue unless the type is boolean.";
 
         public static string CannotDetermineOptionType(PropertyInfo member)
         {
@@ -24,6 +27,11 @@ namespace McMaster.Extensions.CommandLineUtils
         public static string BothOptionAndArgumentAttributesCannotBeSpecified(PropertyInfo prop)
         {
             return $"Cannot specify both {nameof(OptionAttribute)} and {nameof(ArgumentAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
+        }
+        
+        public static string BothOptionAndHelpOptionAttributesCannotBeSpecified(PropertyInfo prop)
+        {
+            return $"Cannot specify both {nameof(OptionAttribute)} and {nameof(HelpOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
         }
 
         public static string DuplicateArgumentPosition(int order, PropertyInfo first, PropertyInfo second)
@@ -42,6 +50,12 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         public static string MultipleValuesArgumentShouldBeCollection
-            => "ArgumentAttribute.MultipleValues should be true if the property type is an array or collection.";
+            = "ArgumentAttribute.MultipleValues should be true if the property type is an array or collection.";
+
+        public const string HelpOptionOnTypeAndProperty
+            = "Multiple HelpOptions found. HelpOptionAttribute should only be used one per type, either on one property or on the type.";
+
+        public const string MultipleHelpOptionPropertiesFound
+            = "Multiple HelpOptions found. HelpOptionAttribute should only be used on one property per type.";
     }
 }

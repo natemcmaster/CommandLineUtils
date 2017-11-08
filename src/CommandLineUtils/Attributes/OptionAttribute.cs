@@ -10,7 +10,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Options are not positional. Compare to <see cref="ArgumentAttribute"/>.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public sealed class OptionAttribute : Attribute
+    public sealed class OptionAttribute : OptionAttributeBase
     {
         /// <summary>
         /// Initializes a new <see cref="OptionAttribute"/>.
@@ -49,29 +49,8 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// The option template. This is parsed into the short and long name.
-        /// </summary>
-        public string Template { get; set; }
-
-        /// <summary>
-        /// A description of this option to show in generated help text. <seealso cref="CommandOption.Description"/>.
-        /// </summary>
-        public string Description { get; set; }
-
-        /// <summary>
         /// Defines the type of the option. When not set, this will be inferred from the CLR type of the property. <seealso cref="CommandOption.OptionType"/>
         /// </summary>
         public CommandOptionType? OptionType { get; set; }
-
-        /// <summary>
-        /// Determines if this option should be shown in generated help text. <seealso cref="CommandOption.ShowInHelpText"/>.
-        /// </summary>
-        public bool ShowInHelpText { get; set; } = true;
-
-        /// <summary>
-        /// Determines if subcommands added to <see cref="CommandLineApplication.Commands"/>
-        /// should also have access to this option. <seealso cref="CommandOption.Inherited"/>.
-        /// </summary>
-        public bool Inherited { get; set; }
     }
 }

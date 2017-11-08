@@ -18,7 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="app"></param>
         /// <returns></returns>
         public static CommandOption HelpOption(this CommandLineApplication app)
-            => app.HelpOption("-?|-h|--help");
+            => app.HelpOption(Strings.DefaultHelpTemplate);
 
         /// <summary>
         /// Adds the verbose option with the template <c>-v|--verbose</c>.

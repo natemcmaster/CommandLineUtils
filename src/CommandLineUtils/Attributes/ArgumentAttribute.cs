@@ -10,7 +10,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Arguments are parsed based the <see cref="Order"/> given.
     /// Compare to <seealso cref="OptionAttribute"/>.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Property)]
     public sealed class ArgumentAttribute : Attribute
     {
         /// <summary>

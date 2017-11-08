@@ -21,6 +21,14 @@ namespace McMaster.Extensions.CommandLineUtils
             _app = new CommandLineApplication();
 
             var type = typeof(T).GetTypeInfo();
+            var helpOptionAttrOnType = type.GetCustomAttribute<HelpOptionAttribute>();
+            if (helpOptionAttrOnType != null)
+            {
+                var opt = _app.HelpOption(helpOptionAttrOnType.Template);
+                opt.Description = helpOptionAttrOnType.Description;
+                opt.Inherited = helpOptionAttrOnType.Inherited;
+                opt.ShowInHelpText = helpOptionAttrOnType.ShowInHelpText;
+            }
 
             var props = typeof(T).GetRuntimeProperties();
             if (props != null)
@@ -32,19 +40,48 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 foreach (var prop in props)
                 {
-                    var optionAttr = prop.GetCustomAttribute<OptionAttribute>();
+                    OptionAttributeBase optionAttr;
+                    var helpOptionAttr = prop.GetCustomAttribute<HelpOptionAttribute>();
+                    var regularOptionAttr = prop.GetCustomAttribute<OptionAttribute>();
+
+                    if (helpOptionAttr != null)
+                    {
+                        if (helpOptionAttrOnType != null)
+                        {
+                            throw new InvalidOperationException(Strings.HelpOptionOnTypeAndProperty);
+                        }
+
+                        if (_app.OptionHelp != null)
+                        {
+                            throw new InvalidOperationException(Strings.MultipleHelpOptionPropertiesFound);
+                        }
+                        
+                        if (regularOptionAttr != null)
+                        {
+                            throw new InvalidOperationException(
+                                Strings.BothOptionAndHelpOptionAttributesCannotBeSpecified(prop));
+                        }
+
+                        optionAttr = helpOptionAttr;
+                    }
+                    else
+                    {
+                        optionAttr = regularOptionAttr;
+                    }
+
                     var argumentAttr = prop.GetCustomAttribute<ArgumentAttribute>();
                     var setter = GetSetter(prop);
 
                     if (optionAttr != null && argumentAttr != null)
                     {
-                        throw new InvalidOperationException(Strings.BothOptionAndArgumentAttributesCannotBeSpecified(prop));
+                        throw new InvalidOperationException(
+                            Strings.BothOptionAndArgumentAttributesCannotBeSpecified(prop));
                     }
 
                     if (argumentAttr != null)
                     {
                         if ((prop.PropertyType.IsArray
-                            || typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(prop.PropertyType))
+                             || typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(prop.PropertyType))
                             && prop.PropertyType != typeof(string)
                             && !argumentAttr.MultipleValues)
                         {
@@ -61,7 +98,8 @@ namespace McMaster.Extensions.CommandLineUtils
 
                         if (argPropOrder.TryGetValue(argumentAttr.Order, out var otherProp))
                         {
-                            throw new InvalidOperationException(Strings.DuplicateArgumentPosition(argumentAttr.Order, prop, otherProp));
+                            throw new InvalidOperationException(
+                                Strings.DuplicateArgumentPosition(argumentAttr.Order, prop, otherProp));
                         }
 
                         argPropOrder.Add(argumentAttr.Order, prop);
@@ -75,10 +113,7 @@ namespace McMaster.Extensions.CommandLineUtils
                                 throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                             }
 
-                            OnBind(o =>
-                            {
-                                setter.Invoke(o, collectionParser.Parse(argument.Name, argument.Values));
-                            });
+                            OnBind(o => { setter.Invoke(o, collectionParser.Parse(argument.Name, argument.Values)); });
                         }
                         else
                         {
@@ -88,25 +123,25 @@ namespace McMaster.Extensions.CommandLineUtils
                                 throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                             }
                             OnBind(o =>
-                            setter.Invoke(o, parser.Parse(argument.Name, argument.Value)));
+                                setter.Invoke(o, parser.Parse(argument.Name, argument.Value)));
                         }
                     }
 
                     if (optionAttr != null)
                     {
                         CommandOptionType optionType;
-                        if (optionAttr.OptionType.HasValue)
+                        if (optionAttr is OptionAttribute oa)
                         {
-                            if (optionAttr.OptionType.Value == CommandOptionType.NoValue && prop.PropertyType != typeof(bool))
-                            {
-                                throw new InvalidOperationException(Strings.NoValueTypesMustBeBoolean);
-                            }
-
-                            optionType = optionAttr.OptionType.Value;
+                            optionType = GetOptionType(oa, prop);
                         }
-                        else if (!CommandOptionTypeMapper.Default.TryGetOptionType(prop.PropertyType, out optionType))
+                        else
                         {
-                            throw new InvalidOperationException(Strings.CannotDetermineOptionType(prop));
+                            optionType = CommandOptionType.NoValue;
+                        }
+                        
+                        if (optionType == CommandOptionType.NoValue && prop.PropertyType != typeof(bool))
+                        {
+                            throw new InvalidOperationException(Strings.NoValueTypesMustBeBoolean);
                         }
 
                         CommandOption option;
@@ -133,7 +168,8 @@ namespace McMaster.Extensions.CommandLineUtils
                         {
                             if (shortOptions.TryGetValue(option.ShortName, out var otherProp))
                             {
-                                throw new InvalidOperationException(Strings.OptionNameIsAmbiguous(option.ShortName, prop, otherProp));
+                                throw new InvalidOperationException(
+                                    Strings.OptionNameIsAmbiguous(option.ShortName, prop, otherProp));
                             }
                             shortOptions.Add(option.ShortName, prop);
                         }
@@ -142,12 +178,20 @@ namespace McMaster.Extensions.CommandLineUtils
                         {
                             if (longOptions.TryGetValue(option.LongName, out var otherProp))
                             {
-                                throw new InvalidOperationException(Strings.OptionNameIsAmbiguous(option.LongName, prop, otherProp));
+                                throw new InvalidOperationException(
+                                    Strings.OptionNameIsAmbiguous(option.LongName, prop, otherProp));
                             }
                             longOptions.Add(option.LongName, prop);
                         }
 
-                        _app.Options.Add(option);
+                        if (optionAttr is HelpOptionAttribute)
+                        {
+                            _app.OptionHelp = option;
+                        }
+                        else
+                        {
+                            _app.Options.Add(option);
+                        }
 
                         switch (option.OptionType)
                         {
@@ -179,10 +223,7 @@ namespace McMaster.Extensions.CommandLineUtils
                                 });
                                 break;
                             case CommandOptionType.NoValue:
-                                OnBind(o =>
-                                {
-                                    setter.Invoke(o, option.HasValue());
-                                });
+                                OnBind(o => { setter.Invoke(o, option.HasValue()); });
                                 break;
                         }
                     }
@@ -195,7 +236,8 @@ namespace McMaster.Extensions.CommandLineUtils
                         var lastArg = _app.Arguments[_app.Arguments.Count - 1];
                         if (lastArg.MultipleValues)
                         {
-                            throw new InvalidOperationException(Strings.OnlyLastArgumentCanAllowMultipleValues(lastArg.Name));
+                            throw new InvalidOperationException(
+                                Strings.OnlyLastArgumentCanAllowMultipleValues(lastArg.Name));
                         }
                     }
 
@@ -204,12 +246,26 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
+        private static CommandOptionType GetOptionType(OptionAttribute optionAttr, PropertyInfo prop)
+        {
+            CommandOptionType optionType;
+            if (optionAttr.OptionType.HasValue)
+            {
+                optionType = optionAttr.OptionType.Value;
+            }
+            else if (!CommandOptionTypeMapper.Default.TryGetOptionType(prop.PropertyType, out optionType))
+            {
+                throw new InvalidOperationException(Strings.CannotDetermineOptionType(prop));
+            }
+            return optionType;
+        }
+
         private static SetPropertyDelegate GetSetter(PropertyInfo prop)
         {
             var setter = prop.GetSetMethod(nonPublic: true);
             if (setter != null)
             {
-                return (obj, value) => setter.Invoke(obj, new object[] { value });
+                return (obj, value) => setter.Invoke(obj, new object[] {value});
             }
             else
             {
@@ -217,7 +273,8 @@ namespace McMaster.Extensions.CommandLineUtils
                 var backingField = prop.DeclaringType.GetTypeInfo().GetDeclaredField(backingFieldName);
                 if (backingField == null)
                 {
-                    throw new InvalidOperationException($"Could not find a way to set {prop.DeclaringType.FullName}.{prop.Name}");
+                    throw new InvalidOperationException(
+                        $"Could not find a way to set {prop.DeclaringType.FullName}.{prop.Name}");
                 }
 
                 return (obj, value) => backingField.SetValue(obj, value);

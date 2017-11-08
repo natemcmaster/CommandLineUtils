@@ -33,5 +33,7 @@ _ReSharper.*
 node_modules/
 **/[Cc]ompiler/[Rr]esources/**/*.js
 .vscode/
+.idea/
+*.iml
 global.json
 korebuild-lock.txt

@@ -126,7 +126,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The option used to determine if help text should be displayed. This is set by calling <see cref="HelpOption(string)"/>.
         /// </summary>
-        public CommandOption OptionHelp { get; private set; }
+        public CommandOption OptionHelp { get; internal set; }
 
         /// <summary>
         /// The options used to determine if the command version should be displayed. This is set by calling <see cref="VersionOption(string, Func{string}, Func{string})"/>.
@@ -572,7 +572,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             // Help option is special because we stop parsing once we see it
             // So we store it separately for further use
-            OptionHelp = Option(template, "Show help information", CommandOptionType.NoValue);
+            OptionHelp = Option(template, Strings.DefaultHelpOptionDescription, CommandOptionType.NoValue);
 
             return OptionHelp;
         }
