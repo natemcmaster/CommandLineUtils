@@ -22,9 +22,46 @@ namespace McMaster.Extensions.CommandLineUtils
         private int _responseFileArgsEnd = -1;
 
         /// <summary>
+        /// Creates an instance of <typeparamref name="T"/>, matching <paramref name="args"/>
+        /// to all attributes on the type, and then invoking a method named "Execute" if it exists.
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />, 
+        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>. 
+        /// </summary>
+        /// <param name="args"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static int Execute<T>(params string[] args)
+            where T : class, new()
+            => Execute<T>(CommandParsingOptions.None, args);
+
+        /// <summary>
+        /// Creates an instance of <typeparamref name="T"/>, matching <paramref name="args"/>
+        /// to all attributes on the type, and then invoking a method named "Execute" if it exists.
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />, 
+        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>. 
+        /// </summary>
+        /// <param name="options"></param>
+        /// <param name="args"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static int Execute<T>(CommandParsingOptions options, params string[] args)
+            where T : class, new()
+        {
+            var parsed = ParseArgs<T>(options, args);
+            var method = ReflectionHelper.GetExecuteMethod<T>();
+            var result = method.Invoke(parsed, Array.Empty<object>());
+            if (method.ReturnType == typeof(int))
+            {
+                return (int) result;
+            }
+            return 0;
+        }
+
+        /// <summary>
         /// Creates an instance of <typeparamref name="T" /> by matching <paramref name="args" />
-        /// with the properties on <typeparamref name="T" />. See <seealso cref="OptionAttribute" />
-        /// and <seealso cref="ArgumentAttribute" />.
+        /// with the properties on <typeparamref name="T" />. 
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />, 
+        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
         public static T ParseArgs<T>(params string[] args)
             where T : class, new()

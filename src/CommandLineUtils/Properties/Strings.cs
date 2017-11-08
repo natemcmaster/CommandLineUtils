@@ -16,6 +16,15 @@ namespace McMaster.Extensions.CommandLineUtils
         public const string NoValueTypesMustBeBoolean
             = "Cannot specify CommandOptionType.NoValue unless the type is boolean.";
 
+        public const string AmbiguousOnExecuteMethod
+            = "Could not determine which 'OnExecute' method to use. Multiple methods with this name were found";
+
+        public const string NoOnExecuteMethodFound
+            = "No method named 'OnExecute' could be found";
+
+        public static string InvalidOnExecuteReturnType
+            = "OnExecute must have a return type of int or void.";
+
         public static string CannotDetermineOptionType(PropertyInfo member)
         {
             return $"Could not automatically determine the {nameof(CommandOptionType)} for type {member.PropertyType.FullName}. " +
