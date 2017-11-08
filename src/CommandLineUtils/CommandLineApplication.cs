@@ -49,7 +49,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             var parsed = ParseArgs<T>(options, args);
             var method = ReflectionHelper.GetExecuteMethod<T>();
-            var result = method.Invoke(parsed, Array.Empty<object>());
+            var result = method.Invoke(parsed, new object[0]);
             if (method.ReturnType == typeof(int))
             {
                 return (int) result;
