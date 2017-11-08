@@ -22,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 
         public object Parse(string argName, IReadOnlyList<string> values)
         {
-            var set = Activator.CreateInstance(_listType, new object[] { values.Count });
+            var set = Activator.CreateInstance(_listType, Constants.EmptyArray);
             for (var i = 0; i < values.Count; i++)
             {
                 _addMethod.Invoke(set, new object[] { _elementParser.Parse(argName, values[i]) });
