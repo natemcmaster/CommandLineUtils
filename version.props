@@ -10,6 +10,7 @@
     <VersionSuffix Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix).$(BuildNumber)</VersionSuffix>
 
     <BranchName Condition=" '$(BranchName)' == '' ">$(APPVEYOR_REPO_BRANCH)</BranchName>
+    <BranchName Condition=" '$(BranchName)' != '' ">$(BranchName.Replace('/', '-'))</BranchName>
     <VersionSuffix Condition=" '$(VersionSuffix)' != '' AND '$(BranchName)' != '' ">$(VersionSuffix)+$(BranchName)</VersionSuffix>
   </PropertyGroup>
 
