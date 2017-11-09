@@ -2,6 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections;
+using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -27,9 +29,20 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="order">The order</param>
         /// <param name="name">The name</param>
         public ArgumentAttribute(int order, string name)
+            : this(order, name, null)
+        { }
+
+        /// <summary>
+        /// Initializes a new <see cref="ArgumentAttribute" />.
+        /// </summary>
+        /// <param name="order">The order</param>
+        /// <param name="name">The name</param>
+        /// <param name="description">The description</param>
+        public ArgumentAttribute(int order, string name, string description)
         {
             Order = order;
             Name = name;
+            Description = description;
         }
 
         /// <summary>
@@ -56,5 +69,16 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Allow multiple values. <seealso cref="CommandArgument.MultipleValues"/>.
         /// </summary>
         public bool MultipleValues { get; set; }
+
+        internal CommandArgument Configure(PropertyInfo prop)
+        {
+            return new CommandArgument
+            {
+                Name = Name ?? prop.Name,
+                Description = Description,
+                ShowInHelpText = ShowInHelpText,
+                MultipleValues = MultipleValues,
+            };
+        }
     }
 }

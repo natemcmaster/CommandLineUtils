@@ -28,5 +28,12 @@ namespace McMaster.Extensions.CommandLineUtils
             Template = template;
             Description = Strings.DefaultHelpOptionDescription;
         }
+
+        internal CommandOption Configure(CommandLineApplication app)
+        {
+            var opt = app.HelpOption(Template);
+            Configure(opt);
+            return opt;
+        }
     }
 }

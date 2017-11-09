@@ -10,6 +10,20 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class ReflectionAppBuilderTests
     {
+        [Command(HandleResponseFiles = true, AllowArgumentSeparator = true, ThrowOnUnexpectedArgument = false)]
+        private class ParsingOptions
+        {}
+
+        [Fact]
+        public void HandlesParsingOptionsAttribute()
+        {
+            var builder = new ReflectionAppBuilder();
+            builder.AddType<ParsingOptions>();
+            Assert.True(builder.App.HandleResponseFiles);
+            Assert.True(builder.App.AllowArgumentSeparator);
+            Assert.False(builder.App.ThrowOnUnexpectedArgument);
+        }
+        
         private class AttributesNotUsedClass
         {
             public int OptionA { get; set; }

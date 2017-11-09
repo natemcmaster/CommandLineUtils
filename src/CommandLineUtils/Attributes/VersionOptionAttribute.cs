@@ -36,5 +36,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// The version information to be shown. <see cref="CommandLineApplication.ShortVersionGetter"/>.
         /// </summary>
         public string Version { get; set; }
+
+        internal CommandOption Configure(CommandLineApplication app)
+        {
+            var opt = app.VersionOption(Template, Version);
+            Configure(opt);
+            return opt;
+        }
     }
 }

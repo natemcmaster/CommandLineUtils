@@ -3,7 +3,7 @@ using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
-    public class AttributeExecuteTests
+    public class CommandLineApplicationExecutorTests
     {
         private class VoidExecuteMethodWithNoArgs
         {

@@ -62,7 +62,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("0", 0)]
         public void ParsesByte(string arg, byte result)
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--byte", arg);
+            var parsed = CommandLineParser.ParseArgs<Program>("--byte", arg);
             Assert.Equal(result, parsed.Byte);
         }
 
@@ -74,7 +74,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("-32768", short.MinValue)]
         public void ParsesShort(string arg, short result)
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--int16", arg);
+            var parsed = CommandLineParser.ParseArgs<Program>("--int16", arg);
             Assert.Equal(result, parsed.Int16);
         }
 
@@ -86,7 +86,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("-2147483648", int.MinValue)]
         public void ParsesInt(string arg, int result)
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--int32", arg);
+            var parsed = CommandLineParser.ParseArgs<Program>("--int32", arg);
             Assert.Equal(result, parsed.Int32);
         }
 
@@ -95,7 +95,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("", null)]
         public void ParsesIntNullable(string arg, int? result)
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--int32-opt", arg);
+            var parsed = CommandLineParser.ParseArgs<Program>("--int32-opt", arg);
             Assert.Equal(result, parsed.Int32Opt);
         }
 
@@ -107,7 +107,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("-9223372036854775808", long.MinValue)]
         public void ParsesLong(string arg, long result)
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--int64", arg);
+            var parsed = CommandLineParser.ParseArgs<Program>("--int64", arg);
             Assert.Equal(result, parsed.Int64);
         }
 
@@ -116,7 +116,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("", null)]
         public void ParsesLongNullable(string arg, long? result)
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--int64-opt", arg);
+            var parsed = CommandLineParser.ParseArgs<Program>("--int64-opt", arg);
             Assert.Equal(result, parsed.Int64Opt);
         }
 
@@ -127,7 +127,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("false", false)]
         public void ParsesBool(string arg, bool result)
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--bool", arg);
+            var parsed = CommandLineParser.ParseArgs<Program>("--bool", arg);
             Assert.Equal(result, parsed.Bool);
         }
 
@@ -139,7 +139,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("false", false)]
         public void ParsesNullableBool(string arg, bool? result)
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--bool-opt", arg);
+            var parsed = CommandLineParser.ParseArgs<Program>("--bool-opt", arg);
             Assert.Equal(result, parsed.BoolOpt);
         }
 
@@ -149,7 +149,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("0", 0)]
         public void ParseUInt(string arg, uint result)
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--uint32", arg);
+            var parsed = CommandLineParser.ParseArgs<Program>("--uint32", arg);
             Assert.Equal(result, parsed.UInt32);
         }
 
@@ -159,14 +159,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("0", 0)]
         public void ParsesULong(string arg, ulong result)
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--uint64", arg);
+            var parsed = CommandLineParser.ParseArgs<Program>("--uint64", arg);
             Assert.Equal(result, parsed.UInt64);
         }
 
         [Fact]
         public void ParsesInt32Array()
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--int32-arr", "-1", "--int32-arr", "1");
+            var parsed = CommandLineParser.ParseArgs<Program>("--int32-arr", "-1", "--int32-arr", "1");
             Assert.Equal(-1, parsed.Int32Array[0]);
             Assert.Equal(1, parsed.Int32Array[1]);
         }
@@ -174,7 +174,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ParsesStringArray()
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--string-arr", "first", "--string-arr", "second");
+            var parsed = CommandLineParser.ParseArgs<Program>("--string-arr", "first", "--string-arr", "second");
             Assert.Equal("first", parsed.StringArray[0]);
             Assert.Equal("second", parsed.StringArray[1]);
         }
@@ -182,7 +182,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ParsesStringIList()
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--string-ilist", "first", "--string-ilist", "second");
+            var parsed = CommandLineParser.ParseArgs<Program>("--string-ilist", "first", "--string-ilist", "second");
             Assert.Equal("first", parsed.StringIList[0]);
             Assert.Equal("second", parsed.StringIList[1]);
         }
@@ -190,7 +190,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ParsesStringList()
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--string-list", "first", "--string-list", "second");
+            var parsed = CommandLineParser.ParseArgs<Program>("--string-list", "first", "--string-list", "second");
             Assert.Equal("first", parsed.StringList[0]);
             Assert.Equal("second", parsed.StringList[1]);
         }
@@ -199,7 +199,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ParsesStringSet()
         {
-            var parsed = CommandLineApplication.ParseArgs<Program>("--string-set", "first", "--string-set", "second");
+            var parsed = CommandLineParser.ParseArgs<Program>("--string-set", "first", "--string-set", "second");
             Assert.Contains("first", parsed.StringSet);
             Assert.Contains("second", parsed.StringSet);
         }
@@ -219,7 +219,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ParsesArgs()
         {
-            var parsed = CommandLineApplication.ParseArgs<ArgumentProgram>(
+            var parsed = CommandLineParser.ParseArgs<ArgumentProgram>(
                 "1",
                 "true",
                 "a",

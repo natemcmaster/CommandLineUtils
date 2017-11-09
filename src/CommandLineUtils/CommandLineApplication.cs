@@ -18,36 +18,21 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public class CommandLineApplication
     {
-        // used to keep track of arguments added from the response file
-        private int _responseFileArgsEnd = -1;
-
         /// <summary>
         /// Creates an instance of <typeparamref name="T"/>, matching <paramref name="args"/>
         /// to all attributes on the type, and then invoking a method named "Execute" if it exists.
         /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />, 
         /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>. 
         /// </summary>
-        /// <param name="args"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        /// <param name="args">The arguments</param>
+        /// <typeparam name="T">A type that should be bound to the arguments.</typeparam>
+        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
+        /// <returns>The process exit code</returns>
         public static int Execute<T>(params string[] args)
             where T : class, new()
-            => Execute<T>(CommandParsingOptions.None, args);
-
-        /// <summary>
-        /// Creates an instance of <typeparamref name="T"/>, matching <paramref name="args"/>
-        /// to all attributes on the type, and then invoking a method named "Execute" if it exists.
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />, 
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>. 
-        /// </summary>
-        /// <param name="options"></param>
-        /// <param name="args"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static int Execute<T>(CommandParsingOptions options, params string[] args)
-            where T : class, new()
         {
-            var parsed = ParseArgs<T>(options, args);
+            var parsed = CommandLineParser.ParseArgs<T>(args);
             var method = ReflectionHelper.GetExecuteMethod<T>();
             var result = method.Invoke(parsed, Constants.EmptyArray);
             if (method.ReturnType == typeof(int))
@@ -56,28 +41,9 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             return 0;
         }
-
-        /// <summary>
-        /// Creates an instance of <typeparamref name="T" /> by matching <paramref name="args" />
-        /// with the properties on <typeparamref name="T" />. 
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />, 
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
-        /// </summary>
-        public static T ParseArgs<T>(params string[] args)
-            where T : class, new()
-            => ParseArgs<T>(CommandParsingOptions.ThrowOnUnexpectedArgument, args);
-
-        /// <summary>
-        /// Creates an instance of <typeparamref name="T" /> by matching <paramref name="args" />
-        /// with the properties on <typeparamref name="T" />. See <seealso cref="OptionAttribute" />
-        /// and <seealso cref="ArgumentAttribute" />.
-        /// </summary>
-        public static T ParseArgs<T>(CommandParsingOptions options, params string[] args)
-            where T : class, new()
-        {
-            var applicationBuilder = new ReflectionAppBuilder();
-            return applicationBuilder.Execute<T>(args, options);
-        }
+        
+        // used to keep track of arguments added from the response file
+        private int _responseFileArgsEnd = -1;
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -136,7 +102,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public string Name { get; set; }
 
         /// <summary>
-        /// The full name of the command.
+        /// The full name of the command to show in the help text.
         /// </summary>
         public string FullName { get; set; }
 
