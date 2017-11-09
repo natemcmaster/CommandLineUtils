@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{60B2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorld", "samples\HelloWorld\HelloWorld.csproj", "{71521E54-158D-45D7-8746-4905E6B3EB21}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorldAsync", "samples\HelloWorldAsync\HelloWorldAsync.csproj", "{71521E54-158D-45D7-8746-4905E6B3EB22}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{509D6286-77FA-49C1-9EC6-7461DBE79536}"
 	ProjectSection(SolutionItems) = preProject
 		.appveyor.yml = .appveyor.yml
@@ -50,6 +52,10 @@ Global
 		{71521E54-158D-45D7-8746-4905E6B3EB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71521E54-158D-45D7-8746-4905E6B3EB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71521E54-158D-45D7-8746-4905E6B3EB21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71521E54-158D-45D7-8746-4905E6B3EB22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71521E54-158D-45D7-8746-4905E6B3EB22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71521E54-158D-45D7-8746-4905E6B3EB22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71521E54-158D-45D7-8746-4905E6B3EB22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{CBCFAFF3-A3B1-4C41-B2D1-092BF7307A4E} = {95D4B35E-0A21-4D64-8BAF-27DD6C019FC5}
 		{1258544C-1FDE-4810-9A1B-189A925E9B45} = {C4842A1B-019E-40FF-A396-CF5AFDE8FA54}
 		{71521E54-158D-45D7-8746-4905E6B3EB21} = {60B279C6-091B-4F3E-B21F-D71001C94660}
+		{71521E54-158D-45D7-8746-4905E6B3EB22} = {60B279C6-091B-4F3E-B21F-D71001C94660}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55FD25E0-565D-49F9-9370-28DA7196E539}
