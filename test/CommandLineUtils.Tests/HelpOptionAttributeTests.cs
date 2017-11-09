@@ -18,15 +18,16 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void DoesNotAddHelpOptionByDefault()
         {
-            var builder = new ReflectionAppBuilder<NoHelpOptionClass>();
+            var builder = new ReflectionAppBuilder();
+            builder.AddType<NoHelpOptionClass>();
             Assert.Null(builder.App.OptionHelp);
         }
-        
+
         private class MultipleHelpOptions
         {
             [HelpOption("-h1")]
             public bool IsHelp1 { get; set; }
-            
+
             [HelpOption("-h2")]
             public bool IsHelp2 { get; set; }
         }
@@ -34,10 +35,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ThrowsWhenMultipleHelpOptionsInType()
         {
-            var ex = Assert.Throws<InvalidOperationException>(() => new ReflectionAppBuilder<MultipleHelpOptions>());
+            var ex = Assert.Throws<InvalidOperationException>(() =>
+                new ReflectionAppBuilder().AddType<MultipleHelpOptions>());
             Assert.Equal(Strings.MultipleHelpOptionPropertiesFound, ex.Message);
         }
-        
+
         [HelpOption]
         private class HelpOptionOnTypeAndProp
         {
@@ -48,7 +50,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ThrowsWhenMultipleHelpOptionUsedOnTypeAndProperti()
         {
-            var ex = Assert.Throws<InvalidOperationException>(() => new ReflectionAppBuilder<HelpOptionOnTypeAndProp>());
+            var ex = Assert.Throws<InvalidOperationException>(() =>
+                new ReflectionAppBuilder().AddType<HelpOptionOnTypeAndProp>());
             Assert.Equal(Strings.HelpOptionOnTypeAndProperty, ex.Message);
         }
 
@@ -61,21 +64,23 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ThrowsIfHelpOptionPropIsNotBool()
         {
-            var ex = Assert.Throws<InvalidOperationException>(() => new ReflectionAppBuilder<HelpOptionOnNonBoolean>());
+            var ex = Assert.Throws<InvalidOperationException>(() =>
+                new ReflectionAppBuilder().AddType<HelpOptionOnNonBoolean>());
             Assert.Equal(Strings.NoValueTypesMustBeBoolean, ex.Message);
         }
-        
+
         private class DuplicateOptionAttributes
         {
             [HelpOption]
             [Option]
             public string IsHelpOption { get; set; }
         }
-        
+
         [Fact]
         public void ThrowsIfMultipleAttributesApplied()
         {
-            var ex = Assert.Throws<InvalidOperationException>(() => new ReflectionAppBuilder<DuplicateOptionAttributes>());
+            var ex = Assert.Throws<InvalidOperationException>(() =>
+                new ReflectionAppBuilder().AddType<DuplicateOptionAttributes>());
             var prop = typeof(DuplicateOptionAttributes).GetProperty(nameof(DuplicateOptionAttributes.IsHelpOption));
             Assert.Equal(Strings.BothOptionAndHelpOptionAttributesCannotBeSpecified(prop), ex.Message);
         }
@@ -88,7 +93,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void SetsHelpOptionOnType()
         {
-            var builder = new ReflectionAppBuilder<WithTypeHelpOption>();
+            var builder = new ReflectionAppBuilder();
+            builder.AddType<WithTypeHelpOption>();
             Assert.NotNull(builder.App.OptionHelp);
             Assert.Equal(CommandOptionType.NoValue, builder.App.OptionHelp.OptionType);
             Assert.Null(builder.App.OptionHelp.SymbolName);
@@ -96,7 +102,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal("help", builder.App.OptionHelp.LongName);
             Assert.Equal("My help info", builder.App.OptionHelp.Description);
         }
-        
+
         private class WithPropHelpOption
         {
             [HelpOption("-h|--help", Description = "My help info")]
@@ -106,7 +112,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void SetsHelpOptionOnProp()
         {
-            var builder = new ReflectionAppBuilder<WithPropHelpOption>();
+            var builder = new ReflectionAppBuilder();
+            builder.AddType<WithPropHelpOption>();
             Assert.NotNull(builder.App.OptionHelp);
             Assert.Equal(CommandOptionType.NoValue, builder.App.OptionHelp.OptionType);
             Assert.Null(builder.App.OptionHelp.SymbolName);

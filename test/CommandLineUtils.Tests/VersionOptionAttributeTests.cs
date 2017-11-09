@@ -18,15 +18,16 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void DoesNotAddVersionOptionByDefault()
         {
-            var builder = new ReflectionAppBuilder<NoVersionOptionClass>();
+            var builder = new ReflectionAppBuilder();
+            builder.AddType<NoVersionOptionClass>();
             Assert.Null(builder.App.OptionVersion);
         }
-        
+
         private class MultipleVersionOptions
         {
             [VersionOption("-v1")]
             public bool IsVersion1 { get; set; }
-            
+
             [VersionOption("-v2")]
             public bool IsVersion2 { get; set; }
         }
@@ -34,10 +35,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ThrowsWhenMultipleVersionOptionsInType()
         {
-            var ex = Assert.Throws<InvalidOperationException>(() => new ReflectionAppBuilder<MultipleVersionOptions>());
+            var ex = Assert.Throws<InvalidOperationException>(() =>
+                new ReflectionAppBuilder().AddType<MultipleVersionOptions>());
             Assert.Equal(Strings.MultipleVersionOptionPropertiesFound, ex.Message);
         }
-        
+
         [VersionOption("1.2.0")]
         private class VersionOptionOnTypeAndProp
         {
@@ -48,7 +50,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ThrowsWhenMultipleVersionOptionUsedOnTypeAndProperti()
         {
-            var ex = Assert.Throws<InvalidOperationException>(() => new ReflectionAppBuilder<VersionOptionOnTypeAndProp>());
+            var ex = Assert.Throws<InvalidOperationException>(() =>
+                new ReflectionAppBuilder().AddType<VersionOptionOnTypeAndProp>());
             Assert.Equal(Strings.VersionOptionOnTypeAndProperty, ex.Message);
         }
 
@@ -61,37 +64,41 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ThrowsIfVersionOptionPropIsNotBool()
         {
-            var ex = Assert.Throws<InvalidOperationException>(() => new ReflectionAppBuilder<VersionOptionOnNonBoolean>());
+            var ex = Assert.Throws<InvalidOperationException>(() =>
+                new ReflectionAppBuilder().AddType<VersionOptionOnNonBoolean>());
             Assert.Equal(Strings.NoValueTypesMustBeBoolean, ex.Message);
         }
-        
+
         private class DuplicateOptionAttributes
         {
             [VersionOption("1.2.0")]
             [Option]
             public string IsVersionOption { get; set; }
         }
-        
+
         [Fact]
         public void ThrowsIfMultipleAttributesApplied()
         {
-            var ex = Assert.Throws<InvalidOperationException>(() => new ReflectionAppBuilder<DuplicateOptionAttributes>());
+            var ex = Assert.Throws<InvalidOperationException>(() =>
+                new ReflectionAppBuilder().AddType<DuplicateOptionAttributes>());
             var prop = typeof(DuplicateOptionAttributes).GetProperty(nameof(DuplicateOptionAttributes.IsVersionOption));
             Assert.Equal(Strings.BothOptionAndVersionOptionAttributesCannotBeSpecified(prop), ex.Message);
         }
-        
+
         private class DuplicateOptionAttributes2
         {
             [VersionOption("1.2.0")]
             [HelpOption]
             public string IsVersionOption { get; set; }
         }
-        
+
         [Fact]
         public void ThrowsIfHelpAndVersionAttributesApplied()
         {
-            var ex = Assert.Throws<InvalidOperationException>(() => new ReflectionAppBuilder<DuplicateOptionAttributes2>());
-            var prop = typeof(DuplicateOptionAttributes2).GetProperty(nameof(DuplicateOptionAttributes.IsVersionOption));
+            var ex = Assert.Throws<InvalidOperationException>(() =>
+                new ReflectionAppBuilder().AddType<DuplicateOptionAttributes2>());
+            var prop = typeof(DuplicateOptionAttributes2).GetProperty(nameof(DuplicateOptionAttributes
+                .IsVersionOption));
             Assert.Equal(Strings.BothHelpOptionAndVersionOptionAttributesCannotBeSpecified(prop), ex.Message);
         }
 
@@ -103,7 +110,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void SetsVersionOptionOnType()
         {
-            var builder = new ReflectionAppBuilder<WithTypeVersionOption>();
+            var builder = new ReflectionAppBuilder();
+            builder.AddType<WithTypeVersionOption>();
             Assert.NotNull(builder.App.OptionVersion);
             Assert.Equal(CommandOptionType.NoValue, builder.App.OptionVersion.OptionType);
             Assert.Null(builder.App.OptionVersion.SymbolName);
@@ -111,7 +119,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal("version", builder.App.OptionVersion.LongName);
             Assert.Equal("My version info", builder.App.OptionVersion.Description);
         }
-        
+
         private class WithPropVersionOption
         {
             [VersionOption("1.2.0", Description = "My version info")]
@@ -121,7 +129,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void SetsVersionOptionOnProp()
         {
-            var builder = new ReflectionAppBuilder<WithPropVersionOption>();
+            var builder = new ReflectionAppBuilder();
+            builder.AddType<WithPropVersionOption>();
             Assert.NotNull(builder.App.OptionVersion);
             Assert.Equal(CommandOptionType.NoValue, builder.App.OptionVersion.OptionType);
             Assert.Null(builder.App.OptionVersion.SymbolName);

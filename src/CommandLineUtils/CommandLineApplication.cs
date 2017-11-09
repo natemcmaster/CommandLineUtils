@@ -75,8 +75,8 @@ namespace McMaster.Extensions.CommandLineUtils
         public static T ParseArgs<T>(CommandParsingOptions options, params string[] args)
             where T : class, new()
         {
-            var applicationBuilder = new ReflectionAppBuilder<T>();
-            return applicationBuilder.Execute(args, options);
+            var applicationBuilder = new ReflectionAppBuilder();
+            return applicationBuilder.Execute<T>(args, options);
         }
 
         /// <summary>

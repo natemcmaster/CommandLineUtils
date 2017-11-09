@@ -19,7 +19,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void AttributesAreRequired()
         {
-            var builder = new ReflectionAppBuilder<AttributesNotUsedClass>();
+            var builder = new ReflectionAppBuilder();
+            builder.AddType<AttributesNotUsedClass>();
             Assert.Empty(builder.App.Arguments);
             Assert.Empty(builder.App.Commands);
             Assert.Empty(builder.App.Options);
@@ -37,7 +38,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenOptionTypeCannotBeDetermined()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder<AppWithUnknownOptionType>());
+                () => new ReflectionAppBuilder().AddType<AppWithUnknownOptionType>());
             Assert.Equal(
                 Strings.CannotDetermineOptionType(typeof(AppWithUnknownOptionType).GetProperty("Option")),
                 ex.Message);
@@ -56,7 +57,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenShortOptionNamesAreAmbiguous()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder<AmbiguousShortOptionName>());
+                () => new ReflectionAppBuilder().AddType<AmbiguousShortOptionName>());
 
             Assert.Equal(
                 Strings.OptionNameIsAmbiguous("m",
@@ -78,7 +79,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenLongOptionNamesAreAmbiguous()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder<AmbiguousLongOptionName>());
+                () => new ReflectionAppBuilder().AddType<AmbiguousLongOptionName>());
 
             Assert.Equal(
                 Strings.OptionNameIsAmbiguous("no-edit",
@@ -98,10 +99,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenOptionAndArgumentAreSpecified()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder<BothOptionAndArgument>());
+                () => new ReflectionAppBuilder().AddType<BothOptionAndArgument>());
 
             Assert.Equal(
-                Strings.BothOptionAndArgumentAttributesCannotBeSpecified(typeof(BothOptionAndArgument).GetProperty("NotPossible")),
+                Strings.BothOptionAndArgumentAttributesCannotBeSpecified(
+                    typeof(BothOptionAndArgument).GetProperty("NotPossible")),
                 ex.Message);
         }
 
@@ -118,7 +120,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenDuplicateArgumentPositionsAreSpecified()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder<DuplicateArguments>());
+                () => new ReflectionAppBuilder().AddType<DuplicateArguments>());
 
             Assert.Equal(
                 Strings.DuplicateArgumentPosition(
@@ -141,7 +143,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenMultipleArgumentsAllowMultipleValues()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder<MultipleValuesMultipleArgs>());
+                () => new ReflectionAppBuilder().AddType<MultipleValuesMultipleArgs>());
 
             Assert.Equal(
                 Strings.OnlyLastArgumentCanAllowMultipleValues("Words"),
@@ -171,7 +173,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private CommandOption CreateOption(Type propType, string propName)
         {
             // Use ref emit to generate a simple type with one property on it
-            var assembly = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName("Test"), AssemblyBuilderAccess.RunAndCollect);
+            var assembly =
+                AssemblyBuilder.DefineDynamicAssembly(new AssemblyName("Test"), AssemblyBuilderAccess.RunAndCollect);
             var mb = assembly.DefineDynamicModule("Test");
             var tb = mb.DefineType("Program");
             var pb = tb.DefineProperty(propName, PropertyAttributes.None, propType, Array.Empty<Type>());
@@ -180,11 +183,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ab = new CustomAttributeBuilder(ctor, Array.Empty<object>());
             pb.SetCustomAttribute(ab);
             var program = tb.CreateTypeInfo();
-            var appBuilder = typeof(ReflectionAppBuilder<>).MakeGenericType(program.AsType());
-            var instance = Activator.CreateInstance(appBuilder);
-            var getter = appBuilder.GetTypeInfo().GetDeclaredProperty("App").GetMethod;
-            var app = (CommandLineApplication)getter.Invoke(instance, Array.Empty<object>());
-            return app.Options[0];
+            var addTypeMethod = typeof(ReflectionAppBuilder)
+                .GetRuntimeMethod(nameof(ReflectionAppBuilder.AddType), new Type[0])
+                .MakeGenericMethod(program.AsType());
+            var instance = new ReflectionAppBuilder();
+            addTypeMethod.Invoke(instance, null);
+            return instance.App.Options[0];
         }
     }
 }
