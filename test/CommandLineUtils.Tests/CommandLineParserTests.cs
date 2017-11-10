@@ -1,4 +1,7 @@
-﻿using Xunit;
+﻿// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
@@ -61,10 +64,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             }
 
             [Option("--static-number")]
-            public static int StaticNumber { get; set; }
+            public static int StaticNumber { get; private set; }
 
-            [Option("--static-count")]
-            public static int StaticCount { get; }
+            [Option("--static-string")]
+            public static string StaticString { get; }
 
             [Option("--static-value")]
             public static int StaticValue
@@ -95,25 +98,24 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(2, parsed.Value);
         }
 
-
         [Fact]
         public void BindsToStaticProperties()
         {
-            var parsed = CommandLineParser.ParseArgs<PrivateSetterProgram>("--static-number", "1");
+            CommandLineParser.ParseArgs<PrivateSetterProgram>("--static-number", "1");
             Assert.Equal(1, PrivateSetterProgram.StaticNumber);
         }
 
         [Fact]
-        public void BindsToStaticReadOnlyProperties()
+        public void BindsToStaticReadOnlyProps()
         {
-            var parsed = CommandLineParser.ParseArgs<PrivateSetterProgram>("--static-count", "1");
-            Assert.Equal(1, PrivateSetterProgram.StaticCount);
+            CommandLineParser.ParseArgs<PrivateSetterProgram>("--static-string", "1");
+            Assert.Equal("1", PrivateSetterProgram.StaticString);
         }
 
         [Fact]
         public void BindsToStaticPropertiesWithSetterMethod()
         {
-            var parsed = CommandLineParser.ParseArgs<PrivateSetterProgram>("--static-value", "1");
+            CommandLineParser.ParseArgs<PrivateSetterProgram>("--static-value", "1");
             Assert.Equal(2, PrivateSetterProgram.StaticValue);
         }
     }

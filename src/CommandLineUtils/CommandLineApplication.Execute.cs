@@ -1,0 +1,150 @@
+// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+// This file has been modified from the original form. See Notice.txt in the project root for more information.
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace McMaster.Extensions.CommandLineUtils
+{
+    /// <summary>
+    /// Describes a set of command line arguments, options, and execution behavior.
+    /// <see cref="CommandLineApplication"/> can be nested to support subcommands.
+    /// </summary>
+    partial class CommandLineApplication
+    {
+        /// <summary>
+        /// Creates an instance of <typeparamref name="T"/>, matching <paramref name="args"/>
+        /// to all attributes on the type, and then invoking a method named "Execute" if it exists.
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
+        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
+        /// </summary>
+        /// <param name="args">The arguments</param>
+        /// <typeparam name="T">A type that should be bound to the arguments.</typeparam>
+        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
+        /// <returns>The process exit code</returns>
+        public static int Execute<T>(params string[] args)
+            where T : class, new()
+            => Execute<T>(PhysicalConsole.Singleton, args);
+
+        /// <summary>
+        /// Creates an instance of <typeparamref name="T"/>, matching <paramref name="args"/>
+        /// to all attributes on the type, and then invoking a method named "Execute" if it exists.
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
+        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
+        /// </summary>
+        /// <param name="console">The console to use</param>
+        /// <param name="args">The arguments</param>
+        /// <typeparam name="T">A type that should be bound to the arguments.</typeparam>
+        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
+        /// <returns>The process exit code</returns>
+        public static int Execute<T>(IConsole console, params string[] args)
+            where T : class, new()
+        {
+            if (console == null)
+            {
+                throw new ArgumentNullException(nameof(console));
+            }
+
+            var applicationBuilder = new ReflectionAppBuilder<T>();
+            var bindResult = applicationBuilder.Bind(args).GetBottomContext();
+            var method = ReflectionHelper.GetExecuteMethod(bindResult.Target.GetType(), async: false);
+            var arguments = BindParameters(console, bindResult, method);
+
+            var result = method.Invoke(bindResult.Target, arguments);
+            if (method.ReturnType == typeof(int))
+            {
+                return (int)result;
+            }
+
+            return 0;
+        }
+
+        /// <summary>
+        /// Creates an instance of <typeparamref name="T"/>, matching <paramref name="args"/>
+        /// to all attributes on the type, and then invoking a method named "Execute" if it exists.
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
+        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
+        /// </summary>
+        /// <param name="args">The arguments</param>
+        /// <typeparam name="T">A type that should be bound to the arguments.</typeparam>
+        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
+        /// <returns>The process exit code</returns>
+        public static Task<int> ExecuteAsync<T>(params string[] args)
+            where T : class, new()
+            => ExecuteAsync<T>(PhysicalConsole.Singleton, args);
+
+        /// <summary>
+        /// Creates an instance of <typeparamref name="T"/>, matching <paramref name="args"/>
+        /// to all attributes on the type, and then invoking a method named "Execute" if it exists.
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
+        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
+        /// </summary>
+        /// <param name="console">The console to use</param>
+        /// <param name="args">The arguments</param>
+        /// <typeparam name="T">A type that should be bound to the arguments.</typeparam>
+        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
+        /// <returns>The process exit code</returns>
+        public static async Task<int> ExecuteAsync<T>(IConsole console, params string[] args)
+            where T : class, new()
+        {
+            if (console == null)
+            {
+                throw new ArgumentNullException(nameof(console));
+            }
+
+            var applicationBuilder = new ReflectionAppBuilder<T>();
+            var bindResult = applicationBuilder.Bind(args).GetBottomContext();
+            var method = ReflectionHelper.GetExecuteMethod(bindResult.Target.GetType(), async: true);
+            var arguments = BindParameters(console, bindResult, method);
+
+            var result = (Task)method.Invoke(bindResult.Target, arguments);
+            if (method.ReturnType.GetTypeInfo().IsGenericType)
+            {
+                var task = (Task<int>)result;
+                return await task;
+            }
+
+            await result;
+            return 0;
+        }
+
+        private static object[] BindParameters(IConsole console, BindContext bindResult, MethodInfo method)
+        {
+            var methodParams = method.GetParameters();
+            var arguments = new object[methodParams.Length];
+
+            for (var i = 0; i < methodParams.Length; i++)
+            {
+                var methodParam = methodParams[i];
+
+                if (typeof(CommandLineApplication).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
+                {
+                    arguments[i] = bindResult.App;
+                    bindResult.App.Out = console.Out;
+                    bindResult.App.Error = console.Error;
+                }
+                else if (typeof(IConsole).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
+                {
+                    arguments[i] = console;
+                }
+                else
+                {
+                    throw new InvalidOperationException(Strings.UnsupportedOnExecuteParameterType(methodParam));
+                }
+            }
+
+            return arguments;
+        }
+    }
+}

@@ -1,5 +1,9 @@
-﻿using System;
+﻿// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
 using System.Reflection;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
@@ -24,7 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Equal(0, rc);
         }
-        
+
         private class IntExecuteMethodWithNoArgs
         {
             [Option]
@@ -49,7 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             private int OnExecute() => 0;
 
             private void OnExecute(string a)
-            {}
+            { }
         }
 
         [Fact]
@@ -57,19 +61,19 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<OverloadExecute>());
-            
+
             Assert.Equal(Strings.AmbiguousOnExecuteMethod, ex.Message);
         }
-        
+
         private class NoExecuteMethod
-        {}
-        
+        { }
+
         [Fact]
         public void ThrowsIfNoMethod()
         {
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<NoExecuteMethod>());
-            
+
             Assert.Equal(Strings.NoOnExecuteMethodFound, ex.Message);
         }
 
@@ -77,14 +81,28 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             private string OnExecute() => null;
         }
-        
+
         [Fact]
         public void ThrowsIfMethodDoesNotReturnVoidOrInt()
         {
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<BadReturnType>());
-            
+
             Assert.Equal(Strings.InvalidOnExecuteReturnType, ex.Message);
+        }
+
+        private class BadAsyncReturnType
+        {
+            private Task<string> OnExecute() => null;
+        }
+
+        [Fact]
+        public async Task ThrowsIfAsyncMethodDoesNotReturnVoidOrInt()
+        {
+            var ex = await Assert.ThrowsAsync<InvalidOperationException>(
+                async () => await CommandLineApplication.ExecuteAsync<BadReturnType>());
+
+            Assert.Equal(Strings.InvalidAsyncOnExecuteReturnType, ex.Message);
         }
 
         private class ExecuteWithTypes
@@ -95,7 +113,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 Assert.NotNull(console);
             }
         }
-        
+
         [Fact]
         public void PassesInKnownParameterTypes()
         {
@@ -108,15 +126,44 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
             }
         }
-        
+
         [Fact]
         public void ThrowsForUnknownOnExecuteTypes()
         {
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<ExecuteWithUnknownTypes>());
-            var method = ReflectionHelper.GetExecuteMethod<ExecuteWithUnknownTypes>();
+            var method = ReflectionHelper.GetExecuteMethod<ExecuteWithUnknownTypes>(async: false);
             var param = Assert.Single(method.GetParameters());
             Assert.Equal(Strings.UnsupportedOnExecuteParameterType(param), ex.Message);
+        }
+
+        private class ExecuteAsyncWithInt
+        {
+            private async Task<int> OnExecute()
+            {
+                await Task.CompletedTask;
+                return 1;
+            }
+        }
+
+        [Fact]
+        public async Task ExecutesAsyncWithInt()
+        {
+            Assert.Equal(1, await CommandLineApplication.ExecuteAsync<ExecuteAsyncWithInt>(new string[0]));
+        }
+
+        private class ExecuteAsync
+        {
+            private async Task OnExecute()
+            {
+                await Task.CompletedTask;
+            }
+        }
+
+        [Fact]
+        public async Task ExecutesAsync()
+        {
+            Assert.Equal(0, await CommandLineApplication.ExecuteAsync<ExecuteAsync>(new string[0]));
         }
     }
 }

@@ -17,83 +17,8 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Describes a set of command line arguments, options, and execution behavior.
     /// <see cref="CommandLineApplication"/> can be nested to support subcommands.
     /// </summary>
-    public class CommandLineApplication
+    public partial class CommandLineApplication
     {
-        /// <summary>
-        /// Creates an instance of <typeparamref name="T"/>, matching <paramref name="args"/>
-        /// to all attributes on the type, and then invoking a method named "Execute" if it exists.
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />, 
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>. 
-        /// </summary>
-        /// <param name="args">The arguments</param>
-        /// <typeparam name="T">A type that should be bound to the arguments.</typeparam>
-        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
-        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
-        /// <returns>The process exit code</returns>
-        public static int Execute<T>(params string[] args)
-            where T : class, new()
-            => Execute<T>(PhysicalConsole.Singleton, args);
-
-        /// <summary>
-        /// Creates an instance of <typeparamref name="T"/>, matching <paramref name="args"/>
-        /// to all attributes on the type, and then invoking a method named "Execute" if it exists.
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />, 
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>. 
-        /// </summary>
-        /// <param name="console">The console to use</param>
-        /// <param name="args">The arguments</param>
-        /// <typeparam name="T">A type that should be bound to the arguments.</typeparam>
-        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
-        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
-        /// <returns>The process exit code</returns>
-        public static int Execute<T>(IConsole console, params string[] args)
-            where T : class, new()
-        {
-            if (console == null)
-            {
-                throw new ArgumentNullException(nameof(console));
-            }
-
-            if (args == null)
-            {
-                throw new ArgumentNullException(nameof(args));
-            }
-
-            var applicationBuilder = new ReflectionAppBuilder<T>();
-            var bindResult = applicationBuilder.Bind(args).GetBottomContext();
-            var method = ReflectionHelper.GetExecuteMethod(bindResult.Target.GetType());
-            var methodParams = method.GetParameters();
-            var arguments = new object[methodParams.Length];
-
-            for (var i = 0; i < methodParams.Length; i++)
-            {
-                var methodParam = methodParams[i];
-
-                if (typeof(CommandLineApplication).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
-                {
-                    arguments[i] = bindResult.App;
-                    bindResult.App.Out = console.Out;
-                    bindResult.App.Error = console.Error;
-                }
-                else if (typeof(IConsole).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
-                {
-                    arguments[i] = console;
-                }
-                else
-                {
-                    throw new InvalidOperationException(Strings.UnsupportedOnExecuteParameterType(methodParam));
-                }
-            }
-
-            var result = method.Invoke(bindResult.Target, arguments);
-            if (method.ReturnType == typeof(int))
-            {
-                return (int)result;
-            }
-
-            return 0;
-        }
-
         // used to keep track of arguments added from the response file
         private int _responseFileArgsEnd = -1;
         private readonly IConsole _console;
@@ -429,7 +354,16 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="args"></param>
         /// <returns>The return code from <see cref="Invoke"/>.</returns>
         public int Execute(params string[] args)
-            => Execute(new List<string>(args));
+        {
+            var arguments = new List<string>();
+
+            if (args != null)
+            {
+                arguments.AddRange(args);
+            }
+
+            return Execute(arguments);
+        }
 
         private int Execute(List<string> args)
         {

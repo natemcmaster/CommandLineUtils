@@ -26,6 +26,9 @@ namespace McMaster.Extensions.CommandLineUtils
         public static string InvalidOnExecuteReturnType
             = "OnExecute must have a return type of int or void.";
 
+        public static string InvalidAsyncOnExecuteReturnType
+            = "OnExecute must have a return type of Task<int> or Task.";
+
         public static string CannotDetermineOptionType(PropertyInfo member)
         {
             return $"Could not automatically determine the {nameof(CommandOptionType)} for type {member.PropertyType.FullName}. " +
@@ -41,12 +44,12 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             return $"Cannot specify both {nameof(OptionAttribute)} and {nameof(ArgumentAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
         }
-        
+
         public static string BothOptionAndHelpOptionAttributesCannotBeSpecified(PropertyInfo prop)
         {
             return $"Cannot specify both {nameof(OptionAttribute)} and {nameof(HelpOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
         }
-        
+
         public static string BothOptionAndVersionOptionAttributesCannotBeSpecified(PropertyInfo prop)
         {
             return $"Cannot specify both {nameof(OptionAttribute)} and {nameof(VersionOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
@@ -85,7 +88,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public const string MultipleHelpOptionPropertiesFound
             = "Multiple HelpOptionAttributes found. HelpOptionAttribute should only be used on one property per type.";
-        
+
         public const string VersionOptionOnTypeAndProperty
             = "Multiple VersionOptionAttributes found. VersionOptionAttribute should only be used one per type, either on one property or on the type.";
 

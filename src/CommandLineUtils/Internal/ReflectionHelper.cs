@@ -4,31 +4,56 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
     internal class ReflectionHelper
     {
-        public static MethodInfo GetExecuteMethod<T>()
-            => GetExecuteMethod(typeof(T));
+        public static MethodInfo GetExecuteMethod<T>(bool async)
+            => GetExecuteMethod(typeof(T), async);
 
-        public static MethodInfo GetExecuteMethod(Type type)
+        public static MethodInfo GetExecuteMethod(Type type, bool async)
         {
-            var methods = type.GetRuntimeMethods().Where(m => m.Name == "OnExecute").ToArray();
-
-            if (methods.Length > 1)
+            MethodInfo method;
+            try
             {
-                throw new InvalidOperationException(Strings.AmbiguousOnExecuteMethod);
+                method = type.GetTypeInfo().GetMethod("OnExecute", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+
+                if (method == null && async)
+                {
+                    method = type.GetTypeInfo().GetMethod("OnExecuteAsync", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                }
+            }
+            catch (AmbiguousMatchException ex)
+            {
+                throw new InvalidOperationException(Strings.AmbiguousOnExecuteMethod, ex);
             }
 
-            if (methods.Length == 0)
+            if (method == null)
             {
                 throw new InvalidOperationException(Strings.NoOnExecuteMethodFound);
             }
 
-            var method = methods[0];
+            if (async)
+            {
+                var returnType = method.ReturnType.GetTypeInfo();
 
-            if (method.ReturnType != typeof(void) && method.ReturnType != typeof(int))
+                if (!typeof(Task).GetTypeInfo().IsAssignableFrom(returnType))
+                {
+                    throw new InvalidOperationException(Strings.InvalidAsyncOnExecuteReturnType);
+                }
+
+                if (returnType.IsGenericType)
+                {
+                    var genericTypes = returnType.GetGenericArguments();
+                    if (genericTypes[0] != typeof(int))
+                    {
+                        throw new InvalidOperationException(Strings.InvalidAsyncOnExecuteReturnType);
+                    }
+                }
+            }
+            else if (method.ReturnType != typeof(void) && method.ReturnType != typeof(int))
             {
                 throw new InvalidOperationException(Strings.InvalidOnExecuteReturnType);
             }
