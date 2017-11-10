@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,19 +32,71 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The process exit code</returns>
         public static int Execute<T>(params string[] args)
             where T : class, new()
+            => Execute<T>(PhysicalConsole.Singleton, args);
+
+        /// <summary>
+        /// Creates an instance of <typeparamref name="T"/>, matching <paramref name="args"/>
+        /// to all attributes on the type, and then invoking a method named "Execute" if it exists.
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />, 
+        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>. 
+        /// </summary>
+        /// <param name="console">The console to use</param>
+        /// <param name="args">The arguments</param>
+        /// <typeparam name="T">A type that should be bound to the arguments.</typeparam>
+        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
+        /// <returns>The process exit code</returns>
+        public static int Execute<T>(IConsole console, params string[] args)
+            where T : class, new()
         {
-            var parsed = CommandLineParser.ParseArgs<T>(args);
-            var method = ReflectionHelper.GetExecuteMethod<T>();
-            var result = method.Invoke(parsed, Constants.EmptyArray);
+            if (console == null)
+            {
+                throw new ArgumentNullException(nameof(console));
+            }
+
+            if (args == null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
+            var applicationBuilder = new ReflectionAppBuilder<T>();
+            var bindResult = applicationBuilder.Bind(args).GetBottomContext();
+            var method = ReflectionHelper.GetExecuteMethod(bindResult.Target.GetType());
+            var methodParams = method.GetParameters();
+            var arguments = new object[methodParams.Length];
+
+            for (var i = 0; i < methodParams.Length; i++)
+            {
+                var methodParam = methodParams[i];
+
+                if (typeof(CommandLineApplication).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
+                {
+                    arguments[i] = bindResult.App;
+                    bindResult.App.Out = console.Out;
+                    bindResult.App.Error = console.Error;
+                }
+                else if (typeof(IConsole).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
+                {
+                    arguments[i] = console;
+                }
+                else
+                {
+                    throw new InvalidOperationException(Strings.UnsupportedOnExecuteParameterType(methodParam));
+                }
+            }
+
+            var result = method.Invoke(bindResult.Target, arguments);
             if (method.ReturnType == typeof(int))
             {
-                return (int) result;
+                return (int)result;
             }
+
             return 0;
         }
-        
+
         // used to keep track of arguments added from the response file
         private int _responseFileArgsEnd = -1;
+        private readonly IConsole _console;
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -87,9 +140,15 @@ namespace McMaster.Extensions.CommandLineUtils
             Commands = new List<CommandLineApplication>();
             RemainingArguments = new List<string>();
             Invoke = () => 0;
+            _console = console;
             Out = console.Out;
             Error = console.Error;
         }
+
+        /// <summary>
+        /// An arbitrary object that can be used to set state or context.
+        /// </summary>
+        public object State { get; set; }
 
         /// <summary>
         /// Defaults to null. A link to the parent command if this is instance is a subcommand.
@@ -240,14 +299,14 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Adds a subcommand.
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">The word used to invoke the subcommand.</param>
         /// <param name="configuration"></param>
         /// <param name="throwOnUnexpectedArg"></param>
         /// <returns></returns>
         public CommandLineApplication Command(string name, Action<CommandLineApplication> configuration,
             bool throwOnUnexpectedArg = true)
         {
-            var command = new CommandLineApplication(throwOnUnexpectedArg) { Name = name, Parent = this };
+            var command = new CommandLineApplication(_console, WorkingDirectory, throwOnUnexpectedArg) { Name = name, Parent = this };
             Commands.Add(command);
             configuration(command);
             return command;
@@ -435,12 +494,18 @@ namespace McMaster.Extensions.CommandLineUtils
                         {
                             command.ShowHelp();
                             option.TryParse(null);
+                            var parent = command;
+                            while (parent.Parent != null) parent = parent.Parent;
+                            parent.SelectedCommand = command;
                             return 0;
                         }
                         else if (command.OptionVersion == option)
                         {
                             command.ShowVersion();
                             option.TryParse(null);
+                            var parent = command;
+                            while (parent.Parent != null) parent = parent.Parent;
+                            parent.SelectedCommand = command;
                             return 0;
                         }
 
@@ -708,7 +773,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 optionsBuilder.AppendLine();
                 optionsBuilder.AppendLine("Options:");
-                var maxOptLen = options.Max(o => o.Template.Length);
+                var maxOptLen = options.Max(o => o.Template?.Length ?? 0);
                 var outputFormat = string.Format("  {{0, -{0}}}{{1}}", maxOptLen + 2);
                 foreach (var opt in options)
                 {
@@ -724,7 +789,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 commandsBuilder.AppendLine();
                 commandsBuilder.AppendLine("Commands:");
-                var maxCmdLen = commands.Max(c => c.Name.Length);
+                var maxCmdLen = commands.Max(c => c.Name?.Length ?? 0);
                 var outputFormat = string.Format("  {{0, -{0}}}{{1}}", maxCmdLen + 2);
                 foreach (var cmd in commands.OrderBy(c => c.Name))
                 {
@@ -769,7 +834,11 @@ namespace McMaster.Extensions.CommandLineUtils
                 cmd.IsShowingInformation = true;
             }
 
-            Out.WriteLine(FullName);
+            if (!string.IsNullOrEmpty(FullName))
+            {
+                Out.WriteLine(FullName);
+            }
+
             Out.WriteLine(LongVersionGetter());
         }
 
@@ -796,6 +865,8 @@ namespace McMaster.Extensions.CommandLineUtils
             Out.WriteLine(rootCmd.GetFullNameAndVersion());
             Out.WriteLine();
         }
+
+        internal CommandLineApplication SelectedCommand { get; private set; }
 
         private void HandleUnexpectedArg(CommandLineApplication command, IReadOnlyList<string> args, int index, string argTypeName)
         {

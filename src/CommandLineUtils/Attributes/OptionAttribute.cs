@@ -92,6 +92,11 @@ namespace McMaster.Extensions.CommandLineUtils
 
             Configure(option);
 
+            if (option.Description == null)
+            {
+                option.Description = prop.Name;
+            }
+
             app.Options.Add(option);
             return option;
         }

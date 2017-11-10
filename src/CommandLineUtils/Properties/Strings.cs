@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -50,7 +51,12 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             return $"Cannot specify both {nameof(OptionAttribute)} and {nameof(VersionOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
         }
-        
+
+        internal static string UnsupportedOnExecuteParameterType(ParameterInfo methodParam)
+        {
+            return $"Unsupported type on OnExecute '{methodParam.ParameterType.FullName}' on parameter {methodParam.Name}";
+        }
+
         public static string BothHelpOptionAndVersionOptionAttributesCannotBeSpecified(PropertyInfo prop)
         {
             return $"Cannot specify both {nameof(HelpOptionAttribute)} and {nameof(VersionOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";

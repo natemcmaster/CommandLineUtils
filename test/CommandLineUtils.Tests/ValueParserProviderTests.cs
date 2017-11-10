@@ -212,7 +212,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             [Argument(1)]
             public bool BoolArg { get; }
 
-            [Argument(2, MultipleValues = true)]
+            [Argument(2)]
             public IList<string> TheRest { get; }
         }
 

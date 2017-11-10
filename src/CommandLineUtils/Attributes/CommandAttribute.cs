@@ -74,7 +74,7 @@ namespace McMaster.Extensions.CommandLineUtils
             app.ExtendedHelpText = ExtendedHelpText;
             app.FullName = FullName;
             app.HandleResponseFiles = HandleResponseFiles;
-            app.Name = Name;
+            app.Name = app.Name ?? Name;
             app.ShowInHelpText = ShowInHelpText;
             app.ThrowOnUnexpectedArgument = ThrowOnUnexpectedArgument;
         }

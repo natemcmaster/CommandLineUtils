@@ -4,6 +4,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -11,45 +12,56 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <summary>
     /// Creates a <see cref="CommandLineApplication"/> as defined by attributes.
     /// </summary>
-    internal class ReflectionAppBuilder
+    internal class ReflectionAppBuilder<TTarget>
+        where TTarget : class, new()
     {
-        private readonly List<Action<object>> _binders = new List<Action<object>>();
-        private readonly HashSet<Type> _addedTypes = new HashSet<Type>();
+        private volatile bool _initialized;
+
+        private readonly List<Action<TTarget>> _binders = new List<Action<TTarget>>();
         private readonly SortedList<int, CommandArgument> _argOrder = new SortedList<int, CommandArgument>();
         private readonly Dictionary<int, PropertyInfo> _argPropOrder = new Dictionary<int, PropertyInfo>();
         private readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
         private readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
 
-        internal CommandLineApplication App { get; } = new CommandLineApplication();
+        public ReflectionAppBuilder()
+            : this(new CommandLineApplication(NullConsole.Singleton))
+        { }
 
-        public T Execute<T>(string[] args)
-            where T : class, new()
+        private ReflectionAppBuilder(CommandLineApplication app)
         {
-            AddType<T>();
-            
-            var options = new T();
-            
-            App.Execute(args);
-
-            foreach (var binder in _binders)
-            {
-                binder(options);
-            }
-
-            return options;
+            App = app;
+            App.OnExecute((Func<int>)OnExecute);
         }
 
-        public void AddType<T>()
-            where T : class, new()
+        internal CommandLineApplication App { get; }
+
+        public BindContext Bind(string[] args)
         {
-            if (_addedTypes.Contains(typeof(T)))
+            EnsureInitialized();
+            App.Execute(args);
+
+            if (App.SelectedCommand != null)
+            {
+                // execution normally stops when help --help or --version is hit
+                App.SelectedCommand.Invoke();
+            }
+
+            return (BindContext)App.State;
+        }
+
+        public void Initialize() => EnsureInitialized();
+
+        private void EnsureInitialized()
+        {
+            if (_initialized)
             {
                 return;
             }
-            
-            _addedTypes.Add(typeof(T));
 
-            var typeInfo = typeof(T).GetTypeInfo();
+            _initialized = true;
+
+            var type = typeof(TTarget);
+            var typeInfo = type.GetTypeInfo();
 
             var parsingOptionsAttr = typeInfo.GetCustomAttribute<CommandAttribute>();
             parsingOptionsAttr?.Configure(App);
@@ -60,14 +72,23 @@ namespace McMaster.Extensions.CommandLineUtils
             var versionOptionAttrOnType = typeInfo.GetCustomAttribute<VersionOptionAttribute>();
             versionOptionAttrOnType?.Configure(App);
 
-            var props = typeof(T).GetRuntimeProperties();
+            var props = typeInfo.GetProperties(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             if (props != null)
             {
                 AddProperties(props, helpOptionAttrOnType != null, versionOptionAttrOnType != null);
             }
+
+            var subcommands = typeInfo.GetCustomAttributes<SubcommandAttribute>();
+            if (subcommands != null)
+            {
+                foreach (var sub in subcommands)
+                {
+                    AddSubcommand(type, sub);
+                }
+            }
         }
 
-        private void AddProperties(IEnumerable<PropertyInfo> props, 
+        private void AddProperties(IEnumerable<PropertyInfo> props,
             bool hasHelpOptionAttrOnType,
             bool hasVersionOptionAttrOnType)
         {
@@ -83,7 +104,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     throw new InvalidOperationException(
                         Strings.BothHelpOptionAndVersionOptionAttributesCannotBeSpecified(prop));
                 }
-                
+
                 if (helpOptionAttr != null)
                 {
                     if (hasHelpOptionAttrOnType)
@@ -150,7 +171,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             // in the event AddType gets called multiple times
             App.Arguments.Clear();
-            
+
             foreach (var arg in _argOrder)
             {
                 if (App.Arguments.Count > 0)
@@ -220,7 +241,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
-                    OnBind(o => 
+                    OnBind(o =>
                         setter.Invoke(o, collectionParser.Parse(option.LongName, option.Values)));
                     break;
                 case CommandOptionType.SingleValue:
@@ -240,7 +261,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     });
                     break;
                 case CommandOptionType.NoValue:
-                    OnBind(o => 
+                    OnBind(o =>
                         setter.Invoke(o, option.HasValue()));
                     break;
                 default:
@@ -251,15 +272,12 @@ namespace McMaster.Extensions.CommandLineUtils
         private void AddArgument(PropertyInfo prop, ArgumentAttribute argumentAttr)
         {
             var argument = argumentAttr.Configure(prop);
-            
-            if ((prop.PropertyType.IsArray
-                 || typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(prop.PropertyType))
-                && prop.PropertyType != typeof(string)
-                && !argument.MultipleValues)
-            {
-                throw new InvalidOperationException(Strings.MultipleValuesArgumentShouldBeCollection);
-            }
-            
+
+            argument.MultipleValues =
+                prop.PropertyType.IsArray
+                || (typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(prop.PropertyType)
+                    && prop.PropertyType != typeof(string));
+
             if (_argPropOrder.TryGetValue(argumentAttr.Order, out var otherProp))
             {
                 throw new InvalidOperationException(
@@ -279,7 +297,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                 }
 
-                OnBind(o => 
+                OnBind(o =>
                     setter.Invoke(o, collectionParser.Parse(argument.Name, argument.Values)));
             }
             else
@@ -289,15 +307,85 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                 }
-                
+
                 OnBind(o =>
                     setter.Invoke(o, parser.Parse(argument.Name, argument.Value)));
             }
         }
-        
-        private void OnBind(Action<object> onBind)
+
+        private void OnBind(Action<TTarget> onBind)
         {
             _binders.Add(onBind);
+        }
+
+        private int OnExecute()
+        {
+            App.Parent?.Invoke();
+
+            var ctx = new BindContext
+            {
+                App = App,
+                Target = new TTarget(),
+            };
+
+            if (App.Parent?.State is BindContext parentCtx)
+            {
+                parentCtx.Child = ctx;
+            }
+
+            App.State = ctx;
+
+            foreach (var binder in _binders)
+            {
+                binder((TTarget)ctx.Target);
+            }
+
+            return 0;
+        }
+
+        private void AddSubcommand(Type parent, SubcommandAttribute subcommand)
+        {
+            var impl = AddSubcommandMethod.MakeGenericMethod(subcommand.CommandType);
+            impl.Invoke(this, new object[] { parent, subcommand });
+        }
+
+        private static readonly MethodInfo AddSubcommandMethod
+            = typeof(ReflectionAppBuilder<TTarget>).GetRuntimeMethods().Single(m => m.Name == nameof(AddSubcommandImpl));
+
+        private void AddSubcommandImpl<TSubCommand>(Type parent, SubcommandAttribute subcommand)
+            where TSubCommand : class, new()
+        {
+            var parentApp = App;
+            var childApp = App.Command(subcommand.Name, subcommand.Configure);
+
+            var builder = new ReflectionAppBuilder<TSubCommand>(childApp);
+            builder.Initialize();
+
+            var subcommandProp = parent.GetTypeInfo().GetProperty("Subcommand", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            if (subcommandProp != null)
+            {
+                var setter = ReflectionHelper.GetPropertySetter(subcommandProp);
+                builder.OnBind(o =>
+                {
+                    if (parentApp.State is BindContext ctx)
+                    {
+                        setter.Invoke(ctx.Target, o);
+                    }
+                });
+            }
+
+            var parentProp = subcommand.CommandType.GetTypeInfo().GetProperty("Parent", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            if (parentProp != null)
+            {
+                var setter = ReflectionHelper.GetPropertySetter(parentProp);
+                builder.OnBind(o =>
+                {
+                    if (parentApp.State is BindContext ctx)
+                    {
+                        setter.Invoke(o, ctx.Target);
+                    }
+                });
+            }
         }
     }
 }

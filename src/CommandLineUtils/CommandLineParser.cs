@@ -24,8 +24,8 @@ namespace McMaster.Extensions.CommandLineUtils
         public static T ParseArgs<T>(params string[] args)
             where T : class, new()
         {
-            var applicationBuilder = new ReflectionAppBuilder();
-            return applicationBuilder.Execute<T>(args);
+            var applicationBuilder = new ReflectionAppBuilder<T>();
+            return (T)applicationBuilder.Bind(args).Target;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
@@ -84,6 +85,38 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () => CommandLineApplication.Execute<BadReturnType>());
             
             Assert.Equal(Strings.InvalidOnExecuteReturnType, ex.Message);
+        }
+
+        private class ExecuteWithTypes
+        {
+            private void OnExecute(CommandLineApplication application, IConsole console)
+            {
+                Assert.NotNull(application);
+                Assert.NotNull(console);
+            }
+        }
+        
+        [Fact]
+        public void PassesInKnownParameterTypes()
+        {
+            Assert.Equal(0, CommandLineApplication.Execute<ExecuteWithTypes>(new string[0]));
+        }
+
+        private class ExecuteWithUnknownTypes
+        {
+            private void OnExecute(string other)
+            {
+            }
+        }
+        
+        [Fact]
+        public void ThrowsForUnknownOnExecuteTypes()
+        {
+            var ex = Assert.Throws<InvalidOperationException>(
+                () => CommandLineApplication.Execute<ExecuteWithUnknownTypes>());
+            var method = ReflectionHelper.GetExecuteMethod<ExecuteWithUnknownTypes>();
+            var param = Assert.Single(method.GetParameters());
+            Assert.Equal(Strings.UnsupportedOnExecuteParameterType(param), ex.Message);
         }
     }
 }

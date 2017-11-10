@@ -65,11 +65,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public string Description { get; set; }
 
-        /// <summary>
-        /// Allow multiple values. <seealso cref="CommandArgument.MultipleValues"/>.
-        /// </summary>
-        public bool MultipleValues { get; set; }
-
         internal CommandArgument Configure(PropertyInfo prop)
         {
             return new CommandArgument
@@ -77,7 +72,6 @@ namespace McMaster.Extensions.CommandLineUtils
                 Name = Name ?? prop.Name,
                 Description = Description,
                 ShowInHelpText = ShowInHelpText,
-                MultipleValues = MultipleValues,
             };
         }
     }

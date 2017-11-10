@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using Xunit;
@@ -10,20 +11,58 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class ReflectionAppBuilderTests
     {
+        [Subcommand("add", typeof(AddCmd))]
+        [Subcommand("rm", typeof(RemoveCmd))]
+        private class MasterApp
+        {
+            public object Subcommand { get; set; }
+        }
+
+        private class AddCmd
+        { }
+
+        private class RemoveCmd
+        { }
+
+        [Fact]
+        public void AddsSubcommands()
+        {
+            var builder = new ReflectionAppBuilder<MasterApp>();
+            builder.Initialize();
+            Assert.Collection(builder.App.Commands.OrderBy(c => c.Name),
+                add =>
+                {
+                    Assert.Equal("add", add.Name);
+                },
+                rm =>
+                {
+                    Assert.Equal("rm", rm.Name);
+                });
+        }
+
+        [Fact]
+        public void BindsToSubcommandProperty()
+        {
+            var builder = new ReflectionAppBuilder<MasterApp>();
+            var bound = builder.Bind(new[] { "add" });
+            var master = Assert.IsType<MasterApp>(bound.Target);
+            Assert.IsType<AddCmd>(master.Subcommand);
+        }
+
         [Command(HandleResponseFiles = true, AllowArgumentSeparator = true, ThrowOnUnexpectedArgument = false)]
         private class ParsingOptions
-        {}
+        { }
 
         [Fact]
         public void HandlesParsingOptionsAttribute()
         {
-            var builder = new ReflectionAppBuilder();
-            builder.AddType<ParsingOptions>();
+            var builder = new ReflectionAppBuilder<ParsingOptions>();
+            builder.Initialize();
             Assert.True(builder.App.HandleResponseFiles);
             Assert.True(builder.App.AllowArgumentSeparator);
             Assert.False(builder.App.ThrowOnUnexpectedArgument);
         }
-        
+
         private class AttributesNotUsedClass
         {
             public int OptionA { get; set; }
@@ -33,8 +72,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void AttributesAreRequired()
         {
-            var builder = new ReflectionAppBuilder();
-            builder.AddType<AttributesNotUsedClass>();
+            var builder = new ReflectionAppBuilder<AttributesNotUsedClass>();
+            builder.Initialize();
             Assert.Empty(builder.App.Arguments);
             Assert.Empty(builder.App.Commands);
             Assert.Empty(builder.App.Options);
@@ -52,7 +91,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenOptionTypeCannotBeDetermined()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder().AddType<AppWithUnknownOptionType>());
+                () => new ReflectionAppBuilder<AppWithUnknownOptionType>().Initialize());
             Assert.Equal(
                 Strings.CannotDetermineOptionType(typeof(AppWithUnknownOptionType).GetProperty("Option")),
                 ex.Message);
@@ -71,7 +110,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenShortOptionNamesAreAmbiguous()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder().AddType<AmbiguousShortOptionName>());
+                () => new ReflectionAppBuilder<AmbiguousShortOptionName>().Initialize());
 
             Assert.Equal(
                 Strings.OptionNameIsAmbiguous("m",
@@ -93,7 +132,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenLongOptionNamesAreAmbiguous()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder().AddType<AmbiguousLongOptionName>());
+                () => new ReflectionAppBuilder<AmbiguousLongOptionName>().Initialize());
 
             Assert.Equal(
                 Strings.OptionNameIsAmbiguous("no-edit",
@@ -113,7 +152,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenOptionAndArgumentAreSpecified()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder().AddType<BothOptionAndArgument>());
+                () => new ReflectionAppBuilder<BothOptionAndArgument>().Initialize());
 
             Assert.Equal(
                 Strings.BothOptionAndArgumentAttributesCannotBeSpecified(
@@ -134,7 +173,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenDuplicateArgumentPositionsAreSpecified()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder().AddType<DuplicateArguments>());
+                () => new ReflectionAppBuilder<DuplicateArguments>().Initialize());
 
             Assert.Equal(
                 Strings.DuplicateArgumentPosition(
@@ -146,10 +185,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private class MultipleValuesMultipleArgs
         {
-            [Argument(0, MultipleValues = true)]
+            [Argument(0)]
             public string[] Words { get; }
 
-            [Argument(1, MultipleValues = true)]
+            [Argument(1)]
             public string[] MoreWords { get; }
         }
 
@@ -157,7 +196,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenMultipleArgumentsAllowMultipleValues()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => new ReflectionAppBuilder().AddType<MultipleValuesMultipleArgs>());
+                () => new ReflectionAppBuilder<MultipleValuesMultipleArgs>().Initialize());
 
             Assert.Equal(
                 Strings.OnlyLastArgumentCanAllowMultipleValues("Words"),
@@ -197,12 +236,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ab = new CustomAttributeBuilder(ctor, Array.Empty<object>());
             pb.SetCustomAttribute(ab);
             var program = tb.CreateTypeInfo();
-            var addTypeMethod = typeof(ReflectionAppBuilder)
-                .GetRuntimeMethod(nameof(ReflectionAppBuilder.AddType), new Type[0])
-                .MakeGenericMethod(program.AsType());
-            var instance = new ReflectionAppBuilder();
-            addTypeMethod.Invoke(instance, null);
-            return instance.App.Options[0];
+            var appBuilder = typeof(ReflectionAppBuilder<>).MakeGenericType(program.AsType());
+            var instance = Activator.CreateInstance(appBuilder);
+            var init = appBuilder.GetTypeInfo().GetDeclaredMethod("Initialize");
+            init.Invoke(instance, Constants.EmptyArray);
+            var getter = appBuilder.GetTypeInfo().GetDeclaredProperty("App").GetMethod;
+            var app = (CommandLineApplication)getter.Invoke(instance, Array.Empty<object>());
+            return app.Options[0];
         }
     }
 }

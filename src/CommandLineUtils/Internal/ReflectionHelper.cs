@@ -10,8 +10,11 @@ namespace McMaster.Extensions.CommandLineUtils
     internal class ReflectionHelper
     {
         public static MethodInfo GetExecuteMethod<T>()
+            => GetExecuteMethod(typeof(T));
+            
+        public static MethodInfo GetExecuteMethod(Type type)
         {
-            var methods = typeof(T).GetRuntimeMethods().Where(m => m.Name == "OnExecute").ToArray();
+            var methods = type.GetRuntimeMethods().Where(m => m.Name == "OnExecute").ToArray();
             
             if (methods.Length > 1)
             {

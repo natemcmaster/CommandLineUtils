@@ -34,7 +34,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         internal void Configure(CommandOption option)
         {
-            option.Description = Description;
+            option.Description = Description ?? option.Description;
             option.Inherited = Inherited;
             option.ShowInHelpText = ShowInHelpText;
         }
