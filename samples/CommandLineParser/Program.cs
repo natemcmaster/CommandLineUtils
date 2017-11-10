@@ -1,55 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
 using McMaster.Extensions.CommandLineUtils;
 
-namespace CommandLineParserSample
+class Program
 {
-    [Command("HelloWorldSample", ExtendedHelpText = CommandLineOptions.HelpText)]
-    class CommandLineOptions
+    static int Main(string[] args)
     {
-        [Argument(0)]
-        public string Verb { get; set; } = "Hello";
+        var options = CommandLineParser.ParseArgs<CommandLineOptions>(args);
 
-        [Option(Description = "A list of subjects. Multiple values allowed.")]
-        public IReadOnlyList<string> Subjects { get; set; }
-
-        [HelpOption]
-        public bool IsHelp { get; set; }
-
-        [VersionOption("99.99.99")]
-        public bool IsVersion { get; set; }
-
-        private const string HelpText 
-        = @"
-Additional Info:
-   This text is printed to the console when someone runs this app with `--help`.
-";
-    }
-
-    class Program
-    {
-        static int Main(string[] args)
+        if (options.IsHelp)
         {
-            var options = CommandLineParser.ParseArgs<CommandLineOptions>(args);
-
-            if (options.IsHelp)
-            {
-                return 2;
-            }
-
-            if (options.IsVersion)
-            {
-                return 3;
-            }
-
-            var subjects = options.Subjects ?? new [] { "world" };
-
-            foreach (var subject in subjects)
-            {
-                Console.WriteLine($"Hello {subject}!");
-            }
-
-            return 0;
+            return 2;
         }
+
+        if (options.IsVersion)
+        {
+            return 3;
+        }
+
+        var subjects = options.Subjects ?? new[] { "world" };
+
+        foreach (var subject in subjects)
+        {
+            Console.WriteLine($"Hello {subject}!");
+        }
+
+        return 0;
     }
 }
