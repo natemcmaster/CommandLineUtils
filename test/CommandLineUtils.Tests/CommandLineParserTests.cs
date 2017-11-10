@@ -41,10 +41,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () => CommandLineParser.ParseArgs<Program>("-f"));
             Assert.StartsWith("Unrecognized option '-f'", ex.Message);
         }
-        
+
         private class PrivateSetterProgram
         {
             public int _value;
+            public static int _staticvalue;
 
             [Option]
             public int Number { get; private set; }
@@ -57,6 +58,19 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 get => _value;
                 set => _value = value + 1;
+            }
+
+            [Option("--static-number")]
+            public static int StaticNumber { get; set; }
+
+            [Option("--static-count")]
+            public static int StaticCount { get; }
+
+            [Option("--static-value")]
+            public static int StaticValue
+            {
+                get => _staticvalue;
+                set => _staticvalue = value + 1;
             }
         }
 
@@ -79,6 +93,28 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var parsed = CommandLineParser.ParseArgs<PrivateSetterProgram>("--value", "1");
             Assert.Equal(2, parsed.Value);
+        }
+
+
+        [Fact]
+        public void BindsToStaticProperties()
+        {
+            var parsed = CommandLineParser.ParseArgs<PrivateSetterProgram>("--static-number", "1");
+            Assert.Equal(1, PrivateSetterProgram.StaticNumber);
+        }
+
+        [Fact]
+        public void BindsToStaticReadOnlyProperties()
+        {
+            var parsed = CommandLineParser.ParseArgs<PrivateSetterProgram>("--static-count", "1");
+            Assert.Equal(1, PrivateSetterProgram.StaticCount);
+        }
+
+        [Fact]
+        public void BindsToStaticPropertiesWithSetterMethod()
+        {
+            var parsed = CommandLineParser.ParseArgs<PrivateSetterProgram>("--static-value", "1");
+            Assert.Equal(2, PrivateSetterProgram.StaticValue);
         }
     }
 }

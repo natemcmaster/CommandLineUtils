@@ -11,16 +11,16 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         public static MethodInfo GetExecuteMethod<T>()
             => GetExecuteMethod(typeof(T));
-            
+
         public static MethodInfo GetExecuteMethod(Type type)
         {
             var methods = type.GetRuntimeMethods().Where(m => m.Name == "OnExecute").ToArray();
-            
+
             if (methods.Length > 1)
             {
                 throw new InvalidOperationException(Strings.AmbiguousOnExecuteMethod);
             }
-            
+
             if (methods.Length == 0)
             {
                 throw new InvalidOperationException(Strings.NoOnExecuteMethodFound);
@@ -35,13 +35,13 @@ namespace McMaster.Extensions.CommandLineUtils
 
             return method;
         }
-        
+
         public static SetPropertyDelegate GetPropertySetter(PropertyInfo prop)
         {
             var setter = prop.GetSetMethod(nonPublic: true);
             if (setter != null)
             {
-                return (obj, value) => setter.Invoke(obj, new object[] {value});
+                return (obj, value) => setter.Invoke(obj, new object[] { value });
             }
             else
             {

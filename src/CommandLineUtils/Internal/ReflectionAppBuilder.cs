@@ -72,7 +72,7 @@ namespace McMaster.Extensions.CommandLineUtils
             var versionOptionAttrOnType = typeInfo.GetCustomAttribute<VersionOptionAttribute>();
             versionOptionAttrOnType?.Configure(App);
 
-            var props = typeInfo.GetProperties(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            var props = typeInfo.GetProperties(BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
             if (props != null)
             {
                 AddProperties(props, helpOptionAttrOnType != null, versionOptionAttrOnType != null);
