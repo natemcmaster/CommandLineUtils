@@ -55,7 +55,12 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             var applicationBuilder = new ReflectionAppBuilder<T>();
-            var bindResult = applicationBuilder.Bind(args).GetBottomContext();
+            var bindResult = applicationBuilder.Bind(console, args).GetBottomContext();
+            if (IsShowingInfo(bindResult))
+            {
+                return 0;
+            }
+
             var method = ReflectionHelper.GetExecuteMethod(bindResult.Target.GetType(), async: false);
             var arguments = BindParameters(console, bindResult, method);
 
@@ -103,8 +108,13 @@ namespace McMaster.Extensions.CommandLineUtils
                 throw new ArgumentNullException(nameof(console));
             }
 
-            var applicationBuilder = new ReflectionAppBuilder<T>();
-            var bindResult = applicationBuilder.Bind(args).GetBottomContext();
+            var applicationBuilder = new ReflectionAppBuilder<T>(console);
+            var bindResult = applicationBuilder.Bind(console, args).GetBottomContext();
+            if (IsShowingInfo(bindResult))
+            {
+                return 0;
+            }
+
             var method = ReflectionHelper.GetExecuteMethod(bindResult.Target.GetType(), async: true);
             var arguments = BindParameters(console, bindResult, method);
 
@@ -131,8 +141,6 @@ namespace McMaster.Extensions.CommandLineUtils
                 if (typeof(CommandLineApplication).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
                     arguments[i] = bindResult.App;
-                    bindResult.App.Out = console.Out;
-                    bindResult.App.Error = console.Error;
                 }
                 else if (typeof(IConsole).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
@@ -145,6 +153,24 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             return arguments;
+        }
+
+        private static bool IsShowingInfo(BindContext bindResult)
+        {
+            if (bindResult.App.IsShowingInformation)
+            {
+                if (bindResult.App.OptionHelp?.HasValue() == true && bindResult.App.StopParsingAfterHelpOption)
+                {
+                    return true;
+                }
+
+                if (bindResult.App.OptionVersion?.HasValue() == true && bindResult.App.StopParsingAfterVersionOption)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

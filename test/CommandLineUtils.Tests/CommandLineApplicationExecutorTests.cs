@@ -5,11 +5,19 @@ using System;
 using System.Reflection;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class CommandLineApplicationExecutorTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public CommandLineApplicationExecutorTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         private class VoidExecuteMethodWithNoArgs
         {
             [Option]
@@ -164,6 +172,25 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public async Task ExecutesAsync()
         {
             Assert.Equal(0, await CommandLineApplication.ExecuteAsync<ExecuteAsync>(new string[0]));
+        }
+
+        [HelpOption]
+        [VersionOption("1.2.3")]
+        private class HelpClass
+        {
+            private void OnExecute()
+            {
+                Assert.True(false, "This should not execute");
+            }
+        }
+
+        [Theory]
+        [InlineData("--help")]
+        [InlineData("--version")]
+        public void DoesNotInvokeOnExecuteWhenShowingInfo(string arg)
+        {
+            var rc = CommandLineApplication.Execute<HelpClass>(new TestConsole(_output), arg);
+            Assert.Equal(0, rc);
         }
     }
 }

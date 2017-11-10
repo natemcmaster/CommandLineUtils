@@ -51,7 +51,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Additional text that appears at the bottom of generated help text. <seealso cref="CommandLineApplication.ExtendedHelpText"/>
         /// </summary>
         public string ExtendedHelpText { get; set; }
-        
+
         /// <summary>
         /// Throw when unexpected arguments are encountered. <seealso cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>
         /// </summary>
@@ -67,16 +67,32 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public bool HandleResponseFiles { get; set; }
 
+        /// <summary>
+        /// Stops the parsing argument when <see cref="HelpOptionAttribute"/> is matched. Defaults to <c>true</c>.
+        /// This will prevent any <c>OnExecute</c> methods from being called.
+        /// </summary>
+        public bool StopParsingAfterHelpOption { get; set; } = true;
+
+        /// <summary>
+        /// Stops the parsing argument when <see cref="VersionOptionAttribute"/> is matched. Defaults to <c>true</c>.
+        /// This will prevent any <c>OnExecute</c> methods from being called.
+        /// </summary>
+        public bool StopParsingAfterVersionOption { get; set; } = true;
+
         internal void Configure(CommandLineApplication app)
         {
+            // this might have been set from SubcommandAttribute
+            app.Name = Name ?? app.Name;
+
             app.AllowArgumentSeparator = AllowArgumentSeparator;
             app.Description = Description;
             app.ExtendedHelpText = ExtendedHelpText;
             app.FullName = FullName;
             app.HandleResponseFiles = HandleResponseFiles;
-            app.Name = app.Name ?? Name;
             app.ShowInHelpText = ShowInHelpText;
+            app.StopParsingAfterHelpOption = StopParsingAfterHelpOption;
+            app.StopParsingAfterVersionOption = StopParsingAfterVersionOption;
             app.ThrowOnUnexpectedArgument = ThrowOnUnexpectedArgument;
         }
-    } 
+    }
 }

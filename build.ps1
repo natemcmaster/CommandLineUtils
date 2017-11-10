@@ -1,4 +1,4 @@
-#!/usr/bin/env powershell
+#!/usr/bin/env pwsh
 [CmdletBinding(PositionalBinding = $false)]
 param(
     [ValidateSet('Debug', 'Release')]

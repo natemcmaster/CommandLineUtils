@@ -24,7 +24,11 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
 
         public ReflectionAppBuilder()
-            : this(new CommandLineApplication(NullConsole.Singleton))
+            : this(PhysicalConsole.Singleton)
+        { }
+
+        public ReflectionAppBuilder(IConsole console)
+            : this(new CommandLineApplication(console))
         { }
 
         private ReflectionAppBuilder(CommandLineApplication app)
@@ -35,9 +39,10 @@ namespace McMaster.Extensions.CommandLineUtils
 
         internal CommandLineApplication App { get; }
 
-        public BindContext Bind(string[] args)
+        public BindContext Bind(IConsole console, string[] args)
         {
             EnsureInitialized();
+            App.SetConsole(console);
             App.Execute(args);
 
             if (App.SelectedCommand != null)

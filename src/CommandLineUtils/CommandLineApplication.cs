@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         // used to keep track of arguments added from the response file
         private int _responseFileArgsEnd = -1;
-        private readonly IConsole _console;
+        private IConsole _console;
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -65,9 +65,16 @@ namespace McMaster.Extensions.CommandLineUtils
             Commands = new List<CommandLineApplication>();
             RemainingArguments = new List<string>();
             Invoke = () => 0;
-            _console = console;
-            Out = console.Out;
-            Error = console.Error;
+            SetConsole(console);
+        }
+
+        private CommandLineApplication(CommandLineApplication parent, string name, bool throwOnUnexpectedArg)
+            : this(parent._console, parent.WorkingDirectory, throwOnUnexpectedArg)
+        {
+            Name = name;
+            Parent = parent;
+            StopParsingAfterHelpOption = parent.StopParsingAfterHelpOption;
+            StopParsingAfterVersionOption = parent.StopParsingAfterVersionOption;
         }
 
         /// <summary>
@@ -143,6 +150,18 @@ namespace McMaster.Extensions.CommandLineUtils
         public bool IsShowingInformation { get; protected set; }
 
         /// <summary>
+        /// Stops the parsing argument when <see cref="OptionHelp"/> is matched. Defaults to <c>true</c>.
+        /// This will prevent any <see cref="Invoke" /> methods from being called.
+        /// </summary>
+        public bool StopParsingAfterHelpOption { get; set; } = true;
+
+        /// <summary>
+        /// Stops the parsing argument when <see cref="OptionVersion"/> is matched. Defaults to <c>true</c>.
+        /// This will prevent any <see cref="Invoke" /> methods from being called.
+        /// </summary>
+        public bool StopParsingAfterVersionOption { get; set; } = true;
+
+        /// <summary>
         /// The action to call when this command is matched and <see cref="IsShowingInformation"/> is <c>false</c>.
         /// </summary>
         public Func<int> Invoke { get; set; }
@@ -168,13 +187,13 @@ namespace McMaster.Extensions.CommandLineUtils
 
         /// <summary>
         /// <para>
-        /// When <c>true</c>, the parser will treat any arguments beginning with '@' as a file path to a response file. 
+        /// When <c>true</c>, the parser will treat any arguments beginning with '@' as a file path to a response file.
         /// Defaults to <c>false</c>.
         /// </para>
         /// <para>
         /// A response file contains additional arguments that will be treated as if they were passed in on the command line.
-        /// In a response file, multiple options and arguments files can appear on one line. 
-        /// A single argument must appear on one line (cannot span multiple lines). 
+        /// In a response file, multiple options and arguments files can appear on one line.
+        /// A single argument must appear on one line (cannot span multiple lines).
         /// Response files can have comments that begin with the # symbol.
         /// </para>
         /// </summary>
@@ -231,7 +250,8 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandLineApplication Command(string name, Action<CommandLineApplication> configuration,
             bool throwOnUnexpectedArg = true)
         {
-            var command = new CommandLineApplication(_console, WorkingDirectory, throwOnUnexpectedArg) { Name = name, Parent = this };
+            var command = new CommandLineApplication(this, name, throwOnUnexpectedArg);
+
             Commands.Add(command);
             configuration(command);
             return command;
@@ -431,7 +451,10 @@ namespace McMaster.Extensions.CommandLineUtils
                             var parent = command;
                             while (parent.Parent != null) parent = parent.Parent;
                             parent.SelectedCommand = command;
-                            return 0;
+                            if (StopParsingAfterHelpOption)
+                            {
+                                return 0;
+                            }
                         }
                         else if (command.OptionVersion == option)
                         {
@@ -440,7 +463,10 @@ namespace McMaster.Extensions.CommandLineUtils
                             var parent = command;
                             while (parent.Parent != null) parent = parent.Parent;
                             parent.SelectedCommand = command;
-                            return 0;
+                            if (StopParsingAfterVersionOption)
+                            {
+                                return 0;
+                            }
                         }
 
                         if (longOption.Length == 2)
@@ -801,6 +827,29 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         internal CommandLineApplication SelectedCommand { get; private set; }
+
+        private bool _settingConsole;
+
+        internal void SetConsole(IConsole console)
+        {
+            if (_settingConsole)
+            {
+                // prevent stack overflow in the event someone has looping command line apps
+                return;
+            }
+
+            _settingConsole = true;
+            _console = console;
+            Out = console.Out;
+            Error = console.Error;
+
+            foreach (var cmd in Commands)
+            {
+                cmd.SetConsole(console);
+            }
+
+            _settingConsole = false;
+        }
 
         private void HandleUnexpectedArg(CommandLineApplication command, IReadOnlyList<string> args, int index, string argTypeName)
         {

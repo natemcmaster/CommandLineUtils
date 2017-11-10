@@ -6,11 +6,19 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class ReflectionAppBuilderTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public ReflectionAppBuilderTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         [Subcommand("add", typeof(AddCmd))]
         [Subcommand("rm", typeof(RemoveCmd))]
         private class MasterApp
@@ -44,7 +52,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void BindsToSubcommandProperty()
         {
             var builder = new ReflectionAppBuilder<MasterApp>();
-            var bound = builder.Bind(new[] { "add" });
+            var bound = builder.Bind(new TestConsole(_output), new[] { "add" });
             var master = Assert.IsType<MasterApp>(bound.Target);
             Assert.IsType<AddCmd>(master.Subcommand);
         }

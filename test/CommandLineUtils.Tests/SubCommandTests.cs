@@ -4,11 +4,20 @@
 using System;
 using System.Reflection;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class SubcommandTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public SubcommandTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
+        [Command(StopParsingAfterHelpOption = false)]
         [Subcommand("level1", typeof(Level1Cmd))]
         private class MasterApp : CommandBase
         {
@@ -55,42 +64,42 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItInvokesExecuteOnSubcommand_Bottom()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>("level1", "level2", "--value", "6");
+            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "level2", "--value", "6");
             Assert.Equal(6, rc);
         }
 
         [Fact]
         public void ItInvokesExecuteOnSubcommand_Middle()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>("level1");
+            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1");
             Assert.Equal(1, rc);
         }
 
         [Fact]
         public void ItInvokesExecuteOnSubcommand_Top()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>();
+            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output));
             Assert.Equal(0, rc);
         }
 
         [Fact]
         public void HandlesHelp_Bottom()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>("level1", "level2", "--help");
+            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "level2", "--help");
             Assert.Equal(102, rc);
         }
 
         [Fact]
         public void HandlesHelp_Middle()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>("level1", "--help");
+            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "--help");
             Assert.Equal(101, rc);
         }
 
         [Fact]
         public void HandlesHelp_Top()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>("--help");
+            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "--help");
             Assert.Equal(100, rc);
         }
 

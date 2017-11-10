@@ -80,21 +80,13 @@ namespace SubcommandSample
         }
     }
 
+    [HelpOption("--help")]
     abstract class CommandBase
     {
-        [HelpOption("--help")]
-        protected bool IsHelp { get; }
-
         public abstract List<string> CreateArgs();
 
         protected virtual int OnExecute(CommandLineApplication app)
         {
-            if (IsHelp)
-            {
-                app.ShowHelp();
-                return 1;
-            }
-
             var args = CreateArgs();
 
             Console.WriteLine("=> git " + ArgumentEscaper.EscapeAndConcatenate(args));

@@ -12,8 +12,8 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         /// <summary>
         /// Creates an instance of <typeparamref name="T" /> by matching <paramref name="args" />
-        /// with the properties on <typeparamref name="T" />. 
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />, 
+        /// with the properties on <typeparamref name="T" />.
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
         /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
         /// <param name="args">The arguments to parse</param>
@@ -25,7 +25,7 @@ namespace McMaster.Extensions.CommandLineUtils
             where T : class, new()
         {
             var applicationBuilder = new ReflectionAppBuilder<T>();
-            return (T)applicationBuilder.Bind(args).Target;
+            return (T)applicationBuilder.Bind(NullConsole.Singleton, args).Target;
         }
     }
 }
