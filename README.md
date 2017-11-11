@@ -35,9 +35,38 @@ Pre-release builds and symbols: https://www.myget.org/gallery/natemcmaster/
 
 ## Usage
 
-See [samples/](./samples/) for more examples.
+See [samples/](./samples/) for more examples, such as:
 
-`CommandLineApplication` is the main entry point for most console apps parsing.
+ - [Async console apps](./samples/AsyncWithAttributes/Program.cs)
+ - [Structing an app with subcommands](./samples/Subcommands/Program.cs)
+
+`CommandLineApplication` is the main entry point for most console apps parsing. There are two primary ways to use this API, using the builder pattern and attributes.
+
+### Attribute API
+
+```c#
+using System;
+using McMaster.Extensions.CommandLineUtils;
+
+[HelpOption]
+public class Program
+{
+    public static int Main(string[] args)
+        => CommandLineApplication.Execute<Program>(args);
+
+    [Option(Description = "The subject")]
+    public string Subject { get; }
+
+    private void OnExecute()
+    {
+        var subject = Subject ?? "world";
+        Console.WriteLine($"Hello {subject}!");
+    }
+}
+```
+
+### Builder API
+
 
 ```c#
 using System;
@@ -49,7 +78,7 @@ public class Program
     {
         var app = new CommandLineApplication();
 
-        app.HelpOption("-h|--help");
+        app.HelpOption();
         var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
 
         app.OnExecute(() =>
@@ -65,4 +94,5 @@ public class Program
         return app.Execute(args);
     }
 }
+
 ```
