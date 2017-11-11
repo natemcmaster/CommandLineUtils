@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils
             => app.HelpOption(Strings.DefaultHelpTemplate);
 
         /// <summary>
-        /// Adds the verbose option with the template <c></c>.
+        /// Adds the verbose option with the template <c>-v|--verbose</c>.
         /// </summary>
         /// <param name="app"></param>
         /// <returns></returns>

@@ -1,8 +1,6 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-
 namespace McMaster.Extensions.CommandLineUtils
 {
     internal class BindContext
@@ -14,12 +12,10 @@ namespace McMaster.Extensions.CommandLineUtils
         public BindContext GetBottomContext()
         {
             var retVal = this;
-            
             while (retVal?.Child != null)
             {
                 retVal = retVal.Child;
             }
-
             return retVal;
         }
     }

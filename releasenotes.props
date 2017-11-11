@@ -3,9 +3,22 @@
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.1.0'">
 2.1.0:
 New features:
- - CommandLineApplication.HandleResponseFiles - the parser can expand response files. Response files contain arguments
-   that will be treated as if they were passed on command line
-
+ - Attributes. Simplify command line argument definitions by adding attributes to a class that represents options and arguments.
+    - Options defined as [Option] or [Argument], [Subcommand].
+    - Command parsing options can be defined with [Command] and [Subcmomand].
+    - Special options include [HelpOption] and [VersionOption].
+ - Async from end to end. Using C# 7.1 and attribute binding, your console app can be async from top to bottom.
+ 
+New API
+ - Added OptionAttribute, ArgumentAttribute, CommandAttribute, SubcommandAttribute, HelpOptionAttribute, and VersionOptionAttribute.
+ - CommandLineApplication.Execute&lt;TApp&gt;() - executes an app where TApp uses attributes to define its options
+ - CommandLineApplication.ExecuteAsync&lt;TApp&gt;() - sample thing, but async.
+ - CommandLineApplication.StopParsingHelpOption and StopParsingVerboseOption. When the help and verbose options are matched
+   against a command-line flag, the parsing will stop by default. You can turn this off by setting these options if you
+   want OnExecute to be invoked no matter what.
+ - CommandLineApplication.HandleResponseFiles - the parser can treat arguments that begin with '@' as response files.
+   Response files contain arguments that will be treated as if they were passed on command line.
+ 
 Minor bug fixes:
  - Add return types to .VerboseOption() and ensure .HasValue() is true when HelpOption or VerboseOption are matched
  - Fix a NullReferenceException in some edge cases when parsing args

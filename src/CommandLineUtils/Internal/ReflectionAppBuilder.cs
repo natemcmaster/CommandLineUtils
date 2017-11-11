@@ -174,9 +174,6 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
 
-            // in the event AddType gets called multiple times
-            App.Arguments.Clear();
-
             foreach (var arg in _argOrder)
             {
                 if (App.Arguments.Count > 0)

@@ -37,20 +37,9 @@ namespace McMaster.Extensions.CommandLineUtils
 
             if (async)
             {
-                var returnType = method.ReturnType.GetTypeInfo();
-
-                if (!typeof(Task).GetTypeInfo().IsAssignableFrom(returnType))
+                if (method.ReturnType != typeof(Task) && method.ReturnType != typeof(Task<int>))
                 {
                     throw new InvalidOperationException(Strings.InvalidAsyncOnExecuteReturnType);
-                }
-
-                if (returnType.IsGenericType)
-                {
-                    var genericTypes = returnType.GetGenericArguments();
-                    if (genericTypes[0] != typeof(int))
-                    {
-                        throw new InvalidOperationException(Strings.InvalidAsyncOnExecuteReturnType);
-                    }
                 }
             }
             else if (method.ReturnType != typeof(void) && method.ReturnType != typeof(int))

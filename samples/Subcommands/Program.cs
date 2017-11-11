@@ -20,7 +20,7 @@ namespace SubcommandSample
 
         protected override int OnExecute(CommandLineApplication app)
         {
-            // this shows help even if the --help option isn't displayed
+            // this shows help even if the --help option isn't specified
             app.ShowHelp();
             return 1;
         }
@@ -28,7 +28,6 @@ namespace SubcommandSample
         public override List<string> CreateArgs()
         {
             var args = new List<string>();
-
             if (GitDir != null)
             {
                 args.Add("--git-dir=" + GitDir);
@@ -43,7 +42,7 @@ namespace SubcommandSample
         [Argument(0)]
         public string[] Files { get; set; }
 
-         // this will automatically be set OnExecute
+         // this will automatically be set before OnExecute is invoked
         private Program Parent { get; set; }
 
         public override List<string> CreateArgs()
@@ -66,7 +65,7 @@ namespace SubcommandSample
         [Option("-m")]
         public string Message { get; set; }
 
-        // this will automatically be set OnExecute
+        // this will automatically be set before OnExecute is invoked
         private Program Parent { get; set; }
 
         public override List<string> CreateArgs()
