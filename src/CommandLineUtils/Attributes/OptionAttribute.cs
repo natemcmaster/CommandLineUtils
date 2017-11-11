@@ -79,14 +79,14 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     LongName = longName,
                     ShortName = longName.Substring(0, 1),
-                    ValueName = prop.Name,
+                    ValueName = prop.Name.ToConstantCase(),
                 };
 
                 option.Template = $"-{option.ShortName}|--{option.LongName}";
 
                 if (option.OptionType != CommandOptionType.NoValue)
                 {
-                    option.Template += $" <{option.ValueName.ToUpperInvariant()}>";
+                    option.Template += $" <{option.ValueName.ToConstantCase()}>";
                 }
             }
 

@@ -56,5 +56,55 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             return sb.ToString();
         }
+
+        public static string ToConstantCase(this string str)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return str;
+            }
+
+            var sb = new StringBuilder();
+            var i = 0;
+            var addUnderscore = false;
+
+            for (; i < str.Length; i++)
+            {
+                var ch = str[i];
+                if (char.IsLetterOrDigit(ch))
+                {
+                    addUnderscore = !char.IsUpper(ch);
+                    sb.Append(char.ToUpperInvariant(ch));
+                    i++;
+                    break;
+                }
+            }
+
+            for (; i < str.Length; i++)
+            {
+                var ch = str[i];
+                if (char.IsUpper(ch))
+                {
+                    if (addUnderscore)
+                    {
+                        addUnderscore = false;
+                        sb.Append('_');
+                    }
+
+                    sb.Append(char.ToUpperInvariant(ch));
+                }
+                else if (char.IsLetterOrDigit(ch))
+                {
+                    addUnderscore = true;
+                    sb.Append(char.ToUpperInvariant(ch));
+                }
+                else
+                {
+                    addUnderscore = false;
+                    sb.Append('_');
+                }
+            }
+            return sb.ToString();
+        }
     }
 }

@@ -324,23 +324,23 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Theory]
-        [InlineData("Option123", "o", "option123")]
-        [InlineData("dWORD", "d", "d-word")]
-        [InlineData("MSBuild", "m", "msbuild")]
-        [InlineData("NoEdit", "n", "no-edit")]
-        [InlineData("SetUpstreamBranch", "s", "set-upstream-branch")]
-        [InlineData("lowerCaseFirst", "l", "lower-case-first")]
-        [InlineData("_field", "f", "field")]
-        [InlineData("__field", "f", "field")]
-        [InlineData("___field", "f", "field")]
-        [InlineData("m_field", "m", "m-field")]
-        [InlineData("m_Field", "m", "m-field")]
-        public void ItDeterminesShortAndLongOptionNames(string propName, string shortName, string longName)
+        [InlineData("Option123", "o", "option123", "OPTION123")]
+        [InlineData("dWORD", "d", "d-word", "D_WORD")]
+        [InlineData("MSBuild", "m", "msbuild", "MSBUILD")]
+        [InlineData("NoEdit", "n", "no-edit", "NO_EDIT")]
+        [InlineData("SetUpstreamBranch", "s", "set-upstream-branch", "SET_UPSTREAM_BRANCH")]
+        [InlineData("lowerCaseFirst", "l", "lower-case-first", "LOWER_CASE_FIRST")]
+        [InlineData("_field", "f", "field", "FIELD")]
+        [InlineData("__field", "f", "field", "FIELD")]
+        [InlineData("___field", "f", "field", "FIELD")]
+        [InlineData("m_field", "m", "m-field", "M_FIELD")]
+        [InlineData("m_Field", "m", "m-field", "M_FIELD")]
+        public void ItDeterminesShortAndLongOptionNames(string propName, string shortName, string longName, string valueName)
         {
             var option = CreateOption(typeof(int), propName);
             Assert.Equal(longName, option.LongName);
             Assert.Equal(shortName, option.ShortName);
-            Assert.Equal(propName, option.ValueName);
+            Assert.Equal(valueName, option.ValueName);
         }
 
         private CommandOption CreateOption(Type propType, string propName)
