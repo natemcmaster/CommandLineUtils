@@ -44,6 +44,8 @@ See [samples/](./samples/) for more examples, such as:
 
 ### Attribute API
 
+_(This API was added in 2.1.0.)_
+
 ```c#
 using System;
 using McMaster.Extensions.CommandLineUtils;
