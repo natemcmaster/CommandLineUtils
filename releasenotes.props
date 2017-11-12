@@ -16,7 +16,7 @@ New API
  - CommandLineApplication.StopParsingHelpOption and StopParsingVerboseOption. When the help and verbose options are matched
    against a command-line flag, the parsing will stop by default. You can turn this off by setting these options if you
    want OnExecute to be invoked no matter what.
- - CommandLineApplication.HandleResponseFiles - the parser can treat arguments that begin with '@' as response files.
+ - CommandLineApplication.ResponseFileHandling - the parser can treat arguments that begin with '@' as response files.
    Response files contain arguments that will be treated as if they were passed on command line.
  
 Minor bug fixes:

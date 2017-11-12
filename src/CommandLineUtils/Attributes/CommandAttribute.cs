@@ -63,9 +63,9 @@ namespace McMaster.Extensions.CommandLineUtils
         public bool AllowArgumentSeparator { get; set; }
 
         /// <summary>
-        /// Treat arguments beginning as '@' as a response file. <seealso cref="CommandLineApplication.HandleResponseFiles"/>
+        /// Treat arguments beginning as '@' as a response file. <seealso cref="CommandLineApplication.ResponseFileHandling"/>
         /// </summary>
-        public bool HandleResponseFiles { get; set; }
+        public ResponseFileHandling ResponseFileHandling { get; set; } = ResponseFileHandling.Disabled;
 
         /// <summary>
         /// Stops the parsing argument when <see cref="HelpOptionAttribute"/> is matched. Defaults to <c>true</c>.
@@ -88,7 +88,7 @@ namespace McMaster.Extensions.CommandLineUtils
             app.Description = Description;
             app.ExtendedHelpText = ExtendedHelpText;
             app.FullName = FullName;
-            app.HandleResponseFiles = HandleResponseFiles;
+            app.ResponseFileHandling = ResponseFileHandling;
             app.ShowInHelpText = ShowInHelpText;
             app.StopParsingAfterHelpOption = StopParsingAfterHelpOption;
             app.StopParsingAfterVersionOption = StopParsingAfterVersionOption;

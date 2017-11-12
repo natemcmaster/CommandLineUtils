@@ -1,15 +1,46 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
     internal class ResponseFileParser
     {
-        public static IList<string> Parse(string filePath)
+        public static IList<string> Parse(string filePath, ResponseFileHandling handling)
+        {
+            switch (handling)
+            {
+                case ResponseFileHandling.Disabled:
+                    return new[] { filePath };
+                case ResponseFileHandling.ParseArgsAsSpaceSeparated:
+                    return ParseAsSpaceSeparated(filePath);
+                case ResponseFileHandling.ParseArgsAsLineSeparated:
+                    return ParseAsLineSeparated(filePath);
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(handling));
+            }
+        }
+
+        private static IList<string> ParseAsLineSeparated(string filePath)
+        {
+            var lines = File.ReadAllLines(filePath);
+
+            var n = lines.Length > 0 && lines[lines.Length - 1].Length == 0
+                ? lines.Length - 1
+                : lines.Length;
+
+            return lines
+                .Take(n)
+                .Where(l => l != null && (l.Length == 0 || l[0] != '#'))
+                .ToList();
+        }
+
+        private static IList<string> ParseAsSpaceSeparated(string filePath)
         {
             var rspLines = File.ReadAllLines(filePath);
             var args = new List<string>(capacity: rspLines.Length);

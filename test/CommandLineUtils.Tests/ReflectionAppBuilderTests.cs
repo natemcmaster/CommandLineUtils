@@ -57,7 +57,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.IsType<AddCmd>(master.Subcommand);
         }
 
-        [Command(HandleResponseFiles = true, AllowArgumentSeparator = true, ThrowOnUnexpectedArgument = false)]
+        [Command(ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated, AllowArgumentSeparator = true, ThrowOnUnexpectedArgument = false)]
         private class ParsingOptions
         { }
 
@@ -66,7 +66,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var builder = new ReflectionAppBuilder<ParsingOptions>();
             builder.Initialize();
-            Assert.True(builder.App.HandleResponseFiles);
+            Assert.Equal(ResponseFileHandling.ParseArgsAsLineSeparated, builder.App.ResponseFileHandling);
             Assert.True(builder.App.AllowArgumentSeparator);
             Assert.False(builder.App.ThrowOnUnexpectedArgument);
         }

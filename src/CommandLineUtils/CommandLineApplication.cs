@@ -186,28 +186,24 @@ namespace McMaster.Extensions.CommandLineUtils
 
         /// <summary>
         /// <para>
-        /// When <c>true</c>, the parser will treat any arguments beginning with '@' as a file path to a response file.
-        /// Defaults to <c>false</c>.
+        /// When enabled, the parser will treat any arguments beginning with '@' as a file path to a response file.
+        /// A response file contains additional arguments that will be treated as if they were passed in on the command line.
         /// </para>
         /// <para>
-        /// A response file contains additional arguments that will be treated as if they were passed in on the command line.
-        /// In a response file, multiple options and arguments files can appear on one line.
-        /// A single argument must appear on one line (cannot span multiple lines).
-        /// Response files can have comments that begin with the # symbol.
+        /// Defaults to <see cref="ResponseFileHandling.Disabled" />.
+        /// </para>
+        /// <para>
+        /// Nested response false are not supported.
         /// </para>
         /// </summary>
-        /// <remarks>
-        /// Nested response false are not supported.
-        /// You cannot use the backslash character (\) to concatenate lines.
-        /// </remarks>
-        public bool HandleResponseFiles { get; set; }
+        public ResponseFileHandling ResponseFileHandling { get; set; }
 
         /// <summary>
         /// <para>
         /// Defines the working directory of the application. Defaults to <see cref="Directory.GetCurrentDirectory"/>.
         /// </para>
         /// <para>
-        /// This will be used as the base path for opening response files when <see cref="HandleResponseFiles"/> is <c>true</c>.
+        /// This will be used as the base path for opening response files when <see cref="ResponseFileHandling"/> is <c>true</c>.
         /// </para>
         /// </summary>
         public string WorkingDirectory { get; }
@@ -394,13 +390,23 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 var arg = args[index];
 
-                if (command.HandleResponseFiles && index > _responseFileArgsEnd && arg.Length > 1 && arg[0] == '@')
+                if (command.ResponseFileHandling != ResponseFileHandling.Disabled && index > _responseFileArgsEnd && arg.Length > 1 && arg[0] == '@')
                 {
                     var path = arg.Substring(1);
                     var fullPath = Path.IsPathRooted(path)
                         ? path
                         : Path.Combine(command.WorkingDirectory, path);
-                    var rspArgs = ResponseFileParser.Parse(fullPath);
+
+                    IList<string> rspArgs;
+                    try
+                    {
+                        rspArgs = ResponseFileParser.Parse(fullPath, command.ResponseFileHandling);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new CommandParsingException(this, $"Could not parse the response file '{arg}'", ex);
+                    }
+
                     args.InsertRange(index + 1, rspArgs);
                     _responseFileArgsEnd = index + rspArgs.Count;
                     continue;

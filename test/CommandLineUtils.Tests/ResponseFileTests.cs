@@ -30,12 +30,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             return rsp;
         }
 
-        private List<string> ParseResponseFile(params string[] responseFileLines)
+        private List<string> ParseResponseFile(ResponseFileHandling options, params string[] responseFileLines)
         {
             var rsp = CreateResponseFile(responseFileLines);
             var app = new CommandLineApplication
             {
-                HandleResponseFiles = true
+                ResponseFileHandling = options
             };
             var args = app.Argument("Words", "more words", multipleValues: true);
             Assert.Equal(0, app.Execute("@" + rsp));
@@ -53,9 +53,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
-        public void ItLoadsResponseFiles()
+        public void ItParsesResponseFileAsSpaceSeparated()
         {
-            var args = ParseResponseFile(
+            var args = ParseResponseFile(ResponseFileHandling.ParseArgsAsSpaceSeparated,
                 "Lorem",
                 " ipsum ");
 
@@ -65,9 +65,51 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void ItParsesResponseFileAsLineSeparated()
+        {
+            var args = ParseResponseFile(ResponseFileHandling.ParseArgsAsLineSeparated,
+                "Lorem ipsum",
+                "   ",
+                "",
+                "# comment line",
+                "  whitespace not changed ");
+
+            Assert.Collection(args,
+                a => Assert.Equal("Lorem ipsum", a),
+                a => Assert.Equal("   ", a),
+                a => Assert.Equal("", a),
+                a => Assert.Equal("  whitespace not changed ", a));
+        }
+
+        [Fact]
+        public void ItParsesResponseFileAsLineSeparatedSkipsTrailingEmptyLine()
+        {
+            var args = ParseResponseFile(ResponseFileHandling.ParseArgsAsLineSeparated,
+                "Lorem ipsum",
+                "");
+
+            Assert.Collection(args,
+                a => Assert.Equal("Lorem ipsum", a));
+        }
+
+        [Fact]
+        public void ItThrowsCommandParsingException()
+        {
+            var app = new CommandLineApplication
+            {
+                ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated,
+            };
+            app.Argument("Input", "Input", multipleValues: true);
+
+            var ex = Assert.Throws<CommandParsingException>(() => app.Execute("@somefilepath.rsp"));
+
+            Assert.IsType<FileNotFoundException>(ex.InnerException);
+        }
+
+        [Fact]
         public void ItSkipsEmptyLines()
         {
-            var args = ParseResponseFile(
+            var args = ParseResponseFile(ResponseFileHandling.ParseArgsAsSpaceSeparated,
                 "   ",
                 "only",
                 "   ",
@@ -85,7 +127,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 " ipsum ");
             var app = new CommandLineApplication
             {
-                HandleResponseFiles = true
+                ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated,
             };
             var args = app.Argument("Words", "more words", multipleValues: true);
 
@@ -104,7 +146,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItSkipsLinesBeginningWithPound()
         {
-            var args = ParseResponseFile(
+            var args = ParseResponseFile(ResponseFileHandling.ParseArgsAsSpaceSeparated,
                 "first",
                 "# Skipped",
                 "second");
@@ -117,7 +159,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItDoesNotLoadNestedResponseFiles()
         {
-            var args = ParseResponseFile("@arg");
+            var args = ParseResponseFile(ResponseFileHandling.ParseArgsAsSpaceSeparated, "@arg");
             var arg = Assert.Single(args);
             Assert.Equal("@arg", arg);
         }
@@ -125,7 +167,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItSplitsLinesWithMultipleArgs()
         {
-            var args = ParseResponseFile(
+            var args = ParseResponseFile(ResponseFileHandling.ParseArgsAsSpaceSeparated,
                 "first  second  third ",
                 "a \"double quoted argument\"",
                 "a 'single quoted argument'");
@@ -163,14 +205,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("\"\"\"\"", new[] { "" })]
         public void ItHandlesQuotedArgumentsInResponseFile(string input, string[] result)
         {
-            var args = ParseResponseFile(input);
+            var args = ParseResponseFile(ResponseFileHandling.ParseArgsAsSpaceSeparated, input);
             Assert.Equal(result, args);
         }
 
         [Fact]
         public void ItDoesNotAllowMultilinedQuotes()
         {
-            var args = ParseResponseFile(
+            var args = ParseResponseFile(ResponseFileHandling.ParseArgsAsSpaceSeparated,
                 "\"double quoted",
                 " that ends on next line\"");
 
@@ -189,7 +231,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication
             {
                 ThrowOnUnexpectedArgument = false,
-                HandleResponseFiles = true,
+                ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated,
                 AllowArgumentSeparator = true,
             };
             app.Execute("--", "@somepath.txt");
@@ -199,13 +241,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
-        public void SubcommandsCanHandleResponseFiles()
+        public void SubcommandsCanResponseFileOptions()
         {
             var app = new CommandLineApplication();
             CommandArgument wordArgs = null;
             app.Command("save", c =>
             {
-                c.HandleResponseFiles = true;
+                c.ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated;
                 wordArgs = c.Argument("words", "more words", multipleValues: true);
             });
             var rspFile = CreateResponseFile(" 'lorem ipsum' ", "dolor sit amet");
@@ -220,7 +262,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void HandlesResponseFilesWhenGivenAsOptionArg()
         {
-            var app = new CommandLineApplication(throwOnUnexpectedArg: false) { HandleResponseFiles = true };
+            var app = new CommandLineApplication(throwOnUnexpectedArg: false)
+            {
+                ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated,
+            };
             var opt = app.Option("--message <MESSAGE>", "Message", CommandOptionType.SingleValue);
             var rspFile = CreateResponseFile(" 'lorem ipsum' ", "dolor sit amet");
             app.Execute("--message", "@" + rspFile);
