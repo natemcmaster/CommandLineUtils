@@ -57,15 +57,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             var method = ReflectionHelper.GetExecuteMethod(bindResult.Target.GetType(), async: false);
-            var arguments = BindParameters(console, bindResult, method);
-
-            var result = method.Invoke(bindResult.Target, arguments);
-            if (method.ReturnType == typeof(int))
-            {
-                return (int)result;
-            }
-
-            return 0;
+            return ExecuteSync(console, bindResult, method);
         }
 
         /// <summary>
@@ -110,18 +102,27 @@ namespace McMaster.Extensions.CommandLineUtils
                 return 0;
             }
 
-            var method = ReflectionHelper.GetExecuteMethod(bindResult.Target.GetType(), async: true);
-            var arguments = BindParameters(console, bindResult, method);
-
-            var result = (Task)method.Invoke(bindResult.Target, arguments);
-            if (method.ReturnType.GetTypeInfo().IsGenericType)
+            if (ReflectionHelper.TryGetExecuteMethod(bindResult.Target.GetType(), async: true, method: out var method, error: out var ex))
             {
-                var task = (Task<int>)result;
-                return await task;
+                var arguments = BindParameters(console, bindResult, method);
+
+                var result = (Task)method.Invoke(bindResult.Target, arguments);
+                if (method.ReturnType.GetTypeInfo().IsGenericType)
+                {
+                    var task = (Task<int>)result;
+                    return await task;
+                }
+
+                await result;
+                return 0;
             }
 
-            await result;
-            return 0;
+            if (!ReflectionHelper.TryGetExecuteMethod(bindResult.Target.GetType(), async: false, method: out method, error: out _))
+            {
+                throw ex;
+            }
+
+            return ExecuteSync(console, bindResult, method);
         }
 
         private static object[] BindParameters(IConsole console, BindContext bindResult, MethodInfo method)
@@ -166,6 +167,19 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             return false;
+        }
+
+        private static int ExecuteSync(IConsole console, BindContext bindResult, MethodInfo method)
+        {
+            var arguments = BindParameters(console, bindResult, method);
+
+            var result = method.Invoke(bindResult.Target, arguments);
+            if (method.ReturnType == typeof(int))
+            {
+                return (int)result;
+            }
+
+            return 0;
         }
     }
 }

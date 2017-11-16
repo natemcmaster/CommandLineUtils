@@ -10,8 +10,21 @@ namespace McMaster.Extensions.CommandLineUtils
 {
     internal class ReflectionHelper
     {
-        public static MethodInfo GetExecuteMethod<T>(bool async)
-            => GetExecuteMethod(typeof(T), async);
+        public static bool TryGetExecuteMethod(Type type, bool async, out MethodInfo method, out Exception error)
+        {
+            try
+            {
+                method = GetExecuteMethod(type, async);
+                error = null;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                error = ex;
+                method = null;
+                return false;
+            }
+        }
 
         public static MethodInfo GetExecuteMethod(Type type, bool async)
         {

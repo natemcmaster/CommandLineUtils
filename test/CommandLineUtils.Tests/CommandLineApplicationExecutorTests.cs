@@ -140,7 +140,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<ExecuteWithUnknownTypes>());
-            var method = ReflectionHelper.GetExecuteMethod<ExecuteWithUnknownTypes>(async: false);
+            var method = ReflectionHelper.GetExecuteMethod(typeof(ExecuteWithUnknownTypes), async: false);
             var param = Assert.Single(method.GetParameters());
             Assert.Equal(Strings.UnsupportedOnExecuteParameterType(param), ex.Message);
         }
@@ -162,7 +162,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private class ExecuteAsync
         {
-            private async Task OnExecute()
+            private async Task OnExecuteAsync()
             {
                 await Task.CompletedTask;
             }
@@ -191,6 +191,17 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var rc = CommandLineApplication.Execute<HelpClass>(new TestConsole(_output), arg);
             Assert.Equal(0, rc);
+        }
+
+        private class SyncOnExecute
+        {
+            private int OnExecute() => 8;
+        }
+
+        [Fact]
+        public async Task FallsBackToSynchronous()
+        {
+            Assert.Equal(8, await CommandLineApplication.ExecuteAsync<SyncOnExecute>());
         }
     }
 }
