@@ -10,59 +10,6 @@ namespace McMaster.Extensions.CommandLineUtils
 {
     internal class ReflectionHelper
     {
-        public static bool TryGetExecuteMethod(Type type, bool async, out MethodInfo method, out Exception error)
-        {
-            try
-            {
-                method = GetExecuteMethod(type, async);
-                error = null;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                error = ex;
-                method = null;
-                return false;
-            }
-        }
-
-        public static MethodInfo GetExecuteMethod(Type type, bool async)
-        {
-            MethodInfo method;
-            try
-            {
-                method = type.GetTypeInfo().GetMethod("OnExecute", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-
-                if (method == null && async)
-                {
-                    method = type.GetTypeInfo().GetMethod("OnExecuteAsync", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-                }
-            }
-            catch (AmbiguousMatchException ex)
-            {
-                throw new InvalidOperationException(Strings.AmbiguousOnExecuteMethod, ex);
-            }
-
-            if (method == null)
-            {
-                throw new InvalidOperationException(Strings.NoOnExecuteMethodFound);
-            }
-
-            if (async)
-            {
-                if (method.ReturnType != typeof(Task) && method.ReturnType != typeof(Task<int>))
-                {
-                    throw new InvalidOperationException(Strings.InvalidAsyncOnExecuteReturnType);
-                }
-            }
-            else if (method.ReturnType != typeof(void) && method.ReturnType != typeof(int))
-            {
-                throw new InvalidOperationException(Strings.InvalidOnExecuteReturnType);
-            }
-
-            return method;
-        }
-
         public static SetPropertyDelegate GetPropertySetter(PropertyInfo prop)
         {
             var setter = prop.GetSetMethod(nonPublic: true);

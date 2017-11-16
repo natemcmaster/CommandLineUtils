@@ -73,6 +73,22 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(Strings.AmbiguousOnExecuteMethod, ex.Message);
         }
 
+        private class AmbiguousExecute
+        {
+            private int OnExecute() => 0;
+
+            private Task OnExecuteAsync() => Task.FromResult(0);
+        }
+
+        [Fact]
+        public void ThrowsIfMethodIsAmbiguous()
+        {
+            var ex = Assert.Throws<InvalidOperationException>(
+                () => CommandLineApplication.Execute<AmbiguousExecute>());
+
+            Assert.Equal(Strings.AmbiguousOnExecuteMethod, ex.Message);
+        }
+
         private class NoExecuteMethod
         { }
 
@@ -96,7 +112,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<BadReturnType>());
 
-            Assert.Equal(Strings.InvalidOnExecuteReturnType, ex.Message);
+            Assert.Equal(Strings.InvalidOnExecuteReturnType("OnExecute"), ex.Message);
         }
 
         private class BadAsyncReturnType
@@ -110,7 +126,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ex = await Assert.ThrowsAsync<InvalidOperationException>(
                 async () => await CommandLineApplication.ExecuteAsync<BadReturnType>());
 
-            Assert.Equal(Strings.InvalidAsyncOnExecuteReturnType, ex.Message);
+            Assert.Equal(Strings.InvalidOnExecuteReturnType("OnExecute"), ex.Message);
         }
 
         private class ExecuteWithTypes
@@ -140,7 +156,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<ExecuteWithUnknownTypes>());
-            var method = ReflectionHelper.GetExecuteMethod(typeof(ExecuteWithUnknownTypes), async: false);
+            var method = typeof(ExecuteWithUnknownTypes).GetTypeInfo().GetMethod("OnExecute", BindingFlags.Instance | BindingFlags.NonPublic);
             var param = Assert.Single(method.GetParameters());
             Assert.Equal(Strings.UnsupportedOnExecuteParameterType(param), ex.Message);
         }
@@ -202,6 +218,17 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public async Task FallsBackToSynchronous()
         {
             Assert.Equal(8, await CommandLineApplication.ExecuteAsync<SyncOnExecute>());
+        }
+
+        private class TaskReturnType
+        {
+            private Task OnExecute() => Task.FromResult(200);
+        }
+
+        [Fact]
+        public async Task ReturnsIntEvenIfReturnTypeIsNotGeneric()
+        {
+            Assert.Equal(200, await CommandLineApplication.ExecuteAsync<TaskReturnType>());
         }
     }
 }

@@ -44,20 +44,22 @@ namespace McMaster.Extensions.CommandLineUtils
         public static int Execute<TApp>(IConsole console, params string[] args)
             where TApp : class, new()
         {
-            if (console == null)
-            {
-                throw new ArgumentNullException(nameof(console));
-            }
-
-            var applicationBuilder = new ReflectionAppBuilder<TApp>();
-            var bindResult = applicationBuilder.Bind(console, args).GetBottomContext();
+            var bindResult = Bind<TApp>(console, args);
             if (IsShowingInfo(bindResult))
             {
                 return 0;
             }
 
-            var method = ReflectionHelper.GetExecuteMethod(bindResult.Target.GetType(), async: false);
-            return ExecuteSync(console, bindResult, method);
+            var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
+            switch (invoker)
+            {
+                case AsyncMethodInvoker asyncInvoker:
+                    return asyncInvoker.ExecuteAsync(console, bindResult).GetAwaiter().GetResult();
+                case SynchronousMethodInvoker syncInvoker:
+                    return syncInvoker.Execute(console, bindResult);
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         /// <summary>
@@ -90,65 +92,34 @@ namespace McMaster.Extensions.CommandLineUtils
         public static async Task<int> ExecuteAsync<TApp>(IConsole console, params string[] args)
             where TApp : class, new()
         {
-            if (console == null)
-            {
-                throw new ArgumentNullException(nameof(console));
-            }
-
-            var applicationBuilder = new ReflectionAppBuilder<TApp>(console);
-            var bindResult = applicationBuilder.Bind(console, args).GetBottomContext();
+            var bindResult = Bind<TApp>(console, args);
             if (IsShowingInfo(bindResult))
             {
                 return 0;
             }
 
-            if (ReflectionHelper.TryGetExecuteMethod(bindResult.Target.GetType(), async: true, method: out var method, error: out var ex))
+            var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
+            switch (invoker)
             {
-                var arguments = BindParameters(console, bindResult, method);
-
-                var result = (Task)method.Invoke(bindResult.Target, arguments);
-                if (method.ReturnType.GetTypeInfo().IsGenericType)
-                {
-                    var task = (Task<int>)result;
-                    return await task;
-                }
-
-                await result;
-                return 0;
+                case AsyncMethodInvoker asyncInvoker:
+                    return await asyncInvoker.ExecuteAsync(console, bindResult);
+                case SynchronousMethodInvoker syncInvoker:
+                    return syncInvoker.Execute(console, bindResult);
+                default:
+                    throw new NotImplementedException();
             }
-
-            if (!ReflectionHelper.TryGetExecuteMethod(bindResult.Target.GetType(), async: false, method: out method, error: out _))
-            {
-                throw ex;
-            }
-
-            return ExecuteSync(console, bindResult, method);
         }
 
-        private static object[] BindParameters(IConsole console, BindContext bindResult, MethodInfo method)
+        private static BindContext Bind<TApp>(IConsole console, string[] args) where TApp : class, new()
         {
-            var methodParams = method.GetParameters();
-            var arguments = new object[methodParams.Length];
-
-            for (var i = 0; i < methodParams.Length; i++)
+            if (console == null)
             {
-                var methodParam = methodParams[i];
-
-                if (typeof(CommandLineApplication).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
-                {
-                    arguments[i] = bindResult.App;
-                }
-                else if (typeof(IConsole).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
-                {
-                    arguments[i] = console;
-                }
-                else
-                {
-                    throw new InvalidOperationException(Strings.UnsupportedOnExecuteParameterType(methodParam));
-                }
+                throw new ArgumentNullException(nameof(console));
             }
 
-            return arguments;
+            var applicationBuilder = new ReflectionAppBuilder<TApp>();
+            var bindResult = applicationBuilder.Bind(console, args).GetBottomContext();
+            return bindResult;
         }
 
         private static bool IsShowingInfo(BindContext bindResult)
@@ -167,19 +138,6 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             return false;
-        }
-
-        private static int ExecuteSync(IConsole console, BindContext bindResult, MethodInfo method)
-        {
-            var arguments = BindParameters(console, bindResult, method);
-
-            var result = method.Invoke(bindResult.Target, arguments);
-            if (method.ReturnType == typeof(int))
-            {
-                return (int)result;
-            }
-
-            return 0;
         }
     }
 }

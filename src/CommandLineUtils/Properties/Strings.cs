@@ -18,16 +18,13 @@ namespace McMaster.Extensions.CommandLineUtils
             = "Cannot specify CommandOptionType.NoValue unless the type is boolean.";
 
         public const string AmbiguousOnExecuteMethod
-            = "Could not determine which 'OnExecute' method to use. Multiple methods with this name were found";
+            = "Could not determine which 'OnExecute' or 'OnExecuteAsync' method to use. Multiple methods with this name were found";
 
         public const string NoOnExecuteMethodFound
-            = "No method named 'OnExecute' could be found";
+            = "No method named 'OnExecute' or 'OnExecuteAsync' could be found";
 
-        public static string InvalidOnExecuteReturnType
-            = "OnExecute must have a return type of int or void.";
-
-        public static string InvalidAsyncOnExecuteReturnType
-            = "OnExecute must have a return type of Task<int> or Task.";
+        public static string InvalidOnExecuteReturnType(string methodName)
+            => methodName + " must have a return type of int or void, or if the method is async, Task<int> or Task.";
 
         public static string CannotDetermineOptionType(PropertyInfo member)
         {
