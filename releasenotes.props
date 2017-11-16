@@ -8,8 +8,9 @@ New features:
     - Command parsing options can be defined with [Command] and [Subcmomand].
     - Special options include [HelpOption] and [VersionOption].
  - Async from end to end. Using C# 7.1 and attribute binding, your console app can be async from top to bottom.
- 
+
 New API
+ - Prompt.GetYesNo, Prompt.GetPassword, and more. Added API for interactively getting responses on the console.
  - Added OptionAttribute, ArgumentAttribute, CommandAttribute, SubcommandAttribute, HelpOptionAttribute, and VersionOptionAttribute.
  - CommandLineApplication.Execute&lt;TApp&gt;() - executes an app where TApp uses attributes to define its options
  - CommandLineApplication.ExecuteAsync&lt;TApp&gt;() - sample thing, but async.
@@ -18,7 +19,7 @@ New API
    want OnExecute to be invoked no matter what.
  - CommandLineApplication.ResponseFileHandling - the parser can treat arguments that begin with '@' as response files.
    Response files contain arguments that will be treated as if they were passed on command line.
- 
+
 Minor bug fixes:
  - Add return types to .VerboseOption() and ensure .HasValue() is true when HelpOption or VerboseOption are matched
  - Fix a NullReferenceException in some edge cases when parsing args
