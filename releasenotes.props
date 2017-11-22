@@ -23,6 +23,7 @@ New API
 Minor bug fixes:
  - Add return types to .VerboseOption() and ensure .HasValue() is true when HelpOption or VerboseOption are matched
  - Fix a NullReferenceException in some edge cases when parsing args
+ - Fix bug where DotNetExe.FullPath might return the wrong location of the dotnet.exe file
     </PackageReleaseNotes>
   </PropertyGroup>
 </Project>

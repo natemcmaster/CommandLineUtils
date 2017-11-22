@@ -1,4 +1,4 @@
-﻿version: 2.1.0-alpha.{build}+{branch}
+﻿version: 2.1.0-rc.{build}+{branch}
 init:
   - git config --global core.autocrlf input
 clone_depth: 1

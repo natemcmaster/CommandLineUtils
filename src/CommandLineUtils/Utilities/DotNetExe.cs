@@ -53,31 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 return mainModule.FileName;
             }
 
-            // if Process.MainModule is not available or it does not equal "dotnet(.exe)?", fallback to navigating to the muxer
-            // by using the location of the shared framework
-
-            var fxDepsFile = AppContext.GetData("FX_DEPS_FILE") as string;
-
-            if (string.IsNullOrEmpty(fxDepsFile))
-            {
-                return null;
-            }
-
-            var muxerDir = new FileInfo(fxDepsFile) // Microsoft.NETCore.App.deps.json
-                .Directory? // (version)
-                .Parent? // Microsoft.NETCore.App
-                .Parent? // shared
-                .Parent; // DOTNET_HOME
-
-            if (muxerDir == null)
-            {
-                return null;
-            }
-
-            var muxer = Path.Combine(muxerDir.FullName, fileName);
-            return File.Exists(muxer)
-                ? muxer
-                : null;
+            return null;
 #else
 #error Update target frameworks
 #endif
