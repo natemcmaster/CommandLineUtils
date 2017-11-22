@@ -18,6 +18,10 @@ class Program
 
         Console.WriteLine($"Hello, there { name ?? "anonymous console user"}.");
 
+        var age = Prompt.GetInt("How old are you?",
+            promptColor: ConsoleColor.White,
+            promptBgColor: ConsoleColor.DarkRed);
+
         var password = Prompt.GetPassword("What is your password?",
             promptColor: ConsoleColor.White,
             promptBgColor: ConsoleColor.DarkBlue);

@@ -7,12 +7,12 @@ using System.Text;
 namespace McMaster.Extensions.CommandLineUtils
 {
     /// <summary>
-    /// Utilities for getting input from an interactive console
+    /// Utilities for getting input from an interactive console.
     /// </summary>
     public static class Prompt
     {
         /// <summary>
-        /// Blocks on a yes/no response on the console from the user <paramref name="prompt" />.
+        /// Gets a yes/no response from the console after displaying a <paramref name="prompt" />.
         /// <para>
         /// The parsing is case insensitive. Valid responses include: yes, no, y, n.
         /// </para>
@@ -53,7 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Blocks on a console response from the users after displaying <paramref name="prompt" />.
+        /// Gets a console response from the console after displaying a <paramref name="prompt" />.
         /// </summary>
         /// <param name="prompt">The question to display on command line</param>
         /// <param name="defaultValue">If the user enters a blank response, return this value instead.</param>
@@ -81,7 +81,7 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Blocks on a console response that contains a password. Input is masked with an asterisk.
+        /// Gets a response that contains a password. Input is masked with an asterisk.
         /// </summary>
         /// <param name="prompt">The question to display on command line</param>
         /// <param name="promptColor">The console color to use for the prompt</param>
@@ -119,6 +119,50 @@ namespace McMaster.Extensions.CommandLineUtils
             while (key.Key != ConsoleKey.Enter);
 
             return resp.ToString();
+        }
+
+        /// <summary>
+        /// Gets an integer response from the console after displaying a <paramref name="prompt" />.
+        /// </summary>
+        /// <param name="prompt">The question to display on the command line</param>
+        /// <param name="defaultAnswer">If the user provides an empty response, which value should be returned</param>
+        /// <param name="promptColor">The console color to display</param>
+        /// <param name="promptBgColor">The console background color for the prompt</param>
+        /// <returns>The response as a number</returns>
+        public static int GetInt(string prompt, int? defaultAnswer = null, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+        {
+            do
+            {
+                Write(prompt, promptColor, promptBgColor);
+                if (defaultAnswer.HasValue)
+                {
+                    Write($" [{defaultAnswer.Value}]", promptColor, promptBgColor);
+                }
+                Console.Write(' ');
+
+                var resp = Console.ReadLine()?.ToLower()?.Trim();
+
+                if (string.IsNullOrEmpty(resp))
+                {
+                    if (defaultAnswer.HasValue)
+                    {
+                        return defaultAnswer.Value;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a valid number or press CTRL+C to exit.");
+                        continue;
+                    }
+                }
+
+                if (int.TryParse(resp, out var result))
+                {
+                    return result;
+                }
+
+                Console.WriteLine($"Invalid number '{resp}'. Please enter a valid number or press CTRL+C to exit.");
+            }
+            while (true);
         }
 
         private static void Write(string value, ConsoleColor? foreground, ConsoleColor? background)
