@@ -15,6 +15,8 @@ namespace McMaster.Extensions.CommandLineUtils
     internal class ReflectionAppBuilder<TTarget>
         where TTarget : class, new()
     {
+        private const BindingFlags PropertyBindingFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
+
         private volatile bool _initialized;
 
         private readonly List<Action<TTarget>> _binders = new List<Action<TTarget>>();
@@ -71,13 +73,18 @@ namespace McMaster.Extensions.CommandLineUtils
             var parsingOptionsAttr = typeInfo.GetCustomAttribute<CommandAttribute>();
             parsingOptionsAttr?.Configure(App);
 
+            if (parsingOptionsAttr?.ThrowOnUnexpectedArgument == false)
+            {
+                AddRemainingArgsProperty(typeInfo);
+            }
+
             var helpOptionAttrOnType = typeInfo.GetCustomAttribute<HelpOptionAttribute>();
             helpOptionAttrOnType?.Configure(App);
 
             var versionOptionAttrOnType = typeInfo.GetCustomAttribute<VersionOptionAttribute>();
             versionOptionAttrOnType?.Configure(App);
 
-            var props = typeInfo.GetProperties(BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+            var props = typeInfo.GetProperties(PropertyBindingFlags);
             if (props != null)
             {
                 AddProperties(props, helpOptionAttrOnType != null, versionOptionAttrOnType != null);
@@ -91,6 +98,32 @@ namespace McMaster.Extensions.CommandLineUtils
                     AddSubcommand(type, sub);
                 }
             }
+        }
+
+        private void AddRemainingArgsProperty(TypeInfo typeInfo)
+        {
+            var prop = typeInfo.GetProperty("RemainingArguments", PropertyBindingFlags);
+            if (prop == null)
+            {
+                return;
+            }
+
+            var setter = ReflectionHelper.GetPropertySetter(prop);
+
+            if (prop.PropertyType == typeof(string[]))
+            {
+                OnBind(o
+                    => setter(o, App.RemainingArguments.ToArray()));
+                return;
+            }
+
+            if (!typeof(IReadOnlyList<string>).GetTypeInfo().IsAssignableFrom(prop.PropertyType))
+            {
+                throw new InvalidOperationException(Strings.RemainingArgsPropsIsUnassignable(typeInfo));
+            }
+
+            OnBind(o =>
+                setter(o, App.RemainingArguments));
         }
 
         private void AddProperties(IEnumerable<PropertyInfo> props,

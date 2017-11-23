@@ -27,55 +27,35 @@ namespace McMaster.Extensions.CommandLineUtils
             => methodName + " must have a return type of int or void, or if the method is async, Task<int> or Task.";
 
         public static string CannotDetermineOptionType(PropertyInfo member)
-        {
-            return $"Could not automatically determine the {nameof(CommandOptionType)} for type {member.PropertyType.FullName}. " +
+            => $"Could not automatically determine the {nameof(CommandOptionType)} for type {member.PropertyType.FullName}. " +
                     $"Set the {nameof(OptionAttribute.OptionType)} on the {nameof(OptionAttribute)} declaration for {member.DeclaringType.FullName}.{member.Name}.";
-        }
 
         public static string OptionNameIsAmbiguous(string optionName, PropertyInfo first, PropertyInfo second)
-        {
-            return $"Ambiguous option name. Both {first.DeclaringType.FullName}.{first.Name} and {second.DeclaringType.FullName}.{second.Name} produce a CommandOption with the name '{optionName}'";
-        }
+            => $"Ambiguous option name. Both {first.DeclaringType.FullName}.{first.Name} and {second.DeclaringType.FullName}.{second.Name} produce a CommandOption with the name '{optionName}'";
 
         public static string BothOptionAndArgumentAttributesCannotBeSpecified(PropertyInfo prop)
-        {
-            return $"Cannot specify both {nameof(OptionAttribute)} and {nameof(ArgumentAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
-        }
+            => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(ArgumentAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
 
         public static string BothOptionAndHelpOptionAttributesCannotBeSpecified(PropertyInfo prop)
-        {
-            return $"Cannot specify both {nameof(OptionAttribute)} and {nameof(HelpOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
-        }
+            => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(HelpOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
 
         public static string BothOptionAndVersionOptionAttributesCannotBeSpecified(PropertyInfo prop)
-        {
-            return $"Cannot specify both {nameof(OptionAttribute)} and {nameof(VersionOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
-        }
+            => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(VersionOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
 
         internal static string UnsupportedOnExecuteParameterType(ParameterInfo methodParam)
-        {
-            return $"Unsupported type on OnExecute '{methodParam.ParameterType.FullName}' on parameter {methodParam.Name}";
-        }
+            => $"Unsupported type on OnExecute '{methodParam.ParameterType.FullName}' on parameter {methodParam.Name}";
 
         public static string BothHelpOptionAndVersionOptionAttributesCannotBeSpecified(PropertyInfo prop)
-        {
-            return $"Cannot specify both {nameof(HelpOptionAttribute)} and {nameof(VersionOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
-        }
+            => $"Cannot specify both {nameof(HelpOptionAttribute)} and {nameof(VersionOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
 
         public static string DuplicateArgumentPosition(int order, PropertyInfo first, PropertyInfo second)
-        {
-            return $"Duplicate value for argument order. Both {first.DeclaringType.FullName}.{first.Name} and {second.DeclaringType.FullName}.{second.Name} have set Order = {order}";
-        }
+            => $"Duplicate value for argument order. Both {first.DeclaringType.FullName}.{first.Name} and {second.DeclaringType.FullName}.{second.Name} have set Order = {order}";
 
         public static string OnlyLastArgumentCanAllowMultipleValues(string lastArgName)
-        {
-            return $"The last argument '{lastArgName}' accepts multiple values. No more argument can be added.";
-        }
+            => $"The last argument '{lastArgName}' accepts multiple values. No more argument can be added.";
 
         public static string CannotDetermineParserType(PropertyInfo prop)
-        {
-            return $"Could not automatically determine how to convert string values into {prop.PropertyType.FullName}.";
-        }
+            => $"Could not automatically determine how to convert string values into {prop.PropertyType.FullName}.";
 
         public static string MultipleValuesArgumentShouldBeCollection
             = "ArgumentAttribute.MultipleValues should be true if the property type is an array or collection.";
@@ -91,5 +71,8 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public const string MultipleVersionOptionPropertiesFound
             = "Multiple VersionOptionAttributes found. VersionOptionAttribute should only be used on one property per type.";
+
+        public static string RemainingArgsPropsIsUnassignable(TypeInfo typeInfo)
+            => $"The RemainingArguments property type on {typeInfo.Name} is invalid. It must be assignable from string[].";
     }
 }

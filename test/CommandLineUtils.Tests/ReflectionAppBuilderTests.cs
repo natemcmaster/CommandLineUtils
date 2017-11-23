@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -247,6 +248,32 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ex = Assert.Throws<CommandParsingException>(
                 () => CommandLineParser.ParseArgs<SimpleProgram>("-f"));
             Assert.StartsWith("Unrecognized option '-f'", ex.Message);
+        }
+
+        [Command(ThrowOnUnexpectedArgument = false)]
+        private class RemainingArgs_Array
+        {
+            public string[] RemainingArguments { get; }
+        }
+
+        [Fact]
+        public void ItSetsRemainingArguments_Array()
+        {
+            var result = CommandLineParser.ParseArgs<RemainingArgs_Array>("a", "b");
+            Assert.Equal(new[] { "a", "b" }, result.RemainingArguments);
+        }
+
+        [Command(ThrowOnUnexpectedArgument = false)]
+        private class RemainingArgs_List
+        {
+            public List<string> RemainingArguments { get; }
+        }
+
+        [Fact]
+        public void ItSetsRemainingArguments_List()
+        {
+            var result = CommandLineParser.ParseArgs<RemainingArgs_List>("a", "b");
+            Assert.Equal(new[] { "a", "b" }, result.RemainingArguments);
         }
 
         private class PrivateSetterProgram

@@ -39,6 +39,8 @@ See [samples/](./samples/) for more examples, such as:
 
  - [Async console apps](./samples/AsyncWithAttributes/Program.cs)
  - [Structing an app with subcommands](./samples/Subcommands/Program.cs)
+ - [Defining options with attributes](./samples/HelloWorld.Attributes/Program.cs)
+ - [Interactive console prompts](./samples/Prompt/Program.cs)
 
 `CommandLineApplication` is the main entry point for most console apps parsing. There are two primary ways to use this API, using the builder pattern and attributes.
 
