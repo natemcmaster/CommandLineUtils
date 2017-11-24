@@ -106,6 +106,24 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 ex.Message);
         }
 
+        private class ShortNameOverride
+        {
+            [Option(ShortName = "d1")]
+            public string Detail1 { get; }
+
+            [Option(ShortName = "d2")]
+            public string Detail2 { get; }
+        }
+
+        [Fact]
+        public void CanOverrideShortNameOnOption()
+        {
+            var builder = new ReflectionAppBuilder<ShortNameOverride>();
+            builder.Initialize();
+            Assert.Contains(builder.App.Options, o => o.ShortName == "d1" && o.LongName == "detail1");
+            Assert.Contains(builder.App.Options, o => o.ShortName == "d2" && o.LongName == "detail2");
+        }
+
         private class AmbiguousShortOptionName
         {
             [Option]

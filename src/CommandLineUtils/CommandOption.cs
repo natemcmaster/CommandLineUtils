@@ -87,7 +87,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public string SymbolName { get; set; }
 
         /// <summary>
-        /// The name of value(s) providedwhen <see cref="OptionType"/> is not <see cref="CommandOptionType.NoValue"/>.
+        /// The name of value(s) shown in help text when <see cref="OptionType"/> is not <see cref="CommandOptionType.NoValue"/>.
         /// </summary>
         public string ValueName { get; set; }
 
