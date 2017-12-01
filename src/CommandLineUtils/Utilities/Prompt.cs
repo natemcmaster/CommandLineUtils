@@ -148,7 +148,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="prompt">The question to display on the command line</param>
         /// <param name="promptColor">The console color to use for the prompt</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
-        /// <returns>A stream of characters as input by the user including <see cref="Backspace"/> for deletions.</returns>
+        /// <returns>A stream of characters as input by the user including Backspace for deletions.</returns>
         private static IEnumerable<char> ReadObfuscatedLine(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
         {
             const string whiteOut = "\b \b";
