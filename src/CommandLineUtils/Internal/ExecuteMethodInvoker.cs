@@ -53,31 +53,5 @@ namespace McMaster.Extensions.CommandLineUtils
 
             throw new InvalidOperationException(Strings.InvalidOnExecuteReturnType(method.Name));
         }
-
-        protected object[] BindParameters(IConsole console, BindContext bindResult)
-        {
-            var methodParams = Method.GetParameters();
-            var arguments = new object[methodParams.Length];
-
-            for (var i = 0; i < methodParams.Length; i++)
-            {
-                var methodParam = methodParams[i];
-
-                if (typeof(CommandLineApplication).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
-                {
-                    arguments[i] = bindResult.App;
-                }
-                else if (typeof(IConsole).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
-                {
-                    arguments[i] = console;
-                }
-                else
-                {
-                    throw new InvalidOperationException(Strings.UnsupportedOnExecuteParameterType(methodParam));
-                }
-            }
-
-            return arguments;
-        }
     }
 }

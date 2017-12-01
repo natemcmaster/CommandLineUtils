@@ -13,7 +13,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public int Execute(IConsole console, BindContext bindResult)
         {
-            var arguments = BindParameters(console, bindResult);
+            var arguments = ReflectionHelper.BindParameters(Method, console, bindResult);
 
             var result = Method.Invoke(bindResult.Target, arguments);
             if (Method.ReturnType == typeof(int))

@@ -3,6 +3,7 @@
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -48,6 +49,11 @@ namespace McMaster.Extensions.CommandLineUtils
             if (IsShowingInfo(bindResult))
             {
                 return 0;
+            }
+
+            if (bindResult.ValidationResult != ValidationResult.Success)
+            {
+                return HandleValidationError<TApp>(console, bindResult);
             }
 
             var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
@@ -98,6 +104,11 @@ namespace McMaster.Extensions.CommandLineUtils
                 return 0;
             }
 
+            if (bindResult.ValidationResult != ValidationResult.Success)
+            {
+                return HandleValidationError<TApp>(console, bindResult);
+            }
+
             var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
             switch (invoker)
             {
@@ -108,6 +119,24 @@ namespace McMaster.Extensions.CommandLineUtils
                 default:
                     throw new NotImplementedException();
             }
+        }
+
+        private static int HandleValidationError<TApp>(IConsole console, BindContext bindResult)
+        {
+            var method = typeof(TApp).GetTypeInfo().GetMethod("OnValidationError", BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+            if (method == null)
+            {
+                return bindResult.App.DefaultValidationErrorHandler(bindResult.ValidationResult);
+            }
+
+            var arguments = ReflectionHelper.BindParameters(method, console, bindResult);
+            var result = method.Invoke(bindResult.Target, arguments);
+            if (method.ReturnType == typeof(int))
+            {
+                return (int)result;
+            }
+
+            return 1;
         }
 
         private static BindContext Bind<TApp>(IConsole console, string[] args) where TApp : class, new()

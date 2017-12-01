@@ -3,6 +3,7 @@
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -48,6 +49,28 @@ namespace McMaster.Extensions.CommandLineUtils
                     action();
                     return 0;
                 });
+
+        /// <summary>
+        /// Sets an action to invoke, but only when there is a validation error.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="action"></param>
+        public static void OnValidationError(this CommandLineApplication app, Func<ValidationResult, int> action) 
+            => app.ValidationErrorHandler = action;
+
+        /// <summary>
+        /// Sets an action to invoke, but only when there is a validation error.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="action"></param>
+        public static void OnValidationError(this CommandLineApplication app, Action<ValidationResult> action)
+        {
+            app.OnValidationError(r =>
+            {
+                action(r);
+                return 1;
+            });
+        }
 
         /// <summary>
         /// Finds <see cref="AssemblyInformationalVersionAttribute"/> on <paramref name="assembly"/> and uses that

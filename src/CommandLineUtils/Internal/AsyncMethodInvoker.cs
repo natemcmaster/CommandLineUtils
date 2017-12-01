@@ -14,7 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public async Task<int> ExecuteAsync(IConsole console, BindContext bindResult)
         {
-            var arguments = BindParameters(console, bindResult);
+            var arguments = ReflectionHelper.BindParameters(Method, console, bindResult);
 
             var result = (Task)Method.Invoke(bindResult.Target, arguments);
             if (result is Task<int> intResult)

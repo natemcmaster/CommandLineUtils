@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -116,6 +117,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// should also have access to this option.
         /// </summary>
         public bool Inherited { get; set; }
+
+        /// <summary>
+        /// A collection of validators that execute before invoking <see cref="CommandLineApplication.OnExecute(Func{int})"/>.
+        /// When validation fails, <see cref="CommandLineApplication.ValidationErrorHandler"/> is invoked.
+        /// </summary>
+        public ICollection<IOptionValidator> Validators { get; } = new List<IOptionValidator>();
 
         /// <summary>
         /// Attempt to parse the value that follows after the flag.

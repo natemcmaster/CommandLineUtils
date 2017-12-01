@@ -3,6 +3,7 @@
 
 using System;
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
 {

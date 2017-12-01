@@ -2,8 +2,10 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -51,5 +53,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// The first value from <see cref="Values"/>, if any.
         /// </summary>
         public string Value => Values.FirstOrDefault();
+
+        /// <summary>
+        /// A collection of validators that execute before invoking <see cref="CommandLineApplication.OnExecute(Func{int})"/>.
+        /// When validation fails, <see cref="CommandLineApplication.ValidationErrorHandler"/> is invoked.
+        /// </summary>
+        public ICollection<IArgumentValidator> Validators { get; } = new List<IArgumentValidator>();
     }
 }

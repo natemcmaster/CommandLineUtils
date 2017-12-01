@@ -4,6 +4,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 
@@ -37,6 +38,12 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             App = app;
             App.OnExecute((Func<int>)OnExecute);
+            App.OnValidationError(r =>
+            {
+                App.Invoke();
+                var ctx = (BindContext)App.State;
+                ctx.ValidationResult = r;
+            });
         }
 
         internal CommandLineApplication App { get; }
@@ -241,6 +248,11 @@ namespace McMaster.Extensions.CommandLineUtils
                     throw new ArgumentOutOfRangeException();
             }
 
+            foreach (var attr in prop.GetCustomAttributes().OfType<ValidationAttribute>())
+            {
+                option.Validators.Add(new AttributeValidator(attr));
+            }
+
             if (option.OptionType == CommandOptionType.NoValue && prop.PropertyType != typeof(bool))
             {
                 throw new InvalidOperationException(Strings.NoValueTypesMustBeBoolean);
@@ -307,6 +319,11 @@ namespace McMaster.Extensions.CommandLineUtils
         private void AddArgument(PropertyInfo prop, ArgumentAttribute argumentAttr)
         {
             var argument = argumentAttr.Configure(prop);
+
+            foreach (var attr in prop.GetCustomAttributes().OfType<ValidationAttribute>())
+            {
+                argument.Validators.Add(new AttributeValidator(attr));
+            }
 
             argument.MultipleValues =
                 prop.PropertyType.IsArray

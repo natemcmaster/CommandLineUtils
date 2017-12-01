@@ -158,7 +158,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () => CommandLineApplication.Execute<ExecuteWithUnknownTypes>());
             var method = typeof(ExecuteWithUnknownTypes).GetTypeInfo().GetMethod("OnExecute", BindingFlags.Instance | BindingFlags.NonPublic);
             var param = Assert.Single(method.GetParameters());
-            Assert.Equal(Strings.UnsupportedOnExecuteParameterType(param), ex.Message);
+            Assert.Equal(Strings.UnsupportedParameterTypeOnMethod(method.Name, param), ex.Message);
         }
 
         private class ExecuteAsyncWithInt
