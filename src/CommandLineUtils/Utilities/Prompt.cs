@@ -141,7 +141,7 @@ namespace McMaster.Extensions.CommandLineUtils
 #endif
 
         /// <summary>
-        /// Base implementation of <see cref="GetPassword"/> and <see cref="GetPasswordAsSecureString"/>. Prompts the user for
+        /// Base implementation of GetPassword and GetPasswordAsString. Prompts the user for
         /// a password and yields each key as the user inputs. Password is masked as input. Pressing Escape will reset the password
         /// by flushing the stream with backspace keys.
         /// </summary>
