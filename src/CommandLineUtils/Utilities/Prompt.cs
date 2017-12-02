@@ -110,7 +110,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return resp.ToString();
         }
 
-#if !NETSTANDARD1_6
+#if NET45 || NETSTANDARD2_0
         /// <summary>
         /// Gets a response as a SecureString object. Input is masked with an asterisk.
         /// </summary>
@@ -138,6 +138,9 @@ namespace McMaster.Extensions.CommandLineUtils
             secureString.MakeReadOnly();
             return secureString;
         }
+#elif NETSTANDARD1_6
+#else
+#error Target frameworks should be updated
 #endif
 
         /// <summary>
@@ -154,13 +157,18 @@ namespace McMaster.Extensions.CommandLineUtils
             const string whiteOut = "\b \b";
             Write(prompt, promptColor, promptBgColor);
             Console.Write(' ');
-
+            const ConsoleModifiers IgnoredModifiersMask = ConsoleModifiers.Alt | ConsoleModifiers.Control;
             var readChars = 0;
             ConsoleKeyInfo key;
             do
             {
                 key = Console.ReadKey(intercept: true);
-                // TODO: What should happen if the key has a modifier?
+
+                if ((key.Modifiers & IgnoredModifiersMask) != 0)
+                {
+                    continue;
+                }
+
                 switch (key.Key)
                 {
                     case ConsoleKey.Enter:
