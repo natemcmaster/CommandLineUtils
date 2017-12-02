@@ -2,97 +2,34 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace SubcommandSample
 {
-    [Command("git")]
-    [VersionOption("--version", "1.0.0")]
-    [Subcommand("add", typeof(AddCommand))]
-    [Subcommand("commit", typeof(CommitCommand))]
-    class Program : CommandBase
+    /// <summary>
+    /// This example is meant to show you how to structure a console application that uses
+    /// the nested subcommands with options and arguments that vary between each subcommand.
+    /// </summary>
+    class Program
     {
-        public static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
-
-        [Option("--git-dir")]
-        public string GitDir { get; set; }
-
-        protected override int OnExecute(CommandLineApplication app)
+        public static int Main(string[] args)
         {
-            // this shows help even if the --help option isn't specified
-            app.ShowHelp();
-            return 1;
-        }
+            const string prompt = @"Which example would you like to run?
+1 - Fake Git
+2 - Fake Docker
+> ";
+            var option = Prompt.GetInt(prompt);
 
-        public override List<string> CreateArgs()
-        {
-            var args = new List<string>();
-            if (GitDir != null)
+            switch (option)
             {
-                args.Add("--git-dir=" + GitDir);
+                case 1:
+                    return CommandLineApplication.Execute<Git>(args);
+                case 2:
+                    return CommandLineApplication.Execute<Docker>(args);
+                default:
+                    Console.Error.WriteLine("Unknown option");
+                    return 1;
             }
-            return args;
-        }
-    }
-
-    [Command(Description = "Add file contents to the index")]
-    class AddCommand : CommandBase
-    {
-        [Argument(0)]
-        public string[] Files { get; set; }
-
-         // this will automatically be set before OnExecute is invoked
-        private Program Parent { get; set; }
-
-        public override List<string> CreateArgs()
-        {
-            var args = Parent.CreateArgs();
-            args.Add("add");
-
-            if (Files != null)
-            {
-                args.AddRange(Files);
-            }
-
-            return args;
-        }
-    }
-
-    [Command(Description = "Record changes to the repository")]
-    class CommitCommand : CommandBase
-    {
-        [Option("-m")]
-        public string Message { get; set; }
-
-        // this will automatically be set before OnExecute is invoked
-        private Program Parent { get; set; }
-
-        public override List<string> CreateArgs()
-        {
-            var args = Parent.CreateArgs();
-            args.Add("commit");
-
-            if (Message != null)
-            {
-                args.Add("-m");
-                args.Add(Message);
-            }
-            return args;
-        }
-    }
-
-    [HelpOption("--help")]
-    abstract class CommandBase
-    {
-        public abstract List<string> CreateArgs();
-
-        protected virtual int OnExecute(CommandLineApplication app)
-        {
-            var args = CreateArgs();
-
-            Console.WriteLine("=> git " + ArgumentEscaper.EscapeAndConcatenate(args));
-            return 0;
         }
     }
 }
