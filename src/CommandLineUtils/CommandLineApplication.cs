@@ -495,13 +495,14 @@ namespace McMaster.Extensions.CommandLineUtils
                         if (option == null)
                         {
                             option = command.GetOptions().SingleOrDefault(opt => string.Equals(opt.SymbolName, shortOptionName, StringComparison.Ordinal));
+                            // If still null, it's an error
+                            if (option == null)
+                            {
+                                HandleUnexpectedArg(command, args, index, argTypeName: "option");
+                                break;
+                            }
                         }
 
-                        if (option == null)
-                        {
-                            HandleUnexpectedArg(command, args, index, argTypeName: "option");
-                            break;
-                        }
 
                         // If we find a help/version option, show information and stop parsing
                         bool stopParsing = HandleHelpOrVersion(command, option);
