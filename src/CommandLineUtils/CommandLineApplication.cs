@@ -462,29 +462,10 @@ namespace McMaster.Extensions.CommandLineUtils
                         }
 
                         // If we find a help/version option, show information and stop parsing
-                        if (command.OptionHelp == option)
+                        bool stopParsing = HandleHelpOrVersion(command, option);
+                        if (stopParsing)
                         {
-                            command.ShowHelp();
-                            option.TryParse(null);
-                            var parent = command;
-                            while (parent.Parent != null) parent = parent.Parent;
-                            parent.SelectedCommand = command;
-                            if (StopParsingAfterHelpOption)
-                            {
-                                return 0;
-                            }
-                        }
-                        else if (command.OptionVersion == option)
-                        {
-                            command.ShowVersion();
-                            option.TryParse(null);
-                            var parent = command;
-                            while (parent.Parent != null) parent = parent.Parent;
-                            parent.SelectedCommand = command;
-                            if (StopParsingAfterVersionOption)
-                            {
-                                return 0;
-                            }
+                            return 0;
                         }
 
                         if (longOption.Length == 2)
@@ -507,46 +488,27 @@ namespace McMaster.Extensions.CommandLineUtils
                     if (shortOption != null)
                     {
                         processed = true;
-                        option = command.GetOptions().SingleOrDefault(opt => string.Equals(opt.ShortName, shortOption[0], StringComparison.Ordinal));
+                        var shortOptionName = shortOption[0];
+                        option = command.GetOptions().SingleOrDefault(opt => string.Equals(opt.ShortName, shortOptionName, StringComparison.Ordinal));
 
                         // If not a short option, try symbol option
                         if (option == null)
                         {
-                            option = command.GetOptions().SingleOrDefault(opt => string.Equals(opt.SymbolName, shortOption[0], StringComparison.Ordinal));
+                            option = command.GetOptions().SingleOrDefault(opt => string.Equals(opt.SymbolName, shortOptionName, StringComparison.Ordinal));
+                            // If still null, it's an error
+                            if (option == null)
+                            {
+                                HandleUnexpectedArg(command, args, index, argTypeName: "option");
+                                break;
+                            }
                         }
 
-                        if (option == null)
-                        {
-                            HandleUnexpectedArg(command, args, index, argTypeName: "option");
-                            break;
-                        }
 
                         // If we find a help/version option, show information and stop parsing
-                        if (command.OptionHelp == option)
+                        bool stopParsing = HandleHelpOrVersion(command, option);
+                        if (stopParsing)
                         {
-                            command.ShowHelp();
                             return 0;
-                        }
-                        else if (command.OptionVersion == option)
-                        {
-                            command.ShowVersion();
-                            return 0;
-                        }
-
-                        if (shortOption.Length == 2)
-                        {
-                            if (!option.TryParse(shortOption[1]))
-                            {
-                                command.ShowHint();
-                                throw new CommandParsingException(command, $"Unexpected value '{shortOption[1]}' for option '{option.LongName}'");
-                            }
-                            option = null;
-                        }
-                        else if (option.OptionType == CommandOptionType.NoValue)
-                        {
-                            // No value is needed for this option
-                            option.TryParse(null);
-                            option = null;
                         }
                     }
                 }
@@ -962,6 +924,38 @@ namespace McMaster.Extensions.CommandLineUtils
                 // All remaining arguments are stored for further use
                 command.RemainingArguments.AddRange(new ArraySegment<string>(args.ToArray(), index, args.Count - index));
             }
+        }
+
+        /// <summary>
+        /// Shows the help or version information if the given option is a help or version option and returns <c>true</c> if StopParsingAfterHelpOption is true
+        /// </summary>
+        /// <param name="command">The CommandLineApplication</param>
+        /// <param name="option">The CommandOption</param>
+        /// <returns><c>true</c> if parsing should stop, <c>false</c> otherwise</returns>
+        private bool HandleHelpOrVersion(CommandLineApplication command, CommandOption option)
+        {
+            if (command.OptionHelp == option)
+            {
+                command.ShowHelp();
+            }
+            else if (command.OptionVersion == option)
+            {
+                command.ShowVersion();
+            }
+            else
+            {
+                return false;
+            }
+            
+            option.TryParse(null);
+            var parent = command;
+            while (parent.Parent != null) parent = parent.Parent;
+            parent.SelectedCommand = command;
+            if (StopParsingAfterHelpOption)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
