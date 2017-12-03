@@ -462,7 +462,7 @@ namespace McMaster.Extensions.CommandLineUtils
                         }
 
                         // If we find a help/version option, show information and stop parsing
-                        bool stopParsing = ShowHelpOrVersion(command, option);
+                        bool stopParsing = HandleHelpOrVersion(command, option);
                         if (stopParsing)
                         {
                             return 0;
@@ -504,7 +504,7 @@ namespace McMaster.Extensions.CommandLineUtils
                         }
 
                         // If we find a help/version option, show information and stop parsing
-                        bool stopParsing = ShowHelpOrVersion(command, option);
+                        bool stopParsing = HandleHelpOrVersion(command, option);
                         if (stopParsing)
                         {
                             return 0;
@@ -926,12 +926,12 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Shows the help or version information and returns true if StopParsingAfterHelpOption is true
+        /// Shows the help or version information if the given option is a help or version option and returns <c>true</c> if StopParsingAfterHelpOption is true
         /// </summary>
         /// <param name="command">The CommandLineApplication</param>
         /// <param name="option">The CommandOption</param>
         /// <returns><c>true</c> if parsing should stop, <c>false</c> otherwise</returns>
-        private bool ShowHelpOrVersion(CommandLineApplication command, CommandOption option)
+        private bool HandleHelpOrVersion(CommandLineApplication command, CommandOption option)
         {
             if (command.OptionHelp == option)
             {
@@ -940,6 +940,10 @@ namespace McMaster.Extensions.CommandLineUtils
             else if (command.OptionVersion == option)
             {
                 command.ShowVersion();
+            }
+            else
+            {
+                return false;
             }
             
             option.TryParse(null);
