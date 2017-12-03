@@ -4,11 +4,19 @@
 using System;
 using System.Reflection;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class VersionOptionTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public VersionOptionTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         private class NoVersionOptionClass
         {
             [Option]
@@ -137,6 +145,24 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Null(builder.App.OptionVersion.ShortName);
             Assert.Equal("version", builder.App.OptionVersion.LongName);
             Assert.Equal("My version info", builder.App.OptionVersion.Description);
+        }
+
+        [VersionOption("-?|-V|--version", "1.0.0")]
+        private class SimpleVersionApp
+        {
+            private void OnExecute()
+            {
+                throw new InvalidOperationException("This method should not be invoked");
+            }
+        }
+
+        [Theory]
+        [InlineData("-?")]
+        [InlineData("-V")]
+        [InlineData("--version")]
+        public void OnExecuteIsNotInvokedWhenVersionOptionSpecified(string arg)
+        {
+            Assert.Equal(0, CommandLineApplication.Execute<SimpleVersionApp>(new TestConsole(_output), arg));
         }
     }
 }

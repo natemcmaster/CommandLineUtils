@@ -736,5 +736,29 @@ Examples:
             new CommandLineApplication(NullConsole.Singleton, "C:/path", false);
             new CommandLineApplication(NullConsole.Singleton, "../path", false);
         }
+
+        [Fact]
+        public void ShortOptionsCanHaveMultipleCharacters()
+        {
+            var app = new CommandLineApplication();
+            var optOne = app.Option("-o1|--option1", "Option1", CommandOptionType.NoValue);
+            var optTwo = app.Option("-o2|--option2", "Option2", CommandOptionType.NoValue);
+
+            app.Execute("-o2");
+            Assert.False(optOne.HasValue(), "Option1 should not be set");
+            Assert.True(optTwo.HasValue(), "Option2 should be set");
+        }
+
+        [Fact]
+        public void OptionsCanVaryByCase()
+        {
+            var app = new CommandLineApplication();
+            var optBig = app.Option("-F|--file", "File", CommandOptionType.NoValue);
+            var optLittle = app.Option("-f|--force", "force", CommandOptionType.NoValue);
+
+            app.Execute("-f");
+            Assert.False(optBig.HasValue(), "File should not be set");
+            Assert.True(optLittle.HasValue(), "force should be set");
+        }
     }
 }
