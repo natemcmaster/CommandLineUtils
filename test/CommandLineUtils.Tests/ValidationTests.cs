@@ -186,7 +186,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(7, CommandLineApplication.Execute<ValidationErrorApp>(new TestConsole(_output)));
         }
 
-         private class ThrowOnExecuteApp
+        private class ThrowOnExecuteApp
         {
             [Option, Required]
             public string Name { get; }

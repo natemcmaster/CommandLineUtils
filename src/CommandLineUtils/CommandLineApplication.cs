@@ -153,13 +153,13 @@ namespace McMaster.Extensions.CommandLineUtils
 
         /// <summary>
         /// Stops the parsing argument when <see cref="OptionHelp"/> is matched. Defaults to <c>true</c>.
-        /// This will prevent any <see cref="Invoke" /> methods from being called.
+        /// This will prevent <see cref="Invoke" /> or <see cref="ValidationErrorHandler" /> from being called.
         /// </summary>
         public bool StopParsingAfterHelpOption { get; set; } = true;
 
         /// <summary>
         /// Stops the parsing argument when <see cref="OptionVersion"/> is matched. Defaults to <c>true</c>.
-        /// This will prevent any <see cref="Invoke" /> methods from being called.
+        /// This will prevent <see cref="Invoke" /> or <see cref="ValidationErrorHandler" /> from being called.
         /// </summary>
         public bool StopParsingAfterVersionOption { get; set; } = true;
 
