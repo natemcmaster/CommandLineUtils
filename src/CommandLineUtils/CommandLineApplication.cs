@@ -153,13 +153,13 @@ namespace McMaster.Extensions.CommandLineUtils
 
         /// <summary>
         /// Stops the parsing argument when <see cref="OptionHelp"/> is matched. Defaults to <c>true</c>.
-        /// This will prevent any <see cref="Invoke" /> methods from being called.
+        /// This will prevent <see cref="Invoke" /> or <see cref="ValidationErrorHandler" /> from being called.
         /// </summary>
         public bool StopParsingAfterHelpOption { get; set; } = true;
 
         /// <summary>
         /// Stops the parsing argument when <see cref="OptionVersion"/> is matched. Defaults to <c>true</c>.
-        /// This will prevent any <see cref="Invoke" /> methods from being called.
+        /// This will prevent <see cref="Invoke" /> or <see cref="ValidationErrorHandler" /> from being called.
         /// </summary>
         public bool StopParsingAfterVersionOption { get; set; } = true;
 
@@ -525,12 +525,26 @@ namespace McMaster.Extensions.CommandLineUtils
                         if (command.OptionHelp == option)
                         {
                             command.ShowHelp();
-                            return 0;
+                            option.TryParse(null);
+                            var parent = command;
+                            while (parent.Parent != null) parent = parent.Parent;
+                            parent.SelectedCommand = command;
+                            if (StopParsingAfterHelpOption)
+                            {
+                                return 0;
+                            }
                         }
                         else if (command.OptionVersion == option)
                         {
                             command.ShowVersion();
-                            return 0;
+                            option.TryParse(null);
+                            var parent = command;
+                            while (parent.Parent != null) parent = parent.Parent;
+                            parent.SelectedCommand = command;
+                            if (StopParsingAfterVersionOption)
+                            {
+                                return 0;
+                            }
                         }
 
                         if (shortOption.Length == 2)

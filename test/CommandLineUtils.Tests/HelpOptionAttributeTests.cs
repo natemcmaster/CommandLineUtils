@@ -4,11 +4,19 @@
 using System;
 using System.Reflection;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class HelpOptionTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public HelpOptionTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         private class NoHelpOptionClass
         {
             [Option]
@@ -120,6 +128,45 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal("h", builder.App.OptionHelp.ShortName);
             Assert.Equal("help", builder.App.OptionHelp.LongName);
             Assert.Equal("My help info", builder.App.OptionHelp.Description);
+        }
+
+        [HelpOption]
+        private class SimpleHelpApp
+        {
+            private void OnExecute()
+            {
+                throw new InvalidOperationException("This method should not be invoked");
+            }
+        }
+
+        [Theory]
+        [InlineData("-h")]
+        [InlineData("-?")]
+        [InlineData("--help")]
+        public void OnExecuteIsNotInvokedWhenHelpOptionSpecified(string arg)
+        {
+            Assert.Equal(0, CommandLineApplication.Execute<SimpleHelpApp>(new TestConsole(_output), arg));
+        }
+
+        [Command(StopParsingAfterHelpOption = false)]
+        private class KeepParsingHelpApp
+        {
+            [HelpOption]
+            public bool IsHelp { get; }
+
+            private int OnExecute()
+            {
+                return 15;
+            }
+        }
+
+        [Theory]
+        [InlineData("-h")]
+        [InlineData("-?")]
+        [InlineData("--help")]
+        public void InvokesOnExecuteWhenStopParsingHelpDisabled(string arg)
+        {
+            Assert.Equal(15, CommandLineApplication.Execute<KeepParsingHelpApp>(new TestConsole(_output), arg));
         }
     }
 }

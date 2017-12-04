@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.ComponentModel.DataAnnotations;
 using Xunit;
 using Xunit.Abstractions;
@@ -167,6 +168,38 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ValidatesEmailOption(string[] args, int exitCode)
         {
             Assert.Equal(exitCode, CommandLineApplication.Execute<EmailOptionApp>(args));
+        }
+
+        private class ValidationErrorApp
+        {
+            [Required, Option]
+            public string Name { get; }
+            private int OnValidationError()
+            {
+                return 7;
+            }
+        }
+
+        [Fact]
+        public void OnValidationErrorIsInvokedOnError()
+        {
+            Assert.Equal(7, CommandLineApplication.Execute<ValidationErrorApp>(new TestConsole(_output)));
+        }
+
+        private class ThrowOnExecuteApp
+        {
+            [Option, Required]
+            public string Name { get; }
+            private int OnExecute()
+            {
+                throw new InvalidOperationException("This method should not be invoked");
+            }
+        }
+
+        [Fact]
+        public void OnExecuteIsNotInvokedOnValidationError()
+        {
+            Assert.Equal(1, CommandLineApplication.Execute<ThrowOnExecuteApp>(new TestConsole(_output)));
         }
     }
 }

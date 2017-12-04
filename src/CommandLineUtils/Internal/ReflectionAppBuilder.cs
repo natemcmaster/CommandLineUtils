@@ -80,6 +80,11 @@ namespace McMaster.Extensions.CommandLineUtils
             var parsingOptionsAttr = typeInfo.GetCustomAttribute<CommandAttribute>();
             parsingOptionsAttr?.Configure(App);
 
+            if (App.Name == null)
+            {
+                App.Name = type.Name;
+            }
+
             if (parsingOptionsAttr?.ThrowOnUnexpectedArgument == false)
             {
                 AddRemainingArgsProperty(typeInfo);
