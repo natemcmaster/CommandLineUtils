@@ -720,6 +720,7 @@ Examples:
         [Theory]
         [InlineData(null)]
         [InlineData("")]
+        [InlineData("-", Skip = "Refactor the parser first")]
         public void ThrowsExceptionOnInvalidArgument(string inputOption)
         {
             var app = new CommandLineApplication();

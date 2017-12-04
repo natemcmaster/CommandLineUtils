@@ -28,6 +28,18 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.True(called);
         }
 
+        [Fact]
+        public void ValidationHandlerOfSubcommandIsInvoked()
+        {
+            var app = new CommandLineApplication();
+            var sub = app.Command("sub", c => {});
+            var called = false;
+            sub.OnValidationError(_ => called = true);
+            sub.Argument("t", "test").IsRequired();
+            Assert.NotEqual(0, app.Execute("sub"));
+            Assert.True(called, "Validation on subcommand should be called");
+        }
+
         [Theory]
         [InlineData(CommandOptionType.NoValue, new string[0], false)]
         [InlineData(CommandOptionType.SingleValue, new string[0], false)]
