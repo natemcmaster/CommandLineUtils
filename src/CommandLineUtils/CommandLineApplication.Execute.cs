@@ -123,10 +123,16 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private static int HandleValidationError<TApp>(IConsole console, BindContext bindResult)
         {
-            var method = typeof(TApp).GetTypeInfo().GetMethod("OnValidationError", BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+            const BindingFlags MethodFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
+
+            var method = bindResult.Target
+                .GetType()
+                .GetTypeInfo()
+                .GetMethod("OnValidationError", MethodFlags);
+
             if (method == null)
             {
-                return bindResult.App.DefaultValidationErrorHandler(bindResult.ValidationResult);
+                return bindResult.RootApp.DefaultValidationErrorHandler(bindResult.ValidationResult);
             }
 
             var arguments = ReflectionHelper.BindParameters(method, console, bindResult);
@@ -147,20 +153,19 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             var applicationBuilder = new ReflectionAppBuilder<TApp>();
-            var bindResult = applicationBuilder.Bind(console, args).GetBottomContext();
-            return bindResult;
+            return applicationBuilder.Bind(console, args).GetBottomContext();
         }
 
         private static bool IsShowingInfo(BindContext bindResult)
         {
-            if (bindResult.App.IsShowingInformation)
+            if (bindResult.RootApp.IsShowingInformation)
             {
-                if (bindResult.App.OptionHelp?.HasValue() == true && bindResult.App.StopParsingAfterHelpOption)
+                if (bindResult.RootApp.OptionHelp?.HasValue() == true && bindResult.RootApp.StopParsingAfterHelpOption)
                 {
                     return true;
                 }
 
-                if (bindResult.App.OptionVersion?.HasValue() == true && bindResult.App.StopParsingAfterVersionOption)
+                if (bindResult.RootApp.OptionVersion?.HasValue() == true && bindResult.RootApp.StopParsingAfterVersionOption)
                 {
                     return true;
                 }

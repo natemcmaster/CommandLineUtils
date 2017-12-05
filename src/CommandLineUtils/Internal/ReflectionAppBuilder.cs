@@ -381,7 +381,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             var ctx = new BindContext
             {
-                App = App,
+                RootApp = App,
                 Target = new TTarget(),
             };
 

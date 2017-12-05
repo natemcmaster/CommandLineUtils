@@ -32,7 +32,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ValidationHandlerOfSubcommandIsInvoked()
         {
             var app = new CommandLineApplication();
-            var sub = app.Command("sub", c => {});
+            var sub = app.Command("sub", c => { });
             var called = false;
             sub.OnValidationError(_ => called = true);
             sub.Argument("t", "test").IsRequired();
@@ -182,6 +182,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(exitCode, CommandLineApplication.Execute<EmailOptionApp>(args));
         }
 
+        [Subcommand("sub", typeof(ValidationErrorSubcommand))]
         private class ValidationErrorApp
         {
             [Required, Option]
@@ -192,10 +193,27 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             }
         }
 
+        private class ValidationErrorSubcommand
+        {
+            [Argument(0), Required]
+            public string[] Args { get; }
+
+            private int OnValidationError()
+            {
+                return 49;
+            }
+        }
+
         [Fact]
         public void OnValidationErrorIsInvokedOnError()
         {
             Assert.Equal(7, CommandLineApplication.Execute<ValidationErrorApp>(new TestConsole(_output)));
+        }
+
+        [Fact]
+        public void OnValidationErrorIsInvokedOnSubcommandError()
+        {
+            Assert.Equal(49, CommandLineApplication.Execute<ValidationErrorApp>(new TestConsole(_output), "sub"));
         }
 
         private class ThrowOnExecuteApp

@@ -43,7 +43,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 if (typeof(CommandLineApplication).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
-                    arguments[i] = bindResult.App;
+                    arguments[i] = bindResult.RootApp;
                 }
                 else if (typeof(IConsole).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
