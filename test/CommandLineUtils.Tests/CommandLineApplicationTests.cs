@@ -656,17 +656,17 @@ Examples:
         }
 
         [Theory]
-        [InlineData("-f:File1", "-f:File2")]
-        [InlineData("--file:File1", "--file:File2")]
-        [InlineData("--file", "File1", "--file", "File2")]
-        public void ThrowsExceptionOnSingleValueOptionHavingTwoValues(params string[] inputOptions)
+        [InlineData("f", "-f:File1", "-f:File2")]
+        [InlineData("file", "--file:File1", "--file:File2")]
+        [InlineData("file", "--file", "File1", "--file", "File2")]
+        public void ThrowsExceptionOnSingleValueOptionHavingTwoValues(string optionName, params string[] inputOptions)
         {
             var app = new CommandLineApplication();
             app.Option("-f |--file", "some file", CommandOptionType.SingleValue);
 
             var exception = Assert.Throws<CommandParsingException>(() => app.Execute(inputOptions));
 
-            Assert.Equal("Unexpected value 'File2' for option 'file'", exception.Message);
+            Assert.Equal($"Unexpected value 'File2' for option '{optionName}'", exception.Message);
         }
 
         [Theory]
@@ -683,22 +683,22 @@ Examples:
         }
 
         [Theory]
-        [InlineData("-v:true")]
-        [InlineData("--verbose:true")]
-        public void ThrowsExceptionOnNoValueOptionHavingValue(string inputOption)
+        [InlineData("-v:true", "v")]
+        [InlineData("--verbose:true", "verbose")]
+        public void ThrowsExceptionOnNoValueOptionHavingValue(string inputOption, string optionName)
         {
             var app = new CommandLineApplication();
             app.Option("-v |--verbose", "be verbose", CommandOptionType.NoValue);
 
             var exception = Assert.Throws<CommandParsingException>(() => app.Execute(inputOption));
 
-            Assert.Equal("Unexpected value 'true' for option 'verbose'", exception.Message);
+            Assert.Equal($"Unexpected value 'true' for option '{optionName}'", exception.Message);
         }
 
         [Fact]
         public void ThrowsExceptionOnEmptyCommandOrArgument()
         {
-            var inputOption = String.Empty;
+            var inputOption = string.Empty;
             var app = new CommandLineApplication();
 
             var exception = Assert.Throws<CommandParsingException>(() => app.Execute(inputOption));
@@ -706,21 +706,10 @@ Examples:
             Assert.Equal($"Unrecognized command or argument '{inputOption}'", exception.Message);
         }
 
-        [Fact]
-        public void ThrowsExceptionOnInvalidOption()
-        {
-            var inputOption = "-";
-            var app = new CommandLineApplication();
-
-            var exception = Assert.Throws<CommandParsingException>(() => app.Execute(inputOption));
-
-            Assert.Equal($"Unrecognized option '{inputOption}'", exception.Message);
-        }
-
         [Theory]
         [InlineData(null)]
         [InlineData("")]
-        [InlineData("-", Skip = "Refactor the parser first")]
+        [InlineData("-")]
         public void ThrowsExceptionOnInvalidArgument(string inputOption)
         {
             var app = new CommandLineApplication();
