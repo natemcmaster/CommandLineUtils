@@ -82,7 +82,10 @@ namespace McMaster.Extensions.CommandLineUtils
 
             if (App.Name == null)
             {
-                App.Name = type.Name;
+                var assembly = Assembly.GetEntryAssembly() == null
+                    ? typeInfo.Assembly
+                    : Assembly.GetEntryAssembly();
+                App.Name = assembly.GetName().Name;
             }
 
             if (parsingOptionsAttr?.ThrowOnUnexpectedArgument == false)
