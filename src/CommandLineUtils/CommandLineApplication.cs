@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils.HelpText;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -20,6 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils
     public partial class CommandLineApplication
     {
         private IConsole _console;
+        private IHelpTextGenerator _helpTextGenerator;
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -45,6 +47,17 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="workingDirectory">The current working directory.</param>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
+            : this(DefaultHelpTextGenerator.Singleton, console, workingDirectory, throwOnUnexpectedArg)
+        { }
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="CommandLineApplication"/>.
+        /// </summary>
+        /// <param name="helpTextGenerator">The help text generator to use.</param>
+        /// <param name="console">The console implementation to use.</param>
+        /// <param name="workingDirectory">The current working directory.</param>
+        /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
+        public CommandLineApplication(IHelpTextGenerator helpTextGenerator, IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
         {
             if (console == null)
             {
@@ -62,13 +75,14 @@ namespace McMaster.Extensions.CommandLineUtils
             Arguments = new List<CommandArgument>();
             Commands = new List<CommandLineApplication>();
             RemainingArguments = new List<string>();
+            HelpTextGenerator = helpTextGenerator;
             Invoke = () => 0;
             ValidationErrorHandler = DefaultValidationErrorHandler;
             SetConsole(console);
         }
 
         private CommandLineApplication(CommandLineApplication parent, string name, bool throwOnUnexpectedArg)
-            : this(parent._console, parent.WorkingDirectory, throwOnUnexpectedArg)
+            : this(parent._helpTextGenerator, parent._console, parent.WorkingDirectory, throwOnUnexpectedArg)
         {
             Name = name;
             Parent = parent;
@@ -80,6 +94,15 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Defaults to null. A link to the parent command if this is instance is a subcommand.
         /// </summary>
         public CommandLineApplication Parent { get; set; }
+
+        /// <summary>
+        /// The help text generator to use.
+        /// </summary>
+        public IHelpTextGenerator HelpTextGenerator
+        {
+            get => _helpTextGenerator;
+            set => _helpTextGenerator = value ?? throw new ArgumentNullException(nameof(value));
+        }
 
         /// <summary>
         /// The short name of the command. When this is a subcommand, it is the name of the word used to invoke the subcommand.
@@ -449,30 +472,29 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Show full help.
         /// </summary>
-        /// <param name="commandName">The subcommand for which to show help. Leave null to show for the current command.</param>
-        public void ShowHelp(string commandName = null)
+        public void ShowHelp()
         {
             for (var cmd = this; cmd != null; cmd = cmd.Parent)
             {
                 cmd.IsShowingInformation = true;
             }
 
-            Out.WriteLine(GetHelpText(commandName));
+            _helpTextGenerator.Generate(this, Out);
         }
 
         /// <summary>
-        /// Produces help text describing command usage.
+        /// This method has been marked as obsolete and will be removed in a future version.
+        /// The recommended replacement is <see cref="ShowHelp()" />.
         /// </summary>
-        /// <param name="commandName"></param>
-        /// <returns></returns>
-        public virtual string GetHelpText(string commandName = null)
+        /// <param name="commandName">The subcommand for which to show help. Leave null to show for the current command.</param>
+        [Obsolete("This method has been marked as obsolete and will be removed in a future version." +
+            "The recommended replacement is ShowHelp()")]
+        public void ShowHelp(string commandName = null)
         {
-            var headerBuilder = new StringBuilder("Usage:");
-            for (var cmd = this; cmd != null; cmd = cmd.Parent)
+            if (commandName == null)
             {
-                headerBuilder.Insert(6, string.Format(" {0}", cmd.Name));
+                ShowHelp();
             }
-
             CommandLineApplication target;
 
             if (commandName == null || string.Equals(Name, commandName, StringComparison.OrdinalIgnoreCase))
@@ -483,94 +505,55 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 target = Commands.SingleOrDefault(cmd => string.Equals(cmd.Name, commandName, StringComparison.OrdinalIgnoreCase));
 
-                if (target != null)
-                {
-                    headerBuilder.AppendFormat(" {0}", commandName);
-                }
-                else
+                if (target == null)
                 {
                     // The command name is invalid so don't try to show help for something that doesn't exist
                     target = this;
                 }
-
             }
 
-            var optionsBuilder = new StringBuilder();
-            var commandsBuilder = new StringBuilder();
-            var argumentsBuilder = new StringBuilder();
+            target.ShowHelp();
+        }
 
-            var arguments = target.Arguments.Where(a => a.ShowInHelpText).ToList();
-            if (arguments.Any())
+        /// <summary>
+        /// Produces help text describing command usage.
+        /// </summary>
+        /// <returns>The help text.</returns>
+        public virtual string GetHelpText()
+        {
+            var sb = new StringBuilder();
+            _helpTextGenerator.Generate(this, new StringWriter(sb));
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// This method has been marked as obsolete and will be removed in a future version.
+        /// The recommended replacement is <see cref="GetHelpText()" />
+        /// </summary>
+        /// <param name="commandName"></param>
+        /// <returns></returns>
+        [Obsolete("This method has been marked as obsolete and will be removed in a future version." +
+            "The recommended replacement is GetHelpText()")]
+        public virtual string GetHelpText(string commandName = null)
+        {
+            CommandLineApplication target;
+
+            if (commandName == null || string.Equals(Name, commandName, StringComparison.OrdinalIgnoreCase))
             {
-                headerBuilder.Append(" [arguments]");
+                target = this;
+            }
+            else
+            {
+                target = Commands.SingleOrDefault(cmd => string.Equals(cmd.Name, commandName, StringComparison.OrdinalIgnoreCase));
 
-                argumentsBuilder.AppendLine();
-                argumentsBuilder.AppendLine("Arguments:");
-                var maxArgLen = arguments.Max(a => a.Name.Length);
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", maxArgLen + 2);
-                foreach (var arg in arguments)
+                if (target == null)
                 {
-                    argumentsBuilder.AppendFormat(outputFormat, arg.Name, arg.Description);
-                    argumentsBuilder.AppendLine();
+                    // The command name is invalid so don't try to show help for something that doesn't exist
+                    target = this;
                 }
             }
 
-            var options = target.GetOptions().Where(o => o.ShowInHelpText).ToList();
-            if (options.Any())
-            {
-                headerBuilder.Append(" [options]");
-
-                optionsBuilder.AppendLine();
-                optionsBuilder.AppendLine("Options:");
-                var maxOptLen = options.Max(o => o.Template?.Length ?? 0);
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", maxOptLen + 2);
-                foreach (var opt in options)
-                {
-                    optionsBuilder.AppendFormat(outputFormat, opt.Template, opt.Description);
-                    optionsBuilder.AppendLine();
-                }
-            }
-
-            var commands = target.Commands.Where(c => c.ShowInHelpText).ToList();
-            if (commands.Any())
-            {
-                headerBuilder.Append(" [command]");
-
-                commandsBuilder.AppendLine();
-                commandsBuilder.AppendLine("Commands:");
-                var maxCmdLen = commands.Max(c => c.Name?.Length ?? 0);
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", maxCmdLen + 2);
-                foreach (var cmd in commands.OrderBy(c => c.Name))
-                {
-                    commandsBuilder.AppendFormat(outputFormat, cmd.Name, cmd.Description);
-                    commandsBuilder.AppendLine();
-                }
-
-                if (OptionHelp != null)
-                {
-                    commandsBuilder.AppendLine();
-                    commandsBuilder.AppendFormat($"Use \"{target.Name} [command] --{OptionHelp.LongName}\" for more information about a command.");
-                    commandsBuilder.AppendLine();
-                }
-            }
-
-            if (target.AllowArgumentSeparator)
-            {
-                headerBuilder.Append(" [[--] <arg>...]");
-            }
-
-            headerBuilder.AppendLine();
-
-            var nameAndVersion = new StringBuilder();
-            nameAndVersion.AppendLine(GetFullNameAndVersion());
-            nameAndVersion.AppendLine();
-
-            return nameAndVersion.ToString()
-                + headerBuilder.ToString()
-                + argumentsBuilder.ToString()
-                + optionsBuilder.ToString()
-                + commandsBuilder.ToString()
-                + target.ExtendedHelpText;
+            return target.GetHelpText();
         }
 
         /// <summary>
