@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    partial class CommandLineApplication : IServiceProvider
+    partial class CommandLineApplication
     {
         private Func<ValidationResult, int> _validationErrorHandler;
 
@@ -33,9 +33,19 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The first validation result that is not <see cref="ValidationResult.Success"/> if there is an error.</returns>
         internal ValidationResult GetValidationResult()
         {
+            if (Parent != null)
+            {
+                var result = Parent.GetValidationResult();
+
+                if (result != ValidationResult.Success)
+                {
+                    return result;
+                }
+            }
+
             foreach (var argument in Arguments)
             {
-                var context = new ValidationContext(argument, this, null);
+                var context = new ValidationContext(argument, new ServiceProvider(this), null);
 
                 if (!string.IsNullOrEmpty(argument.Name))
                 {
@@ -55,7 +65,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             foreach (var option in GetOptions())
             {
-                var context = new ValidationContext(option, this, null);
+                var context = new ValidationContext(option, new ServiceProvider(this), null);
 
                 string name = null;
                 if (option.LongName != null)
@@ -101,39 +111,39 @@ namespace McMaster.Extensions.CommandLineUtils
             return 1;
         }
 
-        /// <summary>
-        /// Returns a service provider for some commonly used types associated with a CommandLineApplication.
-        /// </summary>
-        /// <param name="serviceType">The service type</param>
-        /// <returns>An instance of <paramref name="serviceType"/>, or <c>null</c> if it is not available.</returns>
-        object IServiceProvider.GetService(Type serviceType)
+        private sealed class ServiceProvider : IServiceProvider
         {
-            if (serviceType == typeof(CommandLineApplication))
+            private readonly CommandLineApplication _parent;
+
+            public ServiceProvider(CommandLineApplication parent)
             {
-                return this;
+                _parent = parent;
             }
 
-            if (serviceType == typeof(IConsole))
+            public object GetService(Type serviceType)
             {
-                return _console;
-            }
+                if (serviceType == typeof(CommandLineApplication))
+                {
+                    return _parent;
+                }
 
-            if (State != null && serviceType == State.GetType())
-            {
-                return State;
-            }
+                if (serviceType == typeof(IConsole))
+                {
+                    return _parent._console;
+                }
 
-            if (serviceType == typeof(IEnumerable<CommandOption>))
-            {
-                return GetOptions();
-            }
+                if (serviceType == typeof(IEnumerable<CommandOption>))
+                {
+                    return _parent.GetOptions();
+                }
 
-            if (serviceType == typeof(IEnumerable<CommandArgument>))
-            {
-                return Arguments;
-            }
+                if (serviceType == typeof(IEnumerable<CommandArgument>))
+                {
+                    return _parent.Arguments;
+                }
 
-            return null;
+                return null;
+            }
         }
     }
 }

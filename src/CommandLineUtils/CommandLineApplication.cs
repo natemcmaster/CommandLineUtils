@@ -77,11 +77,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// An arbitrary object that can be used to set state or context.
-        /// </summary>
-        public object State { get; set; }
-
-        /// <summary>
         /// Defaults to null. A link to the parent command if this is instance is a subcommand.
         /// </summary>
         public CommandLineApplication Parent { get; set; }
@@ -370,14 +365,19 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The return code from <see cref="Invoke"/>.</returns>
         public int Execute(params string[] args)
         {
-            var arguments = new List<string>();
+            args = args ?? new string[0];
 
-            if (args != null)
+            var processor = new CommandLineProcessor(this, args);
+            var command = processor.Process();
+
+            var result = command.GetValidationResult();
+
+            if (result != ValidationResult.Success)
             {
-                arguments.AddRange(args);
+                return command.ValidationErrorHandler(result);
             }
 
-            return Execute(arguments);
+            return command.Invoke();
         }
 
         /// <summary>
@@ -613,6 +613,29 @@ namespace McMaster.Extensions.CommandLineUtils
 
             Out.WriteLine(rootCmd.GetFullNameAndVersion());
             Out.WriteLine();
+        }
+
+        private bool _settingConsole;
+
+        internal void SetConsole(IConsole console)
+        {
+            if (_settingConsole)
+            {
+                // prevent stack overflow in the event someone has looping command line apps
+                return;
+            }
+
+            _settingConsole = true;
+            _console = console;
+            Out = console.Out;
+            Error = console.Error;
+
+            foreach (var cmd in Commands)
+            {
+                cmd.SetConsole(console);
+            }
+
+            _settingConsole = false;
         }
     }
 }

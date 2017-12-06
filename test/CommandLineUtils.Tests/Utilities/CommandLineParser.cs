@@ -12,7 +12,7 @@ namespace McMaster.Extensions.CommandLineUtils
             where T : class, new()
         {
             var applicationBuilder = new ReflectionAppBuilder<T>();
-            return (T)applicationBuilder.Bind(NullConsole.Singleton, args).Target;
+            return (T)applicationBuilder.Bind(NullConsole.Singleton, args).ParentTarget;
         }
     }
 }

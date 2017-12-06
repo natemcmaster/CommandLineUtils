@@ -28,7 +28,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         private class AddCmd
-        { }
+        {
+            public object Parent { get; }
+        }
 
         private class RemoveCmd
         { }
@@ -54,8 +56,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var builder = new ReflectionAppBuilder<MasterApp>();
             var bound = builder.Bind(new TestConsole(_output), new[] { "add" });
-            var master = Assert.IsType<MasterApp>(bound.Target);
-            Assert.IsType<AddCmd>(master.Subcommand);
+            var add = Assert.IsType<AddCmd>(bound.Target);
+            Assert.IsType<MasterApp>(add.Parent);
         }
 
         [Command(ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated, AllowArgumentSeparator = true, ThrowOnUnexpectedArgument = false)]

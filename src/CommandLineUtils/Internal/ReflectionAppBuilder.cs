@@ -19,6 +19,8 @@ namespace McMaster.Extensions.CommandLineUtils
         private const BindingFlags PropertyBindingFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
 
         private volatile bool _initialized;
+        private readonly TTarget _target;
+        private BindResult _bindResult = new BindResult();
 
         private readonly List<Action<TTarget>> _binders = new List<Action<TTarget>>();
         private readonly SortedList<int, CommandArgument> _argOrder = new SortedList<int, CommandArgument>();
@@ -38,29 +40,27 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             App = app;
             App.OnExecute((Func<int>)OnExecute);
-            App.OnValidationError(r =>
-            {
-                App.Invoke();
-                var ctx = (BindContext)App.State;
-                ctx.ValidationResult = r;
-            });
+            _target = new TTarget();
         }
 
         internal CommandLineApplication App { get; }
 
-        public BindContext Bind(IConsole console, string[] args)
+        public BindResult Bind(IConsole console, string[] args)
         {
             EnsureInitialized();
             App.SetConsole(console);
-            App.Execute(args);
 
-            if (App.SelectedCommand != null)
-            {
-                // execution normally stops when help --help or --version is hit
-                App.SelectedCommand.Invoke();
-            }
+            var processor = new CommandLineProcessor(App, args);
+            var command = processor.Process();
 
-            return (BindContext)App.State;
+            var validationResult = command.GetValidationResult();
+
+            command.Invoke();
+
+            _bindResult.Command = command;
+            _bindResult.ValidationResult = validationResult;
+            _bindResult.ParentTarget = _target;
+            return _bindResult;
         }
 
         public void Initialize() => EnsureInitialized();
@@ -110,7 +110,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 foreach (var sub in subcommands)
                 {
-                    AddSubcommand(type, sub);
+                    AddSubcommand(sub);
                 }
             }
         }
@@ -382,56 +382,40 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             App.Parent?.Invoke();
 
-            var ctx = new BindContext
-            {
-                RootApp = App,
-                Target = new TTarget(),
-            };
-
-            if (App.Parent?.State is BindContext parentCtx)
-            {
-                parentCtx.Child = ctx;
-            }
-
-            App.State = ctx;
-
             foreach (var binder in _binders)
             {
-                binder((TTarget)ctx.Target);
+                binder(_target);
             }
+
+            _bindResult.Target = _target;
 
             return 0;
         }
 
-        private void AddSubcommand(Type parent, SubcommandAttribute subcommand)
+        private void AddSubcommand(SubcommandAttribute subcommand)
         {
             var impl = AddSubcommandMethod.MakeGenericMethod(subcommand.CommandType);
-            impl.Invoke(this, new object[] { parent, subcommand });
+            impl.Invoke(this, new object[] { subcommand });
         }
 
         private static readonly MethodInfo AddSubcommandMethod
             = typeof(ReflectionAppBuilder<TTarget>).GetRuntimeMethods().Single(m => m.Name == nameof(AddSubcommandImpl));
 
-        private void AddSubcommandImpl<TSubCommand>(Type parent, SubcommandAttribute subcommand)
+        private void AddSubcommandImpl<TSubCommand>(SubcommandAttribute subcommand)
             where TSubCommand : class, new()
         {
-            var parentApp = App;
             var childApp = App.Command(subcommand.Name, subcommand.Configure);
 
             var builder = new ReflectionAppBuilder<TSubCommand>(childApp);
+            builder._bindResult = _bindResult;
             builder.Initialize();
 
-            var subcommandProp = parent.GetTypeInfo().GetProperty("Subcommand", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            var subcommandProp = typeof(TTarget).GetTypeInfo().GetProperty("Subcommand", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             if (subcommandProp != null)
             {
                 var setter = ReflectionHelper.GetPropertySetter(subcommandProp);
                 builder.OnBind(o =>
-                {
-                    if (parentApp.State is BindContext ctx)
-                    {
-                        setter.Invoke(ctx.Target, o);
-                    }
-                });
+                    setter.Invoke(this._target, o));
             }
 
             var parentProp = subcommand.CommandType.GetTypeInfo().GetProperty("Parent", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
@@ -439,12 +423,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 var setter = ReflectionHelper.GetPropertySetter(parentProp);
                 builder.OnBind(o =>
-                {
-                    if (parentApp.State is BindContext ctx)
-                    {
-                        setter.Invoke(o, ctx.Target);
-                    }
-                });
+                    setter.Invoke(o, this._target));
             }
         }
     }

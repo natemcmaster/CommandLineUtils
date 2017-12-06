@@ -53,7 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             if (bindResult.ValidationResult != ValidationResult.Success)
             {
-                return HandleValidationError<TApp>(console, bindResult);
+                return HandleValidationError(console, bindResult);
             }
 
             var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
@@ -106,7 +106,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             if (bindResult.ValidationResult != ValidationResult.Success)
             {
-                return HandleValidationError<TApp>(console, bindResult);
+                return HandleValidationError(console, bindResult);
             }
 
             var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
@@ -121,7 +121,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        private static int HandleValidationError<TApp>(IConsole console, BindContext bindResult)
+        private static int HandleValidationError(IConsole console, BindResult bindResult)
         {
             const BindingFlags MethodFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 
@@ -132,7 +132,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             if (method == null)
             {
-                return bindResult.RootApp.DefaultValidationErrorHandler(bindResult.ValidationResult);
+                return bindResult.Command.DefaultValidationErrorHandler(bindResult.ValidationResult);
             }
 
             var arguments = ReflectionHelper.BindParameters(method, console, bindResult);
@@ -145,7 +145,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return 1;
         }
 
-        private static BindContext Bind<TApp>(IConsole console, string[] args) where TApp : class, new()
+        private static BindResult Bind<TApp>(IConsole console, string[] args) where TApp : class, new()
         {
             if (console == null)
             {
@@ -153,19 +153,19 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             var applicationBuilder = new ReflectionAppBuilder<TApp>();
-            return applicationBuilder.Bind(console, args).GetBottomContext();
+            return applicationBuilder.Bind(console, args);
         }
 
-        private static bool IsShowingInfo(BindContext bindResult)
+        private static bool IsShowingInfo(BindResult bindResult)
         {
-            if (bindResult.RootApp.IsShowingInformation)
+            if (bindResult.Command.IsShowingInformation)
             {
-                if (bindResult.RootApp.OptionHelp?.HasValue() == true && bindResult.RootApp.StopParsingAfterHelpOption)
+                if (bindResult.Command.OptionHelp?.HasValue() == true && bindResult.Command.StopParsingAfterHelpOption)
                 {
                     return true;
                 }
 
-                if (bindResult.RootApp.OptionVersion?.HasValue() == true && bindResult.RootApp.StopParsingAfterVersionOption)
+                if (bindResult.Command.OptionVersion?.HasValue() == true && bindResult.Command.StopParsingAfterVersionOption)
                 {
                     return true;
                 }

@@ -22,9 +22,9 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandLineProcessor(CommandLineApplication command, IReadOnlyList<string> parameters)
         {
             _app = command;
-            _parameters = parameters;
+            _parameters = parameters ?? new string[0];
             _initialCommand = command;
-            _enumerator = new ParameterEnumerator(parameters);
+            _enumerator = new ParameterEnumerator(_parameters);
         }
 
         public CommandLineApplication Process()
@@ -162,9 +162,6 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 _currentCommand.ShowHelp();
                 option.TryParse(null);
-                var parent = _currentCommand;
-                while (parent.Parent != null) parent = parent.Parent;
-                parent.SelectedCommand = _currentCommand;
                 if (_currentCommand.StopParsingAfterHelpOption)
                 {
                     return false;
@@ -174,9 +171,6 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 _currentCommand.ShowVersion();
                 option.TryParse(null);
-                var parent = _currentCommand;
-                while (parent.Parent != null) parent = parent.Parent;
-                parent.SelectedCommand = _currentCommand;
                 if (_currentCommand.StopParsingAfterVersionOption)
                 {
                     return false;

@@ -11,7 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
         }
 
-        public int Execute(IConsole console, BindContext bindResult)
+        public int Execute(IConsole console, BindResult bindResult)
         {
             var arguments = ReflectionHelper.BindParameters(Method, console, bindResult);
 

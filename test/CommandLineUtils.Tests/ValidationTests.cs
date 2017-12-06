@@ -231,5 +231,79 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             Assert.Equal(1, CommandLineApplication.Execute<ThrowOnExecuteApp>(new TestConsole(_output)));
         }
+
+        [Fact]
+        public void ValidationErrorOnlyCalledOnSubcommand()
+        {
+            var app = new CommandLineApplication();
+            app.OnValidationError(_ => throw new InvalidOperationException());
+            var cmd = app.Command("sub", c => { });
+            cmd.Option("-a --all", "all", CommandOptionType.NoValue).IsRequired();
+            var called = false;
+            cmd.OnValidationError(_ =>
+            {
+                called = true;
+            });
+            app.Execute("sub");
+            Assert.True(called, "Validation error should be called");
+        }
+
+        [Fact]
+        public void ParentOptionsAreValidated()
+        {
+            var app = new CommandLineApplication();
+            app.OnValidationError(_ => throw new InvalidOperationException());
+            app.Option("-a --all", "all", CommandOptionType.NoValue).IsRequired();
+            var called = false;
+            var cmd = app.Command("sub", c => { });
+            cmd.OnValidationError(_ =>
+            {
+                called = true;
+            });
+            var rc = app.Execute("sub");
+
+            Assert.True(called, "Validation error should be called");
+            Assert.NotEqual(0, rc);
+        }
+
+        [Subcommand("sub", typeof(ValidationSubcommand))]
+        private class ValidationParent
+        {
+            private int OnValidationError() => throw new InvalidOperationException();
+        }
+
+        private class ValidationSubcommand
+        {
+            [Option, Required]
+            public bool All { get; }
+            private int OnValidationError() => 10;
+        }
+
+        [Fact]
+        public void ValidationErrorOnlyCalledOnSubcommand_AttributeBinding()
+        {
+            var rc = CommandLineApplication.Execute<ValidationParent>("sub");
+            Assert.Equal(10, rc);
+        }
+
+        [Subcommand("sub", typeof(EmptyValidationSubcommand))]
+        private class ValidationParentWithRequiredOption
+        {
+            [Option, Required]
+            public bool All { get; }
+            private int OnValidationError() => throw new InvalidOperationException();
+        }
+
+        private class EmptyValidationSubcommand
+        {
+            private int OnValidationError() => 10;
+        }
+
+        [Fact]
+        public void ParentOptionsAreValidated_AttributeBinding()
+        {
+            var rc = CommandLineApplication.Execute<ValidationParent>("sub");
+            Assert.Equal(10, rc);
+        }
     }
 }

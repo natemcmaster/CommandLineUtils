@@ -12,7 +12,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
         }
 
-        public async Task<int> ExecuteAsync(IConsole console, BindContext bindResult)
+        public async Task<int> ExecuteAsync(IConsole console, BindResult bindResult)
         {
             var arguments = ReflectionHelper.BindParameters(Method, console, bindResult);
 

@@ -32,7 +32,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        public static object[] BindParameters(MethodInfo method, IConsole console, BindContext bindResult)
+        public static object[] BindParameters(MethodInfo method, IConsole console, BindResult bindResult)
         {
             var methodParams = method.GetParameters();
             var arguments = new object[methodParams.Length];
@@ -43,7 +43,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 if (typeof(CommandLineApplication).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
-                    arguments[i] = bindResult.RootApp;
+                    arguments[i] = bindResult.Command;
                 }
                 else if (typeof(IConsole).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
