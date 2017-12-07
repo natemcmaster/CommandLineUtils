@@ -750,5 +750,25 @@ Examples:
             Assert.False(optBig.HasValue(), "File should not be set");
             Assert.True(optLittle.HasValue(), "force should be set");
         }
+
+        // Assert compatibility with 2.0.0 and Microsoft.Extensions.CommandLineUtils.
+        [Fact]
+        public void CommandNamesCannotDifferByCase()
+        {
+            var app = new CommandLineApplication(throwOnUnexpectedArg: false);
+            var cmdUpper = app.Command("CMD1", c =>
+            {
+                c.OnExecute(() => 101);
+            });
+            var cmdLower = app.Command("cmd1", c =>
+            {
+                c.Invoke = () => throw new InvalidOperationException();
+            });
+            app.Invoke = () => throw new InvalidOperationException();
+
+            Assert.Equal(101, app.Execute("CMD1"));
+            Assert.Equal(101, app.Execute("cmd1"));
+            Assert.Equal(101, app.Execute("CmD1"));
+        }
     }
 }

@@ -34,6 +34,11 @@ namespace McMaster.Extensions.CommandLineUtils
 
         internal void Configure(CommandLineApplication app)
         {
+            if (string.IsNullOrEmpty(Name))
+            {
+                throw new ArgumentException(Strings.IsNullOrEmpty, nameof(Name));
+            }
+
             app.Name = Name;
         }
     }

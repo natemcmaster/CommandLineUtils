@@ -370,6 +370,19 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(2, PrivateSetterProgram.StaticValue);
         }
 
+        [Fact]
+        public void ItSetsAppNameToEntryAssemblyIfNotSpecified()
+        {
+            if (Assembly.GetEntryAssembly() == null)
+            {
+                return;
+            }
+            var expected = Assembly.GetEntryAssembly().GetName().Name;
+            var builder = new ReflectionAppBuilder<PrivateSetterProgram>();
+            builder.Initialize();
+            Assert.Equal(expected, builder.App.Name);
+        }
+
         [Theory]
         [InlineData("Option123", "o", "option123", "OPTION123")]
         [InlineData("dWORD", "d", "d-word", "D_WORD")]

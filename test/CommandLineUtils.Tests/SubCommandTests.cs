@@ -150,5 +150,22 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.True(sub.Parent.Parent.Verbose);
             Assert.Equal(6, sub.Value);
         }
+
+        [Subcommand("level1", typeof(Level1Cmd))]
+        [Subcommand("LEVEL1", typeof(Level2Cmd))]
+        private class DuplicateSubCommands
+        {
+            private void OnExecute()
+            {
+            }
+        }
+
+        [Fact]
+        public void CommandNamesCannotDifferByCaseOnly()
+        {
+            var ex = Assert.Throws<InvalidOperationException>(
+                () => CommandLineApplication.Execute<DuplicateSubCommands>(new TestConsole(_output)));
+            Assert.Equal(Strings.DuplicateSubcommandName("LEVEL1"), ex.Message);
+        }
     }
 }

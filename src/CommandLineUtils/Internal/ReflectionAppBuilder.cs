@@ -395,7 +395,15 @@ namespace McMaster.Extensions.CommandLineUtils
         private void AddSubcommand(SubcommandAttribute subcommand)
         {
             var impl = AddSubcommandMethod.MakeGenericMethod(subcommand.CommandType);
-            impl.Invoke(this, new object[] { subcommand });
+            try
+            {
+                impl.Invoke(this, new object[] { subcommand });
+            }
+            catch (TargetInvocationException ex)
+            {
+                // unwrap
+                throw ex.InnerException ?? ex;
+            }
         }
 
         private static readonly MethodInfo AddSubcommandMethod
@@ -404,8 +412,12 @@ namespace McMaster.Extensions.CommandLineUtils
         private void AddSubcommandImpl<TSubCommand>(SubcommandAttribute subcommand)
             where TSubCommand : class, new()
         {
-            var childApp = App.Command(subcommand.Name, subcommand.Configure);
+            if (App.Commands.Any(c => c.Name.Equals(subcommand.Name, StringComparison.OrdinalIgnoreCase)))
+            {
+                throw new InvalidOperationException(Strings.DuplicateSubcommandName(subcommand.Name));
+            }
 
+            var childApp = App.Command(subcommand.Name, subcommand.Configure);
             var builder = new ReflectionAppBuilder<TSubCommand>(childApp);
             builder._bindResult = _bindResult;
             builder.Initialize();

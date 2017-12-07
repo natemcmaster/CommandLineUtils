@@ -14,6 +14,8 @@ namespace McMaster.Extensions.CommandLineUtils
         public const string DefaultVersionTemplate = "--version";
         public const string DefaultVersionOptionDescription = "Show version information";
 
+        public const string IsNullOrEmpty = "Value is null or empty.";
+
         public const string NoValueTypesMustBeBoolean
             = "Cannot specify CommandOptionType.NoValue unless the type is boolean.";
 
@@ -32,6 +34,9 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static string OptionNameIsAmbiguous(string optionName, PropertyInfo first, PropertyInfo second)
             => $"Ambiguous option name. Both {first.DeclaringType.FullName}.{first.Name} and {second.DeclaringType.FullName}.{second.Name} produce a CommandOption with the name '{optionName}'";
+
+        public static string DuplicateSubcommandName(string commandName)
+            => $"The subcommand name '{commandName}' has already been been specified. Subcommand names are case insensitive and must be unique.";
 
         public static string BothOptionAndArgumentAttributesCannotBeSpecified(PropertyInfo prop)
             => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(ArgumentAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
