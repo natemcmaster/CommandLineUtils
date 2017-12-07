@@ -7,7 +7,9 @@ New features:
     - Options defined as [Option] or [Argument], [Subcommand].
     - Command parsing options can be defined with [Command] and [Subcmomand].
     - Special options include [HelpOption] and [VersionOption].
+    - Validation. You can use [Required] and any other ValidationAttribute to validate input on options and arguments.
  - Async from end to end. Using C# 7.1 and attribute binding, your console app can be async from top to bottom.
+ - Required options and arguments. Added CommandOption.IsRequired() and CommandArgument.IsRequired().
 
 New API
  - Prompt.GetYesNo, Prompt.GetPassword, and more. Added API for interactively getting responses on the console.
