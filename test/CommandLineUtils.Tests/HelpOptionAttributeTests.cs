@@ -147,26 +147,5 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             Assert.Equal(0, CommandLineApplication.Execute<SimpleHelpApp>(new TestConsole(_output), arg));
         }
-
-        [Command(StopParsingAfterHelpOption = false)]
-        private class KeepParsingHelpApp
-        {
-            [HelpOption]
-            public bool IsHelp { get; }
-
-            private int OnExecute()
-            {
-                return 15;
-            }
-        }
-
-        [Theory]
-        [InlineData("-h")]
-        [InlineData("-?")]
-        [InlineData("--help")]
-        public void InvokesOnExecuteWhenStopParsingHelpDisabled(string arg)
-        {
-            Assert.Equal(15, CommandLineApplication.Execute<KeepParsingHelpApp>(new TestConsole(_output), arg));
-        }
     }
 }

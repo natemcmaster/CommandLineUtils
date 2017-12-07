@@ -2,7 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.IO;
 using System.Reflection;
+using System.Text;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -17,14 +19,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             _output = output;
         }
 
-        [Command(StopParsingAfterHelpOption = false)]
+        [Command(Name = "master")]
         [Subcommand("level1", typeof(Level1Cmd))]
         private class MasterApp : CommandBase
         {
             [Option(Inherited = true)]
             public bool Verbose { get; set; }
 
-            protected override int OnExecute(CommandLineApplication app) => IsHelp ? 100 : 0;
+            protected override int OnExecute(CommandLineApplication app) => 100;
         }
 
         [Subcommand("level2", typeof(Level2Cmd))]
@@ -33,7 +35,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             [Option("--mid")]
             public bool Mid { get; }
 
-            protected override int OnExecute(CommandLineApplication app) => IsHelp ? 101 : 1;
+            protected override int OnExecute(CommandLineApplication app) => 101;
 
             public MasterApp Parent { get; }
         }
@@ -43,10 +45,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             [Option("--value")]
             public int? Value { get; set; }
 
-            protected override int OnExecute(CommandLineApplication app) =>
-                IsHelp
-                ? 102
-                : Value.HasValue ? Value.Value : 2;
+            protected override int OnExecute(CommandLineApplication app)
+                => Value.HasValue ? Value.Value : 102;
 
             public Level1Cmd Parent { get; }
         }
@@ -66,41 +66,65 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "level2", "--value", "6");
             Assert.Equal(6, rc);
+
+            rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "level2");
+            Assert.Equal(102, rc);
         }
 
         [Fact]
         public void ItInvokesExecuteOnSubcommand_Middle()
         {
             var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1");
-            Assert.Equal(1, rc);
+            Assert.Equal(101, rc);
         }
 
         [Fact]
         public void ItInvokesExecuteOnSubcommand_Top()
         {
             var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output));
-            Assert.Equal(0, rc);
+            Assert.Equal(100, rc);
         }
 
         [Fact]
         public void HandlesHelp_Bottom()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "level2", "--help");
-            Assert.Equal(102, rc);
+            var sb = new StringBuilder();
+            var output = new StringWriter(sb);
+            var console = new TestConsole(_output)
+            {
+                Out = output,
+            };
+            var rc = CommandLineApplication.Execute<MasterApp>(console, "level1", "level2", "--help");
+            Assert.Equal(0, rc);
+            Assert.Contains("Usage: master level1 level2 [options]", sb.ToString());
         }
 
         [Fact]
         public void HandlesHelp_Middle()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "--help");
-            Assert.Equal(101, rc);
+            var sb = new StringBuilder();
+            var output = new StringWriter(sb);
+            var console = new TestConsole(_output)
+            {
+                Out = output,
+            };
+            var rc = CommandLineApplication.Execute<MasterApp>(console, "level1", "--help");
+            Assert.Equal(0, rc);
+            Assert.Contains("Usage: master level1 [options]", sb.ToString());
         }
 
         [Fact]
         public void HandlesHelp_Top()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "--help");
-            Assert.Equal(100, rc);
+            var sb = new StringBuilder();
+            var output = new StringWriter(sb);
+            var console = new TestConsole(_output)
+            {
+                Out = output,
+            };
+            var rc = CommandLineApplication.Execute<MasterApp>(console, "--help");
+            Assert.Equal(0, rc);
+            Assert.Contains("Usage: master [options]", sb.ToString());
         }
 
         [Fact]

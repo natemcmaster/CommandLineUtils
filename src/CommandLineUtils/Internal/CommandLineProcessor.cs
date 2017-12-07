@@ -162,19 +162,13 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 _currentCommand.ShowHelp();
                 option.TryParse(null);
-                if (_currentCommand.StopParsingAfterHelpOption)
-                {
-                    return false;
-                }
+                return false;
             }
             else if (_currentCommand.OptionVersion == option)
             {
                 _currentCommand.ShowVersion();
                 option.TryParse(null);
-                if (_currentCommand.StopParsingAfterVersionOption)
-                {
-                    return false;
-                }
+                return false;
             }
 
             if (arg.Value != null)

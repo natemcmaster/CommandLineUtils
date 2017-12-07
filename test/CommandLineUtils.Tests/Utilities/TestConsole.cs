@@ -9,16 +9,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class TestConsole : IConsole
     {
-        private readonly ITestOutputHelper _output;
-
         public TestConsole(ITestOutputHelper output)
         {
-            _output = output;
+            Out = new XunitTextWriter(output);
+            Error = new XunitTextWriter(output);
         }
 
-        public TextWriter Out => new XunitTextWriter(_output);
+        public TextWriter Out { get; set; }
 
-        public TextWriter Error => new XunitTextWriter(_output);
+        public TextWriter Error { get; set; }
 
         public TextReader In => throw new NotImplementedException();
 

@@ -46,7 +46,7 @@ namespace McMaster.Extensions.CommandLineUtils
             where TApp : class, new()
         {
             var bindResult = Bind<TApp>(console, args);
-            if (IsShowingInfo(bindResult))
+            if (bindResult.Command.IsShowingInformation)
             {
                 return 0;
             }
@@ -99,7 +99,7 @@ namespace McMaster.Extensions.CommandLineUtils
             where TApp : class, new()
         {
             var bindResult = Bind<TApp>(console, args);
-            if (IsShowingInfo(bindResult))
+            if (bindResult.Command.IsShowingInformation)
             {
                 return 0;
             }
@@ -154,24 +154,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
             var applicationBuilder = new ReflectionAppBuilder<TApp>();
             return applicationBuilder.Bind(console, args);
-        }
-
-        private static bool IsShowingInfo(BindResult bindResult)
-        {
-            if (bindResult.Command.IsShowingInformation)
-            {
-                if (bindResult.Command.OptionHelp?.HasValue() == true && bindResult.Command.StopParsingAfterHelpOption)
-                {
-                    return true;
-                }
-
-                if (bindResult.Command.OptionVersion?.HasValue() == true && bindResult.Command.StopParsingAfterVersionOption)
-                {
-                    return true;
-                }
-            }
-
-            return false;
         }
     }
 }

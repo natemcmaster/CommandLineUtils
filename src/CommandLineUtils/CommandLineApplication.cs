@@ -86,8 +86,6 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             Name = name;
             Parent = parent;
-            StopParsingAfterHelpOption = parent.StopParsingAfterHelpOption;
-            StopParsingAfterVersionOption = parent.StopParsingAfterVersionOption;
         }
 
         /// <summary>
@@ -165,18 +163,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// True when <see cref="OptionHelp"/> or <see cref="OptionVersion"/> was matched.
         /// </summary>
         public bool IsShowingInformation { get; protected set; }
-
-        /// <summary>
-        /// Stops the parsing argument when <see cref="OptionHelp"/> is matched. Defaults to <c>true</c>.
-        /// This will prevent <see cref="Invoke" /> or <see cref="ValidationErrorHandler" /> from being called.
-        /// </summary>
-        public bool StopParsingAfterHelpOption { get; set; } = true;
-
-        /// <summary>
-        /// Stops the parsing argument when <see cref="OptionVersion"/> is matched. Defaults to <c>true</c>.
-        /// This will prevent <see cref="Invoke" /> or <see cref="ValidationErrorHandler" /> from being called.
-        /// </summary>
-        public bool StopParsingAfterVersionOption { get; set; } = true;
 
         /// <summary>
         /// The action to call when this command is matched and <see cref="IsShowingInformation"/> is <c>false</c>.

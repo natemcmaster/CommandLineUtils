@@ -67,18 +67,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public ResponseFileHandling ResponseFileHandling { get; set; } = ResponseFileHandling.Disabled;
 
-        /// <summary>
-        /// Stops the parsing argument when <see cref="HelpOptionAttribute"/> is matched. Defaults to <c>true</c>.
-        /// This will prevent any <c>OnExecute</c> methods from being called.
-        /// </summary>
-        public bool StopParsingAfterHelpOption { get; set; } = true;
-
-        /// <summary>
-        /// Stops the parsing argument when <see cref="VersionOptionAttribute"/> is matched. Defaults to <c>true</c>.
-        /// This will prevent any <c>OnExecute</c> methods from being called.
-        /// </summary>
-        public bool StopParsingAfterVersionOption { get; set; } = true;
-
         internal void Configure(CommandLineApplication app)
         {
             // this might have been set from SubcommandAttribute
@@ -90,8 +78,6 @@ namespace McMaster.Extensions.CommandLineUtils
             app.FullName = FullName;
             app.ResponseFileHandling = ResponseFileHandling;
             app.ShowInHelpText = ShowInHelpText;
-            app.StopParsingAfterHelpOption = StopParsingAfterHelpOption;
-            app.StopParsingAfterVersionOption = StopParsingAfterVersionOption;
             app.ThrowOnUnexpectedArgument = ThrowOnUnexpectedArgument;
         }
     }

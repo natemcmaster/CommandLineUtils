@@ -164,23 +164,5 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             Assert.Equal(0, CommandLineApplication.Execute<SimpleVersionApp>(new TestConsole(_output), arg));
         }
-
-        [Command(StopParsingAfterVersionOption = false)]
-        private class KeepParsingVersionApp
-        {
-            [VersionOption("1.0.0")]
-            public bool IsVersion { get; }
-
-            private int OnExecute()
-            {
-                return 14;
-            }
-        }
-
-        [Fact]
-        public void InvokesOnExecuteWhenStopParsingVersionDisabled()
-        {
-            Assert.Equal(14, CommandLineApplication.Execute<KeepParsingVersionApp>(new TestConsole(_output), "--version"));
-        }
     }
 }
