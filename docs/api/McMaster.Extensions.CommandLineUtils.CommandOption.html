@@ -1,0 +1,644 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CommandOption
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CommandOption
+   ">
+    <meta name="generator" content="docfx 2.28.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption">
+  
+  
+  <h1 id="McMaster_Extensions_CommandLineUtils_CommandOption" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption" class="text-break">Class CommandOption
+  </h1>
+  <div class="markdown level0 summary"><p>Represents one or many command line option that is identified by flag proceeded by &apos;-&apos; or &apos;--&apos;.
+Options are not positional. Compare to <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">CommandOption</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="McMaster.Extensions.CommandLineUtils.html">McMaster.Extensions.CommandLineUtils</a></h6>
+  <h6><strong>Assembly</strong>: McMaster.Extensions.CommandLineUtils.dll</h6>
+  <h5 id="McMaster_Extensions_CommandLineUtils_CommandOption_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CommandOption : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption__ctor_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.%23ctor(System.String%2CMcMaster.Extensions.CommandLineUtils.CommandOptionType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L23">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.#ctor*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption__ctor_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.#ctor(System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)">CommandOption(String, CommandOptionType)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandOption(string template, CommandOptionType optionType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">template</span></td>
+        <td><p>The template string. This is parsed into <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_ShortName">ShortName</a> and <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_LongName">LongName</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a></td>
+        <td><span class="parametername">optionType</span></td>
+        <td><p>The option type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_Description.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.Description%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L98">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_Description_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Description*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_Description" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Description">Description</h4>
+  <div class="markdown level1 summary"><p>A description of this option to show in generated help text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Description { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_Inherited.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.Inherited%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L119">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_Inherited_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Inherited*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_Inherited" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Inherited">Inherited</h4>
+  <div class="markdown level1 summary"><p>Determines if subcommands added to <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Commands">Commands</a>
+should also have access to this option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Inherited { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_LongName.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.LongName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L82">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_LongName_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.LongName*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_LongName" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.LongName">LongName</h4>
+  <div class="markdown level1 summary"><p>The long command line flag used to identify this option. On command line, this is preceeded by a double dash: &apos;--{LongName}&apos;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string LongName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_OptionType.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.OptionType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L108">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_OptionType_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.OptionType*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_OptionType" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.OptionType">OptionType</h4>
+  <div class="markdown level1 summary"><p>Defines the type of the option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandOptionType OptionType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_ShortName.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.ShortName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L77">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_ShortName_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.ShortName*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_ShortName" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.ShortName">ShortName</h4>
+  <div class="markdown level1 summary"><p>The short command line flag used to identify this option. On command line, this is preceeded by a single &apos;-{ShortName}&apos;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ShortName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_ShowInHelpText.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.ShowInHelpText%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L113">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_ShowInHelpText_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.ShowInHelpText*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_ShowInHelpText" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.ShowInHelpText">ShowInHelpText</h4>
+  <div class="markdown level1 summary"><p>Determines if this option should be shown in generated help text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowInHelpText { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_SymbolName.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.SymbolName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L88">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_SymbolName_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.SymbolName*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_SymbolName" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.SymbolName">SymbolName</h4>
+  <div class="markdown level1 summary"><p>Can be used in addition to <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_ShortName">ShortName</a> to add a single, non-English character.
+Example &quot;-?&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SymbolName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_Template.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.Template%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L72">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_Template_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Template*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_Template" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Template">Template</h4>
+  <div class="markdown level1 summary"><p>The argument template.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Template { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_Validators.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.Validators%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L125">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_Validators_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Validators*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_Validators" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Validators">Validators</h4>
+  <div class="markdown level1 summary"><p>A collection of validators that execute before invoking <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_Func_System_Int32__">OnExecute(Func&lt;Int32&gt;)</a>.
+When validation fails, <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ValidationErrorHandler">ValidationErrorHandler</a> is invoked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;IOptionValidator&gt; Validators { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ICollection</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html">IOptionValidator</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_ValueName.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.ValueName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L93">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_ValueName_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.ValueName*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_ValueName" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.ValueName">ValueName</h4>
+  <div class="markdown level1 summary"><p>The name of value(s) shown in help text when <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_OptionType">OptionType</a> is not <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html#McMaster_Extensions_CommandLineUtils_CommandOptionType_NoValue">NoValue</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ValueName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_Values.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.Values%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L103">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_Values_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Values*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_Values" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Values">Values</h4>
+  <div class="markdown level1 summary"><p>Any values found during parsing, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; Values { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_HasValue.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.HasValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L164">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_HasValue_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.HasValue*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_HasValue" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.HasValue">HasValue()</h4>
+  <div class="markdown level1 summary"><p>True when <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_Values">Values</a> is not empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasValue()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_TryParse_System_String_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L132">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_TryParse_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.TryParse*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_TryParse_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(System.String)">TryParse(String)</h4>
+  <div class="markdown level1 summary"><p>Attempt to parse the value that follows after the flag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryParse(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption_Value.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption.Value%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L173">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandOption_Value_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Value*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_Value" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Value">Value()</h4>
+  <div class="markdown level1 summary"><p>Returns the first element of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_Values">Values</a>, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Value()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_McMaster_Extensions_CommandLineUtils_CommandOption_System_Boolean_System_String_">ValidationExtensions.IsRequired(CommandOption, Boolean, String)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandOption.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandOption%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandOption.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Generated with docfx
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
