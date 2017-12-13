@@ -9,7 +9,7 @@ branches:
     - appveyor
     - /^feature\/.*/
 build_script:
-  - ps: .\build.ps1
+  - ps: .\build.ps1 -IsOfficialBuild
 environment:
   global:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
