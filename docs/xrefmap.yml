@@ -91,13 +91,13 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.ArgumentEscaper
   fullName: McMaster.Extensions.CommandLineUtils.ArgumentEscaper
   nameWithType: ArgumentEscaper
-- uid: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(IEnumerable{System.String})
+- uid: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable{System.String})
   name: EscapeAndConcatenate(IEnumerable<String>)
-  href: api/McMaster.Extensions.CommandLineUtils.ArgumentEscaper.html#McMaster_Extensions_CommandLineUtils_ArgumentEscaper_EscapeAndConcatenate_IEnumerable_System_String__
-  commentId: M:McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(IEnumerable{System.String})
+  href: api/McMaster.Extensions.CommandLineUtils.ArgumentEscaper.html#McMaster_Extensions_CommandLineUtils_ArgumentEscaper_EscapeAndConcatenate_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable{System.String})
   name.vb: EscapeAndConcatenate(IEnumerable(Of String))
-  fullName: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(IEnumerable<System.String>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(IEnumerable(Of System.String))
+  fullName: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable(Of System.String))
   nameWithType: ArgumentEscaper.EscapeAndConcatenate(IEnumerable<String>)
   nameWithType.vb: ArgumentEscaper.EscapeAndConcatenate(IEnumerable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate*
@@ -376,13 +376,13 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.AllowArgumentSeparator
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AllowArgumentSeparator
   nameWithType: CommandLineApplication.AllowArgumentSeparator
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument(System.String,System.String,Action{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument(System.String,System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Boolean)
   name: Argument(String, String, Action<CommandArgument>, Boolean)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Argument_System_String_System_String_Action_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Boolean_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument(System.String,System.String,Action{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Boolean)
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Argument_System_String_System_String_System_Action_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Boolean_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument(System.String,System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Boolean)
   name.vb: Argument(String, String, Action(Of CommandArgument), Boolean)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument(System.String, System.String, Action<McMaster.Extensions.CommandLineUtils.CommandArgument>, System.Boolean)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument(System.String, System.String, Action(Of McMaster.Extensions.CommandLineUtils.CommandArgument), System.Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument(System.String, System.String, System.Action<McMaster.Extensions.CommandLineUtils.CommandArgument>, System.Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument(System.String, System.String, System.Action(Of McMaster.Extensions.CommandLineUtils.CommandArgument), System.Boolean)
   nameWithType: CommandLineApplication.Argument(String, String, Action<CommandArgument>, Boolean)
   nameWithType.vb: CommandLineApplication.Argument(String, String, Action(Of CommandArgument), Boolean)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument(System.String,System.String,System.Boolean)
@@ -409,13 +409,13 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Arguments
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Arguments
   nameWithType: CommandLineApplication.Arguments
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String,Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Boolean)
   name: Command(String, Action<CommandLineApplication>, Boolean)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command_System_String_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Boolean_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String,Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Boolean)
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command_System_String_System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Boolean_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Boolean)
   name.vb: Command(String, Action(Of CommandLineApplication), Boolean)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String, Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication>, System.Boolean)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String, Action(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication), System.Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String, System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication>, System.Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String, System.Action(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication), System.Boolean)
   nameWithType: CommandLineApplication.Command(String, Action<CommandLineApplication>, Boolean)
   nameWithType.vb: CommandLineApplication.Command(String, Action(Of CommandLineApplication), Boolean)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command*
@@ -655,22 +655,22 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Name
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Name
   nameWithType: CommandLineApplication.Name
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(Func{System.Int32})
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func{System.Int32})
   name: OnExecute(Func<Int32>)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_Func_System_Int32__
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(Func{System.Int32})
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_System_Func_System_Int32__
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func{System.Int32})
   name.vb: OnExecute(Func(Of Int32))
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(Func<System.Int32>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(Func(Of System.Int32))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func<System.Int32>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func(Of System.Int32))
   nameWithType: CommandLineApplication.OnExecute(Func<Int32>)
   nameWithType.vb: CommandLineApplication.OnExecute(Func(Of Int32))
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(Func{Task{System.Int32}})
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func{System.Threading.Tasks.Task{System.Int32}})
   name: OnExecute(Func<Task<Int32>>)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_Func_Task_System_Int32___
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(Func{Task{System.Int32}})
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_System_Func_System_Threading_Tasks_Task_System_Int32___
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func{System.Threading.Tasks.Task{System.Int32}})
   name.vb: OnExecute(Func(Of Task(Of Int32)))
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(Func<Task<System.Int32>>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(Func(Of Task(Of System.Int32)))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func<System.Threading.Tasks.Task<System.Int32>>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func(Of System.Threading.Tasks.Task(Of System.Int32)))
   nameWithType: CommandLineApplication.OnExecute(Func<Task<Int32>>)
   nameWithType.vb: CommandLineApplication.OnExecute(Func(Of Task(Of Int32)))
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute*
@@ -685,22 +685,22 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String, System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType)
   nameWithType: CommandLineApplication.Option(String, String, CommandOptionType)
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,Action{McMaster.Extensions.CommandLineUtils.CommandOption})
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Action{McMaster.Extensions.CommandLineUtils.CommandOption})
   name: Option(String, String, CommandOptionType, Action<CommandOption>)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Option_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_Action_McMaster_Extensions_CommandLineUtils_CommandOption__
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,Action{McMaster.Extensions.CommandLineUtils.CommandOption})
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Option_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_System_Action_McMaster_Extensions_CommandLineUtils_CommandOption__
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Action{McMaster.Extensions.CommandLineUtils.CommandOption})
   name.vb: Option(String, String, CommandOptionType, Action(Of CommandOption))
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String, System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType, Action<McMaster.Extensions.CommandLineUtils.CommandOption>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String, System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType, Action(Of McMaster.Extensions.CommandLineUtils.CommandOption))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String, System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType, System.Action<McMaster.Extensions.CommandLineUtils.CommandOption>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String, System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType, System.Action(Of McMaster.Extensions.CommandLineUtils.CommandOption))
   nameWithType: CommandLineApplication.Option(String, String, CommandOptionType, Action<CommandOption>)
   nameWithType.vb: CommandLineApplication.Option(String, String, CommandOptionType, Action(Of CommandOption))
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,Action{McMaster.Extensions.CommandLineUtils.CommandOption},System.Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Action{McMaster.Extensions.CommandLineUtils.CommandOption},System.Boolean)
   name: Option(String, String, CommandOptionType, Action<CommandOption>, Boolean)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Option_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_Action_McMaster_Extensions_CommandLineUtils_CommandOption__System_Boolean_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,Action{McMaster.Extensions.CommandLineUtils.CommandOption},System.Boolean)
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Option_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_System_Action_McMaster_Extensions_CommandLineUtils_CommandOption__System_Boolean_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Action{McMaster.Extensions.CommandLineUtils.CommandOption},System.Boolean)
   name.vb: Option(String, String, CommandOptionType, Action(Of CommandOption), Boolean)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String, System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType, Action<McMaster.Extensions.CommandLineUtils.CommandOption>, System.Boolean)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String, System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType, Action(Of McMaster.Extensions.CommandLineUtils.CommandOption), System.Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String, System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType, System.Action<McMaster.Extensions.CommandLineUtils.CommandOption>, System.Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String, System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType, System.Action(Of McMaster.Extensions.CommandLineUtils.CommandOption), System.Boolean)
   nameWithType: CommandLineApplication.Option(String, String, CommandOptionType, Action<CommandOption>, Boolean)
   nameWithType.vb: CommandLineApplication.Option(String, String, CommandOptionType, Action(Of CommandOption), Boolean)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Boolean)
@@ -901,13 +901,13 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValidationErrorHandler
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValidationErrorHandler
   nameWithType: CommandLineApplication.ValidationErrorHandler
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,Func{System.String},Func{System.String})
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,System.Func{System.String},System.Func{System.String})
   name: VersionOption(String, Func<String>, Func<String>)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_VersionOption_System_String_Func_System_String__Func_System_String__
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,Func{System.String},Func{System.String})
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_VersionOption_System_String_System_Func_System_String__System_Func_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,System.Func{System.String},System.Func{System.String})
   name.vb: VersionOption(String, Func(Of String), Func(Of String))
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String, Func<System.String>, Func<System.String>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String, Func(Of System.String), Func(Of System.String))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String, System.Func<System.String>, System.Func<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String, System.Func(Of System.String), System.Func(Of System.String))
   nameWithType: CommandLineApplication.VersionOption(String, Func<String>, Func<String>)
   nameWithType.vb: CommandLineApplication.VersionOption(String, Func(Of String), Func(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,System.String,System.String)
@@ -952,11 +952,11 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption
   nameWithType: CommandLineApplicationExtensions.HelpOption
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,Action)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action)
   name: OnExecute(CommandLineApplication, Action)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_McMaster_Extensions_CommandLineUtils_CommandLineApplication_Action_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,Action)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication, Action)
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Action_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Action)
   nameWithType: CommandLineApplicationExtensions.OnExecute(CommandLineApplication, Action)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute*
   name: OnExecute
@@ -964,22 +964,22 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute
   nameWithType: CommandLineApplicationExtensions.OnExecute
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,Action{ValidationResult})
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action{System.ComponentModel.DataAnnotations.ValidationResult})
   name: OnValidationError(CommandLineApplication, Action<ValidationResult>)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_Action_ValidationResult__
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,Action{ValidationResult})
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Action_System_ComponentModel_DataAnnotations_ValidationResult__
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action{System.ComponentModel.DataAnnotations.ValidationResult})
   name.vb: OnValidationError(CommandLineApplication, Action(Of ValidationResult))
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, Action<ValidationResult>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, Action(Of ValidationResult))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Action<System.ComponentModel.DataAnnotations.ValidationResult>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Action(Of System.ComponentModel.DataAnnotations.ValidationResult))
   nameWithType: CommandLineApplicationExtensions.OnValidationError(CommandLineApplication, Action<ValidationResult>)
   nameWithType.vb: CommandLineApplicationExtensions.OnValidationError(CommandLineApplication, Action(Of ValidationResult))
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,Func{ValidationResult,System.Int32})
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.ComponentModel.DataAnnotations.ValidationResult,System.Int32})
   name: OnValidationError(CommandLineApplication, Func<ValidationResult, Int32>)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_Func_ValidationResult_System_Int32__
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,Func{ValidationResult,System.Int32})
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_ComponentModel_DataAnnotations_ValidationResult_System_Int32__
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.ComponentModel.DataAnnotations.ValidationResult,System.Int32})
   name.vb: OnValidationError(CommandLineApplication, Func(Of ValidationResult, Int32))
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, Func<ValidationResult, System.Int32>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, Func(Of ValidationResult, System.Int32))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func<System.ComponentModel.DataAnnotations.ValidationResult, System.Int32>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func(Of System.ComponentModel.DataAnnotations.ValidationResult, System.Int32))
   nameWithType: CommandLineApplicationExtensions.OnValidationError(CommandLineApplication, Func<ValidationResult, Int32>)
   nameWithType.vb: CommandLineApplicationExtensions.OnValidationError(CommandLineApplication, Func(Of ValidationResult, Int32))
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError*
@@ -1006,17 +1006,17 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption
   nameWithType: CommandLineApplicationExtensions.VerboseOption
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,Assembly)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Reflection.Assembly)
   name: VersionOptionFromAssemblyAttributes(CommandLineApplication, Assembly)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_Assembly_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,Assembly)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication, Assembly)
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Reflection_Assembly_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Reflection.Assembly)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Reflection.Assembly)
   nameWithType: CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(CommandLineApplication, Assembly)
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,Assembly)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.Reflection.Assembly)
   name: VersionOptionFromAssemblyAttributes(CommandLineApplication, String, Assembly)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_Assembly_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,Assembly)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.String, Assembly)
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_Reflection_Assembly_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.Reflection.Assembly)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.String, System.Reflection.Assembly)
   nameWithType: CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(CommandLineApplication, String, Assembly)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes*
   name: VersionOptionFromAssemblyAttributes
@@ -1246,11 +1246,11 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.CommandParsingException.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String)
   fullName: McMaster.Extensions.CommandLineUtils.CommandParsingException.CommandParsingException(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.String)
   nameWithType: CommandParsingException.CommandParsingException(CommandLineApplication, String)
-- uid: McMaster.Extensions.CommandLineUtils.CommandParsingException.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,Exception)
+- uid: McMaster.Extensions.CommandLineUtils.CommandParsingException.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.Exception)
   name: CommandParsingException(CommandLineApplication, String, Exception)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandParsingException.html#McMaster_Extensions_CommandLineUtils_CommandParsingException__ctor_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_Exception_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandParsingException.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,Exception)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandParsingException.CommandParsingException(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.String, Exception)
+  href: api/McMaster.Extensions.CommandLineUtils.CommandParsingException.html#McMaster_Extensions_CommandLineUtils_CommandParsingException__ctor_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_Exception_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandParsingException.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.Exception)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandParsingException.CommandParsingException(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.String, System.Exception)
   nameWithType: CommandParsingException.CommandParsingException(CommandLineApplication, String, Exception)
 - uid: McMaster.Extensions.CommandLineUtils.CommandParsingException.#ctor*
   name: CommandParsingException
@@ -1408,13 +1408,13 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn
   fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn
   nameWithType: ConsoleReporter.Warn
-- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(TextWriter,System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(System.IO.TextWriter,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name: WriteLine(TextWriter, String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
-  href: api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.html#McMaster_Extensions_CommandLineUtils_ConsoleReporter_WriteLine_TextWriter_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__
-  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(TextWriter,System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+  href: api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.html#McMaster_Extensions_CommandLineUtils_ConsoleReporter_WriteLine_System_IO_TextWriter_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(System.IO.TextWriter,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name.vb: WriteLine(TextWriter, String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
-  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(TextWriter, System.String, System.Nullable<ConsoleColor>, System.Nullable<ConsoleColor>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(TextWriter, System.String, System.Nullable(Of ConsoleColor), System.Nullable(Of ConsoleColor))
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(System.IO.TextWriter, System.String, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(System.IO.TextWriter, System.String, System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
   nameWithType: ConsoleReporter.WriteLine(TextWriter, String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
   nameWithType.vb: ConsoleReporter.WriteLine(TextWriter, String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
 - uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine*
@@ -1528,11 +1528,11 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
   fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
   nameWithType: DefaultHelpTextGenerator
-- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
   name: Generate(CommandLineApplication, TextWriter)
-  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_
-  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter)
-  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication, TextWriter)
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter)
   nameWithType: DefaultHelpTextGenerator.Generate(CommandLineApplication, TextWriter)
 - uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate*
   name: Generate
@@ -1558,11 +1558,11 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
   fullName: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
   nameWithType: IHelpTextGenerator
-- uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
   name: Generate(CommandLineApplication, TextWriter)
-  href: api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_
-  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter)
-  fullName: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication, TextWriter)
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter)
   nameWithType: IHelpTextGenerator.Generate(CommandLineApplication, TextWriter)
 - uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate*
   name: Generate
@@ -2236,13 +2236,13 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.Prompt
   fullName: McMaster.Extensions.CommandLineUtils.Prompt
   nameWithType: Prompt
-- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name: GetInt(String, Nullable<Int32>, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
-  href: api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetInt_System_String_System_Nullable_System_Int32__System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__
-  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+  href: api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetInt_System_String_System_Nullable_System_Int32__System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name.vb: GetInt(String, Nullable(Of Int32), Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
-  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String, System.Nullable<System.Int32>, System.Nullable<ConsoleColor>, System.Nullable<ConsoleColor>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String, System.Nullable(Of System.Int32), System.Nullable(Of ConsoleColor), System.Nullable(Of ConsoleColor))
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String, System.Nullable<System.Int32>, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String, System.Nullable(Of System.Int32), System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
   nameWithType: Prompt.GetInt(String, Nullable<Int32>, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
   nameWithType.vb: Prompt.GetInt(String, Nullable(Of Int32), Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
 - uid: McMaster.Extensions.CommandLineUtils.Prompt.GetInt*
@@ -2251,13 +2251,13 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetInt
   fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetInt
   nameWithType: Prompt.GetInt
-- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name: GetPassword(String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
-  href: api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetPassword_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__
-  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+  href: api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetPassword_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name.vb: GetPassword(String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
-  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String, System.Nullable<ConsoleColor>, System.Nullable<ConsoleColor>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String, System.Nullable(Of ConsoleColor), System.Nullable(Of ConsoleColor))
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String, System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
   nameWithType: Prompt.GetPassword(String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
   nameWithType.vb: Prompt.GetPassword(String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
 - uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword*
@@ -2266,13 +2266,13 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetPassword
   fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword
   nameWithType: Prompt.GetPassword
-- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name: GetPasswordAsSecureString(String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
-  href: api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetPasswordAsSecureString_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__
-  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+  href: api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetPasswordAsSecureString_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name.vb: GetPasswordAsSecureString(String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
-  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String, System.Nullable<ConsoleColor>, System.Nullable<ConsoleColor>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String, System.Nullable(Of ConsoleColor), System.Nullable(Of ConsoleColor))
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String, System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
   nameWithType: Prompt.GetPasswordAsSecureString(String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
   nameWithType.vb: Prompt.GetPasswordAsSecureString(String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
 - uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString*
@@ -2281,13 +2281,13 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString
   fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString
   nameWithType: Prompt.GetPasswordAsSecureString
-- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name: GetString(String, String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
-  href: api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetString_System_String_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__
-  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+  href: api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetString_System_String_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name.vb: GetString(String, String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
-  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String, System.String, System.Nullable<ConsoleColor>, System.Nullable<ConsoleColor>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String, System.String, System.Nullable(Of ConsoleColor), System.Nullable(Of ConsoleColor))
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String, System.String, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String, System.String, System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
   nameWithType: Prompt.GetString(String, String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
   nameWithType.vb: Prompt.GetString(String, String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
 - uid: McMaster.Extensions.CommandLineUtils.Prompt.GetString*
@@ -2296,13 +2296,13 @@ references:
   commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetString
   fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetString
   nameWithType: Prompt.GetString
-- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name: GetYesNo(String, Boolean, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
-  href: api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetYesNo_System_String_System_Boolean_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__
-  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})
+  href: api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetYesNo_System_String_System_Boolean_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name.vb: GetYesNo(String, Boolean, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
-  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String, System.Boolean, System.Nullable<ConsoleColor>, System.Nullable<ConsoleColor>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String, System.Boolean, System.Nullable(Of ConsoleColor), System.Nullable(Of ConsoleColor))
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String, System.Boolean, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String, System.Boolean, System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
   nameWithType: Prompt.GetYesNo(String, Boolean, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
   nameWithType.vb: Prompt.GetYesNo(String, Boolean, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
 - uid: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo*
@@ -2341,11 +2341,11 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.SubcommandAttribute
   fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute
   nameWithType: SubcommandAttribute
-- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor(System.String,Type)
+- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor(System.String,System.Type)
   name: SubcommandAttribute(String, Type)
-  href: api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html#McMaster_Extensions_CommandLineUtils_SubcommandAttribute__ctor_System_String_Type_
-  commentId: M:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor(System.String,Type)
-  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute(System.String, Type)
+  href: api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html#McMaster_Extensions_CommandLineUtils_SubcommandAttribute__ctor_System_String_System_Type_
+  commentId: M:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor(System.String,System.Type)
+  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute(System.String, System.Type)
   nameWithType: SubcommandAttribute.SubcommandAttribute(String, Type)
 - uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor*
   name: SubcommandAttribute
@@ -2389,11 +2389,11 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
   fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
   nameWithType: IArgumentValidator
-- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,ValidationContext)
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
   name: GetValidationResult(CommandArgument, ValidationContext)
-  href: api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html#McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandArgument_ValidationContext_
-  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,ValidationContext)
-  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument, ValidationContext)
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html#McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandArgument_System_ComponentModel_DataAnnotations_ValidationContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument, System.ComponentModel.DataAnnotations.ValidationContext)
   nameWithType: IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
 - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult*
   name: GetValidationResult
@@ -2407,11 +2407,11 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
   fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
   nameWithType: IOptionValidator
-- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,ValidationContext)
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
   name: GetValidationResult(CommandOption, ValidationContext)
-  href: api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html#McMaster_Extensions_CommandLineUtils_Validation_IOptionValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandOption_ValidationContext_
-  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,ValidationContext)
-  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption, ValidationContext)
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html#McMaster_Extensions_CommandLineUtils_Validation_IOptionValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandOption_System_ComponentModel_DataAnnotations_ValidationContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption, System.ComponentModel.DataAnnotations.ValidationContext)
   nameWithType: IOptionValidator.GetValidationResult(CommandOption, ValidationContext)
 - uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult*
   name: GetValidationResult

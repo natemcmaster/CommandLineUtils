@@ -35,9 +35,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" height="55" src="../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -89,29 +88,53 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Prompt</span></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="McMaster.Extensions.CommandLineUtils.html">McMaster.Extensions.CommandLineUtils</a></h6>
   <h6><strong>Assembly</strong>: McMaster.Extensions.CommandLineUtils.dll</h6>
   <h5 id="McMaster_Extensions_CommandLineUtils_Prompt_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Prompt : object</code></pre>
+    <pre><code class="lang-csharp hljs">public static class Prompt</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Prompt_GetInt_System_String_System_Nullable_System_Int32__System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BConsoleColor%7D%2CSystem.Nullable%7BConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Prompt_GetInt_System_String_System_Nullable_System_Int32__System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.ConsoleColor%7D%2CSystem.Nullable%7BSystem.ConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Utilities/Prompt.cs/#L212">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_Prompt_GetInt_" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetInt*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_Prompt_GetInt_System_String_System_Nullable_System_Int32__System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})">GetInt(String, Nullable&lt;Int32&gt;, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_Prompt_GetInt_System_String_System_Nullable_System_Int32__System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">GetInt(String, Nullable&lt;Int32&gt;, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
   <div class="markdown level1 summary"><p>Gets an integer response from the console after displaying a <code data-dev-comment-type="paramref" class="paramref">prompt</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int GetInt(string prompt, int ? defaultAnswer = null, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static int GetInt(string prompt, int ? defaultAnswer = default (int ? ), ConsoleColor? promptColor = default (ConsoleColor? ), ConsoleColor? promptBgColor = default (ConsoleColor? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -136,13 +159,13 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">promptColor</span></td>
         <td><p>The console color to display</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">promptBgColor</span></td>
         <td><p>The console background color for the prompt</p>
 </td>
@@ -167,19 +190,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Prompt_GetPassword_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String%2CSystem.Nullable%7BConsoleColor%7D%2CSystem.Nullable%7BConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Prompt_GetPassword_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String%2CSystem.Nullable%7BSystem.ConsoleColor%7D%2CSystem.Nullable%7BSystem.ConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Utilities/Prompt.cs/#L93">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_Prompt_GetPassword_" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetPassword*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_Prompt_GetPassword_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})">GetPassword(String, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_Prompt_GetPassword_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">GetPassword(String, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
   <div class="markdown level1 summary"><p>Gets a response that contains a password. Input is masked with an asterisk.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string GetPassword(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string GetPassword(string prompt, ConsoleColor? promptColor = default (ConsoleColor? ), ConsoleColor? promptBgColor = default (ConsoleColor? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -198,13 +221,13 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">promptColor</span></td>
         <td><p>The console color to use for the prompt</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">promptBgColor</span></td>
         <td><p>The console background color for the prompt</p>
 </td>
@@ -229,19 +252,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Prompt_GetPasswordAsSecureString_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String%2CSystem.Nullable%7BConsoleColor%7D%2CSystem.Nullable%7BConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Prompt_GetPasswordAsSecureString_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String%2CSystem.Nullable%7BSystem.ConsoleColor%7D%2CSystem.Nullable%7BSystem.ConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Utilities/Prompt.cs/#L121">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_Prompt_GetPasswordAsSecureString_" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_Prompt_GetPasswordAsSecureString_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})">GetPasswordAsSecureString(String, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_Prompt_GetPasswordAsSecureString_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">GetPasswordAsSecureString(String, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
   <div class="markdown level1 summary"><p>Gets a response as a SecureString object. Input is masked with an asterisk.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static System.Security.SecureString GetPasswordAsSecureString(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static SecureString GetPasswordAsSecureString(string prompt, ConsoleColor? promptColor = default (ConsoleColor? ), ConsoleColor? promptBgColor = default (ConsoleColor? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -260,13 +283,13 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">promptColor</span></td>
         <td><p>The console color to use for the prompt</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">promptBgColor</span></td>
         <td><p>The console background color for the prompt</p>
 </td>
@@ -291,19 +314,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Prompt_GetString_System_String_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String%2CSystem.String%2CSystem.Nullable%7BConsoleColor%7D%2CSystem.Nullable%7BConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Prompt_GetString_System_String_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String%2CSystem.String%2CSystem.Nullable%7BSystem.ConsoleColor%7D%2CSystem.Nullable%7BSystem.ConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Utilities/Prompt.cs/#L66">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_Prompt_GetString_" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetString*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_Prompt_GetString_System_String_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})">GetString(String, String, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_Prompt_GetString_System_String_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">GetString(String, String, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
   <div class="markdown level1 summary"><p>Gets a console response from the console after displaying a <code data-dev-comment-type="paramref" class="paramref">prompt</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string GetString(string prompt, string defaultValue = null, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string GetString(string prompt, string defaultValue = null, ConsoleColor? promptColor = default (ConsoleColor? ), ConsoleColor? promptBgColor = default (ConsoleColor? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -328,13 +351,13 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">promptColor</span></td>
         <td><p>The console color to use for the prompt</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">promptBgColor</span></td>
         <td><p>The console background color for the prompt</p>
 </td>
@@ -359,13 +382,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Prompt_GetYesNo_System_String_System_Boolean_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String%2CSystem.Boolean%2CSystem.Nullable%7BConsoleColor%7D%2CSystem.Nullable%7BConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Prompt_GetYesNo_System_String_System_Boolean_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String%2CSystem.Boolean%2CSystem.Nullable%7BSystem.ConsoleColor%7D%2CSystem.Nullable%7BSystem.ConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Utilities/Prompt.cs/#L28">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_Prompt_GetYesNo_" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_Prompt_GetYesNo_System_String_System_Boolean_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})">GetYesNo(String, Boolean, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_Prompt_GetYesNo_System_String_System_Boolean_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">GetYesNo(String, Boolean, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
   <div class="markdown level1 summary"><p>Gets a yes/no response from the console after displaying a <code data-dev-comment-type="paramref" class="paramref">prompt</code>.
 <p>
 The parsing is case insensitive. Valid responses include: yes, no, y, n.
@@ -374,7 +397,7 @@ The parsing is case insensitive. Valid responses include: yes, no, y, n.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool GetYesNo(string prompt, bool defaultAnswer, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool GetYesNo(string prompt, bool defaultAnswer, ConsoleColor? promptColor = default (ConsoleColor? ), ConsoleColor? promptBgColor = default (ConsoleColor? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -399,13 +422,13 @@ The parsing is case insensitive. Valid responses include: yes, no, y, n.
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">promptColor</span></td>
         <td><p>The console color to display</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">promptBgColor</span></td>
         <td><p>The console background color for the prompt</p>
 </td>

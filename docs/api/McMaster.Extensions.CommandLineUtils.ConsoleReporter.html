@@ -35,9 +35,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" height="55" src="../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -93,11 +92,35 @@
     <h5>Implements</h5>
     <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.IReporter.html">IReporter</a></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="McMaster.Extensions.CommandLineUtils.html">McMaster.Extensions.CommandLineUtils</a></h6>
   <h6><strong>Assembly</strong>: McMaster.Extensions.CommandLineUtils.dll</h6>
   <h5 id="McMaster_Extensions_CommandLineUtils_ConsoleReporter_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ConsoleReporter : object, IReporter</code></pre>
+    <pre><code class="lang-csharp hljs">public class ConsoleReporter : IReporter</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -285,7 +308,7 @@
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_ConsoleReporter_Error_" data-uid="McMaster.Extensions.CommandLineUtils.ConsoleReporter.Error*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_ConsoleReporter_Error_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ConsoleReporter.Error(System.String)">Error(String)</h4>
-  <div class="markdown level1 summary"><p>Writes a message in <see cref="!:ConsoleColor.Red"></see> to <a class="xref" href="McMaster.Extensions.CommandLineUtils.IConsole.html#McMaster_Extensions_CommandLineUtils_IConsole_Error">Error</a>.</p>
+  <div class="markdown level1 summary"><p>Writes a message in <span class="xref">System.ConsoleColor.Red</span> to <a class="xref" href="McMaster.Extensions.CommandLineUtils.IConsole.html#McMaster_Extensions_CommandLineUtils_IConsole_Error">Error</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -351,7 +374,7 @@
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_ConsoleReporter_Verbose_" data-uid="McMaster.Extensions.CommandLineUtils.ConsoleReporter.Verbose*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_ConsoleReporter_Verbose_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ConsoleReporter.Verbose(System.String)">Verbose(String)</h4>
-  <div class="markdown level1 summary"><p>Writes a message in <see cref="!:ConsoleColor.DarkGray"></see> to <a class="xref" href="McMaster.Extensions.CommandLineUtils.IConsole.html#McMaster_Extensions_CommandLineUtils_IConsole_Out">Out</a>.</p>
+  <div class="markdown level1 summary"><p>Writes a message in <span class="xref">System.ConsoleColor.DarkGray</span> to <a class="xref" href="McMaster.Extensions.CommandLineUtils.IConsole.html#McMaster_Extensions_CommandLineUtils_IConsole_Out">Out</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -384,7 +407,7 @@
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_ConsoleReporter_Warn_" data-uid="McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_ConsoleReporter_Warn_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn(System.String)">Warn(String)</h4>
-  <div class="markdown level1 summary"><p>Writes a message in <see cref="!:ConsoleColor.Yellow"></see> to <a class="xref" href="McMaster.Extensions.CommandLineUtils.IConsole.html#McMaster_Extensions_CommandLineUtils_IConsole_Out">Out</a>.</p>
+  <div class="markdown level1 summary"><p>Writes a message in <span class="xref">System.ConsoleColor.Yellow</span> to <a class="xref" href="McMaster.Extensions.CommandLineUtils.IConsole.html#McMaster_Extensions_CommandLineUtils_IConsole_Out">Out</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -410,19 +433,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_ConsoleReporter_WriteLine_TextWriter_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(TextWriter%2CSystem.String%2CSystem.Nullable%7BConsoleColor%7D%2CSystem.Nullable%7BConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_ConsoleReporter_WriteLine_System_IO_TextWriter_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(System.IO.TextWriter%2CSystem.String%2CSystem.Nullable%7BSystem.ConsoleColor%7D%2CSystem.Nullable%7BSystem.ConsoleColor%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/IO/ConsoleReporter.cs/#L60">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_ConsoleReporter_WriteLine_" data-uid="McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_ConsoleReporter_WriteLine_TextWriter_System_String_System_Nullable_ConsoleColor__System_Nullable_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(TextWriter,System.String,System.Nullable{ConsoleColor},System.Nullable{ConsoleColor})">WriteLine(TextWriter, String, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_ConsoleReporter_WriteLine_System_IO_TextWriter_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(System.IO.TextWriter,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">WriteLine(TextWriter, String, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
   <div class="markdown level1 summary"><p>Write a line with color.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void WriteLine(TextWriter writer, string message, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void WriteLine(TextWriter writer, string message, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = default (ConsoleColor? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -435,7 +458,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TextWriter</span></td>
+        <td><span class="xref">System.IO.TextWriter</span></td>
         <td><span class="parametername">writer</span></td>
         <td></td>
       </tr>
@@ -445,12 +468,12 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">foregroundColor</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ConsoleColor</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td><span class="parametername">backgroundColor</span></td>
         <td></td>
       </tr>

@@ -35,9 +35,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" height="55" src="../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -90,11 +89,35 @@ Options are not positional. Compare to <a class="xref" href="McMaster.Extensions
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">CommandOption</span></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="McMaster.Extensions.CommandLineUtils.html">McMaster.Extensions.CommandLineUtils</a></h6>
   <h6><strong>Assembly</strong>: McMaster.Extensions.CommandLineUtils.dll</h6>
   <h5 id="McMaster_Extensions_CommandLineUtils_CommandOption_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class CommandOption : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class CommandOption</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -399,7 +422,7 @@ Example &quot;-?&quot;.</p>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandOption_Validators_" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Validators*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandOption_Validators" data-uid="McMaster.Extensions.CommandLineUtils.CommandOption.Validators">Validators</h4>
-  <div class="markdown level1 summary"><p>A collection of validators that execute before invoking <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_Func_System_Int32__">OnExecute(Func&lt;Int32&gt;)</a>.
+  <div class="markdown level1 summary"><p>A collection of validators that execute before invoking <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_System_Func_System_Int32__">OnExecute(Func&lt;Int32&gt;)</a>.
 When validation fails, <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ValidationErrorHandler">ValidationErrorHandler</a> is invoked.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -417,7 +440,7 @@ When validation fails, <a class="xref" href="McMaster.Extensions.CommandLineUtil
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ICollection</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html">IOptionValidator</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html">IOptionValidator</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -479,7 +502,7 @@ When validation fails, <a class="xref" href="McMaster.Extensions.CommandLineUtil
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
