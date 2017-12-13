@@ -22,7 +22,7 @@
   "build": {
     "content": [
       {
-        "files": "**.yml",
+        "files": ["**.yml"],
         "exclude": [
           "**/obj/**",
           "**.meta"
@@ -44,7 +44,8 @@
     "resource": [
       {
         "files": [
-          "**/images/**"
+          "**/images/**",
+          "*.png"
         ],
         "exclude": [
           "**/obj/**",
@@ -59,7 +60,8 @@
     "overwrite": "apispec/*.md",
     "dest": "../docs/",
     "template": [
-      "default"
+      "default",
+      "./theme"
     ],
     "postProcessors": [
       "ExtractSearchIndex"
@@ -69,7 +71,8 @@
     "cleanupCacheHistory": false,
     "disableGitFeatures": false,
     "globalMetadata": {
-      "_appFooter": "Generated with docfx"
+      "_appFooter": "Generated with docfx",
+      "_appLogoPath": "logo.png"
     }
   }
 }
