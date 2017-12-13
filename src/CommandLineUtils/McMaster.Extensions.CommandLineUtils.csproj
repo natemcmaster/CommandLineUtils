@@ -16,12 +16,13 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
     <PackageTags>commandline;parsing</PackageTags>
     <IncludeSymbols>true</IncludeSymbols>
     <IncludeSource>true</IncludeSource>
+    <PackageIconUrl>https://natemcmaster.github.io/CommandLineUtils/logo.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'net45'">
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.1.0" />
   </ItemGroup>
-  
+
   <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
