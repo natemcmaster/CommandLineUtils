@@ -1,11 +1,10 @@
-﻿version: 2.1.0-rc.{build}+{branch}
+﻿version: 2.1.0-rtm.{build}
 init:
   - git config --global core.autocrlf input
 clone_depth: 1
 branches:
   only:
     - master
-    - dev
     - appveyor
     - /^feature\/.*/
 build_script:

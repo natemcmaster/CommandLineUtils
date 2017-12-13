@@ -27,7 +27,7 @@ $ dotnet add package McMaster.Extensions.CommandLineUtils
 ```
 ```xml
 <ItemGroup>
-  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.0.1" />
+  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.1.0" />
 </ItemGroup>
 ```
 
@@ -45,8 +45,6 @@ See [samples/](./samples/) for more examples, such as:
 `CommandLineApplication` is the main entry point for most console apps parsing. There are two primary ways to use this API, using the builder pattern and attributes.
 
 ### Attribute API
-
-_(This API was added in 2.1.0.)_
 
 ```c#
 using System;
