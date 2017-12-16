@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -173,6 +174,40 @@ namespace McMaster.Extensions.CommandLineUtils
         public string Value()
         {
             return HasValue() ? Values[0] : null;
+        }
+
+        /// <summary>
+        /// Generates the template string in the format "-{Symbol}|-{Short}|--{Long} &lt;{Value}&gt;" for display in help text.
+        /// </summary>
+        /// <returns>The template string</returns>
+        internal string ToTemplateString()
+        {
+            var sb = new StringBuilder();
+            if (SymbolName != null)
+            {
+                sb.Append('-').Append(SymbolName);
+            }
+
+            if (ShortName != null)
+            {
+                if (sb.Length > 0) sb.Append('|');
+
+                sb.Append('-').Append(ShortName);
+            }
+
+            if (LongName != null)
+            {
+                if (sb.Length > 0) sb.Append('|');
+
+                sb.Append("--").Append(LongName);
+            }
+
+            if (ValueName != null && OptionType != CommandOptionType.NoValue)
+            {
+                sb.Append(" <").Append(ValueName).Append('>');
+            }
+
+            return sb.ToString();
         }
 
         private bool IsEnglishLetter(char c)

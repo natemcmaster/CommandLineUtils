@@ -3,9 +3,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Text;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -122,8 +124,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var builder = new ReflectionAppBuilder<ShortNameOverride>();
             builder.Initialize();
-            Assert.Contains(builder.App.Options, o => o.ShortName == "d1" && o.LongName == "detail1");
-            Assert.Contains(builder.App.Options, o => o.ShortName == "d2" && o.LongName == "detail2");
+
+            var d1 = Assert.Single(builder.App.Options, o => o.ShortName == "d1");
+            Assert.Equal("-d1|--detail1 <DETAIL1>", d1.Template);
+            var d2 = Assert.Single(builder.App.Options, o => o.ShortName == "d2");
+            Assert.Equal("-d2|--detail2 <DETAIL2>", d2.Template);
         }
 
         private class AmbiguousShortOptionName

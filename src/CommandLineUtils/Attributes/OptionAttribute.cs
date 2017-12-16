@@ -82,13 +82,6 @@ namespace McMaster.Extensions.CommandLineUtils
                     ShortName = longName.Substring(0, 1),
                     ValueName = prop.Name.ToConstantCase(),
                 };
-
-                option.Template = $"-{option.ShortName}|--{option.LongName}";
-
-                if (option.OptionType != CommandOptionType.NoValue)
-                {
-                    option.Template += $" <{option.ValueName.ToConstantCase()}>";
-                }
             }
 
             Configure(option);
