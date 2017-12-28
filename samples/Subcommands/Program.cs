@@ -17,6 +17,7 @@ namespace SubcommandSample
             const string prompt = @"Which example would you like to run?
 1 - Fake Git
 2 - Fake Docker
+3 - Fake npm
 > ";
             var option = Prompt.GetInt(prompt);
 
@@ -26,6 +27,8 @@ namespace SubcommandSample
                     return CommandLineApplication.Execute<Git>(args);
                 case 2:
                     return CommandLineApplication.Execute<Docker>(args);
+                case 3:
+                    return Npm.Main(args);
                 default:
                     Console.Error.WriteLine("Unknown option");
                     return 1;
