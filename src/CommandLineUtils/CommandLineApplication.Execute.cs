@@ -48,7 +48,7 @@ namespace McMaster.Extensions.CommandLineUtils
             var bindResult = Bind<TApp>(console, args);
             if (bindResult.Command.IsShowingInformation)
             {
-                return 0;
+                return HelpExitCode;
             }
 
             if (bindResult.ValidationResult != ValidationResult.Success)
@@ -101,7 +101,7 @@ namespace McMaster.Extensions.CommandLineUtils
             var bindResult = Bind<TApp>(console, args);
             if (bindResult.Command.IsShowingInformation)
             {
-                return 0;
+                return HelpExitCode;
             }
 
             if (bindResult.ValidationResult != ValidationResult.Success)
@@ -142,7 +142,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 return (int)result;
             }
 
-            return 1;
+            return ValidationErrorExitCode;
         }
 
         private static BindResult Bind<TApp>(IConsole console, string[] args) where TApp : class, new()

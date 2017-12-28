@@ -1,5 +1,11 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.1.1'">
+2.1.1:
+Bug fixes:
+ - Do not show validation error messages when --help or --version are specified
+ - Fix help text to show correct short option when OptionAttribute.ShortName is overriden
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.1.0'">
 2.1.0:
 New features:

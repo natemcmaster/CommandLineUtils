@@ -108,7 +108,7 @@ namespace McMaster.Extensions.CommandLineUtils
             _console.Error.WriteLine(result.ErrorMessage);
             _console.ResetColor();
             ShowHint();
-            return 1;
+            return ValidationErrorExitCode;
         }
 
         private sealed class ServiceProvider : IServiceProvider

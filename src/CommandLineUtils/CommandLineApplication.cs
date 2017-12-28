@@ -20,6 +20,9 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public partial class CommandLineApplication
     {
+        private const int HelpExitCode = 0;
+        private const int ValidationErrorExitCode = 1;
+
         private IConsole _console;
         private IHelpTextGenerator _helpTextGenerator;
 
@@ -378,6 +381,11 @@ namespace McMaster.Extensions.CommandLineUtils
 
             var processor = new CommandLineProcessor(this, args);
             var command = processor.Process();
+
+            if (command.IsShowingInformation)
+            {
+                return HelpExitCode;
+            }
 
             var result = command.GetValidationResult();
 

@@ -3,6 +3,8 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
+using System.Text;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -304,6 +306,49 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var rc = CommandLineApplication.Execute<ValidationParent>("sub");
             Assert.Equal(10, rc);
+        }
+
+        [Fact]
+        public void DoesNotValidate_WhenShowingInfo()
+        {
+            var sb = new StringBuilder();
+            var console = new TestConsole(_output)
+            {
+                Out = new StringWriter(sb),
+            };
+            var app = new CommandLineApplication(console);
+            app.HelpOption();
+            var errorMessage = "Version arg is required";
+            app.Argument("version", "Arg").IsRequired(errorMessage: errorMessage);
+            app.OnValidationError((_) => Assert.False(true, "Validation callbacks should not be executed"));
+
+            Assert.Equal(0, app.Execute("--help"));
+            Assert.DoesNotContain(errorMessage, sb.ToString());
+        }
+
+        [HelpOption]
+        private class ProgramWithRequiredArg
+        {
+            [Argument(0), Required(ErrorMessage = "Arg is required")]
+            public string Version { get; }
+
+            private void OnValidationError()
+            {
+                throw new InvalidOperationException("Validation callback should not be executed");
+            }
+        }
+
+        [Fact]
+        public void DoesNotValidate_WhenShowingInfo_AttributeBinding()
+        {
+            var sb = new StringBuilder();
+            var console = new TestConsole(_output)
+            {
+                Out = new StringWriter(sb),
+            };
+
+            Assert.Equal(0, CommandLineApplication.Execute<ProgramWithRequiredArg>(console, "--help"));
+            Assert.DoesNotContain("Arg is required", sb.ToString());
         }
     }
 }
