@@ -43,12 +43,12 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Creates a set of validation rules that apply to each value, when specified.
+        /// Specifies a set of rules used to determine if input is valid.
         /// </summary>
         /// <param name="option">The option.</param>
         /// <param name="configure">A function to configure rules on the validation builder.</param>
         /// <returns>The option.</returns>
-        public static CommandOption IsValidWhen(this CommandOption option, Func<ValidatorChainBuilder, ValidatorChain> configure)
+        public static CommandOption Accepts(this CommandOption option, Func<ValidatorChainBuilder, ValidatorChain> configure)
         {
             if (configure == null)
             {
@@ -62,12 +62,12 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Creates a set of validation rules that apply to each value, when specified.
+        /// Specifies a set of rules used to determine if input is valid.
         /// </summary>
         /// <param name="argument">The argument.</param>
         /// <param name="configure">A function to configure rules on the validation builder.</param>
         /// <returns>The argument.</returns>
-        public static CommandArgument IsValidWhen(this CommandArgument argument, Func<ValidatorChainBuilder, ValidatorChain> configure)
+        public static CommandArgument Accepts(this CommandArgument argument, Func<ValidatorChainBuilder, ValidatorChain> configure)
         {
             if (configure == null)
             {
