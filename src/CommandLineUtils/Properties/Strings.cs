@@ -16,6 +16,8 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public const string IsNullOrEmpty = "Value is null or empty.";
 
+        public const string PathMustNotBeRelative = "File path must not be relative.";
+
         public const string NoValueTypesMustBeBoolean
             = "Cannot specify CommandOptionType.NoValue unless the type is boolean.";
 

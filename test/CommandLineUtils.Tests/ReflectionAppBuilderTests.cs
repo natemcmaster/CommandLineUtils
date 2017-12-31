@@ -58,7 +58,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void BindsToSubcommandProperty()
         {
             var builder = new ReflectionAppBuilder<MasterApp>();
-            var context = new DefaultCommandLineContext(new[] { "add" }, Directory.GetCurrentDirectory(), new TestConsole(_output));
+            var context = new DefaultCommandLineContext(new TestConsole(_output), Directory.GetCurrentDirectory(), new[] { "add" });
             var bound = builder.Bind(context);
             var add = Assert.IsType<AddCmd>(bound.Target);
             Assert.IsType<MasterApp>(add.Parent);

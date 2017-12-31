@@ -49,7 +49,7 @@ namespace McMaster.Extensions.CommandLineUtils
             where TApp : class, new()
         {
             args = args ?? new string[0];
-            var context = new DefaultCommandLineContext(args, Directory.GetCurrentDirectory(), console);
+            var context = new DefaultCommandLineContext(console, Directory.GetCurrentDirectory(), args);
             return Execute<TApp>(context);
         }
 
@@ -123,7 +123,7 @@ namespace McMaster.Extensions.CommandLineUtils
             where TApp : class, new()
         {
             args = args ?? new string[0];
-            var context = new DefaultCommandLineContext(args, Directory.GetCurrentDirectory(), console);
+            var context = new DefaultCommandLineContext(console, Directory.GetCurrentDirectory(), args);
             return ExecuteAsync<TApp>(context);
         }
 

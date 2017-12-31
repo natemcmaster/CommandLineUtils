@@ -1,7 +1,9 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.ComponentModel.DataAnnotations;
+using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -38,6 +40,68 @@ namespace McMaster.Extensions.CommandLineUtils
             attribute.AllowEmptyStrings = allowEmptyStrings;
             argument.Validators.Add(new AttributeValidator(attribute));
             return argument;
+        }
+
+        /// <summary>
+        /// Creates a set of validation rules that apply to each value, when specified.
+        /// </summary>
+        /// <param name="option">The option.</param>
+        /// <param name="configure">A function to configure rules on the validation builder.</param>
+        /// <returns>The option.</returns>
+        public static CommandOption IsValidWhen(this CommandOption option, Func<ValidatorChainBuilder, ValidatorChain> configure)
+        {
+            if (configure == null)
+            {
+                throw new ArgumentNullException(nameof(configure));
+            }
+
+            var builder = new ValidatorChainBuilder();
+            var rule = configure.Invoke(builder);
+            option.Validators.Add(rule);
+            return option;
+        }
+
+        /// <summary>
+        /// Creates a set of validation rules that apply to each value, when specified.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="configure">A function to configure rules on the validation builder.</param>
+        /// <returns>The argument.</returns>
+        public static CommandArgument IsValidWhen(this CommandArgument argument, Func<ValidatorChainBuilder, ValidatorChain> configure)
+        {
+            if (configure == null)
+            {
+                throw new ArgumentNullException(nameof(configure));
+            }
+
+            var builder = new ValidatorChainBuilder();
+            var rule = configure.Invoke(builder);
+            argument.Validators.Add(rule);
+            return argument;
+        }
+
+        /// <summary>
+        /// Specifies that values must be a valid email address.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>An executor that can be used to chain additional rules.</returns>
+        public static ValidatorChain IsEmailAddress(this ValidatorChainBuilder builder, string errorMessage = null)
+        {
+            var attribute = GetValidationAttr<EmailAddressAttribute>(errorMessage);
+            return builder.Build(new AttributeValidator(attribute));
+        }
+
+        /// <summary>
+        /// Specifies that values must be a valid file path and the file must already exist.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>An executor that can be used to chain additional rules.</returns>
+        public static ValidatorChain IsExistingFile(this ValidatorChainBuilder builder, string errorMessage = null)
+        {
+            var attribute = GetValidationAttr<FilePathExistsAttribute>(errorMessage);
+            return builder.Build(new AttributeValidator(attribute));
         }
 
         private static T GetValidationAttr<T>(string errorMessage)

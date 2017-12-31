@@ -31,12 +31,25 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// The current working directory. Defaults to <see cref="Directory.GetCurrentDirectory" />
         /// </summary>
         /// <remarks>
-        /// Cannot be null.
+        /// Cannot be null, and must be an absolute file path.
         /// </remarks>
         public string WorkingDirectory
         {
             get => _workDir;
-            protected set => _workDir = value ?? throw new ArgumentNullException(nameof(value));
+            protected set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
+
+                if (!Path.IsPathRooted(value))
+                {
+                    throw new ArgumentException(Strings.PathMustNotBeRelative, nameof(value));
+                }
+
+                _workDir = value;
+            }
         }
 
         /// <summary>

@@ -30,11 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
 
         public ReflectionAppBuilder()
-            : this(PhysicalConsole.Singleton)
-        { }
-
-        public ReflectionAppBuilder(IConsole console)
-            : this(new CommandLineApplication(console))
+            : this(new CommandLineApplication())
         { }
 
         private ReflectionAppBuilder(CommandLineApplication app)
@@ -49,7 +45,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public BindResult Bind(CommandLineContext context)
         {
             EnsureInitialized();
-            App.SetConsole(context.Console);
+            App.SetContext(context);
 
             var processor = new CommandLineProcessor(App, context.Arguments);
             var command = processor.Process();

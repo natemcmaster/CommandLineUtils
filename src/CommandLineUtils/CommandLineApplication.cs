@@ -3,14 +3,15 @@
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.HelpText;
+using McMaster.Extensions.CommandLineUtils.Internal;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -23,7 +24,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private const int HelpExitCode = 0;
         private const int ValidationErrorExitCode = 1;
 
-        private IConsole _console;
+        private CommandLineContext _context;
         private IHelpTextGenerator _helpTextGenerator;
 
         /// <summary>
@@ -31,7 +32,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(bool throwOnUnexpectedArg = true)
-            : this(PhysicalConsole.Singleton, Directory.GetCurrentDirectory(), throwOnUnexpectedArg)
+            : this(DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(), throwOnUnexpectedArg)
         {
         }
 
@@ -40,7 +41,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="console">The console implementation to use.</param>
         public CommandLineApplication(IConsole console)
-            : this(console, Directory.GetCurrentDirectory(), throwOnUnexpectedArg: true)
+            : this(DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(console), throwOnUnexpectedArg: true)
         { }
 
         /// <summary>
@@ -50,7 +51,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="workingDirectory">The current working directory.</param>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
-            : this(DefaultHelpTextGenerator.Singleton, console, workingDirectory, throwOnUnexpectedArg)
+            : this(DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(console, workingDirectory), throwOnUnexpectedArg)
         { }
 
         /// <summary>
@@ -61,19 +62,14 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="workingDirectory">The current working directory.</param>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(IHelpTextGenerator helpTextGenerator, IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
+            : this(helpTextGenerator, new DefaultCommandLineContext(console, workingDirectory), throwOnUnexpectedArg)
         {
-            if (console == null)
-            {
-                throw new ArgumentNullException(nameof(console));
-            }
+        }
 
-            if (string.IsNullOrEmpty(workingDirectory))
-            {
-                throw new ArgumentException("Argument must not be null or empty", nameof(workingDirectory));
-            }
-
+        internal CommandLineApplication(IHelpTextGenerator helpTextGenerator, CommandLineContext context, bool throwOnUnexpectedArg)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
             ThrowOnUnexpectedArgument = throwOnUnexpectedArg;
-            WorkingDirectory = workingDirectory;
             Options = new List<CommandOption>();
             Arguments = new List<CommandArgument>();
             Commands = new List<CommandLineApplication>();
@@ -81,11 +77,11 @@ namespace McMaster.Extensions.CommandLineUtils
             HelpTextGenerator = helpTextGenerator;
             Invoke = () => 0;
             ValidationErrorHandler = DefaultValidationErrorHandler;
-            SetConsole(console);
+            SetContext(context);
         }
 
         private CommandLineApplication(CommandLineApplication parent, string name, bool throwOnUnexpectedArg)
-            : this(parent._helpTextGenerator, parent._console, parent.WorkingDirectory, throwOnUnexpectedArg)
+            : this(parent._helpTextGenerator, parent._context, throwOnUnexpectedArg)
         {
             Name = name;
             Parent = parent;
@@ -213,7 +209,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// This will be used as the base path for opening response files when <see cref="ResponseFileHandling"/> is <c>true</c>.
         /// </para>
         /// </summary>
-        public string WorkingDirectory { get; }
+        public string WorkingDirectory => _context.WorkingDirectory;
 
         /// <summary>
         /// The writer used to display generated help text.
@@ -592,27 +588,27 @@ namespace McMaster.Extensions.CommandLineUtils
             Out.WriteLine();
         }
 
-        private bool _settingConsole;
+        private bool _settingContext;
 
-        internal void SetConsole(IConsole console)
+        internal void SetContext(CommandLineContext context)
         {
-            if (_settingConsole)
+            if (_settingContext)
             {
                 // prevent stack overflow in the event someone has looping command line apps
                 return;
             }
 
-            _settingConsole = true;
-            _console = console;
-            Out = console.Out;
-            Error = console.Error;
+            _settingContext = true;
+            _context = context;
+            Out = context.Console.Out;
+            Error = context.Console.Error;
 
             foreach (var cmd in Commands)
             {
-                cmd.SetConsole(console);
+                cmd.SetContext(context);
             }
 
-            _settingConsole = false;
+            _settingContext = false;
         }
     }
 }

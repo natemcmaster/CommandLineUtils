@@ -8,7 +8,7 @@ using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    internal class AttributeValidator : IOptionValidator, IArgumentValidator
+    internal class AttributeValidator : IValidator
     {
         private readonly ValidationAttribute _attribute;
 

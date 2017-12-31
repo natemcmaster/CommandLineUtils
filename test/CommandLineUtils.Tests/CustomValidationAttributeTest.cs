@@ -69,6 +69,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         private CommandLineContext CreateContext(string[] args)
-            => new DefaultCommandLineContext(args, Directory.GetCurrentDirectory(), NullConsole.Singleton);
+            => new DefaultCommandLineContext(NullConsole.Singleton, Directory.GetCurrentDirectory(), args);
     }
 }

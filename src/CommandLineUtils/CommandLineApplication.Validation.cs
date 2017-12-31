@@ -3,13 +3,9 @@
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -104,9 +100,9 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private int DefaultValidationErrorHandler(ValidationResult result)
         {
-            _console.ForegroundColor = ConsoleColor.Red;
-            _console.Error.WriteLine(result.ErrorMessage);
-            _console.ResetColor();
+            _context.Console.ForegroundColor = ConsoleColor.Red;
+            _context.Console.Error.WriteLine(result.ErrorMessage);
+            _context.Console.ResetColor();
             ShowHint();
             return ValidationErrorExitCode;
         }
@@ -129,7 +125,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 if (serviceType == typeof(IConsole))
                 {
-                    return _parent._console;
+                    return _parent._context.Console;
                 }
 
                 if (serviceType == typeof(IEnumerable<CommandOption>))
@@ -140,6 +136,11 @@ namespace McMaster.Extensions.CommandLineUtils
                 if (serviceType == typeof(IEnumerable<CommandArgument>))
                 {
                     return _parent.Arguments;
+                }
+
+                if (serviceType == typeof(CommandLineContext))
+                {
+                    return _parent._context;
                 }
 
                 return null;

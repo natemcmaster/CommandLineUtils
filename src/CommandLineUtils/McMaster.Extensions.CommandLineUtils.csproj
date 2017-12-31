@@ -17,6 +17,7 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
     <IncludeSymbols>true</IncludeSymbols>
     <IncludeSource>true</IncludeSource>
     <PackageIconUrl>https://natemcmaster.github.io/CommandLineUtils/logo.png</PackageIconUrl>
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'net45'">

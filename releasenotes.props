@@ -1,5 +1,14 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.2.0'">
+2.2.0:
+New features:
+  - Added more validation attributes.
+     - Add the [FilePathExists] attribute
+  - Added a new, fluent API for validation.
+     - Added Option().IsValidWhen() and Argument().IsValidWhen()
+     - Add IsValidWhen(v => v.IsExistingFile())
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.1.1'">
 2.1.1:
 Bug fixes:

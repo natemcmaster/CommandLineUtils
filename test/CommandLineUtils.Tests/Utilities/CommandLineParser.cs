@@ -15,7 +15,7 @@ namespace McMaster.Extensions.CommandLineUtils
             where T : class, new()
         {
             var applicationBuilder = new ReflectionAppBuilder<T>();
-            var context = new DefaultCommandLineContext(args, Directory.GetCurrentDirectory(), NullConsole.Singleton);
+            var context = new DefaultCommandLineContext(NullConsole.Singleton, Directory.GetCurrentDirectory(), args);
             return (T)applicationBuilder.Bind(context).ParentTarget;
         }
     }

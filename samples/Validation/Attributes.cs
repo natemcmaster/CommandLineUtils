@@ -5,9 +5,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
 
-class Program
+class AttributeProgram
 {
-    static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
+    public static int Main(string[] args) => CommandLineApplication.Execute<AttributeProgram>(args);
 
     [Required]
     [Option(Description = "Required. The message")]
@@ -23,6 +23,10 @@ class Program
     [Option("--from <EMAIL>", Description = "Required. The sender.")]
     public string From { get; }
 
+    [FilePathExists]
+    [Option("--attachment <FILE>")]
+    public string[] Attachments { get; }
+
     [Option(Description = "The colors should be red or blue")]
     [RedOrBlue]
     public string Color { get; }
@@ -32,6 +36,7 @@ class Program
         Console.WriteLine("From = " + From);
         Console.WriteLine("To = " + To);
         Console.WriteLine("Message = " + Message);
+        Console.WriteLine("Attachments = " + string.Join(", ", Attachments));
     }
 }
 
