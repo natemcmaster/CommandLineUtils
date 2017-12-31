@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -45,12 +46,12 @@ namespace McMaster.Extensions.CommandLineUtils
 
         internal CommandLineApplication App { get; }
 
-        public BindResult Bind(IConsole console, string[] args)
+        public BindResult Bind(CommandLineContext context)
         {
             EnsureInitialized();
-            App.SetConsole(console);
+            App.SetConsole(context.Console);
 
-            var processor = new CommandLineProcessor(App, args);
+            var processor = new CommandLineProcessor(App, context.Arguments);
             var command = processor.Process();
 
             var validationResult = command.GetValidationResult();

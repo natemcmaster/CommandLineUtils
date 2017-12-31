@@ -3,6 +3,7 @@
 
 using System.Reflection;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -12,9 +13,9 @@ namespace McMaster.Extensions.CommandLineUtils
         {
         }
 
-        public async Task<int> ExecuteAsync(IConsole console, BindResult bindResult)
+        public async Task<int> ExecuteAsync(CommandLineContext context, BindResult bindResult)
         {
-            var arguments = ReflectionHelper.BindParameters(Method, console, bindResult);
+            var arguments = ReflectionHelper.BindParameters(Method, context, bindResult);
 
             var result = (Task)Method.Invoke(bindResult.Target, arguments);
             if (result is Task<int> intResult)

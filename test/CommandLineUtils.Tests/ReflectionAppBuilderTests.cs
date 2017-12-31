@@ -8,6 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
+using McMaster.Extensions.CommandLineUtils.Internal;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -57,7 +58,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void BindsToSubcommandProperty()
         {
             var builder = new ReflectionAppBuilder<MasterApp>();
-            var bound = builder.Bind(new TestConsole(_output), new[] { "add" });
+            var context = new DefaultCommandLineContext(new[] { "add" }, Directory.GetCurrentDirectory(), new TestConsole(_output));
+            var bound = builder.Bind(context);
             var add = Assert.IsType<AddCmd>(bound.Target);
             Assert.IsType<MasterApp>(add.Parent);
         }

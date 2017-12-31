@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -11,9 +12,9 @@ namespace McMaster.Extensions.CommandLineUtils
         {
         }
 
-        public int Execute(IConsole console, BindResult bindResult)
+        public int Execute(CommandLineContext context, BindResult bindResult)
         {
-            var arguments = ReflectionHelper.BindParameters(Method, console, bindResult);
+            var arguments = ReflectionHelper.BindParameters(Method, context, bindResult);
 
             var result = Method.Invoke(bindResult.Target, arguments);
             if (Method.ReturnType == typeof(int))

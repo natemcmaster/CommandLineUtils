@@ -4,6 +4,7 @@
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -229,6 +230,37 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public async Task ReturnsIntEvenIfReturnTypeIsNotGeneric()
         {
             Assert.Equal(200, await CommandLineApplication.ExecuteAsync<TaskReturnType>());
+        }
+
+        [Command(ThrowOnUnexpectedArgument = false)]
+        private class ContextApp
+        {
+            public int OnExecute(CommandLineContext context)
+                => context.Arguments.Length;
+        }
+
+        [Fact]
+        public void ItBindsContextToOnExecute()
+        {
+            Assert.Equal(5, CommandLineApplication.Execute<ContextApp>(new string[5]));
+        }
+
+        private class CustomContextApp
+        {
+            public int OnExecute(CustomCommandLineContext context)
+                => context.Value;
+        }
+
+        private class CustomCommandLineContext : CommandLineContext
+        {
+            public int Value => 7;
+        }
+
+        [Fact]
+        public void ItBindsCustomContextTypeToOnExecute()
+        {
+            var customContext = new CustomCommandLineContext();
+            Assert.Equal(7, CommandLineApplication.Execute<CustomContextApp>(customContext));
         }
     }
 }

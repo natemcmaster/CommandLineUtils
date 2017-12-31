@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -32,7 +33,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        public static object[] BindParameters(MethodInfo method, IConsole console, BindResult bindResult)
+        public static object[] BindParameters(MethodInfo method, CommandLineContext context, BindResult bindResult)
         {
             var methodParams = method.GetParameters();
             var arguments = new object[methodParams.Length];
@@ -47,11 +48,15 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 else if (typeof(IConsole).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
-                    arguments[i] = console;
+                    arguments[i] = context.Console;
                 }
                 else if (typeof(ValidationResult).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
                     arguments[i] = bindResult.ValidationResult;
+                }
+                else if (typeof(CommandLineContext).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
+                {
+                    arguments[i] = context;
                 }
                 else
                 {

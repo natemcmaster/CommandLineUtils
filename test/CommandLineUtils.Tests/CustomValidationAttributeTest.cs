@@ -2,6 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.ComponentModel.DataAnnotations;
+using System.IO;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
+using McMaster.Extensions.CommandLineUtils.Internal;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
@@ -15,7 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void CustomValidationAttributePasses(params string[] args)
         {
             var builder = new ReflectionAppBuilder<RedBlueProgram>();
-            var result = builder.Bind(NullConsole.Singleton, args);
+            var result = builder.Bind(CreateContext(args ?? new string[0]));
             Assert.Equal(ValidationResult.Success, result.ValidationResult);
             var program = Assert.IsType<RedBlueProgram>(result.Target);
             if (args != null)
@@ -31,7 +34,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void CustomValidationAttributeFails(params string[] args)
         {
             var builder = new ReflectionAppBuilder<RedBlueProgram>();
-            var result = builder.Bind(NullConsole.Singleton, args);
+            var result = builder.Bind(CreateContext(args));
             Assert.NotEqual(ValidationResult.Success, result.ValidationResult);
             var program = Assert.IsType<RedBlueProgram>(result.Target);
             if (args != null)
@@ -64,5 +67,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 return ValidationResult.Success;
             }
         }
+
+        private CommandLineContext CreateContext(string[] args)
+            => new DefaultCommandLineContext(args, Directory.GetCurrentDirectory(), NullConsole.Singleton);
     }
 }
