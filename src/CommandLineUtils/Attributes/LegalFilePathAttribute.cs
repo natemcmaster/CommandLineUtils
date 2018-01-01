@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 
@@ -9,7 +10,8 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <summary>
     /// Specifies that a value must be a legal file path.
     /// </summary>
-    public class LegalFilePathAttribute : ValidationAttribute
+    [AttributeUsage(AttributeTargets.Property)]
+    public sealed class LegalFilePathAttribute : ValidationAttribute
     {
         /// <summary>
         /// Initializes an instance of <see cref="LegalFilePathAttribute"/>.

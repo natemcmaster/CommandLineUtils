@@ -3,7 +3,6 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
-using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -89,14 +88,31 @@ namespace McMaster.Extensions.CommandLineUtils
             => builder.Satisfies<EmailAddressAttribute>(errorMessage);
 
         /// <summary>
-        /// Specifies that values must be a valid file path and the file must already exist.
+        /// Specifies that values must be a path to a file that already exists.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        /// <param name="filePathType">Acceptable file path types.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder IsExistingFilePath(this IValidationBuilder builder, FilePathType filePathType = FilePathType.Any, string errorMessage = null)
-            => builder.Satisfies<FilePathExistsAttribute>(errorMessage, new object[] { filePathType });
+        public static IValidationBuilder IsExistingFile(this IValidationBuilder builder, string errorMessage = null)
+            => builder.Satisfies<FileExistsAttribute>(errorMessage);
+
+        /// <summary>
+        /// Specifies that values must be a path to a directory that already exists.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder IsExistingDirectory(this IValidationBuilder builder, string errorMessage = null)
+            => builder.Satisfies<DirectoryExistsAttribute>(errorMessage);
+
+        /// <summary>
+        /// Specifies that values must be a valid file path or directory, and the file path must already exist.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder IsExistingFileOrDirectory(this IValidationBuilder builder, string errorMessage = null)
+            => builder.Satisfies<FilePathExistsAttribute>(errorMessage);
 
         /// <summary>
         /// Specifies that values must be legal file paths.
@@ -112,7 +128,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <typeparam name="TAttribute">The validation attribute type.</typeparam>
         /// <param name="builder">The builder.</param>
-        /// <param name="ctorArgs">Constructor arguments.</param>
+        /// <param name="ctorArgs">Constructor arguments for <typeparamref name="TAttribute"/>.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
         public static IValidationBuilder Satisfies<TAttribute>(this IValidationBuilder builder, string errorMessage = null, object[] ctorArgs = null)

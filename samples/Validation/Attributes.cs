@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
-using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 class AttributeProgram
 {
@@ -24,7 +23,7 @@ class AttributeProgram
     [Option("--from <EMAIL>", Description = "Required. The sender.")]
     public string From { get; }
 
-    [FilePathExists(FilePathType.File)]
+    [FileExists]
     [Option("--attachment <FILE>")]
     public string[] Attachments { get; }
 

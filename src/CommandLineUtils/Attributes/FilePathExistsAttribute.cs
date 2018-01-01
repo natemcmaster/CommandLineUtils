@@ -9,10 +9,10 @@ using McMaster.Extensions.CommandLineUtils.Abstractions;
 namespace McMaster.Extensions.CommandLineUtils
 {
     /// <summary>
-    /// Specifies that the data must be an already existing file.
+    /// Specifies that the data must be an already existing file or directory.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
-    public sealed class FilePathExistsAttribute : ValidationAttribute
+    public class FilePathExistsAttribute : ValidationAttribute
     {
         /// <summary>
         /// Initializes an instance of <see cref="FilePathExistsAttribute"/>.
