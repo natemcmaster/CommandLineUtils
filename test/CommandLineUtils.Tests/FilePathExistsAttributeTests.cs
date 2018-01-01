@@ -23,7 +23,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class App
         {
             [Argument(0)]
-            [FilePathExists]
+            [FileOrDirectoryExists]
             public string File { get; }
 
             private void OnExecute() { }
@@ -124,7 +124,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class OnlyDir
         {
             [Argument(0)]
-            [FilePathExists(FilePathType.Directory)]
+            [DirectoryExists]
             public string Dir { get; }
 
             private void OnExecute() { }
@@ -133,7 +133,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class OnlyFile
         {
             [Argument(0)]
-            [FilePathExists(FilePathType.File)]
+            [FileExists]
             public string Path { get; }
 
             private void OnExecute() { }

@@ -128,7 +128,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
         public static IValidationBuilder IsExistingFileOrDirectory(this IValidationBuilder builder, string errorMessage = null)
-            => builder.Satisfies<FilePathExistsAttribute>(errorMessage);
+            => builder.Satisfies<FileOrDirectoryExistsAttribute>(errorMessage);
 
         /// <summary>
         /// Specifies that values must be legal file paths.

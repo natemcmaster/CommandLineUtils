@@ -6,36 +6,33 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 
-namespace McMaster.Extensions.CommandLineUtils
+namespace McMaster.Extensions.CommandLineUtils.Validation
 {
     /// <summary>
-    /// Specifies that the data must be an already existing file or directory.
+    /// Base type for attributes that check for existing files or directories.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
-    public class FilePathExistsAttribute : ValidationAttribute
+    public abstract class FilePathExistsAttributeBase : ValidationAttribute
     {
+        private readonly FilePathType _filePathType;
+
         /// <summary>
-        /// Initializes an instance of <see cref="FilePathExistsAttribute"/>.
+        /// Initializes an instance of <see cref="FilePathExistsAttributeBase"/>.
         /// </summary>
-        public FilePathExistsAttribute()
+        public FilePathExistsAttributeBase()
             : this(FilePathType.Any)
         {
         }
 
         /// <summary>
-        /// Initializes an instance of <see cref="FilePathExistsAttribute"/>.
+        /// Initializes an instance of <see cref="FilePathExistsAttributeBase"/>.
         /// </summary>
         /// <param name="filePathType">Acceptable file path types</param>
-        public FilePathExistsAttribute(FilePathType filePathType)
+        public FilePathExistsAttributeBase(FilePathType filePathType)
             : base(GetDefaultErrorMessage(filePathType))
         {
-            FilePathType = filePathType;
+            _filePathType = filePathType;
         }
-
-        /// <summary>
-        /// Acceptable file path types.
-        /// </summary>
-        public FilePathType FilePathType { get; private set; }
 
         /// <inheritdoc />
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
@@ -51,12 +48,12 @@ namespace McMaster.Extensions.CommandLineUtils
                 path = Path.Combine(context.WorkingDirectory, path);
             }
 
-            if ((FilePathType & FilePathType.File) != 0 && File.Exists(path))
+            if ((_filePathType & FilePathType.File) != 0 && File.Exists(path))
             {
                 return ValidationResult.Success;
             }
 
-            if ((FilePathType & FilePathType.Directory) != 0 && Directory.Exists(path))
+            if ((_filePathType & FilePathType.Directory) != 0 && Directory.Exists(path))
             {
                 return ValidationResult.Success;
             }
