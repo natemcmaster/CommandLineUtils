@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
-using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Internal;
 using Xunit;
 using Xunit.Abstractions;
@@ -38,7 +37,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 AppContext.BaseDirectory, false);
 
             app.Argument("Files", "Files")
-                .Accepts(v => v.ExistingFileOrDirectory());
+                .Accepts().ExistingFileOrDirectory();
 
             var result = new CommandLineProcessor(app, new[] { filePath })
                 .Process()

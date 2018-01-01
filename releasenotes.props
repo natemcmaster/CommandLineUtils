@@ -7,12 +7,17 @@ New features:
      - Add the [FileExists] attribute
      - Add the [FileOrDirectoryExists] attribute
      - Add the [DirectoryExists] attribute
+     - Add the [LegalFilePath] attribute
   - Added a new, fluent API for validation.
      - Added Option().Accepts() and Argument().Accepts()
      - Add .ExistingFile()
      - Add .ExistingFileOrDirectory()
      - Add .ExistingDirectory()
      - Add .EmailAddress()
+     - Add .LegalFilePath()
+     - Add .MinLength(length)
+     - Add .MaxLength(length)
+     - Add .RegularExpression(pattern)
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.1.1'">
 2.1.1:

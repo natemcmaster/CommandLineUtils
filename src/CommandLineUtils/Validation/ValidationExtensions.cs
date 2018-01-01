@@ -140,6 +140,36 @@ namespace McMaster.Extensions.CommandLineUtils
             => builder.Satisfies<LegalFilePathAttribute>(errorMessage);
 
         /// <summary>
+        /// Specifies that values must be a string at least <paramref name="length"/> characters long.
+        /// </summary>
+        /// <param name="builder">The builder</param>
+        /// <param name="length">The minimum length.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder MinLength(this IValidationBuilder builder, int length, string errorMessage = null)
+            => builder.Satisfies<MinLengthAttribute>(errorMessage, length);
+
+        /// <summary>
+        /// Specifies that values must be a string no more than <paramref name="length"/> characters long.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="length">The maximum length.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder MaxLength(this IValidationBuilder builder, int length, string errorMessage = null)
+            => builder.Satisfies<MaxLengthAttribute>(errorMessage, length);
+
+        /// <summary>
+        /// Specifies that values must match a regular expression.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="pattern">The regular expression.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder RegularExpression(this IValidationBuilder builder, string pattern, string errorMessage = null)
+            => builder.Satisfies<RegularExpressionAttribute>(errorMessage, pattern);
+
+        /// <summary>
         /// Specifies that values must satisfy the requirements of the validation attribute of type <typeparamref name="TAttribute"/>.
         /// </summary>
         /// <typeparam name="TAttribute">The validation attribute type.</typeparam>
@@ -147,7 +177,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="ctorArgs">Constructor arguments for <typeparamref name="TAttribute"/>.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder Satisfies<TAttribute>(this IValidationBuilder builder, string errorMessage = null, object[] ctorArgs = null)
+        public static IValidationBuilder Satisfies<TAttribute>(this IValidationBuilder builder, string errorMessage = null, params object[] ctorArgs)
             where TAttribute : ValidationAttribute
         {
             var attribute = GetValidationAttr<TAttribute>(errorMessage, ctorArgs);
