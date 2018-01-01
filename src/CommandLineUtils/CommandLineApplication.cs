@@ -24,7 +24,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private const int HelpExitCode = 0;
         private const int ValidationErrorExitCode = 1;
 
-        private CommandLineContext _context;
+        internal CommandLineContext _context;
         private IHelpTextGenerator _helpTextGenerator;
 
         /// <summary>

@@ -24,7 +24,7 @@ class BuilderApi
             .Accepts(v => v.IsEmailAddress());
 
         var attachments = app.Option("--attachment <FILE>", "Files to attach.", CommandOptionType.MultipleValue)
-            .Accepts(v => v.IsExistingFile());
+            .Accepts(v => v.IsExistingFilePath());
 
         var optionColor = app.Option("--color <COLOR>", "The color. Should be 'red' or 'blue'.", CommandOptionType.SingleValue);
         optionColor.Validators.Add(new MustBeBlueOrRedValidator());

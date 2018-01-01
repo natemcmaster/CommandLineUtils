@@ -7,7 +7,8 @@ New features:
      - Add the [FilePathExists] attribute
   - Added a new, fluent API for validation.
      - Added Option().Accepts() and Argument().Accepts()
-     - Add Accepts(v => v.IsExistingFile())
+     - Add .IsExistingFilePath()
+     - Add .IsEmailAddress()
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.1.1'">
 2.1.1:

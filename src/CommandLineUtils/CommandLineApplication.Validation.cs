@@ -3,9 +3,7 @@
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -39,9 +37,11 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
 
+            var factory = new CommandLineValidationContextFactory(this);
+
             foreach (var argument in Arguments)
             {
-                var context = new ValidationContext(argument, new ServiceProvider(this), null);
+                var context = factory.Create(argument);
 
                 if (!string.IsNullOrEmpty(argument.Name))
                 {
@@ -61,7 +61,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             foreach (var option in GetOptions())
             {
-                var context = new ValidationContext(option, new ServiceProvider(this), null);
+                var context = factory.Create(option);
 
                 string name = null;
                 if (option.LongName != null)
@@ -105,46 +105,6 @@ namespace McMaster.Extensions.CommandLineUtils
             _context.Console.ResetColor();
             ShowHint();
             return ValidationErrorExitCode;
-        }
-
-        private sealed class ServiceProvider : IServiceProvider
-        {
-            private readonly CommandLineApplication _parent;
-
-            public ServiceProvider(CommandLineApplication parent)
-            {
-                _parent = parent;
-            }
-
-            public object GetService(Type serviceType)
-            {
-                if (serviceType == typeof(CommandLineApplication))
-                {
-                    return _parent;
-                }
-
-                if (serviceType == typeof(IConsole))
-                {
-                    return _parent._context.Console;
-                }
-
-                if (serviceType == typeof(IEnumerable<CommandOption>))
-                {
-                    return _parent.GetOptions();
-                }
-
-                if (serviceType == typeof(IEnumerable<CommandArgument>))
-                {
-                    return _parent.Arguments;
-                }
-
-                if (serviceType == typeof(CommandLineContext))
-                {
-                    return _parent._context;
-                }
-
-                return null;
-            }
         }
     }
 }

@@ -48,16 +48,15 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="option">The option.</param>
         /// <param name="configure">A function to configure rules on the validation builder.</param>
         /// <returns>The option.</returns>
-        public static CommandOption Accepts(this CommandOption option, Func<ValidatorChainBuilder, ValidatorChain> configure)
+        public static CommandOption Accepts(this CommandOption option, Action<IOptionValidationBuilder> configure)
         {
             if (configure == null)
             {
                 throw new ArgumentNullException(nameof(configure));
             }
 
-            var builder = new ValidatorChainBuilder();
-            var rule = configure.Invoke(builder);
-            option.Validators.Add(rule);
+            var builder = new ValidationBuilder(option);
+            configure(builder);
             return option;
         }
 
@@ -67,16 +66,15 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="argument">The argument.</param>
         /// <param name="configure">A function to configure rules on the validation builder.</param>
         /// <returns>The argument.</returns>
-        public static CommandArgument Accepts(this CommandArgument argument, Func<ValidatorChainBuilder, ValidatorChain> configure)
+        public static CommandArgument Accepts(this CommandArgument argument, Action<IArgumentValidationBuilder> configure)
         {
             if (configure == null)
             {
                 throw new ArgumentNullException(nameof(configure));
             }
 
-            var builder = new ValidatorChainBuilder();
-            var rule = configure.Invoke(builder);
-            argument.Validators.Add(rule);
+            var builder = new ValidationBuilder(argument);
+            configure(builder);
             return argument;
         }
 
@@ -86,11 +84,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>An executor that can be used to chain additional rules.</returns>
-        public static ValidatorChain IsEmailAddress(this ValidatorChainBuilder builder, string errorMessage = null)
-        {
-            var attribute = GetValidationAttr<EmailAddressAttribute>(errorMessage);
-            return builder.Build(new AttributeValidator(attribute));
-        }
+        public static IValidationBuilder IsEmailAddress(this IValidationBuilder builder, string errorMessage = null)
+            => builder.Satisfies<EmailAddressAttribute>(errorMessage);
 
         /// <summary>
         /// Specifies that values must be a valid file path and the file must already exist.
@@ -98,10 +93,22 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>An executor that can be used to chain additional rules.</returns>
-        public static ValidatorChain IsExistingFile(this ValidatorChainBuilder builder, string errorMessage = null)
+        public static IValidationBuilder IsExistingFilePath(this IValidationBuilder builder, string errorMessage = null)
+            => builder.Satisfies<FilePathExistsAttribute>(errorMessage);
+
+        /// <summary>
+        /// Specifies that values must satisfy the requirements of the validation attribute of type <typeparamref name="TAttribute"/>.
+        /// </summary>
+        /// <typeparam name="TAttribute">The validation attribute type.</typeparam>
+        /// <param name="builder">The builder.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder Satisfies<TAttribute>(this IValidationBuilder builder, string errorMessage = null)
+            where TAttribute : ValidationAttribute, new()
         {
-            var attribute = GetValidationAttr<FilePathExistsAttribute>(errorMessage);
-            return builder.Build(new AttributeValidator(attribute));
+            var attribute = GetValidationAttr<TAttribute>(errorMessage);
+            builder.Use(new AttributeValidator(attribute));
+            return builder;
         }
 
         private static T GetValidationAttr<T>(string errorMessage)

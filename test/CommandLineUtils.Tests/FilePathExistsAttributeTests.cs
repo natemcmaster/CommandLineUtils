@@ -27,7 +27,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 AppContext.BaseDirectory, false);
 
             app.Argument("Files", "Files")
-                .Accepts(v => v.IsExistingFile());
+                .Accepts(v => v.IsExistingFilePath());
 
             var result = new CommandLineProcessor(app, new[] { filePath })
                 .Process()
@@ -66,9 +66,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                false);
 
             appInBaseDir.Argument("Files", "Files")
-                .Accepts(v => v.IsExistingFile());
+                .Accepts(v => v.IsExistingFilePath());
             appNotInBaseDir.Argument("Files", "Files")
-                .Accepts(v => v.IsExistingFile());
+                .Accepts(v => v.IsExistingFilePath());
 
             var success = new CommandLineProcessor(appInBaseDir, new[] { "exists.txt" })
                 .Process()
