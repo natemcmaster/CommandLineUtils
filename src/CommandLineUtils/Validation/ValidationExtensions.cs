@@ -79,6 +79,22 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
+        /// Creates a builder for specifying a set of rules used to determine if input is valid.
+        /// </summary>
+        /// <param name="option">The option.</param>
+        /// <returns>The builder.</returns>
+        public static IOptionValidationBuilder Accepts(this CommandOption option)
+            => new ValidationBuilder(option);
+
+        /// <summary>
+        /// Creates a builder for specifying a set of rules used to determine if input is valid.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <returns>The builder.</returns>
+        public static IArgumentValidationBuilder Accepts(this CommandArgument argument)
+            => new ValidationBuilder(argument);
+
+        /// <summary>
         /// Specifies that values must be a valid email address.
         /// </summary>
         /// <param name="builder">The builder.</param>
