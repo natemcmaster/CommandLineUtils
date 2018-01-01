@@ -100,7 +100,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder IsEmailAddress(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder EmailAddress(this IValidationBuilder builder, string errorMessage = null)
             => builder.Satisfies<EmailAddressAttribute>(errorMessage);
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder IsExistingFile(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder ExistingFile(this IValidationBuilder builder, string errorMessage = null)
             => builder.Satisfies<FileExistsAttribute>(errorMessage);
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder IsExistingDirectory(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder ExistingDirectory(this IValidationBuilder builder, string errorMessage = null)
             => builder.Satisfies<DirectoryExistsAttribute>(errorMessage);
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder IsExistingFileOrDirectory(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder ExistingFileOrDirectory(this IValidationBuilder builder, string errorMessage = null)
             => builder.Satisfies<FileOrDirectoryExistsAttribute>(errorMessage);
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder IsLegalFilePath(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder LegalFilePath(this IValidationBuilder builder, string errorMessage = null)
             => builder.Satisfies<LegalFilePathAttribute>(errorMessage);
 
         /// <summary>

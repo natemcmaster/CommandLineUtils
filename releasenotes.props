@@ -4,11 +4,15 @@
 2.2.0:
 New features:
   - Added more validation attributes.
-     - Add the [FilePathExists] attribute
+     - Add the [FileExists] attribute
+     - Add the [FileOrDirectoryExists] attribute
+     - Add the [DirectoryExists] attribute
   - Added a new, fluent API for validation.
      - Added Option().Accepts() and Argument().Accepts()
-     - Add .IsExistingFilePath()
-     - Add .IsEmailAddress()
+     - Add .ExistingFile()
+     - Add .ExistingFileOrDirectory()
+     - Add .ExistingDirectory()
+     - Add .EmailAddress()
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.1.1'">
 2.1.1:

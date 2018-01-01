@@ -17,14 +17,14 @@ class BuilderApi
 
         var optionReceiver = app.Option("--to <EMAIL>", "Required. The recipient.", CommandOptionType.SingleValue)
             .IsRequired()
-            .Accepts(v => v.IsEmailAddress());
+            .Accepts(v => v.EmailAddress());
 
         var optionSender = app.Option("--from <EMAIL>", "Required. The sender.", CommandOptionType.SingleValue)
             .IsRequired()
-            .Accepts(v => v.IsEmailAddress());
+            .Accepts(v => v.EmailAddress());
 
         var attachments = app.Option("--attachment <FILE>", "Files to attach.", CommandOptionType.MultipleValue)
-            .Accepts(v => v.IsExistingFile());
+            .Accepts(v => v.ExistingFile());
 
         var optionColor = app.Option("--color <COLOR>", "The color. Should be 'red' or 'blue'.", CommandOptionType.SingleValue);
         optionColor.Validators.Add(new MustBeBlueOrRedValidator());
