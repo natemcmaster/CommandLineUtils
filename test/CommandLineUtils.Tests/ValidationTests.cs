@@ -165,10 +165,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(exitCode, CommandLineApplication.Execute<EmailArgumentApp>(email));
         }
 
-        private class EmailOptionApp
+        private class OptionApp
         {
             [Option, EmailAddress]
             public string Email { get; }
+            [Option, MinLength(1)]
+            public string Name { get; }
+            [Option, MaxLength(10)]
+            public string Address { get; }
             private void OnExecute() { }
         }
 
@@ -179,9 +183,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(new[] { "-e", "email" }, 1)]
         [InlineData(new[] { "-e", "email@email@email" }, 1)]
         [InlineData(new[] { "-e", "email@example.com" }, 0)]
-        public void ValidatesEmailOption(string[] args, int exitCode)
+        [InlineData(new[] { "-n", "" }, 1)]
+        [InlineData(new[] { "-n", "a" }, 0)]
+        [InlineData(new[] { "-n", " " }, 0)]
+        [InlineData(new[] { "-a", "abcdefghij" }, 0)]
+        [InlineData(new[] { "-a", "abcdefghijk" }, 1)]
+        public void ValidatesAttributesOnOption(string[] args, int exitCode)
         {
-            Assert.Equal(exitCode, CommandLineApplication.Execute<EmailOptionApp>(args));
+            Assert.Equal(exitCode, CommandLineApplication.Execute<OptionApp>(args));
         }
 
         [Subcommand("sub", typeof(ValidationErrorSubcommand))]

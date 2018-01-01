@@ -7,7 +7,7 @@ using System.Reflection;
 namespace McMaster.Extensions.CommandLineUtils
 {
     /// <summary>
-    /// Represents one or many positional command line arguments. 
+    /// Represents one or many positional command line arguments.
     /// Arguments are parsed based the <see cref="Order"/> given.
     /// Compare to <seealso cref="OptionAttribute"/>.
     /// </summary>

@@ -4,6 +4,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
+using McMaster.Extensions.CommandLineUtils.Internal;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -16,6 +18,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public FilePathExistsAttributeTests(ITestOutputHelper output)
         {
             _output = output;
+        }
+
+        private class App
+        {
+            [Argument(0)]
+            [FilePathExists]
+            public string File { get; }
+
+            private void OnExecute() { }
         }
 
         [Theory]
@@ -35,6 +46,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.NotEqual(ValidationResult.Success, result);
             Assert.Equal($"The file path '{filePath}' does not exist.", result.ErrorMessage);
+
+            var console = new TestConsole(_output);
+            Assert.NotEqual(0, CommandLineApplication.Execute<App>(console, filePath));
         }
 
         public static TheoryData<string> BadFilePaths
@@ -82,6 +96,83 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.NotEqual(ValidationResult.Success, fails);
             Assert.Equal("The file path 'exists.txt' does not exist.", fails.ErrorMessage);
+
+            var console = new TestConsole(_output);
+            var context = new DefaultCommandLineContext(console, appNotInBaseDir.WorkingDirectory, new[] { "exists.txt" });
+            Assert.NotEqual(0, CommandLineApplication.Execute<App>(context));
+
+            context = new DefaultCommandLineContext(console, appInBaseDir.WorkingDirectory, new[] { "exists.txt" });
+            Assert.Equal(0, CommandLineApplication.Execute<App>(context));
+        }
+
+        [Theory]
+        [InlineData("./dir")]
+        [InlineData("./")]
+        [InlineData("../")]
+        public void ValidatesDirectories(string dirPath)
+        {
+            Directory.CreateDirectory(Path.Combine(AppContext.BaseDirectory, dirPath));
+
+            var context = new DefaultCommandLineContext(
+                new TestConsole(_output),
+                AppContext.BaseDirectory,
+                new[] { dirPath });
+
+            Assert.Equal(0, CommandLineApplication.Execute<App>(context));
+        }
+
+        private class OnlyDir
+        {
+            [Argument(0)]
+            [FilePathExists(FilePathType.Directory)]
+            public string Dir { get; }
+
+            private void OnExecute() { }
+        }
+
+        private class OnlyFile
+        {
+            [Argument(0)]
+            [FilePathExists(FilePathType.File)]
+            public string Path { get; }
+
+            private void OnExecute() { }
+        }
+
+        [Theory]
+        [InlineData("./dir")]
+        [InlineData("./")]
+        [InlineData("../")]
+        public void ValidatesOnlyDirectories(string dirPath)
+        {
+            Directory.CreateDirectory(Path.Combine(AppContext.BaseDirectory, dirPath));
+
+            var context = new DefaultCommandLineContext(
+                new TestConsole(_output),
+                AppContext.BaseDirectory,
+                new[] { dirPath });
+
+            Assert.NotEqual(0, CommandLineApplication.Execute<OnlyFile>(context));
+            Assert.Equal(0, CommandLineApplication.Execute<OnlyDir>(context));
+        }
+
+        [Fact]
+        public void ValidatesOnlyFiles()
+        {
+            var filePath = "exists.txt";
+            var fullPath = Path.Combine(AppContext.BaseDirectory, filePath);
+            if (!File.Exists(fullPath))
+            {
+                File.WriteAllText(fullPath, "");
+            }
+
+            var context = new DefaultCommandLineContext(
+                new TestConsole(_output),
+                AppContext.BaseDirectory,
+                new[] { filePath });
+
+            Assert.Equal(0, CommandLineApplication.Execute<OnlyFile>(context));
+            Assert.NotEqual(0, CommandLineApplication.Execute<OnlyDir>(context));
         }
     }
 }

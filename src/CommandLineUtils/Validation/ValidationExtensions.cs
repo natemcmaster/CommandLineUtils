@@ -3,6 +3,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -83,7 +84,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
-        /// <returns>An executor that can be used to chain additional rules.</returns>
+        /// <returns>The builder.</returns>
         public static IValidationBuilder IsEmailAddress(this IValidationBuilder builder, string errorMessage = null)
             => builder.Satisfies<EmailAddressAttribute>(errorMessage);
 
@@ -91,30 +92,41 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Specifies that values must be a valid file path and the file must already exist.
         /// </summary>
         /// <param name="builder">The builder.</param>
+        /// <param name="filePathType">Acceptable file path types.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
-        /// <returns>An executor that can be used to chain additional rules.</returns>
-        public static IValidationBuilder IsExistingFilePath(this IValidationBuilder builder, string errorMessage = null)
-            => builder.Satisfies<FilePathExistsAttribute>(errorMessage);
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder IsExistingFilePath(this IValidationBuilder builder, FilePathType filePathType = FilePathType.Any, string errorMessage = null)
+            => builder.Satisfies<FilePathExistsAttribute>(errorMessage, new object[] { filePathType });
+
+        /// <summary>
+        /// Specifies that values must be legal file paths.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder IsLegalFilePath(this IValidationBuilder builder, string errorMessage = null)
+            => builder.Satisfies<LegalFilePathAttribute>(errorMessage);
 
         /// <summary>
         /// Specifies that values must satisfy the requirements of the validation attribute of type <typeparamref name="TAttribute"/>.
         /// </summary>
         /// <typeparam name="TAttribute">The validation attribute type.</typeparam>
         /// <param name="builder">The builder.</param>
+        /// <param name="ctorArgs">Constructor arguments.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder Satisfies<TAttribute>(this IValidationBuilder builder, string errorMessage = null)
-            where TAttribute : ValidationAttribute, new()
+        public static IValidationBuilder Satisfies<TAttribute>(this IValidationBuilder builder, string errorMessage = null, object[] ctorArgs = null)
+            where TAttribute : ValidationAttribute
         {
-            var attribute = GetValidationAttr<TAttribute>(errorMessage);
+            var attribute = GetValidationAttr<TAttribute>(errorMessage, ctorArgs);
             builder.Use(new AttributeValidator(attribute));
             return builder;
         }
 
-        private static T GetValidationAttr<T>(string errorMessage)
-            where T : ValidationAttribute, new()
+        private static T GetValidationAttr<T>(string errorMessage, object[] ctorArgs = null)
+            where T : ValidationAttribute
         {
-            var attribute = new T();
+            var attribute = (T)Activator.CreateInstance(typeof(T), ctorArgs ?? new object[0]);
             if (errorMessage != null)
             {
                 attribute.ErrorMessage = errorMessage;

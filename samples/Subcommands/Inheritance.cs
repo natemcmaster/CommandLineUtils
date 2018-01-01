@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using McMaster.Extensions.CommandLineUtils;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace SubcommandSample
 {
@@ -19,6 +20,7 @@ namespace SubcommandSample
     class Git : GitCommandBase
     {
         [Option("--git-dir")]
+        [FilePathExists(FilePathType.Directory)]
         public string GitDir { get; set; }
 
         protected override int OnExecute(CommandLineApplication app)
@@ -43,6 +45,7 @@ namespace SubcommandSample
     class AddCommand : GitCommandBase
     {
         [Argument(0)]
+        [LegalFilePath]
         public string[] Files { get; set; }
 
         // You can use this pattern when the parent command may have options or methods you want to

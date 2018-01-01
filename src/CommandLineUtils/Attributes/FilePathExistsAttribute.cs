@@ -18,10 +18,24 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Initializes an instance of <see cref="FilePathExistsAttribute"/>.
         /// </summary>
         public FilePathExistsAttribute()
-            // default error message
-            : base("The file path '{0}' does not exist.")
+            : this(FilePathType.Any)
         {
         }
+
+        /// <summary>
+        /// Initializes an instance of <see cref="FilePathExistsAttribute"/>.
+        /// </summary>
+        /// <param name="filePathType">Acceptable file path types</param>
+        public FilePathExistsAttribute(FilePathType filePathType)
+            : base(GetDefaultErrorMessage(filePathType))
+        {
+            FilePathType = filePathType;
+        }
+
+        /// <summary>
+        /// Acceptable file path types.
+        /// </summary>
+        public FilePathType FilePathType { get; private set; }
 
         /// <inheritdoc />
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
@@ -37,12 +51,32 @@ namespace McMaster.Extensions.CommandLineUtils
                 path = Path.Combine(context.WorkingDirectory, path);
             }
 
-            if (!File.Exists(path))
+            if ((FilePathType & FilePathType.File) != 0 && File.Exists(path))
             {
-                return new ValidationResult(FormatErrorMessage(value as string));
+                return ValidationResult.Success;
             }
 
-            return ValidationResult.Success;
+            if ((FilePathType & FilePathType.Directory) != 0 && Directory.Exists(path))
+            {
+                return ValidationResult.Success;
+            }
+
+            return new ValidationResult(FormatErrorMessage(value as string));
+        }
+
+        private static string GetDefaultErrorMessage(FilePathType filePathType)
+        {
+            if (filePathType == FilePathType.File)
+            {
+                return "The file '{0}' does not exist.";
+            }
+
+            if (filePathType == FilePathType.Directory)
+            {
+                return "The directory '{0}' does not exist.";
+            }
+
+            return "The file path '{0}' does not exist.";
         }
     }
 }
