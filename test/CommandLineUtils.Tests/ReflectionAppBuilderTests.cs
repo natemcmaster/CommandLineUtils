@@ -278,7 +278,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Command(ThrowOnUnexpectedArgument = false)]
-        private class RemainingArgs_Array
+        private class RemainingArguments_Array
         {
             public string[] RemainingArguments { get; }
         }
@@ -286,8 +286,21 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItSetsRemainingArguments_Array()
         {
-            var result = CommandLineParser.ParseArgs<RemainingArgs_Array>("a", "b");
+            var result = CommandLineParser.ParseArgs<RemainingArguments_Array>("a", "b");
             Assert.Equal(new[] { "a", "b" }, result.RemainingArguments);
+        }
+
+        [Command(ThrowOnUnexpectedArgument = false)]
+        private class RemainingArgs_Array
+        {
+            public string[] RemainingArgs { get; }
+        }
+
+        [Fact]
+        public void ItSetsRemainingArgs_Array()
+        {
+            var result = CommandLineParser.ParseArgs<RemainingArgs_Array>("a", "b");
+            Assert.Equal(new[] { "a", "b" }, result.RemainingArgs);
         }
 
         [Command(ThrowOnUnexpectedArgument = false)]

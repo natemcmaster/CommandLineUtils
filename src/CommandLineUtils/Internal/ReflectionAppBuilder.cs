@@ -115,6 +115,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private void AddRemainingArgsProperty(TypeInfo typeInfo)
         {
             var prop = typeInfo.GetProperty("RemainingArguments", PropertyBindingFlags);
+            prop = prop ?? typeInfo.GetProperty("RemainingArgs", PropertyBindingFlags);
             if (prop == null)
             {
                 return;
