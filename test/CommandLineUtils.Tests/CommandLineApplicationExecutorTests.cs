@@ -262,5 +262,65 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var customContext = new CustomCommandLineContext();
             Assert.Equal(7, CommandLineApplication.Execute<CustomContextApp>(customContext));
         }
+
+        private class DisposableCommand : IDisposable
+        {
+            public void OnExecute()
+            { }
+
+            public void Dispose()
+            {
+                throw new InvalidOperationException("Hello");
+            }
+        }
+
+        [Fact]
+        public void DisposesCommands()
+        {
+            var ex = Assert.Throws<InvalidOperationException>(
+                () => CommandLineApplication.Execute<DisposableCommand>());
+            Assert.Equal("Hello", ex.Message);
+        }
+
+        [Subcommand("sub", typeof(DisposableCommand))]
+        private class ParentCommand
+        {
+            public void OnExecute()
+            { }
+        }
+
+        [Fact]
+        public void DisposesSubCommands()
+        {
+            var ex = Assert.Throws<InvalidOperationException>(
+                () => CommandLineApplication.Execute<ParentCommand>("sub"));
+            Assert.Equal("Hello", ex.Message);
+        }
+
+        [Subcommand("sub", typeof(Subcommand))]
+        private class DisposableParentCommand : IDisposable
+        {
+            public void OnExecute()
+            { }
+
+            public void Dispose()
+            {
+                throw new InvalidOperationException("Parent");
+            }
+        }
+
+        private class Subcommand
+        {
+            public void OnExecute()
+            { }
+        }
+
+        [Fact]
+        public void DisposesParentCommands()
+        {
+            var ex = Assert.Throws<InvalidOperationException>(
+                () => CommandLineApplication.Execute<DisposableParentCommand>("sub"));
+            Assert.Equal("Parent", ex.Message);
+        }
     }
 }
