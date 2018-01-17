@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -10,7 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <summary>
     /// Utilities for getting input from an interactive console.
     /// </summary>
-    public static class Prompt
+    public static partial class Prompt
     {
         private const char Backspace = '\b';
 
@@ -197,8 +198,9 @@ namespace McMaster.Extensions.CommandLineUtils
                         yield return key.KeyChar;
                         break;
                 }
-            }
-            while (key.Key != ConsoleKey.Enter);
+            } while (key.Key != ConsoleKey.Enter);
+        }
+
         /// <summary>
         /// Display a checkbox list
         /// </summary>
