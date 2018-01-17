@@ -199,6 +199,16 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
             while (key.Key != ConsoleKey.Enter);
+        /// <summary>
+        /// Display a checkbox list
+        /// </summary>
+        /// <param name="possibleSelections">The possible checkbox to check</param>
+        /// <returns></returns>
+        public static Dictionary<string, bool> CheckBoxes(params string[] possibleSelections)
+        {
+            var manager = new CheckboxManager(possibleSelections);
+            manager.Show();
+            return manager.Boxes.ToDictionary(i => i.Text, i => i.IsSelected);
         }
 
         /// <summary>

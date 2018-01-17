@@ -20,6 +20,8 @@ public class Program
                 : "world";
 
             Console.WriteLine($"Hello {subject}!");
+            
+            Prompt.CheckBoxes("First selection", "Second selection", "Third selection");
             return 0;
         });
 
