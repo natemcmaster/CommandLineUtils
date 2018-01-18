@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using McMaster.Extensions.CommandLineUtils;
 
 class Program
@@ -16,7 +17,17 @@ class Program
             promptColor: ConsoleColor.White,
             promptBgColor: ConsoleColor.DarkGreen);
 
-        Console.WriteLine($"Hello, there { name ?? "anonymous console user"}.");
+        Console.WriteLine($"Hello, there {name ?? "anonymous console user"}.");
+
+        var gender = Prompt.GetOption(
+            new CheckboxManagerOptions
+            {
+                IsRadio = true,
+                IsSelectionRequired = true,
+                Question = "Are you a man or a woman?"
+            }, "Man",
+            "Woman");
+        Console.WriteLine($"You're a {gender.First(i => i.Value).Key}");
 
         var age = Prompt.GetInt("How old are you?",
             promptColor: ConsoleColor.White,
