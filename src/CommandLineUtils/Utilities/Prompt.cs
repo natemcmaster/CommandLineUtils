@@ -219,7 +219,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static Dictionary<string, bool> GetOption(CheckboxManagerOptions options = null,
             params string[] possibleSelections)
         {
-            var manager = new CheckboxManager(possibleSelections, options);
+            var manager = new CheckboxManager(options, possibleSelections);
             manager.Show();
             return manager.Boxes.ToDictionary(i => i.Title, i => i.IsSelected);
         }
