@@ -202,15 +202,40 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
+        /// Display a checkbox list.
+        /// </summary>
+        /// <param name="possibleSelections">The possible selections.</param>
+        /// <returns></returns>
+        public static Dictionary<string, bool> GetOption(params string[] possibleSelections) =>
+            GetOption(null, possibleSelections);
+
+
+        /// <summary>
+        /// Display a checkbox list.
+        /// </summary>
+        /// <param name="options">The options.</param>
+        /// <param name="possibleSelections">The possible selections.</param>
+        /// <returns></returns>
+        public static Dictionary<string, bool> GetOption(CheckboxManagerOptions options = null,
+            params string[] possibleSelections)
+        {
+            var manager = new CheckboxManager(possibleSelections, options);
+            manager.Show();
+            return manager.Boxes.ToDictionary(i => i.Title, i => i.IsSelected);
+        }
+
+
+        /// <summary>
         /// Display a checkbox list
         /// </summary>
-        /// <param name="possibleSelections">The possible checkbox to check</param>
+        /// <param name="model"></param>
+        /// <param name="options"></param>
         /// <returns></returns>
-        public static Dictionary<string, bool> CheckBoxes(params string[] possibleSelections)
+        public static T GetOption<T>(T model, CheckboxManagerOptions options = null)
         {
-            var manager = new CheckboxManager(possibleSelections);
+            var manager = new CheckboxManager(model, options);
             manager.Show();
-            return manager.Boxes.ToDictionary(i => i.Text, i => i.IsSelected);
+            return (T) manager.Model;
         }
 
         /// <summary>

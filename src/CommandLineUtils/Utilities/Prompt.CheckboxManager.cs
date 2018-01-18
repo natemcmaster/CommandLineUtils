@@ -1,74 +1,188 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
     public static partial class Prompt
     {
-        private partial class CheckboxManager
+        private class CheckboxManager
         {
-            private int selectorPosition;
-            public CheckboxManagerOptions Options { get; }
+            private readonly ObservableCollection<CheckboxSelection> _boxes =
+                new ObservableCollection<CheckboxSelection>();
 
+            private object _model;
+            private int _selectorPosition;
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// </summary>
+            /// <param name="options">The options.</param>
+            /// <param name="boxes">The boxes.</param>
             public CheckboxManager(CheckboxManagerOptions options, IEnumerable<string> boxes)
             {
                 if (!Equals(Console.OutputEncoding, Encoding.UTF8))
-                    Console.OutputEncoding = System.Text.Encoding.UTF8;
-                
+                    Console.OutputEncoding = Encoding.UTF8;
+
+                if (boxes != null)
+                    _boxes = new ObservableCollection<CheckboxSelection>(boxes.Select(i => new CheckboxSelection(i)));
+
                 Options = options ?? new CheckboxManagerOptions();
-                Boxes = boxes.Select(i => new CheckboxSelection(i)).ToList();
                 StartPosition = Console.CursorTop;
                 Draw();
             }
 
+            /// <summary>
+            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// </summary>
+            /// <param name="model">The model.</param>
+            /// <param name="options">The options.</param>
+            public CheckboxManager(object model, CheckboxManagerOptions options = null) : this(options, null)
+            {
+                Model = model;
+            }
 
+            /// <summary>
+            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// </summary>
+            /// <param name="type">The type.</param>
+            /// <param name="options">The options.</param>
+            public CheckboxManager(Type type, CheckboxManagerOptions options = null) : this(options, null)
+            {
+                FillBoxes(type);
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// </summary>
+            /// <param name="boxes">The boxes.</param>
             public CheckboxManager(IEnumerable<string> boxes) : this(null, boxes)
             {
             }
 
-            public CheckboxManager(params string[] boxes) : this(null, boxes.ToList())
+            /// <summary>
+            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// </summary>
+            /// <param name="boxes">The boxes.</param>
+            public CheckboxManager(params string[] boxes) : this(null, boxes?.ToList())
             {
             }
 
+            /// <summary>
+            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// </summary>
+            /// <param name="options">The options.</param>
+            /// <param name="boxes">The boxes.</param>
             public CheckboxManager(CheckboxManagerOptions options, params string[] boxes) : this(options,
-                boxes.ToList())
+                boxes?.ToList())
             {
+            }
+
+            /// <summary>
+            /// Gets the options.
+            /// </summary>
+            /// <value>
+            /// The options.
+            /// </value>
+            public CheckboxManagerOptions Options { get; }
+
+            /// <summary>
+            /// Gets or sets the model.
+            /// </summary>
+            /// <value>
+            /// The model.
+            /// </value>
+            public object Model
+            {
+                get => _model;
+                private set
+                {
+                    _model = value;
+                    FillBoxes(value.GetType());
+                }
             }
 
             private int StartPosition { get; }
-            public List<CheckboxSelection> Boxes { get; }
 
+            /// <summary>
+            /// Gets the check boxes.
+            /// </summary>
+            /// <value>
+            /// The boxes.
+            /// </value>
+            public ObservableCollection<CheckboxSelection> Boxes
+            {
+                get
+                {
+                    _boxes.CollectionChanged += BoxesOnCollectionChanged;
+                    return _boxes;
+                }
+            }
+
+
+            /// <summary>
+            /// Gets or sets the selector ('>') position.
+            /// </summary>
+            /// <value>
+            /// The selector position.
+            /// </value>
             private int SelectorPosition
             {
-                get => selectorPosition;
+                get => _selectorPosition;
                 set
                 {
-                    if (selectorPosition == value)
-                    {
-                        return;
-                    }
+                    if (_selectorPosition == value) return;
 
-                    selectorPosition = value;
+                    _selectorPosition = value;
                     Redraw();
                 }
             }
 
-            public void ClearConsoleRange(int starty, int endy, int x = -1)
+            private void FillBoxes(Type type)
             {
-                if (x < 0)
-                {
-                    x = Console.WindowWidth;
-                }
-
-                for (var i = starty; i < endy; i++)
-                {
-                    ClearConsoleLine(i);
-                }
+                foreach (var property in type.GetTypeInfo().GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                    .Where(i => i.PropertyType == typeof(bool)))
+                    Boxes.Add(new CheckboxSelection(property.Name));
+                Redraw();
             }
 
-            public static void ClearConsoleLine(int line)
+            private void BoxesOnCollectionChanged(object sender,
+                NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+            {
+                foreach (var item in notifyCollectionChangedEventArgs.NewItems)
+                    if (item is CheckboxSelection checkboxSelection)
+                        checkboxSelection.PropertyChanged += (o, args) =>
+                        {
+                            if (args.PropertyName != nameof(CheckboxSelection.IsSelected)) return;
+                            SetPropertyValue(checkboxSelection.Title, checkboxSelection.IsSelected);
+                            Redraw();
+                        };
+            }
+
+            private void SetPropertyValue(string name, object value)
+            {
+                Model?.GetType().GetTypeInfo().GetProperty(name).SetValue(Model, value);
+            }
+
+            private void GetPropertyValue(string name, object value)
+            {
+                Model?.GetType().GetTypeInfo().GetProperty(name).GetValue(value);
+            }
+
+            private static void ClearConsoleRange(int startY, int endY, int x = -1)
+            {
+                if (x < 0)
+                    x = Console.WindowWidth;
+
+                for (var i = startY; i < endY; i++)
+                    ClearConsoleLine(i);
+            }
+
+            private static void ClearConsoleLine(int line)
             {
                 WriteTemporarly(() =>
                 {
@@ -82,6 +196,9 @@ namespace McMaster.Extensions.CommandLineUtils
                 Clear();
             }
 
+            /// <summary>
+            /// Shows this instance.
+            /// </summary>
             public void Show()
             {
                 while (true)
@@ -108,47 +225,41 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
 
-            public void Clear()
+            private void Clear()
             {
                 ClearConsoleRange(StartPosition, Boxes.Count + StartPosition);
             }
 
-            public void Redraw()
+            private void Redraw()
             {
                 Clear();
                 Draw();
             }
 
-            public void Draw()
+            private void Draw()
             {
                 WriteTemporarly(() =>
                 {
                     foreach (var box in Boxes)
-                    {
                         Console.WriteLine(
-                            $"  {(box.IsSelected ? Options.CheckedChar : Options.UncheckedChar)} {box.Text}");
-                    }
+                            $"  {(box.IsSelected ? Options.CheckedChar : Options.UncheckedChar)} {box.Title}");
                 }, 0, StartPosition);
 
                 DrawSelector();
             }
 
-            public void Checked()
+            private void Checked()
             {
                 Boxes[SelectorPosition].IsSelected = !Boxes[SelectorPosition].IsSelected;
 
                 if (Options.IsRadio)
-                {
-                    foreach (var checkboxSelection in Boxes.Except(new[] { Boxes[SelectorPosition] }))
-                    {
+                    foreach (var checkboxSelection in Boxes.Except(new[] {Boxes[SelectorPosition]}))
                         checkboxSelection.IsSelected = false;
-                    }
-                }
 
                 Draw();
             }
 
-            public void DrawSelector()
+            private void DrawSelector()
             {
                 WriteTemporarly(() => Console.Write(">"), 0, StartPosition + SelectorPosition);
             }
@@ -162,20 +273,14 @@ namespace McMaster.Extensions.CommandLineUtils
                 Console.SetCursorPosition(oldPositionX, oldPositionY);
             }
 
-            public void GoUp()
+            private void GoUp()
             {
-                if (SelectorPosition - 1 >= 0)
-                {
-                    SelectorPosition--;
-                }
+                if (SelectorPosition - 1 >= 0) SelectorPosition--;
             }
 
-            public void GoDown()
+            private void GoDown()
             {
-                if (SelectorPosition + 1 < Boxes.Count)
-                {
-                    SelectorPosition++;
-                }
+                if (SelectorPosition + 1 < Boxes.Count) SelectorPosition++;
             }
         }
     }
