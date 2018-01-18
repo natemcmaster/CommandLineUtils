@@ -1,36 +1,44 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
     public static partial class Prompt
     {
-        private class CheckboxManager
+        private partial class CheckboxManager
         {
             private int selectorPosition;
-            private int StartPosition { get; set; }
-            public List<CheckboxSelection> Boxes { get; private set; }
+            public CheckboxManagerOptions Options { get; }
 
-            public void ClearConsoleRange(int starty, int endy, int x = -1)
+            public CheckboxManager(CheckboxManagerOptions options, IEnumerable<string> boxes)
             {
-                if (x < 0)
-                    x = Console.WindowWidth;
-
-                for (var i = starty; i < endy; i++)
-                {
-                    ClearConsoleLine(i);
-                }
+                if (!Equals(Console.OutputEncoding, Encoding.UTF8))
+                    Console.OutputEncoding = System.Text.Encoding.UTF8;
+                
+                Options = options ?? new CheckboxManagerOptions();
+                Boxes = boxes.Select(i => new CheckboxSelection(i)).ToList();
+                StartPosition = Console.CursorTop;
+                Draw();
             }
 
-            public static void ClearConsoleLine(int line)
+
+            public CheckboxManager(IEnumerable<string> boxes) : this(null, boxes)
             {
-                WriteTemporarly(() =>
-                {
-                    Console.SetCursorPosition(0, Console.CursorTop);
-                    Console.Write(new string(' ', Console.WindowWidth));
-                }, 0, line);
             }
+
+            public CheckboxManager(params string[] boxes) : this(null, boxes.ToList())
+            {
+            }
+
+            public CheckboxManager(CheckboxManagerOptions options, params string[] boxes) : this(options,
+                boxes.ToList())
+            {
+            }
+
+            private int StartPosition { get; }
+            public List<CheckboxSelection> Boxes { get; }
 
             private int SelectorPosition
             {
@@ -45,6 +53,28 @@ namespace McMaster.Extensions.CommandLineUtils
                     selectorPosition = value;
                     Redraw();
                 }
+            }
+
+            public void ClearConsoleRange(int starty, int endy, int x = -1)
+            {
+                if (x < 0)
+                {
+                    x = Console.WindowWidth;
+                }
+
+                for (var i = starty; i < endy; i++)
+                {
+                    ClearConsoleLine(i);
+                }
+            }
+
+            public static void ClearConsoleLine(int line)
+            {
+                WriteTemporarly(() =>
+                {
+                    Console.SetCursorPosition(0, Console.CursorTop);
+                    Console.Write(new string(' ', Console.WindowWidth));
+                }, 0, line);
             }
 
             private void End()
@@ -78,17 +108,6 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
 
-            public CheckboxManager(IEnumerable<string> boxes)
-            {
-                Boxes = boxes.Select(i => new CheckboxSelection(i)).ToList();
-                StartPosition = Console.CursorTop + 1;
-                Draw();
-            }
-
-            public CheckboxManager(params string[] boxes) : this(boxes.ToList())
-            {
-            }
-
             public void Clear()
             {
                 ClearConsoleRange(StartPosition, Boxes.Count + StartPosition);
@@ -106,7 +125,8 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     foreach (var box in Boxes)
                     {
-                        Console.WriteLine($"  ({(box.IsSelected ? "*" : " ")}) {box.Text}");
+                        Console.WriteLine(
+                            $"  {(box.IsSelected ? Options.CheckedChar : Options.UncheckedChar)} {box.Text}");
                     }
                 }, 0, StartPosition);
 
@@ -116,6 +136,15 @@ namespace McMaster.Extensions.CommandLineUtils
             public void Checked()
             {
                 Boxes[SelectorPosition].IsSelected = !Boxes[SelectorPosition].IsSelected;
+
+                if (Options.IsRadio)
+                {
+                    foreach (var checkboxSelection in Boxes.Except(new[] { Boxes[SelectorPosition] }))
+                    {
+                        checkboxSelection.IsSelected = false;
+                    }
+                }
+
                 Draw();
             }
 
@@ -136,13 +165,17 @@ namespace McMaster.Extensions.CommandLineUtils
             public void GoUp()
             {
                 if (SelectorPosition - 1 >= 0)
+                {
                     SelectorPosition--;
+                }
             }
 
             public void GoDown()
             {
                 if (SelectorPosition + 1 < Boxes.Count)
+                {
                     SelectorPosition++;
+                }
             }
         }
     }
