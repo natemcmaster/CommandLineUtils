@@ -32,6 +32,13 @@ namespace McMaster.Extensions.CommandLineUtils
                     _boxes = new ObservableCollection<CheckboxSelection>(boxes.Select(i => new CheckboxSelection(i)));
 
                 Options = options ?? new CheckboxManagerOptions();
+
+                if (!string.IsNullOrEmpty(Options.Question))
+                    Console.WriteLine(Options.Question);
+
+                if (Options.DisplayHelpText)
+                    Console.WriteLine("Use the arrow keys to move, Space to select and Enter to exit");
+
                 StartPosition = Console.CursorTop;
                 Draw();
             }
@@ -191,23 +198,19 @@ namespace McMaster.Extensions.CommandLineUtils
                 }, 0, line);
             }
 
-            private void End()
-            {
-                Clear();
-            }
-
             /// <summary>
             /// Shows this instance.
             /// </summary>
             public void Show()
             {
+                Console.CursorVisible = false;
+
                 while (true)
                 {
                     var key = Console.ReadKey();
                     if (key.Key == ConsoleKey.Enter)
                     {
-                        End();
-                        break;
+                        if (End()) break;
                     }
 
                     switch (key.Key)
@@ -225,9 +228,21 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
 
-            private void Clear()
+            private bool End()
             {
-                ClearConsoleRange(StartPosition, Boxes.Count + StartPosition);
+                if (Options.IsSelectionRequired && !Boxes.Any(i => i.IsSelected)) return false;
+                Clear(Options.DisplayHelpText ? StartPosition - 1 : StartPosition);
+                if (Options.DisplayHelpText)
+                    Console.SetCursorPosition(0, StartPosition - 1);
+                Console.CursorVisible = true;
+                return true;
+            }
+
+            private void Clear(int position = -1)
+            {
+                if (position < 0)
+                    position = StartPosition;
+                ClearConsoleRange(position, Boxes.Count + StartPosition);
             }
 
             private void Redraw()
