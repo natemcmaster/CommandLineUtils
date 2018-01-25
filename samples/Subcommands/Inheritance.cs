@@ -52,6 +52,12 @@ namespace SubcommandSample
         // This will automatically be set before OnExecute is invoked
         private Git Parent { get; set; }
 
+        protected override int OnExecute(CommandLineApplication app)
+        {
+            app.ShowHelp();
+            return base.OnExecute(app);
+        }
+
         public override List<string> CreateArgs()
         {
             var args = Parent.CreateArgs();

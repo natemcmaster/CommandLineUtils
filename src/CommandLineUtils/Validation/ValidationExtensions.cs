@@ -95,6 +95,47 @@ namespace McMaster.Extensions.CommandLineUtils
             => new ValidationBuilder(argument);
 
         /// <summary>
+        /// <para>
+        /// Specifies that values must be one of the values in a given set.
+        /// </para>
+        /// <para>
+        /// By default, value comparison is case-sensitive. To make matches case-insensitive, use <see cref="Values(IValidationBuilder, bool, string[])"/>.
+        /// </para>
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="allowedValues">Allowed values.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder Values(this IValidationBuilder builder, params string[] allowedValues)
+            => builder.Values(ignoreCase: false, allowedValues: allowedValues);
+
+        /// <summary>
+        /// Specifies that values must be one of the values in a given set.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="ignoreCase">Ignore case when comparing inputs to <paramref name="allowedValues"/>.</param>
+        /// <param name="allowedValues">Allowed values.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder Values(this IValidationBuilder builder, bool ignoreCase, params string[] allowedValues)
+        {
+            var comparer = ignoreCase
+                ? StringComparison.CurrentCultureIgnoreCase
+                : StringComparison.CurrentCulture;
+            return builder.Values(comparer, allowedValues);
+        }
+
+        /// <summary>
+        /// Specifies that values must be one of the values in a given set.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="comparer">The comparer used to determine if values match.</param>
+        /// <param name="allowedValues">Allowed values.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder Values(this IValidationBuilder builder, StringComparison comparer, params string[] allowedValues)
+        {
+            return builder.Satisfies<ValuesAttribute>(ctorArgs: new object[] { comparer, allowedValues });
+        }
+
+        /// <summary>
         /// Specifies that values must be a valid email address.
         /// </summary>
         /// <param name="builder">The builder.</param>
