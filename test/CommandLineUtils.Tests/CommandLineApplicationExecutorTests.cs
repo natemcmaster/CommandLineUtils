@@ -322,5 +322,20 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () => CommandLineApplication.Execute<DisposableParentCommand>("sub"));
             Assert.Equal("Parent", ex.Message);
         }
+
+        private class Program
+        {
+            [Option]
+            public int Count { get; }
+
+            public void OnExecute() { }
+        }
+
+        [Fact]
+        public async Task CatchesCommandParsingException()
+        {
+            Assert.Equal(1, CommandLineApplication.Execute<Program>(new TestConsole(_output), "-c", "abc"));
+            Assert.Equal(1, await CommandLineApplication.ExecuteAsync<Program>(new TestConsole(_output), "-c", "abc"));
+        }
     }
 }

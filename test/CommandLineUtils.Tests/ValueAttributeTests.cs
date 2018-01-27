@@ -118,9 +118,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("RED", true)]
         [InlineData(nameof(Color.Green), true)]
         [InlineData(nameof(Color.Blue), true)]
-        [InlineData("yellow", false, Skip = "Skipping until #35 is fixed")]
-        [InlineData("", false, Skip = "Skipping until #35 is fixed")]
-        [InlineData(" ", false, Skip = "Skipping until #35 is fixed")]
+        [InlineData("yellow", false)]
+        [InlineData("", false)]
+        [InlineData(" ", false)]
         public void ValidatesEnumAsParameterType(string value, bool isValid)
         {
             var exitCode = isValid ? 0 : 1;

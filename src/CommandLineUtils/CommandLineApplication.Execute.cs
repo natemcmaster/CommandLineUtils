@@ -25,7 +25,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
-        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static int Execute<TApp>(params string[] args)
@@ -41,7 +40,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="console">The console to use</param>
         /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
-        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static int Execute<TApp>(IConsole console, params string[] args)
@@ -60,7 +58,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="context">The execution context.</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
-        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static int Execute<TApp>(CommandLineContext context)
@@ -68,28 +65,36 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             ValidateContextIsNotNull(context);
 
-            using (var bindResult = Bind<TApp>(context))
+            try
             {
-                if (bindResult.Command.IsShowingInformation)
+                using (var bindResult = Bind<TApp>(context))
                 {
-                    return HelpExitCode;
-                }
+                    if (bindResult.Command.IsShowingInformation)
+                    {
+                        return HelpExitCode;
+                    }
 
-                if (bindResult.ValidationResult != ValidationResult.Success)
-                {
-                    return HandleValidationError(context, bindResult);
-                }
+                    if (bindResult.ValidationResult != ValidationResult.Success)
+                    {
+                        return HandleValidationError(context, bindResult);
+                    }
 
-                var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
-                switch (invoker)
-                {
-                    case AsyncMethodInvoker asyncInvoker:
-                        return asyncInvoker.ExecuteAsync(context, bindResult).GetAwaiter().GetResult();
-                    case SynchronousMethodInvoker syncInvoker:
-                        return syncInvoker.Execute(context, bindResult);
-                    default:
-                        throw new NotImplementedException();
+                    var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
+                    switch (invoker)
+                    {
+                        case AsyncMethodInvoker asyncInvoker:
+                            return asyncInvoker.ExecuteAsync(context, bindResult).GetAwaiter().GetResult();
+                        case SynchronousMethodInvoker syncInvoker:
+                            return syncInvoker.Execute(context, bindResult);
+                        default:
+                            throw new NotImplementedException();
+                    }
                 }
+            }
+            catch (CommandParsingException ex)
+            {
+                context.Console.Error.WriteLine(ex.Message);
+                return ValidationErrorExitCode;
             }
         }
 
@@ -101,7 +106,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
-        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static Task<int> ExecuteAsync<TApp>(params string[] args)
@@ -117,7 +121,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="console">The console to use</param>
         /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
-        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static Task<int> ExecuteAsync<TApp>(IConsole console, params string[] args)
@@ -136,7 +139,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="context">The execution context.</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
-        /// <exception cref="CommandParsingException">Thrown when arguments cannot be parsed correctly.</exception>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static async Task<int> ExecuteAsync<TApp>(CommandLineContext context)
@@ -144,28 +146,36 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             ValidateContextIsNotNull(context);
 
-            using (var bindResult = Bind<TApp>(context))
+            try
             {
-                if (bindResult.Command.IsShowingInformation)
+                using (var bindResult = Bind<TApp>(context))
                 {
-                    return HelpExitCode;
-                }
+                    if (bindResult.Command.IsShowingInformation)
+                    {
+                        return HelpExitCode;
+                    }
 
-                if (bindResult.ValidationResult != ValidationResult.Success)
-                {
-                    return HandleValidationError(context, bindResult);
-                }
+                    if (bindResult.ValidationResult != ValidationResult.Success)
+                    {
+                        return HandleValidationError(context, bindResult);
+                    }
 
-                var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
-                switch (invoker)
-                {
-                    case AsyncMethodInvoker asyncInvoker:
-                        return await asyncInvoker.ExecuteAsync(context, bindResult);
-                    case SynchronousMethodInvoker syncInvoker:
-                        return syncInvoker.Execute(context, bindResult);
-                    default:
-                        throw new NotImplementedException();
+                    var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
+                    switch (invoker)
+                    {
+                        case AsyncMethodInvoker asyncInvoker:
+                            return await asyncInvoker.ExecuteAsync(context, bindResult);
+                        case SynchronousMethodInvoker syncInvoker:
+                            return syncInvoker.Execute(context, bindResult);
+                        default:
+                            throw new NotImplementedException();
+                    }
                 }
+            }
+            catch (CommandParsingException ex)
+            {
+                context.Console.Error.WriteLine(ex.Message);
+                return ValidationErrorExitCode;
             }
         }
 
