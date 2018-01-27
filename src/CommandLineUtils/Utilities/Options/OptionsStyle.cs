@@ -1,5 +1,8 @@
 namespace McMaster.Extensions.CommandLineUtils
 {
+    /// <summary>
+    /// Represents the options style
+    /// </summary>
     public class OptionsStyle
     {
         /// <summary>
