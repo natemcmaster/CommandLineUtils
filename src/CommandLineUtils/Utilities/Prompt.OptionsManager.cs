@@ -257,7 +257,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 while (true)
                 {
-                    var key = Console.ReadKey();
+                    var key = Console.ReadKey(true);
 
                     if (key.Modifiers != 0)
                         continue;
