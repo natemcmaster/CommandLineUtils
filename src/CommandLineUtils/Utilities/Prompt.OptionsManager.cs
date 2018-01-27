@@ -258,6 +258,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 while (true)
                 {
                     var key = Console.ReadKey();
+
+                    if (key.Modifiers != 0)
+                        continue;
+                    
                     if (Options.Keys.Finalize.Contains(key.Key))
                     {
                         if (End())
