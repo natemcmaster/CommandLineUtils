@@ -19,15 +19,8 @@ class Program
 
         Console.WriteLine($"Hello, there {name ?? "anonymous console user"}.");
 
-        var gender = Prompt.GetOption(
-            new CheckboxManagerOptions
-            {
-                IsRadio = true,
-                IsSelectionRequired = true,
-                Question = "Are you a man or a woman?"
-            }, "Man",
-            "Woman");
-        Console.WriteLine($"You're a {gender.First(i => i.Value).Key}");
+        var gender = Prompt.GetOption("Are you a man or a woman?", false, "Man", "Woman");
+        Console.WriteLine($"You're a {gender}");
 
         var age = Prompt.GetInt("How old are you?",
             promptColor: ConsoleColor.White,

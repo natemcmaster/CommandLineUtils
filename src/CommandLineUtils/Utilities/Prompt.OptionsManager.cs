@@ -10,81 +10,90 @@ namespace McMaster.Extensions.CommandLineUtils
 {
     public static partial class Prompt
     {
-        private class CheckboxManager
+        private class OptionsManager
         {
-            private readonly ObservableCollection<CheckboxSelection> _boxes =
-                new ObservableCollection<CheckboxSelection>();
+            private readonly ObservableCollection<OptionsOption> boxes =
+                new ObservableCollection<OptionsOption>();
 
-            private object _model;
-            private int _selectorPosition;
+            private object model;
+            private int selectorPosition;
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// Initializes a new instance of the <see cref="OptionsManager"/> class.
             /// </summary>
+            /// <param name="prompt"></param>
             /// <param name="options">The options.</param>
             /// <param name="boxes">The boxes.</param>
-            public CheckboxManager(CheckboxManagerOptions options, IEnumerable<string> boxes)
+            public OptionsManager(string prompt, OptionsManagerOptions options, IEnumerable<string> boxes)
             {
-                if (!Equals(Console.OutputEncoding, Encoding.UTF8))
-                    Console.OutputEncoding = Encoding.UTF8;
+                if (boxes == null) throw new ArgumentNullException(nameof(boxes));
 
-                if (boxes != null)
-                    _boxes = new ObservableCollection<CheckboxSelection>(boxes.Select(i => new CheckboxSelection(i)));
+                if (boxes.Any())
+                    this.boxes =
+                        new ObservableCollection<OptionsOption>(boxes.Select(i => new OptionsOption(i)));
 
-                Options = options ?? new CheckboxManagerOptions();
+                Options = options ?? new OptionsManagerOptions();
 
-                if (!string.IsNullOrEmpty(Options.Question))
-                    Console.WriteLine(Options.Question);
+                if (!string.IsNullOrEmpty(prompt))
+                    Console.WriteLine(prompt);
 
                 if (Options.DisplayHelpText)
-                    Console.WriteLine("Use the arrow keys to move, Space to select and Enter to exit");
+                    Console.WriteLine(Options.HelpText);
 
                 StartPosition = Console.CursorTop;
                 Draw();
             }
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// Initializes a new instance of the <see cref="OptionsManager"/> class.
             /// </summary>
+            /// <param name="prompt"></param>
             /// <param name="model">The model.</param>
             /// <param name="options">The options.</param>
-            public CheckboxManager(object model, CheckboxManagerOptions options = null) : this(options, null)
+            public OptionsManager(string prompt, object model, OptionsManagerOptions options = null) : this(prompt,
+                options, null)
             {
                 Model = model;
             }
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// Initializes a new instance of the <see cref="OptionsManager"/> class.
             /// </summary>
+            /// <param name="prompt"></param>
             /// <param name="type">The type.</param>
             /// <param name="options">The options.</param>
-            public CheckboxManager(Type type, CheckboxManagerOptions options = null) : this(options, null)
+            public OptionsManager(string prompt, Type type, OptionsManagerOptions options = null) : this(prompt,
+                options, null)
             {
                 FillBoxes(type);
             }
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// Initializes a new instance of the <see cref="OptionsManager"/> class.
             /// </summary>
+            /// <param name="prompt"></param>
             /// <param name="boxes">The boxes.</param>
-            public CheckboxManager(IEnumerable<string> boxes) : this(null, boxes)
+            public OptionsManager(string prompt, IEnumerable<string> boxes) : this(prompt, null, boxes)
             {
             }
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// Initializes a new instance of the <see cref="OptionsManager"/> class.
             /// </summary>
+            /// <param name="prompt"></param>
             /// <param name="boxes">The boxes.</param>
-            public CheckboxManager(params string[] boxes) : this(null, boxes?.ToList())
+            public OptionsManager(string prompt, params string[] boxes) : this(prompt, null, boxes?.ToList())
             {
             }
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="CheckboxManager"/> class.
+            /// Initializes a new instance of the <see cref="OptionsManager"/> class.
             /// </summary>
+            /// <param name="prompt"></param>
             /// <param name="options">The options.</param>
             /// <param name="boxes">The boxes.</param>
-            public CheckboxManager(CheckboxManagerOptions options, params string[] boxes) : this(options,
+            public OptionsManager(string prompt, OptionsManagerOptions options, params string[] boxes) : this(prompt,
+                options,
                 boxes?.ToList())
             {
             }
@@ -95,7 +104,7 @@ namespace McMaster.Extensions.CommandLineUtils
             /// <value>
             /// The options.
             /// </value>
-            public CheckboxManagerOptions Options { get; }
+            public OptionsManagerOptions Options { get; }
 
             /// <summary>
             /// Gets or sets the model.
@@ -105,10 +114,10 @@ namespace McMaster.Extensions.CommandLineUtils
             /// </value>
             public object Model
             {
-                get => _model;
+                get => model;
                 private set
                 {
-                    _model = value;
+                    model = value;
                     FillBoxes(value.GetType());
                 }
             }
@@ -121,12 +130,12 @@ namespace McMaster.Extensions.CommandLineUtils
             /// <value>
             /// The boxes.
             /// </value>
-            public ObservableCollection<CheckboxSelection> Boxes
+            public ObservableCollection<OptionsOption> Boxes
             {
                 get
                 {
-                    _boxes.CollectionChanged += BoxesOnCollectionChanged;
-                    return _boxes;
+                    boxes.CollectionChanged += BoxesOnCollectionChanged;
+                    return boxes;
                 }
             }
 
@@ -139,12 +148,12 @@ namespace McMaster.Extensions.CommandLineUtils
             /// </value>
             private int SelectorPosition
             {
-                get => _selectorPosition;
+                get => selectorPosition;
                 set
                 {
-                    if (_selectorPosition == value) return;
+                    if (selectorPosition == value) return;
 
-                    _selectorPosition = value;
+                    selectorPosition = value;
                     Redraw();
                 }
             }
@@ -153,7 +162,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 foreach (var property in type.GetTypeInfo().GetProperties(BindingFlags.Public | BindingFlags.Instance)
                     .Where(i => i.PropertyType == typeof(bool)))
-                    Boxes.Add(new CheckboxSelection(property.Name));
+                    Boxes.Add(new OptionsOption(property.Name));
                 Redraw();
             }
 
@@ -161,10 +170,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
             {
                 foreach (var item in notifyCollectionChangedEventArgs.NewItems)
-                    if (item is CheckboxSelection checkboxSelection)
+                    if (item is OptionsOption checkboxSelection)
                         checkboxSelection.PropertyChanged += (o, args) =>
                         {
-                            if (args.PropertyName != nameof(CheckboxSelection.IsSelected)) return;
+                            if (args.PropertyName != nameof(OptionsOption.IsSelected)) return;
                             SetPropertyValue(checkboxSelection.Title, checkboxSelection.IsSelected);
                             Redraw();
                         };
@@ -186,15 +195,15 @@ namespace McMaster.Extensions.CommandLineUtils
                     x = Console.WindowWidth;
 
                 for (var i = startY; i < endY; i++)
-                    ClearConsoleLine(i);
+                    ClearConsoleLine(i, x);
             }
 
-            private static void ClearConsoleLine(int line)
+            private static void ClearConsoleLine(int line, int length)
             {
                 WriteTemporarly(() =>
                 {
                     Console.SetCursorPosition(0, Console.CursorTop);
-                    Console.Write(new string(' ', Console.WindowWidth));
+                    Console.Write(new string(' ', length));
                 }, 0, line);
             }
 
@@ -208,22 +217,21 @@ namespace McMaster.Extensions.CommandLineUtils
                 while (true)
                 {
                     var key = Console.ReadKey();
-                    if (key.Key == ConsoleKey.Enter)
+                    if (Options.Keys.Finalize.Contains(key.Key))
                     {
                         if (End()) break;
                     }
-
-                    switch (key.Key)
+                    else if (Options.Keys.Movedown.Contains(key.Key))
                     {
-                        case ConsoleKey.DownArrow:
-                            GoDown();
-                            break;
-                        case ConsoleKey.UpArrow:
-                            GoUp();
-                            break;
-                        case ConsoleKey.Spacebar:
-                            Checked();
-                            break;
+                        GoDown();
+                    }
+                    else if (Options.Keys.Moveup.Contains(key.Key))
+                    {
+                        GoUp();
+                    }
+                    else if (Options.Keys.Select.Contains(key.Key))
+                    {
+                        Checked();
                     }
                 }
             }
@@ -268,7 +276,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 Boxes[SelectorPosition].IsSelected = !Boxes[SelectorPosition].IsSelected;
 
                 if (Options.IsRadio)
-                    foreach (var checkboxSelection in Boxes.Except(new[] {Boxes[SelectorPosition]}))
+                    foreach (var checkboxSelection in Boxes.Except(new[] { Boxes[SelectorPosition] }))
                         checkboxSelection.IsSelected = false;
 
                 Draw();
