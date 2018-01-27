@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -8,7 +9,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Represents a check box
     /// </summary>
     /// <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
-    class OptionsOption : INotifyPropertyChanged
+    internal class OptionsOption : INotifyPropertyChanged
     {
         private bool isSelected;
 
@@ -47,7 +48,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <value>
         ///   <c>true</c> if this instance is a header; otherwise, <c>false</c>.
         /// </value>
-        public bool IsHeader { get; set; }
+        internal bool IsHeader { get; set; }
+        
+        internal bool IsChildren { get; set; }
+        
+        internal IEnumerable<OptionsOption> Children { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

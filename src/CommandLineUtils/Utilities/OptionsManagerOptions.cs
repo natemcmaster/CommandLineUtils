@@ -14,6 +14,14 @@ namespace McMaster.Extensions.CommandLineUtils
         public OptionsKeys Keys { get; set; } = new OptionsKeys();
 
         /// <summary>
+        /// Gets or sets a value indicating whether [only use marked properties].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [only use marked properties]; otherwise, <c>false</c>.
+        /// </value>
+        public bool OnlyUseMarked { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether this instance uses Unicode.
         /// </summary>
         /// <value>

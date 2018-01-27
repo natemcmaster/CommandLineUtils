@@ -26,19 +26,28 @@ namespace McMaster.Extensions.CommandLineUtils
             /// <param name="boxes">The boxes.</param>
             public OptionsManager(string prompt, OptionsManagerOptions options, IEnumerable<string> boxes)
             {
-                if (boxes == null) throw new ArgumentNullException(nameof(boxes));
+                if (boxes == null)
+                {
+                    throw new ArgumentNullException(nameof(boxes));
+                }
 
                 if (boxes.Any())
+                {
                     this.boxes =
                         new ObservableCollection<OptionsOption>(boxes.Select(i => new OptionsOption(i)));
+                }
 
                 Options = options ?? new OptionsManagerOptions();
 
                 if (!string.IsNullOrEmpty(prompt))
+                {
                     Console.WriteLine(prompt);
+                }
 
                 if (Options.DisplayHelpText)
+                {
                     Console.WriteLine(Options.HelpText);
+                }
 
                 StartPosition = Console.CursorTop;
                 Draw();
@@ -151,7 +160,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 get => selectorPosition;
                 set
                 {
-                    if (selectorPosition == value) return;
+                    if (selectorPosition == value)
+                    {
+                        return;
+                    }
 
                     selectorPosition = value;
                     Redraw();
@@ -160,9 +172,26 @@ namespace McMaster.Extensions.CommandLineUtils
 
             private void FillBoxes(Type type)
             {
-                foreach (var property in type.GetTypeInfo().GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                    .Where(i => i.PropertyType == typeof(bool)))
-                    Boxes.Add(new OptionsOption(property.Name));
+                if (!Options.OnlyUseMarked)
+                {
+                    foreach (var property in type.GetTypeInfo()
+                        .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                        .Where(i => i.PropertyType == typeof(bool)))
+                    {
+                        Boxes.Add(new OptionsOption(property.Name));
+                    }
+                }
+                else
+                {
+                    foreach (var property in type.GetTypeInfo()
+                        .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                        .Where(i => i.PropertyType == typeof(bool) &&
+                                    i.GetCustomAttribute<UseOnOptionsAttribute>() != null))
+                    {
+                        Boxes.Add(new OptionsOption(property.Name));
+                    }
+                }
+
                 Redraw();
             }
 
@@ -170,13 +199,21 @@ namespace McMaster.Extensions.CommandLineUtils
                 NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
             {
                 foreach (var item in notifyCollectionChangedEventArgs.NewItems)
+                {
                     if (item is OptionsOption checkboxSelection)
+                    {
                         checkboxSelection.PropertyChanged += (o, args) =>
                         {
-                            if (args.PropertyName != nameof(OptionsOption.IsSelected)) return;
+                            if (args.PropertyName != nameof(OptionsOption.IsSelected))
+                            {
+                                return;
+                            }
+
                             SetPropertyValue(checkboxSelection.Title, checkboxSelection.IsSelected);
                             Redraw();
                         };
+                    }
+                }
             }
 
             private void SetPropertyValue(string name, object value)
@@ -192,10 +229,14 @@ namespace McMaster.Extensions.CommandLineUtils
             private static void ClearConsoleRange(int startY, int endY, int x = -1)
             {
                 if (x < 0)
+                {
                     x = Console.WindowWidth;
+                }
 
                 for (var i = startY; i < endY; i++)
+                {
                     ClearConsoleLine(i, x);
+                }
             }
 
             private static void ClearConsoleLine(int line, int length)
@@ -219,7 +260,10 @@ namespace McMaster.Extensions.CommandLineUtils
                     var key = Console.ReadKey();
                     if (Options.Keys.Finalize.Contains(key.Key))
                     {
-                        if (End()) break;
+                        if (End())
+                        {
+                            break;
+                        }
                     }
                     else if (Options.Keys.Movedown.Contains(key.Key))
                     {
@@ -240,10 +284,17 @@ namespace McMaster.Extensions.CommandLineUtils
 
             private bool End()
             {
-                if (Options.IsSelectionRequired && !Boxes.Any(i => i.IsSelected)) return false;
+                if (Options.IsSelectionRequired && !Boxes.Any(i => i.IsSelected))
+                {
+                    return false;
+                }
+
                 Clear(Options.DisplayHelpText ? StartPosition - 1 : StartPosition);
                 if (Options.DisplayHelpText)
+                {
                     Console.SetCursorPosition(0, StartPosition - 1);
+                }
+
                 Console.CursorVisible = true;
                 return true;
             }
@@ -251,7 +302,10 @@ namespace McMaster.Extensions.CommandLineUtils
             private void Clear(int position = -1)
             {
                 if (position < 0)
+                {
                     position = StartPosition;
+                }
+
                 ClearConsoleRange(position, Boxes.Count + StartPosition);
             }
 
@@ -266,8 +320,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 WriteTemporarly(() =>
                 {
                     foreach (var box in Boxes)
+                    {
                         Console.WriteLine(
                             $"  {(box.IsSelected ? Options.CheckedChar : Options.UncheckedChar)} {box.Title}");
+                    }
                 }, 0, StartPosition);
 
                 DrawSelector();
@@ -278,8 +334,12 @@ namespace McMaster.Extensions.CommandLineUtils
                 Boxes[SelectorPosition].IsSelected = !Boxes[SelectorPosition].IsSelected;
 
                 if (Options.IsRadio)
+                {
                     foreach (var checkboxSelection in Boxes.Except(new[] { Boxes[SelectorPosition] }))
+                    {
                         checkboxSelection.IsSelected = false;
+                    }
+                }
 
                 Draw();
             }
@@ -300,12 +360,18 @@ namespace McMaster.Extensions.CommandLineUtils
 
             private void GoUp()
             {
-                if (SelectorPosition - 1 >= 0) SelectorPosition--;
+                if (SelectorPosition - 1 >= 0)
+                {
+                    SelectorPosition--;
+                }
             }
 
             private void GoDown()
             {
-                if (SelectorPosition + 1 < Boxes.Count) SelectorPosition++;
+                if (SelectorPosition + 1 < Boxes.Count)
+                {
+                    SelectorPosition++;
+                }
             }
         }
     }
