@@ -233,6 +233,8 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         Checked();
                     }
+
+                    Redraw();
                 }
             }
 
