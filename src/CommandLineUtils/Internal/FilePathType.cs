@@ -9,7 +9,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     /// Represents file path types.
     /// </summary>
     [Flags]
-    public enum FilePathType
+    internal enum FilePathType
     {
         /// <summary>
         /// A file path to a directory.

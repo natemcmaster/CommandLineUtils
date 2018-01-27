@@ -99,3 +99,27 @@ public class Program
 }
 
 ```
+
+### Utilities
+
+The library also includes other utilities for interaction with the console. These include:
+
+- `ArgumentEscaper` - use to escape arguments when starting a new command line process.
+    ```c#
+     var args = new [] { "Arg1", "arg with space", "args ' with \"" quotes" };
+     Process.Start("echo", ArgumentEscaper.EscapeAndConcatenate(args));
+    ```
+ - `Prompt` - for getting feedback from users. A few examples:
+    ```c#
+    // allows y/n responses
+    Prompt.GetYesNo("Do you want to proceed?");
+
+    // masks input as '*'
+    Prompt.GetPassword("Password: ");
+    ```
+ - `DotNetExe` - finds the path to the dotnet.exe file used to start a .NET Core process
+    ```c#
+    Process.Start(DotNetExe.FullPathOrDefault(), "run");
+    ```
+
+And more! See the docs for more API, such as `IConsole`, `IReporter`, and others.
