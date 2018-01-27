@@ -16,6 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
             {
                 throw new CommandParsingException(null, $"Invalid value specified for {argName}. '{value}' is not a valid number.");
             }
+
             return result;
         }
     }

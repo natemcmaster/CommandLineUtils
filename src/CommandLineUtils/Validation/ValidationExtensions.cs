@@ -3,6 +3,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -93,6 +94,33 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The builder.</returns>
         public static IArgumentValidationBuilder Accepts(this CommandArgument argument)
             => new ValidationBuilder(argument);
+
+        /// <summary>
+        /// <para>
+        /// Specifies that values must be one of the values in a given set.
+        /// </para>
+        /// <para>
+        /// By default, value comparison is case-sensitive. To make matches case-insensitive, set <paramref name="ignoreCase"/> to <c>true</c>.
+        /// </para>
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="ignoreCase">Ignore case when parsing enums.</param>
+        /// <exception cref="ArgumentException">When <typeparamref name="TEnum"/> is not an enum.</exception>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder Enum<TEnum>(this IValidationBuilder builder, bool ignoreCase = false)
+            where TEnum : struct
+        {
+            if (!typeof(TEnum).GetTypeInfo().IsEnum)
+            {
+                throw new ArgumentException("Type parameter T must be an enum.");
+            }
+
+            var comparer = ignoreCase
+                ? StringComparison.OrdinalIgnoreCase
+                : StringComparison.Ordinal;
+
+            return builder.Values(comparer, System.Enum.GetNames(typeof(TEnum)));
+        }
 
         /// <summary>
         /// <para>

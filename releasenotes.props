@@ -3,11 +3,13 @@
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.2.0'">
 2.2.0:
 New features:
+  - Support parsing enums
   - Added more validation attributes.
      - Add the [FileExists] attribute
      - Add the [FileOrDirectoryExists] attribute
      - Add the [DirectoryExists] attribute
      - Add the [LegalFilePath] attribute
+     - Add the [Values] attribute
   - Added a new, fluent API for validation.
      - Added Option().Accepts() and Argument().Accepts()
      - Add .ExistingFile()
@@ -18,6 +20,7 @@ New features:
      - Add .MinLength(length)
      - Add .MaxLength(length)
      - Add .RegularExpression(pattern)
+     - Add .Values(string[] allowedValues)
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.1.1'">
 2.1.1:

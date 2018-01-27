@@ -8,6 +8,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class ValueParserProviderTests
     {
+        public enum Color
+        {
+            Red,
+            Blue,
+            Green,
+        }
+
         private class Program
         {
             [Option("--byte")]
@@ -54,6 +61,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             [Option("--string-set")]
             public ISet<string> StringSet { get; }
+
+            [Option("--color")]
+            public Color ColorOption { get; }
         }
 
         [Theory]
@@ -202,6 +212,16 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var parsed = CommandLineParser.ParseArgs<Program>("--string-set", "first", "--string-set", "second");
             Assert.Contains("first", parsed.StringSet);
             Assert.Contains("second", parsed.StringSet);
+        }
+
+        [Theory]
+        [InlineData(Color.Blue)]
+        [InlineData(Color.Red)]
+        [InlineData(Color.Green)]
+        public void ParsesEnum(Color color)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>("--color", color.ToString().ToLowerInvariant());
+            Assert.Equal(color, parsed.ColorOption);
         }
 
         private class ArgumentProgram

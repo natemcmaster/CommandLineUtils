@@ -47,6 +47,10 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             var typeInfo = clrType.GetTypeInfo();
+            if (typeInfo.IsEnum)
+            {
+                return CommandOptionType.SingleValue;
+            }
             if (typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>))
             {
                 return GetOptionType(typeInfo.GetGenericArguments().First());

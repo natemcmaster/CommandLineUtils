@@ -42,6 +42,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(typeof(IEnumerable<string>), CommandOptionType.MultipleValue)]
         [InlineData(typeof(List<string>), CommandOptionType.MultipleValue)]
         [InlineData(typeof(HashSet<string>), CommandOptionType.MultipleValue)]
+        [InlineData(typeof(StringComparison), CommandOptionType.SingleValue)]
+        [InlineData(typeof(StringComparison[]), CommandOptionType.MultipleValue)]
         public void ItInfersOptionType(Type propType, CommandOptionType optionType)
         {
             Assert.Equal(optionType, CommandOptionTypeMapper.Default.GetOptionType(propType));
