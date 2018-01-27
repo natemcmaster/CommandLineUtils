@@ -33,7 +33,11 @@ namespace McMaster.Extensions.CommandLineUtils
                 Write($"{prompt} {answerHint}", promptColor, promptBgColor);
                 Console.Write(' ');
 
-                var resp = Console.ReadLine()?.ToLower()?.Trim();
+                string resp;
+                using (ShowCursor())
+                {
+                    resp = Console.ReadLine()?.ToLower()?.Trim();
+                }
 
                 if (string.IsNullOrEmpty(resp))
                 {
@@ -73,7 +77,11 @@ namespace McMaster.Extensions.CommandLineUtils
             Write(prompt, promptColor, promptBgColor);
             Console.Write(' ');
 
-            var resp = Console.ReadLine();
+            string resp;
+            using (ShowCursor())
+            {
+                resp = Console.ReadLine();
+            }
 
             if (!string.IsNullOrEmpty(resp))
             {
@@ -162,7 +170,10 @@ namespace McMaster.Extensions.CommandLineUtils
             ConsoleKeyInfo key;
             do
             {
-                key = Console.ReadKey(intercept: true);
+                using (ShowCursor())
+                {
+                    key = Console.ReadKey(intercept: true);
+                }
 
                 if ((key.Modifiers & IgnoredModifiersMask) != 0)
                 {
@@ -220,7 +231,11 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 Console.Write(' ');
 
-                var resp = Console.ReadLine()?.ToLower()?.Trim();
+                string resp;
+                using (ShowCursor())
+                {
+                    resp = Console.ReadLine()?.ToLower()?.Trim();
+                }
 
                 if (string.IsNullOrEmpty(resp))
                 {
@@ -262,6 +277,46 @@ namespace McMaster.Extensions.CommandLineUtils
             if (foreground.HasValue || background.HasValue)
             {
                 Console.ResetColor();
+            }
+        }
+
+        private static IDisposable ShowCursor() => new CursorState();
+
+        private class CursorState : IDisposable
+        {
+            private readonly bool _original;
+
+            public CursorState()
+            {
+                try
+                {
+                    _original = Console.CursorVisible;
+                }
+                catch
+                {
+                    // some platforms throw System.PlatformNotSupportedException
+                    // Assume the cursor should be shown
+                    _original = true;
+                }
+
+                TrySetVisible(true);
+            }
+
+            private void TrySetVisible(bool visible)
+            {
+                try
+                {
+                    Console.CursorVisible = visible;
+                }
+                catch
+                {
+                    // setting cursor may fail if output is piped or permission is denied.
+                }
+            }
+
+            public void Dispose()
+            {
+                TrySetVisible(_original);
             }
         }
     }
