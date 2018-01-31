@@ -132,7 +132,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public List<CommandOption> Options { get; private set; }
 
         /// <summary>
-        /// The option used to determine if help text should be displayed. This is set by calling <see cref="HelpOption(string)"/>.
+        /// The option used to determine if help text should be displayed. This is set by calling <see cref="HelpOption(string, bool)"/>.
         /// </summary>
         public CommandOption OptionHelp { get; internal set; }
 
@@ -397,12 +397,13 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Helper method that adds a help option.
         /// </summary>
         /// <param name="template"></param>
+        /// <param name="inherited"></param>
         /// <returns></returns>
-        public CommandOption HelpOption(string template)
+        public CommandOption HelpOption(string template, bool inherited = false)
         {
             // Help option is special because we stop parsing once we see it
             // So we store it separately for further use
-            OptionHelp = Option(template, Strings.DefaultHelpOptionDescription, CommandOptionType.NoValue);
+            OptionHelp = Option(template, Strings.DefaultHelpOptionDescription, CommandOptionType.NoValue, inherited);
 
             return OptionHelp;
         }

@@ -643,6 +643,40 @@ Examples:
             Assert.True(helpOption.HasValue());
         }
 
+        [Theory]
+        [InlineData("-h")]
+        [InlineData("--help")]
+        public void HelpOptionIsInherited(string helpOptionString)
+        {
+            var app = new CommandLineApplication
+            {
+                Out = new XunitTextWriter(_output)
+            };
+            var helpOption = app.HelpOption(true);
+            var subCommand = app.Command("lvl2", subCmd => { });
+
+            var commandOptions = new[] { "lvl2", helpOptionString };
+            app.Execute(commandOptions);
+            Assert.True(helpOption.HasValue());
+        }
+
+        [Theory]
+        [InlineData("-h")]
+        [InlineData("--help")]
+        public void HelpOptionIsNotInheritedByDefault(string helpOptionString)
+        {
+            var app = new CommandLineApplication
+            {
+                Out = new XunitTextWriter(_output)
+            };
+            app.HelpOption();
+            var subCommand = app.Command("lvl2", subCmd => { });
+
+            var commandOptions = new[] { "lvl2", helpOptionString };
+            var exception = Assert.Throws<CommandParsingException>(() => app.Execute(commandOptions));
+            Assert.Equal($"Unrecognized option '{helpOptionString}'", exception.Message);
+        }
+
         [Fact]
         public void VersionOptionIsSet()
         {
