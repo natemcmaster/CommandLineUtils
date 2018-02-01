@@ -256,7 +256,7 @@ namespace McMaster.Extensions.CommandLineUtils
             // Inherit the help option after configuration only if the consumer did not
             // add its own help option. Adding it after configuration prevents the consumer
             // from accidentally mutating the help option of the parent command via the subcommand.
-            if (OptionHelp.Inherited && command.OptionHelp == null)
+            if ((OptionHelp?.Inherited ?? false) && command.OptionHelp == null)
             {
                 command.OptionHelp = OptionHelp;
             }
