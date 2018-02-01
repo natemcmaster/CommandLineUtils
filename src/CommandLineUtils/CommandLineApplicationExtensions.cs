@@ -17,9 +17,17 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Adds the help option with the template <c>-?|-h|--help</c>.
         /// </summary>
         /// <param name="app"></param>
+        /// <returns></returns>
+        public static CommandOption HelpOption(this CommandLineApplication app)
+            => app.HelpOption(Strings.DefaultHelpTemplate);
+
+        /// <summary>
+        /// Adds the help option with the template <c>-?|-h|--help</c>.
+        /// </summary>
+        /// <param name="app"></param>
         /// <param name="inherited"></param>
         /// <returns></returns>
-        public static CommandOption HelpOption(this CommandLineApplication app, bool inherited = false)
+        public static CommandOption HelpOption(this CommandLineApplication app, bool inherited)
             => app.HelpOption(Strings.DefaultHelpTemplate, inherited);
 
         /// <summary>

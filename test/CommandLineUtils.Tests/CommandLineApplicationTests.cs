@@ -648,16 +648,37 @@ Examples:
         [InlineData("--help")]
         public void HelpOptionIsInherited(string helpOptionString)
         {
-            var app = new CommandLineApplication
+            using (var outWriter = new StringWriter())
             {
-                Out = new XunitTextWriter(_output)
-            };
-            var helpOption = app.HelpOption(true);
-            var subCommand = app.Command("lvl2", subCmd => { });
+                var app = new CommandLineApplication { Out = outWriter };
+                app.Name = "lvl1";
+                var helpOption = app.HelpOption(true);
 
-            var commandOptions = new[] { "lvl2", helpOptionString };
-            app.Execute(commandOptions);
-            Assert.True(helpOption.HasValue());
+                var subCommand = app.Command("lvl2", subCmd =>
+                {
+                    subCmd.Out = outWriter;
+                    // add an argument to help make help text different
+                    subCmd.Argument("lvl-arg", "subcommand argument");
+                });
+
+                var inputs = new[] { "lvl2", helpOptionString };
+                app.Execute(inputs);
+
+                outWriter.Flush();
+                var outData = outWriter.ToString();
+
+                Assert.True(helpOption.HasValue());
+                Assert.Contains("Usage: lvl1 lvl2 [arguments] [options]", outData);
+
+                inputs = new[] { helpOptionString };
+                app.Execute(inputs);
+
+                outWriter.Flush();
+                outData = outWriter.ToString();
+
+                Assert.True(helpOption.HasValue());
+                Assert.Contains("Usage: lvl1 [options]", outData);
+            }
         }
 
         [Theory]
