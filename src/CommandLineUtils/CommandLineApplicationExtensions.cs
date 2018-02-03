@@ -22,6 +22,15 @@ namespace McMaster.Extensions.CommandLineUtils
             => app.HelpOption(Strings.DefaultHelpTemplate);
 
         /// <summary>
+        /// Adds the help option with the template <c>-?|-h|--help</c>.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="inherited"></param>
+        /// <returns></returns>
+        public static CommandOption HelpOption(this CommandLineApplication app, bool inherited)
+            => app.HelpOption(Strings.DefaultHelpTemplate, inherited);
+
+        /// <summary>
         /// Adds the verbose option with the template <c>-v|--verbose</c>.
         /// </summary>
         /// <param name="app"></param>
@@ -55,7 +64,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="app"></param>
         /// <param name="action"></param>
-        public static void OnValidationError(this CommandLineApplication app, Func<ValidationResult, int> action) 
+        public static void OnValidationError(this CommandLineApplication app, Func<ValidationResult, int> action)
             => app.ValidationErrorHandler = action;
 
         /// <summary>

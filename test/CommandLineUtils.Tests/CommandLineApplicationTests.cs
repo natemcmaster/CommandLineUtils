@@ -643,6 +643,85 @@ Examples:
             Assert.True(helpOption.HasValue());
         }
 
+        [Theory]
+        [InlineData("-h")]
+        [InlineData("--help")]
+        public void HelpOptionIsInherited(string helpOptionString)
+        {
+            using (var outWriter = new StringWriter())
+            {
+                var app = new CommandLineApplication { Out = outWriter };
+                app.Name = "lvl1";
+                var helpOption = app.HelpOption(true);
+
+                var subCommand = app.Command("lvl2", subCmd =>
+                {
+                    subCmd.Out = outWriter;
+                    // add an argument to help make help text different
+                    subCmd.Argument("lvl-arg", "subcommand argument");
+                });
+
+                var inputs = new[] { "lvl2", helpOptionString };
+                app.Execute(inputs);
+
+                outWriter.Flush();
+                var outData = outWriter.ToString();
+
+                Assert.True(helpOption.HasValue());
+                Assert.Contains("Usage: lvl1 lvl2 [arguments] [options]", outData);
+
+                inputs = new[] { helpOptionString };
+                app.Execute(inputs);
+
+                outWriter.Flush();
+                outData = outWriter.ToString();
+
+                Assert.True(helpOption.HasValue());
+                Assert.Contains("Usage: lvl1 [options]", outData);
+            }
+        }
+
+        [Theory]
+        [InlineData("-h")]
+        [InlineData("--help")]
+        public void HelpOptionIsNotInheritedByDefault(string helpOptionString)
+        {
+            var app = new CommandLineApplication
+            {
+                Out = new XunitTextWriter(_output)
+            };
+            app.HelpOption();
+            var subCommand = app.Command("lvl2", subCmd => { });
+
+            var commandOptions = new[] { "lvl2", helpOptionString };
+            var exception = Assert.Throws<CommandParsingException>(() => app.Execute(commandOptions));
+            Assert.Equal($"Unrecognized option '{helpOptionString}'", exception.Message);
+        }
+
+        [Fact]
+        public void InheritedHelpOptionIsSame()
+        {
+            var app = new CommandLineApplication();
+            var sub1 = app.Command("sub", _ => {});
+            var sub2 = sub1.Command("sub", _ => {});
+            var help = app.HelpOption(inherited: true);
+            Assert.Same(help, app.OptionHelp);
+            Assert.Same(help, sub1.OptionHelp);
+            Assert.Same(help, sub2.OptionHelp);
+        }
+
+        [Fact]
+        public void InheritedHelpOptionCanBeOverridden()
+        {
+            var app = new CommandLineApplication();
+            var sub1 = app.Command("sub", a => a.HelpOption());
+            var sub2 = sub1.Command("sub", a => a.HelpOption());
+            var help = app.HelpOption(inherited: true);
+            Assert.Same(help, app.OptionHelp);
+            Assert.NotSame(help, sub1.OptionHelp);
+            Assert.NotSame(help, sub2.OptionHelp);
+        }
+
         [Fact]
         public void VersionOptionIsSet()
         {

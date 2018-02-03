@@ -46,7 +46,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(null)]
         [InlineData("")]
         [InlineData("\0")]
-        [InlineData("/////")]
         public void FailsInvalidLegalFilePaths(string filePath)
         {
             var console = new TestConsole(_output);

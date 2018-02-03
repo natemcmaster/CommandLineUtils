@@ -21,10 +21,9 @@ namespace SubcommandSample
                 Description = "A fake version of the node package manager",
             };
 
-            app.HelpOption();
+            app.HelpOption(inherited: true);
             app.Command("config", configCmd =>
             {
-                configCmd.HelpOption();
                 configCmd.OnExecute(() =>
                 {
                     Console.WriteLine("Specify a subcommand");
@@ -34,7 +33,6 @@ namespace SubcommandSample
 
                 configCmd.Command("set", setCmd =>
                 {
-                    setCmd.HelpOption();
                     setCmd.Description = "Set config value";
                     var key = setCmd.Argument("key", "Name of the config").IsRequired();
                     var val = setCmd.Argument("value", "Value of the config").IsRequired();
@@ -46,7 +44,6 @@ namespace SubcommandSample
 
                 configCmd.Command("list", listCmd =>
                 {
-                    listCmd.HelpOption();
                     var json = listCmd.Option("--json", "Json output", CommandOptionType.NoValue);
                     listCmd.OnExecute(() =>
                     {

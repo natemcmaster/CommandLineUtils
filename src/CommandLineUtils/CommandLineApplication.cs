@@ -26,6 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         internal CommandLineContext _context;
         private IHelpTextGenerator _helpTextGenerator;
+        private CommandOption _optionHelp;
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -134,7 +135,22 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The option used to determine if help text should be displayed. This is set by calling <see cref="HelpOption(string)"/>.
         /// </summary>
-        public CommandOption OptionHelp { get; internal set; }
+        public CommandOption OptionHelp
+        {
+            get
+            {
+                if (_optionHelp != null)
+                {
+                    return _optionHelp;
+                }
+                if (Parent?.OptionHelp?.Inherited == true)
+                {
+                    return Parent.OptionHelp;
+                }
+                return null;
+            }
+            internal set => _optionHelp = value;
+        }
 
         /// <summary>
         /// The options used to determine if the command version should be displayed. This is set by calling <see cref="VersionOption(string, Func{string}, Func{string})"/>.
@@ -252,6 +268,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             Commands.Add(command);
             configuration(command);
+
             return command;
         }
 
@@ -399,10 +416,19 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="template"></param>
         /// <returns></returns>
         public CommandOption HelpOption(string template)
+            => HelpOption(template, false);
+
+        /// <summary>
+        /// Helper method that adds a help option.
+        /// </summary>
+        /// <param name="template"></param>
+        /// <param name="inherited"></param>
+        /// <returns></returns>
+        public CommandOption HelpOption(string template, bool inherited)
         {
             // Help option is special because we stop parsing once we see it
             // So we store it separately for further use
-            OptionHelp = Option(template, Strings.DefaultHelpOptionDescription, CommandOptionType.NoValue);
+            OptionHelp = Option(template, Strings.DefaultHelpOptionDescription, CommandOptionType.NoValue, inherited);
 
             return OptionHelp;
         }
