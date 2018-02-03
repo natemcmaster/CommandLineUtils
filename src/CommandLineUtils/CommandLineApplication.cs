@@ -26,6 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         internal CommandLineContext _context;
         private IHelpTextGenerator _helpTextGenerator;
+        private CommandOption _optionHelp;
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -134,7 +135,22 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The option used to determine if help text should be displayed. This is set by calling <see cref="HelpOption(string)"/>.
         /// </summary>
-        public CommandOption OptionHelp { get; internal set; }
+        public CommandOption OptionHelp
+        {
+            get
+            {
+                if (_optionHelp != null)
+                {
+                    return _optionHelp;
+                }
+                if (Parent?.OptionHelp?.Inherited == true)
+                {
+                    return Parent.OptionHelp;
+                }
+                return null;
+            }
+            internal set => _optionHelp = value;
+        }
 
         /// <summary>
         /// The options used to determine if the command version should be displayed. This is set by calling <see cref="VersionOption(string, Func{string}, Func{string})"/>.
@@ -252,14 +268,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
             Commands.Add(command);
             configuration(command);
-
-            // Inherit the help option after configuration only if the consumer did not
-            // add its own help option. Adding it after configuration prevents the consumer
-            // from accidentally mutating the help option of the parent command via the subcommand.
-            if ((OptionHelp?.Inherited ?? false) && command.OptionHelp == null)
-            {
-                command.OptionHelp = OptionHelp;
-            }
 
             return command;
         }

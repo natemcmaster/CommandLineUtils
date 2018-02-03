@@ -699,6 +699,30 @@ Examples:
         }
 
         [Fact]
+        public void InheritedHelpOptionIsSame()
+        {
+            var app = new CommandLineApplication();
+            var sub1 = app.Command("sub", _ => {});
+            var sub2 = sub1.Command("sub", _ => {});
+            var help = app.HelpOption(inherited: true);
+            Assert.Same(help, app.OptionHelp);
+            Assert.Same(help, sub1.OptionHelp);
+            Assert.Same(help, sub2.OptionHelp);
+        }
+
+        [Fact]
+        public void InheritedHelpOptionCanBeOverridden()
+        {
+            var app = new CommandLineApplication();
+            var sub1 = app.Command("sub", a => a.HelpOption());
+            var sub2 = sub1.Command("sub", a => a.HelpOption());
+            var help = app.HelpOption(inherited: true);
+            Assert.Same(help, app.OptionHelp);
+            Assert.NotSame(help, sub1.OptionHelp);
+            Assert.NotSame(help, sub2.OptionHelp);
+        }
+
+        [Fact]
         public void VersionOptionIsSet()
         {
             var app = new CommandLineApplication
