@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace SubcommandSample
@@ -13,7 +14,7 @@ namespace SubcommandSample
     /// This example also shows you how the subcommands can be linked to their parent types.
     /// </summary>
     [Command("fake-git")]
-    [VersionOption("--version", "1.0.0")]
+    [VersionOptionFromMember("--version", MemberName = nameof(GetVersion))]
     [Subcommand("add", typeof(AddCommand))]
     [Subcommand("commit", typeof(CommitCommand))]
     class Git : GitCommandBase
@@ -38,6 +39,9 @@ namespace SubcommandSample
             }
             return args;
         }
+
+        private static string GetVersion()
+            => typeof(Git).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
     }
 
     [Command(Description = "Add file contents to the index")]

@@ -21,6 +21,9 @@ New features:
      - Add .MaxLength(length)
      - Add .RegularExpression(pattern)
      - Add .Values(string[] allowedValues)
+API improvements:
+  - HelpOption can be set to be inherited by all subcommands
+  - Add VersionOptionFromMember to use a property or method as the source of version information
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.1.1'">
 2.1.1:

@@ -96,6 +96,9 @@ namespace McMaster.Extensions.CommandLineUtils
             var versionOptionAttrOnType = typeInfo.GetCustomAttribute<VersionOptionAttribute>();
             versionOptionAttrOnType?.Configure(App);
 
+            var versionOptionFromMember = typeInfo.GetCustomAttribute<VersionOptionFromMemberAttribute>();
+            versionOptionFromMember?.Configure(App, type, _target);
+
             var props = typeInfo.GetProperties(PropertyBindingFlags);
             if (props != null)
             {
@@ -392,7 +395,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private void AddSubcommand(SubcommandAttribute subcommand)
         {
-            var impl = AddSubcommandMethod.MakeGenericMethod(subcommand.CommandType);
+            var impl = s_addSubcommandMethod.MakeGenericMethod(subcommand.CommandType);
             try
             {
                 impl.Invoke(this, new object[] { subcommand });
@@ -404,7 +407,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        private static readonly MethodInfo AddSubcommandMethod
+        private static readonly MethodInfo s_addSubcommandMethod
             = typeof(ReflectionAppBuilder<TTarget>).GetRuntimeMethods().Single(m => m.Name == nameof(AddSubcommandImpl));
 
         private void AddSubcommandImpl<TSubCommand>(SubcommandAttribute subcommand)

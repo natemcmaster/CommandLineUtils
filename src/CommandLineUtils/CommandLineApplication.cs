@@ -188,6 +188,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// The long-form of the version to display in generated help text.
         /// </summary>
         public Func<string> LongVersionGetter { get; set; }
+
         /// <summary>
         /// The short-form of the version to display in generated help text.
         /// </summary>
