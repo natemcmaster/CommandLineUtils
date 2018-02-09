@@ -5,6 +5,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -51,7 +52,19 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Sets <see cref="CommandLineApplication.Invoke"/> with a return code of <c>0</c>.
         /// </summary>
         /// <param name="app"></param>
-        /// <param name="action"></param>
+        /// <param name="action">An asynchronous action to invoke when the ocmmand is selected..</param>
+        public static void OnExecute(this CommandLineApplication app, Func<Task> action)
+            => app.OnExecute(async () =>
+            {
+                await action();
+                return 0;
+            });
+
+        /// <summary>
+        /// Sets <see cref="CommandLineApplication.Invoke"/> with a return code of <c>0</c>.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="action">An action to invoke when the command is selected.</param>
         public static void OnExecute(this CommandLineApplication app, Action action)
             => app.OnExecute(() =>
                 {

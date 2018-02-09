@@ -5,7 +5,7 @@
 using System;
 using System.IO;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -702,8 +702,8 @@ Examples:
         public void InheritedHelpOptionIsSame()
         {
             var app = new CommandLineApplication();
-            var sub1 = app.Command("sub", _ => {});
-            var sub2 = sub1.Command("sub", _ => {});
+            var sub1 = app.Command("sub", _ => { });
+            var sub2 = sub1.Command("sub", _ => { });
             var help = app.HelpOption(inherited: true);
             Assert.Same(help, app.OptionHelp);
             Assert.Same(help, sub1.OptionHelp);
@@ -848,6 +848,28 @@ Examples:
             Assert.Equal(101, app.Execute("CMD1"));
             Assert.Equal(101, app.Execute("cmd1"));
             Assert.Equal(101, app.Execute("CmD1"));
+        }
+
+        [Fact]
+        public async Task AsyncTaskWithoutReturnIsAwaitedAsync()
+        {
+            var app = new CommandLineApplication();
+            var tcs = new TaskCompletionSource<int>();
+            app.OnExecute(async () =>
+            {
+                var val = await tcs.Task.ConfigureAwait(false);
+                if (val > 0)
+                {
+                    throw new InvalidOperationException();
+                }
+            });
+
+            var delay = Task.Delay(1000);
+            var run = Task.Run(() => app.Execute());
+            var finished = await Task.WhenAny(run, delay);
+            Assert.Same(delay, finished);
+            tcs.TrySetResult(1);
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => await run);
         }
     }
 }
