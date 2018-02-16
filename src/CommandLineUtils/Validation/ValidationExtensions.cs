@@ -160,7 +160,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The builder.</returns>
         public static IValidationBuilder Values(this IValidationBuilder builder, StringComparison comparer, params string[] allowedValues)
         {
-            return builder.Satisfies<ValuesAttribute>(ctorArgs: new object[] { comparer, allowedValues });
+            return builder.Satisfies<AllowedValuesAttribute>(ctorArgs: new object[] { comparer, allowedValues });
         }
 
         /// <summary>

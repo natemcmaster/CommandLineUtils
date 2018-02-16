@@ -6,11 +6,11 @@ using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
-    public class ValueAttributeTests
+    public class AllowedValuesAttributeTests
     {
         private readonly ITestOutputHelper _output;
 
-        public ValueAttributeTests(ITestOutputHelper output)
+        public AllowedValuesAttributeTests(ITestOutputHelper output)
         {
             _output = output;
         }
@@ -18,7 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class Program
         {
             [Argument(0)]
-            [Values("red", "blue", "green")]
+            [AllowedValues("red", "blue", "green")]
             public string Option { get; }
 
             private void OnExecute() { }
@@ -46,7 +46,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class IgnoreCaseProgram
         {
             [Argument(0)]
-            [Values("red", "blue", "green", IgnoreCase = true)]
+            [AllowedValues("red", "blue", "green", IgnoreCase = true)]
             public string Option { get; }
 
             private void OnExecute() { }

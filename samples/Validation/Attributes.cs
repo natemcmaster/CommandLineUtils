@@ -28,7 +28,7 @@ class AttributeProgram
     public string[] Attachments { get; }
 
     [Option]
-    [Values("low", "normal", "high", Comparer = StringComparison.OrdinalIgnoreCase)]
+    [AllowedValues("low", "normal", "high", Comparer = StringComparison.OrdinalIgnoreCase)]
     public string Importance { get; }
 
     [Option(Description = "The colors should be red or blue")]

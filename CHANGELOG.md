@@ -9,7 +9,7 @@ New features:
      - Add the `[FileOrDirectoryExists]` attribute
      - Add the `[DirectoryExists]` attribute
      - Add the `[LegalFilePath]` attribute
-     - Add the `[Values]` attribute
+     - Add the `[AllowedValues]` attribute
   - Added a new, fluent API for validation.
      - Added `Option().Accepts()` and `Argument().Accepts()`
      - Add `.ExistingFile()`

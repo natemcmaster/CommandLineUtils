@@ -15,25 +15,25 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </para>
     /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
-    public sealed class ValuesAttribute : ValidationAttribute
+    public sealed class AllowedValuesAttribute : ValidationAttribute
     {
         private readonly string[] _allowedValues;
 
         /// <summary>
-        /// Initializes an instance of <see cref="ValuesAttribute"/>.
+        /// Initializes an instance of <see cref="AllowedValuesAttribute"/>.
         /// </summary>
         /// <param name="allowedValues"></param>
-        public ValuesAttribute(params string[] allowedValues)
+        public AllowedValuesAttribute(params string[] allowedValues)
             : this(StringComparison.CurrentCulture, allowedValues)
         {
         }
 
         /// <summary>
-        /// Initializes an instance of <see cref="ValuesAttribute"/>.
+        /// Initializes an instance of <see cref="AllowedValuesAttribute"/>.
         /// </summary>
         /// <param name="comparer"></param>
         /// <param name="allowedValues"></param>
-        public ValuesAttribute(StringComparison comparer, params string[] allowedValues)
+        public AllowedValuesAttribute(StringComparison comparer, params string[] allowedValues)
             : base(GetDefaultError(allowedValues))
         {
             _allowedValues = allowedValues ?? new string[0];
