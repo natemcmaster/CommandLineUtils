@@ -26,14 +26,14 @@ API improvements:
   - [@rmcc13] - `HelpOption` can be set to be inherited by all subcommands
   - Add `VersionOptionFromMember` to use a property or method as the source of version information
 
-## [2.1.1]
+## [v2.1.1]
 **Dec. 27, 2017**
 
 Bug fixes:
  - Do not show validation error messages when --help or --version are specified
  - Fix help text to show correct short option when `OptionAttribute.ShortName` is overriden
 
-## [2.1.0]
+## [v2.1.0]
 **Dec. 12, 2017**
 
 New features:
@@ -63,12 +63,12 @@ Minor bug fixes:
 Other:
  - [@kant2002] - added a new sample to demonstrate async usage
 
-## [2.0.1]
+## [v2.0.1]
 **Oct. 31, 2017**
 
  - [@couven92] - Add support for .NET Standard 1.6
 
-## [2.0.0]
+## [v2.0.0]
 **Sep. 16, 2017**
 
  - Initial version of this library.
@@ -85,8 +85,8 @@ Other:
 [@rmcc13]: https://github.com/rmcc13
 
 [Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.1...HEAD
-[2.1.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.0...v2.1.1
-[2.1.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.1...v2.1.0
-[2.0.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.0...v2.0.1
-[2.0.0]: https://github.com/natemcmaster/CommandLineUtils/compare/b0c662d331c35ccf3145875cdef850df7e896c0f...v2.0.0
+[v2.1.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.0...v2.1.1
+[v2.1.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.1...v2.1.0
+[v2.0.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.0...v2.0.1
+[v2.0.0]: https://github.com/natemcmaster/CommandLineUtils/compare/b0c662d331c35ccf3145875cdef850df7e896c0f...v2.0.0
 
