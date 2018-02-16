@@ -3,7 +3,6 @@
 ## [Unreleased]
 
 New features:
-  - Support parsing enums
   - Added more validation attributes.
      - Add the `[FileExists]` attribute
      - Add the `[FileOrDirectoryExists]` attribute
@@ -23,6 +22,8 @@ New features:
      - Add `.Values(string[] allowedValues)`
 
 API improvements:
+  - Support parsing enums
+  - [@atruskie] - Support for parsing double and floats
   - [@rmcc13] - `HelpOption` can be set to be inherited by all subcommands
   - Add `VersionOptionFromMember` to use a property or method as the source of version information
 
@@ -78,7 +79,7 @@ Other:
  - Updated TFM to support .NET Standard 2.0
 
 
-
+[@atruskie]: https://github.com/atruskie
 [@couven92]: https://github.com/couven92
 [@demosdemon]: https://github.com/demosdemon
 [@kant2002]: https://github.com/kant2002
