@@ -62,7 +62,9 @@ namespace McMaster.Extensions.CommandLineUtils
                 || typeof(long) == clrType
                 || typeof(ushort) == clrType
                 || typeof(uint) == clrType
-                || typeof(ulong) == clrType)
+                || typeof(ulong) == clrType
+                || typeof(float) == clrType
+                || typeof(double) == clrType)
             {
                 return CommandOptionType.SingleValue;
             }
