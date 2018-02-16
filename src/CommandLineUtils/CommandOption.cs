@@ -183,26 +183,26 @@ namespace McMaster.Extensions.CommandLineUtils
         internal string ToTemplateString()
         {
             var sb = new StringBuilder();
-            if (SymbolName != null)
+            if (!string.IsNullOrEmpty(SymbolName))
             {
                 sb.Append('-').Append(SymbolName);
             }
 
-            if (ShortName != null)
+            if (!string.IsNullOrEmpty(ShortName))
             {
                 if (sb.Length > 0) sb.Append('|');
 
                 sb.Append('-').Append(ShortName);
             }
 
-            if (LongName != null)
+            if (!string.IsNullOrEmpty(LongName))
             {
                 if (sb.Length > 0) sb.Append('|');
 
                 sb.Append("--").Append(LongName);
             }
 
-            if (ValueName != null && OptionType != CommandOptionType.NoValue)
+            if (!string.IsNullOrEmpty(ValueName) && OptionType != CommandOptionType.NoValue)
             {
                 sb.Append(" <").Append(ValueName).Append('>');
             }

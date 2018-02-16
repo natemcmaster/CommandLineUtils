@@ -267,7 +267,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 throw new InvalidOperationException(Strings.NoValueTypesMustBeBoolean);
             }
 
-            if (option.ShortName != null)
+            if (!string.IsNullOrEmpty(option.ShortName))
             {
                 if (_shortOptions.TryGetValue(option.ShortName, out var otherProp))
                 {
@@ -277,7 +277,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 _shortOptions.Add(option.ShortName, prop);
             }
 
-            if (option.LongName != null)
+            if (!string.IsNullOrEmpty(option.LongName))
             {
                 if (_longOptions.TryGetValue(option.LongName, out var otherProp))
                 {

@@ -132,6 +132,24 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal("-d2|--detail2 <DETAIL2>", d2.Template);
         }
 
+        private class EmptyShortName
+        {
+            [Option(ShortName = "")]
+            public string Detail1 { get; }
+
+            [Option(ShortName = "")]
+            public string Detail2 { get; }
+        }
+
+        [Fact]
+        public void CanSetShortNameToEmptyString()
+        {
+            var builder = new ReflectionAppBuilder<EmptyShortName>();
+            builder.Initialize();
+
+            Assert.All(builder.App.Options, o => Assert.Empty(o.ShortName));
+        }
+
         private class AmbiguousShortOptionName
         {
             [Option]
