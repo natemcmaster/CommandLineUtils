@@ -22,6 +22,8 @@ namespace McMaster.Extensions.CommandLineUtils
             { typeof(ushort), UInt16ValueParser.Singleton },
             { typeof(uint), UInt32ValueParser.Singleton },
             { typeof(ulong), UInt64ValueParser.Singleton },
+            { typeof(float), FloatValueParser.Singleton },
+            { typeof(double), DoubleValueParser.Singleton },
         };
 
         private ValueParserProvider()

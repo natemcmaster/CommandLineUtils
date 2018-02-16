@@ -6,6 +6,8 @@ using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
+    using System.Globalization;
+
     public class ValueParserProviderTests
     {
         public enum Color
@@ -29,6 +31,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             [Option("--int64")]
             public long Int64 { get; }
 
+            [Option("--float")]
+            public float Float { get; }
+
+            [Option("--double")]
+            public double Double { get; }
+
             [Option("--bool", CommandOptionType.SingleValue)]
             public bool Bool { get; }
 
@@ -40,6 +48,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             [Option("--int64-opt")]
             public long? Int64Opt { get; }
+
+            [Option("--float-opt")]
+            public float? FloatOpt { get; }
+
+            [Option("--double-opt")]
+            public double? DoubleOpt { get; }
 
             [Option("--uint32")]
             public uint UInt32 { get; }
@@ -64,6 +78,17 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             [Option("--color")]
             public Color ColorOption { get; }
+        }
+
+        public static IEnumerable<object[]> GetFloatingPointSymbolsData()
+        {
+            var format = CultureInfo.CurrentCulture.NumberFormat;
+            return new[]
+                   {
+                       new object[] { format.PositiveInfinitySymbol, float.PositiveInfinity },
+                       new object[] { format.NegativeInfinitySymbol, float.NegativeInfinity },
+                       new object[] { format.NaNSymbol, float.NaN},
+                   };
         }
 
         [Theory]
@@ -128,6 +153,56 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var parsed = CommandLineParser.ParseArgs<Program>("--int64-opt", arg);
             Assert.Equal(result, parsed.Int64Opt);
+        }
+
+        [Theory]
+        [InlineData("0.0", 0.0f)]
+        [InlineData("123456789.987654321", 123456789.987654321f)]
+        [InlineData("-123.456", -123.456f)]
+        [InlineData("-1E10", -1E10f)]
+        [MemberData(nameof(GetFloatingPointSymbolsData))]
+        public void ParsesFloat(string arg, float result)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>("--float", arg);
+            Assert.Equal(result, parsed.Float);
+        }
+
+        [Theory]
+        [InlineData("0.0", 0.0)]
+        [InlineData("123456789.987654321", 123456789.987654321)]
+        [InlineData("-123.456", -123.456)]
+        [InlineData("-1E10", -1E10)]
+        [MemberData(nameof(GetFloatingPointSymbolsData))]
+        public void ParsesDouble(string arg, double result)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>("--double", arg);
+            Assert.Equal(result, parsed.Double);
+        }
+
+        [Theory]
+        [InlineData("0.0", 0.0f)]
+        [InlineData("123456789.987654321", 123456789.987654321f)]
+        [InlineData("-123.456", -123.456f)]
+        [InlineData("-1E10", -1E10f)]
+        [MemberData(nameof(GetFloatingPointSymbolsData))]
+        [InlineData("", null)]
+        public void ParsesFloatNullable(string arg, float? result)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>("--float-opt", arg);
+            Assert.Equal(result, parsed.FloatOpt);
+        }
+
+        [Theory]
+        [InlineData("0.0", 0.0)]
+        [InlineData("123456789.987654321", 123456789.987654321)]
+        [InlineData("-123.456", -123.456)]
+        [InlineData("-1E10", -1E10)]
+        [MemberData(nameof(GetFloatingPointSymbolsData))]
+        [InlineData("", null)]
+        public void ParsesDoubleNullable(string arg, double? result)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>("--double-opt", arg);
+            Assert.Equal(result, parsed.DoubleOpt);
         }
 
         [Theory]
