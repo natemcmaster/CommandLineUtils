@@ -33,5 +33,10 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
     <PackageReference Include="System.Threading.Thread" Version="4.0.0" />
     <PackageReference Update="NETStandard.Library" PrivateAssets="All" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.0" PrivateAssets="All" /> 
+    <PackageReference Include="SourceLink.Copy.PdbFiles" Version="2.8.0" PrivateAssets="All" /> 
+  </ItemGroup>
 
 </Project>
