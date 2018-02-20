@@ -35,13 +35,7 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
   </ItemGroup>
   
   <ItemGroup>
-    <DotNetCliToolReference Include="dotnet-sourcelink-git" Version="2.8.0" />
-    <DotNetCliToolReference Include="dotnet-sourcelink" Version="2.8.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="SourceLink.Create.GitHub" Version="2.8.0" PrivateAssets="all" />
-    <PackageReference Include="SourceLink.Test" Version="2.8.0" PrivateAssets="all" />
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.0" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>
