@@ -25,5 +25,7 @@ deploy:
     artifact: Packages
     server: https://www.myget.org/F/natemcmaster/api/v2/package
     symbol_server: https://www.myget.org/F/natemcmaster/api/v2/package
+    on:
+      branch: master
     api_key:
       secure: KF1yGk4IHJyyfiHfFSCxJ+p5iZX+KPfCTnCihjD5iIZjasTS1lHeilpbaon4wvcM
