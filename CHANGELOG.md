@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [v2.2.0-alpha]
+
 New features:
   - Added more validation attributes.
      - Add the `[FileExists]` attribute
@@ -85,7 +87,8 @@ Other:
 [@kant2002]: https://github.com/kant2002
 [@rmcc13]: https://github.com/rmcc13
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.1...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-alpha...HEAD
+[v2.2.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.1...v2.2.0-alpha
 [v2.1.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.0...v2.1.1
 [v2.1.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.1...v2.1.0
 [v2.0.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.0...v2.0.1
