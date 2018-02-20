@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -10,7 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <summary>
     /// Utilities for getting input from an interactive console.
     /// </summary>
-    public static class Prompt
+    public static partial class Prompt
     {
         private const char Backspace = '\b';
 
@@ -25,7 +26,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="promptColor">The console color to display</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
         /// <returns>True is 'yes'</returns>
-        public static bool GetYesNo(string prompt, bool defaultAnswer, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+        public static bool GetYesNo(string prompt, bool defaultAnswer, ConsoleColor? promptColor = null,
+            ConsoleColor? promptBgColor = null)
         {
             var answerHint = defaultAnswer ? "[Y/n]" : "[y/N]";
             do
@@ -55,8 +57,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
 
                 Console.WriteLine($"Invalid response '{resp}'. Please answer 'y' or 'n' or CTRL+C to exit.");
-            }
-            while (true);
+            } while (true);
         }
 
         /// <summary>
@@ -67,7 +68,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="promptColor">The console color to use for the prompt</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
         /// <returns>The response the user gave. Can be null or empty</returns>
-        public static string GetString(string prompt, string defaultValue = null, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+        public static string GetString(string prompt, string defaultValue = null, ConsoleColor? promptColor = null,
+            ConsoleColor? promptBgColor = null)
         {
             if (defaultValue != null)
             {
@@ -97,8 +99,9 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="prompt">The question to display on command line</param>
         /// <param name="promptColor">The console color to use for the prompt</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
-        /// <returns>The password as plaintext. Can be null or empty.</returns>
-        public static string GetPassword(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+        /// <returns>The password as plain text. Can be null or empty.</returns>
+        public static string GetPassword(string prompt, ConsoleColor? promptColor = null,
+            ConsoleColor? promptBgColor = null)
         {
             var resp = new StringBuilder();
 
@@ -126,7 +129,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="promptColor">The console color to use for the prompt</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
         /// <returns>A finalized SecureString object, may be empty.</returns>
-        public static System.Security.SecureString GetPasswordAsSecureString(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+        public static System.Security.SecureString GetPasswordAsSecureString(string prompt,
+            ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
         {
             var secureString = new System.Security.SecureString();
 
@@ -160,7 +164,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="promptColor">The console color to use for the prompt</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
         /// <returns>A stream of characters as input by the user including Backspace for deletions.</returns>
-        private static IEnumerable<char> ReadObfuscatedLine(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+        private static IEnumerable<char> ReadObfuscatedLine(string prompt, ConsoleColor? promptColor = null,
+            ConsoleColor? promptBgColor = null)
         {
             const string whiteOut = "\b \b";
             Write(prompt, promptColor, promptBgColor);
@@ -208,8 +213,108 @@ namespace McMaster.Extensions.CommandLineUtils
                         yield return key.KeyChar;
                         break;
                 }
-            }
-            while (key.Key != ConsoleKey.Enter);
+            } while (key.Key != ConsoleKey.Enter);
+        }
+
+
+        /// <summary>
+        /// Display a options list and returns a single one.
+        /// </summary>
+        /// <param name="prompt">The prompt.</param>
+        /// <param name="options">The options.</param>
+        /// <returns></returns>
+        public static string GetOption(string prompt, params string[] options)
+        {
+            return GetOption(prompt, null, options);
+        }
+
+        /// <summary>
+        /// Display a options list and returns a single one.
+        /// </summary>
+        /// <param name="prompt">The prompt.</param>
+        /// <param name="isUnicode">if set to <c>true</c> [is Unicode].</param>
+        /// <param name="options">The options.</param>
+        /// <returns></returns>
+        public static string GetOption(string prompt, bool isUnicode, params string[] options)
+        {
+            var option = new OptionsManagerOptions
+            {
+                IsRadio = true,
+                IsSelectionRequired = true,
+                IsUnicode = isUnicode
+            };
+
+            return GetOption(prompt, option, options);
+        }
+
+        /// <summary>
+        /// Display a options list and returns a single one.
+        /// </summary>
+        /// <param name="prompt">The prompt.</param>
+        /// <param name="option">The option.</param>
+        /// <param name="options">The options.</param>
+        /// <returns></returns>
+        public static string GetOption(string prompt, OptionsManagerOptions option, params string[] options)
+        {
+            option = option ?? new OptionsManagerOptions();
+            option.IsRadio = true;
+            option.IsSelectionRequired = true;
+
+            var manager = new OptionsManager(prompt, option, options);
+            manager.Show();
+            return manager.Boxes.First(i => i.IsSelected).Title;
+        }
+
+        /// <summary>
+        /// Display a options list.
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <param name="possibleSelections">The possible selections.</param>
+        /// <returns></returns>
+        public static string[] GetOptions(string prompt, params string[] possibleSelections) =>
+            GetOptions(prompt, null, possibleSelections);
+
+        /// <summary>
+        /// Display a options list.
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <param name="options">The options.</param>
+        /// <param name="possibleSelections">The possible selections.</param>
+        /// <returns></returns>
+        public static string[] GetOptions(string prompt, OptionsManagerOptions options,
+            params string[] possibleSelections)
+        {
+            var manager = new OptionsManager(prompt, options, possibleSelections);
+            manager.Show();
+            return manager.Boxes.Where(i => i.IsSelected).Select(i => i.Title).ToArray();
+        }
+
+        /// <summary>
+        /// Display a options list.
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static T GetOptions<T>(string prompt, T model)
+        {
+            var manager = new OptionsManager(prompt, model, null);
+            manager.Show();
+            return (T)manager.Model;
+        }
+
+
+        /// <summary>
+        /// Display a options list.
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <param name="model"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static T GetOptions<T>(string prompt, T model, OptionsManagerOptions options)
+        {
+            var manager = new OptionsManager(prompt, model, options);
+            manager.Show();
+            return (T)manager.Model;
         }
 
         /// <summary>
@@ -220,7 +325,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="promptColor">The console color to display</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
         /// <returns>The response as a number</returns>
-        public static int GetInt(string prompt, int? defaultAnswer = null, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+        public static int GetInt(string prompt, int? defaultAnswer = null, ConsoleColor? promptColor = null,
+            ConsoleColor? promptBgColor = null)
         {
             do
             {
@@ -256,8 +362,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
 
                 Console.WriteLine($"Invalid number '{resp}'. Please enter a valid number or press CTRL+C to exit.");
-            }
-            while (true);
+            } while (true);
         }
 
         private static void Write(string value, ConsoleColor? foreground, ConsoleColor? background)
