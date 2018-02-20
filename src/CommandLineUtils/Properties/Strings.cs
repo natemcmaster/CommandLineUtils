@@ -41,19 +41,19 @@ namespace McMaster.Extensions.CommandLineUtils
             => $"The subcommand name '{commandName}' has already been been specified. Subcommand names are case insensitive and must be unique.";
 
         public static string BothOptionAndArgumentAttributesCannotBeSpecified(PropertyInfo prop)
-            => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(ArgumentAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
+            => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(ArgumentAttribute)} on property {prop.DeclaringType.Name}.{prop.Name}.";
 
         public static string BothOptionAndHelpOptionAttributesCannotBeSpecified(PropertyInfo prop)
-            => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(HelpOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
+            => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(HelpOptionAttribute)} on property {prop.DeclaringType.Name}.{prop.Name}.";
 
         public static string BothOptionAndVersionOptionAttributesCannotBeSpecified(PropertyInfo prop)
-            => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(VersionOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
+            => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(VersionOptionAttribute)} on property {prop.DeclaringType.Name}.{prop.Name}.";
 
         internal static string UnsupportedParameterTypeOnMethod(string methodName, ParameterInfo methodParam)
             => $"Unsupported type on {methodName} '{methodParam.ParameterType.FullName}' on parameter {methodParam.Name}";
 
         public static string BothHelpOptionAndVersionOptionAttributesCannotBeSpecified(PropertyInfo prop)
-            => $"Cannot specify both {nameof(HelpOptionAttribute)} and {nameof(VersionOptionAttribute)} on a property {prop.DeclaringType.Name}.{prop.Name}.";
+            => $"Cannot specify both {nameof(HelpOptionAttribute)} and {nameof(VersionOptionAttribute)} on property {prop.DeclaringType.Name}.{prop.Name}.";
 
         public static string DuplicateArgumentPosition(int order, PropertyInfo first, PropertyInfo second)
             => $"Duplicate value for argument order. Both {first.DeclaringType.FullName}.{first.Name} and {second.DeclaringType.FullName}.{second.Name} have set Order = {order}";
@@ -62,7 +62,7 @@ namespace McMaster.Extensions.CommandLineUtils
             => $"The last argument '{lastArgName}' accepts multiple values. No more argument can be added.";
 
         public static string CannotDetermineParserType(PropertyInfo prop)
-            => $"Could not automatically determine how to convert string values into {prop.PropertyType.FullName}.";
+            => $"Could not automatically determine how to convert string values into {prop.PropertyType.FullName} on property {prop.DeclaringType.Name}.{prop.Name}.";
 
         public static string MultipleValuesArgumentShouldBeCollection
             = "ArgumentAttribute.MultipleValues should be true if the property type is an array or collection.";

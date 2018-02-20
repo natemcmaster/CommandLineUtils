@@ -77,7 +77,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public ISet<string> StringSet { get; }
 
             [Option("--color")]
-            public Color ColorOption { get; }
+            public Color Color { get; }
+
+            [Option("--color-opt")]
+            public Color? ColorOpt { get; }
         }
 
         public static IEnumerable<object[]> GetFloatingPointSymbolsData()
@@ -296,7 +299,18 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ParsesEnum(Color color)
         {
             var parsed = CommandLineParser.ParseArgs<Program>("--color", color.ToString().ToLowerInvariant());
-            Assert.Equal(color, parsed.ColorOption);
+            Assert.Equal(color, parsed.Color);
+        }
+
+        [Theory]
+        [InlineData(Color.Blue)]
+        [InlineData(Color.Red)]
+        [InlineData(Color.Green)]
+        public void ParsesNullableEnum(Color? color)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>("--color-opt", color.ToString().ToLowerInvariant());
+            Assert.True(parsed.ColorOpt.HasValue, "Option should have value");
+            Assert.Equal(color, parsed.ColorOpt);
         }
 
         private class ArgumentProgram

@@ -48,6 +48,12 @@ namespace McMaster.Extensions.CommandLineUtils
             if (typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>))
             {
                 var wrappedType = type.GetTypeInfo().GetGenericArguments().First();
+
+                if (wrappedType.GetTypeInfo().IsEnum)
+                {
+                    return new NullableValueParser(new EnumParser(wrappedType));
+                }
+
                 if (_parsers.TryGetValue(wrappedType, out parser))
                 {
                     return new NullableValueParser(parser);
