@@ -1,13 +1,13 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Globalization;
 using System.Collections.Generic;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
-    using System.Globalization;
-
     public class ValueParserProviderTests
     {
         public enum Color
@@ -81,6 +81,24 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             [Option("--color-opt")]
             public Color? ColorOpt { get; }
+
+            [Option("--tuple:<VAL>")]
+            public Tuple<bool, string> Tuple { get; }
+
+            [Option("--value-tuple:<VALUE>")]
+            public (bool HasValue, string Value) ValueTuple { get; }
+
+            [Option("--int-tuple:<VALUE>")]
+            public (bool HasValue, int count) IntTuple { get; }
+
+            [Option("--int-tuple-opt:<VALUE>")]
+            public (bool HasValue, int? count) IntOptTuple { get; }
+
+            [Option("--color-tuple:<VALUE>")]
+            public Tuple<bool, Color> EnumTuple { get; }
+
+            [Option("--color-value-tuple:<VALUE>")]
+            public (bool HasValue, Color Value) EnumValueTuple { get; }
         }
 
         public static IEnumerable<object[]> GetFloatingPointSymbolsData()
@@ -300,6 +318,74 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var parsed = CommandLineParser.ParseArgs<Program>("--color", color.ToString().ToLowerInvariant());
             Assert.Equal(color, parsed.Color);
+        }
+
+        [Theory]
+        [InlineData("--tuple", null)]
+        [InlineData("--tuple:", "")]
+        [InlineData("--tuple: ", " ")]
+        [InlineData("--tuple:path", "path")]
+        public void ParsesTupleOfBoolAndType(string input, string expected)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>(input);
+            Assert.True(parsed.Tuple.Item1);
+            Assert.Equal(expected, parsed.Tuple.Item2);
+        }
+
+        [Theory]
+        [InlineData("--value-tuple", null)]
+        [InlineData("--value-tuple:", "")]
+        [InlineData("--value-tuple: ", " ")]
+        [InlineData("--value-tuple:path", "path")]
+        public void ParsesValueTupleOfBoolAndType(string input, string expected)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>(input);
+            Assert.True(parsed.ValueTuple.HasValue);
+            Assert.Equal(expected, parsed.ValueTuple.Value);
+        }
+
+        [Theory]
+        [InlineData("--int-tuple", 0)]
+        [InlineData("--int-tuple:1", 1)]
+        public void ParsesTupleOfBoolAndInt(string input, int expected)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>(input);
+            Assert.True(parsed.IntTuple.HasValue);
+            Assert.Equal(expected, parsed.IntTuple.count);
+        }
+
+        [Theory]
+        [InlineData("--int-tuple-opt", null)]
+        [InlineData("--int-tuple-opt:1", 1)]
+        public void ParsesTupleOfBoolAndNullableInt(string input, int? expected)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>(input);
+            Assert.True(parsed.IntOptTuple.HasValue);
+            Assert.Equal(expected, parsed.IntOptTuple.count);
+        }
+
+        [Theory]
+        [InlineData("--color-tuple", default(Color))]
+        [InlineData("--color-tuple:Red", Color.Red)]
+        [InlineData("--color-tuple:green", Color.Green)]
+        [InlineData("--color-tuple:BLUE", Color.Blue)]
+        public void ParsesTupleOfBoolAndEnum(string input, Color expected)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>(input);
+            Assert.True(parsed.EnumTuple.Item1);
+            Assert.Equal(expected, parsed.EnumTuple.Item2);
+        }
+
+        [Theory]
+        [InlineData("--color-value-tuple", default(Color))]
+        [InlineData("--color-value-tuple:Red", Color.Red)]
+        [InlineData("--color-value-tuple:green", Color.Green)]
+        [InlineData("--color-value-tuple:BLUE", Color.Blue)]
+        public void ParsesValueTupleOfBoolAndEnum(string input, Color expected)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>(input);
+            Assert.True(parsed.EnumValueTuple.HasValue);
+            Assert.Equal(expected, parsed.EnumValueTuple.Value);
         }
 
         [Theory]

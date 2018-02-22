@@ -13,9 +13,10 @@
     <PackageReleaseNotes>See https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.','')) for release notes.</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/natemcmaster/CommandLineUtils.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <SourceLinkCreate>true</SourceLinkCreate>
     <IsPackable>false</IsPackable>
     <NoPackageAnalysis>true</NoPackageAnalysis>
-    <LangVersion>7.1</LangVersion>
+    <LangVersion>7.2</LangVersion>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)build\StrongName.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>

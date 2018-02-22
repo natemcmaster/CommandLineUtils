@@ -18,7 +18,17 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         public ValidationResult GetValidationResult(CommandOption option, ValidationContext context)
-            => GetValidationResult(option.Values, context);
+        {
+            if (_attribute is RequiredAttribute && option.OptionType == CommandOptionType.NoValue)
+            {
+                if (option.HasValue())
+                {
+                    return ValidationResult.Success;
+                }
+            }
+
+            return GetValidationResult(option.Values, context);
+        }
 
         public ValidationResult GetValidationResult(CommandArgument argument, ValidationContext context)
             => GetValidationResult(argument.Values, context);

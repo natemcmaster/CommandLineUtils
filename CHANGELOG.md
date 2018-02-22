@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+New features:
+  - Add `CommandOptionType.SingleOrNoValue`. Options of this type can be a switch, or have a value but only in the form `--param:value` or `--param=value`.
+  - Support mapping `Tuple<bool,T>` and `ValueTuple<bool,T>` to `CommandOptionType.SingleOrNoValue`
+
 ## [v2.2.0-alpha]
 
 New features:

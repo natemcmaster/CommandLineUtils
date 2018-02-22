@@ -26,7 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Template = template;
             OptionType = optionType;
 
-            foreach (var part in Template.Split(new[] { ' ', '|' }, StringSplitOptions.RemoveEmptyEntries))
+            foreach (var part in Template.Split(new[] { ' ', '|', ':', '=' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 if (part.StartsWith("--"))
                 {
@@ -137,6 +137,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 case CommandOptionType.MultipleValue:
                     Values.Add(value);
                     break;
+                case CommandOptionType.SingleOrNoValue:
                 case CommandOptionType.SingleValue:
                     if (Values.Any())
                     {
@@ -149,11 +150,11 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         return false;
                     }
-                    // Add a value to indicate that this option was specified
-                    Values.Add("on");
+                    // Add a value so .HasValue() == true
+                    Values.Add(null);
                     break;
                 default:
-                    break;
+                    throw new NotImplementedException();
             }
             return true;
         }
@@ -190,21 +191,36 @@ namespace McMaster.Extensions.CommandLineUtils
 
             if (!string.IsNullOrEmpty(ShortName))
             {
-                if (sb.Length > 0) sb.Append('|');
+                if (sb.Length > 0)
+                {
+                    sb.Append('|');
+                }
 
                 sb.Append('-').Append(ShortName);
             }
 
             if (!string.IsNullOrEmpty(LongName))
             {
-                if (sb.Length > 0) sb.Append('|');
+                if (sb.Length > 0)
+                {
+                    sb.Append('|');
+                }
 
                 sb.Append("--").Append(LongName);
             }
 
             if (!string.IsNullOrEmpty(ValueName) && OptionType != CommandOptionType.NoValue)
             {
-                sb.Append(" <").Append(ValueName).Append('>');
+                if (OptionType == CommandOptionType.SingleOrNoValue)
+                {
+                    sb.Append(":<");
+                }
+                else
+                {
+                    sb.Append(" <");
+                }
+
+                sb.Append(ValueName).Append('>');
             }
 
             return sb.ToString();

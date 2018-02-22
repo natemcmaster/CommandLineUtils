@@ -300,6 +300,15 @@ namespace McMaster.Extensions.CommandLineUtils
                     OnBind(o =>
                         setter.Invoke(o, collectionParser.Parse(option.LongName, option.Values)));
                     break;
+                case CommandOptionType.SingleOrNoValue:
+                    var valueTupleParser = ValueTupleParserProvider.Default.GetParser(prop.PropertyType);
+                    if (valueTupleParser == null)
+                    {
+                        throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
+                    }
+                    OnBind(o =>
+                        setter.Invoke(o, valueTupleParser.Parse(option.HasValue(), option.LongName, option.Value())));
+                    break;
                 case CommandOptionType.SingleValue:
                     var parser = ValueParserProvider.Default.GetParser(prop.PropertyType);
                     if (parser == null)
@@ -321,7 +330,7 @@ namespace McMaster.Extensions.CommandLineUtils
                         setter.Invoke(o, option.HasValue()));
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new NotImplementedException();
             }
         }
 

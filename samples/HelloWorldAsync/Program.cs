@@ -25,7 +25,6 @@ public class Program
             // This pause here is just for indication that some awaitable operation could happens here.
             await Task.Delay(5000);
             Console.WriteLine($" {subject}!");
-            return 0;
         });
 
         return app.Execute(args);

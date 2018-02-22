@@ -179,7 +179,8 @@ namespace McMaster.Extensions.CommandLineUtils
                     throw new CommandParsingException(_currentCommand, $"Unexpected value '{arg.Value}' for option '{arg.Name}'");
                 }
             }
-            else if (option.OptionType == CommandOptionType.NoValue)
+            else if (option.OptionType == CommandOptionType.NoValue
+                || option.OptionType == CommandOptionType.SingleOrNoValue)
             {
                 // No value is needed for this option
                 option.TryParse(null);

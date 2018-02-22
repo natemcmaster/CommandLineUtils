@@ -51,9 +51,30 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 return CommandOptionType.SingleValue;
             }
-            if (typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>))
+
+            if (typeInfo.IsGenericType)
             {
-                return GetOptionType(typeInfo.GetGenericArguments().First());
+                var typeDef = typeInfo.GetGenericTypeDefinition();
+                if (typeDef == typeof(Nullable<>))
+                {
+                    return GetOptionType(typeInfo.GetGenericArguments().First());
+                }
+
+                if (typeDef == typeof(Tuple<,>) && typeInfo.GenericTypeArguments[0] == typeof(bool))
+                {
+                    if (GetOptionType(typeInfo.GenericTypeArguments[1]) == CommandOptionType.SingleValue)
+                    {
+                        return CommandOptionType.SingleOrNoValue;
+                    }
+                }
+
+                if (typeDef == typeof(ValueTuple<,>) && typeInfo.GenericTypeArguments[0] == typeof(bool))
+                {
+                    if (GetOptionType(typeInfo.GenericTypeArguments[1]) == CommandOptionType.SingleValue)
+                    {
+                        return CommandOptionType.SingleOrNoValue;
+                    }
+                }
             }
 
             if (typeof(byte) == clrType
