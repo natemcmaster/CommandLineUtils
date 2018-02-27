@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
+using McMaster.Extensions.CommandLineUtils.Conventions;
 using McMaster.Extensions.CommandLineUtils.HelpText;
 using McMaster.Extensions.CommandLineUtils.Internal;
 
@@ -13,10 +14,11 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Describes a set of command line arguments, options, and execution behavior
     /// using a type of <typeparamref name="TModel" /> to model the application.
     /// </summary>
-    public class CommandLineApplication<TModel> : CommandLineApplication
+    public class CommandLineApplication<TModel> : CommandLineApplication, IConventionBuilder, IModelProvider
         where TModel : class
     {
         private List<Action<TModel>> _onInitialize;
+        private readonly List<IAppConvention> _conventions = new List<IAppConvention>();
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -78,6 +80,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         internal TModel Model { get; private set; }
 
+        object IModelProvider.Model => Model;
+
         /// <summary>
         /// Adds a callback that will be invoked when an instance of <typeparamref name="TModel" /> is created.
         /// </summary>
@@ -94,6 +98,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>An instance of the app.</returns>
         internal void Initialize()
         {
+            foreach (var convention in _conventions)
+            {
+                convention.Apply(this, typeof(TModel));
+            }
+
             Model = CreateModel();
             if (_onInitialize != null)
             {
@@ -102,6 +111,11 @@ namespace McMaster.Extensions.CommandLineUtils
                     action?.Invoke(Model);
                 }
             }
+        }
+
+        void IConventionBuilder.AddConvention(IAppConvention convention)
+        {
+            _conventions.Add(convention);
         }
     }
 }

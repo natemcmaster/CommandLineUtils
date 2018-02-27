@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
+using McMaster.Extensions.CommandLineUtils.Conventions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -20,7 +21,6 @@ namespace McMaster.Extensions.CommandLineUtils
         private const BindingFlags PropertyBindingFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
 
         private volatile bool _initialized;
-        private BindResult _bindResult = new BindResult();
 
         private readonly List<Action<TModel>> _binders = new List<Action<TModel>>();
         private readonly SortedList<int, CommandArgument> _argOrder = new SortedList<int, CommandArgument>();
@@ -35,8 +35,12 @@ namespace McMaster.Extensions.CommandLineUtils
         private ReflectionAppBuilder(CommandLineApplication<TModel> app)
         {
             App = app;
+            var builder = App as IConventionBuilder;
+            builder.AddConvention(new CommandAttributeConvention());
+            builder.AddConvention(new AppNameFromEntryAssemblyConvention());
+            builder.AddConvention(new RemainingArgsPropertyConvention());
+            builder.AddConvention(new SubcommandPropertyConvention());
             App.Initialize();
-            App.OnParsed(() => _bindResult.Target = App.Model);
         }
 
         internal CommandLineApplication<TModel> App { get; }
@@ -48,16 +52,20 @@ namespace McMaster.Extensions.CommandLineUtils
 
             var processor = new CommandLineProcessor(App, context.Arguments);
             var command = processor.Process();
-            command.Parsed();
+            var parseResult = command.Parse();
+            var bindResult = new BindResult
+            {
+                Command = parseResult.SelectedCommand,
+                ParentTarget = App.Model,
+                ValidationResult = command.GetValidationResult(),
+            };
 
-            var validationResult = command.GetValidationResult();
-            command.Invoke();
+            if (command is IModelProvider provider)
+            {
+                bindResult.Target = provider.Model;
+            }
 
-            _bindResult.Command = command;
-            _bindResult.ValidationResult = validationResult;
-            _bindResult.ParentTarget = App.Model;
-
-            return _bindResult;
+            return bindResult;
         }
 
         public void Initialize() => EnsureInitialized();
@@ -73,22 +81,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
             var type = typeof(TModel);
             var typeInfo = type.GetTypeInfo();
-
-            var parsingOptionsAttr = typeInfo.GetCustomAttribute<CommandAttribute>();
-            parsingOptionsAttr?.Configure(App);
-
-            if (App.Name == null)
-            {
-                var assembly = Assembly.GetEntryAssembly() == null
-                    ? typeInfo.Assembly
-                    : Assembly.GetEntryAssembly();
-                App.Name = assembly.GetName().Name;
-            }
-
-            if (parsingOptionsAttr?.ThrowOnUnexpectedArgument == false)
-            {
-                AddRemainingArgsProperty(typeInfo);
-            }
 
             var helpOptionAttrOnType = typeInfo.GetCustomAttribute<HelpOptionAttribute>();
             helpOptionAttrOnType?.Configure(App);
@@ -113,33 +105,6 @@ namespace McMaster.Extensions.CommandLineUtils
                     AddSubcommand(sub);
                 }
             }
-        }
-
-        private void AddRemainingArgsProperty(TypeInfo typeInfo)
-        {
-            var prop = typeInfo.GetProperty("RemainingArguments", PropertyBindingFlags);
-            prop = prop ?? typeInfo.GetProperty("RemainingArgs", PropertyBindingFlags);
-            if (prop == null)
-            {
-                return;
-            }
-
-            var setter = ReflectionHelper.GetPropertySetter(prop);
-
-            if (prop.PropertyType == typeof(string[]))
-            {
-                App.OnParsed(()
-                    => setter(App.Model, App.RemainingArguments.ToArray()));
-                return;
-            }
-
-            if (!typeof(IReadOnlyList<string>).GetTypeInfo().IsAssignableFrom(prop.PropertyType))
-            {
-                throw new InvalidOperationException(Strings.RemainingArgsPropsIsUnassignable(typeInfo));
-            }
-
-            App.OnParsed(() =>
-                setter(App.Model, App.RemainingArguments));
         }
 
         private void AddProperties(IEnumerable<PropertyInfo> props,
@@ -297,7 +262,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
-                    App.OnParsed(() =>
+                    App.OnParsed(_ =>
                         setter.Invoke(App.Model, collectionParser.Parse(option.LongName, option.Values)));
                     break;
                 case CommandOptionType.SingleOrNoValue:
@@ -306,7 +271,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
-                    App.OnParsed(() =>
+                    App.OnParsed(_ =>
                         setter.Invoke(App.Model, valueTupleParser.Parse(option.HasValue(), option.LongName, option.Value())));
                     break;
                 case CommandOptionType.SingleValue:
@@ -315,7 +280,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
-                    App.OnParsed(() =>
+                    App.OnParsed(_ =>
                     {
                         var value = option.Value();
                         if (value == null)
@@ -326,7 +291,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     });
                     break;
                 case CommandOptionType.NoValue:
-                    App.OnParsed(() => setter.Invoke(App.Model, option.HasValue()));
+                    App.OnParsed(_ => setter.Invoke(App.Model, option.HasValue()));
                     break;
                 default:
                     throw new NotImplementedException();
@@ -366,7 +331,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                 }
 
-                App.OnParsed(() => setter.Invoke(App.Model, collectionParser.Parse(argument.Name, argument.Values)));
+                App.OnParsed(_ => setter.Invoke(App.Model, collectionParser.Parse(argument.Name, argument.Values)));
             }
             else
             {
@@ -376,7 +341,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                 }
 
-                App.OnParsed(() => setter.Invoke(App.Model, parser.Parse(argument.Name, argument.Value)));
+                App.OnParsed(_ => setter.Invoke(App.Model, parser.Parse(argument.Name, argument.Value)));
             }
         }
 
@@ -407,23 +372,13 @@ namespace McMaster.Extensions.CommandLineUtils
 
             var childApp = App.Command<TSubCommand>(subcommand.Name, subcommand.Configure);
             var builder = new ReflectionAppBuilder<TSubCommand>(childApp);
-            builder._bindResult = _bindResult;
             builder.Initialize();
-            builder.App.OnParsed(() => _bindResult.Target = builder.App.Model);
-
-            var subcommandProp = typeof(TModel).GetTypeInfo().GetProperty("Subcommand", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            if (subcommandProp != null)
-            {
-                var setter = ReflectionHelper.GetPropertySetter(subcommandProp);
-                builder.App.OnParsed(() =>
-                    setter.Invoke(this.App.Model, builder.App.Model));
-            }
 
             var parentProp = subcommand.CommandType.GetTypeInfo().GetProperty("Parent", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             if (parentProp != null)
             {
                 var setter = ReflectionHelper.GetPropertySetter(parentProp);
-                builder.App.OnParsed(() =>
+                builder.App.OnParsed(_ =>
                     setter.Invoke(builder.App.Model, this.App.Model));
             }
         }

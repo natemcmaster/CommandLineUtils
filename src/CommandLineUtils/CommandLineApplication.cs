@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public partial class CommandLineApplication
     {
-        private List<Action> _onParsed;
+        private List<Action<ParseResult>> _onParsed;
 
         private const int HelpExitCode = 0;
         private const int ValidationErrorExitCode = 1;
@@ -411,28 +411,37 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Adds a callback that is invoked when all command line arguments have been parsed, but before validation.
         /// </summary>
         /// <param name="callback"></param>
-        internal void OnParsed(Action callback)
+        internal void OnParsed(Action<ParseResult> callback)
         {
             if (callback == null)
             {
                 throw new ArgumentNullException(nameof(callback));
             }
 
-            _onParsed = _onParsed ?? new List<Action>();
+            _onParsed = _onParsed ?? new List<Action<ParseResult>>();
             _onParsed.Add(callback);
         }
 
-        internal void Parsed()
+        internal ParseResult Parse() => Parse(this);
+
+        private ParseResult Parse(CommandLineApplication selectedCommand)
         {
-            Parent?.Parsed();
+            Parent?.Parse(this);
+
+            var result = new ParseResult
+            {
+                SelectedCommand = selectedCommand,
+            };
 
             if (_onParsed != null)
             {
                 foreach (var callback in _onParsed)
                 {
-                    callback?.Invoke();
+                    callback?.Invoke(result);
                 }
             }
+
+            return result;
         }
 
         /// <summary>
@@ -447,8 +456,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
             var processor = new CommandLineProcessor(this, args);
             var command = processor.Process();
-
-            command.Parsed();
 
             if (command.IsShowingInformation)
             {
