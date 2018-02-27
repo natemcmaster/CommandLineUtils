@@ -21,6 +21,8 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public partial class CommandLineApplication
     {
+        private List<Action> _onParsed;
+
         private const int HelpExitCode = 0;
         private const int ValidationErrorExitCode = 1;
 
@@ -81,7 +83,7 @@ namespace McMaster.Extensions.CommandLineUtils
             SetContext(context);
         }
 
-        private CommandLineApplication(CommandLineApplication parent, string name, bool throwOnUnexpectedArg)
+        internal CommandLineApplication(CommandLineApplication parent, string name, bool throwOnUnexpectedArg)
             : this(parent._helpTextGenerator, parent._context, throwOnUnexpectedArg)
         {
             Name = name;
@@ -274,6 +276,26 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
+        /// Adds a subcommand with model of type <typeparamref name="TModel" />.
+        /// </summary>
+        /// <param name="name">The word used to invoke the subcommand.</param>
+        /// <param name="configuration"></param>
+        /// <param name="throwOnUnexpectedArg"></param>
+        /// <typeparam name="TModel">The model type of the subcommand.</typeparam>
+        /// <returns></returns>
+        public CommandLineApplication<TModel> Command<TModel>(string name, Action<CommandLineApplication<TModel>> configuration,
+            bool throwOnUnexpectedArg = true)
+            where TModel : class
+        {
+            var command = new CommandLineApplication<TModel>(this, name, throwOnUnexpectedArg);
+
+            Commands.Add(command);
+            configuration(command);
+
+            return command;
+        }
+
+        /// <summary>
         /// Adds a command-line option.
         /// </summary>
         /// <param name="template"></param>
@@ -383,6 +405,36 @@ namespace McMaster.Extensions.CommandLineUtils
             Invoke = () => invoke().GetAwaiter().GetResult();
         }
 
+        // TODO: make experimental API public after it settles.
+
+        /// <summary>
+        /// Adds a callback that is invoked when all command line arguments have been parsed, but before validation.
+        /// </summary>
+        /// <param name="callback"></param>
+        internal void OnParsed(Action callback)
+        {
+            if (callback == null)
+            {
+                throw new ArgumentNullException(nameof(callback));
+            }
+
+            _onParsed = _onParsed ?? new List<Action>();
+            _onParsed.Add(callback);
+        }
+
+        internal void Parsed()
+        {
+            Parent?.Parsed();
+
+            if (_onParsed != null)
+            {
+                foreach (var callback in _onParsed)
+                {
+                    callback?.Invoke();
+                }
+            }
+        }
+
         /// <summary>
         /// Parses an array of strings, matching them against <see cref="Options"/>, <see cref="Arguments"/>, and <see cref="Commands"/>.
         /// If this command is matched, it will invoke <see cref="Invoke"/>.
@@ -395,6 +447,8 @@ namespace McMaster.Extensions.CommandLineUtils
 
             var processor = new CommandLineProcessor(this, args);
             var command = processor.Process();
+
+            command.Parsed();
 
             if (command.IsShowingInformation)
             {

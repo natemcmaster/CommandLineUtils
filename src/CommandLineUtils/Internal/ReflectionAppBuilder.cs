@@ -14,33 +14,32 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <summary>
     /// Creates a <see cref="CommandLineApplication"/> as defined by attributes.
     /// </summary>
-    internal class ReflectionAppBuilder<TTarget>
-        where TTarget : class, new()
+    internal class ReflectionAppBuilder<TModel>
+        where TModel : class, new()
     {
         private const BindingFlags PropertyBindingFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
 
         private volatile bool _initialized;
-        private readonly TTarget _target;
         private BindResult _bindResult = new BindResult();
 
-        private readonly List<Action<TTarget>> _binders = new List<Action<TTarget>>();
+        private readonly List<Action<TModel>> _binders = new List<Action<TModel>>();
         private readonly SortedList<int, CommandArgument> _argOrder = new SortedList<int, CommandArgument>();
         private readonly Dictionary<int, PropertyInfo> _argPropOrder = new Dictionary<int, PropertyInfo>();
         private readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
         private readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
 
         public ReflectionAppBuilder()
-            : this(new CommandLineApplication())
+            : this(new CommandLineApplication<TModel>())
         { }
 
-        private ReflectionAppBuilder(CommandLineApplication app)
+        private ReflectionAppBuilder(CommandLineApplication<TModel> app)
         {
             App = app;
-            App.OnExecute((Func<int>)OnExecute);
-            _target = new TTarget();
+            App.Initialize();
+            App.OnParsed(() => _bindResult.Target = App.Model);
         }
 
-        internal CommandLineApplication App { get; }
+        internal CommandLineApplication<TModel> App { get; }
 
         public BindResult Bind(CommandLineContext context)
         {
@@ -49,14 +48,15 @@ namespace McMaster.Extensions.CommandLineUtils
 
             var processor = new CommandLineProcessor(App, context.Arguments);
             var command = processor.Process();
+            command.Parsed();
 
             var validationResult = command.GetValidationResult();
-
             command.Invoke();
 
             _bindResult.Command = command;
             _bindResult.ValidationResult = validationResult;
-            _bindResult.ParentTarget = _target;
+            _bindResult.ParentTarget = App.Model;
+
             return _bindResult;
         }
 
@@ -71,7 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             _initialized = true;
 
-            var type = typeof(TTarget);
+            var type = typeof(TModel);
             var typeInfo = type.GetTypeInfo();
 
             var parsingOptionsAttr = typeInfo.GetCustomAttribute<CommandAttribute>();
@@ -97,7 +97,7 @@ namespace McMaster.Extensions.CommandLineUtils
             versionOptionAttrOnType?.Configure(App);
 
             var versionOptionFromMember = typeInfo.GetCustomAttribute<VersionOptionFromMemberAttribute>();
-            versionOptionFromMember?.Configure(App, type, _target);
+            versionOptionFromMember?.Configure(App, type, App.Model);
 
             var props = typeInfo.GetProperties(PropertyBindingFlags);
             if (props != null)
@@ -128,8 +128,8 @@ namespace McMaster.Extensions.CommandLineUtils
 
             if (prop.PropertyType == typeof(string[]))
             {
-                OnBind(o
-                    => setter(o, App.RemainingArguments.ToArray()));
+                App.OnParsed(()
+                    => setter(App.Model, App.RemainingArguments.ToArray()));
                 return;
             }
 
@@ -138,8 +138,8 @@ namespace McMaster.Extensions.CommandLineUtils
                 throw new InvalidOperationException(Strings.RemainingArgsPropsIsUnassignable(typeInfo));
             }
 
-            OnBind(o =>
-                setter(o, App.RemainingArguments));
+            App.OnParsed(() =>
+                setter(App.Model, App.RemainingArguments));
         }
 
         private void AddProperties(IEnumerable<PropertyInfo> props,
@@ -297,8 +297,8 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
-                    OnBind(o =>
-                        setter.Invoke(o, collectionParser.Parse(option.LongName, option.Values)));
+                    App.OnParsed(() =>
+                        setter.Invoke(App.Model, collectionParser.Parse(option.LongName, option.Values)));
                     break;
                 case CommandOptionType.SingleOrNoValue:
                     var valueTupleParser = ValueTupleParserProvider.Default.GetParser(prop.PropertyType);
@@ -306,8 +306,8 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
-                    OnBind(o =>
-                        setter.Invoke(o, valueTupleParser.Parse(option.HasValue(), option.LongName, option.Value())));
+                    App.OnParsed(() =>
+                        setter.Invoke(App.Model, valueTupleParser.Parse(option.HasValue(), option.LongName, option.Value())));
                     break;
                 case CommandOptionType.SingleValue:
                     var parser = ValueParserProvider.Default.GetParser(prop.PropertyType);
@@ -315,19 +315,18 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
-                    OnBind(o =>
+                    App.OnParsed(() =>
                     {
                         var value = option.Value();
                         if (value == null)
                         {
                             return;
                         }
-                        setter.Invoke(o, parser.Parse(option.LongName, value));
+                        setter.Invoke(App.Model, parser.Parse(option.LongName, value));
                     });
                     break;
                 case CommandOptionType.NoValue:
-                    OnBind(o =>
-                        setter.Invoke(o, option.HasValue()));
+                    App.OnParsed(() => setter.Invoke(App.Model, option.HasValue()));
                     break;
                 default:
                     throw new NotImplementedException();
@@ -367,8 +366,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                 }
 
-                OnBind(o =>
-                    setter.Invoke(o, collectionParser.Parse(argument.Name, argument.Values)));
+                App.OnParsed(() => setter.Invoke(App.Model, collectionParser.Parse(argument.Name, argument.Values)));
             }
             else
             {
@@ -378,28 +376,8 @@ namespace McMaster.Extensions.CommandLineUtils
                     throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                 }
 
-                OnBind(o =>
-                    setter.Invoke(o, parser.Parse(argument.Name, argument.Value)));
+                App.OnParsed(() => setter.Invoke(App.Model, parser.Parse(argument.Name, argument.Value)));
             }
-        }
-
-        private void OnBind(Action<TTarget> onBind)
-        {
-            _binders.Add(onBind);
-        }
-
-        private int OnExecute()
-        {
-            App.Parent?.Invoke();
-
-            foreach (var binder in _binders)
-            {
-                binder(_target);
-            }
-
-            _bindResult.Target = _target;
-
-            return 0;
         }
 
         private void AddSubcommand(SubcommandAttribute subcommand)
@@ -417,7 +395,7 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         private static readonly MethodInfo s_addSubcommandMethod
-            = typeof(ReflectionAppBuilder<TTarget>).GetRuntimeMethods().Single(m => m.Name == nameof(AddSubcommandImpl));
+            = typeof(ReflectionAppBuilder<TModel>).GetRuntimeMethods().Single(m => m.Name == nameof(AddSubcommandImpl));
 
         private void AddSubcommandImpl<TSubCommand>(SubcommandAttribute subcommand)
             where TSubCommand : class, new()
@@ -427,25 +405,26 @@ namespace McMaster.Extensions.CommandLineUtils
                 throw new InvalidOperationException(Strings.DuplicateSubcommandName(subcommand.Name));
             }
 
-            var childApp = App.Command(subcommand.Name, subcommand.Configure);
+            var childApp = App.Command<TSubCommand>(subcommand.Name, subcommand.Configure);
             var builder = new ReflectionAppBuilder<TSubCommand>(childApp);
             builder._bindResult = _bindResult;
             builder.Initialize();
+            builder.App.OnParsed(() => _bindResult.Target = builder.App.Model);
 
-            var subcommandProp = typeof(TTarget).GetTypeInfo().GetProperty("Subcommand", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            var subcommandProp = typeof(TModel).GetTypeInfo().GetProperty("Subcommand", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             if (subcommandProp != null)
             {
                 var setter = ReflectionHelper.GetPropertySetter(subcommandProp);
-                builder.OnBind(o =>
-                    setter.Invoke(this._target, o));
+                builder.App.OnParsed(() =>
+                    setter.Invoke(this.App.Model, builder.App.Model));
             }
 
             var parentProp = subcommand.CommandType.GetTypeInfo().GetProperty("Parent", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             if (parentProp != null)
             {
                 var setter = ReflectionHelper.GetPropertySetter(parentProp);
-                builder.OnBind(o =>
-                    setter.Invoke(o, this._target));
+                builder.App.OnParsed(() =>
+                    setter.Invoke(builder.App.Model, this.App.Model));
             }
         }
     }
