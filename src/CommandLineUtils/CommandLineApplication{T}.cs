@@ -2,11 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Conventions;
 using McMaster.Extensions.CommandLineUtils.HelpText;
-using McMaster.Extensions.CommandLineUtils.Internal;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -14,12 +12,9 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Describes a set of command line arguments, options, and execution behavior
     /// using a type of <typeparamref name="TModel" /> to model the application.
     /// </summary>
-    public class CommandLineApplication<TModel> : CommandLineApplication, IConventionBuilder, IModelProvider
+    public class CommandLineApplication<TModel> : CommandLineApplication, IConventionBuilder, IModelAccessor
         where TModel : class
     {
-        private List<Action<TModel>> _onInitialize;
-        private readonly List<IAppConvention> _conventions = new List<IAppConvention>();
-
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
         /// </summary>
@@ -64,58 +59,38 @@ namespace McMaster.Extensions.CommandLineUtils
         {
         }
 
-        // TODO: make experimental API public after it settles.
+        /// <summary>
+        /// An instance of the model associated with the command line application.
+        /// </summary>
+        public TModel Model { get; private set; }
+
+        object IModelAccessor.GetModel() => Model;
 
         /// <summary>
-        /// /// Create an instance of <typeparamref name="TModel" />.
+        /// Gets a builder that can be used to apply conventions to
+        /// </summary>
+        public IConventionBuilder Conventions => this;
+
+        IConventionBuilder IConventionBuilder.AddConvention(IConvention convention)
+        {
+            var context = new ConventionContext(this, typeof(TModel));
+            convention.Apply(context);
+            return Conventions;
+        }
+
+        /// <summary>
+        ///  Create an instance of <typeparamref name="TModel" />.
         /// </summary>
         /// <returns>An instance of the context.</returns>
-        internal virtual TModel CreateModel()
+        protected virtual TModel CreateModel()
         {
             return Activator.CreateInstance<TModel>();
         }
 
-        /// <summary>
-        /// An instance of the model associated with the command line application.
-        /// </summary>
-        internal TModel Model { get; private set; }
-
-        object IModelProvider.Model => Model;
-
-        /// <summary>
-        /// Adds a callback that will be invoked when an instance of <typeparamref name="TModel" /> is created.
-        /// </summary>
-        /// <param name="action"></param>
-        internal void OnInitalize(Action<TModel> action)
-        {
-            _onInitialize = _onInitialize ?? new List<Action<TModel>>();
-            _onInitialize.Add(action);
-        }
-
-        /// <summary>
-        /// Create an instance of <typeparamref name="TModel" />.
-        /// </summary>
-        /// <returns>An instance of the app.</returns>
+        // TODO: make experimental API public after it settles.
         internal void Initialize()
         {
-            foreach (var convention in _conventions)
-            {
-                convention.Apply(this, typeof(TModel));
-            }
-
             Model = CreateModel();
-            if (_onInitialize != null)
-            {
-                foreach (var action in _onInitialize)
-                {
-                    action?.Invoke(Model);
-                }
-            }
-        }
-
-        void IConventionBuilder.AddConvention(IAppConvention convention)
-        {
-            _conventions.Add(convention);
         }
     }
 }

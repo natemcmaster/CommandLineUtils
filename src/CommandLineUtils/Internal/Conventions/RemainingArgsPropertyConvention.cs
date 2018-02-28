@@ -1,22 +1,25 @@
+// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class RemainingArgsPropertyConvention : IAppConvention
+    internal class RemainingArgsPropertyConvention : IConvention
     {
         private const BindingFlags PropertyBindingFlags =
             BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
 
-        public void Apply(CommandLineApplication app, Type modelType)
+        public void Apply(ConventionContext context)
         {
-            if (!(app is IModelProvider provider))
+            if (context.ModelType == null)
             {
                 return;
             }
 
-            var typeInfo = modelType.GetTypeInfo();
+            var typeInfo = context.ModelType.GetTypeInfo();
             var prop = typeInfo.GetProperty("RemainingArguments", PropertyBindingFlags);
             prop = prop ?? typeInfo.GetProperty("RemainingArgs", PropertyBindingFlags);
             if (prop == null)
@@ -28,8 +31,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             if (prop.PropertyType == typeof(string[]))
             {
-                app.OnParsed(_
-                    => setter(provider.Model, app.RemainingArguments.ToArray()));
+                context.Application.OnParsed(r =>
+                    setter(context.ModelAccessor.GetModel(), r.SelectedCommand.RemainingArguments.ToArray()));
                 return;
             }
 
@@ -38,8 +41,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 throw new InvalidOperationException(Strings.RemainingArgsPropsIsUnassignable(typeInfo));
             }
 
-            app.OnParsed(_ =>
-                setter(provider.Model, app.RemainingArguments));
+            context.Application.OnParsed(r =>
+                setter(context.ModelAccessor.GetModel(), r.SelectedCommand.RemainingArguments));
         }
     }
 }

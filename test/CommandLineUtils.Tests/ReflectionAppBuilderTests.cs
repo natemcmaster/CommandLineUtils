@@ -323,11 +323,26 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public string[] RemainingArgs { get; }
         }
 
+        [Command(ThrowOnUnexpectedArgument = false)]
+        [Subcommand("subcmd", typeof(RemainingArgs_Array))]
+        private class Parent
+        {
+            public object Subcommand { get; }
+        }
+
         [Fact]
         public void ItSetsRemainingArgs_Array()
         {
             var result = CommandLineParser.ParseArgs<RemainingArgs_Array>("a", "b");
             Assert.Equal(new[] { "a", "b" }, result.RemainingArgs);
+        }
+
+        [Fact]
+        public void ItSetsRemainingArgsOnSubcommand()
+        {
+            var result = CommandLineParser.ParseArgs<Parent>("subcmd", "a", "b");
+            var subcmd = Assert.IsType<RemainingArgs_Array>(result.Subcommand);
+            Assert.Equal(new[] { "a", "b" }, subcmd.RemainingArgs);
         }
 
         [Command(ThrowOnUnexpectedArgument = false)]

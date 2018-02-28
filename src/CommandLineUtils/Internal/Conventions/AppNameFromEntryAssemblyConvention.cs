@@ -1,21 +1,30 @@
+// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 using System;
 using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class AppNameFromEntryAssemblyConvention : IAppConvention
+    internal class AppNameFromEntryAssemblyConvention : IConvention
     {
-        public void Apply(CommandLineApplication app, Type modelType)
+        public void Apply(ConventionContext context)
         {
-            if (app.Name != null)
+            if (context.Application.Name != null)
             {
                 return;
             }
 
-            var assembly = Assembly.GetEntryAssembly() == null
-                ? modelType.GetTypeInfo().Assembly
-                : Assembly.GetEntryAssembly();
-            app.Name = assembly.GetName().Name;
+            var assembly = Assembly.GetEntryAssembly();
+            if (assembly == null && context.ModelType != null)
+            {
+                assembly = context.ModelType.GetTypeInfo().Assembly;
+            }
+
+            if (assembly != null)
+            {
+                context.Application.Name = assembly.GetName().Name;
+            }
         }
     }
 }

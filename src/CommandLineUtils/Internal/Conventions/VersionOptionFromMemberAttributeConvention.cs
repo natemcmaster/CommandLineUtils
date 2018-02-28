@@ -1,19 +1,22 @@
+// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 using System;
 using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class VersionOptionFromMemberAttributeConvention : IAppConvention
+    internal class VersionOptionFromMemberAttributeConvention : IConvention
     {
-        public void Apply(CommandLineApplication app, Type modelType)
+        public void Apply(ConventionContext context)
         {
-            if (!(app is IModelProvider provider))
+            if (context.ModelType == null)
             {
                 return;
             }
 
-            var versionOptionFromMember = modelType.GetTypeInfo().GetCustomAttribute<VersionOptionFromMemberAttribute>();
-            versionOptionFromMember?.Configure(app, modelType, () => provider.Model);
+            var versionOptionFromMember = context.ModelType.GetTypeInfo().GetCustomAttribute<VersionOptionFromMemberAttribute>();
+            versionOptionFromMember?.Configure(context.Application, context.ModelType, context.ModelAccessor.GetModel);
         }
     }
 }

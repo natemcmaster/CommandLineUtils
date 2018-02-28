@@ -1,34 +1,38 @@
+// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 using System;
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class ParentPropertyConvention : IAppConvention
+    internal class ParentPropertyConvention : IConvention
     {
-        public void Apply(CommandLineApplication app, Type modelType)
+        public void Apply(ConventionContext context)
         {
-            if (!(app is IModelProvider provider))
+            if (context.ModelType == null)
             {
                 return;
             }
 
-            var parentProp = modelType.GetTypeInfo().GetProperty("Parent", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            var parentProp = context.ModelType.GetTypeInfo().GetProperty("Parent", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             if (parentProp == null)
             {
                 return;
             }
 
             var setter = ReflectionHelper.GetPropertySetter(parentProp);
-            app.OnParsed(r =>
+            context.Application.OnParsed(r =>
             {
                 var subcommand = r.SelectedCommand;
                 while (subcommand != null)
                 {
-                    if (ReferenceEquals(app, subcommand))
+                    if (ReferenceEquals(context.Application, subcommand))
                     {
-                        if (subcommand.Parent is IModelProvider parentModel)
+                        if (subcommand.Parent is IModelAccessor parentAccessor)
                         {
-                            setter(provider.Model, parentModel.Model);
+                            setter(context.ModelAccessor.GetModel(), parentAccessor.GetModel());
                         }
                         return;
                     }

@@ -35,13 +35,13 @@ namespace McMaster.Extensions.CommandLineUtils
         private ReflectionAppBuilder(CommandLineApplication<TModel> app)
         {
             App = app;
-            var builder = App as IConventionBuilder;
-            builder.AddConvention(new CommandAttributeConvention());
-            builder.AddConvention(new AppNameFromEntryAssemblyConvention());
-            builder.AddConvention(new RemainingArgsPropertyConvention());
-            builder.AddConvention(new SubcommandPropertyConvention());
-            builder.AddConvention(new ParentPropertyConvention());
-            builder.AddConvention(new VersionOptionFromMemberAttributeConvention());
+            App.Conventions
+                .AddConvention(new CommandAttributeConvention())
+                .AddConvention(new AppNameFromEntryAssemblyConvention())
+                .AddConvention(new RemainingArgsPropertyConvention())
+                .AddConvention(new SubcommandPropertyConvention())
+                .AddConvention(new ParentPropertyConvention())
+                .AddConvention(new VersionOptionFromMemberAttributeConvention());
             App.Initialize();
         }
 
@@ -61,9 +61,9 @@ namespace McMaster.Extensions.CommandLineUtils
                 ValidationResult = command.GetValidationResult(),
             };
 
-            if (command is IModelProvider provider)
+            if (command is IModelAccessor accessor)
             {
-                bindResult.Target = provider.Model;
+                bindResult.Target = accessor.GetModel();
             }
 
             return bindResult;

@@ -1,34 +1,38 @@
+// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 using System;
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class SubcommandPropertyConvention : IAppConvention
+    internal class SubcommandPropertyConvention : IConvention
     {
-        public void Apply(CommandLineApplication app, Type modelType)
+        public void Apply(ConventionContext context)
         {
-            if (!(app is IModelProvider provider))
+            if (context.ModelType == null)
             {
                 return;
             }
 
-            var subcommandProp = modelType.GetTypeInfo().GetProperty("Subcommand", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            var subcommandProp = context.ModelType.GetTypeInfo().GetProperty("Subcommand", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             if (subcommandProp == null)
             {
                 return;
             }
 
             var setter = ReflectionHelper.GetPropertySetter(subcommandProp);
-            app.OnParsed(r =>
+            context.Application.OnParsed(r =>
             {
                 var subCommand = r.SelectedCommand;
                 while (subCommand != null)
                 {
-                    if (ReferenceEquals(subCommand.Parent, app))
+                    if (ReferenceEquals(subCommand.Parent, context.Application))
                     {
-                        if (subCommand is IModelProvider subCommandModel)
+                        if (subCommand is IModelAccessor subcmdAccessor)
                         {
-                            setter(provider.Model, subCommandModel.Model);
+                            setter(context.ModelAccessor.GetModel(), subcmdAccessor.GetModel());
                         }
                         return;
                     }

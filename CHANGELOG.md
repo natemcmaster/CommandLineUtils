@@ -5,6 +5,8 @@
 New features:
   - Add `CommandOptionType.SingleOrNoValue`. Options of this type can be a switch, or have a value but only in the form `--param:value` or `--param=value`.
   - Support mapping `Tuple<bool,T>` and `ValueTuple<bool,T>` to `CommandOptionType.SingleOrNoValue`
+  - Added `CommandLineApplication<TModel>`. This allows associating an application with a specific .NET type
+  - Convention API. Adds support for writing your own conventions to convert command line arguments into a .NET type
 
 ## [v2.2.0-alpha]
 
