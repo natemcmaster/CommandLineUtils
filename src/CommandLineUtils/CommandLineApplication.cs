@@ -597,7 +597,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns></returns>
         public string GetFullNameAndVersion()
         {
-            return ShortVersionGetter == null ? FullName : string.Format("{0} {1}", FullName, ShortVersionGetter());
+            return ShortVersionGetter == null ? FullName : string.Format("{0} ({1})", FullName, ShortVersionGetter());
         }
 
         /// <summary>
