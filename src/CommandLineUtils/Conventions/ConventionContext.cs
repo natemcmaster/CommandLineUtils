@@ -14,8 +14,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// <summary>
         /// Initializes an instance of <see cref="ConventionContext" />.
         /// </summary>
-        /// <param name="application"></param>
-        /// <param name="modelType"></param>
+        /// <param name="application">The application</param>
+        /// <param name="modelType">The type of the model.</param>
         public ConventionContext(CommandLineApplication application, Type modelType)
         {
             Application = application ?? throw new ArgumentNullException(nameof(application));

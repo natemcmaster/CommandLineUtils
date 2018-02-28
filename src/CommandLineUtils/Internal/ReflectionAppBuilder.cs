@@ -35,13 +35,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private ReflectionAppBuilder(CommandLineApplication<TModel> app)
         {
             App = app;
-            App.Conventions
-                .AddConvention(new CommandAttributeConvention())
-                .AddConvention(new AppNameFromEntryAssemblyConvention())
-                .AddConvention(new RemainingArgsPropertyConvention())
-                .AddConvention(new SubcommandPropertyConvention())
-                .AddConvention(new ParentPropertyConvention())
-                .AddConvention(new VersionOptionFromMemberAttributeConvention());
+            App.Conventions.UseDefaultConventions();
             App.Initialize();
         }
 
