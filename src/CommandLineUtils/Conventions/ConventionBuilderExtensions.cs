@@ -30,7 +30,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 .SetAppNameFromEntryAssembly()
                 .SetSubcommandProperty()
                 .SetParentProperty()
-                .UseVersionOptionFromMemberAttribute();
+                .UseVersionOptionFromMemberAttribute()
+                .UseVersionOptionAttribute()
+                .UseHelpOptionAttribute()
+                .UseOptionAttribute();
         }
 
         /// <summary>
@@ -84,5 +87,29 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseVersionOptionFromMemberAttribute(this IConventionBuilder builder)
             => builder.AddConvention(new VersionOptionFromMemberAttributeConvention());
+
+        /// <summary>
+        /// Applies settings from <see cref="VersionOptionAttribute" /> on the model type.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <returns>The builder.</returns>
+        public static IConventionBuilder UseVersionOptionAttribute(this IConventionBuilder builder)
+            => builder.AddConvention(new VersionOptionAttributeConvention());
+
+        /// <summary>
+        /// Applies settings from <see cref="HelpOptionAttribute" /> on the model type.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <returns>The builder.</returns>
+        public static IConventionBuilder UseHelpOptionAttribute(this IConventionBuilder builder)
+            => builder.AddConvention(new HelpOptionAttributeConvention());
+
+        /// <summary>
+        /// Applies settings from <see cref="OptionAttribute" /> on the model type.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <returns>The builder.</returns>
+        public static IConventionBuilder UseOptionAttribute(this IConventionBuilder builder)
+            => builder.AddConvention(new OptionAttributeConvention());
     }
 }

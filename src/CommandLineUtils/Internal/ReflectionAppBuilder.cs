@@ -25,8 +25,6 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly List<Action<TModel>> _binders = new List<Action<TModel>>();
         private readonly SortedList<int, CommandArgument> _argOrder = new SortedList<int, CommandArgument>();
         private readonly Dictionary<int, PropertyInfo> _argPropOrder = new Dictionary<int, PropertyInfo>();
-        private readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
-        private readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
 
         public ReflectionAppBuilder()
             : this(new CommandLineApplication<TModel>())
@@ -77,16 +75,11 @@ namespace McMaster.Extensions.CommandLineUtils
             var type = typeof(TModel);
             var typeInfo = type.GetTypeInfo();
 
-            var helpOptionAttrOnType = typeInfo.GetCustomAttribute<HelpOptionAttribute>();
-            helpOptionAttrOnType?.Configure(App);
 
-            var versionOptionAttrOnType = typeInfo.GetCustomAttribute<VersionOptionAttribute>();
-            versionOptionAttrOnType?.Configure(App);
-
-            var props = typeInfo.GetProperties(PropertyBindingFlags);
+            var props = ReflectionHelper.GetProperties(type);
             if (props != null)
             {
-                AddProperties(props, helpOptionAttrOnType != null, versionOptionAttrOnType != null);
+                AddProperties(props);
             }
 
             var subcommands = typeInfo.GetCustomAttributes<SubcommandAttribute>();
@@ -99,85 +92,23 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        private void AddProperties(IEnumerable<PropertyInfo> props,
-            bool hasHelpOptionAttrOnType,
-            bool hasVersionOptionAttrOnType)
+        private void AddProperties(IEnumerable<PropertyInfo> props)
         {
             foreach (var prop in props)
             {
-                OptionAttributeBase optionAttr;
-                var helpOptionAttr = prop.GetCustomAttribute<HelpOptionAttribute>();
-                var versionOptionAttr = prop.GetCustomAttribute<VersionOptionAttribute>();
-                var regularOptionAttr = prop.GetCustomAttribute<OptionAttribute>();
-
-                if (helpOptionAttr != null && versionOptionAttr != null)
-                {
-                    throw new InvalidOperationException(
-                        Strings.BothHelpOptionAndVersionOptionAttributesCannotBeSpecified(prop));
-                }
-
-                if (helpOptionAttr != null)
-                {
-                    if (hasHelpOptionAttrOnType)
-                    {
-                        throw new InvalidOperationException(Strings.HelpOptionOnTypeAndProperty);
-                    }
-
-                    if (App.OptionHelp != null)
-                    {
-                        throw new InvalidOperationException(Strings.MultipleHelpOptionPropertiesFound);
-                    }
-
-                    if (regularOptionAttr != null)
-                    {
-                        throw new InvalidOperationException(
-                            Strings.BothOptionAndHelpOptionAttributesCannotBeSpecified(prop));
-                    }
-
-                    optionAttr = helpOptionAttr;
-                }
-                else if (versionOptionAttr != null)
-                {
-                    if (hasVersionOptionAttrOnType)
-                    {
-                        throw new InvalidOperationException(Strings.VersionOptionOnTypeAndProperty);
-                    }
-
-                    if (App.OptionVersion != null)
-                    {
-                        throw new InvalidOperationException(Strings.MultipleVersionOptionPropertiesFound);
-                    }
-
-                    if (regularOptionAttr != null)
-                    {
-                        throw new InvalidOperationException(
-                            Strings.BothOptionAndVersionOptionAttributesCannotBeSpecified(prop));
-                    }
-
-                    optionAttr = versionOptionAttr;
-                }
-                else
-                {
-                    optionAttr = regularOptionAttr;
-                }
-
                 var argumentAttr = prop.GetCustomAttribute<ArgumentAttribute>();
+                if (argumentAttr == null)
+                {
+                    continue;
+                }
 
-                if (optionAttr != null && argumentAttr != null)
+                if (prop.GetCustomAttributes().OfType<OptionAttributeBase>().Any())
                 {
                     throw new InvalidOperationException(
                         Strings.BothOptionAndArgumentAttributesCannotBeSpecified(prop));
                 }
 
-                if (argumentAttr != null)
-                {
-                    AddArgument(prop, argumentAttr);
-                }
-
-                if (optionAttr != null)
-                {
-                    AddOption(optionAttr, prop);
-                }
+                AddArgument(prop, argumentAttr);
             }
 
             foreach (var arg in _argOrder)
@@ -193,100 +124,6 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
 
                 App.Arguments.Add(arg.Value);
-            }
-        }
-
-        private void AddOption(OptionAttributeBase optionAttr, PropertyInfo prop)
-        {
-            CommandOption option;
-            switch (optionAttr)
-            {
-                case HelpOptionAttribute h:
-                    option = h.Configure(App);
-                    break;
-                case OptionAttribute o:
-                    option = o.Configure(App, prop);
-                    break;
-                case VersionOptionAttribute v:
-                    option = v.Configure(App);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
-            foreach (var attr in prop.GetCustomAttributes().OfType<ValidationAttribute>())
-            {
-                option.Validators.Add(new AttributeValidator(attr));
-            }
-
-            if (option.OptionType == CommandOptionType.NoValue && prop.PropertyType != typeof(bool))
-            {
-                throw new InvalidOperationException(Strings.NoValueTypesMustBeBoolean);
-            }
-
-            if (!string.IsNullOrEmpty(option.ShortName))
-            {
-                if (_shortOptions.TryGetValue(option.ShortName, out var otherProp))
-                {
-                    throw new InvalidOperationException(
-                        Strings.OptionNameIsAmbiguous(option.ShortName, prop, otherProp));
-                }
-                _shortOptions.Add(option.ShortName, prop);
-            }
-
-            if (!string.IsNullOrEmpty(option.LongName))
-            {
-                if (_longOptions.TryGetValue(option.LongName, out var otherProp))
-                {
-                    throw new InvalidOperationException(
-                        Strings.OptionNameIsAmbiguous(option.LongName, prop, otherProp));
-                }
-                _longOptions.Add(option.LongName, prop);
-            }
-
-            var setter = ReflectionHelper.GetPropertySetter(prop);
-
-            switch (option.OptionType)
-            {
-                case CommandOptionType.MultipleValue:
-                    var collectionParser = CollectionParserProvider.Default.GetParser(prop.PropertyType);
-                    if (collectionParser == null)
-                    {
-                        throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
-                    }
-                    App.OnParsed(_ =>
-                        setter.Invoke(App.Model, collectionParser.Parse(option.LongName, option.Values)));
-                    break;
-                case CommandOptionType.SingleOrNoValue:
-                    var valueTupleParser = ValueTupleParserProvider.Default.GetParser(prop.PropertyType);
-                    if (valueTupleParser == null)
-                    {
-                        throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
-                    }
-                    App.OnParsed(_ =>
-                        setter.Invoke(App.Model, valueTupleParser.Parse(option.HasValue(), option.LongName, option.Value())));
-                    break;
-                case CommandOptionType.SingleValue:
-                    var parser = ValueParserProvider.Default.GetParser(prop.PropertyType);
-                    if (parser == null)
-                    {
-                        throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
-                    }
-                    App.OnParsed(_ =>
-                    {
-                        var value = option.Value();
-                        if (value == null)
-                        {
-                            return;
-                        }
-                        setter.Invoke(App.Model, parser.Parse(option.LongName, value));
-                    });
-                    break;
-                case CommandOptionType.NoValue:
-                    App.OnParsed(_ => setter.Invoke(App.Model, option.HasValue()));
-                    break;
-                default:
-                    throw new NotImplementedException();
             }
         }
 

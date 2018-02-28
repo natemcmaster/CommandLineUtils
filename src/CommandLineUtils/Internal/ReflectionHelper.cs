@@ -44,6 +44,12 @@ namespace McMaster.Extensions.CommandLineUtils
                 .ToArray();
         }
 
+        public static PropertyInfo[] GetProperties(Type type)
+        {
+            const BindingFlags binding = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
+            return type.GetTypeInfo().GetProperties(binding);
+        }
+
         public static object[] BindParameters(MethodInfo method, CommandLineContext context, BindResult bindResult)
         {
             var methodParams = method.GetParameters();

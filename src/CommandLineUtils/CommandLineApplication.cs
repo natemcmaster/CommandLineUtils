@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
@@ -22,6 +23,9 @@ namespace McMaster.Extensions.CommandLineUtils
     public partial class CommandLineApplication
     {
         private List<Action<ParseResult>> _onParsed;
+        internal readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
+        internal readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
+
 
         private const int HelpExitCode = 0;
         private const int ValidationErrorExitCode = 1;
