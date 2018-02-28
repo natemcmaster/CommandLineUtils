@@ -40,6 +40,8 @@ namespace McMaster.Extensions.CommandLineUtils
             builder.AddConvention(new AppNameFromEntryAssemblyConvention());
             builder.AddConvention(new RemainingArgsPropertyConvention());
             builder.AddConvention(new SubcommandPropertyConvention());
+            builder.AddConvention(new ParentPropertyConvention());
+            builder.AddConvention(new VersionOptionFromMemberAttributeConvention());
             App.Initialize();
         }
 
@@ -50,9 +52,8 @@ namespace McMaster.Extensions.CommandLineUtils
             EnsureInitialized();
             App.SetContext(context);
 
-            var processor = new CommandLineProcessor(App, context.Arguments);
-            var command = processor.Process();
-            var parseResult = command.Parse();
+            var parseResult = App.Parse(context.Arguments);
+            var command = parseResult.SelectedCommand;
             var bindResult = new BindResult
             {
                 Command = parseResult.SelectedCommand,
@@ -87,9 +88,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
             var versionOptionAttrOnType = typeInfo.GetCustomAttribute<VersionOptionAttribute>();
             versionOptionAttrOnType?.Configure(App);
-
-            var versionOptionFromMember = typeInfo.GetCustomAttribute<VersionOptionFromMemberAttribute>();
-            versionOptionFromMember?.Configure(App, type, App.Model);
 
             var props = typeInfo.GetProperties(PropertyBindingFlags);
             if (props != null)
@@ -373,14 +371,6 @@ namespace McMaster.Extensions.CommandLineUtils
             var childApp = App.Command<TSubCommand>(subcommand.Name, subcommand.Configure);
             var builder = new ReflectionAppBuilder<TSubCommand>(childApp);
             builder.Initialize();
-
-            var parentProp = subcommand.CommandType.GetTypeInfo().GetProperty("Parent", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            if (parentProp != null)
-            {
-                var setter = ReflectionHelper.GetPropertySetter(parentProp);
-                builder.App.OnParsed(_ =>
-                    setter.Invoke(builder.App.Model, this.App.Model));
-            }
         }
     }
 }

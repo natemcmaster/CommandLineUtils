@@ -33,6 +33,17 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
+        public static MethodInfo[] GetPropertyOrMethod(Type type, string name)
+        {
+            const BindingFlags binding = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
+            return type.GetTypeInfo()
+                .GetMethods(binding)
+                .Where(m => m.Name == name)
+                .Concat(type.GetTypeInfo().GetProperties(binding).Where(m => m.Name == name).Select(p => p.GetMethod))
+                .Where(m => m.ReturnType == typeof(string) && m.GetParameters().Length == 0)
+                .ToArray();
+        }
+
         public static object[] BindParameters(MethodInfo method, CommandLineContext context, BindResult bindResult)
         {
             var methodParams = method.GetParameters();

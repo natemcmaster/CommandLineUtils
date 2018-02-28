@@ -61,8 +61,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ThrowWhenMemberDoesNotExist()
         {
-            var builder = new ReflectionAppBuilder<MissingMethod>();
-            Assert.Throws<InvalidOperationException>(() => builder.Initialize());
+            var ex = Assert.Throws<InvalidOperationException>(() =>
+            {
+                new ReflectionAppBuilder<MissingMethod>().Initialize();
+            });
+            Assert.Equal(Strings.NoPropertyOrMethodFound("Version", typeof(MissingMethod)), ex.Message);
         }
     }
 }

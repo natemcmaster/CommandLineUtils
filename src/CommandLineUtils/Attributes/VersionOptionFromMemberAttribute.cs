@@ -35,18 +35,18 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public string MemberName { get; set; }
 
-        internal CommandOption Configure(CommandLineApplication app, Type type, object targetInstance)
+        internal CommandOption Configure(CommandLineApplication app, Type type, Func<object> targetInstanceFactory)
         {
             Func<string> shortFormGetter = null;
             Func<string> longFormGetter = null;
 
             if (MemberName != null)
             {
-                var methods = GetPropertyOrMethod(type, MemberName);
+                var methods = ReflectionHelper.GetPropertyOrMethod(type, MemberName);
 
                 if (methods.Length == 0)
                 {
-                    throw new InvalidOperationException($"Could not find a property or method named {MemberName} on type {type.FullName}");
+                    throw new InvalidOperationException(Strings.NoPropertyOrMethodFound(MemberName, type));
                 }
 
                 if (methods.Length > 1)
@@ -56,22 +56,11 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 shortFormGetter = () =>
                 {
-                    return methods[0].Invoke(targetInstance, Constants.EmptyArray) as string;
+                    return methods[0].Invoke(targetInstanceFactory(), Constants.EmptyArray) as string;
                 };
             }
 
             return app.VersionOption(Template, shortFormGetter, longFormGetter);
-        }
-
-        private static MethodInfo[] GetPropertyOrMethod(Type type, string name)
-        {
-            const BindingFlags binding = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
-            return type.GetTypeInfo()
-                .GetMethods(binding)
-                .Where(m => m.Name == name)
-                .Concat(type.GetTypeInfo().GetProperties(binding).Where(m => m.Name == name).Select(p => p.GetMethod))
-                .Where(m => m.ReturnType == typeof(string) && m.GetParameters().Length == 0)
-                .ToArray();
         }
     }
 }

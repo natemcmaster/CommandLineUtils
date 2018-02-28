@@ -25,8 +25,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication();
             var opt = app.Option("--log", "Log level", CommandOptionType.SingleOrNoValue);
-            var processor = new CommandLineProcessor(app, new[] { input });
-            processor.Process();
+            app.Parse(input);
             Assert.True(opt.HasValue(), "Option should have value");
             Assert.Equal(expected, opt.Value());
             Assert.Empty(app.RemainingArguments);
@@ -41,8 +40,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             var opt1 = app.Option("--param1", "param1", CommandOptionType.SingleOrNoValue);
             var opt2 = app.Option("--param2", "param2", CommandOptionType.SingleValue);
-            var processor = new CommandLineProcessor(app, args);
-            processor.Process();
+            app.Parse(args);
             Assert.Equal(param1, opt1.Value());
             Assert.Equal(param2, opt2.Value());
             Assert.Empty(app.RemainingArguments);
@@ -53,8 +51,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication();
             app.Option("--log", "Log level", CommandOptionType.SingleValue);
-            var processor = new CommandLineProcessor(app, new[] { "--log" });
-            Assert.Throws<CommandParsingException>(() => processor.Process());
+            Assert.Throws<CommandParsingException>(() => app.Parse("--log" ));
         }
     }
 }

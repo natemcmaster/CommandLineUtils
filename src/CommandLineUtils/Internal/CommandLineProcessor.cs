@@ -27,19 +27,25 @@ namespace McMaster.Extensions.CommandLineUtils
             _enumerator = new ParameterEnumerator(_parameters);
         }
 
-        public CommandLineApplication Process()
+        public ParseResult Process()
         {
+            var parseResult = new ParseResult
+            {
+                InitialCommand = _initialCommand
+            };
             _currentCommand = _initialCommand;
             _currentCommandArguments = null;
             while (_enumerator.MoveNext())
             {
                 if (!ProcessNext())
                 {
-                    return _currentCommand;
+                    parseResult.SelectedCommand = _currentCommand;
+                    return parseResult;
                 }
             }
             _enumerator.Reset();
-            return _currentCommand;
+            parseResult.SelectedCommand = _currentCommand;
+            return parseResult;
         }
 
         private bool ProcessNext()

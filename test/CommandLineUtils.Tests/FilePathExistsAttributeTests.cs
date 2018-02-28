@@ -39,8 +39,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Argument("Files", "Files")
                 .Accepts().ExistingFileOrDirectory();
 
-            var result = new CommandLineProcessor(app, new[] { filePath })
-                .Process()
+            var result = app
+                .Parse(filePath)
+                .SelectedCommand
                 .GetValidationResult();
 
             Assert.NotEqual(ValidationResult.Success, result);
@@ -83,12 +84,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             appNotInBaseDir.Argument("Files", "Files")
                 .Accepts(v => v.ExistingFileOrDirectory());
 
-            var success = new CommandLineProcessor(appInBaseDir, new[] { "exists.txt" })
-                .Process()
+            var success = appInBaseDir
+                .Parse("exists.txt")
+                .SelectedCommand
                 .GetValidationResult();
 
-            var fails = new CommandLineProcessor(appNotInBaseDir, new[] { "exists.txt" })
-                .Process()
+            var fails = appNotInBaseDir
+                .Parse("exists.txt")
+                .SelectedCommand
                 .GetValidationResult();
 
             Assert.Equal(ValidationResult.Success, success);

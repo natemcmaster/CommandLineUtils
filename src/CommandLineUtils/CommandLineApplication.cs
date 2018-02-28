@@ -422,26 +422,27 @@ namespace McMaster.Extensions.CommandLineUtils
             _onParsed.Add(callback);
         }
 
-        internal ParseResult Parse() => Parse(this);
-
-        private ParseResult Parse(CommandLineApplication selectedCommand)
+        internal ParseResult Parse(params string[] args)
         {
-            Parent?.Parse(this);
+            args = args ?? new string[0];
 
-            var result = new ParseResult
-            {
-                SelectedCommand = selectedCommand,
-            };
+            var processor = new CommandLineProcessor(this, args);
+            var result = processor.Process();
+            result.SelectedCommand.HandleParseResult(result);
+            return result;
+        }
+
+        private void HandleParseResult(ParseResult parseResult)
+        {
+            Parent?.HandleParseResult(parseResult);
 
             if (_onParsed != null)
             {
                 foreach (var callback in _onParsed)
                 {
-                    callback?.Invoke(result);
+                    callback?.Invoke(parseResult);
                 }
             }
-
-            return result;
         }
 
         /// <summary>
@@ -452,10 +453,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The return code from <see cref="Invoke"/>.</returns>
         public int Execute(params string[] args)
         {
-            args = args ?? new string[0];
-
-            var processor = new CommandLineProcessor(this, args);
-            var command = processor.Process();
+            var parseResult = Parse(args);
+            var command = parseResult.SelectedCommand;
 
             if (command.IsShowingInformation)
             {

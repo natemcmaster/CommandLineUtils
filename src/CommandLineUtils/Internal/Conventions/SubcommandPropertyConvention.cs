@@ -13,17 +13,28 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
 
             var subcommandProp = modelType.GetTypeInfo().GetProperty("Subcommand", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            if (subcommandProp != null)
+            if (subcommandProp == null)
             {
-                var setter = ReflectionHelper.GetPropertySetter(subcommandProp);
-                app.OnParsed(r =>
-                {
-                    if (r.SelectedCommand is IModelProvider subcommandProvider)
-                    {
-                        setter.Invoke(provider.Model, subcommandProvider.Model);
-                    }
-                });
+                return;
             }
+
+            var setter = ReflectionHelper.GetPropertySetter(subcommandProp);
+            app.OnParsed(r =>
+            {
+                var subCommand = r.SelectedCommand;
+                while (subCommand != null)
+                {
+                    if (ReferenceEquals(subCommand.Parent, app))
+                    {
+                        if (subCommand is IModelProvider subCommandModel)
+                        {
+                            setter(provider.Model, subCommandModel.Model);
+                        }
+                        return;
+                    }
+                    subCommand = subCommand.Parent;
+                }
+            });
         }
     }
 }

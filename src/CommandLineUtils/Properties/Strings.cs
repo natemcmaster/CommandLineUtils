@@ -81,5 +81,8 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static string RemainingArgsPropsIsUnassignable(TypeInfo typeInfo)
             => $"The RemainingArguments property type on {typeInfo.Name} is invalid. It must be assignable from string[].";
+
+        public static string NoPropertyOrMethodFound(string memberName, Type type)
+            => $"Could not find a property or method named {memberName} on type {type.FullName}";
     }
 }

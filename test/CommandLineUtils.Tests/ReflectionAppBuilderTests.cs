@@ -59,6 +59,16 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var builder = new ReflectionAppBuilder<MasterApp>();
             var context = new DefaultCommandLineContext(new TestConsole(_output), Directory.GetCurrentDirectory(), new[] { "add" });
             var bound = builder.Bind(context);
+            var master = Assert.IsType<MasterApp>(builder.App.Model);
+            Assert.IsType<AddCmd>(master.Subcommand);
+        }
+
+        [Fact]
+        public void BindsToParentProperty()
+        {
+            var builder = new ReflectionAppBuilder<MasterApp>();
+            var context = new DefaultCommandLineContext(new TestConsole(_output), Directory.GetCurrentDirectory(), new[] { "add" });
+            var bound = builder.Bind(context);
             var add = Assert.IsType<AddCmd>(bound.Target);
             Assert.IsType<MasterApp>(add.Parent);
         }
