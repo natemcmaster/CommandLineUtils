@@ -99,7 +99,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 foreach (var convention in Parent._conventions)
                 {
-                    convention.Apply(_conventionContext);
+                    Conventions.AddConvention(convention);
                 }
             }
         }
@@ -712,7 +712,6 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
 
                 _app._conventions.Add(convention);
-
                 return _app.Conventions;
             }
         }
