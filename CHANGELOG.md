@@ -7,8 +7,11 @@ New features:
   - Support mapping `Tuple<bool,T>` and `ValueTuple<bool,T>` to `CommandOptionType.SingleOrNoValue`
   - Added `CommandLineApplication<TModel>`. This allows associating an application with a specific .NET type
   - Convention API. Adds support for writing your own conventions to convert command line arguments into a .NET type
+  - [@sebastienros] - Support for case-insensitive options
 
 ## [v2.2.0-alpha]
+
+**Feb. 15, 2018**
 
 New features:
   - Added more validation attributes.
@@ -92,6 +95,7 @@ Other:
 [@demosdemon]: https://github.com/demosdemon
 [@kant2002]: https://github.com/kant2002
 [@rmcc13]: https://github.com/rmcc13
+[@sebastienros]: https://github.com/sebastienros
 
 [Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-alpha...HEAD
 [v2.2.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.1...v2.2.0-alpha
