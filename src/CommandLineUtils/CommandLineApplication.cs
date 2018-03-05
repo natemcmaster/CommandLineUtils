@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
+using McMaster.Extensions.CommandLineUtils.Conventions;
 using McMaster.Extensions.CommandLineUtils.HelpText;
 using McMaster.Extensions.CommandLineUtils.Internal;
 
@@ -28,18 +29,20 @@ namespace McMaster.Extensions.CommandLineUtils
 
 
         private const int HelpExitCode = 0;
-        private const int ValidationErrorExitCode = 1;
+        internal const int ValidationErrorExitCode = 1;
 
         internal CommandLineContext _context;
         private IHelpTextGenerator _helpTextGenerator;
         private CommandOption _optionHelp;
+        private readonly ConventionContext _conventionContext;
+        private readonly List<IConvention> _conventions = new List<IConvention>();
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
         /// </summary>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(bool throwOnUnexpectedArg = true)
-            : this(DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(), throwOnUnexpectedArg)
+            : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(), throwOnUnexpectedArg)
         {
         }
 
@@ -48,7 +51,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="console">The console implementation to use.</param>
         public CommandLineApplication(IConsole console)
-            : this(DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(console), throwOnUnexpectedArg: true)
+            : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(console), throwOnUnexpectedArg: true)
         { }
 
         /// <summary>
@@ -58,7 +61,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="workingDirectory">The current working directory.</param>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
-            : this(DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(console, workingDirectory), throwOnUnexpectedArg)
+            : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(console, workingDirectory), throwOnUnexpectedArg)
         { }
 
         /// <summary>
@@ -69,13 +72,17 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="workingDirectory">The current working directory.</param>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(IHelpTextGenerator helpTextGenerator, IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
-            : this(helpTextGenerator, new DefaultCommandLineContext(console, workingDirectory), throwOnUnexpectedArg)
+            : this(null, helpTextGenerator, new DefaultCommandLineContext(console, workingDirectory), throwOnUnexpectedArg)
         {
         }
 
-        internal CommandLineApplication(IHelpTextGenerator helpTextGenerator, CommandLineContext context, bool throwOnUnexpectedArg)
+        internal CommandLineApplication(CommandLineApplication parent,
+            IHelpTextGenerator helpTextGenerator,
+            CommandLineContext context,
+            bool throwOnUnexpectedArg)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            Parent = parent;
             ThrowOnUnexpectedArgument = throwOnUnexpectedArg;
             Options = new List<CommandOption>();
             Arguments = new List<CommandArgument>();
@@ -85,13 +92,22 @@ namespace McMaster.Extensions.CommandLineUtils
             Invoke = () => 0;
             ValidationErrorHandler = DefaultValidationErrorHandler;
             SetContext(context);
+
+            _conventionContext = CreateConventionContext();
+
+            if (Parent != null)
+            {
+                foreach (var convention in Parent._conventions)
+                {
+                    convention.Apply(_conventionContext);
+                }
+            }
         }
 
         internal CommandLineApplication(CommandLineApplication parent, string name, bool throwOnUnexpectedArg)
-            : this(parent._helpTextGenerator, parent._context, throwOnUnexpectedArg)
+            : this(parent, parent._helpTextGenerator, parent._context, throwOnUnexpectedArg)
         {
             Name = name;
-            Parent = parent;
         }
 
         /// <summary>
@@ -436,7 +452,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
-        private void HandleParseResult(ParseResult parseResult)
+        private protected virtual void HandleParseResult(ParseResult parseResult)
         {
             Parent?.HandleParseResult(parseResult);
 
@@ -465,11 +481,9 @@ namespace McMaster.Extensions.CommandLineUtils
                 return HelpExitCode;
             }
 
-            var result = command.GetValidationResult();
-
-            if (result != ValidationResult.Success)
+            if (parseResult.ValidationResult != ValidationResult.Success)
             {
-                return command.ValidationErrorHandler(result);
+                return command.ValidationErrorHandler(parseResult.ValidationResult);
             }
 
             return command.Invoke();
@@ -678,6 +692,49 @@ namespace McMaster.Extensions.CommandLineUtils
             Out.WriteLine(rootCmd.GetFullNameAndVersion());
             Out.WriteLine();
         }
+
+        private sealed class Builder : IConventionBuilder
+        {
+            private readonly CommandLineApplication _app;
+
+            public Builder(CommandLineApplication app)
+            {
+                _app = app;
+            }
+
+            IConventionBuilder IConventionBuilder.AddConvention(IConvention convention)
+            {
+                convention.Apply(_app._conventionContext);
+
+                foreach (var command in _app.Commands)
+                {
+                    command.Conventions.AddConvention(convention);
+                }
+
+                _app._conventions.Add(convention);
+
+                return _app.Conventions;
+            }
+        }
+
+        private IConventionBuilder _builder;
+
+        /// <summary>
+        /// Gets a builder that can be used to apply conventions to
+        /// </summary>
+        public IConventionBuilder Conventions
+        {
+            get
+            {
+                if (_builder == null)
+                {
+                    _builder = new Builder(this);
+                }
+                return _builder;
+            }
+        }
+
+        private protected virtual ConventionContext CreateConventionContext() => new ConventionContext(this, null);
 
         private bool _settingContext;
 

@@ -17,13 +17,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("-c", "blue")]
         public void CustomValidationAttributePasses(params string[] args)
         {
-            var builder = new ReflectionAppBuilder<RedBlueProgram>();
-            var result = builder.Bind(CreateContext(args ?? new string[0]));
+            var app = new CommandLineApplication<RedBlueProgram>();
+            app.Conventions.UseDefaultConventions();
+            var result = app.Parse(args ?? new string[0]);
             Assert.Equal(ValidationResult.Success, result.ValidationResult);
-            var program = Assert.IsType<RedBlueProgram>(result.Target);
+            var program = Assert.IsType<CommandLineApplication<RedBlueProgram>>(result.SelectedCommand);
+            Assert.Same(app, program);
             if (args != null)
             {
-                Assert.Equal(args[1], program.Color);
+                Assert.Equal(args[1], app.Model.Color);
             }
         }
 
@@ -33,13 +35,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("-c", "green")]
         public void CustomValidationAttributeFails(params string[] args)
         {
-            var builder = new ReflectionAppBuilder<RedBlueProgram>();
-            var result = builder.Bind(CreateContext(args));
+            var app = new CommandLineApplication<RedBlueProgram>();
+            app.Conventions.UseAttributes();
+            var result = app.Parse(args);
             Assert.NotEqual(ValidationResult.Success, result.ValidationResult);
-            var program = Assert.IsType<RedBlueProgram>(result.Target);
+            var program = Assert.IsType<CommandLineApplication<RedBlueProgram>>(result.SelectedCommand);
+            Assert.Same(app, program);
             if (args != null)
             {
-                Assert.Equal(args[1], program.Color);
+                Assert.Equal(args[1], app.Model.Color);
             }
             Assert.Equal("The value for --color must be 'red' or 'blue'", result.ValidationResult.ErrorMessage);
         }
@@ -67,8 +71,5 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 return ValidationResult.Success;
             }
         }
-
-        private CommandLineContext CreateContext(string[] args)
-            => new DefaultCommandLineContext(NullConsole.Singleton, Directory.GetCurrentDirectory(), args);
     }
 }

@@ -14,9 +14,10 @@ namespace McMaster.Extensions.CommandLineUtils
         public static T ParseArgs<T>(params string[] args)
             where T : class, new()
         {
-            var applicationBuilder = new ReflectionAppBuilder<T>();
-            var context = new DefaultCommandLineContext(NullConsole.Singleton, Directory.GetCurrentDirectory(), args);
-            return (T)applicationBuilder.Bind(context).ParentTarget;
+            var app = new CommandLineApplication<T>(NullConsole.Singleton, Directory.GetCurrentDirectory(), true);
+            app.Conventions.UseDefaultConventions();
+            app.Parse(args);
+            return app.Model;
         }
     }
 }

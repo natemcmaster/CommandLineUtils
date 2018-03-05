@@ -18,6 +18,55 @@ namespace McMaster.Extensions.CommandLineUtils
     partial class CommandLineApplication
     {
         /// <summary>
+        /// Creates an instance of <typeparamref name="TApp"/>, matching <see cref="CommandLineContext.Arguments"/>
+        /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
+        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
+        /// </summary>
+        /// <param name="context">The execution context.</param>
+        /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
+        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
+        /// <returns>The process exit code</returns>
+        public static int Execute<TApp>(CommandLineContext context)
+            where TApp : class, new()
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            if (context.Arguments == null)
+            {
+                throw new ArgumentNullException(nameof(context) + "." + nameof(context.Arguments));
+            }
+
+            if (context.WorkingDirectory == null)
+            {
+                throw new ArgumentNullException(nameof(context) + "." + nameof(context.WorkingDirectory));
+            }
+
+            if (context.Console == null)
+            {
+                throw new ArgumentNullException(nameof(context) + "." + nameof(context.Console));
+            }
+
+            try
+            {
+                using (var app = new CommandLineApplication<TApp>())
+                {
+                    app.SetContext(context);
+                    app.Conventions.UseDefaultConventions();
+                    return app.Execute(context.Arguments);
+                }
+            }
+            catch (CommandParsingException ex)
+            {
+                context.Console.Error.WriteLine(ex.Message);
+                return ValidationErrorExitCode;
+            }
+        }
+
+        /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
         /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
         /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
@@ -51,54 +100,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Creates an instance of <typeparamref name="TApp"/>, matching <see cref="CommandLineContext.Arguments"/>
-        /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
-        /// </summary>
-        /// <param name="context">The execution context.</param>
-        /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
-        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
-        /// <returns>The process exit code</returns>
-        public static int Execute<TApp>(CommandLineContext context)
-            where TApp : class, new()
-        {
-            ValidateContextIsNotNull(context);
-
-            try
-            {
-                using (var bindResult = Bind<TApp>(context))
-                {
-                    if (bindResult.Command.IsShowingInformation)
-                    {
-                        return HelpExitCode;
-                    }
-
-                    if (bindResult.ValidationResult != ValidationResult.Success)
-                    {
-                        return HandleValidationError(context, bindResult);
-                    }
-
-                    var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
-                    switch (invoker)
-                    {
-                        case AsyncMethodInvoker asyncInvoker:
-                            return asyncInvoker.ExecuteAsync(context, bindResult).GetAwaiter().GetResult();
-                        case SynchronousMethodInvoker syncInvoker:
-                            return syncInvoker.Execute(context, bindResult);
-                        default:
-                            throw new NotImplementedException();
-                    }
-                }
-            }
-            catch (CommandParsingException ex)
-            {
-                context.Console.Error.WriteLine(ex.Message);
-                return ValidationErrorExitCode;
-            }
-        }
-
-        /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
         /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
         /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
@@ -109,8 +110,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static Task<int> ExecuteAsync<TApp>(params string[] args)
-            where TApp : class, new()
-            => ExecuteAsync<TApp>(PhysicalConsole.Singleton, args);
+        where TApp : class, new()
+        => ExecuteAsync<TApp>(PhysicalConsole.Singleton, args);
 
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
@@ -141,95 +142,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
-        public static async Task<int> ExecuteAsync<TApp>(CommandLineContext context)
+        public static Task<int> ExecuteAsync<TApp>(CommandLineContext context)
             where TApp : class, new()
-        {
-            ValidateContextIsNotNull(context);
-
-            try
-            {
-                using (var bindResult = Bind<TApp>(context))
-                {
-                    if (bindResult.Command.IsShowingInformation)
-                    {
-                        return HelpExitCode;
-                    }
-
-                    if (bindResult.ValidationResult != ValidationResult.Success)
-                    {
-                        return HandleValidationError(context, bindResult);
-                    }
-
-                    var invoker = ExecuteMethodInvoker.Create(bindResult.Target.GetType());
-                    switch (invoker)
-                    {
-                        case AsyncMethodInvoker asyncInvoker:
-                            return await asyncInvoker.ExecuteAsync(context, bindResult);
-                        case SynchronousMethodInvoker syncInvoker:
-                            return syncInvoker.Execute(context, bindResult);
-                        default:
-                            throw new NotImplementedException();
-                    }
-                }
-            }
-            catch (CommandParsingException ex)
-            {
-                context.Console.Error.WriteLine(ex.Message);
-                return ValidationErrorExitCode;
-            }
-        }
-
-        private static int HandleValidationError(CommandLineContext context, BindResult bindResult)
-        {
-            const BindingFlags MethodFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
-
-            var method = bindResult.Target
-                .GetType()
-                .GetTypeInfo()
-                .GetMethod("OnValidationError", MethodFlags);
-
-            if (method == null)
-            {
-                return bindResult.Command.DefaultValidationErrorHandler(bindResult.ValidationResult);
-            }
-
-            var arguments = ReflectionHelper.BindParameters(method, context, bindResult);
-            var result = method.Invoke(bindResult.Target, arguments);
-            if (method.ReturnType == typeof(int))
-            {
-                return (int)result;
-            }
-
-            return ValidationErrorExitCode;
-        }
-
-        private static BindResult Bind<TApp>(CommandLineContext context) where TApp : class, new()
-        {
-            var applicationBuilder = new ReflectionAppBuilder<TApp>();
-            return applicationBuilder.Bind(context);
-        }
-
-        private static void ValidateContextIsNotNull(CommandLineContext context)
-        {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-
-            if (context.Arguments == null)
-            {
-                throw new ArgumentNullException(nameof(context) + "." + nameof(context.Arguments));
-            }
-
-            if (context.WorkingDirectory == null)
-            {
-                throw new ArgumentNullException(nameof(context) + "." + nameof(context.WorkingDirectory));
-            }
-
-            if (context.Console == null)
-            {
-                throw new ArgumentNullException(nameof(context) + "." + nameof(context.Console));
-            }
-        }
+            => Task.FromResult(Execute<TApp>(context));
     }
 }

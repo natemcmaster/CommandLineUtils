@@ -56,7 +56,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 shortFormGetter = () =>
                 {
-                    return methods[0].Invoke(targetInstanceFactory(), Constants.EmptyArray) as string;
+                    return methods[0].Invoke(targetInstanceFactory?.Invoke(), Constants.EmptyArray) as string;
                 };
             }
 

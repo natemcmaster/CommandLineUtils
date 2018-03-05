@@ -50,7 +50,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return type.GetTypeInfo().GetProperties(binding);
         }
 
-        public static object[] BindParameters(MethodInfo method, CommandLineContext context, BindResult bindResult)
+        public static object[] BindParameters(MethodInfo method, CommandLineApplication command)
         {
             var methodParams = method.GetParameters();
             var arguments = new object[methodParams.Length];
@@ -61,19 +61,19 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 if (typeof(CommandLineApplication).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
-                    arguments[i] = bindResult.Command;
+                    arguments[i] = command;
                 }
                 else if (typeof(IConsole).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
-                    arguments[i] = context.Console;
+                    arguments[i] = command._context.Console;
                 }
                 else if (typeof(ValidationResult).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
-                    arguments[i] = bindResult.ValidationResult;
+                    arguments[i] = command.GetValidationResult();
                 }
                 else if (typeof(CommandLineContext).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
-                    arguments[i] = context;
+                    arguments[i] = command._context;
                 }
                 else
                 {

@@ -11,6 +11,8 @@ namespace McMaster.Extensions.CommandLineUtils
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
     public sealed class SubcommandAttribute : Attribute
     {
+        private Type _commandType;
+
         /// <summary>
         /// Initializes a new instance of <see cref="SubcommandAttribute" />.
         /// </summary>
@@ -30,7 +32,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The type of the subcommand.
         /// </summary>
-        public Type CommandType { get; set; }
+        public Type CommandType
+        {
+            get => _commandType;
+            set => _commandType = value ?? throw new ArgumentNullException(nameof(value));
+        }
 
         internal void Configure(CommandLineApplication app)
         {

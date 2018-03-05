@@ -27,10 +27,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItListOptions()
         {
-            var builder = new ReflectionAppBuilder<EmptyShortName>();
-            builder.Initialize();
+            var app = new CommandLineApplication<EmptyShortName>();
+            app.Conventions.UseDefaultConventions();
             var sb = new StringBuilder();
-            DefaultHelpTextGenerator.Singleton.Generate(builder.App, new StringWriter(sb));
+            DefaultHelpTextGenerator.Singleton.Generate(app, new StringWriter(sb));
             var helpText = sb.ToString();
             _output.WriteLine(helpText);
 

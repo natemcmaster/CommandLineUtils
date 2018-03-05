@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Conventions;
 using McMaster.Extensions.CommandLineUtils.HelpText;
@@ -12,9 +13,11 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Describes a set of command line arguments, options, and execution behavior
     /// using a type of <typeparamref name="TModel" /> to model the application.
     /// </summary>
-    public class CommandLineApplication<TModel> : CommandLineApplication, IConventionBuilder, IModelAccessor
+    public class CommandLineApplication<TModel> : CommandLineApplication, IModelAccessor, IDisposable
         where TModel : class
     {
+        private Lazy<TModel> _lazy;
+
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
         /// </summary>
@@ -22,6 +25,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandLineApplication(bool throwOnUnexpectedArg = true)
             : base(throwOnUnexpectedArg)
         {
+            Initialize();
         }
 
         /// <summary>
@@ -30,7 +34,9 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="console">The console implementation to use.</param>
         public CommandLineApplication(IConsole console)
             : base(console)
-        { }
+        {
+            Initialize();
+        }
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -40,7 +46,9 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
             : base(console, workingDirectory, throwOnUnexpectedArg)
-        { }
+        {
+            Initialize();
+        }
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -52,31 +60,26 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandLineApplication(IHelpTextGenerator helpTextGenerator, IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
             : base(helpTextGenerator, console, workingDirectory, throwOnUnexpectedArg)
         {
+            Initialize();
         }
 
         internal CommandLineApplication(CommandLineApplication parent, string name, bool throwOnUnexpectedArg)
             : base(parent, name, throwOnUnexpectedArg)
         {
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            _lazy = new Lazy<TModel>(CreateModel);
         }
 
         /// <summary>
         /// An instance of the model associated with the command line application.
         /// </summary>
-        public TModel Model { get; private set; }
+        public TModel Model => _lazy.Value;
 
         object IModelAccessor.GetModel() => Model;
-
-        /// <summary>
-        /// Gets a builder that can be used to apply conventions to
-        /// </summary>
-        public IConventionBuilder Conventions => this;
-
-        IConventionBuilder IConventionBuilder.AddConvention(IConvention convention)
-        {
-            var context = new ConventionContext(this, typeof(TModel));
-            convention.Apply(context);
-            return Conventions;
-        }
 
         /// <summary>
         ///  Create an instance of <typeparamref name="TModel" />.
@@ -87,10 +90,29 @@ namespace McMaster.Extensions.CommandLineUtils
             return Activator.CreateInstance<TModel>();
         }
 
-        // TODO: make experimental API public after it settles.
-        internal void Initialize()
+        private protected override ConventionContext CreateConventionContext() => new ConventionContext(this, typeof(TModel));
+
+        private protected override void HandleParseResult(ParseResult parseResult)
         {
-            Model = CreateModel();
+            (this as IModelAccessor).GetModel();
+
+            base.HandleParseResult(parseResult);
+        }
+
+        void IDisposable.Dispose()
+        {
+            if (Model is IDisposable dt)
+            {
+                dt?.Dispose();
+            }
+
+            foreach (var command in Commands)
+            {
+                if (command is IDisposable dc)
+                {
+                    dc.Dispose();
+                }
+            }
         }
     }
 }

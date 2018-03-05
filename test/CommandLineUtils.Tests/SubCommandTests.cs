@@ -3,7 +3,7 @@
 
 using System;
 using System.IO;
-using System.Reflection;
+using System.Linq;
 using System.Text;
 using Xunit;
 using Xunit.Abstractions;
@@ -17,6 +17,37 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public SubcommandTests(ITestOutputHelper output)
         {
             _output = output;
+        }
+
+        [Subcommand("add", typeof(AddCmd))]
+        [Subcommand("rm", typeof(RemoveCmd))]
+        private class Program
+        {
+            public object Subcommand { get; set; }
+        }
+
+        private class AddCmd
+        {
+            public object Parent { get; }
+        }
+
+        private class RemoveCmd
+        { }
+
+        [Fact]
+        public void AddsSubcommands()
+        {
+            var app = new CommandLineApplication<Program>();
+            app.Conventions.UseSubcommandAttributes();
+            Assert.Collection(app.Commands.OrderBy(c => c.Name),
+                add =>
+                {
+                    Assert.Equal("add", add.Name);
+                },
+                rm =>
+                {
+                    Assert.Equal("rm", rm.Name);
+                });
         }
 
         [Command(Name = "master")]
@@ -130,9 +161,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItCreatesNestedSubCommands()
         {
-            var builder = new ReflectionAppBuilder<MasterApp>();
-            builder.Initialize();
-            var lvl1 = Assert.Single(builder.App.Commands);
+            var app = new CommandLineApplication<MasterApp>();
+            app.Conventions.UseSubcommandAttributes();
+            var lvl1 = Assert.Single(app.Commands);
             Assert.Equal("level1", lvl1.Name);
             var lvl2 = Assert.Single(lvl1.Commands);
             Assert.Equal("level2", lvl2.Name);
@@ -167,5 +198,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () => CommandLineApplication.Execute<DuplicateSubCommands>(new TestConsole(_output)));
             Assert.Equal(Strings.DuplicateSubcommandName("LEVEL1"), ex.Message);
         }
+
     }
 }

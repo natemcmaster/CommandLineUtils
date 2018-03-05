@@ -39,12 +39,14 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 if (!ProcessNext())
                 {
-                    parseResult.SelectedCommand = _currentCommand;
-                    return parseResult;
+                    goto finished;
                 }
             }
             _enumerator.Reset();
+
+            finished:
             parseResult.SelectedCommand = _currentCommand;
+            parseResult.ValidationResult = _currentCommand.GetValidationResult();
             return parseResult;
         }
 

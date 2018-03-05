@@ -17,10 +17,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void GetsVersionInfoFromProp()
         {
-            var builder = new ReflectionAppBuilder<Property>();
-            builder.Initialize();
-            Assert.Equal("2.0.0", builder.App.ShortVersionGetter());
-            Assert.Equal(builder.App.ShortVersionGetter, builder.App.LongVersionGetter);
+            var app = new CommandLineApplication<Property>();
+            app.Conventions.UseVersionOptionFromMemberAttribute();
+            Assert.Equal("2.0.0", app.ShortVersionGetter());
+            Assert.Equal(app.ShortVersionGetter, app.LongVersionGetter);
         }
 
         [VersionOptionFromMember(MemberName = nameof(Version))]
@@ -32,10 +32,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void GetsVersionInfoFromMethod()
         {
-            var builder = new ReflectionAppBuilder<Method>();
-            builder.Initialize();
-            Assert.Equal("2.0.0", builder.App.ShortVersionGetter());
-            Assert.Equal(builder.App.ShortVersionGetter, builder.App.LongVersionGetter);
+            var app = new CommandLineApplication<Method>();
+            app.Conventions.UseVersionOptionFromMemberAttribute();
+            Assert.Equal("2.0.0", app.ShortVersionGetter());
+            Assert.Equal(app.ShortVersionGetter, app.LongVersionGetter);
         }
 
         [VersionOptionFromMember(MemberName = nameof(Version))]
@@ -47,10 +47,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void GetsVersionFromStaticMethod()
         {
-            var builder = new ReflectionAppBuilder<StaticMethod>();
-            builder.Initialize();
-            Assert.Equal("2.0.0", builder.App.ShortVersionGetter());
-            Assert.Equal(builder.App.ShortVersionGetter, builder.App.LongVersionGetter);
+            var app = new CommandLineApplication<StaticMethod>();
+            app.Conventions.UseVersionOptionFromMemberAttribute();
+            Assert.Equal("2.0.0", app.ShortVersionGetter());
+            Assert.Equal(app.ShortVersionGetter, app.LongVersionGetter);
         }
 
         [VersionOptionFromMember(MemberName = "Version")]
@@ -63,7 +63,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var ex = Assert.Throws<InvalidOperationException>(() =>
             {
-                new ReflectionAppBuilder<MissingMethod>().Initialize();
+                new CommandLineApplication<MissingMethod>().Conventions.UseVersionOptionFromMemberAttribute();
             });
             Assert.Equal(Strings.NoPropertyOrMethodFound("Version", typeof(MissingMethod)), ex.Message);
         }
