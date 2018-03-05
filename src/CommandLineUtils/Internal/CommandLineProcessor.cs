@@ -145,16 +145,16 @@ namespace McMaster.Extensions.CommandLineUtils
             var arg = _enumerator.Current;
             if (arg.Type == ParameterType.ShortOption)
             {
-                option = _currentCommand.GetOptions().SingleOrDefault(o => string.Equals(arg.Name, o.ShortName, StringComparison.Ordinal));
+                option = _currentCommand.GetOptions().SingleOrDefault(o => string.Equals(arg.Name, o.ShortName, _currentCommand.OptionsComparison));
 
                 if (option == null)
                 {
-                    option = _currentCommand.GetOptions().SingleOrDefault(o => string.Equals(arg.Name, o.SymbolName, StringComparison.Ordinal));
+                    option = _currentCommand.GetOptions().SingleOrDefault(o => string.Equals(arg.Name, o.SymbolName, _currentCommand.OptionsComparison));
                 }
             }
             else
             {
-                option = _currentCommand.GetOptions().SingleOrDefault(o => string.Equals(arg.Name, o.LongName, StringComparison.Ordinal));
+                option = _currentCommand.GetOptions().SingleOrDefault(o => string.Equals(arg.Name, o.LongName, _currentCommand.OptionsComparison));
             }
 
             if (option == null)
