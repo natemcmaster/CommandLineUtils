@@ -6,9 +6,14 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class VersionOptionAttributeConvention : OptionAttributeConventionBase<VersionOptionAttribute>, IConvention
+    /// <summary>
+    /// Sets <see cref="CommandLineApplication.OptionVersion"/> using settings from
+    /// <see cref="VersionOptionAttribute"/> on the model type of <see cref="CommandLineApplication{TModel}"/>.
+    /// </summary>
+    public class VersionOptionAttributeConvention : OptionAttributeConventionBase<VersionOptionAttribute>, IConvention
     {
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.ModelType == null)
             {

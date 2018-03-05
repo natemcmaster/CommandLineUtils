@@ -6,9 +6,14 @@ using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class SubcommandPropertyConvention : IConvention
+    /// <summary>
+    /// Sets a property named <c>Subcommand</c> to the value of the selected subcommand
+    /// model type of <see cref="CommandLineApplication{TModel}"/>.
+    /// </summary>
+    public class SubcommandPropertyConvention : IConvention
     {
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.ModelType == null)
             {

@@ -5,9 +5,14 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class CommandAttributeConvention : IConvention
+    /// <summary>
+    /// Adds settings from <see cref="CommandAttribute"/> set
+    /// on the model type for <see cref="CommandLineApplication{TModel}"/>.
+    /// </summary>
+    public class CommandAttributeConvention : IConvention
     {
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.ModelType == null)
             {

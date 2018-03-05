@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -29,10 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public ParseResult Process()
         {
-            var parseResult = new ParseResult
-            {
-                InitialCommand = _initialCommand
-            };
+            var parseResult = new ParseResult();
             _currentCommand = _initialCommand;
             _currentCommandArguments = null;
             while (_enumerator.MoveNext())

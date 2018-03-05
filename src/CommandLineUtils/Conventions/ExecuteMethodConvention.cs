@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class ExecuteMethodConvention : IConvention
+    /// <summary>
+    /// Sets <see cref="CommandLineApplication.Invoke"/> to call a method named
+    /// <c>OnExecute</c> or <c>OnExecuteAsync</c> on the model type
+    /// of <see cref="CommandLineApplication{TModel}"/>.
+    /// </summary>
+    public class ExecuteMethodConvention : IConvention
     {
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.ModelType == null)
             {

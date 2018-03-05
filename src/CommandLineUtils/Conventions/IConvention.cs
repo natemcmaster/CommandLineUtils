@@ -9,7 +9,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
     public interface IConvention
     {
         /// <summary>
-        /// Apply the convention
+        /// Apply the convention.
         /// </summary>
         /// <param name="context">The context in which the convention is applied.</param>
         void Apply(ConventionContext context);

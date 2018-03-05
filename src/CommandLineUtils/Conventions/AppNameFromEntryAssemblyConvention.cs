@@ -5,9 +5,14 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class AppNameFromEntryAssemblyConvention : IConvention
+    /// <summary>
+    /// Sets <see cref="CommandLineApplication.Name"/> using the name of the entry assembly
+    /// to the current application. It is only applied if the name is null.
+    /// </summary>
+    public class AppNameFromEntryAssemblyConvention : IConvention
     {
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.Application.Name != null)
             {

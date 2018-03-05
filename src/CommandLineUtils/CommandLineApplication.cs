@@ -425,13 +425,11 @@ namespace McMaster.Extensions.CommandLineUtils
             Invoke = () => invoke().GetAwaiter().GetResult();
         }
 
-        // TODO: make experimental API public after it settles.
-
         /// <summary>
         /// Adds a callback that is invoked when all command line arguments have been parsed, but before validation.
         /// </summary>
         /// <param name="callback"></param>
-        internal void OnParsed(Action<ParseResult> callback)
+        public void OnParsed(Action<ParseResult> callback)
         {
             if (callback == null)
             {
@@ -442,7 +440,12 @@ namespace McMaster.Extensions.CommandLineUtils
             _onParsed.Add(callback);
         }
 
-        internal ParseResult Parse(params string[] args)
+        /// <summary>
+        /// Parses an array of strings, matching them against <see cref="Options"/>, <see cref="Arguments"/>, and <see cref="Commands"/>.
+        /// </summary>
+        /// <param name="args">Command line arguments.</param>
+        /// <returns>The result of parsing.</returns>
+        public ParseResult Parse(params string[] args)
         {
             args = args ?? new string[0];
 
@@ -452,7 +455,11 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
-        private protected virtual void HandleParseResult(ParseResult parseResult)
+        /// <summary>
+        /// Handle the result of parsing command line arguments.
+        /// </summary>
+        /// <param name="parseResult">The parse result.</param>
+        protected virtual void HandleParseResult(ParseResult parseResult)
         {
             Parent?.HandleParseResult(parseResult);
 
@@ -466,8 +473,19 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Parses an array of strings, matching them against <see cref="Options"/>, <see cref="Arguments"/>, and <see cref="Commands"/>.
-        /// If this command is matched, it will invoke <see cref="Invoke"/>.
+        /// Parses an array of strings using <see cref="Parse(string[])"/>.
+        /// <para>
+        /// If <see cref="OptionHelp"/> was matched, the generated help text is displayed in command line output.
+        /// </para>
+        /// <para>
+        /// If <see cref="OptionVersion"/> was matched, the generated version info is displayed in command line output.
+        /// </para>
+        /// <para>
+        /// If there were any validation errors produced from <see cref="GetValidationResult"/>, <see cref="ValidationErrorHandler"/> is invoked.
+        /// </para>
+        /// <para>
+        /// If the parse result matches this command, <see cref="Invoke"/> will be invoked.
+        /// </para>
         /// </summary>
         /// <param name="args"></param>
         /// <returns>The return code from <see cref="Invoke"/>.</returns>

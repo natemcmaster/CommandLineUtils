@@ -8,12 +8,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
+using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class ArgumentAttributeConvention : IConvention
+    /// <summary>
+    /// Adds a <see cref="CommandArgument"/> for each <see cref="ArgumentAttribute"/>
+    /// on the model type for <see cref="CommandLineApplication{TModel}"/>.
+    /// </summary>
+    public class ArgumentAttributeConvention : IConvention
     {
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.ModelType == null)
             {

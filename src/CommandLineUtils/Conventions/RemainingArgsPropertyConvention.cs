@@ -7,12 +7,18 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class RemainingArgsPropertyConvention : IConvention
+    /// <summary>
+    /// Sets a property named <c>RemainingArguments</c> or <c>RemainingArgs</c>
+    /// on the model type on <see cref="CommandLineApplication{TModel}"/>
+    /// to the value of <see cref="CommandLineApplication.RemainingArguments"/>.
+    /// </summary>
+    public class RemainingArgsPropertyConvention : IConvention
     {
         private const BindingFlags PropertyBindingFlags =
             BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
 
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.ModelType == null)
             {

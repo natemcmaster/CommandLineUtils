@@ -7,9 +7,14 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class SubcommandAttributeConvention : IConvention
+    /// <summary>
+    /// Creates a subcommand for each <see cref="SubcommandAttribute"/>
+    /// on the model type of <see cref="CommandLineApplication{TModel}"/>.
+    /// </summary>
+    public class SubcommandAttributeConvention : IConvention
     {
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.ModelType == null)
             {

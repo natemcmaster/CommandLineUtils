@@ -5,13 +5,18 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal abstract class OptionAttributeConventionBase<TAttribute>
+    /// <summary>
+    /// Shared implementation for adding conventions based on <see cref="OptionAttributeBase"/>.
+    /// </summary>
+    /// <typeparam name="TAttribute"></typeparam>
+    public abstract class OptionAttributeConventionBase<TAttribute>
         where TAttribute : OptionAttributeBase
     {
-        protected void AddOption(ConventionContext context, CommandOption option, PropertyInfo prop)
+        private protected void AddOption(ConventionContext context, CommandOption option, PropertyInfo prop)
         {
             foreach (var attr in prop.GetCustomAttributes().OfType<ValidationAttribute>())
             {
@@ -89,7 +94,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
         }
 
-        protected static void EnsureDoesNotHaveArgumentAttribute(PropertyInfo prop)
+        private protected static void EnsureDoesNotHaveArgumentAttribute(PropertyInfo prop)
         {
             var argumentAttr = prop.GetCustomAttribute<ArgumentAttribute>();
             if (argumentAttr != null)

@@ -6,9 +6,14 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class HelpOptionAttributeConvention : OptionAttributeConventionBase<HelpOptionAttribute>, IConvention
+    /// <summary>
+    /// Sets <see cref="CommandLineApplication.OptionHelp"/> based on the usage of
+    /// <see cref="HelpOptionAttribute"/>.
+    /// </summary>
+    public class HelpOptionAttributeConvention : OptionAttributeConventionBase<HelpOptionAttribute>, IConvention
     {
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.ModelType == null)
             {

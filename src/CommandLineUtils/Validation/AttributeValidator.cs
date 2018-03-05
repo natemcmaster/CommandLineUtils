@@ -4,19 +4,31 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using McMaster.Extensions.CommandLineUtils.Validation;
 
-namespace McMaster.Extensions.CommandLineUtils
+namespace McMaster.Extensions.CommandLineUtils.Validation
 {
-    internal class AttributeValidator : IValidator
+    /// <summary>
+    /// A validator that uses a <see cref="ValidationAttribute"/> to validate a command line option or argument.
+    /// </summary>
+    public class AttributeValidator : IValidator
     {
         private readonly ValidationAttribute _attribute;
 
+        /// <summary>
+        /// Initializes an instance of <see cref="AttributeValidator"/>.
+        /// </summary>
+        /// <param name="attribute"></param>
         public AttributeValidator(ValidationAttribute attribute)
         {
             _attribute = attribute ?? throw new ArgumentNullException(nameof(attribute));
         }
 
+        /// <summary>
+        /// Gets the validation result for a command line option.
+        /// </summary>
+        /// <param name="option"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public ValidationResult GetValidationResult(CommandOption option, ValidationContext context)
         {
             if (_attribute is RequiredAttribute && option.OptionType == CommandOptionType.NoValue)
@@ -30,6 +42,12 @@ namespace McMaster.Extensions.CommandLineUtils
             return GetValidationResult(option.Values, context);
         }
 
+        /// <summary>
+        /// Gets the validation result for a command line argument.
+        /// </summary>
+        /// <param name="argument"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public ValidationResult GetValidationResult(CommandArgument argument, ValidationContext context)
             => GetValidationResult(argument.Values, context);
 

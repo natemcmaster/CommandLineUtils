@@ -6,9 +6,14 @@ using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class ParentPropertyConvention : IConvention
+    /// <summary>
+    /// Sets a property named <c>Parent</c> on the model type to the value
+    /// of the model of the parent command.
+    /// </summary>
+    public class ParentPropertyConvention : IConvention
     {
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.ModelType == null)
             {

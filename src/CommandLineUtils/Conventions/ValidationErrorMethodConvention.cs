@@ -5,9 +5,14 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class ValidationErrorMethodConvention : IConvention
+    /// <summary>
+    /// Invokes a method named <c>OnValidationError</c> on the model type of <see cref="CommandLineApplication{TModel}"/>
+    /// to handle validation errors.
+    /// </summary>
+    public class ValidationErrorMethodConvention : IConvention
     {
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.ModelType == null)
             {

@@ -6,9 +6,14 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    internal class OptionAttributeConvention : OptionAttributeConventionBase<OptionAttribute>, IConvention
+    /// <summary>
+    /// Adds an <see cref="CommandOption"/> to match each usage of <see cref="OptionAttribute"/>
+    /// on the model type of <see cref="CommandLineApplication{TModel}"/>.
+    /// </summary>
+    public class OptionAttributeConvention : OptionAttributeConventionBase<OptionAttribute>, IConvention
     {
-        public void Apply(ConventionContext context)
+        /// <inheritdoc />
+        public virtual void Apply(ConventionContext context)
         {
             if (context.ModelType == null)
             {

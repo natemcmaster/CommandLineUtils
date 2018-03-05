@@ -3,6 +3,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using McMaster.Extensions.CommandLineUtils.Validation;
 using Xunit;
 using Xunit.Abstractions;
 

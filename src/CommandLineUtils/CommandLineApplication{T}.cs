@@ -89,14 +89,15 @@ namespace McMaster.Extensions.CommandLineUtils
             return Activator.CreateInstance<TModel>();
         }
 
-        private protected override ConventionContext CreateConventionContext() => new ConventionContext(this, typeof(TModel));
-
-        private protected override void HandleParseResult(ParseResult parseResult)
+        /// <inheritdoc />
+        protected override void HandleParseResult(ParseResult parseResult)
         {
             (this as IModelAccessor).GetModel();
 
             base.HandleParseResult(parseResult);
         }
+
+        private protected override ConventionContext CreateConventionContext() => new ConventionContext(this, typeof(TModel));
 
         void IDisposable.Dispose()
         {
