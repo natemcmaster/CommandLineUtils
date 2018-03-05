@@ -67,6 +67,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public ResponseFileHandling ResponseFileHandling { get; set; } = ResponseFileHandling.Disabled;
 
+        /// <summary>
+        /// The way arguments and options are matched.
+        /// </summary>
+        public StringComparison OptionsComparison { get; set; } = StringComparison.Ordinal;
+
         internal void Configure(CommandLineApplication app)
         {
             // this might have been set from SubcommandAttribute
@@ -79,6 +84,7 @@ namespace McMaster.Extensions.CommandLineUtils
             app.ResponseFileHandling = ResponseFileHandling;
             app.ShowInHelpText = ShowInHelpText;
             app.ThrowOnUnexpectedArgument = ThrowOnUnexpectedArgument;
+            app.OptionsComparison = OptionsComparison;
         }
     }
 }

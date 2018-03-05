@@ -241,6 +241,11 @@ namespace McMaster.Extensions.CommandLineUtils
         public ResponseFileHandling ResponseFileHandling { get; set; }
 
         /// <summary>
+        /// The way arguments and options are matched.
+        /// </summary>
+        public StringComparison OptionsComparison { get; set; }
+
+        /// <summary>
         /// <para>
         /// Defines the working directory of the application. Defaults to <see cref="Directory.GetCurrentDirectory"/>.
         /// </para>

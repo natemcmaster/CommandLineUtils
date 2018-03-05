@@ -830,6 +830,28 @@ Examples:
             Assert.True(optLittle.HasValue(), "force should be set");
         }
 
+        [Fact]
+        public void OptionsCanBeCaseInsensitive()
+        {
+            var app = new CommandLineApplication();
+            app.OptionsComparison = StringComparison.OrdinalIgnoreCase;
+            var optBig = app.Option("-F|--file", "File", CommandOptionType.NoValue);
+
+            app.Execute("-f");
+            Assert.True(optBig.HasValue(), "File should be set");
+        }
+
+        [Fact]
+        public void LongOptionsCanBeCaseInsensitive()
+        {
+            var app = new CommandLineApplication();
+            app.OptionsComparison = StringComparison.OrdinalIgnoreCase;
+            var optBig = app.Option("-F|--file", "File", CommandOptionType.NoValue);
+
+            app.Execute("--File");
+            Assert.True(optBig.HasValue(), "File should be set");
+        }
+
         // Assert compatibility with 2.0.0 and Microsoft.Extensions.CommandLineUtils.
         [Fact]
         public void CommandNamesCannotDifferByCase()
