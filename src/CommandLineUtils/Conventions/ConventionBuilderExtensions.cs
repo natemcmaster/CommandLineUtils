@@ -30,7 +30,8 @@ namespace McMaster.Extensions.CommandLineUtils
                 .SetSubcommandPropertyOnModel()
                 .SetParentPropertyOnModel()
                 .UseOnExecuteMethodFromModel()
-                .UseOnValidationErrorMethodFromModel();
+                .UseOnValidationErrorMethodFromModel()
+                .UseConstructorInjection();
         }
 
         /// <summary>
@@ -163,5 +164,20 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseOnExecuteMethodFromModel(this IConventionBuilder builder)
             => builder.AddConvention(new ExecuteMethodConvention());
+
+        /// <summary>
+        /// Enables using constructor injection to initialize the model type.
+        /// </summary>
+        /// <param name="builder"></param>
+        public static IConventionBuilder UseConstructorInjection(this IConventionBuilder builder)
+            => builder.AddConvention(new ConstructorInjectionConvention());
+
+        /// <summary>
+        /// Enables using constructor injection to initialize the model type.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="additionalServices">Additional services that should be passed to the service provider.</param>
+        public static IConventionBuilder UseConstructorInjection(this IConventionBuilder builder, IServiceProvider additionalServices)
+            => builder.AddConvention(new ConstructorInjectionConvention(additionalServices));
     }
 }

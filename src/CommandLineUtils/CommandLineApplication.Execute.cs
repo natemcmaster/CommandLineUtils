@@ -26,7 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static int Execute<TApp>(CommandLineContext context)
-            where TApp : class, new()
+            where TApp : class
         {
             if (context == null)
             {
@@ -75,7 +75,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static int Execute<TApp>(params string[] args)
-            where TApp : class, new()
+            where TApp : class
             => Execute<TApp>(PhysicalConsole.Singleton, args);
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static int Execute<TApp>(IConsole console, params string[] args)
-            where TApp : class, new()
+            where TApp : class
         {
             args = args ?? new string[0];
             var context = new DefaultCommandLineContext(console, Directory.GetCurrentDirectory(), args);
@@ -108,7 +108,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static Task<int> ExecuteAsync<TApp>(params string[] args)
-        where TApp : class, new()
+        where TApp : class
         => ExecuteAsync<TApp>(PhysicalConsole.Singleton, args);
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static Task<int> ExecuteAsync<TApp>(IConsole console, params string[] args)
-            where TApp : class, new()
+            where TApp : class
         {
             args = args ?? new string[0];
             var context = new DefaultCommandLineContext(console, Directory.GetCurrentDirectory(), args);
@@ -141,7 +141,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static Task<int> ExecuteAsync<TApp>(CommandLineContext context)
-            where TApp : class, new()
+            where TApp : class
             => Task.FromResult(Execute<TApp>(context));
     }
 }

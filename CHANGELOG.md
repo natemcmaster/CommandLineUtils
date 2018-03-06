@@ -8,6 +8,7 @@ New features:
   - Added `CommandLineApplication<TModel>`. This allows associating an application with a specific .NET type
   - Convention API. Adds support for writing your own conventions to convert command line arguments into a .NET type
   - [@sebastienros] - Support for case-insensitive options
+  - Add support for constructor injection and dependency injection by providing a custom service provider
 
 ## [v2.2.0-alpha]
 

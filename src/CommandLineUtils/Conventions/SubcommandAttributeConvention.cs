@@ -46,7 +46,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             = typeof(SubcommandAttributeConvention).GetRuntimeMethods().Single(m => m.Name == nameof(AddSubcommandImpl));
 
         private void AddSubcommandImpl<TSubCommand>(ConventionContext context, SubcommandAttribute subcommand)
-            where TSubCommand : class, new()
+            where TSubCommand : class
         {
             if (context.Application.Commands.Any(c => c.Name.Equals(subcommand.Name, StringComparison.OrdinalIgnoreCase)))
             {

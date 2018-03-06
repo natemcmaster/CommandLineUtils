@@ -58,7 +58,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
-                    context.Application.OnParsed(_ =>
+                    context.Application.OnParsingComplete(_ =>
                         setter.Invoke(context.ModelAccessor.GetModel(), collectionParser.Parse(option.LongName, option.Values)));
                     break;
                 case CommandOptionType.SingleOrNoValue:
@@ -67,7 +67,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
-                    context.Application.OnParsed(_ =>
+                    context.Application.OnParsingComplete(_ =>
                         setter.Invoke(context.ModelAccessor.GetModel(), valueTupleParser.Parse(option.HasValue(), option.LongName, option.Value())));
                     break;
                 case CommandOptionType.SingleValue:
@@ -76,7 +76,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
-                    context.Application.OnParsed(_ =>
+                    context.Application.OnParsingComplete(_ =>
                     {
                         var value = option.Value();
                         if (value == null)
@@ -87,7 +87,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     });
                     break;
                 case CommandOptionType.NoValue:
-                    context.Application.OnParsed(_ => setter.Invoke(context.ModelAccessor.GetModel(), option.HasValue()));
+                    context.Application.OnParsingComplete(_ => setter.Invoke(context.ModelAccessor.GetModel(), option.HasValue()));
                     break;
                 default:
                     throw new NotImplementedException();

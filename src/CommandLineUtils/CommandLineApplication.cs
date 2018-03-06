@@ -21,9 +21,9 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Describes a set of command line arguments, options, and execution behavior.
     /// <see cref="CommandLineApplication"/> can be nested to support subcommands.
     /// </summary>
-    public partial class CommandLineApplication
+    public partial class CommandLineApplication : IServiceProvider
     {
-        private List<Action<ParseResult>> _onParsed;
+        private List<Action<ParseResult>> _onParsingComplete;
         internal readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
         internal readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
 
@@ -34,6 +34,7 @@ namespace McMaster.Extensions.CommandLineUtils
         internal CommandLineContext _context;
         private IHelpTextGenerator _helpTextGenerator;
         private CommandOption _optionHelp;
+        private readonly Lazy<IServiceProvider> _services;
         private readonly ConventionContext _conventionContext;
         private readonly List<IConvention> _conventions = new List<IConvention>();
 
@@ -92,6 +93,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Invoke = () => 0;
             ValidationErrorHandler = DefaultValidationErrorHandler;
             SetContext(context);
+            _services = new Lazy<IServiceProvider>(() => new ServiceProvider(this));
 
             _conventionContext = CreateConventionContext();
 
@@ -431,18 +433,18 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Adds a callback that is invoked when all command line arguments have been parsed, but before validation.
+        /// Adds an action to be invoked when all command line arguments have been parsed and validated.
         /// </summary>
-        /// <param name="callback"></param>
-        public void OnParsed(Action<ParseResult> callback)
+        /// <param name="action">The action to be invoked</param>
+        public void OnParsingComplete(Action<ParseResult> action)
         {
-            if (callback == null)
+            if (action == null)
             {
-                throw new ArgumentNullException(nameof(callback));
+                throw new ArgumentNullException(nameof(action));
             }
 
-            _onParsed = _onParsed ?? new List<Action<ParseResult>>();
-            _onParsed.Add(callback);
+            _onParsingComplete = _onParsingComplete ?? new List<Action<ParseResult>>();
+            _onParsingComplete.Add(action);
         }
 
         /// <summary>
@@ -468,11 +470,11 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             Parent?.HandleParseResult(parseResult);
 
-            if (_onParsed != null)
+            if (_onParsingComplete != null)
             {
-                foreach (var callback in _onParsed)
+                foreach (var action in _onParsingComplete)
                 {
-                    callback?.Invoke(parseResult);
+                    action?.Invoke(parseResult);
                 }
             }
         }
@@ -779,6 +781,80 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             _settingContext = false;
+        }
+
+        internal IServiceProvider AdditionalServices { get; set; }
+
+        object IServiceProvider.GetService(Type serviceType) => _services.Value.GetService(serviceType);
+
+        private sealed class ServiceProvider : IServiceProvider
+        {
+            private readonly CommandLineApplication _parent;
+
+            public ServiceProvider(CommandLineApplication parent)
+            {
+                _parent = parent;
+            }
+
+            public object GetService(Type serviceType)
+            {
+                if (typeof(object) == serviceType)
+                {
+                    // this type is too generic. Skip this one.
+                    return null;
+                }
+
+                if (serviceType == typeof(CommandLineApplication))
+                {
+                    return _parent;
+                }
+
+                if (serviceType == _parent.GetType())
+                {
+                    return _parent;
+                }
+
+                if (_parent.AdditionalServices != null)
+                {
+                    var retVal = _parent.AdditionalServices.GetService(serviceType);
+                    if (retVal != null)
+                    {
+                        return retVal;
+                    }
+                }
+
+                if (serviceType == typeof(IConsole))
+                {
+                    return _parent._context.Console;
+                }
+
+                if (serviceType == typeof(IEnumerable<CommandOption>))
+                {
+                    return _parent.GetOptions();
+                }
+
+                if (serviceType == typeof(IEnumerable<CommandArgument>))
+                {
+                    return _parent.Arguments;
+                }
+
+                if (serviceType == typeof(CommandLineContext))
+                {
+                    return _parent._context;
+                }
+
+                if (serviceType == typeof(IServiceProvider))
+                {
+                    return this;
+                }
+
+                if (_parent.Parent is IModelAccessor accessor && serviceType == accessor.GetModelType())
+                {
+                    return accessor.GetModel();
+                }
+
+                return null;
+            }
         }
     }
 }

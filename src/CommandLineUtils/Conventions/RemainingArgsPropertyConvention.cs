@@ -37,7 +37,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             if (prop.PropertyType == typeof(string[]))
             {
-                context.Application.OnParsed(r =>
+                context.Application.OnParsingComplete(r =>
                     setter(context.ModelAccessor.GetModel(), r.SelectedCommand.RemainingArguments.ToArray()));
                 return;
             }
@@ -47,7 +47,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 throw new InvalidOperationException(Strings.RemainingArgsPropsIsUnassignable(typeInfo));
             }
 
-            context.Application.OnParsed(r =>
+            context.Application.OnParsingComplete(r =>
                 setter(context.ModelAccessor.GetModel(), r.SelectedCommand.RemainingArguments));
         }
     }

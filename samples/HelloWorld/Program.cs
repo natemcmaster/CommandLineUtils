@@ -1,28 +1,28 @@
-﻿// Copyright (c) Nate McMaster.
+// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
+using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 
 public class Program
 {
-    public static int Main(string[] args)
+    public static async Task Main(string[] args)
     {
-        var app = new CommandLineApplication();
+        // There are 3  sample project has a few simple entry programs.
 
-        app.HelpOption("-h|--help");
-        var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
+        // The builder API allows you to build an object of type CommandLineApplication
+        // and add new commands and settings to it.
+        BuilderApi.Main(args);
 
-        app.OnExecute(() =>
-        {
-            var subject = optionSubject.HasValue()
-                ? optionSubject.Value()
-                : "world";
+        // The attribute pattern is more declarative. You can define arguments and options
+        // as properties on a type and use attributes to mark how the properties should be treated.
+        Attributes.Main(args);
 
-            Console.WriteLine($"Hello {subject}!");
-            return 0;
-        });
+        // This async example shows how to use an async method in your command line application.
+        AsyncWithBuilderApi.Main(args);
 
-        return app.Execute(args);
+        // This async example shows how to use an async method with attributes.
+        await AsyncWithAttributes.Main(args);
     }
 }

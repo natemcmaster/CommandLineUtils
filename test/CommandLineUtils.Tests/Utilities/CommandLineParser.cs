@@ -11,7 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils
     internal static class CommandLineParser
     {
         public static T ParseArgs<T>(params string[] args)
-            where T : class, new()
+            where T : class
         {
             var app = new CommandLineApplication<T>(NullConsole.Singleton, Directory.GetCurrentDirectory(), true);
             app.Conventions.UseDefaultConventions();

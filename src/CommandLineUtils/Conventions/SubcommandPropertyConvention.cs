@@ -27,7 +27,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
 
             var setter = ReflectionHelper.GetPropertySetter(subcommandProp);
-            context.Application.OnParsed(r =>
+            context.Application.OnParsingComplete(r =>
             {
                 var subCommand = r.SelectedCommand;
                 while (subCommand != null)

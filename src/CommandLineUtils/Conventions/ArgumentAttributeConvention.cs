@@ -105,7 +105,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                 }
 
-                convention.Application.OnParsed(r =>
+                convention.Application.OnParsingComplete(r =>
                 {
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
@@ -121,7 +121,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                 }
 
-                convention.Application.OnParsed(r =>
+                convention.Application.OnParsingComplete(r =>
                 {
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {

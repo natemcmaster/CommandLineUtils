@@ -5,10 +5,10 @@ using System;
 using McMaster.Extensions.CommandLineUtils;
 
 [HelpOption]
-public class Program
+public class Attributes
 {
     public static int Main(string[] args)
-        => CommandLineApplication.Execute<Program>(args);
+        => CommandLineApplication.Execute<Attributes>(args);
 
     [Option(Description = "The subject")]
     public string Subject { get; }

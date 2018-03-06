@@ -16,6 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
         where TModel : class
     {
         private Lazy<TModel> _lazy;
+        private Func<TModel> _modelFactory = () => Activator.CreateInstance<TModel>();
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -78,15 +79,23 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public TModel Model => _lazy.Value;
 
+        Type IModelAccessor.GetModelType() => typeof(TModel);
+
         object IModelAccessor.GetModel() => Model;
 
         /// <summary>
         ///  Create an instance of <typeparamref name="TModel" />.
         /// </summary>
         /// <returns>An instance of the context.</returns>
-        protected virtual TModel CreateModel()
+        protected virtual TModel CreateModel() => ModelFactory();
+
+        /// <summary>
+        /// Defines the function that produces an instance of <typeparamref name="TModel" />.
+        /// </summary>
+        public Func<TModel> ModelFactory
         {
-            return Activator.CreateInstance<TModel>();
+            get => _modelFactory;
+            set => _modelFactory = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <inheritdoc />

@@ -2,10 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 
-public class Program
+public class BuilderApi
 {
     public static int Main(string[] args)
     {
@@ -14,17 +13,14 @@ public class Program
         app.HelpOption("-h|--help");
         var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
 
-        app.OnExecute(async () =>
+        app.OnExecute(() =>
         {
             var subject = optionSubject.HasValue()
                 ? optionSubject.Value()
                 : "world";
 
-            Console.Write($"Hello");
-
-            // This pause here is just for indication that some awaitable operation could happens here.
-            await Task.Delay(5000);
-            Console.WriteLine($" {subject}!");
+            Console.WriteLine($"Hello {subject}!");
+            return 0;
         });
 
         return app.Execute(args);
