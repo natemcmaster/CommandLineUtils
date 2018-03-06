@@ -1,8 +1,10 @@
 CommandLineUtils
 ================
 
+[![Travis build status][travis-badge]](https://travis-ci.org/natemcmaster/CommandLineUtils/branches)
 [![AppVeyor build status][appveyor-badge]](https://ci.appveyor.com/project/natemcmaster/CommandLineUtils/branch/master)
 
+[travis-badge]: https://img.shields.io/travis/natemcmaster/CommandLineUtils/master.svg?label=travis&style=flat-square
 [appveyor-badge]: https://img.shields.io/appveyor/ci/natemcmaster/CommandLineUtils/master.svg?label=appveyor&style=flat-square
 
 [![NuGet][main-nuget-badge]][main-nuget] [![MyGet][main-myget-badge]][main-myget]
