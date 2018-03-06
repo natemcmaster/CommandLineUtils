@@ -1,0 +1,14 @@
+language: csharp
+sudo: false
+dist: trusty
+mono: none
+dotnet: 2.1.4
+before_install:
+  - bash <(curl -fsSL https://raw.githubusercontent.com/PowerShell/PowerShell/v6.0.1/tools/install-powershell.sh)
+script:
+  - ./build.ps1
+branches:
+  only:
+    - master
+    - develop
+    - travis
