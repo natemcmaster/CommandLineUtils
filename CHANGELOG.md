@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased]
+## [v2.2.0-beta]
+
+**March 7, 2018**
 
 New features:
   - Add `CommandOptionType.SingleOrNoValue`. Options of this type can be a switch, or have a value but only in the form `--param:value` or `--param=value`.
@@ -98,7 +100,8 @@ Other:
 [@rmcc13]: https://github.com/rmcc13
 [@sebastienros]: https://github.com/sebastienros
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-alpha...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-beta...HEAD
+[v2.2.0-beta]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-alpha...v2.2.0-beta
 [v2.2.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.1...v2.2.0-alpha
 [v2.1.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.0...v2.1.1
 [v2.1.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.1...v2.1.0
