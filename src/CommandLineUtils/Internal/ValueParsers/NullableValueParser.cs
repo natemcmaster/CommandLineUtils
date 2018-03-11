@@ -3,6 +3,8 @@
 
 namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 {
+    using System;
+
     internal class NullableValueParser : IValueParser
     {
         private readonly IValueParser _wrapped;
@@ -11,6 +13,15 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
         {
             _wrapped = boxedParser;
         }
+
+        public Type TargetType
+        {
+            get
+            {
+                throw new InvalidOperationException($"{nameof(NullableValueParser)} does not have a target type");
+            }
+        }
+
 
         public object Parse(string argName, string value)
         {

@@ -4,12 +4,16 @@
 
 namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 {
+    using System;
+
     internal class StringValueParser : IValueParser
     {
         private StringValueParser()
         { }
 
         public static StringValueParser Singleton { get; } = new StringValueParser();
+
+        public Type TargetType { get; } = typeof(string);
 
         public object Parse(string argName, string value) => value;
     }

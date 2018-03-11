@@ -3,6 +3,8 @@
 
 namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 {
+    using System;
+
     internal class ByteValueParser : IValueParser
     {
         private ByteValueParser()
@@ -10,11 +12,13 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 
         public static ByteValueParser Singleton { get; } = new ByteValueParser();
 
+        public Type TargetType { get; } = typeof(byte);
+
         public object Parse(string argName, string value)
         {
             if (!byte.TryParse(value, out var result))
             {
-                throw new CommandParsingException(null, $"Invalid value specified for {argName}. '{value}' is not a valid number.");
+                throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number.");
             }
             return result;
         }

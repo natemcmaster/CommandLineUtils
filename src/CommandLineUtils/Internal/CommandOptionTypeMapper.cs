@@ -15,11 +15,14 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static CommandOptionTypeMapper Default { get; } = new CommandOptionTypeMapper();
 
-        public bool TryGetOptionType(Type clrType, out CommandOptionType optionType)
+        public bool TryGetOptionType(
+            Type clrType,
+            ValueParserProvider valueParsers,
+            out CommandOptionType optionType)
         {
             try
             {
-                optionType = GetOptionType(clrType);
+                optionType = GetOptionType(clrType, valueParsers);
                 return true;
             }
             catch
@@ -29,7 +32,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        public CommandOptionType GetOptionType(Type clrType)
+        public CommandOptionType GetOptionType(Type clrType, ValueParserProvider valueParsers = null)
         {
             if (clrType == typeof(bool))
             {
@@ -57,12 +60,12 @@ namespace McMaster.Extensions.CommandLineUtils
                 var typeDef = typeInfo.GetGenericTypeDefinition();
                 if (typeDef == typeof(Nullable<>))
                 {
-                    return GetOptionType(typeInfo.GetGenericArguments().First());
+                    return GetOptionType(typeInfo.GetGenericArguments().First(), valueParsers);
                 }
 
                 if (typeDef == typeof(Tuple<,>) && typeInfo.GenericTypeArguments[0] == typeof(bool))
                 {
-                    if (GetOptionType(typeInfo.GenericTypeArguments[1]) == CommandOptionType.SingleValue)
+                    if (GetOptionType(typeInfo.GenericTypeArguments[1], valueParsers) == CommandOptionType.SingleValue)
                     {
                         return CommandOptionType.SingleOrNoValue;
                     }
@@ -70,7 +73,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 if (typeDef == typeof(ValueTuple<,>) && typeInfo.GenericTypeArguments[0] == typeof(bool))
                 {
-                    if (GetOptionType(typeInfo.GenericTypeArguments[1]) == CommandOptionType.SingleValue)
+                    if (GetOptionType(typeInfo.GenericTypeArguments[1], valueParsers) == CommandOptionType.SingleValue)
                     {
                         return CommandOptionType.SingleOrNoValue;
                     }
@@ -90,7 +93,12 @@ namespace McMaster.Extensions.CommandLineUtils
                 return CommandOptionType.SingleValue;
             }
 
-            throw new ArgumentException("Could not determine CommandOptionType", nameof(clrType));
+            if (valueParsers?.GetParser(clrType) != null)
+            {
+                return CommandOptionType.SingleValue;
+            }
+
+            throw new ArgumentException("Could not determine CommandOptionType", clrType.Name);
         }
     }
 }

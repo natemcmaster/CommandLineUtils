@@ -3,6 +3,8 @@
 
 namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 {
+    using System;
+
     internal class FloatValueParser : IValueParser
     {
         private FloatValueParser()
@@ -10,11 +12,13 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 
         public static FloatValueParser Singleton { get; } = new FloatValueParser();
 
+        public Type TargetType { get; } = typeof(float);
+
         public object Parse(string argName, string value)
         {
             if (!float.TryParse(value, out var result))
             {
-                throw new CommandParsingException(null, $"Invalid value specified for {argName}. '{value}' is not a valid floating-point number.");
+                throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid floating-point number.");
             }
             return result;
         }

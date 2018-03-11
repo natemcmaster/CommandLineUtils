@@ -3,6 +3,8 @@
 
 namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 {
+    using System;
+
     internal class Int64ValueParser : IValueParser
     {
         private Int64ValueParser()
@@ -10,11 +12,13 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 
         public static Int64ValueParser Singleton { get; } = new Int64ValueParser();
 
+        public Type TargetType { get; } = typeof(long);
+
         public object Parse(string argName, string value)
         {
             if (!long.TryParse(value, out var result))
             {
-                throw new CommandParsingException(null, $"Invalid value specified for {argName}. '{value}' is not a valid number.");
+                throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number.");
             }
             return result;
         }

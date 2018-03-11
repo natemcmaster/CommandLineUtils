@@ -14,6 +14,14 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
             _enumType = enumType;
         }
 
+        public Type TargetType
+        {
+            get
+            {
+                throw new InvalidOperationException($"{nameof(NullableValueParser)} does not have a target type");
+            }
+        }
+
         public object Parse(string argName, string value)
         {
             try
@@ -22,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
             }
             catch
             {
-                throw new CommandParsingException(null, $"Invalid value specified for {argName}. Allowed values are: {string.Join(", ", Enum.GetNames(_enumType))}.");
+                throw new FormatException($"Invalid value specified for {argName}. Allowed values are: {string.Join(", ", Enum.GetNames(_enumType))}.");
             }
         }
     }

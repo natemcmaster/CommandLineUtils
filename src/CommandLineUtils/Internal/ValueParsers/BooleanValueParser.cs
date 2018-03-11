@@ -3,6 +3,8 @@
 
 namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 {
+    using System;
+
     internal class BooleanValueParser : IValueParser
     {
         private BooleanValueParser()
@@ -10,11 +12,13 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 
         public static BooleanValueParser Singleton { get; } = new BooleanValueParser();
 
+        public Type TargetType { get; } = typeof(bool);
+
         public object Parse(string argName, string value)
         {
             if (!bool.TryParse(value, out var result))
             {
-                throw new CommandParsingException(null, $"Invalid value specified for {argName}. Cannot convert '{value}' to a boolean.");
+                throw new FormatException($"Invalid value specified for {argName}. Cannot convert '{value}' to a boolean.");
             }
             return result;
         }
