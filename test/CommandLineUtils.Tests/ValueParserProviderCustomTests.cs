@@ -200,7 +200,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 });
 
             Assert.Contains(
-                "Value parser provider for type 'System.ValueTuple`3[System.Int32,System.Double,System.String]' is already registered.",
+                "Value parser provider for type 'System.ValueTuple`3[System.Int32,System.Double,System.String]' already exists.",
                 ex.Message);
         }
 

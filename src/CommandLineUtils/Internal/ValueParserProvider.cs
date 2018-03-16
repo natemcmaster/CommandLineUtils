@@ -141,7 +141,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 else
                 {
                     throw new ArgumentException(
-                        $"Value parser provider for type '{targetType}' is already exists.");
+                        $"Value parser provider for type '{targetType}' already exists.");
                 }
             }
 
