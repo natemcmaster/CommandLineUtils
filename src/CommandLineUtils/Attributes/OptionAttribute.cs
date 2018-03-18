@@ -3,6 +3,7 @@
 
 using System;
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.ValueParsers;
 
 namespace McMaster.Extensions.CommandLineUtils
 {

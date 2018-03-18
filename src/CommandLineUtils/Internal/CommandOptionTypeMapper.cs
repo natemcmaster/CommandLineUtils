@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.ValueParsers;
 
 namespace McMaster.Extensions.CommandLineUtils
 {

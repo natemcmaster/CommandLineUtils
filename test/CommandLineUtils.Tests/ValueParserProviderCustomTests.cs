@@ -5,6 +5,7 @@ using System;
 using System.Globalization;
 using System.Collections.Generic;
 using Xunit;
+using  McMaster.Extensions.CommandLineUtils.ValueParsers;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {

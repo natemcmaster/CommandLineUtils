@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.ValueParsers;
 
-namespace McMaster.Extensions.CommandLineUtils
+namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 {
     /// <summary>
     /// A store of value parsers that are used to convert argument values from strings to types.
