@@ -18,7 +18,8 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
         {
             get
             {
-                throw new InvalidOperationException($"{nameof(NullableValueParser)} does not have a target type");
+                // Note: Because Enum's are a special case, this value is never used
+                return _enumType;
             }
         }
 

@@ -132,7 +132,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 ? wrappedType
                 : targetType;
             
-            if (this._parsers.ContainsKey(targetType))
+            if (_parsers.ContainsKey(targetType))
             {
                 if (andReplace)
                 {
@@ -145,7 +145,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
 
-            this._parsers.Add(targetType, parser);
+            _parsers.Add(targetType, parser);
         }
     }
 }
