@@ -14,7 +14,6 @@ using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Conventions;
 using McMaster.Extensions.CommandLineUtils.HelpText;
 using McMaster.Extensions.CommandLineUtils.Internal;
-using McMaster.Extensions.CommandLineUtils.ValueParsers;
 
 namespace McMaster.Extensions.CommandLineUtils
 {

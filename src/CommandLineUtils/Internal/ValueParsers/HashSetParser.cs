@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace McMaster.Extensions.CommandLineUtils.ValueParsers
+namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
     internal class HashSetParser : ICollectionParser
     {

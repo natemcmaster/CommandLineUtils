@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace McMaster.Extensions.CommandLineUtils.ValueParsers
+namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
     internal class ArrayParser : ICollectionParser
     {

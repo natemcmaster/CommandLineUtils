@@ -1,14 +1,12 @@
-﻿// Copyright (c) Nate McMaster.
+// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using McMaster.Extensions.CommandLineUtils.ValueParsers;
-
-namespace McMaster.Extensions.CommandLineUtils.ValueParsers
+namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Reflection;
+
     /// <summary>
     /// A store of value parsers that are used to convert argument values from strings to types.
     /// </summary>
@@ -37,7 +35,7 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
 
         internal IValueParser GetParser(Type type)
         {
-            if (_parsers.TryGetValue(type, out var parser))
+            if (this._parsers.TryGetValue(type, out var parser))
             {
                 return parser;
             }
@@ -56,7 +54,7 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
                     return new NullableValueParser(new EnumParser(wrappedType));
                 }
 
-                if (_parsers.TryGetValue(wrappedType, out parser))
+                if (this._parsers.TryGetValue(wrappedType, out parser))
                 {
                     return new NullableValueParser(parser);
                 }
@@ -132,11 +130,11 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
                 ? wrappedType
                 : targetType;
             
-            if (_parsers.ContainsKey(targetType))
+            if (this._parsers.ContainsKey(targetType))
             {
                 if (andReplace)
                 {
-                    _parsers.Remove(targetType);
+                    this._parsers.Remove(targetType);
                 }
                 else
                 {
@@ -145,7 +143,7 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
                 }
             }
 
-            _parsers.Add(targetType, parser);
+            this._parsers.Add(targetType, parser);
         }
     }
 }
