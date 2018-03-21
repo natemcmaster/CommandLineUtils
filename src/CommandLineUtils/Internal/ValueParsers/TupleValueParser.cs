@@ -5,6 +5,8 @@ using System;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
+    using System.Globalization;
+
     internal class TupleValueParser<T> : ITupleValueParser
     {
         private readonly IValueParser _typeParser;
@@ -14,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             _typeParser = typeParser;
         }
 
-        public object Parse(bool hasValue, string argName, string value)
+        public object Parse(bool hasValue, string argName, string value, CultureInfo culture)
         {
             if (!hasValue)
             {
@@ -26,7 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 return Tuple.Create<bool, T>(true, default);
             }
 
-            return Tuple.Create(true, (T)_typeParser.Parse(argName, value));
+            return Tuple.Create(true, (T)_typeParser.Parse(argName, value, culture));
         }
     }
 }

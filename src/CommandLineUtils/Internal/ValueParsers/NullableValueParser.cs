@@ -4,6 +4,7 @@
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
     using System;
+    using System.Globalization;
 
     internal class NullableValueParser : IValueParser
     {
@@ -23,14 +24,14 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         }
 
 
-        public object Parse(string argName, string value)
+        public object Parse(string argName, string value, CultureInfo culture)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
                 return null;
             }
 
-            return _wrapped.Parse(argName, value);
+            return _wrapped.Parse(argName, value, culture);
         }
     }
 }

@@ -9,16 +9,18 @@ using  McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
+    using System.Linq;
+
     public class ValueParserProviderCustomTests
     {
 
-        private class MyDateTimeOffsetParser : IValueParser
+        internal class MyDateTimeOffsetParser : IValueParser
         {
             public Type TargetType { get; } = typeof(DateTimeOffset);
 
-            public object Parse(string argName, string value)
+            public object Parse(string argName, string value, CultureInfo culture)
             {
-                if (!DateTimeOffset.TryParse(value, out var result))
+                if (!DateTimeOffset.TryParse(value, culture, DateTimeStyles.None, out var result))
                 {
                     throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid date time (with offset)");
                 }
@@ -32,7 +34,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             public Type TargetType { get; } = typeof(ValueTuple<int, double, string>?);
 
-            public object Parse(string argName, string value)
+            public object Parse(string argName, string value, CultureInfo culture)
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
@@ -74,7 +76,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             public Type TargetType { get; } = typeof(double);
 
-            public object Parse(string argName, string value)
+            public object Parse(string argName, string value, CultureInfo culture)
             {
                 if (!double.TryParse(value, NumberStyles.Number, _iso80000NumberFormatInfo, out var result))
                 {
@@ -120,6 +122,31 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(expectedDate, model.DateTimeOffset);
             Assert.Equal(expectedDouble, model.Double);
             Assert.Equal(expectedComplexValue, model.ComplexValue);
+        }
+
+
+        private class DateParserProgram
+        {
+            [Argument(0)]
+            public DateTimeOffset DateTimeOffset { get; }
+        }
+
+        [Theory]
+        [InlineData(nameof(DateParserProgram.DateTimeOffset), "03/30/2017 3:03:03", "en-US")]
+        [InlineData(nameof(DateParserProgram.DateTimeOffset), "2017年03月30日 3:03:03", "zh-CN")]
+        public void DefaultCultureCanBeChanged(string property, string test, string culture)
+        {
+            var expected = new DateTimeOffset(2017, 3, 30, 3, 3, 3, DateTimeOffset.Now.Offset);
+
+            var cultureInfo = new CultureInfo(culture);
+            var app = new CommandLineApplication<DateParserProgram>();
+            app.ValueParsers.ParseCulture = cultureInfo;
+            app.ValueParsers.Add(new MyDateTimeOffsetParser());
+            app.Conventions.UseAttributes();
+            app.Parse(test);
+
+            var actual = (DateTimeOffset)typeof(DateParserProgram).GetProperty(property).GetMethod.Invoke(app.Model, null);
+            Assert.Equal(expected, actual);
         }
 
         private class CustomParserProgramOptions
@@ -170,7 +197,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             public Type TargetType { get; } = null;
 
-            public object Parse(string argName, string value)
+            public object Parse(string argName, string value, CultureInfo culture)
             {
                 throw new NotImplementedException();
             }

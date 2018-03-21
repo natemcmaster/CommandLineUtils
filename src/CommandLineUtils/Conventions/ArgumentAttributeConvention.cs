@@ -127,7 +127,12 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 {
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
-                        setter.Invoke(cmd.GetModel(), parser.Parse(argument.Name, argument.Value));
+                        setter.Invoke(
+                            cmd.GetModel(),
+                            parser.Parse(
+                                argument.Name,
+                                argument.Value,
+                                convention.Application.ValueParsers.ParseCulture));
                     }
                 });
             }

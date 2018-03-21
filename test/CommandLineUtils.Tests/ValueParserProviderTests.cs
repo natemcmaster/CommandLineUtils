@@ -8,6 +8,8 @@ using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
+    using System.Linq;
+
     public class ValueParserProviderTests
     {
         public enum Color
@@ -397,6 +399,21 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var parsed = CommandLineParser.ParseArgs<Program>("--color-opt", color.ToString().ToLowerInvariant());
             Assert.True(parsed.ColorOpt.HasValue, "Option should have value");
             Assert.Equal(color, parsed.ColorOpt);
+        }
+
+        [Theory]
+        [InlineData(nameof(Program.Float), "--float", "123.456,7", "de-DE", 123456.7f)]
+        [InlineData(nameof(Program.Double), "--double", "123.456,789", "de-DE", 123456.789)]
+        public void DefaultCultureCanBeChanged(string property, string option, string test, string culture, object expected)
+        {
+            var cultureInfo = new CultureInfo(culture);
+            var app = new CommandLineApplication<Program>();
+            app.ValueParsers.ParseCulture = cultureInfo;
+            app.Conventions.UseAttributes();
+            app.Parse(option, test);
+
+            var actual = typeof(Program).GetProperty(property).GetMethod.Invoke(app.Model, null);
+            Assert.Equal(expected, actual);
         }
 
         private class ArgumentProgram

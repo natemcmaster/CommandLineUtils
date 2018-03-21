@@ -7,17 +7,21 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
+    using System.Globalization;
+
     internal class HashSetParser : ICollectionParser
     {
         private readonly IValueParser _elementParser;
         private readonly Type _listType;
         private readonly MethodInfo _addMethod;
+        private readonly CultureInfo _parserCulture;
 
-        public HashSetParser(Type elementType, IValueParser elementParser)
+        public HashSetParser(Type elementType, IValueParser elementParser, CultureInfo parserCulture)
         {
             _elementParser = elementParser;
             _listType = typeof(HashSet<>).MakeGenericType(elementType);
             _addMethod = _listType.GetRuntimeMethod("Add", new[] { elementType });
+            _parserCulture = parserCulture;
         }
 
         public object Parse(string argName, IReadOnlyList<string> values)
@@ -25,7 +29,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             var set = Activator.CreateInstance(_listType, Constants.EmptyArray);
             for (var i = 0; i < values.Count; i++)
             {
-                _addMethod.Invoke(set, new object[] { _elementParser.Parse(argName, values[i]) });
+                _addMethod.Invoke(set, new object[] { _elementParser.Parse(argName, values[i], _parserCulture) });
             }
             return set;
         }

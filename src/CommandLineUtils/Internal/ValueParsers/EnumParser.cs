@@ -5,6 +5,8 @@ using System;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
+    using System.Globalization;
+
     internal class EnumParser : IValueParser
     {
         private readonly Type _enumType;
@@ -23,7 +25,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             }
         }
 
-        public object Parse(string argName, string value)
+        public object Parse(string argName, string value, CultureInfo culture)
         {
             try
             {

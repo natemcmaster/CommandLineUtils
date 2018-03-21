@@ -5,6 +5,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Reflection;
 
     /// <summary>
@@ -32,6 +33,14 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                     DoubleValueParser.Singleton,
                 });
         }
+
+        /// <summary>
+        /// Gets or sets the CultureInfo which is used to convert argument values to types.
+        /// </summary>
+        /// <remarks>
+        /// The default value is <see cref="CultureInfo.CurrentCulture"/>.
+        /// </remarks>
+        public CultureInfo ParseCulture { get; set; } = CultureInfo.CurrentCulture;
 
         internal IValueParser GetParser(Type type)
         {

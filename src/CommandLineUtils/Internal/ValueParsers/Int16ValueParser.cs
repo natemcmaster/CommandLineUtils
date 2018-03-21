@@ -4,6 +4,7 @@
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
     using System;
+    using System.Globalization;
 
     internal class Int16ValueParser : IValueParser
     {
@@ -14,9 +15,9 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         public Type TargetType { get; } = typeof(short);
 
-        public object Parse(string argName, string value)
+        public object Parse(string argName, string value, CultureInfo culture)
         {
-            if (!short.TryParse(value, out var result))
+            if (!short.TryParse(value, NumberStyles.Integer, culture, out var result))
             {
                 throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number.");
             }

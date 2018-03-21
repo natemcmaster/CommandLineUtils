@@ -4,6 +4,7 @@
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
     using System;
+    using System.Globalization;
 
     internal class DoubleValueParser : IValueParser
     {
@@ -14,12 +15,13 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         public Type TargetType { get; } = typeof(double);
 
-        public object Parse(string argName, string value)
+        public object Parse(string argName, string value, CultureInfo culture)
         {
-            if (!double.TryParse(value, out var result))
+            if (!double.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, culture.NumberFormat, out var result))
             {
                 throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid floating-point number.");
             }
+
             return result;
         }
     }

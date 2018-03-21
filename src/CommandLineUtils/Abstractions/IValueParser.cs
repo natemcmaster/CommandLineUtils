@@ -4,6 +4,7 @@
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
     using System;
+    using System.Globalization;
 
     /// <summary>
     /// The interface for defining a value parser.
@@ -20,8 +21,9 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// </summary>
         /// <param name="argName">The name of the argument this value will be bound to.</param>
         /// <param name="value">The raw string value to parse.</param>
+        /// <param name="culture">The culture that should be used to parse values.</param>
         /// <returns>The parsed value object.</returns>
         /// <throws name="System.FormatException">When the value cannot be parsed.</throws>
-        object Parse(string argName, string value);
+        object Parse(string argName, string value, CultureInfo culture);
     }
 }

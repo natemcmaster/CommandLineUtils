@@ -68,7 +68,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
                     context.Application.OnParsingComplete(_ =>
-                        setter.Invoke(context.ModelAccessor.GetModel(), valueTupleParser.Parse(option.HasValue(), option.LongName, option.Value())));
+                        setter.Invoke(context.ModelAccessor.GetModel(), valueTupleParser.Parse(option.HasValue(), option.LongName, option.Value(), context.Application.ValueParsers.ParseCulture)));
                     break;
                 case CommandOptionType.SingleValue:
                     var parser = context.Application.ValueParsers.GetParser(prop.PropertyType);
@@ -83,7 +83,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         {
                             return;
                         }
-                        setter.Invoke(context.ModelAccessor.GetModel(), parser.Parse(option.LongName, value));
+                        setter.Invoke(context.ModelAccessor.GetModel(), parser.Parse(option.LongName, value, context.Application.ValueParsers.ParseCulture));
                     });
                     break;
                 case CommandOptionType.NoValue:

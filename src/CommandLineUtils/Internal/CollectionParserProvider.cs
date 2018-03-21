@@ -27,7 +27,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     return null;
                 }
 
-                return new ArrayParser(elementType, elementParser);
+                return new ArrayParser(elementType, elementParser, valueParsers.ParseCulture);
             }
 
             var typeInfo = type.GetTypeInfo();
@@ -44,13 +44,13 @@ namespace McMaster.Extensions.CommandLineUtils
                     || typeof(IReadOnlyList<>) == typeDef
                     || typeof(List<>) == typeDef)
                 {
-                    return new ListParser(elementType, elementParser);
+                    return new ListParser(elementType, elementParser, valueParsers.ParseCulture);
                 }
 
                 if (typeof(ISet<>) == typeDef
                   || typeof(HashSet<>) == typeDef)
                 {
-                    return new HashSetParser(elementType, elementParser);
+                    return new HashSetParser(elementType, elementParser, valueParsers.ParseCulture);
                 }
             }
 

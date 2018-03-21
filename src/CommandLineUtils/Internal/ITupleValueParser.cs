@@ -3,11 +3,13 @@
 
 namespace McMaster.Extensions.CommandLineUtils
 {
+    using System.Globalization;
+
     /// <summary>
     /// Parses a value to Tuple{bool,} or ValueTuple{bool,}
     /// </summary>
     internal interface ITupleValueParser
     {
-        object Parse(bool hasValue, string argName, string value);
+        object Parse(bool hasValue, string argName, string value, CultureInfo culture);
     }
 }
