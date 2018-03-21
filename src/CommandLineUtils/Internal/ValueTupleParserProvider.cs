@@ -3,7 +3,7 @@
 
 using System;
 using System.Reflection;
-using McMaster.Extensions.CommandLineUtils.ValueParsers;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -12,7 +12,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private ValueTupleParserProvider() { }
         public static ValueTupleParserProvider Default { get; } = new ValueTupleParserProvider();
 
-        public ITupleValueParser GetParser(Type type)
+        public ITupleValueParser GetParser(Type type, ValueParserProvider valueParsers)
         {
             var typeInfo = type.GetTypeInfo();
             if (!typeInfo.IsGenericType)
@@ -22,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils
             var typeDef = typeInfo.GetGenericTypeDefinition();
             if (typeDef == typeof(Tuple<,>) && typeInfo.GenericTypeArguments[0] == typeof(bool))
             {
-                var innerParser = ValueParserProvider.Default.GetParser(typeInfo.GenericTypeArguments[1]);
+                var innerParser = valueParsers.GetParser(typeInfo.GenericTypeArguments[1]);
                 if (innerParser == null)
                 {
                     return null;
@@ -33,7 +33,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             if (typeDef == typeof(ValueTuple<,>) && typeInfo.GenericTypeArguments[0] == typeof(bool))
             {
-                var innerParser = ValueParserProvider.Default.GetParser(typeInfo.GenericTypeArguments[1]);
+                var innerParser = valueParsers.GetParser(typeInfo.GenericTypeArguments[1]);
                 if (innerParser == null)
                 {
                     return null;

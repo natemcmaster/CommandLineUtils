@@ -57,7 +57,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     return app.Execute(context.Arguments);
                 }
             }
-            catch (CommandParsingException ex)
+            catch (Exception ex) when (ex is CommandParsingException || ex is FormatException)
             {
                 context.Console.Error.WriteLine(ex.Message);
                 return ValidationErrorExitCode;

@@ -94,6 +94,7 @@ namespace McMaster.Extensions.CommandLineUtils
             ValidationErrorHandler = DefaultValidationErrorHandler;
             SetContext(context);
             _services = new Lazy<IServiceProvider>(() => new ServiceProvider(this));
+            ValueParsers =  new ValueParserProvider();
 
             _conventionContext = CreateConventionContext();
 
@@ -246,6 +247,19 @@ namespace McMaster.Extensions.CommandLineUtils
         /// The way arguments and options are matched.
         /// </summary>
         public StringComparison OptionsComparison { get; set; }
+
+        /// <summary>
+        /// Gets the default value parser provider.
+        /// <para>
+        /// The value parsers control how argument values are converted from strings to other types. Additional value
+        /// parsers can be added so that domain specific types can converted. In-built value parsers can also be replaced
+        /// for precise control of all type conversion. 
+        /// </para>
+        /// <remarks>
+        /// Value parsers are currently only used by the Attribute API.
+        /// </remarks>
+        /// </summary>
+        public ValueParserProvider ValueParsers { get; private set; }
 
         /// <summary>
         /// <para>

@@ -3,7 +3,7 @@
 
 using System;
 
-namespace McMaster.Extensions.CommandLineUtils.ValueParsers
+namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
     internal class TupleValueParser<T> : ITupleValueParser
     {

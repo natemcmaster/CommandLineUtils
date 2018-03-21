@@ -3,6 +3,7 @@
 
 using System;
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -66,7 +67,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         internal CommandOption Configure(CommandLineApplication app, PropertyInfo prop)
         {
-            var optionType = GetOptionType(prop);
+            var optionType = GetOptionType(prop, app.ValueParsers);
             CommandOption option;
             if (Template != null)
             {
@@ -94,14 +95,14 @@ namespace McMaster.Extensions.CommandLineUtils
             return option;
         }
 
-        private CommandOptionType GetOptionType(PropertyInfo prop)
+        private CommandOptionType GetOptionType(PropertyInfo prop, ValueParserProvider valueParsers)
         {
             CommandOptionType optionType;
             if (OptionType.HasValue)
             {
                 optionType = OptionType.Value;
             }
-            else if (!CommandOptionTypeMapper.Default.TryGetOptionType(prop.PropertyType, out optionType))
+            else if (!CommandOptionTypeMapper.Default.TryGetOptionType(prop.PropertyType, valueParsers, out optionType))
             {
                 throw new InvalidOperationException(Strings.CannotDetermineOptionType(prop));
             }

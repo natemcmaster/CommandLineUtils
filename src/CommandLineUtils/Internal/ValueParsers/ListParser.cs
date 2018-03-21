@@ -5,7 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace McMaster.Extensions.CommandLineUtils.ValueParsers
+namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
     internal class ListParser : ICollectionParser
     {

@@ -99,7 +99,9 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             if (argument.MultipleValues)
             {
-                var collectionParser = CollectionParserProvider.Default.GetParser(prop.PropertyType);
+                var collectionParser = CollectionParserProvider.Default.GetParser(
+                    prop.PropertyType,
+                    convention.Application.ValueParsers);
                 if (collectionParser == null)
                 {
                     throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
@@ -115,7 +117,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
             else
             {
-                var parser = ValueParserProvider.Default.GetParser(prop.PropertyType);
+                var parser = convention.Application.ValueParsers.GetParser(prop.PropertyType);
                 if (parser == null)
                 {
                     throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));

@@ -53,7 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             switch (option.OptionType)
             {
                 case CommandOptionType.MultipleValue:
-                    var collectionParser = CollectionParserProvider.Default.GetParser(prop.PropertyType);
+                    var collectionParser = CollectionParserProvider.Default.GetParser(prop.PropertyType, context.Application.ValueParsers);
                     if (collectionParser == null)
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
@@ -62,7 +62,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         setter.Invoke(context.ModelAccessor.GetModel(), collectionParser.Parse(option.LongName, option.Values)));
                     break;
                 case CommandOptionType.SingleOrNoValue:
-                    var valueTupleParser = ValueTupleParserProvider.Default.GetParser(prop.PropertyType);
+                    var valueTupleParser = ValueTupleParserProvider.Default.GetParser(prop.PropertyType, context.Application.ValueParsers);
                     if (valueTupleParser == null)
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
@@ -71,7 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         setter.Invoke(context.ModelAccessor.GetModel(), valueTupleParser.Parse(option.HasValue(), option.LongName, option.Value())));
                     break;
                 case CommandOptionType.SingleValue:
-                    var parser = ValueParserProvider.Default.GetParser(prop.PropertyType);
+                    var parser = context.Application.ValueParsers.GetParser(prop.PropertyType);
                     if (parser == null)
                     {
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));

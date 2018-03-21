@@ -3,7 +3,7 @@
 
 using System;
 
-namespace McMaster.Extensions.CommandLineUtils.ValueParsers
+namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
     internal class EnumParser : IValueParser
     {
@@ -14,6 +14,15 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
             _enumType = enumType;
         }
 
+        public Type TargetType
+        {
+            get
+            {
+                // Note: Because Enum's are a special case, this value is never used
+                return _enumType;
+            }
+        }
+
         public object Parse(string argName, string value)
         {
             try
@@ -22,7 +31,7 @@ namespace McMaster.Extensions.CommandLineUtils.ValueParsers
             }
             catch
             {
-                throw new CommandParsingException(null, $"Invalid value specified for {argName}. Allowed values are: {string.Join(", ", Enum.GetNames(_enumType))}.");
+                throw new FormatException($"Invalid value specified for {argName}. Allowed values are: {string.Join(", ", Enum.GetNames(_enumType))}.");
             }
         }
     }

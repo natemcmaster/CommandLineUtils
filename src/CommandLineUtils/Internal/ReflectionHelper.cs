@@ -82,5 +82,13 @@ namespace McMaster.Extensions.CommandLineUtils
 
             return arguments;
         }
+
+        public static bool IsNullableType(TypeInfo typeInfo, out Type wrappedType)
+        {
+            var result = typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>);
+            wrappedType = result ? typeInfo.GetGenericArguments().First() : null;
+                
+            return result;
+        }
     }
 }
