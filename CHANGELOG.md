@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+
+New API:
+ - [@atruskie]: Add support for user-defined value parsers using `IValueParser` and `CommandLineApplication.ValueParsers`.
+
 ## [v2.2.0-beta]
 
 **March 7, 2018**
