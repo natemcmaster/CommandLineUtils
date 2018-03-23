@@ -1,6 +1,5 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-// This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
 using System.Collections.Generic;
@@ -544,28 +543,35 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             Parent?.HandleParseResult(parseResult);
 
-            foreach (var option in Options)
+            try
             {
-                if (option is IInternalCommandParamOfT o)
+                foreach (var option in Options)
                 {
-                    o.Parse(ValueParsers.ParseCulture);
+                    if (option is IInternalCommandParamOfT o)
+                    {
+                        o.Parse(ValueParsers.ParseCulture);
+                    }
+                }
+
+                foreach (var argument in Arguments)
+                {
+                    if (argument is IInternalCommandParamOfT a)
+                    {
+                        a.Parse(ValueParsers.ParseCulture);
+                    }
+                }
+
+                if (_onParsingComplete != null)
+                {
+                    foreach (var action in _onParsingComplete)
+                    {
+                        action?.Invoke(parseResult);
+                    }
                 }
             }
-
-            foreach (var argument in Arguments)
+            catch (FormatException ex)
             {
-                if (argument is IInternalCommandParamOfT a)
-                {
-                    a.Parse(ValueParsers.ParseCulture);
-                }
-            }
-
-            if (_onParsingComplete != null)
-            {
-                foreach (var action in _onParsingComplete)
-                {
-                    action?.Invoke(parseResult);
-                }
+                throw new CommandParsingException(this, ex.Message, ex);
             }
         }
 
@@ -790,7 +796,10 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns></returns>
         public string GetFullNameAndVersion()
         {
-            return ShortVersionGetter == null ? FullName : string.Format("{0} ({1})", FullName, ShortVersionGetter());
+            var shortVersion = ShortVersionGetter?.Invoke();
+            return string.IsNullOrEmpty(shortVersion)
+                ? FullName
+                : $"{FullName} {shortVersion}";
         }
 
         /// <summary>
