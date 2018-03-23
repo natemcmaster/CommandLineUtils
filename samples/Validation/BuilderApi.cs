@@ -32,12 +32,19 @@ class BuilderApi
         var optionColor = app.Option("--color <COLOR>", "The color. Should be 'red' or 'blue'.", CommandOptionType.SingleValue);
         optionColor.Validators.Add(new MustBeBlueOrRedValidator());
 
+        var optionMaxSize = app.Option<int>("--max-size <MB>", "The maximum size of the message in MB.", CommandOptionType.SingleValue)
+            .Accepts(o => o.Range(1, 50));
+
         app.OnExecute(() =>
         {
             Console.WriteLine("From = " + optionSender.Value());
             Console.WriteLine("To = " + optionReceiver.Value());
             Console.WriteLine("Message = " + optionMessage.Value());
             Console.WriteLine("Attachments = " + string.Join(", ", attachments.Values));
+            if (optionMaxSize.HasValue())
+            {
+                Console.WriteLine("Max size = " + optionMaxSize.ParsedValue);
+            }
         });
 
         return app.Execute(args);

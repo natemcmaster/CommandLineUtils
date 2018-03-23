@@ -96,6 +96,58 @@ namespace McMaster.Extensions.CommandLineUtils
             => new ValidationBuilder(argument);
 
         /// <summary>
+        /// Specifies a set of rules used to determine if input is valid.
+        /// </summary>
+        /// <param name="option">The option.</param>
+        /// <param name="configure">A function to configure rules on the validation builder.</param>
+        /// <returns>The option.</returns>
+        public static CommandOption<T> Accepts<T>(this CommandOption<T> option, Action<IOptionValidationBuilder<T>> configure)
+        {
+            if (configure == null)
+            {
+                throw new ArgumentNullException(nameof(configure));
+            }
+
+            var builder = new ValidationBuilder<T>(option);
+            configure(builder);
+            return option;
+        }
+
+        /// <summary>
+        /// Specifies a set of rules used to determine if input is valid.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="configure">A function to configure rules on the validation builder.</param>
+        /// <returns>The argument.</returns>
+        public static CommandArgument<T> Accepts<T>(this CommandArgument<T> argument, Action<IArgumentValidationBuilder<T>> configure)
+        {
+            if (configure == null)
+            {
+                throw new ArgumentNullException(nameof(configure));
+            }
+
+            var builder = new ValidationBuilder<T>(argument);
+            configure(builder);
+            return argument;
+        }
+
+        /// <summary>
+        /// Creates a builder for specifying a set of rules used to determine if input is valid.
+        /// </summary>
+        /// <param name="option">The option.</param>
+        /// <returns>The builder.</returns>
+        public static IOptionValidationBuilder<T> Accepts<T>(this CommandOption<T> option)
+            => new ValidationBuilder<T>(option);
+
+        /// <summary>
+        /// Creates a builder for specifying a set of rules used to determine if input is valid.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <returns>The builder.</returns>
+        public static IArgumentValidationBuilder<T> Accepts<T>(this CommandArgument<T> argument)
+            => new ValidationBuilder<T>(argument);
+
+        /// <summary>
         /// <para>
         /// Specifies that values must be one of the values in a given set.
         /// </para>
@@ -250,6 +302,36 @@ namespace McMaster.Extensions.CommandLineUtils
             where TAttribute : ValidationAttribute
         {
             var attribute = GetValidationAttr<TAttribute>(errorMessage, ctorArgs);
+            builder.Use(new AttributeValidator(attribute));
+            return builder;
+        }
+
+        /// <summary>
+        /// Specifies that values must be in a given range.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="minimum">The minimum allowed value.</param>
+        /// <param name="maximum">The maximum allowed value.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder<int> Range(this IValidationBuilder<int> builder, int minimum, int maximum, string errorMessage = null)
+        {
+            var attribute = GetValidationAttr<RangeAttribute>(errorMessage, new object[] { minimum, maximum });
+            builder.Use(new AttributeValidator(attribute));
+            return builder;
+        }
+
+        /// <summary>
+        /// Specifies that values must be in a given range.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="minimum">The minimum allowed value.</param>
+        /// <param name="maximum">The maximum allowed value.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder<double> Range(this IValidationBuilder<double> builder, double minimum, double maximum, string errorMessage = null)
+        {
+            var attribute = GetValidationAttr<RangeAttribute>(errorMessage, new object[] { minimum, maximum });
             builder.Use(new AttributeValidator(attribute));
             return builder;
         }

@@ -312,5 +312,25 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(0, CommandLineApplication.Execute<ProgramWithRequiredArg>(console, "--help"));
             Assert.DoesNotContain("Arg is required", sb.ToString());
         }
+
+        [Theory]
+        [InlineData(0, false)]
+        [InlineData(1, true)]
+        [InlineData(2, true)]
+        [InlineData(3, false)]
+        public void ValidatesRange(int input, bool isValid)
+        {
+            var app = new CommandLineApplication();
+            app.Argument<int>("value", "").Accepts().Range(1, 2);
+            var result = app.Parse(input.ToString());
+            if (isValid)
+            {
+                Assert.Equal(ValidationResult.Success, result.ValidationResult);
+            }
+            else
+            {
+                Assert.NotEqual(ValidationResult.Success, result.ValidationResult);
+            }
+        }
     }
 }

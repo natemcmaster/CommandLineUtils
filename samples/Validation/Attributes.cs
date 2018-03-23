@@ -35,12 +35,20 @@ class AttributeProgram
     [RedOrBlue]
     public string Color { get; }
 
+    [Option("--max-size <MB>", Description = "The maximum size of the message in MB.")]
+    [Range(1, 50)]
+    public int? MaxSize { get; }
+
     private void OnExecute()
     {
         Console.WriteLine("From = " + From);
         Console.WriteLine("To = " + To);
         Console.WriteLine("Message = " + Message);
         Console.WriteLine("Attachments = " + string.Join(", ", Attachments));
+        if (MaxSize.HasValue)
+        {
+            Console.WriteLine("Max size = " + MaxSize.Value);
+        }
     }
 }
 

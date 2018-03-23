@@ -5,6 +5,8 @@
 New API:
  - [@atruskie]: Add support for user-defined value parsers using `IValueParser` and `CommandLineApplication.ValueParsers`.
  - Add support for `Option<T>` and `Argument<T>`
+ - Add `IValidationBuilder<T>`
+ - Add `.Accepts().Range(min, max)` for int and double type arguments and options
 
 Enhancements:
  - Parse these values to boolean: T, t, F, f, 0, 1
