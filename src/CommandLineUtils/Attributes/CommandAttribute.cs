@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -72,6 +73,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public StringComparison OptionsComparison { get; set; } = StringComparison.Ordinal;
 
+        /// <summary>
+        /// Specifies the culture used to convert values into types.
+        /// </summary>
+        public CultureInfo ParseCulture { get; set; } = CultureInfo.CurrentCulture;
+
         internal void Configure(CommandLineApplication app)
         {
             // this might have been set from SubcommandAttribute
@@ -85,6 +91,7 @@ namespace McMaster.Extensions.CommandLineUtils
             app.ShowInHelpText = ShowInHelpText;
             app.ThrowOnUnexpectedArgument = ThrowOnUnexpectedArgument;
             app.OptionsComparison = OptionsComparison;
+            app.ValueParsers.ParseCulture = ParseCulture;
         }
     }
 }

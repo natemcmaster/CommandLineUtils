@@ -1,12 +1,12 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Globalization;
+
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    using System;
-    using System.Globalization;
-
-    internal class DoubleValueParser : IValueParser
+    internal class DoubleValueParser : IValueParser<double>
     {
         private DoubleValueParser()
         { }
@@ -15,8 +15,10 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         public Type TargetType { get; } = typeof(double);
 
-        public object Parse(string argName, string value, CultureInfo culture)
+        public double Parse(string argName, string value, CultureInfo culture)
         {
+            if (value == null) return default;
+
             if (!double.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, culture.NumberFormat, out var result))
             {
                 throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid floating-point number.");
@@ -24,5 +26,8 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
             return result;
         }
+
+        object IValueParser.Parse(string argName, string value, CultureInfo culture)
+            => this.Parse(argName, value, culture);
     }
 }

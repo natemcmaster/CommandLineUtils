@@ -1,13 +1,12 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    using System;
-    using System.Globalization;
-
-    internal class StringValueParser : IValueParser
+    internal class StringValueParser : IValueParser<string>
     {
         private StringValueParser()
         { }
@@ -16,6 +15,9 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         public Type TargetType { get; } = typeof(string);
 
-        public object Parse(string argName, string value, CultureInfo culture) => value;
+        public string Parse(string argName, string value, CultureInfo culture) => value;
+
+        object IValueParser.Parse(string argName, string value, CultureInfo culture)
+            => this.Parse(argName, value, culture);
     }
 }

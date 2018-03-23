@@ -94,7 +94,7 @@ namespace McMaster.Extensions.CommandLineUtils
             ValidationErrorHandler = DefaultValidationErrorHandler;
             SetContext(context);
             _services = new Lazy<IServiceProvider>(() => new ServiceProvider(this));
-            ValueParsers =  new ValueParserProvider();
+            ValueParsers = new ValueParserProvider();
 
             _conventionContext = CreateConventionContext();
 
@@ -253,7 +253,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <para>
         /// The value parsers control how argument values are converted from strings to other types. Additional value
         /// parsers can be added so that domain specific types can converted. In-built value parsers can also be replaced
-        /// for precise control of all type conversion. 
+        /// for precise control of all type conversion.
         /// </para>
         /// <remarks>
         /// Value parsers are currently only used by the Attribute API.
@@ -369,7 +369,7 @@ namespace McMaster.Extensions.CommandLineUtils
             => Option(template, description, optionType, configuration, inherited: false);
 
         /// <summary>
-        /// Adds a command line options.
+        /// Adds a command line option.
         /// </summary>
         /// <param name="template"></param>
         /// <param name="description"></param>
@@ -390,6 +390,35 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
+        /// Adds a command line option with values that should be parsable into <typeparamref name="T" />.
+        /// </summary>
+        /// <param name="template"></param>
+        /// <param name="description"></param>
+        /// <param name="optionType"></param>
+        /// <param name="configuration"></param>
+        /// <param name="inherited"></param>
+        /// <typeparam name="T">The type of the values on the option</typeparam>
+        /// <returns>The option</returns>
+        public CommandOption<T> Option<T>(string template, string description, CommandOptionType optionType, Action<CommandOption> configuration, bool inherited)
+        {
+            var parser = ValueParsers.GetParser<T>();
+
+            if (parser == null)
+            {
+                throw new InvalidOperationException(Strings.CannotDetermineParserType(typeof(T)));
+            }
+
+            var option = new CommandOption<T>(parser, template, optionType)
+            {
+                Description = description,
+                Inherited = inherited
+            };
+            Options.Add(option);
+            configuration(option);
+            return option;
+        }
+
+        /// <summary>
         /// Adds a command line argument
         /// </summary>
         /// <param name="name"></param>
@@ -397,9 +426,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="multipleValues"></param>
         /// <returns></returns>
         public CommandArgument Argument(string name, string description, bool multipleValues = false)
-        {
-            return Argument(name, description, _ => { }, multipleValues);
-        }
+            => Argument(name, description, _ => { }, multipleValues);
 
         /// <summary>
         /// Adds a command line argument.
@@ -411,21 +438,54 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns></returns>
         public CommandArgument Argument(string name, string description, Action<CommandArgument> configuration, bool multipleValues = false)
         {
-            var lastArg = Arguments.LastOrDefault();
-            if (lastArg != null && lastArg.MultipleValues)
-            {
-                throw new InvalidOperationException(Strings.OnlyLastArgumentCanAllowMultipleValues(lastArg.Name));
-            }
-
             var argument = new CommandArgument
             {
                 Name = name,
                 Description = description,
                 MultipleValues = multipleValues
             };
-            Arguments.Add(argument);
+            AddArgument(argument);
             configuration(argument);
             return argument;
+        }
+
+        /// <summary>
+        /// Adds a command line argument with values that should be parsable into <typeparamref name="T" />.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
+        /// <param name="configuration"></param>
+        /// <param name="multipleValues"></param>
+        /// <typeparam name="T">The type of the values on the option</typeparam>
+        /// <returns></returns>
+        public CommandArgument<T> Argument<T>(string name, string description, Action<CommandArgument> configuration, bool multipleValues = false)
+        {
+            var parser = ValueParsers.GetParser<T>();
+
+            if (parser == null)
+            {
+                throw new InvalidOperationException(Strings.CannotDetermineParserType(typeof(T)));
+            }
+
+            var argument = new CommandArgument<T>(parser)
+            {
+                Name = name,
+                Description = description,
+                MultipleValues = multipleValues
+            };
+            AddArgument(argument);
+            configuration(argument);
+            return argument;
+        }
+
+        private void AddArgument(CommandArgument argument)
+        {
+            var lastArg = Arguments.LastOrDefault();
+            if (lastArg != null && lastArg.MultipleValues)
+            {
+                throw new InvalidOperationException(Strings.OnlyLastArgumentCanAllowMultipleValues(lastArg.Name));
+            }
+            Arguments.Add(argument);
         }
 
         /// <summary>
@@ -483,6 +543,22 @@ namespace McMaster.Extensions.CommandLineUtils
         protected virtual void HandleParseResult(ParseResult parseResult)
         {
             Parent?.HandleParseResult(parseResult);
+
+            foreach (var option in Options)
+            {
+                if (option is IInternalCommandParamOfT o)
+                {
+                    o.Parse(ValueParsers.ParseCulture);
+                }
+            }
+
+            foreach (var argument in Arguments)
+            {
+                if (argument is IInternalCommandParamOfT a)
+                {
+                    a.Parse(ValueParsers.ParseCulture);
+                }
+            }
 
             if (_onParsingComplete != null)
             {

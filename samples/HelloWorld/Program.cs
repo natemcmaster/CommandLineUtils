@@ -9,7 +9,7 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
-        // There are 3  sample project has a few simple entry programs.
+        // There are 4 sample project has a few simple entry programs.
 
         // The builder API allows you to build an object of type CommandLineApplication
         // and add new commands and settings to it.

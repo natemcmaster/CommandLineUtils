@@ -12,6 +12,7 @@ public class BuilderApi
 
         app.HelpOption("-h|--help");
         var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
+        var optionRepeat = app.Option<int>("-n|--count <N>", "Repeat", CommandOptionType.SingleValue);
 
         app.OnExecute(() =>
         {
@@ -19,7 +20,11 @@ public class BuilderApi
                 ? optionSubject.Value()
                 : "world";
 
-            Console.WriteLine($"Hello {subject}!");
+            var count = optionRepeat.HasValue() ? optionRepeat.ParsedValue : 1;
+            for (var i = 0; i < count; i++)
+            {
+                Console.WriteLine($"Hello {subject}!");
+            }
             return 0;
         });
 

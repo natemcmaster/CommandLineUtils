@@ -62,14 +62,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         setter.Invoke(context.ModelAccessor.GetModel(), collectionParser.Parse(option.LongName, option.Values)));
                     break;
                 case CommandOptionType.SingleOrNoValue:
-                    var valueTupleParser = ValueTupleParserProvider.Default.GetParser(prop.PropertyType, context.Application.ValueParsers);
-                    if (valueTupleParser == null)
-                    {
-                        throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
-                    }
-                    context.Application.OnParsingComplete(_ =>
-                        setter.Invoke(context.ModelAccessor.GetModel(), valueTupleParser.Parse(option.HasValue(), option.LongName, option.Value(), context.Application.ValueParsers.ParseCulture)));
-                    break;
                 case CommandOptionType.SingleValue:
                     var parser = context.Application.ValueParsers.GetParser(prop.PropertyType);
                     if (parser == null)
@@ -78,12 +70,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     }
                     context.Application.OnParsingComplete(_ =>
                     {
-                        var value = option.Value();
-                        if (value == null)
+                        if (!option.HasValue())
                         {
                             return;
                         }
-                        setter.Invoke(context.ModelAccessor.GetModel(), parser.Parse(option.LongName, value, context.Application.ValueParsers.ParseCulture));
+                        setter.Invoke(context.ModelAccessor.GetModel(), parser.Parse(option.LongName, option.Value(), context.Application.ValueParsers.ParseCulture));
                     });
                     break;
                 case CommandOptionType.NoValue:

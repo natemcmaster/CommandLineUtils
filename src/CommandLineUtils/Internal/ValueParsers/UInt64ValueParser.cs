@@ -1,12 +1,12 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Globalization;
+
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    using System;
-    using System.Globalization;
-
-    internal class UInt64ValueParser : IValueParser
+    internal class UInt64ValueParser : IValueParser<ulong>
     {
         private UInt64ValueParser()
         { }
@@ -15,13 +15,18 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         public Type TargetType { get; } = typeof(ulong);
 
-        public object Parse(string argName, string value, CultureInfo culture)
+        public ulong Parse(string argName, string value, CultureInfo culture)
         {
+            if (value == null) return default;
+
             if (!ulong.TryParse(value, NumberStyles.Integer, culture, out var result))
             {
                 throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid, non-negative number.");
             }
             return result;
         }
+
+        object IValueParser.Parse(string argName, string value, CultureInfo culture)
+            => this.Parse(argName, value, culture);
     }
 }

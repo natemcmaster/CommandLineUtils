@@ -7,15 +7,10 @@ using System.Globalization;
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
     /// <summary>
-    /// A parser that can convert string into an object.
+    /// A parser that can convert string into <typeparamref name="T" />.
     /// </summary>
-    public interface IValueParser
+    public interface IValueParser<T> : IValueParser
     {
-        /// <summary>
-        /// Gets the Type that this value parser is defined for.
-        /// </summary>
-        Type TargetType { get; }
-
         /// <summary>
         /// Parses the raw string value.
         /// </summary>
@@ -24,6 +19,6 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// <param name="culture">The culture that should be used to parse values.</param>
         /// <returns>The parsed value object.</returns>
         /// <throws name="System.FormatException">When the value cannot be parsed.</throws>
-        object Parse(string argName, string value, CultureInfo culture);
+        new T Parse(string argName, string value, CultureInfo culture);
     }
 }

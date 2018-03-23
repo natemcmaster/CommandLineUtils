@@ -16,6 +16,9 @@ public class AsyncWithAttributes
     [Option(Description = "The subject")]
     public string Subject { get; }
 
+    [Option(ShortName = "n")]
+    public int Count { get; }
+
     private async Task OnExecuteAsync()
     {
         var subject = Subject ?? "world";
@@ -23,6 +26,9 @@ public class AsyncWithAttributes
         // This pause here is just for indication that some awaitable operation could happens here.
         await Task.Delay(5000);
 
-        Console.WriteLine($"Hello {subject}!");
+        for (var i = 0; i < Count; i++)
+        {
+            Console.WriteLine($"Hello {subject}!");
+        }
     }
 }

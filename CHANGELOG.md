@@ -4,6 +4,14 @@
 
 New API:
  - [@atruskie]: Add support for user-defined value parsers using `IValueParser` and `CommandLineApplication.ValueParsers`.
+ - Add support for `Option<T>` and `Argument<T>`
+
+Enhancements:
+ - Parse these values to boolean: T, t, F, f, 0, 1
+
+Removed:
+ - Removed support for mapping `Tuple<bool,T>` to `CommandOptionType.SingleOrNoValue`.
+   `ValueTuple<bool,T>` is still present.
 
 ## [v2.2.0-beta]
 

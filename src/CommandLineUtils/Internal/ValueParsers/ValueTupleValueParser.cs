@@ -1,33 +1,33 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    using System.Globalization;
-
-    internal class ValueTupleValueParser<T> : ITupleValueParser
+    internal class ValueTupleValueParser<T> : IValueParser<(bool, T)>
     {
-        private readonly IValueParser _typeParser;
+        private readonly IValueParser<T> _typeParser;
 
-        public ValueTupleValueParser(IValueParser typeParser)
+        public ValueTupleValueParser(IValueParser<T> typeParser)
         {
             _typeParser = typeParser;
         }
 
-        public object Parse(bool hasValue, string argName, string value, CultureInfo culture)
-        {
-            if (!hasValue)
-            {
-                return (false, default(T));
-            }
+        public Type TargetType { get; } = typeof((bool, T));
 
+        public (bool, T) Parse(string argName, string value, CultureInfo culture)
+        {
             if (value == null)
             {
                 return (true, default(T));
             }
 
-            return (true, (T)_typeParser.Parse(argName, value, culture));
+            return (true, _typeParser.Parse(argName, value, culture));
         }
+
+        object IValueParser.Parse(string argName, string value, CultureInfo culture)
+            => this.Parse(argName, value, culture);
     }
 }

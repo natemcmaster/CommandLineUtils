@@ -6,7 +6,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     using System;
     using System.Globalization;
 
-    internal class ByteValueParser : IValueParser
+    internal class ByteValueParser : IValueParser<byte>
     {
         private ByteValueParser()
         { }
@@ -15,8 +15,10 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         public Type TargetType { get; } = typeof(byte);
 
-        public object Parse(string argName, string value, CultureInfo culture)
+        public byte Parse(string argName, string value, CultureInfo culture)
         {
+            if (value == null) return default;
+
             if (!byte.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result))
             {
                 throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number.");
@@ -24,5 +26,8 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
             return result;
         }
+
+        object IValueParser.Parse(string argName, string value, CultureInfo culture)
+            => this.Parse(argName, value, culture);
     }
 }

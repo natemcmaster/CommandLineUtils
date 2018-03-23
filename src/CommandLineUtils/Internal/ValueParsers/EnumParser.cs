@@ -2,38 +2,30 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    using System.Globalization;
-
     internal class EnumParser : IValueParser
     {
-        private readonly Type _enumType;
-
         public EnumParser(Type enumType)
         {
-            _enumType = enumType;
+            TargetType = enumType;
         }
 
-        public Type TargetType
-        {
-            get
-            {
-                // Note: Because Enum's are a special case, this value is never used
-                return _enumType;
-            }
-        }
+        public Type TargetType { get; }
 
         public object Parse(string argName, string value, CultureInfo culture)
         {
+            if (value == null) return Enum.ToObject(TargetType, 0);
+
             try
             {
-                return Enum.Parse(_enumType, value, ignoreCase: true);
+                return Enum.Parse(TargetType, value, ignoreCase: true);
             }
             catch
             {
-                throw new FormatException($"Invalid value specified for {argName}. Allowed values are: {string.Join(", ", Enum.GetNames(_enumType))}.");
+                throw new FormatException($"Invalid value specified for {argName}. Allowed values are: {string.Join(", ", Enum.GetNames(TargetType))}.");
             }
         }
     }

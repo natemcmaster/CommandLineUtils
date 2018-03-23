@@ -9,6 +9,7 @@ using Xunit;
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     using System.Linq;
+    using System.Reflection;
 
     public class ValueParserProviderTests
     {
@@ -84,9 +85,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             [Option("--color-opt")]
             public Color? ColorOpt { get; }
 
-            [Option("--tuple:<VAL>")]
-            public Tuple<bool, string> Tuple { get; }
-
             [Option("--value-tuple:<VALUE>")]
             public (bool HasValue, string Value) ValueTuple { get; }
 
@@ -95,9 +93,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             [Option("--int-tuple-opt:<VALUE>")]
             public (bool HasValue, int? count) IntOptTuple { get; }
-
-            [Option("--color-tuple:<VALUE>")]
-            public Tuple<bool, Color> EnumTuple { get; }
 
             [Option("--color-value-tuple:<VALUE>")]
             public (bool HasValue, Color Value) EnumValueTuple { get; }
@@ -323,18 +318,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Theory]
-        [InlineData("--tuple", null)]
-        [InlineData("--tuple:", "")]
-        [InlineData("--tuple: ", " ")]
-        [InlineData("--tuple:path", "path")]
-        public void ParsesTupleOfBoolAndType(string input, string expected)
-        {
-            var parsed = CommandLineParser.ParseArgs<Program>(input);
-            Assert.True(parsed.Tuple.Item1);
-            Assert.Equal(expected, parsed.Tuple.Item2);
-        }
-
-        [Theory]
         [InlineData("--value-tuple", null)]
         [InlineData("--value-tuple:", "")]
         [InlineData("--value-tuple: ", " ")]
@@ -364,18 +347,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var parsed = CommandLineParser.ParseArgs<Program>(input);
             Assert.True(parsed.IntOptTuple.HasValue);
             Assert.Equal(expected, parsed.IntOptTuple.count);
-        }
-
-        [Theory]
-        [InlineData("--color-tuple", default(Color))]
-        [InlineData("--color-tuple:Red", Color.Red)]
-        [InlineData("--color-tuple:green", Color.Green)]
-        [InlineData("--color-tuple:BLUE", Color.Blue)]
-        public void ParsesTupleOfBoolAndEnum(string input, Color expected)
-        {
-            var parsed = CommandLineParser.ParseArgs<Program>(input);
-            Assert.True(parsed.EnumTuple.Item1);
-            Assert.Equal(expected, parsed.EnumTuple.Item2);
         }
 
         [Theory]
@@ -442,6 +413,71 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(2, parsed.TheRest.Count);
             Assert.Equal("a", parsed.TheRest[0]);
             Assert.Equal("b", parsed.TheRest[1]);
+        }
+
+        [Fact]
+        public void ThrowsIfNoValueParserProviderIsAvailable()
+        {
+            var app = new CommandLineApplication();
+            var ex = Assert.Throws<InvalidOperationException>(() => app.Option<ValueParserProviderTests>("-t", "test", CommandOptionType.NoValue));
+            Assert.Equal(Strings.CannotDetermineParserType(typeof(ValueParserProviderTests)), ex.Message);
+            ex = Assert.Throws<InvalidOperationException>(() => app.Argument<ValueParserProviderTests>("-t", "test"));
+            Assert.Equal(Strings.CannotDetermineParserType(typeof(ValueParserProviderTests)), ex.Message);
+        }
+
+        [Theory]
+        [InlineData(typeof(bool), "0", false)]
+        [InlineData(typeof(bool), "1", true)]
+        [InlineData(typeof(bool), "T", true)]
+        [InlineData(typeof(bool), "true", true)]
+        [InlineData(typeof(bool), "false", false)]
+        [InlineData(typeof(bool), "F", false)]
+        [InlineData(typeof(long), "9223372036854775807", long.MaxValue)]
+        [InlineData(typeof(int), "2147483647", int.MaxValue)]
+        [InlineData(typeof(short), "128", (short)128)]
+        [InlineData(typeof(byte), "4", (byte)4)]
+        [InlineData(typeof(ulong), "56", 56ul)]
+        [InlineData(typeof(double), "3.14", 3.14)]
+        [InlineData(typeof(float), "3.14", 3.14f)]
+        [InlineData(typeof(int?), "", null)]
+        [InlineData(typeof(Color), "blue", Color.Blue)]
+        [InlineData(typeof(Color), null, default(Color))]
+        [InlineData(typeof(Color?), "", null)]
+        [MemberData(nameof(TupleData))]
+        public void ItParsesParamofT(Type type, string input, object expected)
+        {
+            s_ItParsesOptionOfTImpl.MakeGenericMethod(type).Invoke(this, new[] { input, expected });
+            s_ItParsesArgumentOfTImpl.MakeGenericMethod(type).Invoke(this, new[] { input, expected });
+        }
+
+        public static TheoryData<Type, string, object> TupleData
+            => new TheoryData<Type, string, object>
+                {
+                    {typeof((bool, int?)), "", (true, default(int?))},
+                    {typeof((bool, int)), "123", (true, 123)},
+                };
+
+        private static readonly MethodInfo s_ItParsesOptionOfTImpl
+                  = typeof(ValueParserProviderTests).GetMethod(nameof(ItParsesOptionOfTImpl), BindingFlags.NonPublic | BindingFlags.Instance);
+
+        private void ItParsesOptionOfTImpl<T>(string input, T expected)
+        {
+            var app = new CommandLineApplication();
+            var option = app.Option<T>("--value", "", CommandOptionType.SingleValue);
+            app.Parse("--value", input);
+            Assert.True(option.HasValue());
+            Assert.Equal(expected, option.ParsedValue);
+        }
+
+        private static readonly MethodInfo s_ItParsesArgumentOfTImpl
+                  = typeof(ValueParserProviderTests).GetMethod(nameof(ItParsesArgumentOfTImpl), BindingFlags.NonPublic | BindingFlags.Instance);
+
+        private void ItParsesArgumentOfTImpl<T>(string input, T expected)
+        {
+            var app = new CommandLineApplication();
+            var argument = app.Argument<T>("value", "");
+            app.Parse(input);
+            Assert.Equal(expected, argument.ParsedValue);
         }
     }
 }

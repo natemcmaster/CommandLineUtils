@@ -13,9 +13,15 @@ public class Attributes
     [Option(Description = "The subject")]
     public string Subject { get; }
 
+    [Option(ShortName = "n")]
+    public int Count { get; }
+
     private void OnExecute()
     {
         var subject = Subject ?? "world";
-        Console.WriteLine($"Hello {subject}!");
+        for (var i = 0; i < Count; i++)
+        {
+            Console.WriteLine($"Hello {subject}!");
+        }
     }
 }

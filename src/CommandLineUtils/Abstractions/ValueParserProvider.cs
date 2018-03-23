@@ -1,13 +1,14 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Reflection;
+
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Reflection;
-
     /// <summary>
     /// A store of value parsers that are used to convert argument values from strings to types.
     /// </summary>
@@ -17,7 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         internal ValueParserProvider()
         {
-            this.AddRange(
+            AddRange(
                 new IValueParser[]
                 {
                     StringValueParser.Singleton,
@@ -42,9 +43,37 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// </remarks>
         public CultureInfo ParseCulture { get; set; } = CultureInfo.CurrentCulture;
 
+        private static readonly MethodInfo s_GetParserGeneric
+            = typeof(ValueParserProvider).GetTypeInfo()
+                .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
+                .Single(m => m.Name == nameof(GetParser) && m.IsGenericMethod);
+
         internal IValueParser GetParser(Type type)
         {
-            if (this._parsers.TryGetValue(type, out var parser))
+            var method = s_GetParserGeneric.MakeGenericMethod(type);
+            return (IValueParser)method.Invoke(this, Constants.EmptyArray);
+        }
+
+        internal IValueParser<T> GetParser<T>()
+        {
+            var parser = GetParserImpl<T>();
+            if (parser == null)
+            {
+                return null;
+            }
+
+            if (parser is IValueParser<T> retVal)
+            {
+                return retVal;
+            }
+
+            return new GenericParserAdapter<T>(parser);
+        }
+
+        private IValueParser GetParserImpl<T>()
+        {
+            var type = typeof(T);
+            if (_parsers.TryGetValue(type, out var parser))
             {
                 return parser;
             }
@@ -63,15 +92,31 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                     return new NullableValueParser(new EnumParser(wrappedType));
                 }
 
-                if (this._parsers.TryGetValue(wrappedType, out parser))
+                if (_parsers.TryGetValue(wrappedType, out parser))
                 {
                     return new NullableValueParser(parser);
                 }
             }
 
-            return parser;
-        }
+            if (!typeInfo.IsGenericType)
+            {
+                return null;
+            }
 
+            var typeDef = typeInfo.GetGenericTypeDefinition();
+            if (typeDef == typeof(ValueTuple<,>) && typeInfo.GenericTypeArguments[0] == typeof(bool))
+            {
+                var innerParser = GetParser(typeInfo.GenericTypeArguments[1]);
+                if (innerParser == null)
+                {
+                    return null;
+                }
+                var parserType = typeof(ValueTupleValueParser<>).MakeGenericType(typeInfo.GenericTypeArguments[1]);
+                return (IValueParser)Activator.CreateInstance(parserType, new object[] { innerParser });
+            }
+
+            return null;
+        }
 
         /// <summary>
         /// Add a new value parser to the provider.
@@ -83,7 +128,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// <exception cref="ArgumentNullException"><paramref name="parser"/> is null.</exception>
         public void Add(IValueParser parser)
         {
-            this.SafeAdd(parser);
+            SafeAdd(parser);
         }
 
         /// <summary>
@@ -103,19 +148,19 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
             foreach (var parser in parsers)
             {
-                this.SafeAdd(parser);
+                SafeAdd(parser);
             }
         }
 
         /// <summary>
-        /// Add a new value parser to the provider, or if a value provider already exists for 
+        /// Add a new value parser to the provider, or if a value provider already exists for
         /// <see cref="IValueParser.TargetType"/> then replaces it with <paramref name="parser"/>.
         /// </summary>
         /// <param name="parser">An instance of the parser that is used to convert an argument from a string.</param>
         /// <exception cref="ArgumentNullException"><paramref name="parser"/> is null.</exception>
         public void AddOrReplace(IValueParser parser)
         {
-            this.SafeAdd(parser, andReplace: true);
+            SafeAdd(parser, andReplace: true);
         }
 
         private void SafeAdd(IValueParser parser, bool andReplace = false)
@@ -138,12 +183,12 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             targetType = ReflectionHelper.IsNullableType(targetType.GetTypeInfo(), out var wrappedType)
                 ? wrappedType
                 : targetType;
-            
-            if (this._parsers.ContainsKey(targetType))
+
+            if (_parsers.ContainsKey(targetType))
             {
                 if (andReplace)
                 {
-                    this._parsers.Remove(targetType);
+                    _parsers.Remove(targetType);
                 }
                 else
                 {
@@ -152,7 +197,23 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 }
             }
 
-            this._parsers.Add(targetType, parser);
+            _parsers.Add(targetType, parser);
+        }
+
+        private sealed class GenericParserAdapter<T> : IValueParser<T>
+        {
+            private IValueParser _inner;
+
+            public GenericParserAdapter(IValueParser inner)
+            {
+                _inner = inner;
+            }
+
+            public Type TargetType => _inner.TargetType;
+
+            public T Parse(string argName, string value, CultureInfo culture) => (T)_inner.Parse(argName, value, culture);
+
+            object IValueParser.Parse(string argName, string value, CultureInfo culture) => _inner.Parse(argName, value, culture);
         }
     }
 }

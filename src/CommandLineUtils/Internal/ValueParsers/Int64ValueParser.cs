@@ -1,12 +1,12 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Globalization;
+
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    using System;
-    using System.Globalization;
-
-    internal class Int64ValueParser : IValueParser
+    internal class Int64ValueParser : IValueParser<long>
     {
         private Int64ValueParser()
         { }
@@ -15,8 +15,10 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         public Type TargetType { get; } = typeof(long);
 
-        public object Parse(string argName, string value, CultureInfo culture)
+        public long Parse(string argName, string value, CultureInfo culture)
         {
+            if (value == null) return default;
+
             if (!long.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result))
             {
                 throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number.");
@@ -24,5 +26,8 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
             return result;
         }
+
+        object IValueParser.Parse(string argName, string value, CultureInfo culture)
+            => this.Parse(argName, value, culture);
     }
 }

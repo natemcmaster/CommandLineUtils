@@ -61,6 +61,9 @@ namespace McMaster.Extensions.CommandLineUtils
         public static string OnlyLastArgumentCanAllowMultipleValues(string lastArgName)
             => $"The last argument '{lastArgName}' accepts multiple values. No more argument can be added.";
 
+        public static string CannotDetermineParserType(Type type)
+            => $"Could not automatically determine how to convert string values into {type.FullName}";
+
         public static string CannotDetermineParserType(PropertyInfo prop)
             => $"Could not automatically determine how to convert string values into {prop.PropertyType.FullName} on property {prop.DeclaringType.Name}.{prop.Name}.";
 
