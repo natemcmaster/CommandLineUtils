@@ -1,4 +1,5 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 15.0.26124.0
@@ -30,6 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{509D6286
 		NOTICE.txt = NOTICE.txt
 		NuGet.config = NuGet.config
 		README.md = README.md
+		releasenotes.props = releasenotes.props
 		version.props = version.props
 	EndProjectSection
 EndProject
@@ -41,7 +43,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prompt", "samples\Prompt\Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validation", "samples\Validation\Validation.csproj", "{72E4413E-9CDE-4850-93E9-4A83673EC0B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conventions", "samples\Conventions\Conventions.csproj", "{C6428235-2B21-4513-A8AC-8B25DC775A57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conventions", "samples\Conventions\Conventions.csproj", "{C6428235-2B21-4513-A8AC-8B25DC775A57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

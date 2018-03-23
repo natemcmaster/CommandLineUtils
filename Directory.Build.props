@@ -1,6 +1,7 @@
 <Project>
 
   <Import Project="version.props" />
+  <Import Project="releasenotes.props" />
 
   <PropertyGroup>
     <Authors>Nate McMaster</Authors>
@@ -10,7 +11,6 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/natemcmaster/CommandLineUtils</PackageProjectUrl>
-    <PackageReleaseNotes>See https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.','')) for release notes.</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/natemcmaster/CommandLineUtils.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <SourceLinkCreate>true</SourceLinkCreate>
