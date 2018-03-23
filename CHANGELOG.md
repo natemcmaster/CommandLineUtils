@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased]
+## [v2.2.0-rc]
+
+**March 23, 2018**
 
 New API:
  - [@atruskie]: Add support for user-defined value parsers using `IValueParser` and `CommandLineApplication.ValueParsers`.
@@ -115,7 +117,8 @@ Other:
 [@rmcc13]: https://github.com/rmcc13
 [@sebastienros]: https://github.com/sebastienros
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-beta...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-rc...HEAD
+[v2.2.0-rc]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-beta...v2.2.0-rc
 [v2.2.0-beta]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-alpha...v2.2.0-beta
 [v2.2.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.1...v2.2.0-alpha
 [v2.1.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.0...v2.1.1
