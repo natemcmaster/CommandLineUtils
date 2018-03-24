@@ -29,7 +29,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             var sb = new StringBuilder();
 
-            var needsQuotes = ShouldSurroundWithQuotes(arg);
+            var needsQuotes = ContainsWhitespace(arg);
             var isQuoted = needsQuotes || IsSurroundedWithQuotes(arg);
 
             if (needsQuotes)
@@ -80,18 +80,6 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             return sb.ToString();
-        }
-
-        private static bool ShouldSurroundWithQuotes(string argument)
-        {
-            // Don't quote already quoted strings
-            if (IsSurroundedWithQuotes(argument))
-            {
-                return false;
-            }
-
-            // Only quote if whitespace exists in the string
-            return ContainsWhitespace(argument);
         }
 
         private static bool IsSurroundedWithQuotes(string argument)
