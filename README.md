@@ -39,11 +39,11 @@ Pre-release builds and symbols: https://www.myget.org/gallery/natemcmaster/
 
 See [samples/](./samples/) for more examples, such as:
 
- - [Async console apps](./samples/AsyncWithAttributes/Program.cs)
+ - [Async console apps](./samples/HelloWorld/Program.cs)
  - [Structing an app with subcommands](./samples/Subcommands/Program.cs)
- - [Defining options with attributes](./samples/HelloWorld.Attributes/Program.cs)
+ - [Defining options with attributes](./samples/Attributes/Program.cs)
  - [Interactive console prompts](./samples/Prompt/Program.cs)
- - [Required options and arguments](./samples/Validation/)
+ - [Required options and arguments](./samples/Validation/Program.cs)
 
 `CommandLineApplication` is the main entry point for most console apps parsing. There are two primary ways to use this API, using the builder pattern and attributes.
 
