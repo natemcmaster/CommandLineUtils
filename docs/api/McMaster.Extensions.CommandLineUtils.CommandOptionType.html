@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Enum CommandOptionType
    ">
-    <meta name="generator" content="docfx 2.28.2.0">
+    <meta name="generator" content="docfx 2.33.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -101,17 +101,47 @@
     <tbody>
       <tr>
         <td id="McMaster_Extensions_CommandLineUtils_CommandOptionType_MultipleValue">MultipleValue</td>
-        <td><p>The option can be specified multiple times.</p>
+        <td><p>The option can be specified multiple times.
+<p>
+Example input: <code>--letter A --letter B --letter C</code>
+</p></p>
 </td>
       </tr>
       <tr>
         <td id="McMaster_Extensions_CommandLineUtils_CommandOptionType_NoValue">NoValue</td>
-        <td><p>The option can only be specified once, and does not have a value.</p>
+        <td><p>The option can only be specified once, and does not have a value.
+<p>
+Example input: <code>--no-commit</code>
+</p></p>
+</td>
+      </tr>
+      <tr>
+        <td id="McMaster_Extensions_CommandLineUtils_CommandOptionType_SingleOrNoValue">SingleOrNoValue</td>
+        <td><p>The option can only be specified once, and may or may not have a value.
+<p>
+To disambiguate this from <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html#McMaster_Extensions_CommandLineUtils_CommandOptionType_NoValue">NoValue</a>, values provided cannot be space-separated from the option name,
+but must use &apos;=&apos; or &apos;:&apos;
+</p>
+<p>
+Example input: <code>--log</code>
+</p>
+<p>
+Example input: <code>--log:verbose</code>
+</p></p>
 </td>
       </tr>
       <tr>
         <td id="McMaster_Extensions_CommandLineUtils_CommandOptionType_SingleValue">SingleValue</td>
-        <td><p>The option can only be specified once.</p>
+        <td><p>The option can only be specified once.
+<p>
+Example input: <code>--letter A</code>
+</p>
+<p>
+Example input: <code>--letter=A</code>
+</p>
+<p>
+Example input: <code>--letter:A</code>
+</p></p>
 </td>
       </tr>
     </tbody>

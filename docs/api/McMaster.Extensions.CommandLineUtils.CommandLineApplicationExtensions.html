@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CommandLineApplicationExtensions
    ">
-    <meta name="generator" content="docfx 2.28.2.0">
+    <meta name="generator" content="docfx 2.33.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -122,10 +122,88 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Argument__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument%60%601(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.String%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L25">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Argument_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Argument__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_System_Boolean_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,System.Boolean)">Argument&lt;T&gt;(CommandLineApplication, String, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds a command line argument with values that should be parsable into <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandArgument&lt;T&gt; Argument&lt;T&gt;(this CommandLineApplication app, string name, string description, bool multipleValues = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></td>
+        <td><span class="parametername">app</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">description</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">multipleValues</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument-1.html">CommandArgument</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L21">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L68">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)">HelpOption(CommandLineApplication)</h4>
@@ -170,10 +248,63 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Boolean_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L77">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Boolean_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Boolean)">HelpOption(CommandLineApplication, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds the help option with the template <code>-?|-h|--help</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption HelpOption(this CommandLineApplication app, bool inherited)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></td>
+        <td><span class="parametername">app</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">inherited</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Action_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L46">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L114">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Action_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action)">OnExecute(CommandLineApplication, Action)</h4>
@@ -202,7 +333,47 @@
       <tr>
         <td><span class="xref">System.Action</span></td>
         <td><span class="parametername">action</span></td>
+        <td><p>An action to invoke when the command is selected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_Threading_Tasks_Task__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.Func%7BSystem.Threading.Tasks.Task%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L102">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_Threading_Tasks_Task__" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.Threading.Tasks.Task})">OnExecute(CommandLineApplication, Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Invoke">Invoke</a> with a return code of <code>0</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void OnExecute(this CommandLineApplication app, Func&lt;Task&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></td>
+        <td><span class="parametername">app</span></td>
         <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td><p>An asynchronous action to invoke when the ocmmand is selected..</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -211,7 +382,7 @@
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Action_System_ComponentModel_DataAnnotations_ValidationResult__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.Action%7BSystem.ComponentModel.DataAnnotations.ValidationResult%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L66">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L134">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Action_System_ComponentModel_DataAnnotations_ValidationResult__" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action{System.ComponentModel.DataAnnotations.ValidationResult})">OnValidationError(CommandLineApplication, Action&lt;ValidationResult&gt;)</h4>
@@ -249,7 +420,7 @@
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_ComponentModel_DataAnnotations_ValidationResult_System_Int32__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.Func%7BSystem.ComponentModel.DataAnnotations.ValidationResult%2CSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L58">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L126">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_ComponentModel_DataAnnotations_ValidationResult_System_Int32__" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.ComponentModel.DataAnnotations.ValidationResult,System.Int32})">OnValidationError(CommandLineApplication, Func&lt;ValidationResult, Int32&gt;)</h4>
@@ -284,10 +455,254 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option%60%601(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.String%2CSystem.String%2CMcMaster.Extensions.CommandLineUtils.CommandOptionType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L36">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)">Option&lt;T&gt;(CommandLineApplication, String, String, CommandOptionType)</h4>
+  <div class="markdown level1 summary"><p>Adds a command-line option with values that should be parsable into <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption&lt;T&gt; Option&lt;T&gt;(this CommandLineApplication app, string template, string description, CommandOptionType optionType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></td>
+        <td><span class="parametername">app</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">template</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">description</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a></td>
+        <td><span class="parametername">optionType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_System_Action_McMaster_Extensions_CommandLineUtils_CommandOption__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option%60%601(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.String%2CSystem.String%2CMcMaster.Extensions.CommandLineUtils.CommandOptionType%2CSystem.Action%7BMcMaster.Extensions.CommandLineUtils.CommandOption%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L60">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_System_Action_McMaster_Extensions_CommandLineUtils_CommandOption__" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Action{McMaster.Extensions.CommandLineUtils.CommandOption})">Option&lt;T&gt;(CommandLineApplication, String, String, CommandOptionType, Action&lt;CommandOption&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a command-line option with values that should be parsable into <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption&lt;T&gt; Option&lt;T&gt;(this CommandLineApplication app, string template, string description, CommandOptionType optionType, Action&lt;CommandOption&gt; configuration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></td>
+        <td><span class="parametername">app</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">template</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">description</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a></td>
+        <td><span class="parametername">optionType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a>&gt;</td>
+        <td><span class="parametername">configuration</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_System_Boolean_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option%60%601(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.String%2CSystem.String%2CMcMaster.Extensions.CommandLineUtils.CommandOptionType%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L48">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_System_Boolean_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Boolean)">Option&lt;T&gt;(CommandLineApplication, String, String, CommandOptionType, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds a command-line option with values that should be parsable into <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption&lt;T&gt; Option&lt;T&gt;(this CommandLineApplication app, string template, string description, CommandOptionType optionType, bool inherited)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></td>
+        <td><span class="parametername">app</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">template</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">description</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a></td>
+        <td><span class="parametername">optionType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">inherited</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VerboseOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L29">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L85">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VerboseOption_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VerboseOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)">VerboseOption(CommandLineApplication)</h4>
@@ -335,7 +750,7 @@
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VerboseOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L38">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L94">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VerboseOption_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VerboseOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String)">VerboseOption(CommandLineApplication, String)</h4>
@@ -388,7 +803,7 @@
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Reflection_Assembly_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.Reflection.Assembly)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L86">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L154">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Reflection_Assembly_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Reflection.Assembly)">VersionOptionFromAssemblyAttributes(CommandLineApplication, Assembly)</h4>
@@ -462,7 +877,7 @@ if no <span class="xref">System.Reflection.AssemblyInformationalVersionAttribute
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_Reflection_Assembly_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.String%2CSystem.Reflection.Assembly)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L101">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L169">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_Reflection_Assembly_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.Reflection.Assembly)">VersionOptionFromAssemblyAttributes(CommandLineApplication, String, Assembly)</h4>
@@ -547,7 +962,7 @@ if no <span class="xref">System.Reflection.AssemblyInformationalVersionAttribute
                     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

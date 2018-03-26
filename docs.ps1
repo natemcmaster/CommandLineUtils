@@ -5,8 +5,8 @@ param(
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version 2
 
-$docfxVersion = '2.28.2'
-$docfxRoot = "$PSScriptRoot/.nuget/docfx.console/$docfxVersion"
+$docfxVersion = '2.33.0'
+$docfxRoot = "$PSScriptRoot/.nuget/packages/docfx.console/$docfxVersion"
 $docfx = "$docfxRoot/tools/docfx.exe"
 if (-not (Test-Path $docfx)) {
     mkdir -p $docfxRoot -ErrorAction Ignore | Out-Null
