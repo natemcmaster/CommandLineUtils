@@ -336,6 +336,42 @@ namespace McMaster.Extensions.CommandLineUtils
             return builder;
         }
 
+        /// <summary>
+        /// Adds a validator that runs after parsing is complete and before command execution.
+        /// </summary>
+        /// <param name="command">The command.</param>
+        /// <param name="validate">The callback. Return <see cref="ValidationResult.Success"/> if there is no error.</param>
+        /// <returns></returns>
+        public static CommandLineApplication OnValidate(this CommandLineApplication command, Func<ValidationContext, ValidationResult> validate)
+        {
+            command.Validators.Add(new DelegateValidator(validate));
+            return command;
+        }
+
+        /// <summary>
+        /// Adds a validator that runs after parsing is complete and before command execution.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="validate">The callback. Return <see cref="ValidationResult.Success"/> if there is no error.</param>
+        /// <returns></returns>
+        public static CommandArgument OnValidate(this CommandArgument argument, Func<ValidationContext, ValidationResult> validate)
+        {
+            argument.Validators.Add(new DelegateValidator(validate));
+            return argument;
+        }
+
+        /// <summary>
+        /// Adds a validator that runs after parsing is complete and before command execution.
+        /// </summary>
+        /// <param name="option">The option.</param>
+        /// <param name="validate">The callback. Return <see cref="ValidationResult.Success"/> if there is no error.</param>
+        /// <returns></returns>
+        public static CommandOption OnValidate(this CommandOption option, Func<ValidationContext, ValidationResult> validate)
+        {
+            option.Validators.Add(new DelegateValidator(validate));
+            return option;
+        }
+
         private static T GetValidationAttr<T>(string errorMessage, object[] ctorArgs = null)
             where T : ValidationAttribute
         {

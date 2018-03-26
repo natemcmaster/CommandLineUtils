@@ -2,7 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -21,6 +23,12 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
+        /// A collection of validators that execute before invoking <see cref="OnExecute(Func{int})"/>.
+        /// When validation fails, <see cref="ValidationErrorHandler"/> is invoked.
+        /// </summary>
+        public ICollection<ICommandValidator> Validators { get; } = new List<ICommandValidator>();
+
+        /// <summary>
         /// Validates arguments and options.
         /// </summary>
         /// <returns>The first validation result that is not <see cref="ValidationResult.Success"/> if there is an error.</returns>
@@ -37,6 +45,16 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             var factory = new CommandLineValidationContextFactory(this);
+
+            var commandContext = factory.Create(this);
+            foreach (var validator in Validators)
+            {
+                var result = validator.GetValidationResult(this, commandContext);
+                if (result != ValidationResult.Success)
+                {
+                    return result;
+                }
+            }
 
             foreach (var argument in Arguments)
             {

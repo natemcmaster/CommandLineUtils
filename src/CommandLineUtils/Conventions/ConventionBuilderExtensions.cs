@@ -30,6 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 .SetSubcommandPropertyOnModel()
                 .SetParentPropertyOnModel()
                 .UseOnExecuteMethodFromModel()
+                .UseOnValidateMethodFromModel()
                 .UseOnValidationErrorMethodFromModel()
                 .UseConstructorInjection();
         }
@@ -149,7 +150,15 @@ namespace McMaster.Extensions.CommandLineUtils
             => builder.AddConvention(new SubcommandAttributeConvention());
 
         /// <summary>
-        /// Invokes a method named "OnValidationError" on the model type.
+        /// Invokes a method named "OnValidate" on the model type after parsing.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <returns>The builder.</returns>
+        public static IConventionBuilder UseOnValidateMethodFromModel(this IConventionBuilder builder)
+            => builder.AddConvention(new ValidateMethodConvention());
+
+        /// <summary>
+        /// Invokes a method named "OnValidationError" on the model type when validation fails.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>

@@ -42,6 +42,20 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.True(called, "Validation on subcommand should be called");
         }
 
+        [Fact]
+        public void ValidatorInvoked()
+        {
+            var app = new CommandLineApplication();
+            var called = false;
+            app.OnValidate(_ =>
+            {
+                called = true;
+                return ValidationResult.Success;
+            });
+            Assert.Equal(0, app.Execute());
+            Assert.True(called);
+        }
+
         [Theory]
         [InlineData(CommandOptionType.NoValue, new string[0], false)]
         [InlineData(CommandOptionType.SingleValue, new string[0], false)]

@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -29,6 +30,9 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static string InvalidOnExecuteReturnType(string methodName)
             => methodName + " must have a return type of int or void, or if the method is async, Task<int> or Task.";
+
+        public static string InvalidOnValidateReturnType(Type modelType)
+            => $"The OnValidate method on {modelType.FullName} must return {typeof(ValidationResult).FullName}";
 
         public static string CannotDetermineOptionType(PropertyInfo member)
             => $"Could not automatically determine the {nameof(CommandOptionType)} for type {member.PropertyType.FullName}. " +
