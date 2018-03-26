@@ -1,14 +1,19 @@
 # Changelog
 
+## Unreleased
+
+ - Added support for command validators using `CommandLineApplication.Validators` and added a new OnValidate convention
+ - Fix minor bug in ArgumentEscaper where some strings were not properly escaped
+
 ## [v2.2.0-rc]
 
 **March 23, 2018**
 
 New API:
- - [@atruskie]: Add support for user-defined value parsers using `IValueParser` and `CommandLineApplication.ValueParsers`.
- - Add support for `Option<T>` and `Argument<T>`
- - Add `IValidationBuilder<T>`
- - Add `.Accepts().Range(min, max)` for int and double type arguments and options
+ - [@atruskie]: Added support for user-defined value parsers using `IValueParser` and `CommandLineApplication.ValueParsers`.
+ - Added support for `Option<T>` and `Argument<T>`
+ - Added `IValidationBuilder<T>`
+ - Added `.Accepts().Range(min, max)` for int and double type arguments and options
 
 Enhancements:
  - Parse these values to boolean: T, t, F, f, 0, 1

@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validation", "samples\Valid
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conventions", "samples\Conventions\Conventions.csproj", "{C6428235-2B21-4513-A8AC-8B25DC775A57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArgumentSuggestions", "ArgumentSuggestions\ArgumentSuggestions.csproj", "{8FA0E2D3-2E08-4138-AB95-7AD152ACEE40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{C6428235-2B21-4513-A8AC-8B25DC775A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6428235-2B21-4513-A8AC-8B25DC775A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6428235-2B21-4513-A8AC-8B25DC775A57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FA0E2D3-2E08-4138-AB95-7AD152ACEE40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FA0E2D3-2E08-4138-AB95-7AD152ACEE40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FA0E2D3-2E08-4138-AB95-7AD152ACEE40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FA0E2D3-2E08-4138-AB95-7AD152ACEE40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +102,7 @@ Global
 		{E6E5047D-2CCD-4824-9E71-9976079D2749} = {60B279C6-091B-4F3E-B21F-D71001C94660}
 		{72E4413E-9CDE-4850-93E9-4A83673EC0B0} = {60B279C6-091B-4F3E-B21F-D71001C94660}
 		{C6428235-2B21-4513-A8AC-8B25DC775A57} = {60B279C6-091B-4F3E-B21F-D71001C94660}
+		{8FA0E2D3-2E08-4138-AB95-7AD152ACEE40} = {60B279C6-091B-4F3E-B21F-D71001C94660}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55FD25E0-565D-49F9-9370-28DA7196E539}

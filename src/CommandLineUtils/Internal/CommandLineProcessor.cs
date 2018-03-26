@@ -243,6 +243,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             if (_currentCommand.ThrowOnUnexpectedArgument)
             {
+                _currentCommand.ShowHint(_enumerator.Current.Type,_enumerator.Current.Raw);
                 _currentCommand.ShowHint();
                 throw new CommandParsingException(_currentCommand, $"Unrecognized {argTypeName} '{_enumerator.Current.Raw}'");
             }
@@ -261,7 +262,7 @@ namespace McMaster.Extensions.CommandLineUtils
             } while (_enumerator.MoveNext());
         }
 
-        private enum ParameterType
+        internal enum ParameterType
         {
             CommandOrArgument,
             ShortOption,

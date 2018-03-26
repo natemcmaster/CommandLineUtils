@@ -1054,7 +1054,7 @@ remaining arguments, including the first unexpected argument, will be stored in 
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_ValidationErrorHandler.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValidationErrorHandler%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication.Validation.cs/#L17">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication.Validation.cs/#L19">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_ValidationErrorHandler_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValidationErrorHandler*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_ValidationErrorHandler" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValidationErrorHandler">ValidationErrorHandler</h4>
@@ -1077,6 +1077,38 @@ The action can return a new validation result.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Func</span>&lt;<span class="xref">System.ComponentModel.DataAnnotations.ValidationResult</span>, <span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_Validators.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication.Validators%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication.Validation.cs/#L29">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_Validators_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication.Validators*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_Validators" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication.Validators">Validators</h4>
+  <div class="markdown level1 summary"><p>A collection of validators that execute before invoking <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_System_Func_System_Int32__">OnExecute(Func&lt;Int32&gt;)</a>.
+When validation fails, <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ValidationErrorHandler">ValidationErrorHandler</a> is invoked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;ICommandValidator&gt; Validators { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.html">ICommandValidator</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -3151,6 +3183,9 @@ public void ShowHelp(string commandName = null)</code></pre>
   <div>
       <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Reflection_Assembly_">CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(CommandLineApplication, Assembly)</a>
   </div>
+  <div>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_ComponentModel_DataAnnotations_ValidationContext_System_ComponentModel_DataAnnotations_ValidationResult__">ValidationExtensions.OnValidate(CommandLineApplication, Func&lt;ValidationContext, ValidationResult&gt;)</a>
+  </div>
 </article>
           </div>
           
@@ -3162,7 +3197,7 @@ public void ShowHelp(string commandName = null)</code></pre>
                     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication.Validation.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication.Validation.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

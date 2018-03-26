@@ -1492,6 +1492,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValidationErrorHandler
   nameWithType: CommandLineApplication.ValidationErrorHandler
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Validators
+  name: Validators
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Validators
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Validators
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Validators
+  nameWithType: CommandLineApplication.Validators
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Validators*
+  name: Validators
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Validators_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Validators
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Validators
+  nameWithType: CommandLineApplication.Validators
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValueParsers
   name: ValueParsers
   href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ValueParsers
@@ -2740,6 +2753,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel
   nameWithType: ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseOnValidateMethodFromModel(IConventionBuilder)
+  href: api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html#McMaster_Extensions_CommandLineUtils_ConventionBuilderExtensions_UseOnValidateMethodFromModel_McMaster_Extensions_CommandLineUtils_Conventions_IConventionBuilder_
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseOnValidateMethodFromModel(IConventionBuilder)
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel*
+  name: UseOnValidateMethodFromModel
+  href: api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html#McMaster_Extensions_CommandLineUtils_ConventionBuilderExtensions_UseOnValidateMethodFromModel_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel
+  nameWithType: ConventionBuilderExtensions.UseOnValidateMethodFromModel
 - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
   name: UseOnValidationErrorMethodFromModel(IConventionBuilder)
   href: api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html#McMaster_Extensions_CommandLineUtils_ConventionBuilderExtensions_UseOnValidationErrorMethodFromModel_McMaster_Extensions_CommandLineUtils_Conventions_IConventionBuilder_
@@ -4308,6 +4334,25 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Name
   nameWithType: SubcommandAttribute.Name
+- uid: McMaster.Extensions.CommandLineUtils.ValidateMethodConvention
+  name: ValidateMethodConvention
+  href: api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.ValidateMethodConvention
+  fullName: McMaster.Extensions.CommandLineUtils.ValidateMethodConvention
+  nameWithType: ValidateMethodConvention
+- uid: McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  name: Apply(ConventionContext)
+  href: api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.html#McMaster_Extensions_CommandLineUtils_ValidateMethodConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  nameWithType: ValidateMethodConvention.Apply(ConventionContext)
+- uid: McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.Apply*
+  name: Apply
+  href: api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.html#McMaster_Extensions_CommandLineUtils_ValidateMethodConvention_Apply_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.Apply
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.Apply
+  nameWithType: ValidateMethodConvention.Apply
 - uid: McMaster.Extensions.CommandLineUtils.Validation
   name: McMaster.Extensions.CommandLineUtils.Validation
   href: api/McMaster.Extensions.CommandLineUtils.Validation.html
@@ -4352,6 +4397,79 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult
   nameWithType: AttributeValidator.GetValidationResult
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  name: DelegateValidator
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  nameWithType: DelegateValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.#ctor(System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  name: DelegateValidator(Func<ValidationContext, ValidationResult>)
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html#McMaster_Extensions_CommandLineUtils_Validation_DelegateValidator__ctor_System_Func_System_ComponentModel_DataAnnotations_ValidationContext_System_ComponentModel_DataAnnotations_ValidationResult__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.#ctor(System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  name.vb: DelegateValidator(Func(Of ValidationContext, ValidationResult))
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.DelegateValidator(System.Func<System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.DelegateValidator(System.Func(Of System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult))
+  nameWithType: DelegateValidator.DelegateValidator(Func<ValidationContext, ValidationResult>)
+  nameWithType.vb: DelegateValidator.DelegateValidator(Func(Of ValidationContext, ValidationResult))
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.#ctor*
+  name: DelegateValidator
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html#McMaster_Extensions_CommandLineUtils_Validation_DelegateValidator__ctor_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.#ctor
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.DelegateValidator
+  nameWithType: DelegateValidator.DelegateValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IArgumentValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  name: IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html#McMaster_Extensions_CommandLineUtils_Validation_DelegateValidator_McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandArgument_System_ComponentModel_DataAnnotations_ValidationContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IArgumentValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument, System.ComponentModel.DataAnnotations.ValidationContext)
+  nameWithType: DelegateValidator.IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IArgumentValidator#GetValidationResult*
+  name: IArgumentValidator.GetValidationResult
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html#McMaster_Extensions_CommandLineUtils_Validation_DelegateValidator_McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidator_GetValidationResult_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IArgumentValidator#GetValidationResult
+  isSpec: "True"
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
+  nameWithType: DelegateValidator.IArgumentValidator.GetValidationResult
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#ICommandValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  name: ICommandValidator.GetValidationResult(CommandLineApplication, ValidationContext)
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html#McMaster_Extensions_CommandLineUtils_Validation_DelegateValidator_McMaster_Extensions_CommandLineUtils_Validation_ICommandValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_ComponentModel_DataAnnotations_ValidationContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#ICommandValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(CommandLineApplication, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.ComponentModel.DataAnnotations.ValidationContext)
+  nameWithType: DelegateValidator.ICommandValidator.GetValidationResult(CommandLineApplication, ValidationContext)
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(CommandLineApplication, ValidationContext)
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#ICommandValidator#GetValidationResult*
+  name: ICommandValidator.GetValidationResult
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html#McMaster_Extensions_CommandLineUtils_Validation_DelegateValidator_McMaster_Extensions_CommandLineUtils_Validation_ICommandValidator_GetValidationResult_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#ICommandValidator#GetValidationResult
+  isSpec: "True"
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+  nameWithType: DelegateValidator.ICommandValidator.GetValidationResult
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IOptionValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  name: IOptionValidator.GetValidationResult(CommandOption, ValidationContext)
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html#McMaster_Extensions_CommandLineUtils_Validation_DelegateValidator_McMaster_Extensions_CommandLineUtils_Validation_IOptionValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandOption_System_ComponentModel_DataAnnotations_ValidationContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IOptionValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(CommandOption, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption, System.ComponentModel.DataAnnotations.ValidationContext)
+  nameWithType: DelegateValidator.IOptionValidator.GetValidationResult(CommandOption, ValidationContext)
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(CommandOption, ValidationContext)
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IOptionValidator#GetValidationResult*
+  name: IOptionValidator.GetValidationResult
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html#McMaster_Extensions_CommandLineUtils_Validation_DelegateValidator_McMaster_Extensions_CommandLineUtils_Validation_IOptionValidator_GetValidationResult_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IOptionValidator#GetValidationResult
+  isSpec: "True"
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult
+  nameWithType: DelegateValidator.IOptionValidator.GetValidationResult
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult
 - uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
   name: FilePathExistsAttributeBase
   href: api/McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.html
@@ -4418,6 +4536,25 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
   nameWithType: IArgumentValidator.GetValidationResult
+- uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  name: ICommandValidator
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  nameWithType: ICommandValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  name: GetValidationResult(CommandLineApplication, ValidationContext)
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.html#McMaster_Extensions_CommandLineUtils_Validation_ICommandValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_ComponentModel_DataAnnotations_ValidationContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.ComponentModel.DataAnnotations.ValidationContext)
+  nameWithType: ICommandValidator.GetValidationResult(CommandLineApplication, ValidationContext)
+- uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult*
+  name: GetValidationResult
+  href: api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.html#McMaster_Extensions_CommandLineUtils_Validation_ICommandValidator_GetValidationResult_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+  nameWithType: ICommandValidator.GetValidationResult
 - uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder
   name: IOptionValidationBuilder
   href: api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.html
@@ -4812,6 +4949,40 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength
   nameWithType: ValidationExtensions.MinLength
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  name: OnValidate(CommandArgument, Func<ValidationContext, ValidationResult>)
+  href: api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_McMaster_Extensions_CommandLineUtils_CommandArgument_System_Func_System_ComponentModel_DataAnnotations_ValidationContext_System_ComponentModel_DataAnnotations_ValidationResult__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  name.vb: OnValidate(CommandArgument, Func(Of ValidationContext, ValidationResult))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument, System.Func<System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument, System.Func(Of System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult))
+  nameWithType: ValidationExtensions.OnValidate(CommandArgument, Func<ValidationContext, ValidationResult>)
+  nameWithType.vb: ValidationExtensions.OnValidate(CommandArgument, Func(Of ValidationContext, ValidationResult))
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  name: OnValidate(CommandLineApplication, Func<ValidationContext, ValidationResult>)
+  href: api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_ComponentModel_DataAnnotations_ValidationContext_System_ComponentModel_DataAnnotations_ValidationResult__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  name.vb: OnValidate(CommandLineApplication, Func(Of ValidationContext, ValidationResult))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func<System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func(Of System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult))
+  nameWithType: ValidationExtensions.OnValidate(CommandLineApplication, Func<ValidationContext, ValidationResult>)
+  nameWithType.vb: ValidationExtensions.OnValidate(CommandLineApplication, Func(Of ValidationContext, ValidationResult))
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandOption,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  name: OnValidate(CommandOption, Func<ValidationContext, ValidationResult>)
+  href: api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_McMaster_Extensions_CommandLineUtils_CommandOption_System_Func_System_ComponentModel_DataAnnotations_ValidationContext_System_ComponentModel_DataAnnotations_ValidationResult__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandOption,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  name.vb: OnValidate(CommandOption, Func(Of ValidationContext, ValidationResult))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandOption, System.Func<System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandOption, System.Func(Of System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult))
+  nameWithType: ValidationExtensions.OnValidate(CommandOption, Func<ValidationContext, ValidationResult>)
+  nameWithType.vb: ValidationExtensions.OnValidate(CommandOption, Func(Of ValidationContext, ValidationResult))
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate*
+  name: OnValidate
+  href: api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate
+  nameWithType: ValidationExtensions.OnValidate
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder{System.Double},System.Double,System.Double,System.String)
   name: Range(IValidationBuilder<Double>, Double, Double, String)
   href: api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Range_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Double__System_Double_System_Double_System_String_
