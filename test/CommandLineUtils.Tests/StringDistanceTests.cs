@@ -69,5 +69,20 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             Assert.Equal(0, StringDistance.DamareuLevenshteinDistance("", ""));
         }
+        [Theory]
+        [InlineData(0.6,"app","apple")]
+        [InlineData(0.5, "ban", "banana")]
+        public void TresholdOfToStrings(double treshold,string s1,string s2)
+        {
+            var length = s1.Length > s2.Length ? s1.Length : s2.Length;
+            Assert.Equal(treshold,StringDistance.NormalizeDistance(StringDistance.DamareuLevenshteinDistance(s1, s2),length));
+        }
+        [Theory]
+        [InlineData(0, "", "")]
+        public void TresholdOfToStringsThatAreEmpty(double treshold, string s1, string s2)
+        {
+            var length = s1.Length > s2.Length ? s1.Length : s2.Length;
+            Assert.Equal(treshold, StringDistance.NormalizeDistance(StringDistance.DamareuLevenshteinDistance(s1, s2), length));
+        }
     }
 }

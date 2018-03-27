@@ -692,19 +692,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="value"></param>
         internal void ShowHint(CommandLineProcessor.ParameterType paramType, string value)
         {
-            // Move to a helper class or leave it as it is?
             var optionsArray = Options.Select(t => t.LongName).ToArray();
             var commandsArray = Commands.Select(t => t.FullName).ToArray();
             var argumentsArray = Arguments.Select(t => t.Name).ToArray();
-            var completeList = new string[optionsArray.Length + commandsArray.Length + argumentsArray.Length];
-            optionsArray.CopyTo(completeList, 0);
-            commandsArray.CopyTo(completeList, optionsArray.Length-1);
-            argumentsArray.CopyTo(completeList, optionsArray.Length - 1 + argumentsArray.Length -1);
-
+            var completeList = optionsArray.Merge(commandsArray).Merge(argumentsArray);
 
             if(completeList.Any()) { 
-                var bestMatch = StringDistance.GetBestMatch(StringDistance.DamareuLevenshteinDistance,value,completeList);
-                var guess = completeList[bestMatch];
                 var prefix = "";
                 switch (paramType)
                 {
@@ -715,8 +708,15 @@ namespace McMaster.Extensions.CommandLineUtils
                         prefix = "-";
                         break;
                 }
-                Out.WriteLine("Did you mean this?");
-                Out.WriteLine("        {0}{1}",prefix,guess);
+                // Remove - or -- from the unexpected argument so we can compare it better
+                value = value.Remove(0, prefix.Length);
+                var bestMatch = StringDistance.GetBestMatchIndex(StringDistance.DamareuLevenshteinDistance, value, completeList,0.33d);
+                if(bestMatch > -1) {
+                    // Match found
+                    var guess = completeList[bestMatch];
+                    Out.WriteLine("Did you mean this?");
+                    Out.WriteLine("        {0}{1}",prefix,guess);
+                }
             }
         }
     

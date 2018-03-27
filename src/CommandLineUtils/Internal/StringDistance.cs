@@ -11,7 +11,6 @@ namespace McMaster.Extensions.CommandLineUtils
         //This is a modified version of Matt Enrights implementation
         // https://gist.github.com/wickedshimmy/449595
 
-
         /// <summary>
         /// Calculates the unnormalized (Damerau-)Levenshtein Distance of two strings
         /// </summary>
@@ -99,12 +98,31 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             return LevenshteinDistance(s, t, true);
         }
-        public static double NormalizeDistance(int distance, int length)
+
+        /// <summary>
+        /// Normalizes the distance
+        /// </summary>
+        /// <param name="distance"></param>
+        /// <param name="length"></param>
+        /// <returns>A value from 0 to 1 with 1 being a perfect match and zero none at all</returns>
+        internal static double NormalizeDistance(int distance, int length)
         {
-            return 1.0d - ((double) distance) / length;
+            if (distance == 0)
+            {
+                return 0;
+            }
+            return 1.0d - (double) distance / length;
         }
 
-        public static int GetBestMatch(Func<string, string, int> distanceMethod,string value, string[] values)
+        /// <summary>
+        /// Gets the best match for value in the given values array
+        /// </summary>
+        /// <param name="distanceMethod">A method that calculates a string distance</param>
+        /// <param name="value"></param>
+        /// <param name="values">The values to search through</param>
+        /// <param name="treshold">A treshold for word possible match</param>
+        /// <returns>The index of the best match or -1 when none is found</returns>
+        internal static int GetBestMatchIndex(Func<string, string, int> distanceMethod,string value, string[] values, double treshold)
         {
             var bestMatchValue = -1d;
             var bestMatchIndex = -1;
@@ -113,7 +131,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 var distance = distanceMethod(value, values[i]);
                 var length = value.Length > values[i].Length ? value.Length : values[i].Length;
                 var normalizedDistance = StringDistance.NormalizeDistance(distance, length);
-                if (bestMatchValue < normalizedDistance)
+                if (bestMatchValue < normalizedDistance && normalizedDistance >= treshold)
                 {
                     bestMatchValue = normalizedDistance;
                     bestMatchIndex = i;
@@ -121,5 +139,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             return bestMatchIndex;
         }
+      
+
     }
 }
