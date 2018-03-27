@@ -176,6 +176,7 @@ namespace McMaster.Extensions.CommandLineUtils
             internal set => _optionHelp = value;
         }
 
+
         /// <summary>
         /// The options used to determine if the command version should be displayed. This is set by calling <see cref="VersionOption(string, Func{string}, Func{string})"/>.
         /// </summary>
@@ -684,6 +685,41 @@ namespace McMaster.Extensions.CommandLineUtils
                 Out.WriteLine(string.Format("Specify --{0} for a list of available options and commands.", OptionHelp.LongName));
             }
         }
+        /// <summary>
+        /// Show suggestion for possible meant parameter
+        /// </summary>
+        /// <param name="paramType"></param>
+        /// <param name="value"></param>
+        internal void ShowHint(CommandLineProcessor.ParameterType paramType, string value)
+        {
+            // Move to a helper class or leave it as it is?
+            var optionsArray = Options.Select(t => t.LongName).ToArray();
+            var commandsArray = Commands.Select(t => t.FullName).ToArray();
+            var argumentsArray = Arguments.Select(t => t.Name).ToArray();
+            var completeList = new string[optionsArray.Length + commandsArray.Length + argumentsArray.Length];
+            optionsArray.CopyTo(completeList, 0);
+            commandsArray.CopyTo(completeList, optionsArray.Length-1);
+            argumentsArray.CopyTo(completeList, optionsArray.Length - 1 + argumentsArray.Length -1);
+
+
+            if(completeList.Any()) { 
+                var bestMatch = StringDistance.GetBestMatch(StringDistance.DamareuLevenshteinDistance,value,completeList);
+                var guess = completeList[bestMatch];
+                var prefix = "";
+                switch (paramType)
+                {
+                    case CommandLineProcessor.ParameterType.LongOption:
+                        prefix = "--";
+                        break;
+                    case CommandLineProcessor.ParameterType.ShortOption:
+                        prefix = "-";
+                        break;
+                }
+                Out.WriteLine("Did you mean this?");
+                Out.WriteLine("        {0}{1}",prefix,guess);
+            }
+        }
+    
 
         /// <summary>
         /// Show full help.
