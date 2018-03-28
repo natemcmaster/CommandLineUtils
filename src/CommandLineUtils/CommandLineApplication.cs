@@ -693,7 +693,23 @@ namespace McMaster.Extensions.CommandLineUtils
         internal void ShowHint(CommandLineProcessor.ParameterType paramType, string value)
         {
             var optionsArray = Options.Select(t => t.LongName).ToArray();
-            var commandsArray = Commands.Select(t => t.FullName).ToArray();
+            //flatten commands
+            List<string> FlattenCommandStructure(List<CommandLineApplication> cmds)
+            {
+                var cmdsStrings = new List<string>();
+                // Parent
+                foreach (var item in cmds)
+                {
+                    cmdsStrings.Add(item.Name);
+                    if(item.Commands.Count > 0) { 
+                        FlattenCommandStructure(item.Commands);
+                    }
+                }
+                return cmdsStrings;
+            }
+
+            var commandsList = FlattenCommandStructure(Commands);
+            var commandsArray = commandsList.ToArray(); 
             var argumentsArray = Arguments.Select(t => t.Name).ToArray();
             var completeList = optionsArray.Merge(commandsArray).Merge(argumentsArray);
 

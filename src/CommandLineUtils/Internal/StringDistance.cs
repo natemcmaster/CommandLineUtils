@@ -26,13 +26,21 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 return 0;
             }
-            if (s.Length == 0)
+            if (string.IsNullOrEmpty(s))
             {
-                return t.Length;
+                if (!string.IsNullOrEmpty(t))
+                {
+                    return t.Length;
+                }
+                return 0;
             }
-            if (t.Length == 0)
+            if (string.IsNullOrEmpty(t))
             {
-                return s.Length;
+                if (!string.IsNullOrEmpty(s))
+                {
+                    return s.Length;
+                }
+                return 0;
             }
 
             // Create matrix
@@ -109,7 +117,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             if (distance == 0)
             {
-                return 0;
+                return 1;
             }
             return 1.0d - (double) distance / length;
         }
@@ -124,10 +132,16 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The index of the best match or -1 when none is found</returns>
         internal static int GetBestMatchIndex(Func<string, string, int> distanceMethod,string value, string[] values, double treshold)
         {
+            if (distanceMethod == null || value == null || values == null)
+            {
+                return -1;
+            }
             var bestMatchValue = -1d;
             var bestMatchIndex = -1;
             for (var i = 0; i < values.Length; i++)
             {
+                if(values[i] == null){ continue;}
+                
                 var distance = distanceMethod(value, values[i]);
                 var length = value.Length > values[i].Length ? value.Length : values[i].Length;
                 var normalizedDistance = StringDistance.NormalizeDistance(distance, length);
