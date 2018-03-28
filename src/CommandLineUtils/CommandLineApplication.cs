@@ -697,7 +697,6 @@ namespace McMaster.Extensions.CommandLineUtils
             List<string> FlattenCommandStructure(List<CommandLineApplication> cmds)
             {
                 var cmdsStrings = new List<string>();
-                // Parent
                 foreach (var item in cmds)
                 {
                     cmdsStrings.Add(item.Name);
