@@ -1,16 +1,14 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 using System;
 using System.Globalization;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xunit;
-using  McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
-    using System.Linq;
-
     public class ValueParserProviderCustomTests
     {
 
@@ -191,6 +189,75 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(
                 CommandOptionType.SingleValue,
                 optionMapper.GetOptionType(typeof(double), app.ValueParsers));
+        }
+
+
+        [Command()]
+        [Subcommand("subcommand", typeof(CustomParserProgramAttributesSubCommand))]
+        private class CustomParserProgramAttributes
+        {
+            [Option("-a")]
+            public DateTimeOffset MainDate { get; }
+        }
+
+        [Command()]
+        private class CustomParserProgramAttributesSubCommand
+        {
+            [Option("-b")]
+            public DateTimeOffset SubDate { get; }
+
+            public Task<int> OnExecute(CommandLineApplication app)
+            {
+                return Task.FromResult(1);
+            }
+        }
+
+        [Fact]
+        public void CustomParsersAreAvailableToSubCommands()
+        {
+            var expectedDate = new DateTimeOffset(2018, 02, 16, 21, 30, 33, 45, TimeSpan.FromHours(10));
+           
+
+            var app = new CommandLineApplication<CustomParserProgramAttributes>();
+            app.ValueParsers.AddOrReplace(new MyDateTimeOffsetParser());
+            app.Conventions.UseDefaultConventions();
+
+            var args = new[] { "-a", expectedDate.ToString("O"), "subcommand", "-b", expectedDate.AddSeconds(123456).ToString("O") };
+
+            var result = app.Execute(args);
+
+            Assert.Equal(1, result);
+            Assert.Equal(expectedDate, app.Model.MainDate);
+            Assert.Equal(expectedDate.AddSeconds(123456), ((CommandLineApplication<CustomParserProgramAttributesSubCommand>)app.Commands[0]).Model.SubDate);
+        }
+
+        [Fact]
+        public void CustomParsersAreAvailableToBuilderSubCommands()
+        {
+            var expectedDate = new DateTimeOffset(2018, 02, 16, 21, 30, 33, 45, TimeSpan.FromHours(10));
+            DateTimeOffset actualMainDate = default;
+            DateTimeOffset actualSubDate = default;
+           
+            var app = new CommandLineApplication();
+            app.ValueParsers.AddOrReplace(new MyDateTimeOffsetParser());
+
+            var mainDate = app.Option<DateTimeOffset>("-a", "The main date to parse", CommandOptionType.SingleValue);
+            app.Command("subcommand", configCmd =>
+            {
+                var subDate = configCmd.Option<DateTimeOffset>("-b", "A date for the sub command", CommandOptionType.SingleValue);
+
+                configCmd.OnExecute(() =>
+                {
+                    actualMainDate = mainDate.ParsedValue;
+                    actualSubDate = subDate.ParsedValue;
+                });
+            });
+
+            var args = new[] { "-a", expectedDate.ToString("O"), "subcommand", "-b", expectedDate.AddSeconds(123456).ToString("O") };
+            app.Execute(args);
+
+            Assert.Equal(expectedDate, actualMainDate);
+            Assert.Equal(expectedDate.AddSeconds(123456), actualSubDate);
         }
 
         private class BadValueParser : IValueParser

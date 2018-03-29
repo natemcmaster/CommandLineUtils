@@ -93,7 +93,7 @@ namespace McMaster.Extensions.CommandLineUtils
             ValidationErrorHandler = DefaultValidationErrorHandler;
             SetContext(context);
             _services = new Lazy<IServiceProvider>(() => new ServiceProvider(this));
-            ValueParsers = new ValueParserProvider();
+            ValueParsers = parent?.ValueParsers ?? new ValueParserProvider();
 
             _conventionContext = CreateConventionContext();
 
