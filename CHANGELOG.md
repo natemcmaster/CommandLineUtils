@@ -1,10 +1,13 @@
 # Changelog
 
-## Unreleased
+## [v2.2.0]
+
+**March 30,2018**
 
  - Added support for command validators using `CommandLineApplication.Validators` and added a new OnValidate convention
  - Fix minor bug in ArgumentEscaper where some strings were not properly escaped
  - Update to System.ComponentModel.Annotations 4.4.1 (netstandard2.0 only)
+ - [@atruskie]: Ensure ValueParsers are inherited in subcommands
 
 ## [v2.2.0-rc]
 
@@ -123,7 +126,8 @@ Other:
 [@rmcc13]: https://github.com/rmcc13
 [@sebastienros]: https://github.com/sebastienros
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-rc...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0...HEAD
+[v2.2.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-rc...v2.2.0
 [v2.2.0-rc]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-beta...v2.2.0-rc
 [v2.2.0-beta]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-alpha...v2.2.0-beta
 [v2.2.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.1...v2.2.0-alpha
