@@ -20,8 +20,8 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
     <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' != 'net45'">
-    <PackageReference Include="System.ComponentModel.Annotations" Version="4.1.0" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
@@ -30,6 +30,8 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.6'">
+    <!-- Keep these at the lowest possible version to support .NET Core 1. -->
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.1.0" />
     <PackageReference Include="System.Diagnostics.Process" Version="4.1.0" />
     <PackageReference Include="System.Threading.Thread" Version="4.0.0" />
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />

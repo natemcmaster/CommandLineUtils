@@ -4,6 +4,7 @@
 
  - Added support for command validators using `CommandLineApplication.Validators` and added a new OnValidate convention
  - Fix minor bug in ArgumentEscaper where some strings were not properly escaped
+ - Update to System.ComponentModel.Annotations 4.4.1 (netstandard2.0 only)
 
 ## [v2.2.0-rc]
 
