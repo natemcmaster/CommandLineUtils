@@ -76,10 +76,10 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="dependency-injection">Dependency Injection</h1>
 
-<p>CommandLineUtils allow you to use dependency injection to inject dependencies into command constructors at runtime. This give you the ability to avoid tight coupling bewteen the commands and and the services which they depend on. CommandLineUtils has a standard set of services which are available to inject and also allow you to register and inject your own services.</p>
+<p>CommandLineUtils allow you to use dependency injection to inject dependencies into command constructors at runtime. This gives you the ability to avoid tight coupling between the commands and the services which they depend on. CommandLineUtils has a standard set of services which are available to inject and also allow you to register and inject your own services.</p>
 <h2 id="using-dependency-injection">Using dependency injection</h2>
-<p>In order to inject services into a command constructor you need to specify the services to be injected as parameters for the <strong>public constructor</strong> of the command. </p>
-<p>In the example below, the <code>IConsole</code> implementation is injected into the constructor, allowing the command to write output to the console:</p>
+<p>To inject services into a command constructor, you need to specify the services to be injected as parameters for the <strong>public constructor</strong> of the command. </p>
+<p>In the example below, the <code>IConsole</code> implementation is injected into the constructor and stored in a field named <code>_console</code>. Later in the program, this is used to write output to the console:</p>
 <pre><code class="lang-csharp" highlight-lines="5,9-12,16">[Command(Name = &quot;basic&quot;, Description = &quot;A very simple http client&quot;)]
 [HelpOption]
 class Program
@@ -140,12 +140,70 @@ class Program
 </tr>
 </tbody>
 </table>
-<h2 id="registering-your-own-services">Registering your own services</h2>
-<p>You can register your own services by using the <a href="McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention">ConstructorInjectionConvention</a> and passing an <code>IServiceProvider</code> instance </p>
-<p>In the example below, the standard .NET Core <code>ServiceCollection</code> class is used to register the impementation of <code>IMyService</code>. <code>ServiceColl...</code></p>
-<div class="NOTE"><h5>Note</h5><p>This is a note</p>
+<h2 id="using-your-own-services">Using your own services</h2>
+<p>You can register your own services by using the <a href="McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention">ConstructorInjectionConvention</a> and making use of the <code>Microsoft.Extensions.DependencyInjection</code> NuGet package to contruct services.</p>
+<p>In the example below, we have defined a service named <code>IMyService</code> with a single method named <code>Invoke</code>:</p>
+<pre><code class="lang-csharp">interface IMyService
+{
+    void Invoke();
+}
+</code></pre><p>The implementation of this service is done in <code>MyServiceImplementation</code>, which will write a string to the console. Also, note that an instance of <code>IConsole</code>  is injected into the <code>MyServiceImplementation</code> constructor.</p>
+<pre><code class="lang-csharp">class MyServiceImplementation : IMyService
+{
+    private readonly IConsole _console;
+
+    public MyServiceImplementation(IConsole console)
+    {
+        _console = console;
+    }
+
+    public void Invoke()
+    {
+        _console.WriteLine(&quot;Hello dependency injection!&quot;);
+    }
+}
+</code></pre><p>You can register your own services by creating an instance of <code>ServiceCollection</code> and adding the services to the collection. A service provider is then created by calling the <code>BuildServiceProvider</code> method:</p>
+<pre><code class="lang-csharp">var services = new ServiceCollection()
+    .AddSingleton&lt;IMyService, MyServiceImplementation&gt;()
+    .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton)
+    .BuildServiceProvider();
+</code></pre><div class="NOTE"><h5>Note</h5><p>Take note that standard services which need to be injected into your custom services, such as <code>IConsole</code> which needs to be injected into the <code>MyServiceImplementation</code> constructor, needs to be added to the service collection as well.</p>
 </div>
-</article>
+<p>Next, you can call add the constructor injection convention by calling <code>UseConstructorInjection</code>, passing the service provider which was previously created.</p>
+<pre><code class="lang-csharp">var app = new CommandLineApplication&lt;Program&gt;();
+app.Conventions
+    .UseDefaultConventions()
+    .UseConstructorInjection(services);
+</code></pre><p>Below is the full source code for the custom services example. Notice that instance of <code>IMyService</code> which will be injected into the <code>Program</code> constructor thanks to the dependency injection.</p>
+<pre><code class="lang-csharp" highlight-lines="19-22">class Program
+{
+    public static int Main(string[] args)
+    {
+        var services = new ServiceCollection()
+            .AddSingleton&lt;IMyService, MyServiceImplementation&gt;()
+            .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton)
+            .BuildServiceProvider();
+
+        var app = new CommandLineApplication&lt;Program&gt;();
+        app.Conventions
+            .UseDefaultConventions()
+            .UseConstructorInjection(services);
+        return app.Execute(args);
+    }
+
+    private readonly IMyService _myService;
+
+    public Program(IMyService myService)
+    {
+        _myService = myService;
+    }
+
+    private void OnExecute()
+    {
+        _myService.Invoke();
+    }
+}
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
