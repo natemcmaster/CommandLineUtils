@@ -40,5 +40,87 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ex = Assert.Throws<InvalidOperationException>(() => app.Conventions.UseOnValidateMethodFromModel());
             Assert.Equal(Strings.InvalidOnValidateReturnType(typeof(ProgramWithBadOnValidate)), ex.Message);
         }
+
+
+        [Command]
+        [Subcommand("subcommand", typeof(SubcommandValidate))]
+        private class MainValidate
+        {
+            [Option]
+            public int? Middle { get; }
+
+            private ValidationResult OnValidate(ValidationContext context, CommandLineContext appContext)
+            {
+                if (this.Middle.HasValue && this.Middle < 0)
+                {
+                    return new ValidationResult("Middle must be greater than 0");
+                }
+
+                Assert.Equal(typeof(CommandLineApplication<MainValidate>), context.ObjectInstance.GetType());
+               
+                return ValidationResult.Success;
+            }
+        }
+
+        [Command]
+        private class SubcommandValidate
+        {
+            [Option]
+            public int Start { get; private set; } = 0;
+
+            [Option]
+            public int End { get; private set; } = Int32.MaxValue;
+
+            private ValidationResult OnValidate(ValidationContext context, CommandLineContext appContext)
+            {
+                if (this.Start >= this.End)
+                {
+                    return new ValidationResult("End must be greater than start");
+                }
+
+                Assert.Equal(typeof(CommandLineApplication<SubcommandValidate>), context.ObjectInstance.GetType());
+                var subcommand = (CommandLineApplication<SubcommandValidate>) context.ObjectInstance;
+                var main = (CommandLineApplication<MainValidate>) subcommand.Parent;
+
+                var middle = main.Model.Middle;
+                if (middle.HasValue)
+                {
+                    if (middle.Value < this.Start || middle.Value >= this.End)
+                    {
+                        return new ValidationResult("Middle must be between start and end");
+                    }
+                }
+
+                return ValidationResult.Success;
+            }
+        }
+
+        [Theory]
+        [InlineData("subcommand -s 999 -e 123", "End must be greater than start")]
+        [InlineData("-m 999 subcommand -s 111 -e 123", "Middle must be between start and end")]
+        [InlineData("-m -5 subcommand -s -100 -e 100", "Middle must be greater than 0")]
+        [InlineData("-m 111 subcommand", null)]
+        [InlineData("subcommand -s 111 -e 123", null)]
+        [InlineData("-m 111 subcommand -s 100 -e 123", null)]
+        public void ValidatorShouldGetDeserailizedModelInSubcommands(string args, string error)
+        {
+            var app = new CommandLineApplication<MainValidate>();
+            app.Conventions.UseDefaultConventions();
+
+            // this tests that the model is actually given values before it passed to command validation
+            var parseResult = app.Parse(args.Split(' '));
+
+            var result = parseResult.ValidationResult;
+
+            if (error == null)
+            {
+                Assert.Equal(ValidationResult.Success, result);
+            }
+            else
+            {
+                Assert.NotEqual(ValidationResult.Success, result);
+                Assert.Equal(error, result.ErrorMessage);
+            }
+        }
     }
 }
