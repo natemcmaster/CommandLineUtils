@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/concepts/dependency-injection.html",
-          "hash": "tbbnwYujlQoIqhxFNaFG2A=="
+          "hash": "gFMAPinJp48BPaXXYXOztg=="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/intro.html",
-          "hash": "10iyxw+qGXj//k7iW5FoSQ=="
+          "hash": "G7gEiSrVvIuu5o2H1uRuQg=="
         }
       },
       "is_incremental": false,
@@ -1123,11 +1123,11 @@
           "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         }

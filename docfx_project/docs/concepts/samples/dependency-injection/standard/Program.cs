@@ -4,7 +4,7 @@ using McMaster.Extensions.CommandLineUtils;
 
 namespace StandardServices
 {
-    [Command(Name = "basic", Description = "A very simple http client")]
+    [Command(Name = "di", Description = "Dependency Injection sample project")]
     [HelpOption]
     class Program
     {

@@ -80,7 +80,7 @@
 <h2 id="using-dependency-injection">Using dependency injection</h2>
 <p>To inject services into a command constructor, you need to specify the services to be injected as parameters for the <strong>public constructor</strong> of the command. </p>
 <p>In the example below, the <code>IConsole</code> implementation is injected into the constructor and stored in a field named <code>_console</code>. Later in the program, this is used to write output to the console:</p>
-<pre><code class="lang-csharp" highlight-lines="5,9-12,16">[Command(Name = &quot;basic&quot;, Description = &quot;A very simple http client&quot;)]
+<pre><code class="lang-csharp" highlight-lines="5,9-12,16">[Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
 [HelpOption]
 class Program
 {
@@ -175,7 +175,9 @@ app.Conventions
     .UseDefaultConventions()
     .UseConstructorInjection(services);
 </code></pre><p>Below is the full source code for the custom services example. Notice that instance of <code>IMyService</code> which will be injected into the <code>Program</code> constructor thanks to the dependency injection.</p>
-<pre><code class="lang-csharp" highlight-lines="19-22">class Program
+<pre><code class="lang-csharp" highlight-lines="21-24">[Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
+[HelpOption]
+class Program
 {
     public static int Main(string[] args)
     {

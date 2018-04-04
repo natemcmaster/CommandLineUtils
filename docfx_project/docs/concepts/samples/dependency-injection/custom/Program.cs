@@ -5,6 +5,8 @@ using McMaster.Extensions.CommandLineUtils;
 namespace CustomServices
 {
 #region Program
+    [Command(Name = "di", Description = "Dependency Injection sample project")]
+    [HelpOption]
     class Program
     {
         public static int Main(string[] args)

@@ -38,15 +38,15 @@ The implementation of this service is done in `MyServiceImplementation`, which w
 
 You can register your own services by creating an instance of `ServiceCollection` and adding the services to the collection. A service provider is then created by calling the `BuildServiceProvider` method:
 
-[!code-csharp[](./samples/dependency-injection/custom/Program.cs?range=12-15)]
+[!code-csharp[](./samples/dependency-injection/custom/Program.cs?range=14-17)]
 
 > [!NOTE] 
 > Take note that standard services which need to be injected into your custom services, such as `IConsole` which needs to be injected into the `MyServiceImplementation` constructor, needs to be added to the service collection as well.
 
 Next, you can call add the constructor injection convention by calling `UseConstructorInjection`, passing the service provider which was previously created.
 
-[!code-csharp[](./samples/dependency-injection/custom/Program.cs?range=17-20)]
+[!code-csharp[](./samples/dependency-injection/custom/Program.cs?range=19-22)]
 
 Below is the full source code for the custom services example. Notice that instance of `IMyService` which will be injected into the `Program` constructor thanks to the dependency injection.
 
-[!code-csharp[](./samples/dependency-injection/custom/Program.cs?name=Program&highlight=19-22)]
+[!code-csharp[](./samples/dependency-injection/custom/Program.cs?name=Program&highlight=21-24)]

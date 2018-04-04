@@ -1,6 +1,6 @@
 # Introduction
 
-**CommandLineUtils** is a library which helps developers implement command line applications. The primary goal of the library is to assist with parsing command line arguments and executing the correct commands related tothose arguments. Howwever, the library also provides various other utilities such as input helpers.
+**CommandLineUtils** is a library which helps developers implement command line applications. The primary goal of the library is to assist with parsing command line arguments and executing the correct commands related to those arguments. However, the library also provides various other utilities such as input helpers.
 
 ## Installation
 
@@ -22,7 +22,7 @@
 
     ```xml
     <ItemGroup>
-    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.0.1" />
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.0" />
     </ItemGroup>
     ```
 
@@ -85,4 +85,4 @@ public class Program
 
 ## More information
 
-For more information you can refer to the sample applications.
+For more information, you can refer to the sample applications.
