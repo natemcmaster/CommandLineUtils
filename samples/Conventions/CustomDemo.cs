@@ -24,7 +24,8 @@ public class CustomDemo
         var verboseOption = app.Option("-verb|--verbose", "Application outputs even since verbose log events to the console", CommandOptionType.NoValue);
 
         app.Conventions
-            .UseDefaultConventions();
+            .UseDefaultConventions()
+            .AddConvention(new AppInitializerConvention());
             //.AddConvention(new CustomConvention);
 
         // cmd1 command
@@ -70,9 +71,14 @@ public class CustomDemo
     }
 
 
-    [Command(Name = "nestedCmd", Description = "The nested command.", ExtendedHelpText = "extended help text")]
-    class NestedAttrbutedCommand
+    [Command(Name = "nestedCmd", Description = "The nested command.", ExtendedHelpText = "Only a constant extended help text available")]
+    class NestedAttrbutedCommand : IAppInitializer
     {
+        void IAppInitializer.InitializeApp(CommandLineApplication app)
+        {
+            app.ExtendedHelpText = "Something got on runtime (like configuration details and so on)";
+        }
+
         private void OnExecute(IConsole console)
         {
             console.WriteLine("nestedCmd execution...");
