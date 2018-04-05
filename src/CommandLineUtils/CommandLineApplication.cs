@@ -137,6 +137,11 @@ namespace McMaster.Extensions.CommandLineUtils
         public string FullName { get; set; }
 
         /// <summary>
+        /// The full name of the command to show in the help text (with a placeholder for a  short version) .
+        /// </summary>
+        public string TemplatedFullName { get; set; }
+
+        /// <summary>
         /// A description of the command.
         /// </summary>
         public string Description { get; set; }
@@ -797,9 +802,9 @@ namespace McMaster.Extensions.CommandLineUtils
         public string GetFullNameAndVersion()
         {
             var shortVersion = ShortVersionGetter?.Invoke();
-            return string.IsNullOrEmpty(shortVersion)
-                ? FullName
-                : $"{FullName} {shortVersion}";
+            return (TemplatedFullName == null)
+                ? string.IsNullOrEmpty(shortVersion) ? FullName : string.Format("{0} ({1})", FullName, shortVersion)
+                : string.Format(TemplatedFullName, shortVersion);
         }
 
         /// <summary>

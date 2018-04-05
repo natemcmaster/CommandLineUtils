@@ -20,6 +20,9 @@ public class CustomDemo
         //var app = new CommandLineApplication();
         var app = new CommandLineApplication<CustomDemo>();
         app.HelpOption(inherited: true);
+        app.TemplatedFullName = string.Concat("----------------------------------", Environment.NewLine, "", " Demo App ({0})", Environment.NewLine, "----------------------------------");
+        app.VersionOption("-ver| --version", "0.1.0");
+
         var debugOption = app.Option("--debug", "Application outputs even since debug log events to the console", CommandOptionType.NoValue);
         var verboseOption = app.Option("-verb|--verbose", "Application outputs even since verbose log events to the console", CommandOptionType.NoValue);
 
@@ -30,7 +33,7 @@ public class CustomDemo
         // cmd1 command
         app.Command("cmd1", cmd =>
         {
-            cmd.FullName = "App - cmd1";
+            cmd.FullName = "Demo App - cmd1 command";
             cmd.Description = "cmd1 description";
             cmd.OnExecute(() =>
             {
@@ -42,7 +45,7 @@ public class CustomDemo
         // cmd2 command
         app.Command("cmd2", cmd =>
         {
-            cmd.FullName = "App - cmd2";
+            cmd.FullName = "Demo App - cmd2 command";
             cmd.Description = "cmd2 description";
             cmd.OnExecute(() =>
             {
@@ -70,7 +73,7 @@ public class CustomDemo
     }
 
 
-    [Command(Name = "nestedCmd", Description = "The nested command.", ExtendedHelpText = "extended help text")]
+    [Command(Name = "nestedCmd", FullName = "Demo App - nested command", Description = "The nested command.", ExtendedHelpText = "extended help text")]
     class NestedAttrbutedCommand
     {
         private void OnExecute(IConsole console)
