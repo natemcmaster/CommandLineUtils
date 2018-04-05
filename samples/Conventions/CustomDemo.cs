@@ -7,6 +7,7 @@ using McMaster.Extensions.CommandLineUtils.Conventions;
 /// A custom class for demonstration / learning with debug purposes.
 /// It acts as a model and has sub-commands specified both ways (through API and through attributes).
 /// </summary>
+[PrefixRootFullName]
 [Subcommand("nestedCmd", typeof(NestedAttrbutedCommand))]
 public class CustomDemo
 {
@@ -33,7 +34,7 @@ public class CustomDemo
         // cmd1 command
         app.Command("cmd1", cmd =>
         {
-            cmd.FullName = "Demo App - cmd1 command";
+            cmd.FullName = "cmd1 command";
             cmd.Description = "cmd1 description";
             cmd.OnExecute(() =>
             {
@@ -45,7 +46,7 @@ public class CustomDemo
         // cmd2 command
         app.Command("cmd2", cmd =>
         {
-            cmd.FullName = "Demo App - cmd2 command";
+            cmd.FullName = "cmd2 command";
             cmd.Description = "cmd2 description";
             cmd.OnExecute(() =>
             {
@@ -73,7 +74,7 @@ public class CustomDemo
     }
 
 
-    [Command(Name = "nestedCmd", FullName = "Demo App - nested command", Description = "The nested command.", ExtendedHelpText = "extended help text")]
+    [Command(Name = "nestedCmd", FullName = "nested command", Description = "The nested command.", ExtendedHelpText = "extended help text")]
     class NestedAttrbutedCommand
     {
         private void OnExecute(IConsole console)
