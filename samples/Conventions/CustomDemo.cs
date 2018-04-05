@@ -25,7 +25,7 @@ public class CustomDemo
 
         app.Conventions
             .UseDefaultConventions()
-            .AddConvention(new AppInitializerConvention());
+            .UseAppInitializerInterface();
             //.AddConvention(new CustomConvention);
 
         // cmd1 command
