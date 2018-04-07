@@ -4,7 +4,7 @@ CommandLineUtils allow you to use dependency injection to inject dependencies in
 
 ## Using dependency injection
 
-To inject services into a command constructor, you need to specify the services to be injected as parameters for the **public constructor** of the command. 
+To inject services into a command constructor, you need to specify the services to be injected as parameters for the **public constructor** of the command.
 
 In the example below, the `IConsole` implementation is injected into the constructor and stored in a field named `_console`. Later in the program, this is used to write output to the console:
 
@@ -26,7 +26,7 @@ Command parent type | When using sub-commands, you can inject the type of the pa
 
 ## Using your own services
 
-You can register your own services by using the [ConstructorInjectionConvention](McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention) and making use of the `Microsoft.Extensions.DependencyInjection` NuGet package to contruct services.
+You can register your own services by using the [ConstructorInjectionConvention](xref:McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention) and making use of the `Microsoft.Extensions.DependencyInjection` NuGet package to contruct services.
 
 In the example below, we have defined a service named `IMyService` with a single method named `Invoke`:
 
@@ -40,7 +40,7 @@ You can register your own services by creating an instance of `ServiceCollection
 
 [!code-csharp[](./samples/dependency-injection/custom/Program.cs?range=14-17)]
 
-> [!NOTE] 
+> [!NOTE]
 > Take note that standard services which need to be injected into your custom services, such as `IConsole` which needs to be injected into the `MyServiceImplementation` constructor, needs to be added to the service collection as well.
 
 Next, you can call add the constructor injection convention by calling `UseConstructorInjection`, passing the service provider which was previously created.
