@@ -118,6 +118,23 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandLineApplication Parent { get; set; }
 
         /// <summary>
+        /// A calculated link to the root command (in case of root command it points to it self).
+        /// </summary>
+        public CommandLineApplication Root
+        {
+            get
+            {
+                var rootCmd = this;
+                while (rootCmd.Parent != null)
+                {
+                    rootCmd = rootCmd.Parent;
+                }
+
+                return rootCmd;
+            }
+        }
+
+        /// <summary>
         /// The help text generator to use.
         /// </summary>
         public IHelpTextGenerator HelpTextGenerator
@@ -135,6 +152,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// The full name of the command to show in the help text.
         /// </summary>
         public string FullName { get; set; }
+
+        /// <summary>
+        /// The full name of the command to show in the help text (with a placeholder for a  short version) .
+        /// </summary>
+        public string TemplatedFullName { get; set; }
 
         /// <summary>
         /// A description of the command.
@@ -227,6 +249,32 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Determines if '--' can be used to separate known arguments and options from additional content passed to <see cref="RemainingArguments"/>.
         /// </summary>
         public bool AllowArgumentSeparator { get; set; }
+
+        /// <summary>
+        /// Determines if '--' the prefixRootFullName was set from client.
+        /// </summary>
+        private bool _prefixRootFullNameClientSet = false;
+
+        /// <summary>
+        /// Determines if '--' the RootFullName (with version) is always shown before the actual sub-command full name (backing field).
+        /// </summary>
+        private bool _prefixRootFullName;
+
+        /// <summary>
+        /// Determines if '--' the RootFullName (with version) is always shown before the actual sub-command full name.
+        /// </summary>
+        public bool PrefixRootFullName
+        {
+            get
+            {
+                return _prefixRootFullName;
+            }
+            set
+            {
+                _prefixRootFullNameClientSet = true;
+                _prefixRootFullName = value;
+            }
+        }
 
         /// <summary>
         /// <para>
@@ -536,6 +584,17 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
+        /// The internal inheritance call of the <see cref="PrefixRootFullName" /> from the parent value.
+        /// </summary>
+        internal void DeterminePrefixRootFullNameByInheritance()
+        {
+            if (!_prefixRootFullNameClientSet && Parent != null)
+            {
+                _prefixRootFullName = Parent._prefixRootFullName;
+            }
+        }
+
+        /// <summary>
         /// Handle the result of parsing command line arguments.
         /// </summary>
         /// <param name="parseResult">The parse result.</param>
@@ -796,10 +855,45 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns></returns>
         public string GetFullNameAndVersion()
         {
-            var shortVersion = ShortVersionGetter?.Invoke();
-            return string.IsNullOrEmpty(shortVersion)
-                ? FullName
-                : $"{FullName} {shortVersion}";
+            var sb = new StringBuilder();
+            if (PrefixRootFullName)
+            {
+                var root = Root;
+                if (root != this)
+                {
+                    sb.Append(root.GetFullNameAndVersion());
+                    sb.Append(Environment.NewLine);
+                }
+            }
+            if (TemplatedFullName == null)
+            {
+                if (ShortVersionGetter == null)
+                {
+                    sb.Append(FullName);
+                }
+                else
+                {
+                    sb.Append(FullName);
+                    sb.Append(" (");
+                    sb.Append(ShortVersionGetter());
+                    sb.Append(")");
+                }
+            }
+            else
+            {
+                try
+                {
+                    var verPlaceHolderExist = TemplatedFullName.IndexOf("{0}") != -1;                    
+                    var verText = ShortVersionGetter?.Invoke() ?? string.Empty;
+                    var fnvText = verPlaceHolderExist ? string.Format(TemplatedFullName, verText) : TemplatedFullName;
+                    sb.Append(fnvText);
+                }
+                catch (FormatException ex)
+                {
+                    throw new Exception("Bad format of the TemplatedFullName - it does not contain only one placeholder \"{0}\"!", ex);
+                }
+            }
+            return sb.ToString();        
         }
 
         /// <summary>
@@ -807,13 +901,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public void ShowRootCommandFullNameAndVersion()
         {
-            var rootCmd = this;
-            while (rootCmd.Parent != null)
-            {
-                rootCmd = rootCmd.Parent;
-            }
-
-            Out.WriteLine(rootCmd.GetFullNameAndVersion());
+            Out.WriteLine(Root.GetFullNameAndVersion());
             Out.WriteLine();
         }
 

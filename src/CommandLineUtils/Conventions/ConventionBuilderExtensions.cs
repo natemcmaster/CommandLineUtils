@@ -29,6 +29,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 .SetRemainingArgsPropertyOnModel()
                 .SetSubcommandPropertyOnModel()
                 .SetParentPropertyOnModel()
+                .UsePrefixRootFullName()
                 .UseOnExecuteMethodFromModel()
                 .UseOnValidateMethodFromModel()
                 .UseOnValidationErrorMethodFromModel()
@@ -148,6 +149,21 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseSubcommandAttributes(this IConventionBuilder builder)
             => builder.AddConvention(new SubcommandAttributeConvention());
+
+
+        /// <summary>
+        /// Uses a property named "PrefixRootFullName" on the commands for showing the
+        /// the root command full name as the prefix of the actual sub-command full name.
+        /// This means the natural looking inheritance value from the parent command property value,
+        /// if not specified else (and possibility to set through the attribute.
+        /// (If the convention is not set, then by setting "PrefixRootFullName" property
+        ///  enables the showing of the root command prefix just for given particular sub-command
+        ///  and the attribute does not have any effect).
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <returns>The builder.</returns>
+        public static IConventionBuilder UsePrefixRootFullName(this IConventionBuilder builder)
+            => builder.AddConvention(new InheritPrefixRootFullNameConvention());
 
         /// <summary>
         /// Invokes a method named "OnValidate" on the model type after parsing.
