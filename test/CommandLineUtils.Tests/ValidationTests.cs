@@ -339,11 +339,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var result = app.Parse(input.ToString());
             if (isValid)
             {
-                Assert.Equal(ValidationResult.Success, result.ValidationResult);
+                Assert.Equal(ValidationResult.Success, result.SelectedCommand.GetValidationResult());
             }
             else
             {
-                Assert.NotEqual(ValidationResult.Success, result.ValidationResult);
+                Assert.NotEqual(ValidationResult.Success, result.SelectedCommand.GetValidationResult());
             }
         }
     }

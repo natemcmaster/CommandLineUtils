@@ -602,9 +602,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 return HelpExitCode;
             }
 
-            if (parseResult.ValidationResult != ValidationResult.Success)
+            var validationResult = command.GetValidationResult();
+            if (validationResult != ValidationResult.Success)
             {
-                return command.ValidationErrorHandler(parseResult.ValidationResult);
+                return command.ValidationErrorHandler(validationResult);
             }
 
             return command.Invoke();

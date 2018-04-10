@@ -20,7 +20,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication<RedBlueProgram>();
             app.Conventions.UseDefaultConventions();
             var result = app.Parse(args ?? new string[0]);
-            Assert.Equal(ValidationResult.Success, result.ValidationResult);
+            Assert.Equal(ValidationResult.Success, result.SelectedCommand.GetValidationResult());
             var program = Assert.IsType<CommandLineApplication<RedBlueProgram>>(result.SelectedCommand);
             Assert.Same(app, program);
             if (args != null)
@@ -38,14 +38,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication<RedBlueProgram>();
             app.Conventions.UseAttributes();
             var result = app.Parse(args);
-            Assert.NotEqual(ValidationResult.Success, result.ValidationResult);
+            var validationResult = result.SelectedCommand.GetValidationResult();
+            Assert.NotEqual(ValidationResult.Success, validationResult);
             var program = Assert.IsType<CommandLineApplication<RedBlueProgram>>(result.SelectedCommand);
             Assert.Same(app, program);
             if (args != null)
             {
                 Assert.Equal(args[1], app.Model.Color);
             }
-            Assert.Equal("The value for --color must be 'red' or 'blue'", result.ValidationResult.ErrorMessage);
+            Assert.Equal("The value for --color must be 'red' or 'blue'", validationResult.ErrorMessage);
         }
 
         private class RedBlueProgram
