@@ -677,7 +677,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Show short hint that reminds users to use help option.
         /// </summary>
-        public void ShowHint()
+        public virtual void ShowHint()
         {
             if (OptionHelp != null)
             {
