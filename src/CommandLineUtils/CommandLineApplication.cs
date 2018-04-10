@@ -681,7 +681,13 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             if (OptionHelp != null)
             {
-                Out.WriteLine(string.Format("Specify --{0} for a list of available options and commands.", OptionHelp.LongName));
+                var flag = !string.IsNullOrEmpty(OptionHelp.LongName)
+                    ? "--" + OptionHelp.LongName
+                    : !string.IsNullOrEmpty(OptionHelp.ShortName)
+                        ? "-" + OptionHelp.LongName
+                        : "-" + OptionHelp.SymbolName;
+
+                Out.WriteLine($"Specify {flag} for a list of available options and commands.");
             }
         }
 
@@ -794,12 +800,15 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Gets <see cref="FullName"/> and <see cref="ShortVersionGetter"/>.
         /// </summary>
         /// <returns></returns>
-        public string GetFullNameAndVersion()
+        public virtual string GetFullNameAndVersion()
         {
-            var shortVersion = ShortVersionGetter?.Invoke();
-            return string.IsNullOrEmpty(shortVersion)
-                ? FullName
-                : $"{FullName} {shortVersion}";
+            var items = new List<string>
+            {
+                FullName,
+                ShortVersionGetter?.Invoke()
+            };
+
+            return string.Join(" ", items.Where(i => !string.IsNullOrEmpty(i)));
         }
 
         /// <summary>

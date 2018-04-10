@@ -5,6 +5,12 @@
 Bug fixes:
 
  - Don't assign option and argument options if no value was provided, preserving the default CLR value unless there is user-input.
+ - Fix ShowHint() to use ShortName or SymbolName if OptionHelp.LongName is not set
+
+Minor improvements:
+
+ - Improve help text generation. Align columns, show top-level command description, and add `protected virtual` API to `DefaultHelpTextGenerator`
+   to make it easier to customize help text 
 
 ## [v2.2.0]
 
