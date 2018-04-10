@@ -109,6 +109,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
                 convention.Application.OnParsingComplete(r =>
                 {
+                    if (argument.Values.Count == 0)
+                    {
+                        return;
+                    }
+
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
                         setter.Invoke(cmd.GetModel(), collectionParser.Parse(argument.Name, argument.Values));
@@ -125,6 +130,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
                 convention.Application.OnParsingComplete(r =>
                 {
+                    if (argument.Values.Count == 0)
+                    {
+                        return;
+                    }
+
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
                         setter.Invoke(

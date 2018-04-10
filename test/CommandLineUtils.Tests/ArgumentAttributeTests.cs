@@ -67,5 +67,33 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 Strings.OnlyLastArgumentCanAllowMultipleValues("Words"),
                 ex.Message);
         }
+
+        private class ArgHasDefaultValues
+        {
+            [Argument(0)]
+            public string Arg1 { get; } = "a";
+
+            [Argument(1)]
+            public string[] Arg2 { get; } = new[] { "b", "c" };
+        }
+
+        [Fact]
+        public void KeepsDefaultValues()
+        {
+            var app1 = Create<ArgHasDefaultValues>();
+            app1.Parse("z", "y");
+            Assert.Equal("z", app1.Model.Arg1);
+            Assert.Equal(new[] { "y" }, app1.Model.Arg2);
+
+            var app2 = Create<ArgHasDefaultValues>();
+            app2.Parse("z");
+            Assert.Equal("z", app2.Model.Arg1);
+            Assert.Equal(new[] { "b", "c" }, app2.Model.Arg2);
+
+            var app3 = Create<ArgHasDefaultValues>();
+            app3.Parse();
+            Assert.Equal("a", app3.Model.Arg1);
+            Assert.Equal(new[] { "b", "c" }, app3.Model.Arg2);
+        }
     }
 }

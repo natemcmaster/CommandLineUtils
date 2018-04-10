@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+Bug fixes:
+
+ - Don't assign option and argument options if no value was provided, preserving the default CLR value unless there is user-input.
+
 ## [v2.2.0]
 
 **March 30,2018**
