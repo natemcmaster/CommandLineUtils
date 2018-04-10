@@ -2,7 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.IO;
 using System.Reflection;
+using System.Text;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -146,6 +148,33 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void OnExecuteIsNotInvokedWhenHelpOptionSpecified(string arg)
         {
             Assert.Equal(0, CommandLineApplication.Execute<SimpleHelpApp>(new TestConsole(_output), arg));
+        }
+
+        [Command(Name = "lvl1")]
+        [HelpOption(Inherited = true)]
+        [Subcommand("lvl2", typeof(Sub))]
+        private class Parent
+        {
+            private class Sub
+            {
+                [Argument(0, Name = "lvl-arg", Description = "subcommand argument")]
+                public string Arg { get; }
+            }
+        }
+
+        [Fact]
+        public void HelpOptionIsInherited()
+        {
+            var sb = new StringBuilder();
+            var outWriter = new StringWriter(sb);
+            var app = new CommandLineApplication<Parent> { Out = outWriter };
+            app.Conventions.UseDefaultConventions();
+            app.Commands.ForEach(f => f.Out = outWriter);
+            app.Execute("lvl2", "--help");
+            var outData = sb.ToString();
+
+            Assert.True(app.OptionHelp.HasValue());
+            Assert.Contains("Usage: lvl1 lvl2 [arguments] [options]", outData);
         }
     }
 }
