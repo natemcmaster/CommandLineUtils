@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
@@ -48,6 +49,40 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication<InjectedConsole>();
             app.Conventions.UseConstructorInjection(services);
             Assert.Same(testConsole, app.Model.Console);
+        }
+
+        private class OptionsCtorCommand
+        {
+            private readonly IEnumerable<CommandOption> _options;
+            private readonly IEnumerable<CommandArgument> _arguments;
+
+            public OptionsCtorCommand(IEnumerable<CommandOption> options, IEnumerable<CommandArgument> arguments)
+            {
+                _options = options;
+                _arguments = arguments;
+            }
+
+            public int GetOptionCount() => _options.Count();
+            public int GetArgCount() => _arguments.Count();
+
+            [Option]
+            public string Opt { get; }
+
+            [Argument(0)]
+            public string Arg { get; }
+        }
+
+        [Fact]
+        public void ItPrefersIEnumOfOptionsFromUs()
+        {
+            var app = new CommandLineApplication<OptionsCtorCommand>();
+            var services = new ServiceCollection().BuildServiceProvider();
+            app.Conventions.UseDefaultConventions().UseConstructorInjection(services);
+            app.Parse();
+            Assert.Empty(services.GetServices<IEnumerable<CommandOption>>());
+            Assert.Empty(services.GetServices<IEnumerable<CommandArgument>>());
+            Assert.Equal(1, app.Model.GetOptionCount());
+            Assert.Equal(1, app.Model.GetArgCount());
         }
 
         [Subcommand("test", typeof(Child))]

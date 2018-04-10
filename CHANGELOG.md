@@ -6,6 +6,7 @@ Bug fixes:
 
  - Don't assign option and argument options if no value was provided, preserving the default CLR value unless there is user-input.
  - Fix ShowHint() to use ShortName or SymbolName if OptionHelp.LongName is not set
+ - Fix [#85](https://github.com/natemcmaster/CommandLineUtils/issues/85) - lower priority of resolving AdditionalServices after most built-in services
 
 Minor improvements:
 

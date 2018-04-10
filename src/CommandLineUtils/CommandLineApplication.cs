@@ -922,20 +922,8 @@ namespace McMaster.Extensions.CommandLineUtils
                     return _parent;
                 }
 
-                if (_parent.AdditionalServices != null)
-                {
-                    var retVal = _parent.AdditionalServices.GetService(serviceType);
-                    if (retVal != null)
-                    {
-                        return retVal;
-                    }
-                }
-
-                if (serviceType == typeof(IConsole))
-                {
-                    return _parent._context.Console;
-                }
-
+                // prefer this type before AdditionalServces because it is common for service containers to automatically
+                // create IEnumerable<T> to allow registration of multiple services
                 if (serviceType == typeof(IEnumerable<CommandOption>))
                 {
                     return _parent.GetOptions();
@@ -959,6 +947,22 @@ namespace McMaster.Extensions.CommandLineUtils
                 if (_parent.Parent is IModelAccessor accessor && serviceType == accessor.GetModelType())
                 {
                     return accessor.GetModel();
+                }
+
+                if (_parent.AdditionalServices != null)
+                {
+                    var retVal = _parent.AdditionalServices.GetService(serviceType);
+                    if (retVal != null)
+                    {
+                        return retVal;
+                    }
+                }
+
+                // Resolve this after AdditionalServices to support overriding IConsole from a custom service container
+                // may be overridden
+                if (serviceType == typeof(IConsole))
+                {
+                    return _parent._context.Console;
                 }
 
                 return null;
