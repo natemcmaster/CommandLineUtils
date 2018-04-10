@@ -57,7 +57,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 }
 
                 Assert.Equal(typeof(CommandLineApplication<MainValidate>), context.ObjectInstance.GetType());
-               
+
                 return ValidationResult.Success;
             }
         }
@@ -110,7 +110,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             // this tests that the model is actually given values before it passed to command validation
             var parseResult = app.Parse(args.Split(' '));
 
-            var result = parseResult.ValidationResult;
+            var result = parseResult.SelectedCommand.GetValidationResult();
 
             if (error == null)
             {

@@ -44,7 +44,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
             finished:
             parseResult.SelectedCommand = _currentCommand;
-            parseResult.ValidationResult = _currentCommand.GetValidationResult();
             return parseResult;
         }
 
