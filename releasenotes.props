@@ -2,44 +2,16 @@
   <PropertyGroup>
     <PackageReleaseNotes>
 <![CDATA[
-New features:
-  - Added more validation attributes.
-     - Add the `[FileExists]` attribute
-     - Add the `[FileOrDirectoryExists]` attribute
-     - Add the `[DirectoryExists]` attribute
-     - Add the `[LegalFilePath]` attribute
-     - Add the `[AllowedValues]` attribute
-  - Added a new, fluent API for validation.
-     - Added `Option().Accepts()` and `Argument().Accepts()`
-     - Add `.ExistingFile()`
-     - Add `.ExistingFileOrDirectory()`
-     - Add `.ExistingDirectory()`
-     - Add `.EmailAddress()`
-     - Add `.LegalFilePath()`
-     - Add `.MinLength(length)`
-     - Add `.MaxLength(length)`
-     - Add `.RegularExpression(pattern)`
-     - Add `.Values(string[] allowedValues)`
-     - Add `.Range(min, max)`
-  - Add `CommandOptionType.SingleOrNoValue`.
-    - Options of this type can be a switch, or have a value but only in the form `--param:value` or `--param=value`.
-    - Support mapping `ValueTuple<bool,T>` to `CommandOptionType.SingleOrNoValue`
-  - Generic commands, options, and arguments
-    - Added `CommandLineApplication<TModel>`. This allows associating an application with a specific .NET type
-    - Add support for `Option<T>` and `Argument<T>`
-  - Convention API
-     - Adds support for writing your own conventions to convert command line arguments into a .NET type
-     - Add API to use a dozen of built-in conventions
+Bug fixes:
 
-Other enhancements:
-  - Support parsing enums
-  - @rmcc13 - `HelpOption` can be set to be inherited by all subcommands
-  - @atruskie - Support for parsing double and floats
-  - @sebastienros - Support for case-insensitive options
-  - @atruskie: Add support for user-defined value parsers using `IValueParser` and `CommandLineApplication.ValueParsers`.
-  - Add support for constructor injection and dependency injection by providing a custom service provider
-  - Parse these values to boolean: T, t, F, f, 0, 1
-  - Add `VersionOptionFromMember` to use a property or method as the source of version information
+- Don't assign option and argument options if no value was provided, preserving the default CLR value unless there is user-input.
+- Fix ShowHint() to use ShortName or SymbolName if OptionHelp.LongName is not set
+- Fix #85 - lower priority of resolving AdditionalServices after most built-in services
+- Fix #79 - OnValidate callbacks invoked before property valueswere assigned
+
+Minor improvements:
+
+- Improve help text generation. Align columns, show top-level command description, and add `protected virtual` API to `DefaultHelpTextGenerator` to make it easier to customize help text
 
 See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
 ]]>
