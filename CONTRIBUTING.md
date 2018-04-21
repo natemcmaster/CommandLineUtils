@@ -9,4 +9,7 @@ A few simple rules for the road.
 
 ## Contributing to the documentation
 
-If you are contributing to the documentation, ensure that your Pull Request does not contain updates to any files in the `/docs` folder and only updates to files in the `/docfx_project` folder. The `/docs` folder is where **DocFX** generates the documentation, and due to the verbose nature of those files, it makes reviewing Pull Requests a difficult process. Also, the files generated in that folder will contain links to your forked repo which is not correct.
+If you are contributing to the documentation, you can build and preview the docs by executing `./docs/generate.ps1`. The `/docs` folder contains the source which **DocFX** uses generates the documentation.
+The results of this are saved to the `gh-pages` branch of the repository.
+
+Run `./docs/generate.ps1 -Serve` to build the docs and serve them on <http://localhost:8080>.

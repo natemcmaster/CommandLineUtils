@@ -9,6 +9,7 @@ branches:
     - /^feature\/.*/
 build_script:
   - ps: .\build.ps1 -IsOfficialBuild
+  - ps: .\docs\generate.ps1
 environment:
   global:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true

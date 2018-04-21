@@ -1,0 +1,80 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "src/**.csproj"
+          ],
+          "src": "../",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
+        }
+      ],
+      "dest": "obj/api/",
+      "properties": {
+        "TargetFramework": "netstandard2.0"
+      }
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": ["**.yml"],
+        "exclude": [
+          "**/obj/**",
+          "**.meta"
+        ],
+        "src": "obj/api",
+        "dest": "api"
+      },
+      {
+        "files": [
+          "**.md",
+          "**.yml"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**.meta"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          ".nojekyll",
+          ".gitattributes",
+          "**/images/**",
+          "*.png"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**.meta"
+        ]
+      },
+      {
+        "files": "schemas/**schema.json",
+        "src": ".."
+      }
+    ],
+    "overwrite": "apispec/*.md",
+    "dest": "../.build/docs/gh-pages",
+    "template": [
+      "default",
+      "./theme"
+    ],
+    "postProcessors": [
+      "ExtractSearchIndex"
+    ],
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false,
+    "globalMetadata": {
+      "_appFooter": "Generated with docfx",
+      "_appLogoPath": "logo.png"
+    }
+  }
+}
