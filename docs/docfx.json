@@ -37,7 +37,8 @@
         ],
         "exclude": [
           "**/obj/**",
-          "**.meta"
+          "**.meta",
+          "README.md"
         ]
       }
     ],
