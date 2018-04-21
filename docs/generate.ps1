@@ -14,11 +14,11 @@ try {
 
     $buildRoot = "$PSScriptRoot/../.build/docs"
     $targetDir = "$buildRoot/gh-pages"
-    New-Item -ItemType Directory $buildRoot -ErrorAction Ignore
+    mkdir -p $buildRoot -ErrorAction Ignore | Out-Null
 
     if (-not (git worktree list --porcelain | Select-String 'gh-pages')) {
-        & git fetch origin gh-pages
-        & git worktree add $targetDir gh-pages
+        exec git fetch --quiet origin gh-pages:gh-pages
+        exec git worktree add $targetDir gh-pages
     }
 
     $docfxVersion = '2.33.2'
@@ -33,7 +33,7 @@ try {
     }
 
     Push-Location $targetDir
-    & git rm --quiet --force -r .
+    exec git rm --quiet --force -r .
     Pop-Location
 
     if (-not $NoBuild) {
@@ -50,6 +50,7 @@ try {
     finally {
         Push-Location $targetDir
         & git add ./
+        Write-Host "Files that changed in docs:"
         & git --no-pager status -s
         Pop-Location
     }

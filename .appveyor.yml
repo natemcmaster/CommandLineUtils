@@ -9,9 +9,7 @@ branches:
     - /^feature\/.*/
 build_script:
   - ps: .\build.ps1 -IsOfficialBuild
-  - ps: .\docs\generate.ps1 -NoBuild
-on_success:
-  - ps: .\docs\push.ps1 -AppVeyor
+  - ps: .\docs\generate.ps1 -NoBuild -Verbose
 environment:
   access_token:
     secure: 7gza5cyC0Fwp5LcFPz9dGMcHXP2jxbrnu7er9R/HkdvnhzGJVADvOtfYO7+Vow5p
@@ -24,6 +22,8 @@ artifacts:
   - path: 'artifacts\*.nupkg'
     name: Packages
     type: NuGetPackages
+after_deploy:
+  - ps: .\docs\push.ps1 -AppVeyor
 deploy:
   - provider: NuGet
     name: myget
