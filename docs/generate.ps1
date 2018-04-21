@@ -6,7 +6,7 @@ param(
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version 2
 
-Import-Module -Force -Scope Local "$PSScriptRoot/src/common.psm1"
+Import-Module -Force -Scope Local "$PSScriptRoot/../src/common.psm1"
 
 Push-Location "$PSScriptRoot/../"
 
