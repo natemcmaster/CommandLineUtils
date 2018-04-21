@@ -49,9 +49,9 @@ try {
     }
     finally {
         Push-Location $targetDir
-        & git add ./
+        exec git add ./
         Write-Host "Files that changed in docs:"
-        & git --no-pager status -s
+        exec git --no-pager status -s
         Pop-Location
     }
 }
