@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+Minor improvement:
+
+ - Automatically add conventions from attributes that implement IConvention and IMemberConvention
+
 ## [v2.2.1]
 
 **April 10, 2018**

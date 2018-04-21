@@ -10,5 +10,8 @@ public class Program
 
         // This sample shows you how to write your own conventions to bind a type's methods to a subcommand
         MethodsAsSubcommandsProgram.Main(args);
+
+        // This sample shows you how to write conventions as an attribute.
+        AttributeConventionProgram.Main(args);
     }
 }

@@ -48,6 +48,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             return builder
+                .AddConvention(new AttributeConvention())
                 .UseCommandAttribute()
                 .UseVersionOptionFromMemberAttribute()
                 .UseVersionOptionAttribute()

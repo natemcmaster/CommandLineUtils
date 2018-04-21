@@ -49,6 +49,12 @@ namespace McMaster.Extensions.CommandLineUtils
             return type.GetTypeInfo().GetProperties(binding);
         }
 
+        public static MemberInfo[] GetMembers(Type type)
+        {
+            const BindingFlags binding = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
+            return type.GetTypeInfo().GetMembers(binding);
+        }
+
         public static object[] BindParameters(MethodInfo method, CommandLineApplication command)
         {
             var methodParams = method.GetParameters();
@@ -87,7 +93,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             var result = typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>);
             wrappedType = result ? typeInfo.GetGenericArguments().First() : null;
-                
+
             return result;
         }
     }
