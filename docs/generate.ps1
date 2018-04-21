@@ -17,7 +17,7 @@ try {
     mkdir -p $buildRoot -ErrorAction Ignore | Out-Null
 
     if (-not (git worktree list --porcelain | Select-String 'gh-pages')) {
-        exec git fetch --quiet origin gh-pages:gh-pages
+        exec git fetch --quiet -u origin gh-pages:gh-pages
         exec git worktree add $targetDir gh-pages
     }
 
