@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Help Text </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Help Text ">
+    <meta name="generator" content="docfx 2.33.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" height="55" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="help-text">Help Text</h1>
+
+<p>CommandLineUtils provides API to automatically generate help text for a command line application.</p>
+<h2 id="configure-the-help-option">Configure the help option</h2>
+<h3 id="attribute-api">Attribute API</h3>
+<p>By default, three options will exist on the command line app that will show help: <code>-?</code>, <code>-h</code>, and <code>--help</code>.
+When users specify one of these, generated help text will display on the command line.</p>
+<pre><code>&gt; MyApp.exe --help
+
+Usage: MyApp.exe [options]
+
+Options:
+  -?|-h|--help   Show help output
+</code></pre><p>To customize the flags that can show help text, add an instance of <a class="xref" href="../../api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.html">HelpOptionAttribute</a> to your model type.</p>
+<pre><code class="lang-csharp">[HelpOption(&quot;--my-custom-help-option&quot;)]
+public class Program
+</code></pre><pre><code>&gt; MyApp.exe --help
+Unrecognized option &#39;--help&#39;
+
+&gt; MyApp.exe --my-custom-help-option
+
+Usage: MyApp.exe [options]
+
+Options:
+  --my-custom-help-option   Show help output
+</code></pre><h4 id="disabling-the-default">Disabling the default</h4>
+<p>To disable the help option by default, add <code>[SuppressDefaultHelpOption]</code> to your program type or the containing assembly.</p>
+<pre><code class="lang-csharp">// suppress the help option on all types define in this project
+[assembly: SuppressDefaultHelpOption]
+
+// disable help option on a specific command
+[SuppressDefaultHelpOption]
+public class MySecretProgram
+</code></pre><h3 id="builder-api">Builder API</h3>
+<p>By default, the help text will only be shown if you define a help option on the command.</p>
+<p>Using the <strong>builder API</strong>, call <a class="xref" href="../../api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_"><code>.HelpOption()</code></a>.</p>
+<pre><code class="lang-csharp">var app = new CommandLineApplication();
+app.HelpOption();
+</code></pre><p>This adds three flags to the command line app that will show help, <code>-?</code>, <code>-h</code>, and <code>--help</code>.
+You can change these flags by calling <a class="xref" href="../../api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_HelpOption_System_String_"><code>.HelpOption(string template)</code></a> with a template string.</p>
+<pre><code class="lang-csharp">app.HelpOption(&quot;-m|--my-help&quot;);
+</code></pre><h4 id="add-a-help-option-to-all-subcommands">Add a help option to all subcommands</h4>
+<p>If you have subcommands on your application, you can make a help option available on all subcommands without
+needing to explicitly add a HelpOption to each subcommand type or object. To do this, set <code>inherited</code> to true
+when adding the help option.</p>
+<pre><code class="lang-csharp">app.HelpOption(inherited: true);
+</code></pre><h2 id="extending-help-text">Extending help text</h2>
+<p>By default, the help text only includes information about arguments, options, and commands.
+If you would like to provide additional information, you can use the
+<a class="xref" href="../../api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ExtendedHelpText">ExtendedHelpText</a>
+property to add additional information to help output.</p>
+<pre><code class="lang-csharp">var app = new CommandLineApplication();
+app.ExtendedHelpText = @&quot;
+Remarks:
+  This command should only be used on Tuesdays.
+&quot;;
+</code></pre><pre><code class="lang-csharp">[Command(
+    ExtendedHelpText = @&quot;
+Remarks:
+  This command should only be used on Tuesdays.
+&quot;
+)]
+public class Program
+</code></pre><h2 id="custom-help-text">Custom help text</h2>
+<p>Help text generation can be completely customized by implementing the
+<a class="xref" href="../../api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html">IHelpTextGenerator</a>
+interface.</p>
+<pre><code class="lang-csharp">class MyHelpTextGenerator : IHelpTextGenerator
+{
+    public void void Generate(CommandLineApplication application, TextWriter output)
+    {
+        output.WriteLine(@&quot;To use this command, throw salt over your shoulder and spit twice.&quot;);
+    }
+}
+
+class Program
+{
+    public static int Main(string[] args)
+    {
+        var app = new CommandLineApplication();
+        app.HelpTextGenerator = new MyHelpTextGenerator();
+        return app.Execute(args);
+    }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/docs/docs/concepts/help-text.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Generated with docfx
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

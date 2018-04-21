@@ -167,19 +167,6 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand
   nameWithType: ParseResult.SelectedCommand
-- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ValidationResult
-  name: ValidationResult
-  href: api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html#McMaster_Extensions_CommandLineUtils_Abstractions_ParseResult_ValidationResult
-  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ValidationResult
-  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ValidationResult
-  nameWithType: ParseResult.ValidationResult
-- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ValidationResult*
-  name: ValidationResult
-  href: api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html#McMaster_Extensions_CommandLineUtils_Abstractions_ParseResult_ValidationResult_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ValidationResult
-  isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ValidationResult
-  nameWithType: ParseResult.ValidationResult
 - uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
   name: ValueParserProvider
   href: api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.html
@@ -2727,6 +2714,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions
   nameWithType: ConventionBuilderExtensions.UseDefaultConventions
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.String)
+  name: UseDefaultHelpOption(IConventionBuilder, String)
+  href: api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html#McMaster_Extensions_CommandLineUtils_ConventionBuilderExtensions_UseDefaultHelpOption_McMaster_Extensions_CommandLineUtils_Conventions_IConventionBuilder_System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.String)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder, System.String)
+  nameWithType: ConventionBuilderExtensions.UseDefaultHelpOption(IConventionBuilder, String)
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption*
+  name: UseDefaultHelpOption
+  href: api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html#McMaster_Extensions_CommandLineUtils_ConventionBuilderExtensions_UseDefaultHelpOption_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption
+  nameWithType: ConventionBuilderExtensions.UseDefaultHelpOption
 - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
   name: UseHelpOptionAttribute(IConventionBuilder)
   href: api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html#McMaster_Extensions_CommandLineUtils_ConventionBuilderExtensions_UseHelpOptionAttribute_McMaster_Extensions_CommandLineUtils_Conventions_IConventionBuilder_
@@ -2875,6 +2875,25 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention.Apply
   nameWithType: ArgumentAttributeConvention.Apply
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention
+  name: AttributeConvention
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention
+  nameWithType: AttributeConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  name: Apply(ConventionContext)
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_AttributeConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  nameWithType: AttributeConvention.Apply(ConventionContext)
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.Apply*
+  name: Apply
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_AttributeConvention_Apply_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.Apply
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.Apply
+  nameWithType: AttributeConvention.Apply
 - uid: McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention
   name: CommandAttributeConvention
   href: api/McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.html
@@ -2990,6 +3009,44 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelType
   nameWithType: ConventionContext.ModelType
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  name: DefaultHelpOptionConvention
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  nameWithType: DefaultHelpOptionConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.#ctor(System.String)
+  name: DefaultHelpOptionConvention(String)
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_DefaultHelpOptionConvention__ctor_System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.#ctor(System.String)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.DefaultHelpOptionConvention(System.String)
+  nameWithType: DefaultHelpOptionConvention.DefaultHelpOptionConvention(String)
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.#ctor*
+  name: DefaultHelpOptionConvention
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_DefaultHelpOptionConvention__ctor_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.#ctor
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.DefaultHelpOptionConvention
+  nameWithType: DefaultHelpOptionConvention.DefaultHelpOptionConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  name: Apply(ConventionContext)
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_DefaultHelpOptionConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  nameWithType: DefaultHelpOptionConvention.Apply(ConventionContext)
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply*
+  name: Apply
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_DefaultHelpOptionConvention_Apply_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply
+  nameWithType: DefaultHelpOptionConvention.Apply
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.DefaultHelpTemplate
+  name: DefaultHelpTemplate
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_DefaultHelpOptionConvention_DefaultHelpTemplate
+  commentId: F:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.DefaultHelpTemplate
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.DefaultHelpTemplate
+  nameWithType: DefaultHelpOptionConvention.DefaultHelpTemplate
 - uid: McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention
   name: ExecuteMethodConvention
   href: api/McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.html
@@ -3066,6 +3123,25 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.AddConvention
   nameWithType: IConventionBuilder.AddConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+  name: IMemberConvention
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+  nameWithType: IMemberConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext,System.Reflection.MemberInfo)
+  name: Apply(ConventionContext, MemberInfo)
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_IMemberConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_System_Reflection_MemberInfo_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext,System.Reflection.MemberInfo)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext, System.Reflection.MemberInfo)
+  nameWithType: IMemberConvention.Apply(ConventionContext, MemberInfo)
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply*
+  name: Apply
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_IMemberConvention_Apply_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply
+  nameWithType: IMemberConvention.Apply
 - uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention
   name: OptionAttributeConvention
   href: api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention.html
@@ -3407,6 +3483,109 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate
   nameWithType: DefaultHelpTextGenerator.Generate
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Int32)
+  name: GenerateArguments(CommandLineApplication, TextWriter, IReadOnlyList<CommandArgument>, Int32)
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateArguments_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Int32_
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Int32)
+  name.vb: GenerateArguments(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandArgument), Int32)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandArgument>, System.Int32)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandArgument), System.Int32)
+  nameWithType: DefaultHelpTextGenerator.GenerateArguments(CommandLineApplication, TextWriter, IReadOnlyList<CommandArgument>, Int32)
+  nameWithType.vb: DefaultHelpTextGenerator.GenerateArguments(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandArgument), Int32)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments*
+  name: GenerateArguments
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateArguments_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments
+  nameWithType: DefaultHelpTextGenerator.GenerateArguments
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  name: GenerateBody(CommandLineApplication, TextWriter)
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateBody_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter)
+  nameWithType: DefaultHelpTextGenerator.GenerateBody(CommandLineApplication, TextWriter)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody*
+  name: GenerateBody
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateBody_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody
+  nameWithType: DefaultHelpTextGenerator.GenerateBody
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Int32)
+  name: GenerateCommands(CommandLineApplication, TextWriter, IReadOnlyList<CommandLineApplication>, Int32)
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateCommands_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Int32_
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Int32)
+  name.vb: GenerateCommands(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandLineApplication), Int32)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandLineApplication>, System.Int32)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication), System.Int32)
+  nameWithType: DefaultHelpTextGenerator.GenerateCommands(CommandLineApplication, TextWriter, IReadOnlyList<CommandLineApplication>, Int32)
+  nameWithType.vb: DefaultHelpTextGenerator.GenerateCommands(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandLineApplication), Int32)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands*
+  name: GenerateCommands
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateCommands_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands
+  nameWithType: DefaultHelpTextGenerator.GenerateCommands
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  name: GenerateFooter(CommandLineApplication, TextWriter)
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateFooter_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter)
+  nameWithType: DefaultHelpTextGenerator.GenerateFooter(CommandLineApplication, TextWriter)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter*
+  name: GenerateFooter
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateFooter_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter
+  nameWithType: DefaultHelpTextGenerator.GenerateFooter
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  name: GenerateHeader(CommandLineApplication, TextWriter)
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateHeader_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter)
+  nameWithType: DefaultHelpTextGenerator.GenerateHeader(CommandLineApplication, TextWriter)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader*
+  name: GenerateHeader
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateHeader_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader
+  nameWithType: DefaultHelpTextGenerator.GenerateHeader
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Int32)
+  name: GenerateOptions(CommandLineApplication, TextWriter, IReadOnlyList<CommandOption>, Int32)
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateOptions_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Int32_
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Int32)
+  name.vb: GenerateOptions(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandOption), Int32)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandOption>, System.Int32)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandOption), System.Int32)
+  nameWithType: DefaultHelpTextGenerator.GenerateOptions(CommandLineApplication, TextWriter, IReadOnlyList<CommandOption>, Int32)
+  nameWithType.vb: DefaultHelpTextGenerator.GenerateOptions(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandOption), Int32)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions*
+  name: GenerateOptions
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateOptions_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions
+  nameWithType: DefaultHelpTextGenerator.GenerateOptions
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication})
+  name: GenerateUsage(CommandLineApplication, TextWriter, IReadOnlyList<CommandArgument>, IReadOnlyList<CommandOption>, IReadOnlyList<CommandLineApplication>)
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateUsage_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication})
+  name.vb: GenerateUsage(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandArgument), IReadOnlyList(Of CommandOption), IReadOnlyList(Of CommandLineApplication))
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandArgument>, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandOption>, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandLineApplication>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandArgument), System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandOption), System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication))
+  nameWithType: DefaultHelpTextGenerator.GenerateUsage(CommandLineApplication, TextWriter, IReadOnlyList<CommandArgument>, IReadOnlyList<CommandOption>, IReadOnlyList<CommandLineApplication>)
+  nameWithType.vb: DefaultHelpTextGenerator.GenerateUsage(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandArgument), IReadOnlyList(Of CommandOption), IReadOnlyList(Of CommandLineApplication))
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage*
+  name: GenerateUsage
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateUsage_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage
+  nameWithType: DefaultHelpTextGenerator.GenerateUsage
 - uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton
   name: Singleton
   href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Singleton
@@ -4334,6 +4513,12 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Name
   nameWithType: SubcommandAttribute.Name
+- uid: McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
+  name: SuppressDefaultHelpOptionAttribute
+  href: api/McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
+  nameWithType: SuppressDefaultHelpOptionAttribute
 - uid: McMaster.Extensions.CommandLineUtils.ValidateMethodConvention
   name: ValidateMethodConvention
   href: api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.html

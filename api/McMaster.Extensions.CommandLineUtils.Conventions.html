@@ -92,6 +92,9 @@ to the current application. It is only applied if the name is null.</p>
       <section><p>Adds a <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a> for each <a class="xref" href="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html">ArgumentAttribute</a>
 on the model type for <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </section>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.html">AttributeConvention</a></h4>
+      <section><p>Searches the model type and its members for attributes that implement <a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html">IMemberConvention</a> or <a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html">IConvention</a>.</p>
+</section>
       <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.html">CommandAttributeConvention</a></h4>
       <section><p>Adds settings from <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a> set
 on the model type for <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
@@ -102,6 +105,9 @@ when creating models.</p>
 </section>
       <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html">ConventionContext</a></h4>
       <section><p>The context in which a convention is applied.</p>
+</section>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html">DefaultHelpOptionConvention</a></h4>
+      <section><p>Adds a help option of --help if no other help option is specified.</p>
 </section>
       <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.html">ExecuteMethodConvention</a></h4>
       <section><p>Sets <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Invoke">Invoke</a> to call a method named
@@ -155,6 +161,9 @@ to handle validation errors.</p>
 </section>
       <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.html">IConventionBuilder</a></h4>
       <section><p>Builds a collection of conventions.</p>
+</section>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html">IMemberConvention</a></h4>
+      <section><p>Defines a convention that is implemented as an attribute on a model type.</p>
 </section>
 </article>
           </div>
