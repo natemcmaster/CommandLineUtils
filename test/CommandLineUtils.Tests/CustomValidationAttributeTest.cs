@@ -2,9 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.ComponentModel.DataAnnotations;
-using System.IO;
-using McMaster.Extensions.CommandLineUtils.Abstractions;
-using McMaster.Extensions.CommandLineUtils.Internal;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests

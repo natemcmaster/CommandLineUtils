@@ -36,7 +36,6 @@
 using System;
 using McMaster.Extensions.CommandLineUtils;
 
-[HelpOption]
 public class Program
 {
     public static int Main(string[] args)

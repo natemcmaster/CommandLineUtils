@@ -8,7 +8,6 @@ using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
-    using System.Linq;
     using System.Reflection;
 
     public class ValueParserProviderTests

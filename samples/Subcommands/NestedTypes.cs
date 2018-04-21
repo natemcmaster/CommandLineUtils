@@ -12,7 +12,6 @@ namespace SubcommandSample
     /// This isn't required. See the <see cref="Git"/> example for a sample on how to use inheritance.
     /// </summary>
     [Command(Name ="fake-docker", Description = "A self-sufficient runtime for containers"),
-        HelpOption,
         Subcommand("container", typeof(Containers)),
         Subcommand("image", typeof(Images))]
     class Docker
@@ -30,7 +29,6 @@ namespace SubcommandSample
         /// once so that all subcommand types automatically support '--help'.
         /// </summary>
         [Command(Description = "Manage containers"),
-            HelpOption,
             Subcommand("ls", typeof(List)),
             Subcommand("run", typeof(Run))]
         private class Containers
@@ -59,8 +57,7 @@ namespace SubcommandSample
 
             [Command(Description = "Run a command in a new container",
                 AllowArgumentSeparator = true,
-                ThrowOnUnexpectedArgument = false),
-                HelpOption]
+                ThrowOnUnexpectedArgument = false)]
             private class Run
             {
                 [Required(ErrorMessage = "You must specify the image name")]
@@ -84,7 +81,6 @@ namespace SubcommandSample
         }
 
         [Command(Description = "Manage images"),
-            HelpOption,
             Subcommand("ls", typeof(List))]
         private class Images
         {
@@ -96,8 +92,7 @@ namespace SubcommandSample
 
 
             [Command(Description = "List images",
-                ThrowOnUnexpectedArgument = false),
-                HelpOption]
+                ThrowOnUnexpectedArgument = false)]
             private class List
             {
                 [Option(Description = "Show all containers (default shows just running)")]

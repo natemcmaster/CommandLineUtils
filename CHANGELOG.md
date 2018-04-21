@@ -4,7 +4,8 @@
 
 Minor improvement:
 
- - Automatically add conventions from attributes that implement IConvention and IMemberConvention
+ - Add conventions from attributes that implement IConvention and IMemberConvention
+ - Add a help option by default as long as it doesn't conflict with existing options
 
 ## [v2.2.1]
 

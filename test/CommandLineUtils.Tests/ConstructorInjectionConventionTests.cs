@@ -1,7 +1,6 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,6 +50,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Same(testConsole, app.Model.Console);
         }
 
+        [SuppressDefaultHelpOption]
         private class OptionsCtorCommand
         {
             private readonly IEnumerable<CommandOption> _options;

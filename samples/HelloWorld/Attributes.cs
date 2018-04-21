@@ -4,7 +4,6 @@
 using System;
 using McMaster.Extensions.CommandLineUtils;
 
-[HelpOption]
 public class Attributes
 {
     public static int Main(string[] args)

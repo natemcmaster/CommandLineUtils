@@ -1,9 +1,7 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Conventions;
-using Xunit;
 using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
