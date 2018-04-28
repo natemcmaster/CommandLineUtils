@@ -2,6 +2,12 @@
   <PropertyGroup>
     <PackageReleaseNotes>
 <![CDATA[
+
+Minor improvement:
+
+ - Add conventions from attributes that implement IConvention and IMemberConvention
+ - Add a help option by default as long as it doesn't conflict with existing options
+
 See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
 ]]>
     </PackageReleaseNotes>
