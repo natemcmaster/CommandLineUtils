@@ -782,7 +782,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Displays version information that includes <see cref="FullName"/> and <see cref="LongVersionGetter"/>.
         /// </summary>
-        public void ShowVersion()
+        public virtual void ShowVersion()
         {
             for (var cmd = this; cmd != null; cmd = cmd.Parent)
             {
