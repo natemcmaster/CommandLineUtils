@@ -782,19 +782,31 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Displays version information that includes <see cref="FullName"/> and <see cref="LongVersionGetter"/>.
         /// </summary>
-        public virtual void ShowVersion()
+        public void ShowVersion()
         {
             for (var cmd = this; cmd != null; cmd = cmd.Parent)
             {
                 cmd.IsShowingInformation = true;
             }
 
+            Out.Write(GetVersionText());
+        }
+
+        /// <summary>
+        /// Produces text describing version of the command.
+        /// </summary>
+        /// <returns>The version text.</returns>
+        public virtual string GetVersionText()
+        {
+            var sb = new StringBuilder();
+
             if (!string.IsNullOrEmpty(FullName))
             {
-                Out.WriteLine(FullName);
+                sb.AppendLine(FullName);
             }
 
-            Out.WriteLine(LongVersionGetter());
+            sb.AppendLine(LongVersionGetter());
+            return sb.ToString();
         }
 
         /// <summary>
