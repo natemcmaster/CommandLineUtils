@@ -18,6 +18,9 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// </summary>
         public static DefaultHelpTextGenerator Singleton { get; } = new DefaultHelpTextGenerator();
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="DefaultHelpTextGenerator"/>.
+        /// </summary>
         protected DefaultHelpTextGenerator() { }
 
         /// <inheritdoc />
