@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+Minor improvements:
+
+* Make it easier to override the version text shown when `--version` is specified.
+* Make DefaultHelpTextGenerator's constructor protected
+
 ## [v2.2.2]
 
 **April 28, 2018**

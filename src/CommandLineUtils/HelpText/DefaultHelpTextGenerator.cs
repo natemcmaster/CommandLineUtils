@@ -18,7 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// </summary>
         public static DefaultHelpTextGenerator Singleton { get; } = new DefaultHelpTextGenerator();
 
-        private DefaultHelpTextGenerator() { }
+        protected DefaultHelpTextGenerator() { }
 
         /// <inheritdoc />
         public virtual void Generate(CommandLineApplication application, TextWriter output)
