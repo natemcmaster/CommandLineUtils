@@ -5,8 +5,9 @@
 
 Minor improvement:
 
- - Add conventions from attributes that implement IConvention and IMemberConvention
- - Add a help option by default as long as it doesn't conflict with existing options
+* Make it easier to override the version text shown when `--version` is specified.
+* Make DefaultHelpTextGenerator's constructor protected so you can inherit from this type
+* Fix DebugHelper.HandleDebugSwitch
 
 See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
 ]]>
