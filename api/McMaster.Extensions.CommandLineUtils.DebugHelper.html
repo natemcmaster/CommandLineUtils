@@ -125,11 +125,14 @@
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_DebugHelper_HandleDebugSwitch_System_String____.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(System.String%5B%5D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Utilities/DebugHelper.cs/#L21">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Utilities/DebugHelper.cs/#L24">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_DebugHelper_HandleDebugSwitch_" data-uid="McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_DebugHelper_HandleDebugSwitch_System_String____" data-uid="McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(System.String[]@)">HandleDebugSwitch(ref String[])</h4>
-  <div class="markdown level1 summary"><p>Pauses the application for the debugger when &apos;--debug&apos; is passed in.</p>
+  <div class="markdown level1 summary"><p>Pauses the application until the debugger is attached when &apos;--debug&apos; is passed in as the first argument.
+<p>
+The pause times out at 30 seconds and continues execution.
+</p></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -150,6 +153,47 @@
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">args</span></td>
         <td><p>The command line arguments</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_DebugHelper_HandleDebugSwitch_System_String____System_Int32_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(System.String%5B%5D%40%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Utilities/DebugHelper.cs/#L33">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_DebugHelper_HandleDebugSwitch_" data-uid="McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_DebugHelper_HandleDebugSwitch_System_String____System_Int32_" data-uid="McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(System.String[]@,System.Int32)">HandleDebugSwitch(ref String[], Int32)</h4>
+  <div class="markdown level1 summary"><p>Pauses the application until the debugger is attached when &apos;--debug&apos; is passed in as the first argument,
+with a maximum wait time in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void HandleDebugSwitch(ref string[] args, int maxWaitSeconds)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>The command line arguments</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxWaitSeconds</span></td>
+        <td><p>Maximum number of seconds to wait. Set to 0 or less for infinite waiting.</p>
 </td>
       </tr>
     </tbody>
