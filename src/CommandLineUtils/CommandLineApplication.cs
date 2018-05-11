@@ -789,12 +789,24 @@ namespace McMaster.Extensions.CommandLineUtils
                 cmd.IsShowingInformation = true;
             }
 
+            Out.Write(GetVersionText());
+        }
+
+        /// <summary>
+        /// Produces text describing version of the command.
+        /// </summary>
+        /// <returns>The version text.</returns>
+        public virtual string GetVersionText()
+        {
+            var sb = new StringBuilder();
+
             if (!string.IsNullOrEmpty(FullName))
             {
-                Out.WriteLine(FullName);
+                sb.AppendLine(FullName);
             }
 
-            Out.WriteLine(LongVersionGetter());
+            sb.AppendLine(LongVersionGetter());
+            return sb.ToString();
         }
 
         /// <summary>
