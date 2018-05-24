@@ -32,6 +32,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                     UInt64ValueParser.Singleton,
                     FloatValueParser.Singleton,
                     DoubleValueParser.Singleton,
+                    UriValueParser.Singleton,
                 });
         }
 

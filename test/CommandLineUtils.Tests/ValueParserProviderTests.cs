@@ -95,6 +95,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             [Option("--color-value-tuple:<VALUE>")]
             public (bool HasValue, Color Value) EnumValueTuple { get; }
+
+            [Option("--uri")]
+            public Uri Uri { get; set; }
         }
 
         public static IEnumerable<object[]> GetFloatingPointSymbolsData()
@@ -369,6 +372,16 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var parsed = CommandLineParser.ParseArgs<Program>("--color-opt", color.ToString().ToLowerInvariant());
             Assert.True(parsed.ColorOpt.HasValue, "Option should have value");
             Assert.Equal(color, parsed.ColorOpt);
+        }
+
+        [Theory]
+        [InlineData("http://example.com/")]
+        [InlineData("http://example.com/foo/bar")]
+        [InlineData("/foo/bar")]
+        public void ParsesUri(string uriString)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>("--uri", uriString);
+            Assert.Equal(uriString, parsed.Uri.ToString());
         }
 
         [Theory]
