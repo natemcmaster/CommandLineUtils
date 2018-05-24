@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CommandLineApplication
    ">
-    <meta name="generator" content="docfx 2.33.2.0">
+    <meta name="generator" content="docfx 2.36.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -22,7 +22,7 @@
     <meta property="docfx:rel" content="../">
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -61,7 +61,9 @@
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -1435,7 +1437,8 @@ This will be used as the base path for opening response files when <a class="xre
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CommandLineApplication&lt;TModel&gt; Command&lt;TModel&gt;(string name, Action&lt;CommandLineApplication&lt;TModel&gt;&gt; configuration, bool throwOnUnexpectedArg = true)where TModel : class</code></pre>
+    <pre><code class="lang-csharp hljs">public CommandLineApplication&lt;TModel&gt; Command&lt;TModel&gt;(string name, Action&lt;CommandLineApplication&lt;TModel&gt;&gt; configuration, bool throwOnUnexpectedArg = true)
+    where TModel : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1574,7 +1577,8 @@ See <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.h
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Execute&lt;TApp&gt;(CommandLineContext context)where TApp : class</code></pre>
+    <pre><code class="lang-csharp hljs">public static int Execute&lt;TApp&gt;(CommandLineContext context)
+    where TApp : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1643,7 +1647,8 @@ See <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.h
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Execute&lt;TApp&gt;(IConsole console, params string[] args)where TApp : class</code></pre>
+    <pre><code class="lang-csharp hljs">public static int Execute&lt;TApp&gt;(IConsole console, params string[] args)
+    where TApp : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1718,7 +1723,8 @@ See <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.h
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Execute&lt;TApp&gt;(params string[] args)where TApp : class</code></pre>
+    <pre><code class="lang-csharp hljs">public static int Execute&lt;TApp&gt;(params string[] args)
+    where TApp : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1787,7 +1793,8 @@ See <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.h
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; ExecuteAsync&lt;TApp&gt;(CommandLineContext context)where TApp : class</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; ExecuteAsync&lt;TApp&gt;(CommandLineContext context)
+    where TApp : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1856,7 +1863,8 @@ See <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.h
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; ExecuteAsync&lt;TApp&gt;(IConsole console, params string[] args)where TApp : class</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; ExecuteAsync&lt;TApp&gt;(IConsole console, params string[] args)
+    where TApp : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1931,7 +1939,8 @@ See <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.h
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; ExecuteAsync&lt;TApp&gt;(params string[] args)where TApp : class</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; ExecuteAsync&lt;TApp&gt;(params string[] args)
+    where TApp : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
