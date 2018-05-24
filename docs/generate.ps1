@@ -18,10 +18,10 @@ try {
 
     if (-not (git worktree list --porcelain | Select-String 'gh-pages')) {
         exec git fetch --quiet -u origin gh-pages:gh-pages
-        exec git worktree add $targetDir gh-pages
+        exec git worktree add $targetDir gh-pages 2>&1 | out-null
     }
 
-    $docfxVersion = '2.33.2'
+    $docfxVersion = '2.36.0'
     $docfxRoot = "$buildRoot/packages/docfx.console/$docfxVersion"
     $docfx = "$docfxRoot/tools/docfx.exe"
     if (-not (Test-Path $docfx)) {
@@ -49,6 +49,7 @@ try {
     }
     finally {
         Push-Location $targetDir
+        exec git config core.safecrlf false # suppress warning about CRLF
         exec git add ./
         Write-Host "Files that changed in docs:"
         exec git --no-pager status -s

@@ -28,7 +28,7 @@ try {
         Pop-Location
     }
     exec git commit -m "Generate documentation from $SourceCommit"
-    exec git push origin gh-pages
+    exec git push --quiet origin gh-pages
 }
 finally {
     Pop-Location
