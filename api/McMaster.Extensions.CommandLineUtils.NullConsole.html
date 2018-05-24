@@ -92,35 +92,11 @@
     <h5>Implements</h5>
     <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.IConsole.html">IConsole</a></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="McMaster.Extensions.CommandLineUtils.html">McMaster.Extensions.CommandLineUtils</a></h6>
   <h6><strong>Assembly</strong>: McMaster.Extensions.CommandLineUtils.dll</h6>
   <h5 id="McMaster_Extensions_CommandLineUtils_NullConsole_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class NullConsole : IConsole</code></pre>
+    <pre><code class="lang-csharp hljs">public class NullConsole : object, IConsole</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -150,7 +126,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ConsoleColor</span></td>
+        <td><span class="xref">ConsoleColor</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -181,7 +157,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.IO.TextWriter</span></td>
+        <td><span class="xref">TextWriter</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -212,7 +188,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ConsoleColor</span></td>
+        <td><span class="xref">ConsoleColor</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -243,7 +219,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.IO.TextReader</span></td>
+        <td><span class="xref">TextReader</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -367,7 +343,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.IO.TextWriter</span></td>
+        <td><span class="xref">TextWriter</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -448,7 +424,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ConsoleCancelEventHandler</span></td>
+        <td><span class="xref">ConsoleCancelEventHandler</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -456,112 +432,6 @@
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="McMaster.Extensions.CommandLineUtils.IConsole.html">IConsole</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_">ConsoleExtensions.WriteLine(IConsole)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_String_">ConsoleExtensions.WriteLine(IConsole, String)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Object___">ConsoleExtensions.WriteLine(IConsole, String, Object[])</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Object_">ConsoleExtensions.WriteLine(IConsole, String, Object)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Object_System_Object_">ConsoleExtensions.WriteLine(IConsole, String, Object, Object)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Object_System_Object_System_Object_">ConsoleExtensions.WriteLine(IConsole, String, Object, Object, Object)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_UInt64_">ConsoleExtensions.WriteLine(IConsole, UInt64)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_Boolean_">ConsoleExtensions.WriteLine(IConsole, Boolean)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_Char_">ConsoleExtensions.WriteLine(IConsole, Char)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_Char___">ConsoleExtensions.WriteLine(IConsole, Char[])</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_Char___System_Int32_System_Int32_">ConsoleExtensions.WriteLine(IConsole, Char[], Int32, Int32)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_Decimal_">ConsoleExtensions.WriteLine(IConsole, Decimal)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_Double_">ConsoleExtensions.WriteLine(IConsole, Double)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_UInt32_">ConsoleExtensions.WriteLine(IConsole, UInt32)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_Int32_">ConsoleExtensions.WriteLine(IConsole, Int32)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_Object_">ConsoleExtensions.WriteLine(IConsole, Object)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_Single_">ConsoleExtensions.WriteLine(IConsole, Single)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_System_Int64_">ConsoleExtensions.WriteLine(IConsole, Int64)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_String_">ConsoleExtensions.Write(IConsole, String)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Object___">ConsoleExtensions.Write(IConsole, String, Object[])</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Object_">ConsoleExtensions.Write(IConsole, String, Object)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Object_System_Object_">ConsoleExtensions.Write(IConsole, String, Object, Object)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Object_System_Object_System_Object_">ConsoleExtensions.Write(IConsole, String, Object, Object, Object)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_UInt32_">ConsoleExtensions.Write(IConsole, UInt32)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_Decimal_">ConsoleExtensions.Write(IConsole, Decimal)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_Int32_">ConsoleExtensions.Write(IConsole, Int32)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_UInt64_">ConsoleExtensions.Write(IConsole, UInt64)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_Boolean_">ConsoleExtensions.Write(IConsole, Boolean)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_Char_">ConsoleExtensions.Write(IConsole, Char)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_Char___">ConsoleExtensions.Write(IConsole, Char[])</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_Char___System_Int32_System_Int32_">ConsoleExtensions.Write(IConsole, Char[], Int32, Int32)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_Double_">ConsoleExtensions.Write(IConsole, Double)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_Int64_">ConsoleExtensions.Write(IConsole, Int64)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_Object_">ConsoleExtensions.Write(IConsole, Object)</a>
-  </div>
-  <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_Single_">ConsoleExtensions.Write(IConsole, Single)</a>
   </div>
 </article>
           </div>

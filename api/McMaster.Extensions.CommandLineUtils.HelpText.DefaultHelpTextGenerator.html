@@ -92,35 +92,11 @@
     <h5>Implements</h5>
     <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html">IHelpTextGenerator</a></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="McMaster.Extensions.CommandLineUtils.HelpText.html">McMaster.Extensions.CommandLineUtils.HelpText</a></h6>
   <h6><strong>Assembly</strong>: McMaster.Extensions.CommandLineUtils.dll</h6>
   <h5 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DefaultHelpTextGenerator : IHelpTextGenerator</code></pre>
+    <pre><code class="lang-csharp hljs">public class DefaultHelpTextGenerator : object, IHelpTextGenerator</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -177,13 +153,13 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.IO.TextWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CTextWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L27">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Generate_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)">Generate(CommandLineApplication, TextWriter)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter)">Generate(CommandLineApplication, TextWriter)</h4>
   <div class="markdown level1 summary"><p>Generate help text for the application.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -207,7 +183,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.IO.TextWriter</span></td>
+        <td><span class="xref">TextWriter</span></td>
         <td><span class="parametername">output</span></td>
         <td></td>
       </tr>
@@ -215,13 +191,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateArguments_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Int32_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.IO.TextWriter%2CSystem.Collections.Generic.IReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandArgument%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateArguments_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Int32_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CTextWriter%2CIReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandArgument%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L140">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateArguments_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateArguments_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Int32_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Int32)">GenerateArguments(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandArgument&gt;, Int32)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateArguments_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Int32_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter,IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Int32)">GenerateArguments(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandArgument&gt;, Int32)</h4>
   <div class="markdown level1 summary"><p>Generate the lines that show information about arguments</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -246,13 +222,13 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.IO.TextWriter</span></td>
+        <td><span class="xref">TextWriter</span></td>
         <td><span class="parametername">output</span></td>
         <td><p>Help text output</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a>&gt;</td>
         <td><span class="parametername">visibleArguments</span></td>
         <td><p>Arguments not hidden from help text</p>
 </td>
@@ -267,13 +243,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateBody_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.IO.TextWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateBody_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CTextWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L62">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateBody_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateBody_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)">GenerateBody(CommandLineApplication, TextWriter)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateBody_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter)">GenerateBody(CommandLineApplication, TextWriter)</h4>
   <div class="markdown level1 summary"><p>Generate detailed help information</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -298,7 +274,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.IO.TextWriter</span></td>
+        <td><span class="xref">TextWriter</span></td>
         <td><span class="parametername">output</span></td>
         <td><p>Help text output</p>
 </td>
@@ -307,13 +283,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateCommands_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Int32_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.IO.TextWriter%2CSystem.Collections.Generic.IReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandLineApplication%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateCommands_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Int32_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CTextWriter%2CIReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandLineApplication%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L204">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateCommands_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateCommands_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Int32_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Int32)">GenerateCommands(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandLineApplication&gt;, Int32)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateCommands_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Int32_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter,IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Int32)">GenerateCommands(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandLineApplication&gt;, Int32)</h4>
   <div class="markdown level1 summary"><p>Generate the lines that show information about subcommands</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -338,13 +314,13 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.IO.TextWriter</span></td>
+        <td><span class="xref">TextWriter</span></td>
         <td><span class="parametername">output</span></td>
         <td><p>Help text output</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>&gt;</td>
         <td><span class="parametername">visibleCommands</span></td>
         <td><p>Commands not hidden from help text</p>
 </td>
@@ -359,13 +335,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateFooter_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.IO.TextWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateFooter_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CTextWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L240">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateFooter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateFooter_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)">GenerateFooter(CommandLineApplication, TextWriter)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateFooter_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter)">GenerateFooter(CommandLineApplication, TextWriter)</h4>
   <div class="markdown level1 summary"><p>Generate the last lines of help text output</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -390,7 +366,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.IO.TextWriter</span></td>
+        <td><span class="xref">TextWriter</span></td>
         <td><span class="parametername">output</span></td>
         <td><p>Help text output</p>
 </td>
@@ -399,13 +375,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateHeader_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.IO.TextWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateHeader_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CTextWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L39">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateHeader_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateHeader_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)">GenerateHeader(CommandLineApplication, TextWriter)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateHeader_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter)">GenerateHeader(CommandLineApplication, TextWriter)</h4>
   <div class="markdown level1 summary"><p>Generate the first few lines of help output text</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -430,7 +406,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.IO.TextWriter</span></td>
+        <td><span class="xref">TextWriter</span></td>
         <td><span class="parametername">output</span></td>
         <td><p>Help text output</p>
 </td>
@@ -439,13 +415,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateOptions_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Int32_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.IO.TextWriter%2CSystem.Collections.Generic.IReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandOption%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateOptions_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Int32_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CTextWriter%2CIReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandOption%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L172">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateOptions_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateOptions_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Int32_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Int32)">GenerateOptions(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandOption&gt;, Int32)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateOptions_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Int32_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter,IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Int32)">GenerateOptions(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandOption&gt;, Int32)</h4>
   <div class="markdown level1 summary"><p>Generate the lines that show information about options</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -470,13 +446,13 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.IO.TextWriter</span></td>
+        <td><span class="xref">TextWriter</span></td>
         <td><span class="parametername">output</span></td>
         <td><p>Help text output</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a>&gt;</td>
         <td><span class="parametername">visibleOptions</span></td>
         <td><p>Options not hidden from help text</p>
 </td>
@@ -491,13 +467,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateUsage_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CSystem.IO.TextWriter%2CSystem.Collections.Generic.IReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandArgument%7D%2CSystem.Collections.Generic.IReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandOption%7D%2CSystem.Collections.Generic.IReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandLineApplication%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateUsage_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication%2CTextWriter%2CIReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandArgument%7D%2CIReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandOption%7D%2CIReadOnlyList%7BMcMaster.Extensions.CommandLineUtils.CommandLineApplication%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L90">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateUsage_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateUsage_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication})">GenerateUsage(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandArgument&gt;, IReadOnlyList&lt;CommandOption&gt;, IReadOnlyList&lt;CommandLineApplication&gt;)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateUsage_McMaster_Extensions_CommandLineUtils_CommandLineApplication_TextWriter_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication,TextWriter,IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication})">GenerateUsage(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandArgument&gt;, IReadOnlyList&lt;CommandOption&gt;, IReadOnlyList&lt;CommandLineApplication&gt;)</h4>
   <div class="markdown level1 summary"><p>Generate the line that shows usage</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -522,25 +498,25 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.IO.TextWriter</span></td>
+        <td><span class="xref">TextWriter</span></td>
         <td><span class="parametername">output</span></td>
         <td><p>Help text output</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a>&gt;</td>
         <td><span class="parametername">visibleArguments</span></td>
         <td><p>Arguments not hidden from help text</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a>&gt;</td>
         <td><span class="parametername">visibleOptions</span></td>
         <td><p>Options not hidden from help text</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>&gt;</td>
         <td><span class="parametername">visibleCommands</span></td>
         <td><p>Commands not hidden from help text</p>
 </td>
