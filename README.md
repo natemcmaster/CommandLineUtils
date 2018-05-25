@@ -29,7 +29,7 @@ $ dotnet add package McMaster.Extensions.CommandLineUtils
 ```
 ```xml
 <ItemGroup>
-  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.3" />
+  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.4" />
 </ItemGroup>
 ```
 
@@ -107,7 +107,7 @@ The library also includes other utilities for interaction with the console. Thes
 
 - `ArgumentEscaper` - use to escape arguments when starting a new command line process.
     ```c#
-     var args = new [] { "Arg1", "arg with space", "args ' with \"" quotes" };
+     var args = new [] { "Arg1", "arg with space", "args ' with \" quotes" };
      Process.Start("echo", ArgumentEscaper.EscapeAndConcatenate(args));
     ```
  - `Prompt` - for getting feedback from users. A few examples:
