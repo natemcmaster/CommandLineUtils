@@ -2,11 +2,19 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using Xunit;
+using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class CommandLineApplicationOfTTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public CommandLineApplicationOfTTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         private class AttributesNotUsedClass
         {
             public int OptionA { get; set; }
@@ -60,7 +68,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsForArgumentsWithoutMatchingAttribute()
         {
             var ex = Assert.Throws<CommandParsingException>(
-                () => CommandLineParser.ParseArgs<SimpleProgram>("-f"));
+                () => CommandLineParser.ParseArgs<SimpleProgram>(_output, "-f"));
             Assert.StartsWith("Unrecognized option '-f'", ex.Message);
         }
     }

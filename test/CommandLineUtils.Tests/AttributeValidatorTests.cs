@@ -73,7 +73,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("email@example.com", 0)]
         public void ValidatesEmailArgument(string email, int exitCode)
         {
-            Assert.Equal(exitCode, CommandLineApplication.Execute<EmailArgumentApp>(email));
+            Assert.Equal(exitCode, CommandLineApplication.Execute<EmailArgumentApp>(new TestConsole(_output), email));
         }
 
         private class OptionBuilderApp : CommandLineApplication
