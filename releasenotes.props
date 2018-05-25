@@ -1,13 +1,11 @@
 <Project>
   <PropertyGroup>
-    <PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.2.4'">
 <![CDATA[
+Bug fixes:
 
-Minor improvement:
-
-* Make it easier to override the version text shown when `--version` is specified.
-* Make DefaultHelpTextGenerator's constructor protected so you can inherit from this type
-* Fix DebugHelper.HandleDebugSwitch
+* @liamdawson: support parsing `System.Uri`
+* Fix #101 - Update `DotNetExe.FullPath` to honor the `DOTNET_ROOT` environment variable as a fallback
 
 See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
 ]]>
