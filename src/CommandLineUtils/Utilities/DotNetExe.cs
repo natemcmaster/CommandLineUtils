@@ -23,24 +23,27 @@ namespace McMaster.Extensions.CommandLineUtils
 
         /// <summary>
         /// The full filepath to the .NET Core CLI executable.
+        /// <para>
+        /// May be <c>null</c> if the CLI cannot be found. <seealso cref="FullPathOrDefault" />
+        /// </para>
         /// </summary>
+        /// /// <returns>The path or null</returns>
         public static string FullPath { get; }
 
         /// <summary>
         /// Finds the full filepath to the .NET Core CLI executable,
         /// or returns a string containing the default name of the .NET Core muxer ('dotnet').
-        /// </summary>
         /// <returns>The path or a string named 'dotnet'</returns>
+        /// </summary>
         public static string FullPathOrDefault()
             => FullPath ?? FileName;
 
         private static string TryFindDotNetExePath()
         {
-#if NET45
-            return "dotnet.exe";
-#elif (NETSTANDARD1_6 || NETSTANDARD2_0)
             var fileName = FileName;
-
+#if NET45
+            fileName += ".exe";
+#elif (NETSTANDARD1_6 || NETSTANDARD2_0)
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 fileName += ".exe";
@@ -52,11 +55,16 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 return mainModule.FileName;
             }
-
-            return null;
 #else
 #error Update target frameworks
 #endif
+            var dotnetRoot = Environment.GetEnvironmentVariable("DOTNET_ROOT");
+            if (!string.IsNullOrEmpty(dotnetRoot))
+            {
+                return Path.Combine(dotnetRoot, fileName);
+            }
+
+            return null;
         }
     }
 }
