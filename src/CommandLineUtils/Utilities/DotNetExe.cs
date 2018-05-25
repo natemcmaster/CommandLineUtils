@@ -27,7 +27,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// May be <c>null</c> if the CLI cannot be found. <seealso cref="FullPathOrDefault" />
         /// </para>
         /// </summary>
-        /// /// <returns>The path or null</returns>
+        /// <returns>The path or null</returns>
         public static string FullPath { get; }
 
         /// <summary>

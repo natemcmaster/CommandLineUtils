@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.2.4]
+
+**May 24, 2018**
+
+Bug fixes:
+
+* [@liamdawson]: support parsing `System.Uri`
+* Fix #101 - Update `DotNetExe.FullPath` to honor the `DOTNET_ROOT` environment variable as a fallback
+
 ## [v2.2.3]
 
 **May 10, 2018**
@@ -157,6 +166,7 @@ Other:
 [@couven92]: https://github.com/couven92
 [@demosdemon]: https://github.com/demosdemon
 [@kant2002]: https://github.com/kant2002
+[@liamdawson]: https://github.com/liamdawson
 [@rmcc13]: https://github.com/rmcc13
 [@sebastienros]: https://github.com/sebastienros
 
