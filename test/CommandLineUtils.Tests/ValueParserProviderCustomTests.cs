@@ -48,7 +48,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                     var item3 = fragments[2];
                     return (ValueTuple<int, double, string>?)(item1, item2, item3);
                 }
-                catch(Exception ex) 
+                catch(Exception ex)
                 {
                     throw new FormatException(
                         $"Invalid value specified for {argName}. '{value} is not a valid time span (with offset)",
@@ -134,7 +134,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(nameof(DateParserProgram.DateTimeOffset), "2017年03月30日 3:03:03", "zh-CN")]
         public void DefaultCultureCanBeChanged(string property, string test, string culture)
         {
-            var expected = new DateTimeOffset(2017, 3, 30, 3, 3, 3, DateTimeOffset.Now.Offset);
+            // manually constructing the DateTimeOffset can lead to DST based offset mismatch issues
+            var expected = DateTimeOffset.Parse("2017-03-30T03:03:03");
 
             var cultureInfo = new CultureInfo(culture);
             var app = new CommandLineApplication<DateParserProgram>();
@@ -216,7 +217,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void CustomParsersAreAvailableToSubCommands()
         {
             var expectedDate = new DateTimeOffset(2018, 02, 16, 21, 30, 33, 45, TimeSpan.FromHours(10));
-           
+
 
             var app = new CommandLineApplication<CustomParserProgramAttributes>();
             app.ValueParsers.AddOrReplace(new MyDateTimeOffsetParser());
@@ -237,7 +238,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var expectedDate = new DateTimeOffset(2018, 02, 16, 21, 30, 33, 45, TimeSpan.FromHours(10));
             DateTimeOffset actualMainDate = default;
             DateTimeOffset actualSubDate = default;
-           
+
             var app = new CommandLineApplication();
             app.ValueParsers.AddOrReplace(new MyDateTimeOffsetParser());
 
