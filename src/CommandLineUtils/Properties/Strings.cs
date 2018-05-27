@@ -34,6 +34,9 @@ namespace McMaster.Extensions.CommandLineUtils
         public static string InvalidOnValidateReturnType(Type modelType)
             => $"The OnValidate method on {modelType.FullName} must return {typeof(ValidationResult).FullName}";
 
+        public static string InvalidOnParsedReturnType(Type modelType)
+            => $"The OnParsed method on {modelType.FullName} must return {typeof(void).FullName}";
+
         public static string CannotDetermineOptionType(PropertyInfo member)
             => $"Could not automatically determine the {nameof(CommandOptionType)} for type {member.PropertyType.FullName}. " +
                     $"Set the {nameof(OptionAttribute.OptionType)} on the {nameof(OptionAttribute)} declaration for {member.DeclaringType.FullName}.{member.Name}.";
