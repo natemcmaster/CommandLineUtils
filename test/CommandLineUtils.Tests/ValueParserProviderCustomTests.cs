@@ -130,12 +130,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Theory]
-        [InlineData(nameof(DateParserProgram.DateTimeOffset), "03/30/2017 3:03:03", "en-US")]
-        [InlineData(nameof(DateParserProgram.DateTimeOffset), "2017年03月30日 3:03:03", "zh-CN")]
+        [InlineData(nameof(DateParserProgram.DateTimeOffset), "03/30/2017 3:03:03 +04:00", "en-US")]
+        [InlineData(nameof(DateParserProgram.DateTimeOffset), "2017年03月30日 3:03:03 +04:00", "zh-CN")]
         public void DefaultCultureCanBeChanged(string property, string test, string culture)
         {
-            // manually constructing the DateTimeOffset can lead to DST based offset mismatch issues
-            var expected = DateTimeOffset.Parse("2017-03-30T03:03:03");
+            var expected = new DateTimeOffset(2017, 3, 30, 3, 3, 3, TimeSpan.FromHours(4));
 
             var cultureInfo = new CultureInfo(culture);
             var app = new CommandLineApplication<DateParserProgram>();
