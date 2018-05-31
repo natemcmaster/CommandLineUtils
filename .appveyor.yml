@@ -7,6 +7,9 @@ branches:
     - master
     - appveyor
     - /^feature\/.*/
+install:
+  - ps: iwr https://get.dot.net/v1/dotnet-install.ps1 -outfile dotnet-install.ps1
+  - ps: .\dotnet-install.ps1 -Version 2.1.300 -InstallDir $env:ProgramFiles/dotnet
 build_script:
   - ps: .\build.ps1 -IsOfficialBuild
   - ps: .\docs\generate.ps1 -NoBuild -Verbose

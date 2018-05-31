@@ -2,7 +2,7 @@ language: csharp
 sudo: true
 dist: trusty
 mono: none
-dotnet: 2.1.4
+dotnet: 2.1.300
 before_install:
   - bash <(curl -fsSL https://raw.githubusercontent.com/PowerShell/PowerShell/v6.0.1/tools/install-powershell.sh)
 script:
