@@ -82,7 +82,7 @@
   
   <h1 id="McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator" data-uid="McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator" class="text-break">Class AttributeValidator
   </h1>
-  <div class="markdown level0 summary"><p>A validator that uses a <see cref="!:ValidationAttribute"></see> to validate a command line option or argument.</p>
+  <div class="markdown level0 summary"><p>A validator that uses a <span class="xref">System.ComponentModel.DataAnnotations.ValidationAttribute</span> to validate a command line option or argument.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -96,23 +96,47 @@
     <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html">IOptionValidator</a></div>
     <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html">IArgumentValidator</a></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.html">McMaster.Extensions.CommandLineUtils.Validation</a></h6>
   <h6><strong>Assembly</strong>: McMaster.Extensions.CommandLineUtils.dll</h6>
   <h5 id="McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AttributeValidator : object, IValidator, IOptionValidator, IArgumentValidator</code></pre>
+    <pre><code class="lang-csharp hljs">public class AttributeValidator : IValidator, IOptionValidator, IArgumentValidator</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator__ctor_ValidationAttribute_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.%23ctor(ValidationAttribute)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator__ctor_System_ComponentModel_DataAnnotations_ValidationAttribute_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.%23ctor(System.ComponentModel.DataAnnotations.ValidationAttribute)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Validation/AttributeValidator.cs/#L21">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.#ctor*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator__ctor_ValidationAttribute_" data-uid="McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.#ctor(ValidationAttribute)">AttributeValidator(ValidationAttribute)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator__ctor_System_ComponentModel_DataAnnotations_ValidationAttribute_" data-uid="McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.#ctor(System.ComponentModel.DataAnnotations.ValidationAttribute)">AttributeValidator(ValidationAttribute)</h4>
   <div class="markdown level1 summary"><p>Initializes an instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.html">AttributeValidator</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -131,7 +155,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValidationAttribute</span></td>
+        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationAttribute</span></td>
         <td><span class="parametername">attribute</span></td>
         <td></td>
       </tr>
@@ -141,13 +165,13 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandArgument_ValidationContext_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument%2CValidationContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandArgument_System_ComponentModel_DataAnnotations_ValidationContext_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument%2CSystem.ComponentModel.DataAnnotations.ValidationContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Validation/AttributeValidator.cs/#L51">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_" data-uid="McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandArgument_ValidationContext_" data-uid="McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,ValidationContext)">GetValidationResult(CommandArgument, ValidationContext)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandArgument_System_ComponentModel_DataAnnotations_ValidationContext_" data-uid="McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)">GetValidationResult(CommandArgument, ValidationContext)</h4>
   <div class="markdown level1 summary"><p>Gets the validation result for a command line argument.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -171,7 +195,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">ValidationContext</span></td>
+        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationContext</span></td>
         <td><span class="parametername">context</span></td>
         <td></td>
       </tr>
@@ -187,20 +211,20 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValidationResult</span></td>
+        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationResult</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandOption_ValidationContext_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption%2CValidationContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandOption_System_ComponentModel_DataAnnotations_ValidationContext_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption%2CSystem.ComponentModel.DataAnnotations.ValidationContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Validation/AttributeValidator.cs/#L32">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_" data-uid="McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandOption_ValidationContext_" data-uid="McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,ValidationContext)">GetValidationResult(CommandOption, ValidationContext)</h4>
+  <h4 id="McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandOption_System_ComponentModel_DataAnnotations_ValidationContext_" data-uid="McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)">GetValidationResult(CommandOption, ValidationContext)</h4>
   <div class="markdown level1 summary"><p>Gets the validation result for a command line option.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -224,7 +248,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">ValidationContext</span></td>
+        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationContext</span></td>
         <td><span class="parametername">context</span></td>
         <td></td>
       </tr>
@@ -240,7 +264,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValidationResult</span></td>
+        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationResult</span></td>
         <td></td>
       </tr>
     </tbody>

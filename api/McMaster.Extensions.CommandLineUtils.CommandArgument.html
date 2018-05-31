@@ -93,11 +93,35 @@ Compare to <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOpt
     <div class="level1"><span class="xref">CommandArgument</span></div>
       <div class="level2"><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument-1.html">CommandArgument&lt;T&gt;</a></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="McMaster.Extensions.CommandLineUtils.html">McMaster.Extensions.CommandLineUtils</a></h6>
   <h6><strong>Assembly</strong>: McMaster.Extensions.CommandLineUtils.dll</h6>
   <h5 id="McMaster_Extensions_CommandLineUtils_CommandArgument_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class CommandArgument : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class CommandArgument</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -252,7 +276,7 @@ Compare to <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOpt
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandArgument_Validators_" data-uid="McMaster.Extensions.CommandLineUtils.CommandArgument.Validators*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandArgument_Validators" data-uid="McMaster.Extensions.CommandLineUtils.CommandArgument.Validators">Validators</h4>
-  <div class="markdown level1 summary"><p>A collection of validators that execute before invoking <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_Func_System_Int32__">OnExecute(Func&lt;Int32&gt;)</a>.
+  <div class="markdown level1 summary"><p>A collection of validators that execute before invoking <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_System_Func_System_Int32__">OnExecute(Func&lt;Int32&gt;)</a>.
 When validation fails, <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ValidationErrorHandler">ValidationErrorHandler</a> is invoked.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -270,7 +294,7 @@ When validation fails, <a class="xref" href="McMaster.Extensions.CommandLineUtil
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ICollection</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html">IArgumentValidator</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html">IArgumentValidator</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -332,7 +356,7 @@ When validation fails, <a class="xref" href="McMaster.Extensions.CommandLineUtil
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -342,13 +366,13 @@ When validation fails, <a class="xref" href="McMaster.Extensions.CommandLineUtil
       <a class="xref" href="McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_McMaster_Extensions_CommandLineUtils_CommandArgument_System_Boolean_System_String_">ValidationExtensions.IsRequired(CommandArgument, Boolean, String)</a>
   </div>
   <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_McMaster_Extensions_CommandLineUtils_CommandArgument_Action_McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidationBuilder__">ValidationExtensions.Accepts(CommandArgument, Action&lt;IArgumentValidationBuilder&gt;)</a>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_McMaster_Extensions_CommandLineUtils_CommandArgument_System_Action_McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidationBuilder__">ValidationExtensions.Accepts(CommandArgument, Action&lt;IArgumentValidationBuilder&gt;)</a>
   </div>
   <div>
       <a class="xref" href="McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_McMaster_Extensions_CommandLineUtils_CommandArgument_">ValidationExtensions.Accepts(CommandArgument)</a>
   </div>
   <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_McMaster_Extensions_CommandLineUtils_CommandArgument_Func_ValidationContext_ValidationResult__">ValidationExtensions.OnValidate(CommandArgument, Func&lt;ValidationContext, ValidationResult&gt;)</a>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_McMaster_Extensions_CommandLineUtils_CommandArgument_System_Func_System_ComponentModel_DataAnnotations_ValidationContext_System_ComponentModel_DataAnnotations_ValidationResult__">ValidationExtensions.OnValidate(CommandArgument, Func&lt;ValidationContext, ValidationResult&gt;)</a>
   </div>
 </article>
           </div>
