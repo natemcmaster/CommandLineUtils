@@ -32,6 +32,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 .UseOnExecuteMethodFromModel()
                 .UseOnValidateMethodFromModel()
                 .UseOnValidationErrorMethodFromModel()
+                .UseOnParsedMethodFromModel()
                 .UseConstructorInjection()
                 .UseDefaultHelpOption();
         }
@@ -182,6 +183,14 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseOnValidationErrorMethodFromModel(this IConventionBuilder builder)
             => builder.AddConvention(new ValidationErrorMethodConvention());
+
+        /// <summary>
+        /// Invokes a method named "OnValidate" on the model type after parsing.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <returns>The builder.</returns>
+        public static IConventionBuilder UseOnParsedMethodFromModel(this IConventionBuilder builder)
+            => builder.AddConvention(new ParsedMethodConvention());
 
         /// <summary>
         /// Sets a method named "OnExecute" or "OnExecuteAsync" on the model type to handle
