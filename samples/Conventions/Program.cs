@@ -5,6 +5,8 @@ public class Program
 {
     static void Main(string[] args)
     {
+        CustomDemo.Main(args);
+
         // This sample shows you how to use dependency injection along with the constructor injection convention
         DependencyInjectionProgram.Main(args);
 

@@ -206,5 +206,14 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="additionalServices">Additional services that should be passed to the service provider.</param>
         public static IConventionBuilder UseConstructorInjection(this IConventionBuilder builder, IServiceProvider additionalServices)
             => builder.AddConvention(new ConstructorInjectionConvention(additionalServices));
+
+        /// <summary>
+        /// Sets a method named "InitializeApp" on the model type to handle during application initialization for application modification.
+        /// <see cref="IAppInitializer.InitializeApp" />
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <returns>The builder.</returns>
+        public static IConventionBuilder UseAppInitializerInterface(this IConventionBuilder builder)
+            => builder.AddConvention(new AppInitializerConvention());
     }
 }
