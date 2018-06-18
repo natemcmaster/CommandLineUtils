@@ -61,6 +61,18 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/concepts/response-file-parsing.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/response-file-parsing.html",
+          "hash": "D1FjNyrNU9lMjLoVi5f1mA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/intro.md",
       "output": {
         ".html": {
@@ -77,7 +89,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/toc.html",
-          "hash": "gI/c/AHYiFWuiWvlW2hU1A=="
+          "hash": "fb7Xrw3S46TfVF7EtSem4Q=="
         }
       },
       "is_incremental": false,
@@ -1200,11 +1212,11 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
