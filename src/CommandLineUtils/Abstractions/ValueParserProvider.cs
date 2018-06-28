@@ -46,7 +46,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         private static readonly MethodInfo s_GetParserGeneric
             = typeof(ValueParserProvider).GetTypeInfo()
-                .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
+                .GetMethods(BindingFlags.Instance | BindingFlags.Public)
                 .Single(m => m.Name == nameof(GetParser) && m.IsGenericMethod);
 
         /// <summary>
