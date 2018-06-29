@@ -46,16 +46,29 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         private static readonly MethodInfo s_GetParserGeneric
             = typeof(ValueParserProvider).GetTypeInfo()
-                .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
+                .GetMethods(BindingFlags.Instance | BindingFlags.Public)
                 .Single(m => m.Name == nameof(GetParser) && m.IsGenericMethod);
 
-        internal IValueParser GetParser(Type type)
+        /// <summary>
+        /// Returns a parser registered for the given type.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public IValueParser GetParser(Type type)
         {
             var method = s_GetParserGeneric.MakeGenericMethod(type);
             return (IValueParser)method.Invoke(this, Constants.EmptyArray);
         }
 
-        internal IValueParser<T> GetParser<T>()
+        /// <summary>
+        /// Returns a parser for the generic type T.
+        /// </summary>
+        /// <remarks>
+        /// If parser is not registered, null is returned.
+        /// </remarks>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public IValueParser<T> GetParser<T>()
         {
             var parser = GetParserImpl<T>();
             if (parser == null)
@@ -71,7 +84,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             return new GenericParserAdapter<T>(parser);
         }
 
-        private IValueParser GetParserImpl<T>()
+        internal IValueParser GetParserImpl<T>()
         {
             var type = typeof(T);
             if (_parsers.TryGetValue(type, out var parser))
