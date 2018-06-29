@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     {
         private readonly Dictionary<Type, IValueParser> _parsers = new Dictionary<Type, IValueParser>(10);
 
-        internal ValueParserProvider()
+        public ValueParserProvider()
         {
             AddRange(
                 new IValueParser[]
