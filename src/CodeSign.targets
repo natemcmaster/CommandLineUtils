@@ -28,10 +28,8 @@
       <SignToolArgs>$(SignToolArgs) "$(TargetPath)"</SignToolArgs>
     </PropertyGroup>
 
-    <WriteLinesToFile Lines="$([System.DateTime]::Now.ToString())" File="$(CodeSignCacheFile)" Overwrite="true" />
-
-    <Message Importance="High" Text="Code signing $(TargetPath)" />
     <Exec Command="$(SignToolArgs)" />
+    <WriteLinesToFile Lines="$([System.DateTime]::Now.ToString())" File="$(CodeSignCacheFile)" Overwrite="true" />
   </Target>
 
   <Target Name="PackageSign"
@@ -41,8 +39,6 @@
           Inputs="$(PackageOutputAbsolutePath)$(PackageId).$(PackageVersion).nupkg"
           Outputs="$(PackageSignCacheFile)">
     <Error Text="Missing required property: NuGetKeyVaultSignTool" Condition="'$(NuGetKeyVaultSignTool)' == ''" />
-
-    <WriteLinesToFile Lines="$([System.DateTime]::Now.ToString())" File="$(PackageSignCacheFile)" Overwrite="true" />
 
     <PropertyGroup>
       <NupkgTargetPath>$(PackageOutputAbsolutePath)$(PackageId).$(PackageVersion).nupkg</NupkgTargetPath>
@@ -58,9 +54,8 @@
       <NupkgSignToolArgs>$(NupkgSignToolArgs) "$(NupkgTargetPath)"</NupkgSignToolArgs>
     </PropertyGroup>
 
-    <Message Importance="High" Text="Package signing $(NupkgTargetPath)" />
-
     <Exec Command="$(NupkgSignToolArgs)" />
+    <WriteLinesToFile Lines="$([System.DateTime]::Now.ToString())" File="$(PackageSignCacheFile)" Overwrite="true" />
   </Target>
 
 </Project>
