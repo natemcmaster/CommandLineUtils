@@ -25,7 +25,7 @@ if (!$Configuration) {
 if ($IsOfficialBuild) {
     $MSBuildArgs += '-p:CI=true'
 
-    $CodeSign = -not $env:APPVEYOR_PULL_REQUEST_HEAD_COMMIT
+    $CodeSign = -not $env:APPVEYOR_PULL_REQUEST_HEAD_COMMIT -and ($IsWindows -or -not $IsCoreCLR)
 
     if ($CodeSign) {
         $astDir = "$PSScriptRoot/.build/tools/store/AzureSignTool/1.0.1/"
