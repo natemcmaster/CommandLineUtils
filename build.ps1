@@ -3,8 +3,8 @@
 param(
     [ValidateSet('Debug', 'Release')]
     $Configuration = $null,
-	[switch]
-	$IsOfficialBuild,
+    [switch]
+    $IsOfficialBuild,
     [Parameter(ValueFromRemainingArguments = $true)]
     [string[]]$MSBuildArgs
 )
@@ -23,7 +23,35 @@ if (!$Configuration) {
 }
 
 if ($IsOfficialBuild) {
-	$MSBuildArgs += '-p:CI=true'
+    $MSBuildArgs += '-p:CI=true'
+
+    $CodeSign = -not $env:APPVEYOR_PULL_REQUEST_HEAD_COMMIT
+
+    if ($CodeSign) {
+        $astDir = "$PSScriptRoot/.build/tools/store/AzureSignTool/1.0.1/"
+        $AzureSignToolPath = "$astDir/AzureSignTool.exe"
+        if (-not (Test-Path $AzureSignToolPath)) {
+            New-Item $astDir -ItemType Directory -ErrorAction Ignore | Out-Null
+            Invoke-WebRequest https://github.com/vcsjones/AzureSignTool/releases/download/1.0.1/AzureSignTool.zip `
+                -OutFile "$astDir/AzureSignTool.zip"
+            Expand-Archive "$astDir/AzureSignTool.zip" -DestinationPath $astDir
+        }
+
+        $nstDir = "$PSScriptRoot/.build/tools/store/NuGetKeyVaultSignTool/1.1.4/"
+        $NuGetKeyVaultSignTool = "$nstDir/tools/net471/NuGetKeyVaultSignTool.exe"
+        if (-not (Test-Path $NuGetKeyVaultSignTool)) {
+            New-Item $nstDir -ItemType Directory -ErrorAction Ignore | Out-Null
+            Invoke-WebRequest https://github.com/onovotny/NuGetKeyVaultSignTool/releases/download/v1.1.4/NuGetKeyVaultSignTool.1.1.4.nupkg `
+                -OutFile "$nstDir/NuGetKeyVaultSignTool.zip"
+            Expand-Archive "$nstDir/NuGetKeyVaultSignTool.zip" -DestinationPath $nstDir
+        }
+
+        $MSBuildArgs += "-p:AzureSignToolPath=$AzureSignToolPath"
+        $MSBuildArgs += "-p:NuGetKeyVaultSignTool=$NuGetKeyVaultSignTool"
+    }
+    else {
+        $MSBuildArgs += '-p:CodeSign=false'
+    }
 }
 
 $artifacts = "$PSScriptRoot/artifacts/"

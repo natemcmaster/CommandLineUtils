@@ -14,7 +14,9 @@ build_script:
   - ps: .\build.ps1 -IsOfficialBuild
   - ps: .\docs\generate.ps1 -NoBuild -Verbose
 environment:
-  access_token:
+  KEYVAULT_CLIENT_SECRET:
+    secure: Y89qXSB30HLwCrA53cB7Tic3a8GxsTxv8SdhyvU96ROKS8zX9Lf1FWnhEMIal2mo
+  GITHUB_ACCESS_TOKEN:
     secure: 7gza5cyC0Fwp5LcFPz9dGMcHXP2jxbrnu7er9R/HkdvnhzGJVADvOtfYO7+Vow5p
   global:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true

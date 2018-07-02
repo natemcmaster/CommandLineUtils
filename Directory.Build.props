@@ -4,6 +4,8 @@
   <Import Project="releasenotes.props" />
 
   <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+
     <Authors>Nate McMaster</Authors>
     <Product>CommandLineUtils</Product>
     <Copyright>Copyright © Nate McMaster</Copyright>
@@ -20,7 +22,11 @@
     <LangVersion>7.2</LangVersion>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)src\StrongName.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
-    <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>
+    <AzureKeyVaultUrl>https://nmcmaster.vault.azure.net</AzureKeyVaultUrl>
+    <AzureKeyVaultClientId>6a27a2da-bb78-4baa-bd2b-150fe89ea039</AzureKeyVaultClientId>
+    <AzureKeyVaultClientSecret>$(KEYVAULT_CLIENT_SECRET)</AzureKeyVaultClientSecret>
+    <CodeSignCertName>DigiCertCodeSign</CodeSignCertName>
+    <CodeSign Condition=" '$(CI)' == 'true' ">true</CodeSign>
 
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateFullPaths Condition="'$(VSCODE_PID)' != ''">true</GenerateFullPaths>

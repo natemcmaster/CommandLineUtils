@@ -1,0 +1,10 @@
+<Project>
+
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+
+  <Import Project="..\Directory.Build.targets" />
+  <Import Project="CodeSign.targets" />
+
+</Project>

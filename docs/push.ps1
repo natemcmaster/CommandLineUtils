@@ -16,7 +16,7 @@ try {
 
     if ($AppVeyor) {
         exec git config --global credential.helper store
-        Add-Content "$HOME\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+        Add-Content "$HOME\.git-credentials" "https://$($env:GITHUB_ACCESS_TOKEN):x-oauth-basic@github.com`n"
         exec git config --global user.email $env:APPVEYOR_REPO_COMMIT_AUTHOR
         exec git config --global user.name $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL
         $SourceCommit = $env:APPVEYOR_REPO_COMMIT
