@@ -1,5 +1,16 @@
 # Changelog
 
+## [v2.2.5]
+
+**July 1, 2018**
+
+Bug fixes:
+ * [@bording] and [@SeanFeldman]: Unable to create new instance of `CommandOption<T>` for type that is already registered
+
+Minor improvements:
+ * Started code signing the NuGet package and binaries
+ * [@jerriep]: added documentation for response file parsing
+
 ## [v2.2.4]
 
 **May 24, 2018**
@@ -163,14 +174,19 @@ Other:
 
 
 [@atruskie]: https://github.com/atruskie
+[@bording]: https://github.com/bording
 [@couven92]: https://github.com/couven92
 [@demosdemon]: https://github.com/demosdemon
+[@jerriep]: https://github.com/jerriep
 [@kant2002]: https://github.com/kant2002
 [@liamdawson]: https://github.com/liamdawson
 [@rmcc13]: https://github.com/rmcc13
+[@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.3...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...HEAD
+[v2.2.5]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.4...v2.2.5
+[v2.2.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.3...v2.2.4
 [v2.2.3]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.3...v2.2.3
 [v2.2.2]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.1...v2.2.2
 [v2.2.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0...v2.2.1

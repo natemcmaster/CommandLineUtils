@@ -1,11 +1,15 @@
 <Project>
   <PropertyGroup>
-    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.2.4'">
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.2.5'">
 <![CDATA[
 Bug fixes:
 
-* @liamdawson: support parsing `System.Uri`
-* Fix #101 - Update `DotNetExe.FullPath` to honor the `DOTNET_ROOT` environment variable as a fallback
+* @bording and @SeanFeldman: Unable to create new instance of `CommandOption<T>` for type that is already registered
+
+Minor improvements:
+
+ * Started code signing the NuGet package and binaries
+ * [@jerriep]: added documentation for response file parsing
 
 See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
 ]]>
