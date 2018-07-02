@@ -1,15 +1,4 @@
 ﻿version: 2.2.5.{build}
-init:
-  - git config --global core.autocrlf input
-clone_depth: 1
-branches:
-  only:
-    - master
-    - appveyor
-    - /^feature\/.*/
-install:
-  - ps: iwr https://get.dot.net/v1/dotnet-install.ps1 -outfile dotnet-install.ps1
-  - ps: .\dotnet-install.ps1 -Version 2.1.300 -InstallDir $env:ProgramFiles/dotnet
 build_script:
   - ps: .\build.ps1 -IsOfficialBuild
   - ps: .\docs\generate.ps1 -NoBuild -Verbose
@@ -23,6 +12,11 @@ environment:
     DOTNET_CLI_TELEMETRY_OPTOUT: 1
 test: off
 os: Visual Studio 2017
+branches:
+  only:
+    - master
+    - appveyor
+    - /^feature\/.*/
 artifacts:
   - path: 'artifacts\*.nupkg'
     name: Packages
