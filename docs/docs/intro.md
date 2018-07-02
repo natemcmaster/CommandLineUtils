@@ -22,7 +22,7 @@
 
     ```xml
     <ItemGroup>
-    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.4" />
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.5" />
     </ItemGroup>
     ```
 

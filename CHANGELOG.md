@@ -8,7 +8,8 @@ Bug fixes:
  * [@bording] and [@SeanFeldman]: Unable to create new instance of `CommandOption<T>` for type that is already registered
 
 Minor improvements:
- * Added NuGet package code signing and Microsoft Authenticode signing to the binaries in the package
+ * Started code signing the NuGet package and binaries
+ * [@jerriep]: added documentation for response file parsing
 
 ## [v2.2.4]
 
@@ -176,6 +177,7 @@ Other:
 [@bording]: https://github.com/bording
 [@couven92]: https://github.com/couven92
 [@demosdemon]: https://github.com/demosdemon
+[@jerriep]: https://github.com/jerriep
 [@kant2002]: https://github.com/kant2002
 [@liamdawson]: https://github.com/liamdawson
 [@rmcc13]: https://github.com/rmcc13
