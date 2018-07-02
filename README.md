@@ -15,7 +15,7 @@ CommandLineUtils
 [main-myget-badge]: https://img.shields.io/www.myget/natemcmaster/vpre/McMaster.Extensions.CommandLineUtils.svg?style=flat-square&label=myget
 
 
-This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This fork, on the other hand, will continue release updates and take contributions.
+This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This fork, on the other hand, will continue to make improvements, release updates and take contributions.
 
 ## Install
 
@@ -37,6 +37,7 @@ Pre-release builds and symbols: https://www.myget.org/gallery/natemcmaster/
 
 ## Usage
 
+See [documentation](https://natemcmaster.github.io/CommandLineUtils/) for API reference and tutorials.
 See [samples/](./samples/) for more examples, such as:
 
  - [Async console apps](./samples/HelloWorld/Program.cs)
