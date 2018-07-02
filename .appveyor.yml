@@ -1,6 +1,6 @@
 ﻿version: 2.2.5.{build}
 build_script:
-  - ps: .\build.ps1 -IsOfficialBuild
+  - ps: .\build.ps1 -ci
   - ps: .\docs\generate.ps1 -NoBuild -Verbose
 environment:
   KEYVAULT_CLIENT_SECRET:
