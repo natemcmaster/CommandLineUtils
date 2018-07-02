@@ -53,11 +53,9 @@ if ($CodeSign) {
         Expand-Archive "$nstDir/NuGetKeyVaultSignTool.zip" -DestinationPath $nstDir
     }
 
+    $MSBuildArgs += '-p:CodeSign=true'
     $MSBuildArgs += "-p:AzureSignToolPath=$AzureSignToolPath"
     $MSBuildArgs += "-p:NuGetKeyVaultSignTool=$NuGetKeyVaultSignTool"
-}
-else {
-    $MSBuildArgs += '-p:CodeSign=false'
 }
 
 $artifacts = "$PSScriptRoot/artifacts/"
