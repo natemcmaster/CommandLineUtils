@@ -26,7 +26,10 @@ namespace McMaster.Extensions.CommandLineUtils
             Template = template;
             OptionType = optionType;
 
-            foreach (var part in Template.Split(new[] { ' ', '|', ':', '=' }, StringSplitOptions.RemoveEmptyEntries))
+            var separators = (optionType == CommandOptionType.SingleOrNoValue)
+                ? new[] { ' ', '|', ':', '=', '[', ']' }
+                : new[] { ' ', '|', ':', '=' };
+            foreach (var part in Template.Split(separators, StringSplitOptions.RemoveEmptyEntries))
             {
                 if (part.StartsWith("--"))
                 {
@@ -213,14 +216,12 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 if (OptionType == CommandOptionType.SingleOrNoValue)
                 {
-                    sb.Append(":<");
+                    sb.Append("[:<").Append(ValueName).Append(">]");
                 }
                 else
                 {
-                    sb.Append(" <");
+                    sb.Append(" <").Append(ValueName).Append('>');
                 }
-
-                sb.Append(ValueName).Append('>');
             }
 
             return sb.ToString();
