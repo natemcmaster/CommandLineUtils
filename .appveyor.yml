@@ -1,4 +1,4 @@
-﻿version: 2.2.5.{build}
+﻿version: 2.3.0.{build}
 build_script:
   - ps: .\build.ps1 -ci
   - ps: .\docs\generate.ps1 -NoBuild -Verbose
