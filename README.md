@@ -37,14 +37,14 @@ Pre-release builds and symbols: https://www.myget.org/gallery/natemcmaster/
 
 ## Usage
 
-See [documentation](https://natemcmaster.github.io/CommandLineUtils/) for API reference and tutorials.
-See [samples/](./samples/) for more examples, such as:
+See [documentation](https://natemcmaster.github.io/CommandLineUtils/) for API reference, samples, and tutorials.
+See [samples/](./docs/samples/) for more examples, such as:
 
- - [Async console apps](./samples/HelloWorld/Program.cs)
- - [Structing an app with subcommands](./samples/Subcommands/Program.cs)
- - [Defining options with attributes](./samples/Attributes/Program.cs)
- - [Interactive console prompts](./samples/Prompt/Program.cs)
- - [Required options and arguments](./samples/Validation/Program.cs)
+ - [Async console apps](./docs/samples/async/)
+ - [Structing an app with subcommands](./docs/samples/subcommands/)
+ - [Defining options with attributes](./docs/samples/attributes/)
+ - [Interactive console prompts](./docs/samples/prompt/Program.cs)
+ - [Required options and arguments](./docs/samples/validation/)
 
 `CommandLineApplication` is the main entry point for most console apps parsing. There are two primary ways to use this API, using the builder pattern and attributes.
 
@@ -62,10 +62,16 @@ public class Program
     [Option(Description = "The subject")]
     public string Subject { get; }
 
+    [Option(ShortName = "n")]
+    public int Count { get; }
+
     private void OnExecute()
     {
         var subject = Subject ?? "world";
-        Console.WriteLine($"Hello {subject}!");
+        for (var i = 0; i < Count; i++)
+        {
+            Console.WriteLine($"Hello {subject}!");
+        }
     }
 }
 ```
@@ -85,6 +91,7 @@ public class Program
 
         app.HelpOption();
         var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
+        var optionRepeat = app.Option<int>("-n|--count <N>", "Repeat", CommandOptionType.SingleValue);
 
         app.OnExecute(() =>
         {
@@ -92,7 +99,11 @@ public class Program
                 ? optionSubject.Value()
                 : "world";
 
-            Console.WriteLine($"Hello {subject}!");
+            var count = optionRepeat.HasValue() ? optionRepeat.ParsedValue : 1;
+            for (var i = 0; i < count; i++)
+            {
+                Console.WriteLine($"Hello {subject}!");
+            }
             return 0;
         });
 

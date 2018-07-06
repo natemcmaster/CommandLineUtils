@@ -11,13 +11,13 @@ By default, response file parsing is disabled for your application and all sub-c
 
 When using Attributes, you can enable response file parsing by setting the @McMaster.Extensions.CommandLineUtils.CommandAttribute.ResponseFileHandling property of the @McMaster.Extensions.CommandLineUtils.CommandAttribute.
 
-[!code-csharp[](./samples/response-file-parsing/attributes/Program.cs?range=6-34&highlight=1)]
+[!code-csharp[](../../samples/response-file-parsing/attributes/Program.cs?range=6-34&highlight=1)]
 
 # [Using Builder API](#tab/using-builder-api)
 
 When using the Builder API, you can enable response file parsing by setting the @McMaster.Extensions.CommandLineUtils.CommandLineApplication.ResponseFileHandling property of the @McMaster.Extensions.CommandLineUtils.CommandLineApplication.
 
-[!code-csharp[](./samples/response-file-parsing/builder-api/Program.cs?range=6-38&highlight=9)]
+[!code-csharp[](../../samples/response-file-parsing/builder-api/Program.cs?range=6-38&highlight=9)]
 
 ------
 
@@ -95,11 +95,11 @@ When using sub-commands, you need to take care to explicitly set the `ResponseFi
 
 # [Using Attributes](#tab/using-attributes)
 
-[!code-csharp[](./samples/response-file-parsing/attributes/Program.cs?range=6-34&highlight=19)]
+[!code-csharp[](../../samples/response-file-parsing/attributes/Program.cs?range=6-34&highlight=19)]
 
 # [Using Builder API](#tab/using-builder-api)
 
-[!code-csharp[](./samples/response-file-parsing/builder-api/Program.cs?range=6-40&highlight=18)]
+[!code-csharp[](../../samples/response-file-parsing/builder-api/Program.cs?range=6-40&highlight=18)]
 
 ------
 

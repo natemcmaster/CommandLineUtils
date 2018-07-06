@@ -12,6 +12,8 @@ Push-Location "$PSScriptRoot/../"
 
 try {
 
+    exec dotnet build "$PSScriptRoot/samples/samples.sln"
+
     $buildRoot = "$PSScriptRoot/../.build/docs"
     $targetDir = "$buildRoot/gh-pages"
     mkdir -p $buildRoot -ErrorAction Ignore | Out-Null

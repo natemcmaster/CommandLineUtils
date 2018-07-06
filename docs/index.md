@@ -30,7 +30,7 @@ Pre-release builds and symbols: https://www.myget.org/gallery/natemcmaster/
 
 ## Usage
 
-See [samples](https://github.com/natemcmaster/CommandLineUtils/tree/master/samples) for more examples.
+See [samples](https://github.com/natemcmaster/CommandLineUtils/tree/master/docs/samples) for more examples.
 
 `CommandLineApplication` is the main entry point for most console apps parsing. There are two primary ways to use this API, using the builder pattern and attributes.
 
