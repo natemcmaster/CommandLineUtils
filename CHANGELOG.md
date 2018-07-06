@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+Enhancements:
+
+ * [@bjorg]: support SingleOrNoValue notation. `--option[:value]`
+
 ## [v2.2.5]
 
 **July 1, 2018**
@@ -175,6 +181,7 @@ Other:
 
 [@atruskie]: https://github.com/atruskie
 [@bording]: https://github.com/bording
+[@bjorg]: https://github.com/bjorg
 [@couven92]: https://github.com/couven92
 [@demosdemon]: https://github.com/demosdemon
 [@jerriep]: https://github.com/jerriep
