@@ -634,6 +634,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.AllowArgumentSeparator
   nameWithType: CommandAttribute.AllowArgumentSeparator
+- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
+  name: ClusterOptions
+  href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ClusterOptions
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
+  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
+  nameWithType: CommandAttribute.ClusterOptions
+- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions*
+  name: ClusterOptions
+  href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ClusterOptions_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
+  nameWithType: CommandAttribute.ClusterOptions
 - uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.Description
   name: Description
   href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_Description
@@ -1361,6 +1374,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Parse
   nameWithType: CommandLineApplication.Parse
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings
+  name: ParserSettings
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ParserSettings
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings
+  nameWithType: CommandLineApplication.ParserSettings
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings*
+  name: ParserSettings
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ParserSettings_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings
+  nameWithType: CommandLineApplication.ParserSettings
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.RemainingArguments
   name: RemainingArguments
   href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_RemainingArguments
@@ -4273,6 +4299,25 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ValueName
   nameWithType: OptionAttributeBase.ValueName
+- uid: McMaster.Extensions.CommandLineUtils.ParserSettings
+  name: ParserSettings
+  href: api/McMaster.Extensions.CommandLineUtils.ParserSettings.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.ParserSettings
+  fullName: McMaster.Extensions.CommandLineUtils.ParserSettings
+  nameWithType: ParserSettings
+- uid: McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions
+  name: ClusterOptions
+  href: api/McMaster.Extensions.CommandLineUtils.ParserSettings.html#McMaster_Extensions_CommandLineUtils_ParserSettings_ClusterOptions
+  commentId: P:McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions
+  fullName: McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions
+  nameWithType: ParserSettings.ClusterOptions
+- uid: McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions*
+  name: ClusterOptions
+  href: api/McMaster.Extensions.CommandLineUtils.ParserSettings.html#McMaster_Extensions_CommandLineUtils_ParserSettings_ClusterOptions_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions
+  nameWithType: ParserSettings.ClusterOptions
 - uid: McMaster.Extensions.CommandLineUtils.PhysicalConsole
   name: PhysicalConsole
   href: api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.html
