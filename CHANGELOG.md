@@ -6,7 +6,8 @@ Enhancements:
 
  * [@bjorg]: support SingleOrNoValue notation. `--option[:value]`
  * Resolved [#93][issue-93] - Support the POSIX convention for cluster multiple options. For example, `-ixd` can be treated the same as `-i -x -d`.
-   To enable this, set `CommandLineApplication.ParserSettings.ClusterOptions = true`, or add `[Command(ClusterOptions = true)]`
+   <br /> To disable this, set `CommandLineApplication.ParserSettings.ClusterOptions = false`, or add `[Command(ClusterOptions = false)]`.
+   To preserve compatibilty with existing apps, this behavior is off if you have configured options with short names with multiple characters. In a future version, this will cause an error unless you set `ClusterOptions = false`.
 
 ## [v2.2.5]
 
