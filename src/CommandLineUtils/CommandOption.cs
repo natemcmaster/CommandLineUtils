@@ -153,7 +153,9 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         return false;
                     }
+
                     // Add a value so .HasValue() == true
+                    // Also, the count can be used to determine how many times a flag was specified
                     Values.Add(null);
                     break;
                 default:

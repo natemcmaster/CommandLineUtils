@@ -310,7 +310,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             });
 
             var exception = Assert.Throws<CommandParsingException>(() => app.Execute("test", unexpectedOption));
-            Assert.Equal($"Unrecognized option '{unexpectedOption}'", exception.Message);
+            Assert.Equal($"Unrecognized option '-u'", exception.Message);
         }
 
         [Fact]
@@ -751,7 +751,9 @@ Examples:
         [Theory]
         [InlineData("-v")]
         [InlineData("--verbose")]
-        public void NoValueOptionCanBeSet(string input)
+        [InlineData("--verbose", "-v")]
+        [InlineData("--verbose", "-v", "--verbose")]
+        public void NoValueOptionCanBeSet(params string[] input)
         {
             var app = new CommandLineApplication();
             var optVerbose = app.Option("-v |--verbose", "be verbose", CommandOptionType.NoValue);
@@ -759,6 +761,7 @@ Examples:
             app.Execute(input);
 
             Assert.True(optVerbose.HasValue());
+            Assert.Equal(input.Length, optVerbose.Values.Count);
         }
 
         [Theory]

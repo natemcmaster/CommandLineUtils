@@ -14,23 +14,54 @@ namespace McMaster.Extensions.CommandLineUtils
     internal sealed class CommandLineProcessor
     {
         private readonly CommandLineApplication _app;
-        private readonly IReadOnlyList<string> _parameters;
+        private readonly ParserSettings _settings;
         private readonly CommandLineApplication _initialCommand;
         private readonly ParameterEnumerator _enumerator;
-        private CommandLineApplication _currentCommand;
+
+        private CommandLineApplication _currentCommand
+        {
+            // this is super hacky and was added to ensure the parser honored quirky behavior in 2.x
+            // in which things like response file parsing and working dir could be set per subcommand
+
+            // TODO in 3.0, make parser settings top-level only.
+            get => _enumerator.CurrentCommand;
+            set => _enumerator.CurrentCommand = value;
+        }
+
         private CommandArgumentEnumerator _currentCommandArguments;
 
-        public CommandLineProcessor(CommandLineApplication command, IReadOnlyList<string> parameters)
+        public CommandLineProcessor(CommandLineApplication command,
+            ParserSettings settings,
+            IReadOnlyList<string> arguments)
         {
             _app = command;
-            _parameters = parameters ?? new string[0];
+            _settings = settings;
             _initialCommand = command;
-            _enumerator = new ParameterEnumerator(_parameters);
+            _enumerator = new ParameterEnumerator(arguments ?? new string[0]);
+
+            // TODO in 3.0, remove this check, and make ClusterOptions true always
+            // and make it an error to use short options with multiple characters
+            var allOptions = command.Commands.SelectMany(c => c.Options).Concat(command.GetOptions());
+            if (!settings.ClusterOptionsWasSetExplicitly)
+            {
+                settings.ClusterOptions = !allOptions.Any(o => o.ShortName != null && o.ShortName.Length > 1);
+            }
+
+            if (settings.ClusterOptions)
+            {
+                foreach (var option in allOptions)
+                {
+                    if (option.ShortName != null && option.ShortName.Length != 1)
+                    {
+                        throw new CommandParsingException(command,
+                            $"The ShortName on CommandOption is too long: '{option.ShortName}'. Short names cannot be more than one character long when {nameof(ParserSettings.ClusterOptions)} is enabled.");
+                    }
+                }
+            }
         }
 
         public ParseResult Process()
         {
-            var parseResult = new ParseResult();
             _currentCommand = _initialCommand;
             _currentCommandArguments = null;
             while (_enumerator.MoveNext())
@@ -40,11 +71,14 @@ namespace McMaster.Extensions.CommandLineUtils
                     goto finished;
                 }
             }
+
             _enumerator.Reset();
 
-            finished:
-            parseResult.SelectedCommand = _currentCommand;
-            return parseResult;
+        finished:
+            return new ParseResult
+            {
+                SelectedCommand = _currentCommand
+            };
         }
 
         private bool ProcessNext()
@@ -56,6 +90,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         return false;
                     }
+
                     break;
                 case ParameterType.ShortOption:
                 case ParameterType.LongOption:
@@ -63,49 +98,21 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         return false;
                     }
-                    break;
-                case ParameterType.ResponseFile:
-                    if (!ProcessResponseFile())
-                    {
-                        return false;
-                    }
+
                     break;
                 case ParameterType.CommandOrArgument:
                     if (!ProcessCommandOrArgument())
                     {
                         return false;
                     }
+
                     break;
                 default:
                     HandleUnexpectedArg("command or argument");
                     return false;
             }
+
             return true;
-        }
-
-        private bool ProcessResponseFile()
-        {
-            if (_currentCommand.ResponseFileHandling == ResponseFileHandling.Disabled)
-            {
-                return ProcessCommandOrArgument();
-            }
-
-            var arg = _enumerator.Current.Raw;
-            var path = arg.Substring(1);
-            var fullPath = Path.IsPathRooted(path)
-                ? path
-                : Path.Combine(_currentCommand.WorkingDirectory, path);
-
-            try
-            {
-                var rspParams = ResponseFileParser.Parse(fullPath, _currentCommand.ResponseFileHandling);
-                _enumerator.InsertFromResponseFile(rspParams);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new CommandParsingException(_currentCommand, $"Could not parse the response file '{arg}'", ex);
-            }
         }
 
         private bool ProcessCommandOrArgument()
@@ -140,20 +147,97 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private bool ProcessOption()
         {
-            CommandOption option;
+            CommandOption option = null;
             var arg = _enumerator.Current;
+            var value = arg.Value;
+            var name = arg.Name;
             if (arg.Type == ParameterType.ShortOption)
             {
-                option = _currentCommand.GetOptions().SingleOrDefault(o => string.Equals(arg.Name, o.ShortName, _currentCommand.OptionsComparison));
-
-                if (option == null)
+                if (_settings.ClusterOptions)
                 {
-                    option = _currentCommand.GetOptions().SingleOrDefault(o => string.Equals(arg.Name, o.SymbolName, _currentCommand.OptionsComparison));
+                    for (var i = 0; i < arg.Name.Length; i++)
+                    {
+                        var ch = arg.Name.Substring(i, 1);
+
+                        option = _currentCommand.GetOptions().SingleOrDefault(o =>
+                            string.Equals(ch, o.ShortName, _currentCommand.OptionsComparison));
+
+                        if (option == null)
+                        {
+                            // quirk for compatibility with symbol options
+                            option = _currentCommand.GetOptions().SingleOrDefault(o =>
+                                string.Equals(ch, o.SymbolName, _currentCommand.OptionsComparison));
+                        }
+
+                        if (option == null)
+                        {
+                            HandleUnexpectedArg("option", "-" + ch);
+                            return false;
+                        }
+
+                        // If we find a help/version option, show information and stop parsing
+                        if (_currentCommand.OptionHelp == option)
+                        {
+                            _currentCommand.ShowHelp();
+                            option.TryParse(null);
+                            return false;
+                        }
+
+                        if (_currentCommand.OptionVersion == option)
+                        {
+                            _currentCommand.ShowVersion();
+                            option.TryParse(null);
+                            return false;
+                        }
+
+                        name = ch;
+
+                        var isLastChar = i == arg.Name.Length - 1;
+                        if (option.OptionType == CommandOptionType.NoValue)
+                        {
+                            if (!isLastChar)
+                            {
+                                option.TryParse(null);
+                            }
+                        }
+                        else if (option.OptionType == CommandOptionType.SingleOrNoValue)
+                        {
+                            if (!isLastChar)
+                            {
+                                option.TryParse(null);
+                            }
+                        }
+                        else if (!isLastChar)
+                        {
+                            if (value != null)
+                            {
+                                // if an option was also specified using :value or =value at the end of the option
+                                _currentCommand.ShowHint();
+                                throw new CommandParsingException(_currentCommand, $"Option '{ch}', which requires a value, must be the last option in a cluster");
+                            }
+
+                            // supports specifying the value as the last bit of the flag. -Xignore-whitespace
+                            value = arg.Name.Substring(i + 1);
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    option = _currentCommand.GetOptions().SingleOrDefault(o =>
+                        string.Equals(name, o.ShortName, _currentCommand.OptionsComparison));
+
+                    if (option == null)
+                    {
+                        option = _currentCommand.GetOptions().SingleOrDefault(o =>
+                            string.Equals(name, o.SymbolName, _currentCommand.OptionsComparison));
+                    }
                 }
             }
             else
             {
-                option = _currentCommand.GetOptions().SingleOrDefault(o => string.Equals(arg.Name, o.LongName, _currentCommand.OptionsComparison));
+                option = _currentCommand.GetOptions().SingleOrDefault(o =>
+                    string.Equals(name, o.LongName, _currentCommand.OptionsComparison));
             }
 
             if (option == null)
@@ -169,23 +253,25 @@ namespace McMaster.Extensions.CommandLineUtils
                 option.TryParse(null);
                 return false;
             }
-            else if (_currentCommand.OptionVersion == option)
+
+            if (_currentCommand.OptionVersion == option)
             {
                 _currentCommand.ShowVersion();
                 option.TryParse(null);
                 return false;
             }
 
-            if (arg.Value != null)
+            if (value != null)
             {
-                if (!option.TryParse(arg.Value))
+                if (!option.TryParse(value))
                 {
                     _currentCommand.ShowHint();
-                    throw new CommandParsingException(_currentCommand, $"Unexpected value '{arg.Value}' for option '{arg.Name}'");
+                    throw new CommandParsingException(_currentCommand,
+                        $"Unexpected value '{value}' for option '{name}'");
                 }
             }
             else if (option.OptionType == CommandOptionType.NoValue
-                || option.OptionType == CommandOptionType.SingleOrNoValue)
+                     || option.OptionType == CommandOptionType.SingleOrNoValue)
             {
                 // No value is needed for this option
                 option.TryParse(null);
@@ -195,29 +281,15 @@ namespace McMaster.Extensions.CommandLineUtils
                 if (!_enumerator.MoveNext())
                 {
                     _currentCommand.ShowHint();
-                    throw new CommandParsingException(_currentCommand, $"Missing value for option '{arg.Name}'");
-                }
-
-                if (_enumerator.Current.Type == ParameterType.ResponseFile
-                    && _currentCommand.ResponseFileHandling != ResponseFileHandling.Disabled)
-                {
-                    if (!ProcessResponseFile())
-                    {
-                        return false;
-                    }
-
-                    if (!_enumerator.MoveNext())
-                    {
-                        _currentCommand.ShowHint();
-                        throw new CommandParsingException(_currentCommand, $"Missing value for option '{arg.Name}'");
-                    }
+                    throw new CommandParsingException(_currentCommand, $"Missing value for option '{name}'");
                 }
 
                 var nextArg = _enumerator.Current;
                 if (!option.TryParse(nextArg.Raw))
                 {
                     _currentCommand.ShowHint();
-                    throw new CommandParsingException(_currentCommand, $"Unexpected value '{nextArg.Raw}' for option '{arg.Name}'");
+                    throw new CommandParsingException(_currentCommand,
+                        $"Unexpected value '{nextArg.Raw}' for option '{name}'");
                 }
             }
 
@@ -231,25 +303,26 @@ namespace McMaster.Extensions.CommandLineUtils
                 HandleUnexpectedArg("option");
             }
 
+            _enumerator.DisableResponseFileLoading = true;
+
             if (_enumerator.MoveNext())
             {
                 AddRemainingArgumentValues();
             }
+
             return false;
         }
 
-        private void HandleUnexpectedArg(string argTypeName)
+        private void HandleUnexpectedArg(string argTypeName, string argValue = null)
         {
             if (_currentCommand.ThrowOnUnexpectedArgument)
             {
                 _currentCommand.ShowHint();
-                throw new CommandParsingException(_currentCommand, $"Unrecognized {argTypeName} '{_enumerator.Current.Raw}'");
+                throw new CommandParsingException(_currentCommand, $"Unrecognized {argTypeName} '{argValue ?? _enumerator.Current.Raw}'");
             }
-            else
-            {
-                // All remaining arguments are stored for further use
-                AddRemainingArgumentValues();
-            }
+
+            // All remaining arguments are stored for further use
+            AddRemainingArgumentValues();
         }
 
         private void AddRemainingArgumentValues()
@@ -265,17 +338,16 @@ namespace McMaster.Extensions.CommandLineUtils
             CommandOrArgument,
             ShortOption,
             LongOption,
-            ResponseFile,
-            ArgumentSeparator,
+            ArgumentSeparator
         }
 
         [DebuggerDisplay("{Raw} ({Type})")]
         private sealed class Parameter
         {
-            public Parameter(string raw, bool fromRspFile)
+            public Parameter(string raw)
             {
                 Raw = raw;
-                Type = GetType(raw, fromRspFile);
+                Type = GetType(raw);
 
                 if (Type == ParameterType.LongOption || Type == ParameterType.ShortOption)
                 {
@@ -297,55 +369,51 @@ namespace McMaster.Extensions.CommandLineUtils
             public string Value { get; }
             public ParameterType Type { get; }
 
-            private static ParameterType GetType(string raw, bool fromRspFile)
+            private static ParameterType GetType(string raw)
             {
-                if (string.IsNullOrEmpty(raw) || raw == "-")
+                if (string.IsNullOrEmpty(raw) || raw == "-" || raw[0] != '-')
                 {
                     return ParameterType.CommandOrArgument;
                 }
-                else if (raw[0] == '@' && !fromRspFile)
-                {
-                    // anything that starts with '@' might be a response file
-                    // as long as we are not already parsing from a response file
-                    return ParameterType.ResponseFile;
-                }
-                else if (raw[0] != '-')
-                {
-                    // everything else that does not start with -
-                    return ParameterType.CommandOrArgument;
-                }
-                else if (raw[1] != '-')
+
+                if (raw[1] != '-')
                 {
                     return ParameterType.ShortOption;
                 }
-                else if (raw.Length == 2)
+
+                if (raw.Length == 2)
                 {
                     return ParameterType.ArgumentSeparator;
                 }
 
                 return ParameterType.LongOption;
             }
+
+            public bool MoveNext()
+            {
+                throw new NotImplementedException();
+            }
         }
 
         private sealed class ParameterEnumerator : IEnumerator<Parameter>
         {
-            private readonly IEnumerator<string> _enumerator;
+            private readonly IEnumerator<string> _rawArgEnumerator;
             private Parameter _current;
             private IEnumerator<string> _rspEnumerator;
 
-            public ParameterEnumerator(IReadOnlyList<string> parameters)
+            public ParameterEnumerator(IReadOnlyList<string> rawArguments)
             {
-                _enumerator = parameters.GetEnumerator();
+                _rawArgEnumerator = rawArguments.GetEnumerator();
             }
 
             public Parameter Current => _current;
 
             object IEnumerator.Current => _current;
 
-            public void InsertFromResponseFile(IEnumerable<string> rspParams)
-            {
-                _rspEnumerator = rspParams.GetEnumerator();
-            }
+            // currently this must be settable because some parsing behavior can be set per subcommand
+            public CommandLineApplication CurrentCommand { get; set; }
+
+            public bool DisableResponseFileLoading { get; set; }
 
             public bool MoveNext()
             {
@@ -353,36 +421,62 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     if (_rspEnumerator.MoveNext())
                     {
-                        _current = new Parameter(_rspEnumerator.Current, fromRspFile: true);
+                        _current = new Parameter(_rspEnumerator.Current);
                         return true;
                     }
-                    else
-                    {
-                        _rspEnumerator = null;
-                    }
+
+                    _rspEnumerator = null;
                 }
 
-                if (_enumerator.MoveNext())
+                if (_rawArgEnumerator.MoveNext())
                 {
-                    _current = new Parameter(_enumerator.Current, fromRspFile: false);
+                    if (CurrentCommand.ResponseFileHandling != ResponseFileHandling.Disabled
+                        && !DisableResponseFileLoading)
+                    {
+                        var raw = _rawArgEnumerator.Current;
+                        if (raw != null && raw.Length > 1 && raw[0] == '@')
+                        {
+                            _rspEnumerator = CreateRspParser(raw.Substring(1));
+                            return MoveNext();
+                        }
+                    }
+
+                    _current = new Parameter(_rawArgEnumerator.Current);
                     return true;
                 }
 
                 return false;
             }
 
+            private IEnumerator<string> CreateRspParser(string path)
+            {
+                var fullPath = Path.IsPathRooted(path)
+                    ? path
+                    : Path.Combine(CurrentCommand.WorkingDirectory, path);
+
+                try
+                {
+                    var rspParams = ResponseFileParser.Parse(fullPath, CurrentCommand.ResponseFileHandling);
+                    return rspParams.GetEnumerator();
+                }
+                catch (Exception ex)
+                {
+                    throw new CommandParsingException(CurrentCommand, $"Could not parse the response file '{path}'", ex);
+                }
+            }
+
             public void Reset()
             {
                 _current = null;
                 _rspEnumerator = null;
-                _enumerator.Reset();
+                _rawArgEnumerator.Reset();
             }
 
             public void Dispose()
             {
                 _current = null;
                 _rspEnumerator = null;
-                _enumerator.Dispose();
+                _rawArgEnumerator.Dispose();
             }
         }
 

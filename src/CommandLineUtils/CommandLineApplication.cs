@@ -529,11 +529,16 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             args = args ?? new string[0];
 
-            var processor = new CommandLineProcessor(this, args);
+            var processor = new CommandLineProcessor(this, ParserSettings, args);
             var result = processor.Process();
             result.SelectedCommand.HandleParseResult(result);
             return result;
         }
+
+        /// <summary>
+        /// Settings to control the behavior of the parser.
+        /// </summary>
+        public ParserSettings ParserSettings { get; } = new ParserSettings();
 
         /// <summary>
         /// Handle the result of parsing command line arguments.
