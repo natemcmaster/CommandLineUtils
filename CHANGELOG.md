@@ -5,7 +5,7 @@
 Enhancements:
 
  * [@bjorg]: support SingleOrNoValue notation. `--option[:value]`
- * Resolved #93 - Support the POSIX convention for cluster multiple options. For example, `-ixd` can be treated the same as `-i -x -d`.
+ * Resolved [#93][issue-93] - Support the POSIX convention for cluster multiple options. For example, `-ixd` can be treated the same as `-i -x -d`.
    To enable this, set `CommandLineApplication.ParserSettings.ClusterOptions = true`, or add `[Command(ClusterOptions = true)]`
 
 ## [v2.2.5]
@@ -208,3 +208,4 @@ Other:
 [v2.0.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.0...v2.0.1
 [v2.0.0]: https://github.com/natemcmaster/CommandLineUtils/compare/b0c662d331c35ccf3145875cdef850df7e896c0f...v2.0.0
 
+[issue-93]: https://github.com/natemcmaster/CommandLineUtils/issues/93
