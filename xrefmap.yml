@@ -1432,6 +1432,12 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp()
   nameWithType: CommandLineApplication.ShowHelp()
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp(System.Boolean)
+  name: ShowHelp(Boolean)
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ShowHelp_System_Boolean_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp(System.Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp(System.Boolean)
+  nameWithType: CommandLineApplication.ShowHelp(Boolean)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp(System.String)
   name: ShowHelp(String)
   href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ShowHelp_System_String_
@@ -4299,6 +4305,96 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ValueName
   nameWithType: OptionAttributeBase.ValueName
+- uid: McMaster.Extensions.CommandLineUtils.Pager
+  name: Pager
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.Pager
+  fullName: McMaster.Extensions.CommandLineUtils.Pager
+  nameWithType: Pager
+- uid: McMaster.Extensions.CommandLineUtils.Pager.#ctor
+  name: Pager()
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager__ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.Pager.#ctor
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Pager()
+  nameWithType: Pager.Pager()
+- uid: McMaster.Extensions.CommandLineUtils.Pager.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)
+  name: Pager(IConsole)
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager__ctor_McMaster_Extensions_CommandLineUtils_IConsole_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Pager.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Pager(McMaster.Extensions.CommandLineUtils.IConsole)
+  nameWithType: Pager.Pager(IConsole)
+- uid: McMaster.Extensions.CommandLineUtils.Pager.#ctor*
+  name: Pager
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager__ctor_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.#ctor
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Pager
+  nameWithType: Pager.Pager
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Dispose
+  name: Dispose()
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager_Dispose
+  commentId: M:McMaster.Extensions.CommandLineUtils.Pager.Dispose
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Dispose()
+  nameWithType: Pager.Dispose()
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Dispose*
+  name: Dispose
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager_Dispose_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.Dispose
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Dispose
+  nameWithType: Pager.Dispose
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Kill
+  name: Kill()
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager_Kill
+  commentId: M:McMaster.Extensions.CommandLineUtils.Pager.Kill
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Kill()
+  nameWithType: Pager.Kill()
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Kill*
+  name: Kill
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager_Kill_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.Kill
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Kill
+  nameWithType: Pager.Kill
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Prompt
+  name: Prompt
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager_Prompt
+  commentId: P:McMaster.Extensions.CommandLineUtils.Pager.Prompt
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Prompt
+  nameWithType: Pager.Prompt
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Prompt*
+  name: Prompt
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager_Prompt_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.Prompt
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Prompt
+  nameWithType: Pager.Prompt
+- uid: McMaster.Extensions.CommandLineUtils.Pager.WaitForExit
+  name: WaitForExit()
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager_WaitForExit
+  commentId: M:McMaster.Extensions.CommandLineUtils.Pager.WaitForExit
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.WaitForExit()
+  nameWithType: Pager.WaitForExit()
+- uid: McMaster.Extensions.CommandLineUtils.Pager.WaitForExit*
+  name: WaitForExit
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager_WaitForExit_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.WaitForExit
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.WaitForExit
+  nameWithType: Pager.WaitForExit
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Writer
+  name: Writer
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager_Writer
+  commentId: P:McMaster.Extensions.CommandLineUtils.Pager.Writer
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Writer
+  nameWithType: Pager.Writer
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Writer*
+  name: Writer
+  href: api/McMaster.Extensions.CommandLineUtils.Pager.html#McMaster_Extensions_CommandLineUtils_Pager_Writer_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.Writer
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Writer
+  nameWithType: Pager.Writer
 - uid: McMaster.Extensions.CommandLineUtils.ParserSettings
   name: ParserSettings
   href: api/McMaster.Extensions.CommandLineUtils.ParserSettings.html
