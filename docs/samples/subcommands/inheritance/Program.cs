@@ -21,7 +21,20 @@ namespace SubcommandSample
     {
         public static void Main(string[] args) => CommandLineApplication.Execute<Git>(args);
 
-        [Option("--git-dir")]
+        [Option("-C <path>")]
+        [FileExists]
+        public string ConfigFile { get; set; }
+
+        [Option("-c <name>=<value>")]
+        public string[] ConfigSetting { get; set; }
+
+        [Option("--exec-path[:<path>]")]
+        public (bool hasValue, string value) ExecPath { get; set; }
+
+        [Option("--bare")]
+        public bool Bare { get; }
+
+        [Option("--git-dir=<path>")]
         [DirectoryExists]
         public string GitDir { get; set; }
 

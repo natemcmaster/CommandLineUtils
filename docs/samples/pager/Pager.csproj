@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <UsePackage>false</UsePackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- This feauture is not yet released. It will require 2.3.0. -->
+    <!-- <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.3.0" /> -->
+  </ItemGroup>
+
+</Project>

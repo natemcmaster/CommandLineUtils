@@ -700,14 +700,30 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Show full help.
         /// </summary>
-        public void ShowHelp()
+        public void ShowHelp() => ShowHelp(usePager: true);
+
+        /// <summary>
+        /// Show full help.
+        /// </summary>
+        /// <param name="usePager">Use a console pager to display help text, if possible.</param>
+        public void ShowHelp(bool usePager)
         {
             for (var cmd = this; cmd != null; cmd = cmd.Parent)
             {
                 cmd.IsShowingInformation = true;
             }
 
+            if (usePager && ReferenceEquals(Out, _context.Console.Out))
+            {
+                using (var pager = new Pager(_context.Console))
+                {
+                    _helpTextGenerator.Generate(this, pager.Writer);
+                }
+            }
+            else
+            {
             _helpTextGenerator.Generate(this, Out);
+        }
         }
 
         /// <summary>

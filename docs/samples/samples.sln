@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationAttributes", "val
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationBuilderApi", "validation\builder-api\ValidationBuilderApi.csproj", "{5F46A3E6-C4B5-4664-BD74-C9E3F24F2FA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pager", "pager\Pager.csproj", "{09A117CB-B30F-4701-9277-321FC5E62840}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -234,6 +236,18 @@ Global
 		{5F46A3E6-C4B5-4664-BD74-C9E3F24F2FA4}.Release|x64.Build.0 = Release|Any CPU
 		{5F46A3E6-C4B5-4664-BD74-C9E3F24F2FA4}.Release|x86.ActiveCfg = Release|Any CPU
 		{5F46A3E6-C4B5-4664-BD74-C9E3F24F2FA4}.Release|x86.Build.0 = Release|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Debug|x64.Build.0 = Debug|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Debug|x86.Build.0 = Debug|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Release|x64.ActiveCfg = Release|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Release|x64.Build.0 = Release|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Release|x86.ActiveCfg = Release|Any CPU
+		{09A117CB-B30F-4701-9277-321FC5E62840}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3D6570C6-11DC-40E7-9C96-8936D23C606A} = {E03982B3-80F2-4D55-9501-378EACE93E5B}

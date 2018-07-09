@@ -1,0 +1,12 @@
+<Project>
+
+  <PropertyGroup>
+    <UsePackage Condition="'$(UsePackage)' == '' AND '$(CI)' != 'true'">false</UsePackage>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(UsePackage)' == 'false'">
+    <PackageReference Remove="McMaster.Extensions.CommandLineUtils" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\src\CommandLineUtils\*.csproj" />
+  </ItemGroup>
+
+</Project>
