@@ -171,6 +171,17 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.True(app.ParserSettings.ClusterOptions);
         }
 
+        [Fact]
+        public void ParserSettingsAreInherited()
+        {
+            var app = new CommandLineApplication
+            {
+                ParserSettings = { ClusterOptions = false }
+            };
+            var cmd = app.Command("save", c => { });
+            Assert.Same(app.ParserSettings, cmd.ParserSettings);
+        }
+
         [Theory]
         [InlineData("-lv:value", 'l')]
         [InlineData("-lv:", 'l')]

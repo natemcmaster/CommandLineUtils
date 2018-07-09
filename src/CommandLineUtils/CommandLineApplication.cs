@@ -76,6 +76,12 @@ namespace McMaster.Extensions.CommandLineUtils
         {
         }
 
+        internal CommandLineApplication(CommandLineApplication parent, string name, bool throwOnUnexpectedArg)
+            : this(parent, parent._helpTextGenerator, parent._context, throwOnUnexpectedArg)
+        {
+            Name = name;
+        }
+
         internal CommandLineApplication(CommandLineApplication parent,
             IHelpTextGenerator helpTextGenerator,
             CommandLineContext context,
@@ -94,6 +100,7 @@ namespace McMaster.Extensions.CommandLineUtils
             SetContext(context);
             _services = new Lazy<IServiceProvider>(() => new ServiceProvider(this));
             ValueParsers = parent?.ValueParsers ?? new ValueParserProvider();
+            ParserSettings = parent?.ParserSettings ?? new ParserSettings();
 
             _conventionContext = CreateConventionContext();
 
@@ -104,12 +111,6 @@ namespace McMaster.Extensions.CommandLineUtils
                     Conventions.AddConvention(convention);
                 }
             }
-        }
-
-        internal CommandLineApplication(CommandLineApplication parent, string name, bool throwOnUnexpectedArg)
-            : this(parent, parent._helpTextGenerator, parent._context, throwOnUnexpectedArg)
-        {
-            Name = name;
         }
 
         /// <summary>
@@ -538,7 +539,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Settings to control the behavior of the parser.
         /// </summary>
-        public ParserSettings ParserSettings { get; } = new ParserSettings();
+        public ParserSettings ParserSettings { get; }
 
         /// <summary>
         /// Handle the result of parsing command line arguments.
@@ -722,8 +723,8 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             else
             {
-            _helpTextGenerator.Generate(this, Out);
-        }
+                _helpTextGenerator.Generate(this, Out);
+            }
         }
 
         /// <summary>
