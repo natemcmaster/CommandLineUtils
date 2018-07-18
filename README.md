@@ -40,10 +40,10 @@ Pre-release builds and symbols: https://www.myget.org/gallery/natemcmaster/
 See [documentation](https://natemcmaster.github.io/CommandLineUtils/) for API reference, samples, and tutorials.
 See [samples/](./docs/samples/) for more examples, such as:
 
- - [Async console apps](./docs/samples/async/)
+ - [Async console apps](./docs/samples/helloworld-async/)
  - [Structing an app with subcommands](./docs/samples/subcommands/)
  - [Defining options with attributes](./docs/samples/attributes/)
- - [Interactive console prompts](./docs/samples/prompt/Program.cs)
+ - [Interactive console prompts](./docs/samples/interactive-prompts/)
  - [Required options and arguments](./docs/samples/validation/)
 
 `CommandLineApplication` is the main entry point for most console apps parsing. There are two primary ways to use this API, using the builder pattern and attributes.
