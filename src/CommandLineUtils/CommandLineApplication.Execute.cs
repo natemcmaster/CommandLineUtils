@@ -60,6 +60,14 @@ namespace McMaster.Extensions.CommandLineUtils
             catch (CommandParsingException ex)
             {
                 context.Console.Error.WriteLine(ex.Message);
+
+                if (ex is UnrecognizedCommandParsingException uex && !string.IsNullOrEmpty(uex.NearestMatch))
+                {
+                    context.Console.Error.WriteLine();
+                    context.Console.Error.WriteLine("Did you mean this?");
+                    context.Console.Error.WriteLine("    " + uex.NearestMatch);
+                }
+
                 return ValidationErrorExitCode;
             }
         }

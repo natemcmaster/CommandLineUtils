@@ -698,56 +698,6 @@ namespace McMaster.Extensions.CommandLineUtils
                 Out.WriteLine($"Specify {flag} for a list of available options and commands.");
             }
         }
-        /// <summary>
-        /// Show suggestion for possible meant parameter
-        /// </summary>
-        /// <param name="paramType"></param>
-        /// <param name="value"></param>
-        internal void ShowHint(CommandLineProcessor.ParameterType paramType, string value)
-        {
-            var optionsArray = Options.Select(t => t.LongName).ToArray();
-            //flatten commands
-            List<string> FlattenCommandStructure(List<CommandLineApplication> cmds)
-            {
-                var cmdsStrings = new List<string>();
-                foreach (var item in cmds)
-                {
-                    cmdsStrings.Add(item.Name);
-                    if(item.Commands.Count > 0) { 
-                        FlattenCommandStructure(item.Commands);
-                    }
-                }
-                return cmdsStrings;
-            }
-
-            var commandsList = FlattenCommandStructure(Commands);
-            var commandsArray = commandsList.ToArray(); 
-            var argumentsArray = Arguments.Select(t => t.Name).ToArray();
-            var completeList = optionsArray.Merge(commandsArray).Merge(argumentsArray);
-
-            if(completeList.Any()) { 
-                var prefix = "";
-                switch (paramType)
-                {
-                    case CommandLineProcessor.ParameterType.LongOption:
-                        prefix = "--";
-                        break;
-                    case CommandLineProcessor.ParameterType.ShortOption:
-                        prefix = "-";
-                        break;
-                }
-                // Remove - or -- from the unexpected argument so we can compare it better
-                value = value.Remove(0, prefix.Length);
-                var bestMatch = StringDistance.GetBestMatchIndex(StringDistance.DamareuLevenshteinDistance, value, completeList,0.33d);
-                if(bestMatch > -1) {
-                    // Match found
-                    var guess = completeList[bestMatch];
-                    Out.WriteLine("Did you mean this?");
-                    Out.WriteLine("        {0}{1}",prefix,guess);
-                }
-            }
-        }
-    
 
         /// <summary>
         /// Show full help.

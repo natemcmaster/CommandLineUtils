@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
 using System.Linq;
-using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
     internal static class StringDistance
     {
-
-        //This is a modified version of Matt Enrights implementation
-        // https://gist.github.com/wickedshimmy/449595
-
         /// <summary>
         /// Calculates the unnormalized (Damerau-)Levenshtein Distance of two strings
         /// </summary>
@@ -20,27 +17,24 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns></returns>
         private static int LevenshteinDistance(string s, string t, bool damareu)
         {
-
             // Short circuit so we don't waste cpu time
             if (s == t)
             {
                 return 0;
             }
+
             if (string.IsNullOrEmpty(s))
             {
-                if (!string.IsNullOrEmpty(t))
-                {
-                    return t.Length;
-                }
-                return 0;
+                return !string.IsNullOrEmpty(t)
+                    ? t.Length
+                    : 0;
             }
+
             if (string.IsNullOrEmpty(t))
             {
-                if (!string.IsNullOrEmpty(s))
-                {
-                    return s.Length;
-                }
-                return 0;
+                return !string.IsNullOrEmpty(s)
+                    ? s.Length
+                    : 0;
             }
 
             // Create matrix
@@ -50,6 +44,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 matrix[i, 0] = i;
             }
+
             for (var j = 0; j <= t.Length; j++)
             {
                 matrix[0, j] = j;
@@ -61,7 +56,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 for (var j = 1; j <= t.Length; j++)
                 {
                     var cost = s[i - 1] == t[j - 1] ? 0 : 1;
-                    var changes = new int[]
+                    var changes = new[]
                     {
                         //Insertion
                         matrix[i, j - 1] + 1,
@@ -79,9 +74,11 @@ namespace McMaster.Extensions.CommandLineUtils
                             distance = Math.Min(distance, matrix[i - 2, j - 2] + cost);
                         }
                     }
+
                     matrix[i, j] = distance;
                 }
             }
+
             return matrix[s.Length, t.Length];
         }
 
@@ -115,11 +112,17 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>A value from 0 to 1 with 1 being a perfect match and zero none at all</returns>
         internal static double NormalizeDistance(int distance, int length)
         {
+            if (length == 0)
+            {
+                return 0;
+            }
+
             if (distance == 0)
             {
                 return 1;
             }
-            return 1.0d - (double) distance / length;
+
+            return 1.0d - distance / (double) length;
         }
 
         /// <summary>
@@ -128,32 +131,38 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="distanceMethod">A method that calculates a string distance</param>
         /// <param name="value"></param>
         /// <param name="values">The values to search through</param>
-        /// <param name="treshold">A treshold for word possible match</param>
+        /// <param name="threshold">A threshold for word possible match</param>
         /// <returns>The index of the best match or -1 when none is found</returns>
-        internal static int GetBestMatchIndex(Func<string, string, int> distanceMethod,string value, string[] values, double treshold)
+        internal static int GetBestMatchIndex(Func<string, string, int> distanceMethod,
+            string value,
+            string[] values,
+            double threshold)
         {
             if (distanceMethod == null || value == null || values == null)
             {
                 return -1;
             }
+
             var bestMatchValue = -1d;
             var bestMatchIndex = -1;
             for (var i = 0; i < values.Length; i++)
             {
-                if(values[i] == null){ continue;}
-                
+                if (values[i] == null)
+                {
+                    continue;
+                }
+
                 var distance = distanceMethod(value, values[i]);
-                var length = value.Length > values[i].Length ? value.Length : values[i].Length;
-                var normalizedDistance = StringDistance.NormalizeDistance(distance, length);
-                if (bestMatchValue < normalizedDistance && normalizedDistance >= treshold)
+                var length = Math.Max(value.Length, values[i].Length);
+                var normalizedDistance = NormalizeDistance(distance, length);
+                if (bestMatchValue < normalizedDistance && normalizedDistance >= threshold)
                 {
                     bestMatchValue = normalizedDistance;
                     bestMatchIndex = i;
                 }
             }
+
             return bestMatchIndex;
         }
-      
-
     }
 }

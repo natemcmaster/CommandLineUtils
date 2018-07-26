@@ -1,28 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class StringDistanceTests
     {
-
         [Fact]
         public void EqualStringsNoEdits()
         {
-            
             Assert.Equal(0, StringDistance.DamareuLevenshteinDistance("test", "test"));
         }
 
         [Theory]
-        [InlineData(1,"test","tests")]
-        [InlineData(1,"test","stest")]
-        [InlineData(2,"test", "mytest")]
-        [InlineData(7,"test", "mycrazytest")]
-        public void Additions(int distance,string s1, string s2)
+        [InlineData(1, "test", "tests")]
+        [InlineData(1, "test", "stest")]
+        [InlineData(2, "test", "mytest")]
+        [InlineData(7, "test", "mycrazytest")]
+        public void Additions(int distance, string s1, string s2)
         {
-            Assert.Equal(distance, StringDistance.DamareuLevenshteinDistance(s1,s2));
+            Assert.Equal(distance, StringDistance.DamareuLevenshteinDistance(s1, s2));
         }
 
         [Fact]
@@ -56,12 +55,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Theory]
-        [InlineData(1,"banana", "banaan")]
-        [InlineData(1,"banana", "abnana")]
-        [InlineData(2,"banana", "baanaa")]
-        public void TranspositionOfRepeatedCharacters(int distance,string s1,string s2)
+        [InlineData(1, "banana", "banaan")]
+        [InlineData(1, "banana", "abnana")]
+        [InlineData(2, "banana", "baanaa")]
+        public void TranspositionOfRepeatedCharacters(int distance, string s1, string s2)
         {
-            Assert.Equal(distance, StringDistance.DamareuLevenshteinDistance(s1,s2));
+            Assert.Equal(distance, StringDistance.DamareuLevenshteinDistance(s1, s2));
         }
 
         [Fact]
@@ -69,20 +68,22 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             Assert.Equal(0, StringDistance.DamareuLevenshteinDistance("", ""));
         }
+
         [Theory]
-        [InlineData(0.6,"app","apple")]
+        [InlineData(0.6, "app", "apple")]
         [InlineData(0.5, "ban", "banana")]
-        public void TresholdOfToStrings(double treshold,string s1,string s2)
+        public void ThresholdOfToStrings(double threshold, string s1, string s2)
         {
-            var length = s1.Length > s2.Length ? s1.Length : s2.Length;
-            Assert.Equal(treshold,StringDistance.NormalizeDistance(StringDistance.DamareuLevenshteinDistance(s1, s2),length));
+            var length = Math.Max(s1.Length, s2.Length);
+            Assert.Equal(threshold,
+                StringDistance.NormalizeDistance(StringDistance.DamareuLevenshteinDistance(s1, s2), length));
         }
-        [Theory]
-        [InlineData(0, "", "")]
-        public void TresholdOfToStringsThatAreEmpty(double treshold, string s1, string s2)
+
+        [Fact]
+        public void ThresholdOfToStringsThatAreEmpty()
         {
-            var length = s1.Length > s2.Length ? s1.Length : s2.Length;
-            Assert.Equal(treshold, StringDistance.NormalizeDistance(StringDistance.DamareuLevenshteinDistance(s1, s2), length));
+            Assert.Equal(0,
+                StringDistance.NormalizeDistance(StringDistance.DamareuLevenshteinDistance(string.Empty, string.Empty), 0));
         }
     }
 }

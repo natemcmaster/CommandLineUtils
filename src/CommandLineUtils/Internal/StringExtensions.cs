@@ -21,13 +21,15 @@ namespace McMaster.Extensions.CommandLineUtils
             for (; i < str.Length; i++)
             {
                 var ch = str[i];
-                if (char.IsLetterOrDigit(ch))
+                if (!char.IsLetterOrDigit(ch))
                 {
-                    addDash = !char.IsUpper(ch);
-                    sb.Append(char.ToLowerInvariant(ch));
-                    i++;
-                    break;
+                    continue;
                 }
+
+                addDash = !char.IsUpper(ch);
+                sb.Append(char.ToLowerInvariant(ch));
+                i++;
+                break;
             }
 
             for (; i < str.Length; i++)
@@ -71,13 +73,15 @@ namespace McMaster.Extensions.CommandLineUtils
             for (; i < str.Length; i++)
             {
                 var ch = str[i];
-                if (char.IsLetterOrDigit(ch))
+                if (!char.IsLetterOrDigit(ch))
                 {
-                    addUnderscore = !char.IsUpper(ch);
-                    sb.Append(char.ToUpperInvariant(ch));
-                    i++;
-                    break;
+                    continue;
                 }
+
+                addUnderscore = !char.IsUpper(ch);
+                sb.Append(char.ToUpperInvariant(ch));
+                i++;
+                break;
             }
 
             for (; i < str.Length; i++)
