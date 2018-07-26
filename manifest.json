@@ -292,7 +292,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html",
-          "hash": "JT7L+scYBjtsaAJIc3+Tfg=="
+          "hash": "WSyZnieAkKalMy56UrxvZA=="
         }
       },
       "is_incremental": false,
@@ -880,7 +880,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.ParserSettings.html",
-          "hash": "2zEe5UTyVnInnkz8URI0xg=="
+          "hash": "c1bRaUL8/UragVUYQzP2ZQ=="
         }
       },
       "is_incremental": false,
@@ -1236,17 +1236,17 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }
