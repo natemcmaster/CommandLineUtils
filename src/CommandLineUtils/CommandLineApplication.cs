@@ -177,6 +177,7 @@ namespace McMaster.Extensions.CommandLineUtils
             internal set => _optionHelp = value;
         }
 
+
         /// <summary>
         /// The options used to determine if the command version should be displayed. This is set by calling <see cref="VersionOption(string, Func{string}, Func{string})"/>.
         /// </summary>

@@ -114,7 +114,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             app.Option("-v|--verbose", "Verbose output", CommandOptionType.NoValue);
 
-            var ex = Assert.Throws<CommandParsingException>(() => app.Parse(input));
+            var ex = Assert.ThrowsAny<CommandParsingException>(() => app.Parse(input));
             Assert.Equal($"Unrecognized option '{unrecognizedOption}'", ex.Message);
         }
 

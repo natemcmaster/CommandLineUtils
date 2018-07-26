@@ -67,7 +67,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ThrowsForArgumentsWithoutMatchingAttribute()
         {
-            var ex = Assert.Throws<CommandParsingException>(
+            var ex = Assert.ThrowsAny<CommandParsingException>(
                 () => CommandLineParser.ParseArgs<SimpleProgram>(_output, "-f"));
             Assert.StartsWith("Unrecognized option '-f'", ex.Message);
         }

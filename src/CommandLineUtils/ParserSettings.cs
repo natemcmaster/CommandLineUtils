@@ -40,6 +40,18 @@ namespace McMaster.Extensions.CommandLineUtils
             set => _clusterOptions = value;
         }
 
+        /// <summary>
+        /// When a user enters an invalid command or option, make suggestions in the error message.
+        /// <para>
+        /// $ git pshu
+        /// Specify --help for a list of available options and commands
+        /// Unrecognized command or argument 'pshu'
+        ///
+        /// Did you mean 'push'?
+        /// </para>
+        /// </summary>
+        public bool MakeSuggestionsInErrorMessage { get; set; } = true;
+
         private bool? _clusterOptions;
 
         internal bool ClusterOptionsWasSetExplicitly => _clusterOptions.HasValue;

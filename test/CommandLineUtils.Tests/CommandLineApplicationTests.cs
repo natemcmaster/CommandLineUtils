@@ -76,7 +76,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 c.OnExecute(() => 0);
             });
 
-            var ex = Assert.Throws<CommandParsingException>(() => app.Execute("test", "one", "two", "three"));
+            var ex = Assert.ThrowsAny<CommandParsingException>(() => app.Execute("test", "one", "two", "three"));
 
             Assert.Contains("three", ex.Message);
         }
@@ -93,7 +93,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 c.OnExecute(() => 0);
             });
 
-            var ex = Assert.Throws<CommandParsingException>(() => app.Execute("test2", "one", "two", "three"));
+            var ex = Assert.ThrowsAny<CommandParsingException>(() => app.Execute("test2", "one", "two", "three"));
 
             Assert.Contains("test2", ex.Message);
         }
@@ -185,7 +185,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 c.OnExecute(() => 0);
             });
 
-            var ex = Assert.Throws<CommandParsingException>(() => app.Execute("test", "--first"));
+            var ex = Assert.ThrowsAny<CommandParsingException>(() => app.Execute("test", "--first"));
 
             Assert.Contains($"Missing value for option '{first.LongName}'", ex.Message);
         }
@@ -243,7 +243,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 c.OnExecute(() => 0);
             });
 
-            var exception = Assert.Throws<CommandParsingException>(() => app.Execute("test", unexpectedArg));
+            var exception = Assert.ThrowsAny<CommandParsingException>(() => app.Execute("test", unexpectedArg));
             Assert.Equal($"Unrecognized command or argument '{unexpectedArg}'", exception.Message);
         }
 
@@ -276,7 +276,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 c.OnExecute(() => 0);
             });
 
-            var exception = Assert.Throws<CommandParsingException>(() => app.Execute("test", unexpectedOption));
+            var exception = Assert.ThrowsAny<CommandParsingException>(() => app.Execute("test", unexpectedOption));
             Assert.Equal($"Unrecognized option '{unexpectedOption}'", exception.Message);
         }
 
@@ -309,7 +309,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 c.OnExecute(() => 0);
             });
 
-            var exception = Assert.Throws<CommandParsingException>(() => app.Execute("test", unexpectedOption));
+            var exception = Assert.ThrowsAny<CommandParsingException>(() => app.Execute("test", unexpectedOption));
             Assert.Equal($"Unrecognized option '-u'", exception.Message);
         }
 
@@ -342,7 +342,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 c.OnExecute(() => 0);
             });
 
-            var exception = Assert.Throws<CommandParsingException>(() => app.Execute("test", unexpectedOption));
+            var exception = Assert.ThrowsAny<CommandParsingException>(() => app.Execute("test", unexpectedOption));
             Assert.Equal($"Unrecognized option '{unexpectedOption}'", exception.Message);
         }
 
@@ -377,7 +377,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 c.OnExecute(() => 0);
             });
 
-            var exception = Assert.Throws<CommandParsingException>(() => app.Execute("k", unexpectedOption, "run"));
+            var exception = Assert.ThrowsAny<CommandParsingException>(() => app.Execute("k", unexpectedOption, "run"));
             Assert.Equal($"Unrecognized option '{unexpectedOption}'", exception.Message);
         }
 
@@ -425,7 +425,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Execute("-a", "A1", "subcmd");
             Assert.Equal("A1", optionAValue);
 
-            Assert.Throws<CommandParsingException>(() => app.Execute("subcmd", "-b", "B"));
+            Assert.ThrowsAny<CommandParsingException>(() => app.Execute("subcmd", "-b", "B"));
 
             Assert.Contains("-a|--option-a", subcmd.GetHelpText());
         }
@@ -502,8 +502,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Contains(subcmd2.GetOptions(), o => o.LongName == "nest1");
             Assert.Contains(subcmd2.GetOptions(), o => o.LongName == "global");
 
-            Assert.Throws<CommandParsingException>(() => app.Execute("--nest2", "N2", "--nest1", "N1", "-g", "G"));
-            Assert.Throws<CommandParsingException>(() => app.Execute("lvl1", "--nest2", "N2", "--nest1", "N1", "-g", "G"));
+            Assert.ThrowsAny<CommandParsingException>(() => app.Execute("--nest2", "N2", "--nest1", "N1", "-g", "G"));
+            Assert.ThrowsAny<CommandParsingException>(() => app.Execute("lvl1", "--nest2", "N2", "--nest1", "N1", "-g", "G"));
 
             app.Execute("lvl1", "lvl2", "--nest2", "N2", "-g", "G", "--nest1", "N1");
             Assert.Equal("G", globalOptionValue);
@@ -694,7 +694,7 @@ Examples:
             var subCommand = app.Command("lvl2", subCmd => { });
 
             var commandOptions = new[] { "lvl2", helpOptionString };
-            var exception = Assert.Throws<CommandParsingException>(() => app.Execute(commandOptions));
+            var exception = Assert.ThrowsAny<CommandParsingException>(() => app.Execute(commandOptions));
             Assert.Equal($"Unrecognized option '{helpOptionString}'", exception.Message);
         }
 
@@ -743,7 +743,7 @@ Examples:
             var app = new CommandLineApplication();
             app.Option("-f |--file", "some file", CommandOptionType.SingleValue);
 
-            var exception = Assert.Throws<CommandParsingException>(() => app.Execute(inputOptions));
+            var exception = Assert.ThrowsAny<CommandParsingException>(() => app.Execute(inputOptions));
 
             Assert.Equal($"Unexpected value 'File2' for option '{optionName}'", exception.Message);
         }
@@ -772,7 +772,7 @@ Examples:
             var app = new CommandLineApplication();
             app.Option("-v |--verbose", "be verbose", CommandOptionType.NoValue);
 
-            var exception = Assert.Throws<CommandParsingException>(() => app.Execute(inputOption));
+            var exception = Assert.ThrowsAny<CommandParsingException>(() => app.Execute(inputOption));
 
             Assert.Equal($"Unexpected value 'true' for option '{optionName}'", exception.Message);
         }
@@ -783,7 +783,7 @@ Examples:
             var inputOption = string.Empty;
             var app = new CommandLineApplication();
 
-            var exception = Assert.Throws<CommandParsingException>(() => app.Execute(inputOption));
+            var exception = Assert.ThrowsAny<CommandParsingException>(() => app.Execute(inputOption));
 
             Assert.Equal($"Unrecognized command or argument '{inputOption}'", exception.Message);
         }
@@ -796,7 +796,7 @@ Examples:
         {
             var app = new CommandLineApplication();
 
-            var exception = Assert.Throws<CommandParsingException>(() => app.Execute(inputOption));
+            var exception = Assert.ThrowsAny<CommandParsingException>(() => app.Execute(inputOption));
 
             Assert.Equal($"Unrecognized command or argument '{inputOption}'", exception.Message);
         }

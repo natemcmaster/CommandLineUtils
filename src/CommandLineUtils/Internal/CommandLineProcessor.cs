@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
+using McMaster.Extensions.CommandLineUtils.Internal;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -318,7 +319,18 @@ namespace McMaster.Extensions.CommandLineUtils
             if (_currentCommand.ThrowOnUnexpectedArgument)
             {
                 _currentCommand.ShowHint();
-                throw new CommandParsingException(_currentCommand, $"Unrecognized {argTypeName} '{argValue ?? _enumerator.Current.Raw}'");
+                var value = argValue ?? _enumerator.Current.Raw;
+
+                string suggestion = null;
+                if (_settings.MakeSuggestionsInErrorMessage && !string.IsNullOrEmpty(value))
+                {
+                    suggestion = SuggestionCreator.GetTopSuggestion(_currentCommand, value);
+                }
+
+                throw new UnrecognizedCommandParsingException(_currentCommand, $"Unrecognized {argTypeName} '{value}'")
+                {
+                    NearestMatch = suggestion
+                };
             }
 
             // All remaining arguments are stored for further use
