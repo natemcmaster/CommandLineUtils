@@ -8,6 +8,7 @@ Enhancements:
  * Support the POSIX convention for cluster multiple options. For example, `-ixd` is treated the same as `-i -x -d`. Resolved [#93][issue-93].
  * New type: `Pager`. Provides a simple interaction model for displaying console output in a pager.
  * Display help text using the `less` pager on macOS/Linux.
+ * Make suggestions when invalid options or commands are used, but there is a valid one that is similar. (Thanks to [@MadbHatter][@MadbHatter] for doing the inital work on this.)
 
 Details:
 
@@ -195,6 +196,7 @@ Other:
 [@jerriep]: https://github.com/jerriep
 [@kant2002]: https://github.com/kant2002
 [@liamdawson]: https://github.com/liamdawson
+[@MadbHatter]: https://github.com/MadbHatter
 [@rmcc13]: https://github.com/rmcc13
 [@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros

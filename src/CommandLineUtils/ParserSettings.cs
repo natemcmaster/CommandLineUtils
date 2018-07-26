@@ -41,13 +41,15 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// When a user enters an invalid command or option, make suggestions in the error message.
+        /// When an invalid argument is given, make suggestions in the error message
+        /// about similar, valid commands or options.
         /// <para>
         /// $ git pshu
         /// Specify --help for a list of available options and commands
         /// Unrecognized command or argument 'pshu'
         ///
-        /// Did you mean 'push'?
+        /// Did you mean this?
+        ///     push
         /// </para>
         /// </summary>
         public bool MakeSuggestionsInErrorMessage { get; set; } = true;
