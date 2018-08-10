@@ -2,7 +2,7 @@
 
 When a command executes, the raw `string[] args` value can be separated into two different categories: options and arguments.
 
-Options are named and must be specified using a name. By default, options are optional and order does not matter, 
+Options are named and must be specified using a name. By default, options are optional and order does not matter,
 but they can be made mandatory.
 
 Arguments are positional and values are specified based by order. Arguments are covered in [this document.](./arguments.md)
@@ -32,7 +32,7 @@ They have two defining characteristics.
     * Long names are used with two dashes `--verbose`
  * Type
     * No value - options do not have a value.
-      They are either considered "specified" or "absent". 
+      They are either considered "specified" or "absent".
       These are also sometimes called flags or switches.
       `--verbose`
     * Single value - an option which must have a single value specified.
@@ -43,8 +43,6 @@ They have two defining characteristics.
     * Single or no value - a special case of "no value" options where an value may or may not be specified.
       They can be specified as `--name` (no value) or `--name:value` or `--name=value`.
       Unlike "single value", these cannot be specified as `--name value` because the space causes amgibuous usage.
-
-Additional API on @McMaster.Extensions.CommandLineUtils.OptionAttribute can be set to define how the option appears in help text.
 
 ### [Using Attributes](#tab/using-attributes)
 
@@ -58,27 +56,27 @@ public class MyCommand
     public bool Verbose { get; set; }
     // Inferred type = NoValue
     // Inferred names = "-v", "--verbose"
-    
+
     [Option]
     public string Color { get; set; }
     // Inferred type = SingleValue
     // Inferred names = "-c", "--color"
-    
+
     [Option]
     public (bool hasValue, string value) LogLevel { get; set; }
     // Inferred type = SingleOrNoValue
-    // Inferred names = "-l", "--log-level"    
-    
+    // Inferred names = "-l", "--log-level"
+
     [Option("-N")]
     public int[] Names { get; set; }
     // Inferred type = MultipleValues
     // Defined names = "-N"
-    
+
     [Option("-A", CommandOptionType.SingleValue)]
     public int[] Area { get; set; }
     // Defing type = SingleValue
     // Defined names = "-A"
-    
+
     public static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
 }
 ```
@@ -93,18 +91,20 @@ public class Program
     public static int Main(string[] args)
     {
         var app = new CommandLineApplication();
-        
+
         var verbose = app.Option("-v|--verbose", "Show verbose output", CommandOptionType.NoValue);
         var color = app.Option("-c|--color <COLOR>", "A color", CommandOptionType.SingleValue);
         var logLevel = app.Option("-l|--log-level[:<LEVEL>]", "The log level", CommandOptionType.SingleOrNoValue);
         var names = app.Option("-n|--names <NAME>", "Names", CommandOptionType.MultipleValue);
-        
+
         return app.Execute(args);
     }
 }
 ```
 
-### Examples
+***
+
+## Examples
 
 The follow examples show how different inputs will be handled.
 
