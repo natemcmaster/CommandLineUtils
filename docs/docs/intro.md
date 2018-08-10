@@ -82,6 +82,10 @@ public class Program
 }
 ```
 
+## Relationship to Microsoft.Extensions.CommandLineUtils
+
+This project is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This project, on the other hand, will continue release updates and take contributions.
+
 ## More information
 
 For more information, you can refer to the sample applications.

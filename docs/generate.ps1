@@ -42,7 +42,7 @@ try {
         exec dotnet build -c Release
     }
 
-    $arguments = @()
+    [string[]] $arguments = @()
     try {
         if ($Serve) {
             $arguments += '--serve'
