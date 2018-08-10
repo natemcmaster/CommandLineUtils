@@ -1,3 +1,6 @@
+---
+uid: doc-intro
+---
 # Introduction
 
 **CommandLineUtils** is a library which helps developers implement command line applications. The primary goal of the library is to assist with parsing command line arguments and executing the correct commands related to those arguments. However, the library also provides various other utilities such as input helpers.

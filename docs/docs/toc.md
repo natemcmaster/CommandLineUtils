@@ -1,7 +1,7 @@
-# [Introduction](intro.md)
-# [Options](options.md)
-# [Arguments](arguments.md)
-# Concepts
-## [Dependency Injection](concepts/dependency-injection.md)
-## [Help Text](concepts/help-text.md)
-## [Response File Parsing](concepts/response-file-parsing.md)
+# [Introduction](xref:doc-intro)
+# [Options](xref:options)
+# [Arguments](xref:arguments)
+# [Help Text](xref:help-text)
+# [@-files (Response File Parsing)](xref:response-file-parsing)
+# Advanced concepts
+## [Dependency Injection](xref:dependency-injection)

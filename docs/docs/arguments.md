@@ -1,10 +1,14 @@
+---
+uid: arguments
+---
+
 # Arguments
 
 When a command executes, the raw `string[] args` value can be separated into two different categories: options and arguments.
 
 Arguments are positional and values are specified based by order.
 
-Options are named and must be specified using a name. Options are covered in [this document.](./options.md)
+Options are named and must be specified using a name. Options are covered in [this document.](xref:options)
 
 Arguments are represented by the @McMaster.Extensions.CommandLineUtils.CommandArgument type.
 They have one defining characteristic.

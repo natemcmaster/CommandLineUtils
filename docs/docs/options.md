@@ -1,3 +1,7 @@
+---
+uid: options
+---
+
 # Options
 
 When a command executes, the raw `string[] args` value can be separated into two different categories: options and arguments.
@@ -5,7 +9,7 @@ When a command executes, the raw `string[] args` value can be separated into two
 Options are named and must be specified using a name. By default, options are optional and order does not matter,
 but they can be made mandatory.
 
-Arguments are positional and values are specified based by order. Arguments are covered in [this document.](./arguments.md)
+Arguments are positional and values are specified based by order. Arguments are covered in [this document.](xref:arguments)
 
 ```
 mycommand.exe abc --verbose --path:logs/ --message=Hello xyz
