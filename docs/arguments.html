@@ -86,7 +86,6 @@ They have one defining characteristic.</p>
 <ul>
 <li>Position - the order in which arguments appear on command line (after options have been parsed)</li>
 </ul>
-<p>Additional API on <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a> can be set to define how the arguments appears in help text.</p>
 <div class="tabGroup" id="tabgroup_O1aAyLh+nY">
 <ul role="tablist">
 <li role="presentation">
@@ -95,14 +94,10 @@ They have one defining characteristic.</p>
 <li role="presentation">
 <a href="#tabpanel_O1aAyLh+nY_using-builder-api" role="tab" aria-controls="tabpanel_O1aAyLh+nY_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
 </li>
-<li role="presentation">
-<a href="#tabpanel_O1aAyLh+nY_using-attributes" role="tab" aria-controls="tabpanel_O1aAyLh+nY_using-attributes" data-tab="using-attributes" tabindex="-1">Using Attributes</a>
-</li>
-<li role="presentation">
-<a href="#tabpanel_O1aAyLh+nY_using-builder-api" role="tab" aria-controls="tabpanel_O1aAyLh+nY_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
-</li>
 </ul>
 <section id="tabpanel_O1aAyLh+nY_using-attributes" role="tabpanel" data-tab="using-attributes">
+<p>@McMaster.Extensions.CommandLineUtils.ARgumentAttribute can be used on properties to define arguments.
+The argument order must be specified explicitly.</p>
 <pre><code class="lang-c#">public class Program
 {
     [Argument(0)]
@@ -139,26 +134,40 @@ They have one defining characteristic.</p>
         return app.Execute(args);
     }
 }
-</code></pre><h2 id="remaining-arguments">Remaining arguments</h2>
+</code></pre></section>
+</div>
+<h2 id="remaining-arguments">Remaining arguments</h2>
 <p>A common scenario is to allow a command line tool to take in a variable number of arguments.
-Normally, unrecognized arguments is an error. To allow this scenario, you must set ThrowOnUnexpectedArgument to false
-and use the RemainingArguments property to get the variable number of values.</p>
-<pre><code>cat file1.txt file2.txt file3.txt
-</code></pre><p>See <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a> for more details.</p>
-</section>
-<section id="tabpanel_O1aAyLh+nY_using-attributes" role="tabpanel" data-tab="using-attributes" aria-hidden="true" hidden="hidden">
-<p>By default, attribute binding will set a <code>string[]</code> or <code>IList&lt;string&gt;</code> property named <code>RemainingArguments</code> or <code>RemainingArgs</code> 
+These arguments are collected into a <code>string[]</code> array after all other arguments and options are parsed.</p>
+<pre><code>cat -b 123 file1.txt file2.txt file3.txt
+</code></pre><div class="NOTE"><h5>Note</h5><p>Normally, unrecognized arguments is an error. To allow this scenario, you must set ThrowOnUnexpectedArgument to false.</p>
+</div>
+<p>See <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a> for more details.</p>
+<div class="tabGroup" id="tabgroup_O1aAyLh+nY-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_O1aAyLh+nY-1_using-attributes" role="tab" aria-controls="tabpanel_O1aAyLh+nY-1_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_O1aAyLh+nY-1_using-builder-api" role="tab" aria-controls="tabpanel_O1aAyLh+nY-1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+</li>
+</ul>
+<section id="tabpanel_O1aAyLh+nY-1_using-attributes" role="tabpanel" data-tab="using-attributes">
+<p>By default, attribute binding will set a <code>string[]</code> or <code>IList&lt;string&gt;</code> property named <code>RemainingArguments</code> or <code>RemainingArgs</code>
 to include all values</p>
 <pre><code class="lang-c#">[Command(ThrowOnUnexpectedArgument = false)]
 public class Program
 {
+    [Option(&quot;-b&quot;)]
+    public int BlankLines { get; }
+
     public string[] RemainingArguments { get; } // = { &quot;file1.txt&quot;, &quot;file2.txt&quot;, &quot;file3.txt&quot; }
 
     private void OnExecute()
     {
         if (RemainingArguments != null)
         {
-            foreach (var file in RemainingArguments) 
+            foreach (var file in RemainingArguments)
             {
                 // do something
             }
@@ -168,17 +177,18 @@ public class Program
     public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
 }
 </code></pre></section>
-<section id="tabpanel_O1aAyLh+nY_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_O1aAyLh+nY-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-c#">public class Program
 {
     public static int Main(string[] args)
     {
         var app = new CommandLineApplication(throwOnUnexpectedArgs: false);
+        var blankLines = app.Option&lt;int&gt;(&quot;-b &lt;LINES&gt;&quot;, &quot;Blank lines&quot;, CommandOptionType.SingleValue);
         app.OnExecute(() =&gt;
         {
             if (app.RemainingArguments != null)
             {
-                foreach (var file in app.RemainingArguments) 
+                foreach (var file in app.RemainingArguments)
                 {
                     // do something
                 }
