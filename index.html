@@ -71,63 +71,78 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="commandlineutils">CommandLineUtils</h1>
 
-<p><strong><a href="https://nuget.org/packages/McMaster.Extensions.CommandLineUtils">https://nuget.org/packages/McMaster.Extensions.CommandLineUtils</a></strong></p>
-<p>This project is a fork of <a href="https://github.com/aspnet/Common">Microsoft.Extensions.CommandLineUtils</a>, which is no longer under <a href="https://github.com/aspnet/Common/issues/257">active development</a>. This fork, on the other hand, will continue release updates and take contributions.</p>
-<h2 id="api-reference">API Reference</h2>
-<p>See the <a href="api/index.html">API Reference</a> for more details.</p>
-<h2 id="install">Install</h2>
-<p>Install the NuGet package into your project.</p>
-<pre><code>PM&gt; Install-Package McMaster.Extensions.CommandLineUtils
-</code></pre><pre><code>$ dotnet add package McMaster.Extensions.CommandLineUtils
-</code></pre><pre><code class="lang-xml">&lt;ItemGroup&gt;
-  &lt;PackageReference Include=&quot;McMaster.Extensions.CommandLineUtils&quot; Version=&quot;2.2.5&quot; /&gt;
-&lt;/ItemGroup&gt;
-</code></pre><p>Pre-release builds and symbols: <a href="https://www.myget.org/gallery/natemcmaster/">https://www.myget.org/gallery/natemcmaster/</a></p>
-<h2 id="usage">Usage</h2>
-<p>See <a href="https://github.com/natemcmaster/CommandLineUtils/tree/master/docs/samples">samples</a> for more examples.</p>
-<p><code>CommandLineApplication</code> is the main entry point for most console apps parsing. There are two primary ways to use this API, using the builder pattern and attributes.</p>
-<h3 id="attribute-api">Attribute API</h3>
-<pre><code class="lang-c#">using System;
-using McMaster.Extensions.CommandLineUtils;
+<p><strong>CommandLineUtils</strong> is a library which helps developers implement command line applications in .NET.
+The primary goal of the library is to assist with parsing command line arguments and executing the correct
+commands related to those arguments. The library also provides various other utilities such as input helpers.</p>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="docs/intro.html">Documentation</a></strong></p>
+                <p>Tutorials to create your first .NET command line application, and docs on how to use the library.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="api/index.html">API Reference</a></strong></p>
+                <p>Read the API documentation for this library.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils/tree/master/docs/samples/">Samples</a></strong></p>
+                <p>View sample projects which use CommandLineUtils.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils">Source Code and Issue Tracker</a></strong></p>
+                <p>The project is open-source on GitHub.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://nuget.org/packages/McMaster.Extensions.CommandLineUtils">NuGet</a></strong></p>
+                <p>See the latest releases of this library as a NuGet package.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils/tree/master/CHANGELOG.md">Version history</a></strong></p>
+                <p>Read notes about fixes and enhancements per release.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-public class Program
+
+<p>Using this library, you can write a command line application without doing the heavy lifting to support automated help text generation,
+masking input for passwords, parsing argument syntax, validation, etc.</p>
+<pre><code class="lang-c#">class Program
 {
-    public static int Main(string[] args)
-        =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
+    public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
 
-    [Option(Description = &quot;The subject&quot;)]
-    public string Subject { get; }
+    [Option(&quot;-n&quot;)]
+    [Range(0, 10)]
+    [Required]
+    public int Count { get; }
 
-    private void OnExecute()
+    public void OnExecute()
     {
-        var subject = Subject ?? &quot;world&quot;;
-        Console.WriteLine($&quot;Hello {subject}!&quot;);
-    }
-}
-</code></pre><h3 id="builder-api">Builder API</h3>
-<pre><code class="lang-c#">using System;
-using McMaster.Extensions.CommandLineUtils;
-
-public class Program
-{
-    public static int Main(string[] args)
-    {
-        var app = new CommandLineApplication();
-
-        app.HelpOption();
-        var optionSubject = app.Option(&quot;-s|--subject &lt;SUBJECT&gt;&quot;, &quot;The subject&quot;, CommandOptionType.SingleValue);
-
-        app.OnExecute(() =&gt;
+        for (var i = 0; i &lt; Count; i ++)
         {
-            var subject = optionSubject.HasValue()
-                ? optionSubject.Value()
-                : &quot;world&quot;;
-
-            Console.WriteLine($&quot;Hello {subject}!&quot;);
-            return 0;
-        });
-
-        return app.Execute(args);
+            Prompt.GetPassword(&quot;Enter your password: &quot;);
+        }
     }
 }
 </code></pre></article>
