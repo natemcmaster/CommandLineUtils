@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Arguments </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Arguments ">
+    <meta name="generator" content="docfx 2.37.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" height="55" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="arguments">Arguments</h1>
+
+<p>When a command executes, the raw <code>string[] args</code> value can be separated into two different categories: options and arguments.</p>
+<p>Arguments are positional and values are specified based by order.</p>
+<p>Options are named and must be specified using a name. Options are covered in <a href="options.html">this document.</a></p>
+<p>Arguments are represented by the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a> type.
+They have one defining characteristic.</p>
+<ul>
+<li>Position - the order in which arguments appear on command line (after options have been parsed)</li>
+</ul>
+<p>Additional API on <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a> can be set to define how the arguments appears in help text.</p>
+<div class="tabGroup" id="tabgroup_O1aAyLh+nY">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_O1aAyLh+nY_using-attributes" role="tab" aria-controls="tabpanel_O1aAyLh+nY_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_O1aAyLh+nY_using-builder-api" role="tab" aria-controls="tabpanel_O1aAyLh+nY_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_O1aAyLh+nY_using-attributes" role="tab" aria-controls="tabpanel_O1aAyLh+nY_using-attributes" data-tab="using-attributes" tabindex="-1">Using Attributes</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_O1aAyLh+nY_using-builder-api" role="tab" aria-controls="tabpanel_O1aAyLh+nY_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+</li>
+</ul>
+<section id="tabpanel_O1aAyLh+nY_using-attributes" role="tabpanel" data-tab="using-attributes">
+<pre><code class="lang-c#">public class Program
+{
+    [Argument(0)]
+    [Required]
+    public string FirstName { get; }
+
+    [Argument(1)]
+    public string LastName { get; }  // this one is optional because it doesn&#39;t have `[Required]`
+
+    private void OnExecute()
+    {
+        Console.WriteLine($&quot;Hello {FirstName} {LastName}&quot;);
+    }
+
+    public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
+}
+</code></pre></section>
+<section id="tabpanel_O1aAyLh+nY_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-c#">public class Program
+{
+    public static int Main(string[] args)
+    {
+        var app = new CommandLineApplication();
+
+        var firstNameArg = app.Argument(&quot;first name&quot;, &quot;the first name of the person&quot;)
+            .IsRequired();
+        var lastNameArg = app.Argument(&quot;first name&quot;, &quot;the first name of the person&quot;);
+
+        app.OnExecute(() =&gt;
+        {
+            Console.WriteLine($&quot;Hello {firstNameArg.Value} {lastNameArg.Value}&quot;);
+        });
+
+        return app.Execute(args);
+    }
+}
+</code></pre><h2 id="remaining-arguments">Remaining arguments</h2>
+<p>A common scenario is to allow a command line tool to take in a variable number of arguments.
+Normally, unrecognized arguments is an error. To allow this scenario, you must set ThrowOnUnexpectedArgument to false
+and use the RemainingArguments property to get the variable number of values.</p>
+<pre><code>cat file1.txt file2.txt file3.txt
+</code></pre><p>See <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a> for more details.</p>
+</section>
+<section id="tabpanel_O1aAyLh+nY_using-attributes" role="tabpanel" data-tab="using-attributes" aria-hidden="true" hidden="hidden">
+<p>By default, attribute binding will set a <code>string[]</code> or <code>IList&lt;string&gt;</code> property named <code>RemainingArguments</code> or <code>RemainingArgs</code> 
+to include all values</p>
+<pre><code class="lang-c#">[Command(ThrowOnUnexpectedArgument = false)]
+public class Program
+{
+    public string[] RemainingArguments { get; } // = { &quot;file1.txt&quot;, &quot;file2.txt&quot;, &quot;file3.txt&quot; }
+
+    private void OnExecute()
+    {
+        if (RemainingArguments != null)
+        {
+            foreach (var file in RemainingArguments) 
+            {
+                // do something
+            }
+        }
+    }
+
+    public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
+}
+</code></pre></section>
+<section id="tabpanel_O1aAyLh+nY_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-c#">public class Program
+{
+    public static int Main(string[] args)
+    {
+        var app = new CommandLineApplication(throwOnUnexpectedArgs: false);
+        app.OnExecute(() =&gt;
+        {
+            if (app.RemainingArguments != null)
+            {
+                foreach (var file in app.RemainingArguments) 
+                {
+                    // do something
+                }
+            }
+        });
+        return app.Execute(args);
+    }
+}
+</code></pre></section>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/docs/docs/arguments.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Generated with docfx
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
