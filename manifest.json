@@ -37,11 +37,23 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/advanced/dependency-injection.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/advanced/dependency-injection.html",
+          "hash": "xCcaNaxE8JuVFPtgPG5XHg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/arguments.md",
       "output": {
         ".html": {
           "relative_path": "docs/arguments.html",
-          "hash": "45KiGMBk2roVq/6NJfJYgQ=="
+          "hash": "vVclM6GH3SYieIn1C9vMYg=="
         }
       },
       "is_incremental": false,
@@ -49,35 +61,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/concepts/dependency-injection.md",
+      "source_relative_path": "docs/help-text.md",
       "output": {
         ".html": {
-          "relative_path": "docs/concepts/dependency-injection.html",
-          "hash": "vXzU6FQuQC9Lm+odozzS9A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/concepts/help-text.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/concepts/help-text.html",
-          "hash": "2wwWEQQySdeRP6s4LYUqwQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/concepts/response-file-parsing.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/concepts/response-file-parsing.html",
-          "hash": "PcDxI8BlkWtnh5TtCBYMmA=="
+          "relative_path": "docs/help-text.html",
+          "hash": "RkhnPpQ153jbU7iGvQYpMw=="
         }
       },
       "is_incremental": false,
@@ -89,7 +77,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/intro.html",
-          "hash": "lH53PFOISiGY7oVDgfMA/g=="
+          "hash": "mkYSC/Njk1PpwZBPMXWouQ=="
         }
       },
       "is_incremental": false,
@@ -101,7 +89,19 @@
       "output": {
         ".html": {
           "relative_path": "docs/options.html",
-          "hash": "vxEvssEoKGGRVNwWMgnUOQ=="
+          "hash": "ZeHSt9nOtx5K6nJmu+AG3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/response-file-parsing.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/response-file-parsing.html",
+          "hash": "vZ4PIPDX4LXtgF/5ab78Cg=="
         }
       },
       "is_incremental": false,
@@ -113,7 +113,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/toc.html",
-          "hash": "9s6fO0Wvn4p00ARE4rI8TQ=="
+          "hash": "dn9JbNfMDS5pldHFJANUKA=="
         }
       },
       "is_incremental": false,
@@ -1260,11 +1260,11 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },

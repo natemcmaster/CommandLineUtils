@@ -5,19 +5,19 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Response File Parsing </title>
+    <title>@-files (Response File Parsing) </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Response File Parsing ">
+    <meta name="title" content="@-files (Response File Parsing) ">
     <meta name="generator" content="docfx 2.37.2.0">
     
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
     
-    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,8 +33,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" height="55" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" height="55" src="../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -75,26 +75,28 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="response-file-parsing">Response File Parsing</h1>
+            <article class="content wrap" id="_content" data-uid="response-file-parsing">
+<h1 id="-files-response-file-parsing">@-files (Response File Parsing)</h1>
 
-<p><strong>CommandLineUtils</strong> support parsing of response files. The command-line parser treats arguments beginning with &#39;@&#39; as a file path to a response file.  A response file contains additional arguments that will be treated as if they were passed in on the command line.</p>
+<p><strong>CommandLineUtils</strong> support parsing of response files. The command-line parser treats arguments beginning with &#39;@&#39; as a file path to a response file.</p>
+<pre><code>myapp.exe @args.txt
+</code></pre><p>A response file contains additional arguments that will be treated as if they were passed in on the command line.</p>
 <ul>
 <li>Response files can have comments that begin with the # symbol.</li>
 <li>You cannot use the backslash character (<code>\</code>) to concatenate lines.</li>
 </ul>
 <p>By default, response file parsing is disabled for your application and all sub-commands. You can enable response file parsing using either the Builder API or Attributes.</p>
-<div class="tabGroup" id="tabgroup_zgY5ay5lWa">
+<div class="tabGroup" id="tabgroup_5s6AVonhGs">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_zgY5ay5lWa_using-attributes" role="tab" aria-controls="tabpanel_zgY5ay5lWa_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+<a href="#tabpanel_5s6AVonhGs_using-attributes" role="tab" aria-controls="tabpanel_5s6AVonhGs_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_zgY5ay5lWa_using-builder-api" role="tab" aria-controls="tabpanel_zgY5ay5lWa_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+<a href="#tabpanel_5s6AVonhGs_using-builder-api" role="tab" aria-controls="tabpanel_5s6AVonhGs_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
 </li>
 </ul>
-<section id="tabpanel_zgY5ay5lWa_using-attributes" role="tabpanel" data-tab="using-attributes">
-<p>When using Attributes, you can enable response file parsing by setting the <a class="xref" href="../../api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../../api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a>.</p>
+<section id="tabpanel_5s6AVonhGs_using-attributes" role="tabpanel" data-tab="using-attributes">
+<p>When using Attributes, you can enable response file parsing by setting the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a>.</p>
 <pre><code class="lang-csharp" highlight-lines="1">[Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you&#39;ve done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
 [Subcommand(&quot;list&quot;, typeof(ListCommand))]
 class Program
@@ -125,8 +127,8 @@ class ListCommand
     }
 }
 </code></pre></section>
-<section id="tabpanel_zgY5ay5lWa_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
-<p>When using the Builder API, you can enable response file parsing by setting the <a class="xref" href="../../api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../../api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
+<section id="tabpanel_5s6AVonhGs_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<p>When using the Builder API, you can enable response file parsing by setting the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
 <pre><code class="lang-csharp" highlight-lines="9">class Program
 {
     public static int Main(string[] args)
@@ -195,16 +197,16 @@ fitness
 <pre><code class="lang-text">done list @input.txt
 </code></pre><p>This will execute the <code>list</code> command and pass the values of <code>major</code> and <code>fitness</code> for the <code>Tags</code> option.</p>
 <p>When using sub-commands, you need to take care to explicitly set the <code>ResponseFileHandling</code> property for the sub-commands as well.</p>
-<div class="tabGroup" id="tabgroup_zgY5ay5lWa-1">
+<div class="tabGroup" id="tabgroup_5s6AVonhGs-1">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_zgY5ay5lWa-1_using-attributes" role="tab" aria-controls="tabpanel_zgY5ay5lWa-1_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+<a href="#tabpanel_5s6AVonhGs-1_using-attributes" role="tab" aria-controls="tabpanel_5s6AVonhGs-1_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_zgY5ay5lWa-1_using-builder-api" role="tab" aria-controls="tabpanel_zgY5ay5lWa-1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+<a href="#tabpanel_5s6AVonhGs-1_using-builder-api" role="tab" aria-controls="tabpanel_5s6AVonhGs-1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
 </li>
 </ul>
-<section id="tabpanel_zgY5ay5lWa-1_using-attributes" role="tabpanel" data-tab="using-attributes">
+<section id="tabpanel_5s6AVonhGs-1_using-attributes" role="tabpanel" data-tab="using-attributes">
 <pre><code class="lang-csharp" highlight-lines="19">[Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you&#39;ve done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
 [Subcommand(&quot;list&quot;, typeof(ListCommand))]
 class Program
@@ -235,7 +237,7 @@ class ListCommand
     }
 }
 </code></pre></section>
-<section id="tabpanel_zgY5ay5lWa-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_5s6AVonhGs-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-csharp" highlight-lines="18">class Program
 {
     public static int Main(string[] args)
@@ -274,7 +276,7 @@ class ListCommand
 </code></pre></section>
 </div>
 <h2 id="space-separated-arguments">Space separated arguments</h2>
-<p>You can set the <code>ResponseFileHandling</code> property to <a class="xref" href="../../api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html#McMaster_Extensions_CommandLineUtils_ResponseFileHandling_ParseArgsAsSpaceSeparated">ParseArgsAsSpaceSeparated</a>. In this case, each argument in the response file needs to be separated by a space, instead of a new line, e.g.</p>
+<p>You can set the <code>ResponseFileHandling</code> property to <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html#McMaster_Extensions_CommandLineUtils_ResponseFileHandling_ParseArgsAsSpaceSeparated">ParseArgsAsSpaceSeparated</a>. In this case, each argument in the response file needs to be separated by a space, instead of a new line, e.g.</p>
 <pre><code class="lang-text">&quot;Completed the Boston marathon&quot; --tag major --tag fitness
 </code></pre></article>
           </div>
@@ -284,7 +286,7 @@ class ListCommand
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/docs/docs/concepts/response-file-parsing.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/docs/docs/response-file-parsing.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -310,8 +312,8 @@ class ListCommand
       </footer>
     </div>
     
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>
