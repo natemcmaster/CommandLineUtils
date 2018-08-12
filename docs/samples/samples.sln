@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationBuilderApi", "val
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pager", "pager\Pager.csproj", "{09A117CB-B30F-4701-9277-321FC5E62840}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "McMaster.Extensions.CommandLineUtils", "..\..\src\CommandLineUtils\McMaster.Extensions.CommandLineUtils.csproj", "{289BEC92-5FB8-4DBB-9B9B-EB9452034121}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -248,6 +250,18 @@ Global
 		{09A117CB-B30F-4701-9277-321FC5E62840}.Release|x64.Build.0 = Release|Any CPU
 		{09A117CB-B30F-4701-9277-321FC5E62840}.Release|x86.ActiveCfg = Release|Any CPU
 		{09A117CB-B30F-4701-9277-321FC5E62840}.Release|x86.Build.0 = Release|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Debug|x64.Build.0 = Debug|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Debug|x86.Build.0 = Debug|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Release|x64.ActiveCfg = Release|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Release|x64.Build.0 = Release|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Release|x86.ActiveCfg = Release|Any CPU
+		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3D6570C6-11DC-40E7-9C96-8936D23C606A} = {E03982B3-80F2-4D55-9501-378EACE93E5B}
