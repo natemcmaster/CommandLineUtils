@@ -1,89 +1,81 @@
 CommandLineUtils
 ================
 
-**https://nuget.org/packages/McMaster.Extensions.CommandLineUtils**
+**CommandLineUtils** is a library which helps developers implement command line applications in .NET.
+The primary goal of the library is to assist with parsing command line arguments and executing the correct
+commands related to those arguments. The library also provides various other utilities such as input helpers.
 
-This project is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This fork, on the other hand, will continue release updates and take contributions.
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="docs/intro.md">Documentation</a></strong></p>
+                <p>Tutorials to create your first .NET command line application, and docs on how to use the library.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="api/index.md">API Reference</a></strong></p>
+                <p>Read the API documentation for this library.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils/tree/master/docs/samples/">Samples</a></strong></p>
+                <p>View sample projects which use CommandLineUtils.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils">Source Code and Issue Tracker</a></strong></p>
+                <p>The project is open-source on GitHub.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://nuget.org/packages/McMaster.Extensions.CommandLineUtils">NuGet</a></strong></p>
+                <p>See the latest releases of this library as a NuGet package.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils/tree/master/CHANGELOG.md">Version history</a></strong></p>
+                <p>Read notes about fixes and enhancements per release.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-## API Reference
 
-See the [API Reference](./api/index.md) for more details.
-
-## Install
-
-Install the NuGet package into your project.
-
-
-```
-PM> Install-Package McMaster.Extensions.CommandLineUtils
-```
-```
-$ dotnet add package McMaster.Extensions.CommandLineUtils
-```
-```xml
-<ItemGroup>
-  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.5" />
-</ItemGroup>
-```
-
-Pre-release builds and symbols: https://www.myget.org/gallery/natemcmaster/
-
-## Usage
-
-See [samples](https://github.com/natemcmaster/CommandLineUtils/tree/master/docs/samples) for more examples.
-
-`CommandLineApplication` is the main entry point for most console apps parsing. There are two primary ways to use this API, using the builder pattern and attributes.
-
-### Attribute API
+Using this library, you can write a command line application without doing the heavy lifting to support automated help text generation,
+masking input for passwords, parsing argument syntax, validation, etc.
 
 ```c#
-using System;
-using McMaster.Extensions.CommandLineUtils;
-
-public class Program
+class Program
 {
-    public static int Main(string[] args)
-        => CommandLineApplication.Execute<Program>(args);
+    public static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
 
-    [Option(Description = "The subject")]
-    public string Subject { get; }
+    [Option("-n")]
+    [Range(0, 10)]
+    [Required]
+    public int Count { get; }
 
-    private void OnExecute()
+    public void OnExecute()
     {
-        var subject = Subject ?? "world";
-        Console.WriteLine($"Hello {subject}!");
-    }
-}
-```
-
-### Builder API
-
-
-```c#
-using System;
-using McMaster.Extensions.CommandLineUtils;
-
-public class Program
-{
-    public static int Main(string[] args)
-    {
-        var app = new CommandLineApplication();
-
-        app.HelpOption();
-        var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
-
-        app.OnExecute(() =>
+        for (var i = 0; i < Count; i ++)
         {
-            var subject = optionSubject.HasValue()
-                ? optionSubject.Value()
-                : "world";
-
-            Console.WriteLine($"Hello {subject}!");
-            return 0;
-        });
-
-        return app.Execute(args);
+            Prompt.GetPassword("Enter your password: ");
+        }
     }
 }
-
 ```

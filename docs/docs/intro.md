@@ -1,3 +1,6 @@
+---
+uid: doc-intro
+---
 # Introduction
 
 **CommandLineUtils** is a library which helps developers implement command line applications. The primary goal of the library is to assist with parsing command line arguments and executing the correct commands related to those arguments. However, the library also provides various other utilities such as input helpers.
@@ -81,6 +84,10 @@ public class Program
     }
 }
 ```
+
+## Relationship to Microsoft.Extensions.CommandLineUtils
+
+This project is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This project, on the other hand, will continue release updates and take contributions.
 
 ## More information
 

@@ -1,6 +1,13 @@
-# Response File Parsing
+---
+uid: response-file-parsing
+---
+# @-files (Response File Parsing)
 
-**CommandLineUtils** support parsing of response files. The command-line parser treats arguments beginning with '@' as a file path to a response file.  A response file contains additional arguments that will be treated as if they were passed in on the command line.
+**CommandLineUtils** support parsing of response files. The command-line parser treats arguments beginning with '@' as a file path to a response file.
+
+    myapp.exe @args.txt
+
+A response file contains additional arguments that will be treated as if they were passed in on the command line.
 
 * Response files can have comments that begin with the # symbol.
 * You cannot use the backslash character (`\`) to concatenate lines.
@@ -11,13 +18,13 @@ By default, response file parsing is disabled for your application and all sub-c
 
 When using Attributes, you can enable response file parsing by setting the @McMaster.Extensions.CommandLineUtils.CommandAttribute.ResponseFileHandling property of the @McMaster.Extensions.CommandLineUtils.CommandAttribute.
 
-[!code-csharp[](../../samples/response-file-parsing/attributes/Program.cs?range=6-34&highlight=1)]
+[!code-csharp[](../samples/response-file-parsing/attributes/Program.cs?range=6-34&highlight=1)]
 
 # [Using Builder API](#tab/using-builder-api)
 
 When using the Builder API, you can enable response file parsing by setting the @McMaster.Extensions.CommandLineUtils.CommandLineApplication.ResponseFileHandling property of the @McMaster.Extensions.CommandLineUtils.CommandLineApplication.
 
-[!code-csharp[](../../samples/response-file-parsing/builder-api/Program.cs?range=6-38&highlight=9)]
+[!code-csharp[](../samples/response-file-parsing/builder-api/Program.cs?range=6-38&highlight=9)]
 
 ------
 
@@ -95,11 +102,11 @@ When using sub-commands, you need to take care to explicitly set the `ResponseFi
 
 # [Using Attributes](#tab/using-attributes)
 
-[!code-csharp[](../../samples/response-file-parsing/attributes/Program.cs?range=6-34&highlight=19)]
+[!code-csharp[](../samples/response-file-parsing/attributes/Program.cs?range=6-34&highlight=19)]
 
 # [Using Builder API](#tab/using-builder-api)
 
-[!code-csharp[](../../samples/response-file-parsing/builder-api/Program.cs?range=6-40&highlight=18)]
+[!code-csharp[](../samples/response-file-parsing/builder-api/Program.cs?range=6-40&highlight=18)]
 
 ------
 
