@@ -51,10 +51,10 @@ They have two defining characteristics.
 ### [Using Attributes](#tab/using-attributes)
 
 @McMaster.Extensions.CommandLineUtils.OptionAttribute can be used on properties to define options.
-When specified, name and type are inferred, but they can be listed explicitly.   
-Inferred option short name(with "-" prefix) is the first low-case character of property name.
-Inferred option long name(with "--" prefix) is the  low-case property name. If the name consists of more than one word, each  word is separated by "-" (e.g. "--log-level" for LogLevel).  
-Note that option names are case sensitive, and using different case is an error, but error message suggests expected low-case spelling.
+When specified, name and type are inferred, but they can be listed explicitly.
+The inferred short name (with "-" prefix) is the first letter of property name in lowercase.
+The inferred long name (with "--" prefix) is the property name in [kebab case](https://en.wikipedia.org/wiki/Letter_case) (e.g. "--log-level" for LogLevel).
+Note that option names are case sensitive, and using different case is an error, but error message suggests expected lowercase spelling.
 
 
 ```c#
