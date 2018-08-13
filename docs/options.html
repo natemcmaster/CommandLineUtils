@@ -154,7 +154,10 @@ Unlike &quot;single value&quot;, these cannot be specified as <code>--name value
 </ul>
 <section id="tabpanel_O36EgeKSIa_using-attributes" role="tabpanel" data-tab="using-attributes">
 <p><a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a> can be used on properties to define options.
-When specified, name and type are inferred, but they can be listed explicitly</p>
+When specified, name and type are inferred, but they can be listed explicitly.
+The inferred short name (with &quot;-&quot; prefix) is the first letter of property name in lowercase.
+The inferred long name (with &quot;--&quot; prefix) is the property name in <a href="https://en.wikipedia.org/wiki/Letter_case">kebab case</a> (e.g. &quot;--log-level&quot; for LogLevel).
+Note that option names are case sensitive, and using different case is an error, but error message suggests expected lowercase spelling.</p>
 <pre><code class="lang-c#">public class MyCommand
 {
     [Option]
