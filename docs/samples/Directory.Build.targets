@@ -1,7 +1,9 @@
 <Project>
 
   <PropertyGroup>
-    <UsePackage Condition="'$(UsePackage)' == '' AND '$(CI)' != 'true'">false</UsePackage>
+    <!-- TODO: revert when 2.3 is done -->
+    <!--<UsePackage Condition="'$(UsePackage)' == '' AND '$(CI)' != 'true'">false</UsePackage>-->
+    <UsePackage Condition="'$(UsePackage)' == ''">false</UsePackage>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(UsePackage)' == 'false'">
