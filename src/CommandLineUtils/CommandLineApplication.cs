@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
@@ -827,6 +828,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="commandName">The subcommand for which to show help. Leave null to show for the current command.</param>
         [Obsolete("This method has been marked as obsolete and will be removed in a future version." +
             "The recommended replacement is ShowHelp()")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public void ShowHelp(string commandName = null)
         {
             if (commandName == null)
@@ -872,6 +874,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns></returns>
         [Obsolete("This method has been marked as obsolete and will be removed in a future version." +
             "The recommended replacement is GetHelpText()")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public virtual string GetHelpText(string commandName = null)
         {
             CommandLineApplication target;
