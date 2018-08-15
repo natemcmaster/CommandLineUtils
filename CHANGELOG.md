@@ -18,6 +18,13 @@ Enhancements:
   public class OrgCommand { }
   ```
 * Obsolete the constructor of `[Subcommand]` which takes a string.
+* Infer subcommand names from the type name
+  ```c#
+  [Subcommand(typeof(AddCommand))]
+  public class Git { }
+
+  public class AddCommand { } // subcommand name = "add"
+  ```
 
 Bugs fixed:
 

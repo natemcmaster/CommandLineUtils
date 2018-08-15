@@ -134,7 +134,15 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The short name of the command. When this is a subcommand, it is the name of the word used to invoke the subcommand.
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                Parent?.AssertCommandNameIsUnique(value, this);
+                _name = value;
+            }
+        }
 
         /// <summary>
         /// The full name of the command to show in the help text.
@@ -362,6 +370,11 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private void AssertCommandNameIsUnique(string name, CommandLineApplication skip)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                return;
+            }
+
             foreach (var cmd in Commands)
             {
                 if (ReferenceEquals(cmd, skip))
@@ -995,6 +1008,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private protected virtual ConventionContext CreateConventionContext() => new ConventionContext(this, null);
 
         private bool _settingContext;
+        private string _name;
 
         internal void SetContext(CommandLineContext context)
         {

@@ -15,8 +15,9 @@ namespace SubcommandSample
     /// </summary>
     [Command("fake-git")]
     [VersionOptionFromMember("--version", MemberName = nameof(GetVersion))]
-    [Subcommand("add", typeof(AddCommand))]
-    [Subcommand("commit", typeof(CommitCommand))]
+    [Subcommand(
+        typeof(AddCommand),
+        typeof(CommitCommand))]
     class Git : GitCommandBase
     {
         public static void Main(string[] args) => CommandLineApplication.Execute<Git>(args);
@@ -52,6 +53,7 @@ namespace SubcommandSample
             {
                 args.Add("--git-dir=" + GitDir);
             }
+
             return args;
         }
 
@@ -110,6 +112,7 @@ namespace SubcommandSample
                 args.Add("-m");
                 args.Add(Message);
             }
+
             return args;
         }
     }

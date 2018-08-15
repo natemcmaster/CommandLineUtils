@@ -10,9 +10,8 @@ namespace SubcommandSample
     /// <summary>
     /// In this example, each command a nested class type.
     /// </summary>
-    [Command(Name ="fake-docker", Description = "A self-sufficient runtime for containers"),
-        Subcommand("container", typeof(Containers)),
-        Subcommand("image", typeof(Images))]
+    [Command(Name = "fake-docker", Description = "A self-sufficient runtime for containers"),
+     Subcommand(typeof(Containers), typeof(Images))]
     class Docker
     {
         public static void Main(string[] args) => CommandLineApplication.Execute<Docker>(args);
@@ -29,9 +28,9 @@ namespace SubcommandSample
         /// Compare to the inheritance example, in which <see cref="GitCommandBase"/> delcares it
         /// once so that all subcommand types automatically support '--help'.
         /// </summary>
-        [Command(Description = "Manage containers"),
-            Subcommand("ls", typeof(List)),
-            Subcommand("run", typeof(Run))]
+        [Command("containers", Description = "Manage containers"),
+         Subcommand(typeof(List)),
+         Subcommand(typeof(Run))]
         private class Containers
         {
             private int OnExecute(IConsole console)
@@ -56,7 +55,7 @@ namespace SubcommandSample
                 }
             }
 
-            [Command(Description = "Run a command in a new container",
+            [Command("run", Description = "Run a command in a new container",
                 AllowArgumentSeparator = true,
                 ThrowOnUnexpectedArgument = false)]
             private class Run
@@ -76,13 +75,15 @@ namespace SubcommandSample
 
                 private void OnExecute(IConsole console)
                 {
-                    console.WriteLine($"Would have run {Image} (name = {Name}) with args => {ArgumentEscaper.EscapeAndConcatenate(RemainingArguments)}");
+                    console.WriteLine(
+                        $"Would have run {Image} (name = {Name}) with args => {ArgumentEscaper.EscapeAndConcatenate(RemainingArguments)}");
                 }
             }
         }
 
-        [Command(Description = "Manage images"),
-            Subcommand("ls", typeof(List))]
+        [Command("image",
+             Description = "Manage images"),
+         Subcommand(typeof(List))]
         private class Images
         {
             private int OnExecute(IConsole console)
@@ -92,7 +93,7 @@ namespace SubcommandSample
             }
 
 
-            [Command(Description = "List images",
+            [Command("ls", Description = "List images",
                 ThrowOnUnexpectedArgument = false)]
             private class List
             {

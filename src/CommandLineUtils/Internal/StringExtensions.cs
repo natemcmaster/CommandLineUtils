@@ -56,6 +56,13 @@ namespace McMaster.Extensions.CommandLineUtils
                     sb.Append('-');
                 }
             }
+
+            // trim trailing slashes
+            while (sb.Length > 0 && sb[sb.Length - 1] == '-')
+            {
+                sb.Remove(sb.Length - 1, 1);
+            }
+
             return sb.ToString();
         }
 
@@ -108,6 +115,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     sb.Append('_');
                 }
             }
+
             return sb.ToString();
         }
     }

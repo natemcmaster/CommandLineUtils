@@ -13,7 +13,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public object Subcommand { get; set; }
         }
 
-        [Command("add")]
         private class AddCommand
         {
             public object Parent { get; }
@@ -23,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void BindsToParentProperty()
         {
             var app = new CommandLineApplication<Program>();
-            app.Conventions.SetSubcommandPropertyOnModel().UseSubcommandAttributes().SetParentPropertyOnModel().UseCommandAttribute();
+            app.Conventions.UseDefaultConventions();
             var result = app.Parse("add");
             var add = Assert.IsType<CommandLineApplication<AddCommand>>(result.SelectedCommand);
             Assert.IsType<Program>(add.Model.Parent);

@@ -33,7 +33,8 @@ namespace McMaster.Extensions.CommandLineUtils
                 .UseOnValidateMethodFromModel()
                 .UseOnValidationErrorMethodFromModel()
                 .UseConstructorInjection()
-                .UseDefaultHelpOption();
+                .UseDefaultHelpOption()
+                .UseCommandNameFromModelType();
         }
 
         /// <summary>
@@ -206,5 +207,13 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="additionalServices">Additional services that should be passed to the service provider.</param>
         public static IConventionBuilder UseConstructorInjection(this IConventionBuilder builder, IServiceProvider additionalServices)
             => builder.AddConvention(new ConstructorInjectionConvention(additionalServices));
+
+        /// <summary>
+        /// Sets the subcommand name using the model type, if available and not otherwise set using <see cref="CommandAttribute"/>.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
+        public static IConventionBuilder UseCommandNameFromModelType(this IConventionBuilder builder)
+            => builder.AddConvention(new CommandNameFromTypeConvention());
     }
 }

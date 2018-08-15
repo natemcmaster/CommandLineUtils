@@ -48,7 +48,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Command(Name = "master")]
-        [Subcommand(typeof(Level1Cmd))]
+        [Subcommand(typeof(Level1Command))]
         private class MasterApp : CommandBase
         {
             [Option(Inherited = true)]
@@ -57,9 +57,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             protected override int OnExecute(CommandLineApplication app) => 100;
         }
 
-        [Command("level1")]
-        [Subcommand(typeof(Level2Cmd))]
-        private class Level1Cmd : CommandBase
+        [Subcommand(typeof(Level2Command))]
+        private class Level1Command : CommandBase
         {
             [Option("--mid")]
             public bool Mid { get; }
@@ -69,8 +68,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public MasterApp Parent { get; }
         }
 
-        [Command("level2")]
-        private class Level2Cmd : CommandBase
+        private class Level2Command : CommandBase
         {
             [Option("--value")]
             public int? Value { get; set; }
@@ -78,7 +76,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             protected override int OnExecute(CommandLineApplication app)
                 => Value.HasValue ? Value.Value : 102;
 
-            public Level1Cmd Parent { get; }
+            public Level1Command Parent { get; }
         }
 
         abstract class CommandBase
@@ -162,7 +160,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ItCreatesNestedSubCommands()
         {
             var app = new CommandLineApplication<MasterApp>();
-            app.Conventions.UseSubcommandAttributes().UseCommandAttribute();
+            app.Conventions.UseSubcommandAttributes().UseCommandAttribute().UseCommandNameFromModelType();
             var lvl1 = Assert.Single(app.Commands);
             Assert.Equal("level1", lvl1.Name);
             var lvl2 = Assert.Single(lvl1.Commands);
@@ -173,8 +171,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ItBindsOptionsOnParentItems()
         {
             var app = CommandLineParser.ParseArgs<MasterApp>("level1", "--mid", "level2", "--verbose", "--value", "6");
-            Assert.IsType<Level1Cmd>(app.Subcommand);
-            var sub = Assert.IsType<Level2Cmd>(app.Subcommand.Subcommand);
+            Assert.IsType<Level1Command>(app.Subcommand);
+            var sub = Assert.IsType<Level2Command>(app.Subcommand.Subcommand);
             Assert.NotNull(sub.Parent);
             Assert.NotNull(sub.Parent.Parent);
             Assert.True(sub.Parent.Mid);
@@ -182,7 +180,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(6, sub.Value);
         }
 
-        [Subcommand(typeof(Level1Cmd), typeof(Level1DuplicateCmd))]
+        [Subcommand(typeof(Level1Command), typeof(Level1DuplicateCmd))]
         private class DuplicateSubCommands
         {
             private void OnExecute()
@@ -198,7 +196,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<DuplicateSubCommands>(new TestConsole(_output)));
-            Assert.Equal(Strings.DuplicateSubcommandName("LEVEL1"), ex.Message);
+            Assert.Equal(Strings.DuplicateSubcommandName("level1"), ex.Message);
         }
     }
 }

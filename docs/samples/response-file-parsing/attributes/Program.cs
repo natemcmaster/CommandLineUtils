@@ -4,7 +4,7 @@ using McMaster.Extensions.CommandLineUtils;
 namespace ResponseFileParsing
 {
     [Command(Name = "done", Description = "Keep track on things you've done", ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
-    [Subcommand("list", typeof(ListCommand))]
+    [Subcommand(typeof(ListCommand))]
     class Program
     {
         public static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);

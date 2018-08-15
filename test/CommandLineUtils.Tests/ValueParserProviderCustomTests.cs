@@ -11,7 +11,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class ValueParserProviderCustomTests
     {
-
         internal class MyDateTimeOffsetParser : IValueParser
         {
             public Type TargetType { get; } = typeof(DateTimeOffset);
@@ -192,7 +191,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
 
-        [Command()]
         [Subcommand(typeof(CustomParserProgramAttributesSubCommand))]
         private class CustomParserProgramAttributes
         {
