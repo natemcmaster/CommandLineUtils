@@ -14,7 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// <inheritdoc />
         public virtual void Apply(ConventionContext context)
         {
-            if (context.Application.Name != null)
+            if (context.Application.Name != null || context.Application.Parent != null)
             {
                 return;
             }

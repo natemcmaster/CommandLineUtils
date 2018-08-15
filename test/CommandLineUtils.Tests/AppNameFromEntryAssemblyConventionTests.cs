@@ -21,5 +21,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Conventions.SetAppNameFromEntryAssembly();
             Assert.Equal(expected, app.Name);
         }
+
+        [Fact]
+        public void ItDoesNotSpecifyCommandNameForSubcommands()
+        {
+            var app = new CommandLineApplication();
+            app.Conventions.SetAppNameFromEntryAssembly();
+            var subcmd = app.Command(null, null);
+            Assert.Null(subcmd.Name);
+        }
     }
 }
