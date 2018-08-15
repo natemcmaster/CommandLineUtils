@@ -10,11 +10,11 @@ using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
-    public class SubcommandTests
+    public class SubcommandAttributeTests
     {
         private readonly ITestOutputHelper _output;
 
-        public SubcommandTests(ITestOutputHelper output)
+        public SubcommandAttributeTests(ITestOutputHelper output)
         {
             _output = output;
         }
@@ -26,6 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public object Subcommand { get; set; }
         }
 
+        [Command("add", "a", "addition")]
         private class AddCmd
         {
             public object Parent { get; }
@@ -38,16 +39,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void AddsSubcommands()
         {
             var app = new CommandLineApplication<Program>();
-            app.Conventions.UseSubcommandAttributes();
+            app.Conventions.UseSubcommandAttributes().UseCommandAttribute();
             Assert.Collection(app.Commands.OrderBy(c => c.Name),
-                add =>
-                {
-                    Assert.Equal("add", add.Name);
-                },
-                rm =>
-                {
-                    Assert.Equal("rm", rm.Name);
-                });
+                add => { Assert.Equal(new[] { "add", "a", "addition" }, add.Names.ToArray()); },
+                rm => { Assert.Equal("rm", rm.Name); });
         }
 
         [Command(Name = "master")]
@@ -95,7 +90,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItInvokesExecuteOnSubcommand_Bottom()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "level2", "--value", "6");
+            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "level2", "--value",
+                "6");
             Assert.Equal(6, rc);
 
             rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "level2");
@@ -187,8 +183,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class DuplicateSubCommands
         {
             private void OnExecute()
-            {
-            }
+            { }
         }
 
         [Fact]
@@ -198,6 +193,5 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () => CommandLineApplication.Execute<DuplicateSubCommands>(new TestConsole(_output)));
             Assert.Equal(Strings.DuplicateSubcommandName("LEVEL1"), ex.Message);
         }
-
     }
 }

@@ -48,11 +48,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         private void AddSubcommandImpl<TSubCommand>(ConventionContext context, SubcommandAttribute subcommand)
             where TSubCommand : class
         {
-            if (context.Application.Commands.Any(c => c.Name.Equals(subcommand.Name, StringComparison.OrdinalIgnoreCase)))
-            {
-                throw new InvalidOperationException(Strings.DuplicateSubcommandName(subcommand.Name));
-            }
-
             context.Application.Command<TSubCommand>(subcommand.Name, subcommand.Configure);
         }
     }

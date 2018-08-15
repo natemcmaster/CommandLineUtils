@@ -1,6 +1,7 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -253,6 +254,19 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             app.Option("--log", "Log level", CommandOptionType.SingleValue);
             Assert.Throws<CommandParsingException>(() => app.Parse("--log"));
+        }
+
+        [Fact]
+        public void ItFindsSubcommandsByAliases()
+        {
+            var app = new CommandLineApplication();
+            var cmd = app.Command("sub1", c =>
+            {
+                c.AddAlias("s");
+            });
+
+            var result = app.Parse("s");
+            Assert.Same(cmd, result.SelectedCommand);
         }
     }
 }

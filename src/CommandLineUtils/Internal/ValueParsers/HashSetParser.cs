@@ -26,7 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         public object Parse(string argName, IReadOnlyList<string> values)
         {
-            var set = Activator.CreateInstance(_listType, Constants.EmptyArray);
+            var set = Activator.CreateInstance(_listType, Util.EmptyArray<object>());
             for (var i = 0; i < values.Count; i++)
             {
                 _addMethod.Invoke(set, new object[] { _elementParser.Parse(argName, values[i], _parserCulture) });

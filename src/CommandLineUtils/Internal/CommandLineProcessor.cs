@@ -121,7 +121,7 @@ namespace McMaster.Extensions.CommandLineUtils
             var arg = _enumerator.Current;
             foreach (var subcommand in _currentCommand.Commands)
             {
-                if (string.Equals(subcommand.Name, arg.Raw, StringComparison.OrdinalIgnoreCase))
+                if (subcommand.MatchesName(arg.Raw))
                 {
                     _currentCommand = subcommand;
                     return true;

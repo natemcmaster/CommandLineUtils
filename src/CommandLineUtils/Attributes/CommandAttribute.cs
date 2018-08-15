@@ -2,7 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -13,6 +15,7 @@ namespace McMaster.Extensions.CommandLineUtils
     public sealed class CommandAttribute : Attribute
     {
         private bool? _clusterOptions;
+        private string[] _names = Util.EmptyArray<string>();
 
         /// <summary>
         /// Initializes a new <see cref="CommandAttribute"/>.
@@ -30,10 +33,29 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
+        /// Initializes a new <see cref="CommandAttribute"/>.
+        /// </summary>
+        /// <param name="name">The primary name of the command.</param>
+        /// <param name="aliases">The names of the command.</param>
+        public CommandAttribute(string name, params string[] aliases)
+        {
+            _names = new[] { name }.Concat(aliases).ToArray();
+        }
+
+        /// <summary>
         /// The name of the command line application. When this is a subcommand, it is the name of the word used to invoke the subcommand.
         /// <seealso cref="CommandLineApplication.Name" />
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get => _names.Length > 0 ? _names[0] : null;
+            set => _names = new[] { value };
+        }
+
+        /// <summary>
+        /// THe names of the command. The first is the primary name. All other names are aliases.
+        /// </summary>
+        public IEnumerable<string> Names => _names;
 
         /// <summary>
         /// The full name of the command line application to show in help text. <seealso cref="CommandLineApplication.FullName" />
@@ -101,6 +123,11 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             // this might have been set from SubcommandAttribute
             app.Name = Name ?? app.Name;
+
+            foreach (var alias in Names.Skip(1))
+            {
+                app.AddAlias(alias);
+            }
 
             app.AllowArgumentSeparator = AllowArgumentSeparator;
             app.Description = Description;

@@ -82,6 +82,37 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void ItThrowsIfAnotherSubcommandHasNameName()
+        {
+            var app = new CommandLineApplication();
+
+            app.Command("sub1", c =>
+            {
+                c.AddAlias("s");
+            });
+
+            var ex = Assert.Throws<InvalidOperationException>(() => app.Command("sub1", null));
+            Assert.Equal(Strings.DuplicateSubcommandName("sub1"), ex.Message);
+
+            ex = Assert.Throws<InvalidOperationException>(() => app.Command("s", null));
+            Assert.Equal(Strings.DuplicateSubcommandName("s"), ex.Message);
+        }
+
+        [Fact]
+        public void ItThrowsIfAnotherSubCommandHasTheSameAlias()
+        {
+            var app = new CommandLineApplication();
+
+            app.Command("sub1", c =>
+            {
+                c.AddAlias("s");
+            });
+
+            var ex = Assert.Throws<InvalidOperationException>(() => app.Command("sub2", c => c.AddAlias("s")));
+            Assert.Equal(Strings.DuplicateSubcommandName("s"), ex.Message);
+        }
+
+        [Fact]
         public void UnknownCommandCausesException()
         {
             var app = new CommandLineApplication();
@@ -856,23 +887,16 @@ Examples:
         }
 
         // Assert compatibility with 2.0.0 and Microsoft.Extensions.CommandLineUtils.
+        // TODO: make subcommands case-sensitive
         [Fact]
-        public void CommandNamesCannotDifferByCase()
+        public void CommandNamesMatchingIsCaseInsensitive()
         {
             var app = new CommandLineApplication(throwOnUnexpectedArg: false);
-            var cmdUpper = app.Command("CMD1", c =>
-            {
-                c.OnExecute(() => 101);
-            });
-            var cmdLower = app.Command("cmd1", c =>
-            {
-                c.Invoke = () => throw new InvalidOperationException();
-            });
-            app.Invoke = () => throw new InvalidOperationException();
+            var cmd = app.Command("CMD1", null);
 
-            Assert.Equal(101, app.Execute("CMD1"));
-            Assert.Equal(101, app.Execute("cmd1"));
-            Assert.Equal(101, app.Execute("CmD1"));
+            Assert.Same(cmd, app.Parse("CMD1").SelectedCommand);
+            Assert.Same(cmd, app.Parse("cmd1").SelectedCommand);
+            Assert.Same(cmd, app.Parse("CmD1").SelectedCommand);
         }
 
         [Fact]

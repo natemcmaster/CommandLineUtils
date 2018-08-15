@@ -25,6 +25,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private List<Action<ParseResult>> _onParsingComplete;
         internal readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
         internal readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
+        private readonly HashSet<string> _aliases = new HashSet<string>(StringComparer.Ordinal);
 
 
         private const int HelpExitCode = 0;
@@ -156,6 +157,25 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Available command-line options on this command. Use <see cref="GetOptions"/> to get all available options, which may include inherited options.
         /// </summary>
         public List<CommandOption> Options { get; private set; }
+
+        /// <summary>
+        /// All names by which the command can be referenced. This includes <see cref="Name"/> and an aliases added in <see cref="AddAlias"/>.
+        /// </summary>
+        public IEnumerable<string> Names
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(Name))
+                {
+                    yield return Name;
+                }
+
+                foreach (var alias in _aliases)
+                {
+                    yield return alias;
+                }
+            }
+        }
 
         /// <summary>
         /// The option used to determine if help text should be displayed. This is set by calling <see cref="HelpOption(string)"/>.
@@ -300,6 +320,55 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
+        /// Add an alias for the command.
+        /// <para>
+        /// An alias is a shorter name by which a command may be referenced.
+        /// </para>
+        /// </summary>
+        /// <param name="alias">The alias. Must not be null or empty.</param>
+        public void AddAlias(string alias)
+        {
+            if (string.IsNullOrEmpty(alias))
+            {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(alias));
+            }
+
+            Parent?.AssertCommandNameIsUnique(alias);
+
+            _aliases.Add(alias);
+        }
+
+        /// <summary>
+        /// Add a subcommand
+        /// </summary>
+        /// <param name="subcommand"></param>
+        public void AddSubcommand(CommandLineApplication subcommand)
+        {
+            if (subcommand == null)
+            {
+                throw new ArgumentNullException(nameof(subcommand));
+            }
+
+            foreach (var name in subcommand.Names)
+            {
+                AssertCommandNameIsUnique(name);
+            }
+
+            Commands.Add(subcommand);
+        }
+
+        private void AssertCommandNameIsUnique(string name)
+        {
+            foreach (var cmd in Commands)
+            {
+                if (cmd.MatchesName(name))
+                {
+                    throw new InvalidOperationException(Strings.DuplicateSubcommandName(name));
+                }
+            }
+        }
+
+        /// <summary>
         /// Adds a subcommand.
         /// </summary>
         /// <param name="name">The word used to invoke the subcommand.</param>
@@ -311,8 +380,9 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             var command = new CommandLineApplication(this, name, throwOnUnexpectedArg);
 
-            Commands.Add(command);
-            configuration(command);
+            AddSubcommand(command);
+
+            configuration?.Invoke(command);
 
             return command;
         }
@@ -331,8 +401,9 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             var command = new CommandLineApplication<TModel>(this, name, throwOnUnexpectedArg);
 
-            Commands.Add(command);
-            configuration(command);
+            AddSubcommand(command);
+
+            configuration?.Invoke(command);
 
             return command;
         }
@@ -860,6 +931,17 @@ namespace McMaster.Extensions.CommandLineUtils
 
             Out.WriteLine(rootCmd.GetFullNameAndVersion());
             Out.WriteLine();
+        }
+
+        internal bool MatchesName(string name)
+        {
+            // TODO: make this case-sensitive by default and add a parser setting
+            if (string.Equals(name, Name, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            return _aliases.Contains(name);
         }
 
         private sealed class Builder : IConventionBuilder

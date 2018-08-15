@@ -5,13 +5,19 @@ using System;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    internal class Constants
+    internal class Util
     {
-        public static readonly object[] EmptyArray
+        public static T[] EmptyArray<T>()
 #if NET45
-            = new object[0];
+            => EmptyArray<T>.Value;
+
+        private static class EmptyArray<T>
+        {
+            internal static readonly T[] Value = new T[0];
+        }
+
 #elif (NETSTANDARD1_6 || NETSTANDARD2_0)
-            = Array.Empty<object>();
+            => Array.Empty<T>();
 #else
 #error Update target frameworks
 #endif

@@ -57,7 +57,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         public IValueParser GetParser(Type type)
         {
             var method = s_GetParserGeneric.MakeGenericMethod(type);
-            return (IValueParser)method.Invoke(this, Constants.EmptyArray);
+            return (IValueParser)method.Invoke(this, Util.EmptyArray<object>());
         }
 
         /// <summary>

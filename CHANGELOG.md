@@ -4,16 +4,35 @@
 
 Enhancements:
 
- * [@bjorg]: support SingleOrNoValue notation. `--option[:value]`
- * Support the POSIX convention for cluster multiple options. For example, `-ixd` is treated the same as `-i -x -d`. Resolved [#93][issue-93].
- * New type: `Pager`. Provides a simple interaction model for displaying console output in a pager.
- * Display help text using the `less` pager on macOS/Linux.
- * Make suggestions when invalid options or commands are used, but there is a valid one that is similar. (Thanks to [@MadbHatter][@MadbHatter] for doing the inital work on this.)
+* Support the POSIX convention for cluster multiple options. For example, `-ixd` is treated the same as `-i -x -d`.
+  Resolved [#93][issue-93].
+* [@bjorg]: support SingleOrNoValue notation. `--option[:value]`
+* New type: `Pager`. Provides a simple interaction model for displaying console output in a pager.
+* Display help text using the `less` pager on macOS/Linux.
+* Make suggestions when invalid options or commands are used, but there is a valid one that is similar.
+  (Thanks to [@MadbHatter][@MadbHatter] for doing the inital work on this.)
+* Add support for subcommand aliases.
+
+  ```c#
+  [Command("organization", "org", "o")]
+  public class OrgCommand { }
+  ```
+
+Bugs fixed:
+
+* Duplicate subcommand names used to cause undefined behavior. Now, attempting to add a duplicate subcommand name or aliases will
+  cause the library to throw before the app can execute.
 
 Details:
 
-* **Clustering options:** I've added this behavior as the new default, but only if I think it won't interfere with existing apps. If it causes issues or you don't like clustering, you can disable this by setting `CommandLineApplication.ParserSettings.ClusterOptions = false`, or adding `[Command(ClusterOptions = false)]`. To preserve compatibilty with existing apps, this behavior is off if you have configured options with short names with multiple characters. In a future version, this will cause an error unless you set `ClusterOptions = false`.
-* **Pager:** this is the new default for showing help text. The pager should have graceful fallback to regular stdout when there are issues launching `less`, or when stdout is redirected into a pipe.
+* **Clustering options:** I've added this behavior as the new default, but only if I think it won't interfere with existing apps.
+  If it causes issues or you don't like clustering, you can disable this by setting 
+  `CommandLineApplication.ParserSettings.ClusterOptions = false`, or adding `[Command(ClusterOptions = false)]`.
+  To preserve compatibilty with existing apps, this behavior is off if you have configured options with short names with 
+  multiple characters. In a future version, this will cause an error unless you set `ClusterOptions = false`.
+
+* **Pager:** this is the new default for showing help text. The pager should have graceful fallback to regular stdout 
+  when there are issues launching `less`, or when stdout is redirected into a pipe.
 
 ## [v2.2.5]
 
