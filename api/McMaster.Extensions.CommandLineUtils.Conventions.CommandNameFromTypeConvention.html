@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class CommandAttributeConvention
+    <title>Class CommandNameFromTypeConvention
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class CommandAttributeConvention
+    <meta name="title" content="Class CommandNameFromTypeConvention
    ">
     <meta name="generator" content="docfx 2.37.2.0">
     
@@ -77,19 +77,24 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention">
+            <article class="content wrap" id="_content" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention">
   
   
-  <h1 id="McMaster_Extensions_CommandLineUtils_Conventions_CommandAttributeConvention" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention" class="text-break">Class CommandAttributeConvention
+  <h1 id="McMaster_Extensions_CommandLineUtils_Conventions_CommandNameFromTypeConvention" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention" class="text-break">Class CommandNameFromTypeConvention
   </h1>
-  <div class="markdown level0 summary"><p>Adds settings from <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a> set
-on the model type for <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
+  <div class="markdown level0 summary"><p>Sets the command name based on the model type, if is not otherwise set.
+<p>
+This attempts to infer a command name using a few rules, such as using kebab-case
+and trimming &quot;Command&quot; from the name of the type.
+<example>AddCommand =&gt; &quot;add&quot;</example>
+<example>RemoveItemCommand =&gt; &quot;remove-item&quot;</example>
+</p></p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">CommandAttributeConvention</span></div>
+    <div class="level1"><span class="xref">CommandNameFromTypeConvention</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
@@ -121,27 +126,27 @@ on the model type for <a class="xref" href="McMaster.Extensions.CommandLineUtils
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.html">McMaster.Extensions.CommandLineUtils.Conventions</a></h6>
   <h6><strong>Assembly</strong>: McMaster.Extensions.CommandLineUtils.dll</h6>
-  <h5 id="McMaster_Extensions_CommandLineUtils_Conventions_CommandAttributeConvention_syntax">Syntax</h5>
+  <h5 id="McMaster_Extensions_CommandLineUtils_Conventions_CommandNameFromTypeConvention_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class CommandAttributeConvention : IConvention</code></pre>
+    <pre><code class="lang-csharp hljs">public class CommandNameFromTypeConvention : IConvention</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Conventions_CommandAttributeConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Conventions_CommandNameFromTypeConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Conventions/CommandAttributeConvention.cs/#L16">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Conventions/CommandNameFromTypeConvention.cs/#L20">View Source</a>
   </span>
-  <a id="McMaster_Extensions_CommandLineUtils_Conventions_CommandAttributeConvention_Apply_" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.Apply*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_Conventions_CommandAttributeConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)">Apply(ConventionContext)</h4>
+  <a id="McMaster_Extensions_CommandLineUtils_Conventions_CommandNameFromTypeConvention_Apply_" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_Conventions_CommandNameFromTypeConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)">Apply(ConventionContext)</h4>
   <div class="markdown level1 summary"><p>Apply the convention.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void Apply(ConventionContext context)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Apply(ConventionContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -173,10 +178,10 @@ on the model type for <a class="xref" href="McMaster.Extensions.CommandLineUtils
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Conventions_CommandAttributeConvention.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Conventions_CommandNameFromTypeConvention.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Conventions/CommandAttributeConvention.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Conventions/CommandNameFromTypeConvention.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

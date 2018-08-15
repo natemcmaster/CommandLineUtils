@@ -626,6 +626,15 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.CommandAttribute.#ctor(System.String)
   fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.CommandAttribute(System.String)
   nameWithType: CommandAttribute.CommandAttribute(String)
+- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.#ctor(System.String,System.String[])
+  name: CommandAttribute(String, String[])
+  href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute__ctor_System_String_System_String___
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandAttribute.#ctor(System.String,System.String[])
+  name.vb: CommandAttribute(String, String())
+  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.CommandAttribute(System.String, System.String[])
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandAttribute.CommandAttribute(System.String, System.String())
+  nameWithType: CommandAttribute.CommandAttribute(String, String[])
+  nameWithType.vb: CommandAttribute.CommandAttribute(String, String())
 - uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.#ctor*
   name: CommandAttribute
   href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute__ctor_
@@ -711,6 +720,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.Name
   nameWithType: CommandAttribute.Name
+- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.Names
+  name: Names
+  href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_Names
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandAttribute.Names
+  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.Names
+  nameWithType: CommandAttribute.Names
+- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.Names*
+  name: Names
+  href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_Names_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandAttribute.Names
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.Names
+  nameWithType: CommandAttribute.Names
 - uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.OptionsComparison
   name: OptionsComparison
   href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_OptionsComparison
@@ -813,6 +835,32 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication
   nameWithType: CommandLineApplication.CommandLineApplication
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias(System.String)
+  name: AddAlias(String)
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddAlias_System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias(System.String)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias(System.String)
+  nameWithType: CommandLineApplication.AddAlias(String)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias*
+  name: AddAlias
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddAlias_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias
+  nameWithType: CommandLineApplication.AddAlias
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddSubcommand(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  name: AddSubcommand(CommandLineApplication)
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddSubcommand_McMaster_Extensions_CommandLineUtils_CommandLineApplication_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddSubcommand(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddSubcommand(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  nameWithType: CommandLineApplication.AddSubcommand(CommandLineApplication)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddSubcommand*
+  name: AddSubcommand
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddSubcommand_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddSubcommand
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddSubcommand
+  nameWithType: CommandLineApplication.AddSubcommand
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AllowArgumentSeparator
   name: AllowArgumentSeparator
   href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AllowArgumentSeparator
@@ -1069,12 +1117,6 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetHelpText
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetHelpText()
   nameWithType: CommandLineApplication.GetHelpText()
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetHelpText(System.String)
-  name: GetHelpText(String)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_GetHelpText_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetHelpText(System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetHelpText(System.String)
-  nameWithType: CommandLineApplication.GetHelpText(String)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetHelpText*
   name: GetHelpText
   href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_GetHelpText_
@@ -1205,6 +1247,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Name
   nameWithType: CommandLineApplication.Name
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Names
+  name: Names
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Names
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Names
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Names
+  nameWithType: CommandLineApplication.Names
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Names*
+  name: Names
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Names_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Names
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Names
+  nameWithType: CommandLineApplication.Names
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func{System.Int32})
   name: OnExecute(Func<Int32>)
   href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_System_Func_System_Int32__
@@ -1450,12 +1505,6 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp(System.Boolean)
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp(System.Boolean)
   nameWithType: CommandLineApplication.ShowHelp(Boolean)
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp(System.String)
-  name: ShowHelp(String)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ShowHelp_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp(System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp(System.String)
-  nameWithType: CommandLineApplication.ShowHelp(String)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp*
   name: ShowHelp
   href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ShowHelp_
@@ -2761,6 +2810,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute
   nameWithType: ConventionBuilderExtensions.UseCommandAttribute
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseCommandNameFromModelType(IConventionBuilder)
+  href: api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html#McMaster_Extensions_CommandLineUtils_ConventionBuilderExtensions_UseCommandNameFromModelType_McMaster_Extensions_CommandLineUtils_Conventions_IConventionBuilder_
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseCommandNameFromModelType(IConventionBuilder)
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType*
+  name: UseCommandNameFromModelType
+  href: api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html#McMaster_Extensions_CommandLineUtils_ConventionBuilderExtensions_UseCommandNameFromModelType_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType
+  nameWithType: ConventionBuilderExtensions.UseCommandNameFromModelType
 - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
   name: UseConstructorInjection(IConventionBuilder)
   href: api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html#McMaster_Extensions_CommandLineUtils_ConventionBuilderExtensions_UseConstructorInjection_McMaster_Extensions_CommandLineUtils_Conventions_IConventionBuilder_
@@ -2992,6 +3054,25 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.Apply
   nameWithType: CommandAttributeConvention.Apply
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention
+  name: CommandNameFromTypeConvention
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention
+  nameWithType: CommandNameFromTypeConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  name: Apply(ConventionContext)
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_CommandNameFromTypeConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  nameWithType: CommandNameFromTypeConvention.Apply(ConventionContext)
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply*
+  name: Apply
+  href: api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_CommandNameFromTypeConvention_Apply_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply
+  nameWithType: CommandNameFromTypeConvention.Apply
 - uid: McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention
   name: ConstructorInjectionConvention
   href: api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.html
@@ -4697,12 +4778,15 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.SubcommandAttribute
   fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute
   nameWithType: SubcommandAttribute
-- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor(System.String,System.Type)
-  name: SubcommandAttribute(String, Type)
-  href: api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html#McMaster_Extensions_CommandLineUtils_SubcommandAttribute__ctor_System_String_System_Type_
-  commentId: M:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor(System.String,System.Type)
-  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute(System.String, System.Type)
-  nameWithType: SubcommandAttribute.SubcommandAttribute(String, Type)
+- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor(System.Type[])
+  name: SubcommandAttribute(Type[])
+  href: api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html#McMaster_Extensions_CommandLineUtils_SubcommandAttribute__ctor_System_Type___
+  commentId: M:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor(System.Type[])
+  name.vb: SubcommandAttribute(Type())
+  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute(System.Type[])
+  fullName.vb: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute(System.Type())
+  nameWithType: SubcommandAttribute.SubcommandAttribute(Type[])
+  nameWithType.vb: SubcommandAttribute.SubcommandAttribute(Type())
 - uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor*
   name: SubcommandAttribute
   href: api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html#McMaster_Extensions_CommandLineUtils_SubcommandAttribute__ctor_
@@ -4710,32 +4794,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute
   nameWithType: SubcommandAttribute.SubcommandAttribute
-- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.CommandType
-  name: CommandType
-  href: api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html#McMaster_Extensions_CommandLineUtils_SubcommandAttribute_CommandType
-  commentId: P:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.CommandType
-  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.CommandType
-  nameWithType: SubcommandAttribute.CommandType
-- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.CommandType*
-  name: CommandType
-  href: api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html#McMaster_Extensions_CommandLineUtils_SubcommandAttribute_CommandType_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.CommandType
+- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types
+  name: Types
+  href: api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html#McMaster_Extensions_CommandLineUtils_SubcommandAttribute_Types
+  commentId: P:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types
+  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types
+  nameWithType: SubcommandAttribute.Types
+- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types*
+  name: Types
+  href: api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html#McMaster_Extensions_CommandLineUtils_SubcommandAttribute_Types_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types
   isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.CommandType
-  nameWithType: SubcommandAttribute.CommandType
-- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Name
-  name: Name
-  href: api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html#McMaster_Extensions_CommandLineUtils_SubcommandAttribute_Name
-  commentId: P:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Name
-  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Name
-  nameWithType: SubcommandAttribute.Name
-- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Name*
-  name: Name
-  href: api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html#McMaster_Extensions_CommandLineUtils_SubcommandAttribute_Name_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Name
-  isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Name
-  nameWithType: SubcommandAttribute.Name
+  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types
+  nameWithType: SubcommandAttribute.Types
 - uid: McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
   name: SuppressDefaultHelpOptionAttribute
   href: api/McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.html
@@ -5318,6 +5389,24 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired
   nameWithType: ValidationExtensions.IsRequired
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.String)
+  name: IsRequired<T>(CommandArgument<T>, Boolean, String)
+  href: api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired__1_McMaster_Extensions_CommandLineUtils_CommandArgument___0__System_Boolean_System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.String)
+  name.vb: IsRequired(Of T)(CommandArgument(Of T), Boolean, String)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired<T>(McMaster.Extensions.CommandLineUtils.CommandArgument<T>, System.Boolean, System.String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(Of T)(McMaster.Extensions.CommandLineUtils.CommandArgument(Of T), System.Boolean, System.String)
+  nameWithType: ValidationExtensions.IsRequired<T>(CommandArgument<T>, Boolean, String)
+  nameWithType.vb: ValidationExtensions.IsRequired(Of T)(CommandArgument(Of T), Boolean, String)
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandOption{``0},System.Boolean,System.String)
+  name: IsRequired<T>(CommandOption<T>, Boolean, String)
+  href: api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired__1_McMaster_Extensions_CommandLineUtils_CommandOption___0__System_Boolean_System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandOption{``0},System.Boolean,System.String)
+  name.vb: IsRequired(Of T)(CommandOption(Of T), Boolean, String)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired<T>(McMaster.Extensions.CommandLineUtils.CommandOption<T>, System.Boolean, System.String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(Of T)(McMaster.Extensions.CommandLineUtils.CommandOption(Of T), System.Boolean, System.String)
+  nameWithType: ValidationExtensions.IsRequired<T>(CommandOption<T>, Boolean, String)
+  nameWithType.vb: ValidationExtensions.IsRequired(Of T)(CommandOption(Of T), Boolean, String)
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
   name: LegalFilePath(IValidationBuilder, String)
   href: api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_

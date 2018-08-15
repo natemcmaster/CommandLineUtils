@@ -98,7 +98,7 @@
 <section id="tabpanel_5s6AVonhGs_using-attributes" role="tabpanel" data-tab="using-attributes">
 <p>When using Attributes, you can enable response file parsing by setting the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a>.</p>
 <pre><code class="lang-csharp" highlight-lines="1">[Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you&#39;ve done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
-[Subcommand(&quot;list&quot;, typeof(ListCommand))]
+[Subcommand(typeof(ListCommand))]
 class Program
 {
     public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
@@ -208,7 +208,7 @@ fitness
 </ul>
 <section id="tabpanel_5s6AVonhGs-1_using-attributes" role="tabpanel" data-tab="using-attributes">
 <pre><code class="lang-csharp" highlight-lines="19">[Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you&#39;ve done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
-[Subcommand(&quot;list&quot;, typeof(ListCommand))]
+[Subcommand(typeof(ListCommand))]
 class Program
 {
     public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);

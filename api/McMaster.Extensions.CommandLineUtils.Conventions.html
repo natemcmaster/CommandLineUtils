@@ -101,6 +101,15 @@ on the model type for <a class="xref" href="McMaster.Extensions.CommandLineUtils
       <section><p>Adds settings from <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a> set
 on the model type for <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </section>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.html">CommandNameFromTypeConvention</a></h4>
+      <section><p>Sets the command name based on the model type, if is not otherwise set.
+<p>
+This attempts to infer a command name using a few rules, such as using kebab-case
+and trimming &quot;Command&quot; from the name of the type.
+<example>AddCommand =&gt; &quot;add&quot;</example>
+<example>RemoveItemCommand =&gt; &quot;remove-item&quot;</example>
+</p></p>
+</section>
       <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.html">ConstructorInjectionConvention</a></h4>
       <section><p>Uses an instance of <span class="xref">System.IServiceProvider</span> to call constructors
 when creating models.</p>

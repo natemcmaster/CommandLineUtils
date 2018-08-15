@@ -101,7 +101,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/response-file-parsing.html",
-          "hash": "vZ4PIPDX4LXtgF/5ab78Cg=="
+          "hash": "TByDNvQMe99j/0a5KxO7Eg=="
         }
       },
       "is_incremental": false,
@@ -268,7 +268,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.CommandArgument-1.html",
-          "hash": "rN7ypFwOij9Rf1iob8693Q=="
+          "hash": "J/aMX9d08nXrg4Q4AuLANg=="
         }
       },
       "is_incremental": false,
@@ -292,7 +292,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html",
-          "hash": "lScwlHz7ul6szwtW/3GSvQ=="
+          "hash": "9CDcYQG8T0lvhDFsJ1gR0w=="
         }
       },
       "is_incremental": false,
@@ -304,7 +304,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html",
-          "hash": "f/zMUz7AUHmBqJAWG6h2oA=="
+          "hash": "cmIxC89wL5OeckClWEUuzQ=="
         }
       },
       "is_incremental": false,
@@ -316,7 +316,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html",
-          "hash": "zxSQDiRpxYmOxqgl847Jxg=="
+          "hash": "88NdyHtJi43aRCFdmeOJEg=="
         }
       },
       "is_incremental": false,
@@ -340,7 +340,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.CommandOption-1.html",
-          "hash": "Jw5Qh75NbIro9mkSptN1rA=="
+          "hash": "w0JtdmEvN46OAvy1VbQsfQ=="
         }
       },
       "is_incremental": false,
@@ -412,7 +412,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html",
-          "hash": "llqKzX0OKk7Fnjefrplyiw=="
+          "hash": "SkoCJ+vg2LNvnj2siEDCEA=="
         }
       },
       "is_incremental": false,
@@ -460,7 +460,19 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.html",
-          "hash": "RNVXStTlmiWJtrB7kNzKEQ=="
+          "hash": "dLxHUd9hxJFzCdqUjfGi1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.html",
+          "hash": "8SGvIkSaeVNcDxH4Hl+o1Q=="
         }
       },
       "is_incremental": false,
@@ -544,7 +556,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.html",
-          "hash": "wIhwauKpaRvN3WagLIm7vQ=="
+          "hash": "ileUdcj+J24lrBR/8cmJZQ=="
         }
       },
       "is_incremental": false,
@@ -676,7 +688,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.Conventions.html",
-          "hash": "tJtvuXEAzhSefWw14LxFvQ=="
+          "hash": "VtoRS0cLySqlIYqVPO8mXQ=="
         }
       },
       "is_incremental": false,
@@ -952,7 +964,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html",
-          "hash": "K3s9dYDQCfp9KVn5IUyZ8Q=="
+          "hash": "9ybwQjSDlthx/JawXcz5Mw=="
         }
       },
       "is_incremental": false,
@@ -1180,7 +1192,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html",
-          "hash": "qgEpD48z1HV2Lx7FmO/qJg=="
+          "hash": "s70WdnTyQSM1WUE/Y9qcIA=="
         }
       },
       "is_incremental": false,
@@ -1228,7 +1240,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "8TxzDeGnyoalSTHwcYAGBA=="
+          "hash": "OyZYPn7WS8PLOJrAVHzTqw=="
         }
       },
       "is_incremental": false,
@@ -1260,11 +1272,11 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
