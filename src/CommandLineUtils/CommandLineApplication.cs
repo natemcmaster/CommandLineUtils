@@ -80,7 +80,10 @@ namespace McMaster.Extensions.CommandLineUtils
         internal CommandLineApplication(CommandLineApplication parent, string name, bool throwOnUnexpectedArg)
             : this(parent, parent._helpTextGenerator, parent._context, throwOnUnexpectedArg)
         {
-            Name = name;
+            if (name != null)
+            {
+                Name = name;
+            }
         }
 
         internal CommandLineApplication(CommandLineApplication parent,
@@ -333,7 +336,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 throw new ArgumentException("Value cannot be null or empty.", nameof(alias));
             }
 
-            Parent?.AssertCommandNameIsUnique(alias);
+            Parent?.AssertCommandNameIsUnique(alias, this);
 
             _aliases.Add(alias);
         }
@@ -351,16 +354,21 @@ namespace McMaster.Extensions.CommandLineUtils
 
             foreach (var name in subcommand.Names)
             {
-                AssertCommandNameIsUnique(name);
+                AssertCommandNameIsUnique(name, null);
             }
 
             Commands.Add(subcommand);
         }
 
-        private void AssertCommandNameIsUnique(string name)
+        private void AssertCommandNameIsUnique(string name, CommandLineApplication skip)
         {
             foreach (var cmd in Commands)
             {
+                if (ReferenceEquals(cmd, skip))
+                {
+                    continue;
+                }
+
                 if (cmd.MatchesName(name))
                 {
                     throw new InvalidOperationException(Strings.DuplicateSubcommandName(name));

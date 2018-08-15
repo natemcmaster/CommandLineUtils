@@ -9,9 +9,9 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         public static T[] EmptyArray<T>()
 #if NET45
-            => EmptyArray<T>.Value;
+            => EmptyArrayCache<T>.Value;
 
-        private static class EmptyArray<T>
+        private static class EmptyArrayCache<T>
         {
             internal static readonly T[] Value = new T[0];
         }

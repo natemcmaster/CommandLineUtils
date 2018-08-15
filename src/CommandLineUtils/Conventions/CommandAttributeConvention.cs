@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
@@ -21,6 +22,14 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             var attribute = context.ModelType.GetTypeInfo().GetCustomAttribute<CommandAttribute>();
             attribute?.Configure(context.Application);
+
+            foreach (var subcommand in context.Application.Commands)
+            {
+                if (subcommand is IModelAccessor subcommandAccessor)
+                {
+                    Apply(new ConventionContext(subcommand, subcommandAccessor.GetModelType()));
+                }
+            }
         }
     }
 }

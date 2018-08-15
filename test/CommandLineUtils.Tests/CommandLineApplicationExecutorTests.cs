@@ -282,7 +282,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal("Hello", ex.Message);
         }
 
-        [Subcommand("sub", typeof(DisposableCommand))]
+        [Subcommand(typeof(DisposableCommand))]
         private class ParentCommand
         {
             public void OnExecute()
@@ -297,7 +297,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal("Hello", ex.Message);
         }
 
-        [Subcommand("sub", typeof(Subcommand))]
+        [Subcommand(typeof(Subcommand))]
         private class DisposableParentCommand : IDisposable
         {
             public void OnExecute()
@@ -309,6 +309,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             }
         }
 
+        [Command("sub")]
         private class Subcommand
         {
             public void OnExecute()

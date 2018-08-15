@@ -160,7 +160,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(expected, validation.ErrorMessage);
         }
 
-        [Subcommand("sub", typeof(ValidationErrorSubcommand))]
+        [Subcommand(typeof(ValidationErrorSubcommand))]
         private class ValidationErrorApp
         {
             [Required, Option]
@@ -171,6 +171,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             }
         }
 
+        [Command("sub")]
         private class ValidationErrorSubcommand
         {
             [Argument(0), Required]
@@ -244,12 +245,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.NotEqual(0, rc);
         }
 
-        [Subcommand("sub", typeof(ValidationSubcommand))]
+        [Subcommand(typeof(ValidationSubcommand))]
         private class ValidationParent
         {
             private int OnValidationError() => throw new InvalidOperationException();
         }
 
+        [Command("sub")]
         private class ValidationSubcommand
         {
             [Option, Required]
@@ -264,7 +266,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(10, rc);
         }
 
-        [Subcommand("sub", typeof(EmptyValidationSubcommand))]
+        [Subcommand(typeof(EmptyValidationSubcommand))]
         private class ValidationParentWithRequiredOption
         {
             [Option, Required]
@@ -272,6 +274,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             private int OnValidationError() => throw new InvalidOperationException();
         }
 
+        [Command("sub")]
         private class EmptyValidationSubcommand
         {
             private int OnValidationError() => 10;

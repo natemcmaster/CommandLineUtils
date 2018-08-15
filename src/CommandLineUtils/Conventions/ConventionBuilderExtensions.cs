@@ -160,7 +160,7 @@ namespace McMaster.Extensions.CommandLineUtils
             => builder.AddConvention(new ArgumentAttributeConvention());
 
         /// <summary>
-        /// Adds subcommands for each <see cref="SubcommandAttribute" /> on the model type.
+        /// Adds subcommands for each <see cref="McMaster.Extensions.CommandLineUtils.SubcommandAttribute" /> on the model type.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>

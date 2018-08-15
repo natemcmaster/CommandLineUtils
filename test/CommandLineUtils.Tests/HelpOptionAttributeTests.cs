@@ -151,9 +151,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         [Command(Name = "lvl1")]
         [HelpOption(Inherited = true)]
-        [Subcommand("lvl2", typeof(Sub))]
+        [Subcommand(typeof(Sub))]
         private class Parent
         {
+            [Command("lvl2")]
             private class Sub
             {
                 [Argument(0, Name = "lvl-arg", Description = "subcommand argument")]

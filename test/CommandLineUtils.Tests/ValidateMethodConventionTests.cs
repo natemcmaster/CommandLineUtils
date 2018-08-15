@@ -43,7 +43,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
 
         [Command]
-        [Subcommand("subcommand", typeof(SubcommandValidate))]
+        [Subcommand(typeof(SubcommandValidate))]
         private class MainValidate
         {
             [Option]
@@ -62,7 +62,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             }
         }
 
-        [Command]
+        [Command("subcommand")]
         private class SubcommandValidate
         {
             [Option]

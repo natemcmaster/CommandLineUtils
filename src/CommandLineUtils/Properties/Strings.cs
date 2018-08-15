@@ -42,7 +42,7 @@ namespace McMaster.Extensions.CommandLineUtils
             => $"Ambiguous option name. Both {first.DeclaringType.FullName}.{first.Name} and {second.DeclaringType.FullName}.{second.Name} produce a CommandOption with the name '{optionName}'";
 
         public static string DuplicateSubcommandName(string commandName)
-            => $"The subcommand name '{commandName}' has already been been specified. Subcommand names are case insensitive and must be unique.";
+            => $"The subcommand name '{commandName}' has already been been specified. Subcommand names and aliases must be unique.";
 
         public static string BothOptionAndArgumentAttributesCannotBeSpecified(PropertyInfo prop)
             => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(ArgumentAttribute)} on property {prop.DeclaringType.Name}.{prop.Name}.";

@@ -85,12 +85,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(1, app.Model.GetArgCount());
         }
 
-        [Subcommand("test", typeof(Child))]
+        [Subcommand(typeof(Child))]
         private class Parent
         {
 
         }
 
+        [Command("test")]
         private class Child
         {
             public Parent Parent { get; }
@@ -107,7 +108,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication<Parent>();
             app.Conventions
                 .UseConstructorInjection()
-                .UseSubcommandAttributes();
+                .UseSubcommandAttributes()
+                .UseCommandAttribute();
 
             var result = app.Parse("test");
             var subcmd = Assert.IsType<CommandLineApplication<Child>>(result.SelectedCommand);

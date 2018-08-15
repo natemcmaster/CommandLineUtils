@@ -17,11 +17,14 @@ Enhancements:
   [Command("organization", "org", "o")]
   public class OrgCommand { }
   ```
+* Obsolete the constructor of `[Subcommand]` which takes a string.
 
 Bugs fixed:
 
 * Duplicate subcommand names used to cause undefined behavior. Now, attempting to add a duplicate subcommand name or aliases will
   cause the library to throw before the app can execute.
+* Fix bug in subcommand name inference. When not specified, the subcommand always matched the entry assembly name.
+  In this update, this convention only applies to the parent command.
 
 Details:
 

@@ -7,12 +7,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class SubcommandPropertyConventionTests
     {
-        [Subcommand("add", typeof(AddCmd))]
+        [Subcommand(typeof(AddCmd))]
         private class Program
         {
             public object Subcommand { get; set; }
         }
 
+        [Command("add")]
         private class AddCmd
         {
             public object Parent { get; }
@@ -22,7 +23,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void BindsToSubcommandProperty()
         {
             var app = new CommandLineApplication<Program>();
-            app.Conventions.SetSubcommandPropertyOnModel().UseSubcommandAttributes();
+            app.Conventions.SetSubcommandPropertyOnModel().UseSubcommandAttributes().UseCommandAttribute();
             app.Parse("add");
             Assert.IsType<AddCmd>(app.Model.Subcommand);
         }

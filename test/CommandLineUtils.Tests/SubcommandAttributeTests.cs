@@ -19,8 +19,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             _output = output;
         }
 
-        [Subcommand("add", typeof(AddCmd))]
-        [Subcommand("rm", typeof(RemoveCmd))]
+        [Subcommand(
+            typeof(AddCmd),
+            typeof(RemoveCmd))]
         private class Program
         {
             public object Subcommand { get; set; }
@@ -32,6 +33,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public object Parent { get; }
         }
 
+        [Command("rm")]
         private class RemoveCmd
         { }
 
@@ -46,7 +48,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Command(Name = "master")]
-        [Subcommand("level1", typeof(Level1Cmd))]
+        [Subcommand(typeof(Level1Cmd))]
         private class MasterApp : CommandBase
         {
             [Option(Inherited = true)]
@@ -55,7 +57,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             protected override int OnExecute(CommandLineApplication app) => 100;
         }
 
-        [Subcommand("level2", typeof(Level2Cmd))]
+        [Command("level1")]
+        [Subcommand(typeof(Level2Cmd))]
         private class Level1Cmd : CommandBase
         {
             [Option("--mid")]
@@ -66,6 +69,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public MasterApp Parent { get; }
         }
 
+        [Command("level2")]
         private class Level2Cmd : CommandBase
         {
             [Option("--value")]
@@ -158,7 +162,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ItCreatesNestedSubCommands()
         {
             var app = new CommandLineApplication<MasterApp>();
-            app.Conventions.UseSubcommandAttributes();
+            app.Conventions.UseSubcommandAttributes().UseCommandAttribute();
             var lvl1 = Assert.Single(app.Commands);
             Assert.Equal("level1", lvl1.Name);
             var lvl2 = Assert.Single(lvl1.Commands);
@@ -178,13 +182,16 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(6, sub.Value);
         }
 
-        [Subcommand("level1", typeof(Level1Cmd))]
-        [Subcommand("LEVEL1", typeof(Level2Cmd))]
+        [Subcommand(typeof(Level1Cmd), typeof(Level1DuplicateCmd))]
         private class DuplicateSubCommands
         {
             private void OnExecute()
             { }
         }
+
+        [Command("LEVEL1")]
+        private class Level1DuplicateCmd
+        {}
 
         [Fact]
         public void CommandNamesCannotDifferByCaseOnly()

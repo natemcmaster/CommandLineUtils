@@ -7,13 +7,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class ParentPropertyConventionTests
     {
-        [Subcommand("add", typeof(AddCmd))]
+        [Subcommand(typeof(AddCommand))]
         private class Program
         {
             public object Subcommand { get; set; }
         }
 
-        private class AddCmd
+        [Command("add")]
+        private class AddCommand
         {
             public object Parent { get; }
         }
@@ -22,9 +23,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void BindsToParentProperty()
         {
             var app = new CommandLineApplication<Program>();
-            app.Conventions.SetSubcommandPropertyOnModel().UseSubcommandAttributes().SetParentPropertyOnModel();
+            app.Conventions.SetSubcommandPropertyOnModel().UseSubcommandAttributes().SetParentPropertyOnModel().UseCommandAttribute();
             var result = app.Parse("add");
-            var add = Assert.IsType<CommandLineApplication<AddCmd>>(result.SelectedCommand);
+            var add = Assert.IsType<CommandLineApplication<AddCommand>>(result.SelectedCommand);
             Assert.IsType<Program>(add.Model.Parent);
         }
     }

@@ -193,14 +193,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
 
         [Command()]
-        [Subcommand("subcommand", typeof(CustomParserProgramAttributesSubCommand))]
+        [Subcommand(typeof(CustomParserProgramAttributesSubCommand))]
         private class CustomParserProgramAttributes
         {
             [Option("-a")]
             public DateTimeOffset MainDate { get; }
         }
 
-        [Command()]
+        [Command("subcommand")]
         private class CustomParserProgramAttributesSubCommand
         {
             [Option("-b")]

@@ -8,7 +8,7 @@ using System.Reflection;
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
     /// <summary>
-    /// Creates a subcommand for each <see cref="SubcommandAttribute"/>
+    /// Creates a subcommand for each <see cref="McMaster.Extensions.CommandLineUtils.SubcommandAttribute"/>
     /// on the model type of <see cref="CommandLineApplication{TModel}"/>.
     /// </summary>
     public class SubcommandAttributeConvention : IConvention
@@ -21,34 +21,37 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            var subcommands = context.ModelType.GetTypeInfo().GetCustomAttributes<SubcommandAttribute>();
-            if (subcommands == null)
-            {
-                return;
-            }
+            var attributes = context.ModelType.GetTypeInfo().GetCustomAttributes<SubcommandAttribute>();
 
-            foreach (var subcommand in subcommands)
+            foreach (var attribute in attributes)
             {
-                var impl = s_addSubcommandMethod.MakeGenericMethod(subcommand.CommandType);
-                try
+                var contextArgs = new object[] { context, attribute };
+                foreach (var type in attribute.Types)
                 {
-                    impl.Invoke(this, new object[] { context, subcommand });
-                }
-                catch (TargetInvocationException ex)
-                {
-                    // unwrap
-                    throw ex.InnerException ?? ex;
+                    var impl = s_addSubcommandMethod.MakeGenericMethod(type);
+                    try
+                    {
+                        impl.Invoke(this, contextArgs);
+                    }
+                    catch (TargetInvocationException ex)
+                    {
+                        // unwrap
+                        throw ex.InnerException ?? ex;
+                    }
                 }
             }
         }
 
         private static readonly MethodInfo s_addSubcommandMethod
-            = typeof(SubcommandAttributeConvention).GetRuntimeMethods().Single(m => m.Name == nameof(AddSubcommandImpl));
+            = typeof(SubcommandAttributeConvention).GetRuntimeMethods()
+                .Single(m => m.Name == nameof(AddSubcommandImpl));
 
         private void AddSubcommandImpl<TSubCommand>(ConventionContext context, SubcommandAttribute subcommand)
             where TSubCommand : class
         {
+#pragma warning disable 618
             context.Application.Command<TSubCommand>(subcommand.Name, subcommand.Configure);
+#pragma warning restore 618
         }
     }
 }

@@ -58,7 +58,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.NotNull(subcmd.OptionHelp.SymbolName);
         }
 
-        [Subcommand("sub", typeof(Sub))]
+        [Subcommand(typeof(Sub))]
         private class Program
         {
             public class Sub { }
