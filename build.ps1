@@ -66,7 +66,7 @@ exec dotnet build --configuration $Configuration '-warnaserror:CS1591' @MSBuildA
 exec dotnet pack --no-restore --no-build --configuration $Configuration -o $artifacts @MSBuildArgs
 
 [string[]] $testArgs=@()
-if (-not $IsCoreCLR -or -not $IsWindows) {
+if ($PSVersionTable.PSEdition -eq 'Core' -and -not $IsWindows) {
     $testArgs += '--framework','netcoreapp2.1'
 }
 
