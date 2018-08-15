@@ -64,8 +64,15 @@ Remove-Item -Recurse $artifacts -ErrorAction Ignore
 
 exec dotnet build --configuration $Configuration '-warnaserror:CS1591' @MSBuildArgs
 exec dotnet pack --no-restore --no-build --configuration $Configuration -o $artifacts @MSBuildArgs
+
+[string[]] $testArgs=@()
+if (-not $IsCoreCLR -or -not $IsWindows) {
+    $testArgs += '--framework','netcoreapp2.1'
+}
+
 exec dotnet test --no-restore --no-build --configuration $Configuration '-clp:Summary' `
     "$PSScriptRoot/test/CommandLineUtils.Tests/McMaster.Extensions.CommandLineUtils.Tests.csproj" `
+    @testArgs `
     @MSBuildArgs
 
 write-host -f magenta 'Done'

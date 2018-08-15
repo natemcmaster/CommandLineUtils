@@ -33,4 +33,9 @@
     <BaseOutputPath>$(MSBuildThisFileDirectory).build\bin\$(MSBuildProjectName)\</BaseOutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <!-- For x-plat develpment. Workaround for https://github.com/dotnet/sdk/issues/335 -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0-alpha-004" PrivateAssets="all" />
+  </ItemGroup>
+
 </Project>

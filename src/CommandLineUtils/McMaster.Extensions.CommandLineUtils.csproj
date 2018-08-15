@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard1.6</TargetFrameworks>
-    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform(Windows))">$(TargetFrameworks);net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard1.6;net45</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
     <Description>Command-line parsing API. A community-maintained fork of Microsoft.Extensions.CommandLineUtils, plus extras.
