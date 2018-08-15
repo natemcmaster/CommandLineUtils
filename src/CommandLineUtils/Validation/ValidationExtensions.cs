@@ -29,6 +29,21 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
+        /// Indicates the option is required.
+        /// </summary>
+        /// <param name="option">The option.</param>
+        /// <param name="allowEmptyStrings">Indicates whether an empty string is allowed.</param>
+        /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
+        /// <returns>The option.</returns>
+        public static CommandOption<T> IsRequired<T>(this CommandOption<T> option, bool allowEmptyStrings = false,
+            string errorMessage = null)
+        {
+
+            IsRequired((CommandOption)option, allowEmptyStrings, errorMessage);
+            return option;
+        }
+
+        /// <summary>
         /// Indicates the argument is required.
         /// </summary>
         /// <param name="argument">The argument.</param>
@@ -40,6 +55,19 @@ namespace McMaster.Extensions.CommandLineUtils
             var attribute = GetValidationAttr<RequiredAttribute>(errorMessage);
             attribute.AllowEmptyStrings = allowEmptyStrings;
             argument.Validators.Add(new AttributeValidator(attribute));
+            return argument;
+        }
+
+        /// <summary>
+        /// Indicates the argument is required.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="allowEmptyStrings">Indicates whether an empty string is allowed.</param>
+        /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
+        /// <returns>The argument.</returns>
+        public static CommandArgument<T> IsRequired<T>(this CommandArgument<T> argument, bool allowEmptyStrings = false, string errorMessage = null)
+        {
+            IsRequired((CommandArgument)argument, allowEmptyStrings, errorMessage);
             return argument;
         }
 

@@ -32,6 +32,8 @@ Bugs fixed:
   cause the library to throw before the app can execute.
 * Fix bug in subcommand name inference. When not specified, the subcommand always matched the entry assembly name.
   In this update, this convention only applies to the parent command.
+* Fix [#131](https://github.com/natemcmaster/CommandLineUtils/issues/131) - Add generic overloads of `.IsRequired()` for 
+ `CommandOption<T>` and `CommandArgument<T>`.
 
 Details:
 
