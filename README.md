@@ -135,4 +135,4 @@ The library also includes other utilities for interaction with the console. Thes
     Process.Start(DotNetExe.FullPathOrDefault(), "run");
     ```
 
-And more! See the docs for more API, such as `IConsole`, `IReporter`, and others.
+And more! See the [documentation](https://natemcmaster.github.io/CommandLineUtils/) for more API, such as `IConsole`, `IReporter`, and others.
