@@ -100,15 +100,34 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public Uri Uri { get; set; }
         }
 
+        private sealed class InCulture : IDisposable
+        {
+            private readonly CultureInfo _oldCultureInfo;
+
+            public InCulture(CultureInfo newCultureInfo)
+            {
+                _oldCultureInfo = CultureInfo.CurrentCulture;
+                CultureInfo.CurrentCulture = newCultureInfo;
+            }
+
+            public void Dispose()
+            {
+                CultureInfo.CurrentCulture = _oldCultureInfo;
+            }
+        }
+
         public static IEnumerable<object[]> GetFloatingPointSymbolsData()
         {
-            var format = CultureInfo.CurrentCulture.NumberFormat;
-            return new[]
-                   {
-                       new object[] { format.PositiveInfinitySymbol, float.PositiveInfinity },
-                       new object[] { format.NegativeInfinitySymbol, float.NegativeInfinity },
-                       new object[] { format.NaNSymbol, float.NaN},
-                   };
+            using (new InCulture(CultureInfo.InvariantCulture))
+            {
+                var format = CultureInfo.CurrentCulture.NumberFormat;
+                return new[]
+                {
+                    new object[] { format.PositiveInfinitySymbol, float.PositiveInfinity },
+                    new object[] { format.NegativeInfinitySymbol, float.NegativeInfinity },
+                    new object[] { format.NaNSymbol, float.NaN},
+                };
+            }
         }
 
         [Theory]
@@ -183,8 +202,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [MemberData(nameof(GetFloatingPointSymbolsData))]
         public void ParsesFloat(string arg, float result)
         {
-            var parsed = CommandLineParser.ParseArgs<Program>("--float", arg);
-            Assert.Equal(result, parsed.Float);
+            using (new InCulture(CultureInfo.InvariantCulture))
+            {
+                var parsed = CommandLineParser.ParseArgs<Program>("--float", arg);
+                Assert.Equal(result, parsed.Float);
+            }
         }
 
         [Theory]
@@ -195,8 +217,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [MemberData(nameof(GetFloatingPointSymbolsData))]
         public void ParsesDouble(string arg, double result)
         {
-            var parsed = CommandLineParser.ParseArgs<Program>("--double", arg);
-            Assert.Equal(result, parsed.Double);
+            using (new InCulture(CultureInfo.InvariantCulture))
+            {
+                var parsed = CommandLineParser.ParseArgs<Program>("--double", arg);
+                Assert.Equal(result, parsed.Double);
+            }
         }
 
         [Theory]
@@ -208,8 +233,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("", null)]
         public void ParsesFloatNullable(string arg, float? result)
         {
-            var parsed = CommandLineParser.ParseArgs<Program>("--float-opt", arg);
-            Assert.Equal(result, parsed.FloatOpt);
+            using (new InCulture(CultureInfo.InvariantCulture))
+            {
+                var parsed = CommandLineParser.ParseArgs<Program>("--float-opt", arg);
+                Assert.Equal(result, parsed.FloatOpt);
+            }
         }
 
         [Theory]
@@ -221,8 +249,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("", null)]
         public void ParsesDoubleNullable(string arg, double? result)
         {
-            var parsed = CommandLineParser.ParseArgs<Program>("--double-opt", arg);
-            Assert.Equal(result, parsed.DoubleOpt);
+            using (new InCulture(CultureInfo.InvariantCulture))
+            {
+                var parsed = CommandLineParser.ParseArgs<Program>("--double-opt", arg);
+                Assert.Equal(result, parsed.DoubleOpt);
+            }
         }
 
         [Theory]
@@ -458,8 +489,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [MemberData(nameof(TupleData))]
         public void ItParsesParamofT(Type type, string input, object expected)
         {
-            s_ItParsesOptionOfTImpl.MakeGenericMethod(type).Invoke(this, new[] { input, expected });
-            s_ItParsesArgumentOfTImpl.MakeGenericMethod(type).Invoke(this, new[] { input, expected });
+            using (new InCulture(CultureInfo.InvariantCulture))
+            {
+                s_ItParsesOptionOfTImpl.MakeGenericMethod(type).Invoke(this, new[] { input, expected });
+                s_ItParsesArgumentOfTImpl.MakeGenericMethod(type).Invoke(this, new[] { input, expected });
+            }
         }
 
         public static TheoryData<Type, string, object> TupleData
