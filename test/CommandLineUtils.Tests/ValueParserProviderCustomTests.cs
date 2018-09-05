@@ -42,12 +42,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
                 try
                 {
-                    var item1 = double.Parse(fragments[0]);
-                    var item2 = double.Parse(fragments[1]);
+                    var item1 = double.Parse(fragments[0], CultureInfo.InvariantCulture);
+                    var item2 = double.Parse(fragments[1], CultureInfo.InvariantCulture);
                     var item3 = fragments[2];
                     return (ValueTuple<int, double, string>?)(item1, item2, item3);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     throw new FormatException(
                         $"Invalid value specified for {argName}. '{value} is not a valid time span (with offset)",
