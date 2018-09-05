@@ -215,7 +215,10 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 var newLineWithMessagePadding = Environment.NewLine + new string(' ', firstColumnWidth + 2);
 
-                foreach (var cmd in visibleCommands.OrderBy(c => c.Name))
+                var orderedCommands = application.OrderCommandsByNameInHelpText
+                    ? visibleCommands.OrderBy(c => c.Name).ToList()
+                    : visibleCommands;
+                foreach (var cmd in orderedCommands)
                 {
                     var message = string.Format(outputFormat, cmd.Name, cmd.Description);
                     message = message.Replace(Environment.NewLine, newLineWithMessagePadding);

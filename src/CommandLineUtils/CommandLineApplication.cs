@@ -315,6 +315,11 @@ namespace McMaster.Extensions.CommandLineUtils
         public TextWriter Error { get; set; }
 
         /// <summary>
+        /// Determines if commands are ordered by name in generated help text
+        /// </summary>
+        public bool OrderCommandsByNameInHelpText { get; set; } = true;
+
+        /// <summary>
         /// Gets all command line options available to this command, including any inherited options.
         /// </summary>
         /// <returns>Command line options.</returns>
