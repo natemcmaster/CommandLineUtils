@@ -182,7 +182,7 @@ public class Program
 {
     public static int Main(string[] args)
     {
-        var app = new CommandLineApplication(throwOnUnexpectedArgs: false);
+        var app = new CommandLineApplication(throwOnUnexpectedArg: false);
         var blankLines = app.Option&lt;int&gt;(&quot;-b &lt;LINES&gt;&quot;, &quot;Blank lines&quot;, CommandOptionType.SingleValue);
         app.OnExecute(() =&gt;
         {
