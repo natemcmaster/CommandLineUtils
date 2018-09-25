@@ -32,6 +32,11 @@ if ($ci) {
     $MSBuildArgs += '-p:CI=true'
 }
 
+if (-not (Test-Path Variable:/IsCoreCLR)) {
+    $IsWindows = $true
+    $IsCoreCLR = $false
+}
+
 $CodeSign = $sign -or ($ci -and -not $env:APPVEYOR_PULL_REQUEST_HEAD_COMMIT -and ($IsWindows -or -not $IsCoreCLR))
 
 if ($CodeSign) {
