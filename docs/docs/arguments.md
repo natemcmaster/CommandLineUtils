@@ -114,7 +114,7 @@ public class Program
 {
     public static int Main(string[] args)
     {
-        var app = new CommandLineApplication(throwOnUnexpectedArgs: false);
+        var app = new CommandLineApplication(throwOnUnexpectedArg: false);
         var blankLines = app.Option<int>("-b <LINES>", "Blank lines", CommandOptionType.SingleValue);
         app.OnExecute(() =>
         {
