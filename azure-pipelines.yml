@@ -1,0 +1,5 @@
+pool:
+  vmImage: 'VS2017-Win2016'
+
+steps:
+- powershell: .\build.ps1 -ci
