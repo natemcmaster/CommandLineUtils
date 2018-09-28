@@ -59,9 +59,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void DontOrderCommandsByName()
         {
+            DefaultHelpTextGenerator.Singleton.OrderCommandsByNameInHelpText = false;
             var app = new CommandLineApplication<EmptyShortName>();
             app.Conventions.UseDefaultConventions();
-            app.OrderCommandsByNameInHelpText = false;
             app.Command("b", null);
             app.Command("a", null);
             var sb = new StringBuilder();
