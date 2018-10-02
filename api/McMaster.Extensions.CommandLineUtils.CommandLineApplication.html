@@ -708,7 +708,7 @@
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_Names_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication.Names*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_Names" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication.Names">Names</h4>
-  <div class="markdown level1 summary"><p>All names by which the command can be referenced. This includes <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Name">Name</a> and an aliases added in <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddAlias_System_String_">AddAlias(String)</a>.</p>
+  <div class="markdown level1 summary"><p>All names by which the command can be referenced. This includes <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Name">Name</a> and an aliases added in <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddName_System_String_">AddName(String)</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1256,22 +1256,22 @@ This will be used as the base path for opening response files when <a class="xre
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddAlias_System_String_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddName_System_String_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication.cs/#L341">View Source</a>
   </span>
-  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddAlias_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddAlias_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias(System.String)">AddAlias(String)</h4>
-  <div class="markdown level1 summary"><p>Add an alias for the command.
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddName_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddName_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName(System.String)">AddName(String)</h4>
+  <div class="markdown level1 summary"><p>Add another name for the command.
 <p>
-An alias is a shorter name by which a command may be referenced.
+Additional names can be shorter, longer, or alternative names by which a command may be invoked on the command line.
 </p></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddAlias(string alias)</code></pre>
+    <pre><code class="lang-csharp hljs">public void AddName(string name)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1285,8 +1285,8 @@ An alias is a shorter name by which a command may be referenced.
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">alias</span></td>
-        <td><p>The alias. Must not be null or empty.</p>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name. Must not be null or empty.</p>
 </td>
       </tr>
     </tbody>

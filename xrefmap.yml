@@ -626,15 +626,15 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.CommandAttribute.#ctor(System.String)
   fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.CommandAttribute(System.String)
   nameWithType: CommandAttribute.CommandAttribute(String)
-- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.#ctor(System.String,System.String[])
-  name: CommandAttribute(String, String[])
-  href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute__ctor_System_String_System_String___
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandAttribute.#ctor(System.String,System.String[])
-  name.vb: CommandAttribute(String, String())
-  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.CommandAttribute(System.String, System.String[])
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandAttribute.CommandAttribute(System.String, System.String())
-  nameWithType: CommandAttribute.CommandAttribute(String, String[])
-  nameWithType.vb: CommandAttribute.CommandAttribute(String, String())
+- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.#ctor(System.String[])
+  name: CommandAttribute(String[])
+  href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute__ctor_System_String___
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandAttribute.#ctor(System.String[])
+  name.vb: CommandAttribute(String())
+  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.CommandAttribute(System.String[])
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandAttribute.CommandAttribute(System.String())
+  nameWithType: CommandAttribute.CommandAttribute(String[])
+  nameWithType.vb: CommandAttribute.CommandAttribute(String())
 - uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.#ctor*
   name: CommandAttribute
   href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute__ctor_
@@ -655,19 +655,6 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.AllowArgumentSeparator
   nameWithType: CommandAttribute.AllowArgumentSeparator
-- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
-  name: ClusterOptions
-  href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ClusterOptions
-  commentId: P:McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
-  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
-  nameWithType: CommandAttribute.ClusterOptions
-- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions*
-  name: ClusterOptions
-  href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ClusterOptions_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
-  isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
-  nameWithType: CommandAttribute.ClusterOptions
 - uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.Description
   name: Description
   href: api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_Description
@@ -835,19 +822,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication
   nameWithType: CommandLineApplication.CommandLineApplication
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias(System.String)
-  name: AddAlias(String)
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddAlias_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias(System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias(System.String)
-  nameWithType: CommandLineApplication.AddAlias(String)
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias*
-  name: AddAlias
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddAlias_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName(System.String)
+  name: AddName(String)
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddName_System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName(System.String)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName(System.String)
+  nameWithType: CommandLineApplication.AddName(String)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName*
+  name: AddName
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddName_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName
   isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddAlias
-  nameWithType: CommandLineApplication.AddAlias
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName
+  nameWithType: CommandLineApplication.AddName
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddSubcommand(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
   name: AddSubcommand(CommandLineApplication)
   href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddSubcommand_McMaster_Extensions_CommandLineUtils_CommandLineApplication_

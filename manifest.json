@@ -292,7 +292,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html",
-          "hash": "9CDcYQG8T0lvhDFsJ1gR0w=="
+          "hash": "rrS5iIMorhzxLLsgndirrA=="
         }
       },
       "is_incremental": false,
@@ -304,7 +304,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html",
-          "hash": "cmIxC89wL5OeckClWEUuzQ=="
+          "hash": "1IxgTyujTAg8PK0YLPm6mA=="
         }
       },
       "is_incremental": false,
@@ -316,7 +316,7 @@
       "output": {
         ".html": {
           "relative_path": "api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html",
-          "hash": "88NdyHtJi43aRCFdmeOJEg=="
+          "hash": "fVEsPXyBuU5+io9nGpNS9A=="
         }
       },
       "is_incremental": false,
@@ -1267,11 +1267,6 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
@@ -1283,6 +1278,11 @@
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }
