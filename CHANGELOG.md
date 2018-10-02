@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.3.0-alpha]
+## [v2.3.0-alpha]
 
 Enhancements:
 
