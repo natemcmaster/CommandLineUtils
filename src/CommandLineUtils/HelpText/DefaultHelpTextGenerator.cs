@@ -23,6 +23,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// </summary>
         protected DefaultHelpTextGenerator() { }
 
+        /// <summary>
+        /// Determines if commands are ordered by name in generated help text
+        /// </summary>
+        public bool SortCommandsByName { get; set; } = true;
+
         /// <inheritdoc />
         public virtual void Generate(CommandLineApplication application, TextWriter output)
         {
@@ -215,7 +220,10 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 var newLineWithMessagePadding = Environment.NewLine + new string(' ', firstColumnWidth + 2);
 
-                foreach (var cmd in visibleCommands.OrderBy(c => c.Name))
+                var orderedCommands = SortCommandsByName
+                    ? visibleCommands.OrderBy(c => c.Name).ToList()
+                    : visibleCommands;
+                foreach (var cmd in orderedCommands)
                 {
                     var message = string.Format(outputFormat, cmd.Name, cmd.Description);
                     message = message.Replace(Environment.NewLine, newLineWithMessagePadding);
