@@ -14,7 +14,6 @@ namespace McMaster.Extensions.CommandLineUtils
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class CommandAttribute : Attribute
     {
-        private bool? _clusterOptions;
         private string[] _names = Util.EmptyArray<string>();
 
         /// <summary>
@@ -35,11 +34,10 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Initializes a new <see cref="CommandAttribute"/>.
         /// </summary>
-        /// <param name="name">The primary name of the command.</param>
-        /// <param name="aliases">The names of the command.</param>
-        public CommandAttribute(string name, params string[] aliases)
+        /// <param name="names">The names of the command. The first name given is the primary name</param>
+        public CommandAttribute(params string[] names)
         {
-            _names = new[] { name }.Concat(aliases).ToArray();
+            _names = names;
         }
 
         /// <summary>
@@ -102,31 +100,14 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public CultureInfo ParseCulture { get; set; } = CultureInfo.CurrentCulture;
 
-        /// <summary>
-        /// <para>
-        /// One or more options of <see cref="CommandOptionType.NoValue"/>, followed by at most one option that takes values, should be accepted when grouped behind one '-' delimiter.
-        /// </para>
-        /// <para>
-        /// This defaults to true unless an option with a short name of two or more characters is added.
-        /// </para>
-        /// <para>
-        /// See <see cref="ParserSettings.ClusterOptions"/> for more details.
-        /// </para>
-        /// </summary>
-        public bool ClusterOptions
-        {
-            get => _clusterOptions ?? true;
-            set => _clusterOptions = value;
-        }
-
         internal void Configure(CommandLineApplication app)
         {
             // this might have been set from SubcommandAttribute
             app.Name = Name ?? app.Name;
 
-            foreach (var alias in Names.Skip(1))
+            foreach (var name in Names.Skip(1))
             {
-                app.AddAlias(alias);
+                app.AddName(name);
             }
 
             app.AllowArgumentSeparator = AllowArgumentSeparator;
@@ -138,12 +119,6 @@ namespace McMaster.Extensions.CommandLineUtils
             app.ThrowOnUnexpectedArgument = ThrowOnUnexpectedArgument;
             app.OptionsComparison = OptionsComparison;
             app.ValueParsers.ParseCulture = ParseCulture;
-
-            // detect if this is explicitly set. Otherwise, we try to infer if clustering options is okay.
-            if (_clusterOptions.HasValue)
-            {
-                app.ParserSettings.ClusterOptions = ClusterOptions;
-            }
         }
     }
 }

@@ -88,7 +88,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             app.Command("sub1", c =>
             {
-                c.AddAlias("s");
+                c.AddName("s");
             });
 
             var ex = Assert.Throws<InvalidOperationException>(() => app.Command("sub1", null));
@@ -105,10 +105,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             app.Command("sub1", c =>
             {
-                c.AddAlias("s");
+                c.AddName("s");
             });
 
-            var ex = Assert.Throws<InvalidOperationException>(() => app.Command("sub2", c => c.AddAlias("s")));
+            var ex = Assert.Throws<InvalidOperationException>(() => app.Command("sub2", c => c.AddName("s")));
             Assert.Equal(Strings.DuplicateSubcommandName("s"), ex.Message);
         }
 

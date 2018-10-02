@@ -262,7 +262,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             var cmd = app.Command("sub1", c =>
             {
-                c.AddAlias("s");
+                c.AddName("s");
             });
 
             var result = app.Parse("s");

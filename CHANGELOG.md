@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [2.3.0-alpha]
 
 Enhancements:
 
@@ -10,8 +10,8 @@ Enhancements:
 * New type: `Pager`. Provides a simple interaction model for displaying console output in a pager.
 * Display help text using the `less` pager on macOS/Linux.
 * Make suggestions when invalid options or commands are used, but there is a valid one that is similar.
-  (Thanks to [@MadbHatter][@MadbHatter] for doing the inital work on this.)
-* Add support for subcommand aliases.
+  (Thanks to [@MadbHatter][@MadbHatter] for doing the initial work on this.)
+* Add support for subcommand aliases. Commands can be given multiple names.
 
   ```c#
   [Command("organization", "org", "o")]
@@ -25,6 +25,7 @@ Enhancements:
 
   public class AddCommand { } // subcommand name = "add"
   ```
+* [@lvermeulen]: Sort subcommands by name in help text. This can be disabled with `DefaultHelpTextGenerator.SortCommandsByName`.
 
 Bugs fixed:
 
@@ -39,8 +40,8 @@ Details:
 
 * **Clustering options:** I've added this behavior as the new default, but only if I think it won't interfere with existing apps.
   If it causes issues or you don't like clustering, you can disable this by setting 
-  `CommandLineApplication.ParserSettings.ClusterOptions = false`, or adding `[Command(ClusterOptions = false)]`.
-  To preserve compatibilty with existing apps, this behavior is off if you have configured options with short names with 
+  `CommandLineApplication.ParserSettings.ClusterOptions = false`.
+  To preserve compatibility with existing apps, this behavior is off if you have configured options with short names with 
   multiple characters. In a future version, this will cause an error unless you set `ClusterOptions = false`.
 
 * **Pager:** this is the new default for showing help text. The pager should have graceful fallback to regular stdout 
@@ -94,7 +95,7 @@ Bug fixes:
  - Don't assign option and argument options if no value was provided, preserving the default CLR value unless there is user-input.
  - Fix ShowHint() to use ShortName or SymbolName if OptionHelp.LongName is not set
  - Fix [#85](https://github.com/natemcmaster/CommandLineUtils/issues/85) - lower priority of resolving AdditionalServices after most built-in services
- - Fix [#79](https://github.com/natemcmaster/CommandLineUtils/issues/79) - OnValidate callbacks invoked before property valueswere assigned
+ - Fix [#79](https://github.com/natemcmaster/CommandLineUtils/issues/79) - OnValidate callbacks invoked before property values were assigned
 
 Minor improvements:
 
@@ -105,7 +106,7 @@ Minor improvements:
 **March 30, 2018**
 
  - Added support for command validators using `CommandLineApplication.Validators` and added a new OnValidate convention
- - Fix minor bug in ArgumentEscaper where some strings were not properly escaped
+ - Fix minor bug in `ArgumentEscaper` where some strings were not properly escaped
  - Update to System.ComponentModel.Annotations 4.4.1 (netstandard2.0 only)
  - [@atruskie]: Ensure ValueParsers are inherited in subcommands
 
@@ -227,12 +228,14 @@ Other:
 [@jerriep]: https://github.com/jerriep
 [@kant2002]: https://github.com/kant2002
 [@liamdawson]: https://github.com/liamdawson
+[@lvermeulen]: https://github.com/lvermeulen
 [@MadbHatter]: https://github.com/MadbHatter
 [@rmcc13]: https://github.com/rmcc13
 [@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros
 
 [Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...HEAD
+[v2.3.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-alpha
 [v2.2.5]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.4...v2.2.5
 [v2.2.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.3...v2.2.4
 [v2.2.3]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.3...v2.2.3

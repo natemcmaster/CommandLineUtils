@@ -26,7 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private List<Action<ParseResult>> _onParsingComplete;
         internal readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
         internal readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
-        private readonly HashSet<string> _aliases = new HashSet<string>(StringComparer.Ordinal);
+        private readonly HashSet<string> _names = new HashSet<string>(StringComparer.Ordinal);
 
 
         private const int HelpExitCode = 0;
@@ -171,7 +171,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public List<CommandOption> Options { get; private set; }
 
         /// <summary>
-        /// All names by which the command can be referenced. This includes <see cref="Name"/> and an aliases added in <see cref="AddAlias"/>.
+        /// All names by which the command can be referenced. This includes <see cref="Name"/> and an aliases added in <see cref="AddName"/>.
         /// </summary>
         public IEnumerable<string> Names
         {
@@ -182,9 +182,9 @@ namespace McMaster.Extensions.CommandLineUtils
                     yield return Name;
                 }
 
-                foreach (var alias in _aliases)
+                foreach (var names in _names)
                 {
-                    yield return alias;
+                    yield return names;
                 }
             }
         }
@@ -332,22 +332,22 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Add an alias for the command.
+        /// Add another name for the command.
         /// <para>
-        /// An alias is a shorter name by which a command may be referenced.
+        /// Additional names can be shorter, longer, or alternative names by which a command may be invoked on the command line.
         /// </para>
         /// </summary>
-        /// <param name="alias">The alias. Must not be null or empty.</param>
-        public void AddAlias(string alias)
+        /// <param name="name">The name. Must not be null or empty.</param>
+        public void AddName(string name)
         {
-            if (string.IsNullOrEmpty(alias))
+            if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentException("Value cannot be null or empty.", nameof(alias));
+                throw new ArgumentException("Value cannot be null or empty.", nameof(name));
             }
 
-            Parent?.AssertCommandNameIsUnique(alias, this);
+            Parent?.AssertCommandNameIsUnique(name, this);
 
-            _aliases.Add(alias);
+            _names.Add(name);
         }
 
         /// <summary>
@@ -965,7 +965,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 return true;
             }
 
-            return _aliases.Contains(name);
+            return _names.Contains(name);
         }
 
         private sealed class Builder : IConventionBuilder
