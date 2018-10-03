@@ -853,6 +853,18 @@ Examples:
         }
 
         [Fact]
+        public void NonClusteredOptionCanBeSymbolic()
+        {
+            var app = new CommandLineApplication();
+            var option = app.Option("-!|-o|--out", "Output", CommandOptionType.NoValue);
+            var otherOption = app.Option("-o2|--option2", "Option2", CommandOptionType.NoValue);
+
+            app.Execute("-!");
+            Assert.True(option.HasValue(), "Output option should be set");
+            Assert.False(otherOption.HasValue(), "Option2 should not be set");
+        }
+
+        [Fact]
         public void OptionsCanVaryByCase()
         {
             var app = new CommandLineApplication();
