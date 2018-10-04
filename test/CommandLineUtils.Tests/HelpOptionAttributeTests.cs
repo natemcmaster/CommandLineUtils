@@ -178,13 +178,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Theory]
-        [InlineData(new[] { "get", "--help" }, 0, "Gets a list of things.")]
-        [InlineData(new[] { "get", "-h" }, 0, "Gets a list of things.")]
-        [InlineData(new[] { "get", "-?" }, 0, "Gets a list of things.")]
-        [InlineData(new[] { "--help" }, 0, "Usage: updater [options] [command]")]
-        [InlineData(new[] { "-h" }, 0, "Usage: updater [options] [command]")]
-        [InlineData(new[] { "-?" }, 0, "Usage: updater [options] [command]")]
-        public void NestedHelpOptionsChoosesHelpOptionNearestSelectedCommand(string[] args, int exitCode, string helpNeedle)
+        [InlineData(new[] { "get", "--help" }, "Usage: updater get [options]")]
+        [InlineData(new[] { "get", "-h" }, "Usage: updater get [options]")]
+        [InlineData(new[] { "get", "-?" }, "Usage: updater get [options]")]
+        [InlineData(new[] { "--help" }, "Usage: updater [options] [command]")]
+        [InlineData(new[] { "-h" }, "Usage: updater [options] [command]")]
+        [InlineData(new[] { "-?" }, "Usage: updater [options] [command]")]
+        public void NestedHelpOptionsChoosesHelpOptionNearestSelectedCommand(string[] args, string helpNeedle)
         {
             var sb = new StringBuilder();
             var outWriter = new StringWriter(sb);
@@ -211,10 +211,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             app.Commands.ForEach(f => f.Out = outWriter);
 
-            var resultQuestionMarkHelp = app.Execute(args);
+            app.Execute(args);
             var outData = sb.ToString();
 
-            Assert.Equal(exitCode, resultQuestionMarkHelp);
             Assert.Contains(helpNeedle, outData);
         }
     }
