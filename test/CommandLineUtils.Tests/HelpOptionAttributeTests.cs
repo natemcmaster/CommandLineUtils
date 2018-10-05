@@ -167,7 +167,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var sb = new StringBuilder();
             var outWriter = new StringWriter(sb);
-            var app = new CommandLineApplication<Parent> { Out = outWriter };
+            var app = new CommandLineApplication<Parent> {Out = outWriter};
             app.Conventions.UseDefaultConventions();
             app.Commands.ForEach(f => f.Out = outWriter);
             app.Execute("lvl2", "--help");
@@ -175,6 +175,46 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.True(app.OptionHelp.HasValue());
             Assert.Contains("Usage: lvl1 lvl2 [arguments] [options]", outData);
+        }
+
+        [Theory]
+        [InlineData(new[] { "get", "--help" }, "Usage: updater get [options]")]
+        [InlineData(new[] { "get", "-h" }, "Usage: updater get [options]")]
+        [InlineData(new[] { "get", "-?" }, "Usage: updater get [options]")]
+        [InlineData(new[] { "--help" }, "Usage: updater [options] [command]")]
+        [InlineData(new[] { "-h" }, "Usage: updater [options] [command]")]
+        [InlineData(new[] { "-?" }, "Usage: updater [options] [command]")]
+        public void NestedHelpOptionsChoosesHelpOptionNearestSelectedCommand(string[] args, string helpNeedle)
+        {
+            var sb = new StringBuilder();
+            var outWriter = new StringWriter(sb);
+
+            var app = new CommandLineApplication { Name = "updater", Out = outWriter };
+            app.HelpOption(true);
+
+            app.Command("get", getCommand =>
+            {
+                getCommand.Description = "Gets a list of things.";
+                getCommand.HelpOption();
+                
+                getCommand.OnExecute(() =>
+                {
+                    getCommand.ShowHelp();
+                    return 1;
+                });
+            });
+
+            app.OnExecute(() => {
+                app.ShowHelp();
+                return 1;
+            });
+
+            app.Commands.ForEach(f => f.Out = outWriter);
+
+            app.Execute(args);
+            var outData = sb.ToString();
+
+            Assert.Contains(helpNeedle, outData);
         }
     }
 }

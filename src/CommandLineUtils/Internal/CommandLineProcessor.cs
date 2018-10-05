@@ -160,14 +160,12 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         var ch = arg.Name.Substring(i, 1);
 
-                        option = _currentCommand.GetOptions().SingleOrDefault(o =>
-                            string.Equals(ch, o.ShortName, _currentCommand.OptionsComparison));
+                        option = FindOption(ch, o => o.ShortName);
 
                         if (option == null)
                         {
                             // quirk for compatibility with symbol options
-                            option = _currentCommand.GetOptions().SingleOrDefault(o =>
-                                string.Equals(ch, o.SymbolName, _currentCommand.OptionsComparison));
+                            option = FindOption(ch, o => o.SymbolName);
                         }
 
                         if (option == null)
@@ -225,20 +223,17 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 else
                 {
-                    option = _currentCommand.GetOptions().SingleOrDefault(o =>
-                        string.Equals(name, o.ShortName, _currentCommand.OptionsComparison));
+                    option = FindOption(name, o => o.ShortName);
 
                     if (option == null)
                     {
-                        option = _currentCommand.GetOptions().SingleOrDefault(o =>
-                            string.Equals(name, o.SymbolName, _currentCommand.OptionsComparison));
+                        option = FindOption(name, o => o.SymbolName);
                     }
                 }
             }
             else
             {
-                option = _currentCommand.GetOptions().SingleOrDefault(o =>
-                    string.Equals(name, o.LongName, _currentCommand.OptionsComparison));
+                option = FindOption(name, o => o.LongName);
             }
 
             if (option == null)
@@ -295,6 +290,32 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             return true;
+        }
+
+        private CommandOption FindOption(string name, Func<CommandOption, string> by)
+        {
+            var options = _currentCommand
+                .GetOptions()
+                .Where(o => string.Equals(name, by(o), _currentCommand.OptionsComparison))
+                .ToList();
+
+            if (options.Count == 0)
+            {
+                return null;
+            }
+
+            if (options.Count == 1)
+            {
+                return options.First();
+            }
+
+            var helpOption = options.SingleOrDefault(o => o == _currentCommand.OptionHelp);
+            if (helpOption != null)
+            {
+                return helpOption;
+            }
+
+            throw new InvalidOperationException($"Multiple options with name \"{name}\" found. This is usually due to nested options.");
         }
 
         private bool ProcessArgumentSeparator()
