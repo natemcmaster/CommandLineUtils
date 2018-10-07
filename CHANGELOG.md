@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+Bugs fixed:
+
+* [@handcraftedsource]: handled nested HelpOptions (fixes #86 - InvalidOperationException when multiple help options were defined)
+
 ## [v2.3.0-alpha]
 
 Enhancements:
@@ -225,6 +231,7 @@ Other:
 [@bjorg]: https://github.com/bjorg
 [@couven92]: https://github.com/couven92
 [@demosdemon]: https://github.com/demosdemon
+[@handcraftedsource]: https://github.com/handcraftedsource
 [@jerriep]: https://github.com/jerriep
 [@kant2002]: https://github.com/kant2002
 [@liamdawson]: https://github.com/liamdawson
@@ -234,7 +241,7 @@ Other:
 [@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0-alpha...HEAD
 [v2.3.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-alpha
 [v2.2.5]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.4...v2.2.5
 [v2.2.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.3...v2.2.4

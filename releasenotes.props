@@ -44,6 +44,8 @@ Bugs fixed:
 
 * Add generic overloads of `.IsRequired()` for `CommandOption<T>` and `CommandArgument<T>`.
 
+* @handcraftedsource: handled nested HelpOptions (fixes #86 - InvalidOperationException when multiple help options were defined)
+
 
 See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
 ]]>
