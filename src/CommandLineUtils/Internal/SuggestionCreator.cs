@@ -11,7 +11,15 @@ namespace McMaster.Extensions.CommandLineUtils.Internal
     /// </summary>
     internal static class SuggestionCreator
     {
-        public static string GetTopSuggestion(CommandLineApplication command, string input)
+
+        /// <summary>
+        /// Gets a list of suggestions from sub commands and options of <paramref name="command"/> that are likely to
+        /// fix the invalid argument <paramref name="input"/>
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="input"></param>
+        /// <returns>A list of string with suggestions or null if no suggestions were found</returns>
+        public static List<string> GetTopSuggestions(CommandLineApplication command, string input)
         {
             var candidates = GetCandidates(command).ToList();
 
@@ -20,14 +28,11 @@ namespace McMaster.Extensions.CommandLineUtils.Internal
                 return null;
             }
 
-            var bestMatch = StringDistance.GetBestMatchIndex(StringDistance.DamareuLevenshteinDistance,
+            return StringDistance.GetBestMatchesSorted(StringDistance.DamareuLevenshteinDistance,
                 input,
-                candidates.Select(c => c.CompareValue).ToArray(),
-                0.33d);
-
-            return bestMatch > -1
-                ? candidates[bestMatch].DisplayValue
-                : null;
+                candidates.Select(c => c.CompareValue),
+                0.33d)
+                .ToList();
         }
 
         private static IEnumerable<Candidate> GetCandidates(CommandLineApplication command)

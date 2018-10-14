@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Internal;
@@ -61,11 +62,11 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 context.Console.Error.WriteLine(ex.Message);
 
-                if (ex is UnrecognizedCommandParsingException uex && !string.IsNullOrEmpty(uex.NearestMatch))
+                if (ex is UnrecognizedCommandParsingException uex && uex.NearestMatches.Any())
                 {
                     context.Console.Error.WriteLine();
                     context.Console.Error.WriteLine("Did you mean this?");
-                    context.Console.Error.WriteLine("    " + uex.NearestMatch);
+                    context.Console.Error.WriteLine("    " + uex.NearestMatches.First());
                 }
 
                 return ValidationErrorExitCode;

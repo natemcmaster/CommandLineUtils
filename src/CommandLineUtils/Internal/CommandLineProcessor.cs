@@ -340,17 +340,17 @@ namespace McMaster.Extensions.CommandLineUtils
             if (_currentCommand.ThrowOnUnexpectedArgument)
             {
                 _currentCommand.ShowHint();
-                var value = argValue ?? _enumerator.Current.Raw;
+                var value = argValue ?? _enumerator.Current?.Raw;
 
-                string suggestion = null;
+                List<string> suggestions = null;
                 if (_settings.MakeSuggestionsInErrorMessage && !string.IsNullOrEmpty(value))
                 {
-                    suggestion = SuggestionCreator.GetTopSuggestion(_currentCommand, value);
+                    suggestions = SuggestionCreator.GetTopSuggestions(_currentCommand, value);
                 }
 
                 throw new UnrecognizedCommandParsingException(_currentCommand, $"Unrecognized {argTypeName} '{value}'")
                 {
-                    NearestMatch = suggestion
+                    NearestMatches = suggestions
                 };
             }
 

@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -126,43 +127,38 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Gets the best match for value in the given values array
+        /// Gets a list of appropriate matches for <paramref name="value"/> in the given <paramref name="values"/>.
+        /// Matches are sorted in ascending order, from the most likely match to less likely match using the <paramref name="distanceMethod"/>.
+        /// The <paramref name="threshold"/> defines the minimum threshold for the string distance, below which words are not kept in the output list.
         /// </summary>
-        /// <param name="distanceMethod">A method that calculates a string distance</param>
-        /// <param name="value"></param>
-        /// <param name="values">The values to search through</param>
-        /// <param name="threshold">A threshold for word possible match</param>
+        /// <param name="distanceMethod">A method that calculates a string distance.</param>
+        /// <param name="value">The value to compute the distance from.</param>
+        /// <param name="values">The values to search through.</param>
+        /// <param name="threshold">A threshold for word possible match.</param>
         /// <returns>The index of the best match or -1 when none is found</returns>
-        internal static int GetBestMatchIndex(Func<string, string, int> distanceMethod,
+        internal static IEnumerable<string> GetBestMatchesSorted(Func<string, string, int> distanceMethod,
             string value,
-            string[] values,
+            IEnumerable<string> values,
             double threshold)
         {
             if (distanceMethod == null || value == null || values == null)
             {
-                return -1;
+                return null;
             }
 
-            var bestMatchValue = -1d;
-            var bestMatchIndex = -1;
-            for (var i = 0; i < values.Length; i++)
-            {
-                if (values[i] == null)
+            return values
+                .Where(v => v != null)
+                .Select(stringValue =>
                 {
-                    continue;
-                }
+                    var distance = distanceMethod(value, stringValue);
+                    var length = Math.Max(value.Length, stringValue.Length);
+                    var normalizedDistance = NormalizeDistance(distance, length);
+                    return (stringValue, normalizedDistance);
+                })
+                .Where(candidate => candidate.normalizedDistance >= threshold)
+                .OrderByDescending(candidate => candidate.normalizedDistance)
+                .Select(candidate => candidate.stringValue);
 
-                var distance = distanceMethod(value, values[i]);
-                var length = Math.Max(value.Length, values[i].Length);
-                var normalizedDistance = NormalizeDistance(distance, length);
-                if (bestMatchValue < normalizedDistance && normalizedDistance >= threshold)
-                {
-                    bestMatchValue = normalizedDistance;
-                    bestMatchIndex = i;
-                }
-            }
-
-            return bestMatchIndex;
         }
     }
 }

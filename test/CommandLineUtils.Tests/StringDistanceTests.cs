@@ -85,5 +85,49 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(0,
                 StringDistance.NormalizeDistance(StringDistance.DamareuLevenshteinDistance(string.Empty, string.Empty), 0));
         }
+
+        [Theory]
+        [InlineData("test", "tests,mytest,mycrazytest,tset", "tests,tset,mytest,mycrazytest")]
+        [InlineData("push", "pus,psuh", "pus,psuh")]
+        public void SortedMatches(string value, string candidates, string expectedOutput)
+        {
+            Assert.Equal(expectedOutput,
+                string.Join(",",
+                    StringDistance.GetBestMatchesSorted(
+                        StringDistance.DamareuLevenshteinDistance,
+                        value,
+                        candidates.Split(','),
+                        0.33d
+                        )
+                    )
+                );
+        }
+
+
+        [Fact]
+        public void MatchingWithNullReturnsNull()
+        {
+            Assert.Null(StringDistance.GetBestMatchesSorted(null, "", new []{ ""}, 0));
+            Assert.Null(StringDistance.GetBestMatchesSorted((s, s1) => 1, null, new []{ ""}, 0));
+            Assert.Null(StringDistance.GetBestMatchesSorted((s, s1) => 1, "", null, 0));
+        }
+
+        [Theory]
+        [InlineData("test", "random,tests,notreturned,mytest,mycrazytest,tset", "tests,tset,mytest,mycrazytest", 0.33d)]
+        [InlineData("push", "fatch,pull,pus,clone,psuh", "pus,psuh,pull", 0.33d)]
+        [InlineData("push", "fatch,pull,pus,clone,psuh", "pus,psuh", 0.7d)]
+        public void MatchesBelowThresholdAreNotReturned(string value, string candidates, string expectedOutput, double treshold)
+        {
+            Assert.Equal(expectedOutput,
+                string.Join(",",
+                    StringDistance.GetBestMatchesSorted(
+                        StringDistance.DamareuLevenshteinDistance,
+                        value,
+                        candidates.Split(','),
+                        treshold
+                    )
+                )
+            );
+        }
     }
 }
