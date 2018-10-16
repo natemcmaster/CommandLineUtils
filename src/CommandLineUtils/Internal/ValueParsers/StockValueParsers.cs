@@ -30,29 +30,41 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 return result;
             });
 
+        private static FormatException InvalidValueException(string argName, string specifics) =>
+            new FormatException($"Invalid value specified for {argName}. {specifics}");
+
+        private static FormatException InvalidFloatingPointNumberException(string argName, string value) =>
+            InvalidValueException(argName, $"'{value}' is not a valid floating-point number.");
+
+        private static FormatException InvalidNumberException(string argName, string value) =>
+            InvalidValueException(argName, $"'{value}' is not a valid number.");
+
+        private static FormatException InvalidNonNegativeNumberException(string argName, string value) =>
+            InvalidValueException(argName, $"'{value}' is not a valid, non-negative number.");
+
         public static readonly IValueParser<byte> Byte = ValueParser.Create(
             (value, culture) => byte.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
-            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number."));
+            InvalidNumberException);
 
         public static readonly IValueParser<double> Double = ValueParser.Create(
             (value, culture) => double.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, culture.NumberFormat, out var result) ? (true, result) : default,
-            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid floating-point number."));
+            InvalidFloatingPointNumberException);
 
         public static readonly IValueParser<float> Float = ValueParser.Create(
             (value, culture) => float.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, culture.NumberFormat, out var result) ? (true, result) : default,
-            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid floating-point number."));
+            InvalidFloatingPointNumberException);
 
         public static readonly IValueParser<short> Int16 = ValueParser.Create(
             (value, culture) => short.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
-            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number."));
+            InvalidNumberException);
 
         public static readonly IValueParser<int> Int32 = ValueParser.Create(
             (value, culture) => int.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
-            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number."));
+            InvalidNumberException);
 
         public static readonly IValueParser<long> Int64 = ValueParser.Create(
             (value, culture) => long.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
-            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number."));
+            InvalidNumberException);
 
         public static readonly IValueParser<string> String = ValueParser.Create(
             (_, value, __) => value);
@@ -60,17 +72,17 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         public static readonly IValueParser<ushort> UInt16 = ValueParser.Create(
             // TODO Fix NumberStyles to disallow leading/trailing sign
             (value, culture) => ushort.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
-            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid, non-negative number."));
+            InvalidNonNegativeNumberException);
 
         public static readonly IValueParser<uint> UInt32 = ValueParser.Create(
             // TODO Fix NumberStyles to disallow leading/trailing sign
             (value, culture) => uint.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
-            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid, non-negative number."));
+            InvalidNonNegativeNumberException);
 
         public static readonly IValueParser<ulong> UInt64 = ValueParser.Create(
             // TODO Fix NumberStyles to disallow leading/trailing sign
             (value, culture) => ulong.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
-            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number."));
+            InvalidNonNegativeNumberException);
 
         public static readonly IValueParser<Uri> Uri = ValueParser.Create(
             (_, value, culture) => new Uri(value, UriKind.RelativeOrAbsolute));
