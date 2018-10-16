@@ -46,12 +46,15 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             (value, culture) => byte.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
             InvalidNumberException);
 
+        const NumberStyles FloatingPointNumberStyles = NumberStyles.Float
+                                                     | NumberStyles.AllowThousands;
+
         public static readonly IValueParser<double> Double = ValueParser.Create(
-            (value, culture) => double.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, culture.NumberFormat, out var result) ? (true, result) : default,
+            (value, culture) => double.TryParse(value, FloatingPointNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
             InvalidFloatingPointNumberException);
 
         public static readonly IValueParser<float> Float = ValueParser.Create(
-            (value, culture) => float.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, culture.NumberFormat, out var result) ? (true, result) : default,
+            (value, culture) => float.TryParse(value, FloatingPointNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
             InvalidFloatingPointNumberException);
 
         public static readonly IValueParser<short> Int16 = ValueParser.Create(
@@ -69,19 +72,22 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         public static readonly IValueParser<string> String = ValueParser.Create(
             (_, value, __) => value);
 
+        const NumberStyles NonNegativeIntegerNumberStyles = NumberStyles.AllowLeadingWhite
+                                                          | NumberStyles.AllowTrailingWhite;
+
         public static readonly IValueParser<ushort> UInt16 = ValueParser.Create(
             // TODO Fix NumberStyles to disallow leading/trailing sign
-            (value, culture) => ushort.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
+            (value, culture) => ushort.TryParse(value, NonNegativeIntegerNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
             InvalidNonNegativeNumberException);
 
         public static readonly IValueParser<uint> UInt32 = ValueParser.Create(
             // TODO Fix NumberStyles to disallow leading/trailing sign
-            (value, culture) => uint.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
+            (value, culture) => uint.TryParse(value, NonNegativeIntegerNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
             InvalidNonNegativeNumberException);
 
         public static readonly IValueParser<ulong> UInt64 = ValueParser.Create(
             // TODO Fix NumberStyles to disallow leading/trailing sign
-            (value, culture) => ulong.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
+            (value, culture) => ulong.TryParse(value, NonNegativeIntegerNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
             InvalidNonNegativeNumberException);
 
         public static readonly IValueParser<Uri> Uri = ValueParser.Create(
