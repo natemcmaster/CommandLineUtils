@@ -34,6 +34,8 @@ Enhancements:
 
 * @lvermeulen: Sort subcommands by name in help text. This can be disabled with `DefaultHelpTextGenerator.SortCommandsByName`.
 
+* @jcaillon: Add API for `UnrecognizedCommandParsingException` which includes suggestions for similar options or commands.
+
 Bugs fixed:
 
 * Duplicate subcommand names used to cause undefined behavior. Now, attempting to add a duplicate subcommand name or aliases will

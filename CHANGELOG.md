@@ -6,6 +6,10 @@ Bugs fixed:
 
 * [@handcraftedsource]: handled nested HelpOptions (fixes #86 - InvalidOperationException when multiple help options were defined)
 
+Enhancements:
+
+* [@jcaillon]: Add API for `UnrecognizedCommandParsingException` which includes suggestions for similar options or commands.
+
 ## [v2.3.0-alpha]
 
 Enhancements:
@@ -39,18 +43,18 @@ Bugs fixed:
   cause the library to throw before the app can execute.
 * Fix bug in subcommand name inference. When not specified, the subcommand always matched the entry assembly name.
   In this update, this convention only applies to the parent command.
-* Fix [#131](https://github.com/natemcmaster/CommandLineUtils/issues/131) - Add generic overloads of `.IsRequired()` for 
+* Fix [#131](https://github.com/natemcmaster/CommandLineUtils/issues/131) - Add generic overloads of `.IsRequired()` for
  `CommandOption<T>` and `CommandArgument<T>`.
 
 Details:
 
 * **Clustering options:** I've added this behavior as the new default, but only if I think it won't interfere with existing apps.
-  If it causes issues or you don't like clustering, you can disable this by setting 
+  If it causes issues or you don't like clustering, you can disable this by setting
   `CommandLineApplication.ParserSettings.ClusterOptions = false`.
-  To preserve compatibility with existing apps, this behavior is off if you have configured options with short names with 
+  To preserve compatibility with existing apps, this behavior is off if you have configured options with short names with
   multiple characters. In a future version, this will cause an error unless you set `ClusterOptions = false`.
 
-* **Pager:** this is the new default for showing help text. The pager should have graceful fallback to regular stdout 
+* **Pager:** this is the new default for showing help text. The pager should have graceful fallback to regular stdout
   when there are issues launching `less`, or when stdout is redirected into a pipe.
 
 ## [v2.2.5]
@@ -232,6 +236,7 @@ Other:
 [@couven92]: https://github.com/couven92
 [@demosdemon]: https://github.com/demosdemon
 [@handcraftedsource]: https://github.com/handcraftedsource
+[@jcaillon]: https://github.com/jcaillon
 [@jerriep]: https://github.com/jerriep
 [@kant2002]: https://github.com/kant2002
 [@liamdawson]: https://github.com/liamdawson
