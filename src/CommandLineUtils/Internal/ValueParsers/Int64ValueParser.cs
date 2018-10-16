@@ -6,28 +6,15 @@ using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    internal class Int64ValueParser : IValueParser<long>
+    partial class StockValueParsers
     {
-        private Int64ValueParser()
-        { }
+        public static readonly IValueParser<long> Int64 = ValueParser.Create(
+            (value, culture) => long.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
+            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number."));
+    }
 
-        public static Int64ValueParser Singleton { get; } = new Int64ValueParser();
-
-        public Type TargetType { get; } = typeof(long);
-
-        public long Parse(string argName, string value, CultureInfo culture)
-        {
-            if (value == null) return default;
-
-            if (!long.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result))
-            {
-                throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number.");
-            }
-
-            return result;
-        }
-
-        object IValueParser.Parse(string argName, string value, CultureInfo culture)
-            => this.Parse(argName, value, culture);
+    internal static class Int64ValueParser
+    {
+        public static IValueParser<long> Singleton { get; } = StockValueParsers.Int64;
     }
 }

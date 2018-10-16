@@ -6,27 +6,16 @@ using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    internal class UInt64ValueParser : IValueParser<ulong>
+    partial class StockValueParsers
     {
-        private UInt64ValueParser()
-        { }
+        public static readonly IValueParser<ulong> UInt64 = ValueParser.Create(
+            // TODO Fix NumberStyles to disallow leading/trailing sign
+            (value, culture) => ulong.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
+            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number."));
+    }
 
-        public static UInt64ValueParser Singleton { get; } = new UInt64ValueParser();
-
-        public Type TargetType { get; } = typeof(ulong);
-
-        public ulong Parse(string argName, string value, CultureInfo culture)
-        {
-            if (value == null) return default;
-
-            if (!ulong.TryParse(value, NumberStyles.Integer, culture, out var result))
-            {
-                throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid, non-negative number.");
-            }
-            return result;
-        }
-
-        object IValueParser.Parse(string argName, string value, CultureInfo culture)
-            => this.Parse(argName, value, culture);
+    internal static class UInt64ValueParser
+    {
+        public static IValueParser<ulong> Singleton { get; } = StockValueParsers.UInt64;
     }
 }

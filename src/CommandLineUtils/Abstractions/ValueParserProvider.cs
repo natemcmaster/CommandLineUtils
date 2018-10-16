@@ -96,14 +96,14 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
             if (typeInfo.IsEnum)
             {
-                return new EnumParser(type);
+                return EnumParser.Create(type);
             }
 
             if (ReflectionHelper.IsNullableType(typeInfo, out var wrappedType))
             {
                 if (wrappedType.GetTypeInfo().IsEnum)
                 {
-                    return new NullableValueParser(new EnumParser(wrappedType));
+                    return new NullableValueParser(EnumParser.Create(wrappedType));
                 }
 
                 if (_parsers.TryGetValue(wrappedType, out parser))
@@ -125,8 +125,8 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 {
                     return null;
                 }
-                var parserType = typeof(ValueTupleValueParser<>).MakeGenericType(typeInfo.GenericTypeArguments[1]);
-                return (IValueParser)Activator.CreateInstance(parserType, new object[] { innerParser });
+                var method = typeof(ValueTupleValueParser).GetTypeInfo().GetMethod(nameof(ValueTupleValueParser.Create)).MakeGenericMethod(typeInfo.GenericTypeArguments[1]);
+                return (IValueParser)method.Invoke(null, new object[] { innerParser });
             }
 
             return null;

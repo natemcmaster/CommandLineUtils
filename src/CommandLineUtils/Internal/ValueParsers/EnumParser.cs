@@ -6,27 +6,22 @@ using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    internal class EnumParser : IValueParser
+    internal static class EnumParser
     {
-        public EnumParser(Type enumType)
-        {
-            TargetType = enumType;
-        }
-
-        public Type TargetType { get; }
-
-        public object Parse(string argName, string value, CultureInfo culture)
-        {
-            if (value == null) return Enum.ToObject(TargetType, 0);
-
-            try
+        public static IValueParser Create(Type enumType) =>
+            ValueParser.Create(enumType, (argName, value, culture) =>
             {
-                return Enum.Parse(TargetType, value, ignoreCase: true);
-            }
-            catch
-            {
-                throw new FormatException($"Invalid value specified for {argName}. Allowed values are: {string.Join(", ", Enum.GetNames(TargetType))}.");
-            }
-        }
+                if (value == null) return Enum.ToObject(enumType, 0);
+
+                try
+                {
+                    return Enum.Parse(enumType, value, ignoreCase: true);
+                }
+                catch
+                {
+                    throw new FormatException(
+                        $"Invalid value specified for {argName}. Allowed values are: {string.Join(", ", Enum.GetNames(enumType))}.");
+                }
+            });
     }
 }

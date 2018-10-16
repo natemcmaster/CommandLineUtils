@@ -6,28 +6,15 @@ using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    internal class DoubleValueParser : IValueParser<double>
+    partial class StockValueParsers
     {
-        private DoubleValueParser()
-        { }
+        public static readonly IValueParser<double> Double = ValueParser.Create(
+            (value, culture) => double.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, culture.NumberFormat, out var result) ? (true, result) : default,
+            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid floating-point number."));
+    }
 
-        public static DoubleValueParser Singleton { get; } = new DoubleValueParser();
-
-        public Type TargetType { get; } = typeof(double);
-
-        public double Parse(string argName, string value, CultureInfo culture)
-        {
-            if (value == null) return default;
-
-            if (!double.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, culture.NumberFormat, out var result))
-            {
-                throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid floating-point number.");
-            }
-
-            return result;
-        }
-
-        object IValueParser.Parse(string argName, string value, CultureInfo culture)
-            => this.Parse(argName, value, culture);
+    internal static class DoubleValueParser
+    {
+        public static IValueParser<double> Singleton { get; } = StockValueParsers.Double;
     }
 }

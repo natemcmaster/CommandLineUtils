@@ -6,28 +6,15 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     using System;
     using System.Globalization;
 
-    internal class ByteValueParser : IValueParser<byte>
+    partial class StockValueParsers
     {
-        private ByteValueParser()
-        { }
+        public static readonly IValueParser<byte> Byte = ValueParser.Create(
+            (value, culture) => byte.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
+            (argName, value) => new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number."));
+    }
 
-        public static ByteValueParser Singleton { get; } = new ByteValueParser();
-
-        public Type TargetType { get; } = typeof(byte);
-
-        public byte Parse(string argName, string value, CultureInfo culture)
-        {
-            if (value == null) return default;
-
-            if (!byte.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result))
-            {
-                throw new FormatException($"Invalid value specified for {argName}. '{value}' is not a valid number.");
-            }
-
-            return result;
-        }
-
-        object IValueParser.Parse(string argName, string value, CultureInfo culture)
-            => this.Parse(argName, value, culture);
+    internal static class ByteValueParser
+    {
+        public static IValueParser<byte> Singleton { get; } = StockValueParsers.Byte;
     }
 }

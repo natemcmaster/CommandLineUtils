@@ -2,22 +2,17 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    internal class UriValueParser : IValueParser<Uri>
+    partial class StockValueParsers
     {
-        private UriValueParser()
-        { }
+        public static readonly IValueParser<Uri> Uri = ValueParser.Create(
+            (_, value, culture) => new Uri(value, UriKind.RelativeOrAbsolute));
+    }
 
-        public static UriValueParser Singleton { get; } = new UriValueParser();
-
-        public Type TargetType { get; } = typeof(Uri);
-
-        public Uri Parse(string argName, string value, CultureInfo culture) => new Uri(value, UriKind.RelativeOrAbsolute);
-
-        object IValueParser.Parse(string argName, string value, CultureInfo culture)
-            => this.Parse(argName, value, culture);
+    internal static class UriValueParser
+    {
+        public static IValueParser<Uri> Singleton { get; } = StockValueParsers.Uri;
     }
 }
