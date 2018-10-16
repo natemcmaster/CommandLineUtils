@@ -4813,6 +4813,38 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
   fullName: McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
   nameWithType: SuppressDefaultHelpOptionAttribute
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException
+  name: UnrecognizedCommandParsingException
+  href: api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException
+  nameWithType: UnrecognizedCommandParsingException
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String)
+  name: UnrecognizedCommandParsingException(CommandLineApplication, String)
+  href: api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html#McMaster_Extensions_CommandLineUtils_UnrecognizedCommandParsingException__ctor_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String)
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.UnrecognizedCommandParsingException(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.String)
+  nameWithType: UnrecognizedCommandParsingException.UnrecognizedCommandParsingException(CommandLineApplication, String)
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.#ctor*
+  name: UnrecognizedCommandParsingException
+  href: api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html#McMaster_Extensions_CommandLineUtils_UnrecognizedCommandParsingException__ctor_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.#ctor
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.UnrecognizedCommandParsingException
+  nameWithType: UnrecognizedCommandParsingException.UnrecognizedCommandParsingException
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.NearestMatches
+  name: NearestMatches
+  href: api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html#McMaster_Extensions_CommandLineUtils_UnrecognizedCommandParsingException_NearestMatches
+  commentId: P:McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.NearestMatches
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.NearestMatches
+  nameWithType: UnrecognizedCommandParsingException.NearestMatches
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.NearestMatches*
+  name: NearestMatches
+  href: api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html#McMaster_Extensions_CommandLineUtils_UnrecognizedCommandParsingException_NearestMatches_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.NearestMatches
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.NearestMatches
+  nameWithType: UnrecognizedCommandParsingException.NearestMatches
 - uid: McMaster.Extensions.CommandLineUtils.ValidateMethodConvention
   name: ValidateMethodConvention
   href: api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.html
