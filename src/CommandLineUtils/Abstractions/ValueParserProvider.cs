@@ -21,18 +21,18 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             AddRange(
                 new IValueParser[]
                 {
-                    StringValueParser.Singleton,
-                    BooleanValueParser.Singleton,
-                    ByteValueParser.Singleton,
-                    Int16ValueParser.Singleton,
-                    Int32ValueParser.Singleton,
-                    Int64ValueParser.Singleton,
-                    UInt16ValueParser.Singleton,
-                    UInt32ValueParser.Singleton,
-                    UInt64ValueParser.Singleton,
-                    FloatValueParser.Singleton,
-                    DoubleValueParser.Singleton,
-                    UriValueParser.Singleton,
+                    StockValueParsers.String,
+                    StockValueParsers.Boolean,
+                    StockValueParsers.Byte,
+                    StockValueParsers.Int16,
+                    StockValueParsers.Int32,
+                    StockValueParsers.Int64,
+                    StockValueParsers.UInt16,
+                    StockValueParsers.UInt32,
+                    StockValueParsers.UInt64,
+                    StockValueParsers.Float,
+                    StockValueParsers.Double,
+                    StockValueParsers.Uri,
                 });
         }
 

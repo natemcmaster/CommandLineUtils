@@ -6,8 +6,6 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     using System;
     using System.Globalization;
 
-    internal partial class StockValueParsers {}
-
     /// <summary>
     /// Provides methods for creating <see cref="IValueParser{T}"/>
     /// boilerplate implementations.
