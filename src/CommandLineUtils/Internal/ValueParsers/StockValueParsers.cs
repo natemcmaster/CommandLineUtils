@@ -33,59 +33,42 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         private static FormatException InvalidValueException(string argName, string specifics) =>
             new FormatException($"Invalid value specified for {argName}. {specifics}");
 
-        private static FormatException InvalidFloatingPointNumberException(string argName, string value) =>
-            InvalidValueException(argName, $"'{value}' is not a valid floating-point number.");
+        private delegate bool NumberParser<T>(string s, NumberStyles styles, IFormatProvider provider, out T result);
 
-        private static FormatException InvalidNumberException(string argName, string value) =>
-            InvalidValueException(argName, $"'{value}' is not a valid number.");
-
-        private static FormatException InvalidNonNegativeNumberException(string argName, string value) =>
-            InvalidValueException(argName, $"'{value}' is not a valid, non-negative number.");
-
-        public static readonly IValueParser<byte> Byte = ValueParser.Create(
-            (value, culture) => byte.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
-            InvalidNumberException);
+        private static IValueParser<T> Number<T>(NumberParser<T> parser, NumberStyles styles,
+                                                 Func<string, string, FormatException> errorSelector) =>
+            ValueParser.Create((value, culture) => parser(value, styles, culture.NumberFormat, out var result)
+                                                 ? (true, result)
+                                                 : default, errorSelector);
 
         const NumberStyles FloatingPointNumberStyles = NumberStyles.Float
                                                      | NumberStyles.AllowThousands;
 
-        public static readonly IValueParser<double> Double = ValueParser.Create(
-            (value, culture) => double.TryParse(value, FloatingPointNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
-            InvalidFloatingPointNumberException);
+        private static FormatException InvalidFloatingPointNumberException(string argName, string value) =>
+            InvalidValueException(argName, $"'{value}' is not a valid floating-point number.");
 
-        public static readonly IValueParser<float> Float = ValueParser.Create(
-            (value, culture) => float.TryParse(value, FloatingPointNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
-            InvalidFloatingPointNumberException);
+        public static readonly IValueParser<double> Double = Number<double>(double.TryParse, FloatingPointNumberStyles, InvalidFloatingPointNumberException);
+        public static readonly IValueParser<float>  Float  = Number<float> (float.TryParse , FloatingPointNumberStyles, InvalidFloatingPointNumberException);
 
-        public static readonly IValueParser<short> Int16 = ValueParser.Create(
-            (value, culture) => short.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
-            InvalidNumberException);
+        private static FormatException InvalidNumberException(string argName, string value) =>
+            InvalidValueException(argName, $"'{value}' is not a valid number.");
 
-        public static readonly IValueParser<int> Int32 = ValueParser.Create(
-            (value, culture) => int.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
-            InvalidNumberException);
-
-        public static readonly IValueParser<long> Int64 = ValueParser.Create(
-            (value, culture) => long.TryParse(value, NumberStyles.Integer, culture.NumberFormat, out var result) ? (true, result) : default,
-            InvalidNumberException);
-
-        public static readonly IValueParser<string> String = ValueParser.Create(
-            (_, value, __) => value);
+        public static readonly IValueParser<byte>  Byte  = Number<byte> (byte.TryParse , NumberStyles.Integer, InvalidNumberException);
+        public static readonly IValueParser<short> Int16 = Number<short>(short.TryParse, NumberStyles.Integer, InvalidNumberException);
+        public static readonly IValueParser<int>   Int32 = Number<int>  (int.TryParse  , NumberStyles.Integer, InvalidNumberException);
+        public static readonly IValueParser<long>  Int64 = Number<long> (long.TryParse , NumberStyles.Integer, InvalidNumberException);
 
         const NumberStyles NonNegativeIntegerNumberStyles = NumberStyles.AllowLeadingWhite
                                                           | NumberStyles.AllowTrailingWhite;
 
-        public static readonly IValueParser<ushort> UInt16 = ValueParser.Create(
-            (value, culture) => ushort.TryParse(value, NonNegativeIntegerNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
-            InvalidNonNegativeNumberException);
+        private static FormatException InvalidNonNegativeNumberException(string argName, string value) =>
+            InvalidValueException(argName, $"'{value}' is not a valid, non-negative number.");
 
-        public static readonly IValueParser<uint> UInt32 = ValueParser.Create(
-            (value, culture) => uint.TryParse(value, NonNegativeIntegerNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
-            InvalidNonNegativeNumberException);
+        public static readonly IValueParser<ushort> UInt16 = Number<ushort>(ushort.TryParse, NonNegativeIntegerNumberStyles, InvalidNonNegativeNumberException);
+        public static readonly IValueParser<uint>   UInt32 = Number<uint>  (uint.TryParse  , NonNegativeIntegerNumberStyles, InvalidNonNegativeNumberException);
+        public static readonly IValueParser<ulong>  UInt64 = Number<ulong> (ulong.TryParse , NonNegativeIntegerNumberStyles, InvalidNonNegativeNumberException);
 
-        public static readonly IValueParser<ulong> UInt64 = ValueParser.Create(
-            (value, culture) => ulong.TryParse(value, NonNegativeIntegerNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
-            InvalidNonNegativeNumberException);
+        public static readonly IValueParser<string> String = ValueParser.Create((_, value, __) => value);
 
         public static readonly IValueParser<Uri> Uri = ValueParser.Create(
             (_, value, culture) => new Uri(value, UriKind.RelativeOrAbsolute));
