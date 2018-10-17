@@ -76,17 +76,14 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                                                           | NumberStyles.AllowTrailingWhite;
 
         public static readonly IValueParser<ushort> UInt16 = ValueParser.Create(
-            // TODO Fix NumberStyles to disallow leading/trailing sign
             (value, culture) => ushort.TryParse(value, NonNegativeIntegerNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
             InvalidNonNegativeNumberException);
 
         public static readonly IValueParser<uint> UInt32 = ValueParser.Create(
-            // TODO Fix NumberStyles to disallow leading/trailing sign
             (value, culture) => uint.TryParse(value, NonNegativeIntegerNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
             InvalidNonNegativeNumberException);
 
         public static readonly IValueParser<ulong> UInt64 = ValueParser.Create(
-            // TODO Fix NumberStyles to disallow leading/trailing sign
             (value, culture) => ulong.TryParse(value, NonNegativeIntegerNumberStyles, culture.NumberFormat, out var result) ? (true, result) : default,
             InvalidNonNegativeNumberException);
 
