@@ -289,5 +289,39 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Conventions.UseOptionAttributes();
             return app.Options[0];
         }
+
+        [Subcommand(typeof(PrintCommand))]
+        class Settings : CommandBase2
+        { }
+
+        abstract class CommandBase2
+        {
+            [Option(Inherited = true)]
+            public string Inherited { get; set; }
+
+            public virtual void OnExecute()
+            {
+            }
+        }
+
+        class PrintCommand : CommandBase2
+        {
+            public Settings Parent { get; set; }
+        }
+
+        [Theory]
+        [InlineData("Hello", "Hello", "-i", "Hello", "print")]
+        [InlineData(null, "Hello", "print", "-i", "Hello")]
+        [InlineData(null, null, "print")]
+        [InlineData("Hello1", "Hello2", "-i", "hello1", "print", "-i", "Hello2")]
+        public void InheritedOptionsShouldGetValueFromParent(string parentValue, string childValue, params string[] args)
+        {
+            var app = new CommandLineApplication<Settings>();
+            app.Conventions.UseDefaultConventions();
+            var result = app.Parse(args);
+            var cmd = Assert.IsType<CommandLineApplication<PrintCommand>>(result.SelectedCommand);
+            Assert.Equal(childValue, cmd.Model.Inherited);
+            Assert.Equal(parentValue, cmd.Model.Parent.Inherited);
+        }
     }
 }
