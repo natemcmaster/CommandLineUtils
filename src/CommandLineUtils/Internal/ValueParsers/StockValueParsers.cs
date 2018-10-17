@@ -53,7 +53,6 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         private static FormatException InvalidNumberException(string argName, string value) =>
             InvalidValueException(argName, $"'{value}' is not a valid number.");
 
-        public static readonly IValueParser<byte>  Byte  = Number<byte> (byte.TryParse , NumberStyles.Integer, InvalidNumberException);
         public static readonly IValueParser<short> Int16 = Number<short>(short.TryParse, NumberStyles.Integer, InvalidNumberException);
         public static readonly IValueParser<int>   Int32 = Number<int>  (int.TryParse  , NumberStyles.Integer, InvalidNumberException);
         public static readonly IValueParser<long>  Int64 = Number<long> (long.TryParse , NumberStyles.Integer, InvalidNumberException);
@@ -64,6 +63,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         private static FormatException InvalidNonNegativeNumberException(string argName, string value) =>
             InvalidValueException(argName, $"'{value}' is not a valid, non-negative number.");
 
+        public static readonly IValueParser<byte>   Byte   = Number<byte>  (byte.TryParse  , NonNegativeIntegerNumberStyles, InvalidNonNegativeNumberException);
         public static readonly IValueParser<ushort> UInt16 = Number<ushort>(ushort.TryParse, NonNegativeIntegerNumberStyles, InvalidNonNegativeNumberException);
         public static readonly IValueParser<uint>   UInt32 = Number<uint>  (uint.TryParse  , NonNegativeIntegerNumberStyles, InvalidNonNegativeNumberException);
         public static readonly IValueParser<ulong>  UInt64 = Number<ulong> (ulong.TryParse , NonNegativeIntegerNumberStyles, InvalidNonNegativeNumberException);
