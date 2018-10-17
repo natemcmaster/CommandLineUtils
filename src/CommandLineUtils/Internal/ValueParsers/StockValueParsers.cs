@@ -24,7 +24,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                         if (bit == 1) return true;
                     }
 
-                    throw new FormatException($"Invalid value specified for {argName}. Cannot convert '{value}' to a boolean.");
+                    throw InvalidValueException(argName, $"Cannot convert '{value}' to a boolean.");
                 }
 
                 return result;
