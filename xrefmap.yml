@@ -2113,19 +2113,6 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandOption.SymbolName
   nameWithType: CommandOption.SymbolName
-- uid: McMaster.Extensions.CommandLineUtils.CommandOption.Template
-  name: Template
-  href: api/McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_Template
-  commentId: P:McMaster.Extensions.CommandLineUtils.CommandOption.Template
-  fullName: McMaster.Extensions.CommandLineUtils.CommandOption.Template
-  nameWithType: CommandOption.Template
-- uid: McMaster.Extensions.CommandLineUtils.CommandOption.Template*
-  name: Template
-  href: api/McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_Template_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandOption.Template
-  isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.CommandOption.Template
-  nameWithType: CommandOption.Template
 - uid: McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(System.String)
   name: TryParse(String)
   href: api/McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_TryParse_System_String_
@@ -3639,6 +3626,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.DefaultHelpTextGenerator
   nameWithType: DefaultHelpTextGenerator.DefaultHelpTextGenerator
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format(McMaster.Extensions.CommandLineUtils.CommandOption)
+  name: Format(CommandOption)
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Format_McMaster_Extensions_CommandLineUtils_CommandOption_
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format(McMaster.Extensions.CommandLineUtils.CommandOption)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format(McMaster.Extensions.CommandLineUtils.CommandOption)
+  nameWithType: DefaultHelpTextGenerator.Format(CommandOption)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format*
+  name: Format
+  href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Format_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format
+  nameWithType: DefaultHelpTextGenerator.Format
 - uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
   name: Generate(CommandLineApplication, TextWriter)
   href: api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
