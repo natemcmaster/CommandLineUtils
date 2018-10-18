@@ -38,12 +38,12 @@
           BeforeTargets="Pack"
           Inputs="$(PackageOutputAbsolutePath)$(PackageId).$(PackageVersion).nupkg"
           Outputs="$(PackageSignCacheFile)">
-    <Error Text="Missing required property: NuGetKeyVaultSignTool" Condition="'$(NuGetKeyVaultSignTool)' == ''" />
+    <Error Text="Missing required property: NuGetKeyVaultSignToolPath" Condition="'$(NuGetKeyVaultSignToolPath)' == ''" />
 
     <PropertyGroup>
       <NupkgTargetPath>$(PackageOutputAbsolutePath)$(PackageId).$(PackageVersion).nupkg</NupkgTargetPath>
 
-      <NupkgSignToolArgs>"$(NuGetKeyVaultSignTool)" sign</NupkgSignToolArgs>
+      <NupkgSignToolArgs>"$(NuGetKeyVaultSignToolPath)" sign</NupkgSignToolArgs>
       <NupkgSignToolArgs>$(NupkgSignToolArgs) --file-digest sha256</NupkgSignToolArgs>
       <NupkgSignToolArgs>$(NupkgSignToolArgs) --timestamp-rfc3161 http://timestamp.digicert.com</NupkgSignToolArgs>
       <NupkgSignToolArgs>$(NupkgSignToolArgs) --timestamp-digest sha256</NupkgSignToolArgs>
