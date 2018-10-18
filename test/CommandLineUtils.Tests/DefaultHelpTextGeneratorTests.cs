@@ -26,14 +26,23 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void ItFormatsOptions()
+        {
+            var app = new CommandLineApplication();
+            var option = app.Option("-a|--all <ALL>", "All", CommandOptionType.SingleValue);
+            option.ShortName = "b";
+            var helpText = GetHelpText(app);
+
+            Assert.Contains("-b|--all <ALL>", helpText);
+            Assert.DoesNotContain("-a|--all <ALL>", helpText);
+        }
+
+        [Fact]
         public void ItListOptions()
         {
             var app = new CommandLineApplication<EmptyShortName>();
             app.Conventions.UseDefaultConventions();
-            var sb = new StringBuilder();
-            DefaultHelpTextGenerator.Singleton.Generate(app, new StringWriter(sb));
-            var helpText = sb.ToString();
-            _output.WriteLine(helpText);
+            var helpText = GetHelpText(app);
 
             Assert.Contains("--option <OPTION>", helpText);
             Assert.DoesNotContain("-|--option <OPTION>", helpText);
@@ -46,32 +55,35 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Conventions.UseDefaultConventions();
             app.Command("b", null);
             app.Command("a", null);
-            var sb = new StringBuilder();
-            DefaultHelpTextGenerator.Singleton.Generate(app, new StringWriter(sb));
-            var helpText = sb.ToString();
-            _output.WriteLine(helpText);
+            var helpText = GetHelpText(app);
 
-            int indexOfA = helpText.IndexOf("  a", StringComparison.InvariantCulture);
-            int indexOfB = helpText.IndexOf("  b", StringComparison.InvariantCulture);
+            var indexOfA = helpText.IndexOf("  a", StringComparison.InvariantCulture);
+            var indexOfB = helpText.IndexOf("  b", StringComparison.InvariantCulture);
             Assert.True(indexOfA < indexOfB);
         }
 
         [Fact]
-        public void DontOrderCommandsByName()
+        public void DoesNotOrderCommandsByName()
         {
             DefaultHelpTextGenerator.Singleton.SortCommandsByName = false;
             var app = new CommandLineApplication<EmptyShortName>();
             app.Conventions.UseDefaultConventions();
             app.Command("b", null);
             app.Command("a", null);
+            var helpText = GetHelpText(app);
+
+            var indexOfA = helpText.IndexOf("  a", StringComparison.InvariantCulture);
+            var indexOfB = helpText.IndexOf("  b", StringComparison.InvariantCulture);
+            Assert.True(indexOfA > indexOfB);
+        }
+
+        private string GetHelpText(CommandLineApplication app)
+        {
             var sb = new StringBuilder();
             DefaultHelpTextGenerator.Singleton.Generate(app, new StringWriter(sb));
             var helpText = sb.ToString();
             _output.WriteLine(helpText);
-
-            int indexOfA = helpText.IndexOf("  a", StringComparison.InvariantCulture);
-            int indexOfB = helpText.IndexOf("  b", StringComparison.InvariantCulture);
-            Assert.True(indexOfA > indexOfB);
+            return helpText;
         }
     }
 }

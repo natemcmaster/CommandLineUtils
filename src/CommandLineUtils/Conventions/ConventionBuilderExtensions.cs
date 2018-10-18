@@ -41,7 +41,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Adds --help option, if there isn't already a help flag set.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        /// <param name="template">The help template. Defaults to <c>--help</c>.</param>
+        /// <param name="template">The help template. Defaults to <c>-?|-h|--help</c>.</param>
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseDefaultHelpOption(this IConventionBuilder builder, string template = DefaultHelpOptionConvention.DefaultHelpTemplate)
         {

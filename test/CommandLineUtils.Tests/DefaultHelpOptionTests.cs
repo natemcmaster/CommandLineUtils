@@ -72,7 +72,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var subcmd = Assert.Single(app.Commands);
             Assert.NotNull(app.OptionHelp);
             Assert.False(app.OptionHelp.Inherited);
-            Assert.Equal(DefaultHelpOptionConvention.DefaultHelpTemplate, app.OptionHelp.Template);
+            Assert.Equal("?", app.OptionHelp.SymbolName);
+            Assert.Equal("h", app.OptionHelp.ShortName);
+            Assert.Equal("help", app.OptionHelp.LongName);
+            Assert.Null(app.OptionHelp.ValueName);
             Assert.NotSame(app.OptionHelp, subcmd.OptionHelp);
         }
 

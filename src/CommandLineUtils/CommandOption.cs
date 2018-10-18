@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using McMaster.Extensions.CommandLineUtils.Validation;
@@ -23,13 +24,15 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="optionType">The option type.</param>
         public CommandOption(string template, CommandOptionType optionType)
         {
+#pragma warning disable 618
             Template = template;
+#pragma warning restore 618
             OptionType = optionType;
 
             var separators = (optionType == CommandOptionType.SingleOrNoValue)
                 ? new[] { ' ', '|', ':', '=', '[', ']' }
                 : new[] { ' ', '|', ':', '=' };
-            foreach (var part in Template.Split(separators, StringSplitOptions.RemoveEmptyEntries))
+            foreach (var part in template.Split(separators, StringSplitOptions.RemoveEmptyEntries))
             {
                 if (part.StartsWith("--"))
                 {
@@ -71,8 +74,15 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
+        /// <para>
+        /// This property is obsolete and will be removed in a future version.
+        /// </para>
+        /// <para>
         /// The argument template.
+        /// </para>
         /// </summary>
+        [Obsolete("This property is obsolete and will be removed in a future version.")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public string Template { get; set; }
 
         /// <summary>
@@ -228,6 +238,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             return sb.ToString();
         }
+
 
         private bool IsEnglishLetter(char c)
         {

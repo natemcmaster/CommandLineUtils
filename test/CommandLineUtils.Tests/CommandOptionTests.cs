@@ -29,7 +29,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ItParsesSingleValueTemplate(string template, string shortName, string symbolName, string longName, string valueName)
         {
             var opt = new CommandOption(template, CommandOptionType.SingleValue);
+#pragma warning disable 618
             Assert.Equal(template, opt.Template);
+#pragma warning restore 618
             Assert.Equal(shortName, opt.ShortName);
             Assert.Equal(symbolName, opt.SymbolName);
             Assert.Equal(longName, opt.LongName);
@@ -42,7 +44,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ItParsesSingleOrNoValueTemplate(string template, string shortName, string symbolName, string longName, string valueName)
         {
             var opt = new CommandOption(template, CommandOptionType.SingleOrNoValue);
+#pragma warning disable 618
             Assert.Equal(template, opt.Template);
+#pragma warning restore 618
             Assert.Equal(shortName, opt.ShortName);
             Assert.Equal(symbolName, opt.SymbolName);
             Assert.Equal(longName, opt.LongName);

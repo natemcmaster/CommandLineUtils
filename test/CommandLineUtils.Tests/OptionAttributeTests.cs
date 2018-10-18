@@ -48,9 +48,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = Create<ShortNameOverride>();
             var d1 = Assert.Single(app.Options, o => o.ShortName == "d1");
-            Assert.Equal("-d1|--detail1 <DETAIL1>", d1.Template);
+            Assert.Equal("d1", d1.ShortName);
+            Assert.Equal("detail1", d1.LongName);
+            Assert.Equal("DETAIL1", d1.ValueName);
             var d2 = Assert.Single(app.Options, o => o.ShortName == "d2");
-            Assert.Equal("-d2|--detail2 <DETAIL2>", d2.Template);
+            Assert.Equal("d2", d2.ShortName);
+            Assert.Equal("detail2", d2.LongName);
+            Assert.Equal("DETAIL2", d2.ValueName);
         }
 
         private class EmptyShortName

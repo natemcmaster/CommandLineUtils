@@ -5,6 +5,7 @@
 Bugs fixed:
 
 * [@handcraftedsource]: handled nested HelpOptions (fixes #86 - InvalidOperationException when multiple help options were defined)
+* Fix #163 - Obsolete CommandOption.Template and fix help text generation to accurately list available options
 
 Enhancements:
 
