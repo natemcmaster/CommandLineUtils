@@ -46,7 +46,7 @@ They have two defining characteristics.
       `--name one --name two`
     * Single or no value - a special case of "no value" options where an value may or may not be specified.
       They can be specified as `--name` (no value) or `--name:value` or `--name=value`.
-      Unlike "single value", these cannot be specified as `--name value` because the space causes amgibuous usage.
+      Unlike "single value", these cannot be specified as `--name value` because the space causes ambiguous usage.
 
 ### [Using Attributes](#tab/using-attributes)
 
@@ -58,7 +58,7 @@ Note that option names are case sensitive, and using different case is an error,
 
 
 ```c#
-public class MyCommand
+public class Program
 {
     [Option]
     public bool Verbose { get; set; }
@@ -106,6 +106,61 @@ public class Program
         var names = app.Option("-n|--names <NAME>", "Names", CommandOptionType.MultipleValue);
 
         return app.Execute(args);
+    }
+}
+```
+
+***
+
+## Flag counting
+
+A common scenario for options is to allow specifying a value-less option 
+multiple times without value. The library supports counting flags by using `bool[]`
+or by checking for the number of values in @McMaster.Extensions.CommandLineUtils.CommandOption.Values.
+
+### [Using Attributes](#tab/using-attributes)
+
+Requires **2.3** and newer.
+
+```c#
+//
+// Expected
+//
+
+public class Program
+{
+    [Option]
+    public bool[] Verbose { get; set; }
+    
+    public void OnExecute()
+    {
+       Console.WriteLine("Verbose count = " + Verbose.Length);
+    }
+  
+    public static int Main(string[] args) 
+        // result: "Verbose count = 3"
+        => CommandLineApplication.Execute<Program>("-v", "-v", "-v");
+}
+```
+
+### [Using Builder API](#tab/using-builder-api)
+
+When using the builder API, name and type must be specified explicitly.
+
+```c#
+public class Program
+{
+    public static int Main(string[] args)
+    {
+        var app = new CommandLineApplication();
+
+        var verbose = app.Option("-v|--verbose", "Show verbose output", CommandOptionType.NoValue);
+   
+        app.OnExecute(()
+            => Console.WriteLine("Verbose count = " + verbose.Values.Count); );
+   
+        // result: "Verbose count = 3"
+        return app.Execute("-v", "-v", "-v");
     }
 }
 ```
@@ -160,7 +215,7 @@ Inputs | Value of `Verbose`
 If "Verbose" accepted multiple values:
 
 ```c#
-[Option("-v|--Verbose", CommandOptionType.SingleValue)]
+[Option("-v|--Verbose", CommandOptionType.MultipleValue)]
 public string[] Verbose { get; }
 ```
 
@@ -170,3 +225,18 @@ Inputs | Value of `Verbose`
 `--verbose` | Invalid. Value expected after `--verbose`.
 `--verbose banana` | `{ "banana" }`
 `--verbose banana --verbose strawberry` | `{ "banana", "strawberry" }`
+
+If "Verbose" accepted single or value:
+
+```c#
+[Option("-v|--Verbose", CommandOptionType.SingleOrNoValue)]
+public (bool hasValue, string value) Verbose { get; }
+```
+
+Inputs | Value of `Verbose`
+-------|---
+ (not specified) | `(false, null)`
+`--verbose` | `(true, null)`
+`--verbose:banana` | `(true, "banana")`
+`--verbose=banana` | `(true, "banana")`
+`--verbose banana` | Invalid. SingleOrNoValue options cannot use a space delimiter between option name and value. 
