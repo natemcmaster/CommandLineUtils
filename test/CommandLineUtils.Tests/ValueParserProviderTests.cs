@@ -69,6 +69,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             [Option("--int32-arr")]
             public int[] Int32Array { get; }
 
+            [Option("--flag")]
+            public bool[] Flags { get; }
+
             [Option("--string-ilist")]
             public IList<string> StringIList { get; }
 
@@ -413,6 +416,24 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var parsed = CommandLineParser.ParseArgs<Program>("--uri", uriString);
             Assert.Equal(uriString, parsed.Uri.ToString());
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(100)]
+        public void ParsesBoolArray(int repeat)
+        {
+            var args = new List<string>();
+            for (var i = 0; i < repeat; i++)
+            {
+                args.Add("--flag");
+            }
+
+            var parsed = CommandLineParser.ParseArgs<Program>(args.ToArray());
+            Assert.NotNull(parsed.Flags);
+            Assert.Equal(repeat, parsed.Flags.Length);
+            Assert.All(parsed.Flags, value => Assert.True(value));
         }
 
         [Theory]

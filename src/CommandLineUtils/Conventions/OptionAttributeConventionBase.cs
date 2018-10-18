@@ -25,7 +25,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             if (option.OptionType == CommandOptionType.NoValue
                 && prop.PropertyType != typeof(bool)
-                && prop.PropertyType != typeof(bool?))
+                && prop.PropertyType != typeof(bool?)
+                && prop.PropertyType != typeof(bool[]))
             {
                 throw new InvalidOperationException(Strings.NoValueTypesMustBeBoolean);
             }
@@ -88,11 +89,30 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 case CommandOptionType.NoValue:
                     context.Application.OnParsingComplete(_ =>
                     {
-                        if (!option.HasValue())
+                        if (prop.PropertyType == typeof(bool[]))
                         {
-                            return;
+                            if (!option.HasValue())
+                            {
+                                setter.Invoke(context.ModelAccessor.GetModel(), Util.EmptyArray<bool>());
+                            }
+
+                            var count = new bool[option.Values.Count];
+                            for (var i = 0; i < count.Length; i++)
+                            {
+                                count[i] = true;
+                            }
+                            
+                            setter.Invoke(context.ModelAccessor.GetModel(), count);
                         }
-                        setter.Invoke(context.ModelAccessor.GetModel(), option.HasValue());
+                        else
+                        {
+                            if (!option.HasValue())
+                            {
+                                return;
+                            }
+
+                            setter.Invoke(context.ModelAccessor.GetModel(), option.HasValue());
+                        }
                     });
                     break;
                 default:

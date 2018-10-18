@@ -9,6 +9,7 @@ Bugs fixed:
 Enhancements:
 
 * [@jcaillon]: Add API for `UnrecognizedCommandParsingException` which includes suggestions for similar options or commands.
+* Fix #143 - support counting of bool/flag variables using `bool[]`
 
 ## [v2.3.0-alpha]
 
