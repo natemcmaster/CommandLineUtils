@@ -139,7 +139,7 @@ The value can be specified with &#39; &#39;, &#39;:&#39; or &#39;=&#39; to separ
 <code>--name one --name two</code></li>
 <li>Single or no value - a special case of &quot;no value&quot; options where an value may or may not be specified.
 They can be specified as <code>--name</code> (no value) or <code>--name:value</code> or <code>--name=value</code>.
-Unlike &quot;single value&quot;, these cannot be specified as <code>--name value</code> because the space causes amgibuous usage.</li>
+Unlike &quot;single value&quot;, these cannot be specified as <code>--name value</code> because the space causes ambiguous usage.</li>
 </ul>
 </li>
 </ul>
@@ -158,7 +158,7 @@ When specified, name and type are inferred, but they can be listed explicitly.
 The inferred short name (with &quot;-&quot; prefix) is the first letter of property name in lowercase.
 The inferred long name (with &quot;--&quot; prefix) is the property name in <a href="https://en.wikipedia.org/wiki/Letter_case">kebab case</a> (e.g. &quot;--log-level&quot; for LogLevel).
 Note that option names are case sensitive, and using different case is an error, but error message suggests expected lowercase spelling.</p>
-<pre><code class="lang-c#">public class MyCommand
+<pre><code class="lang-c#">public class Program
 {
     [Option]
     public bool Verbose { get; set; }
@@ -202,6 +202,59 @@ Note that option names are case sensitive, and using different case is an error,
         var names = app.Option(&quot;-n|--names &lt;NAME&gt;&quot;, &quot;Names&quot;, CommandOptionType.MultipleValue);
 
         return app.Execute(args);
+    }
+}
+</code></pre></section>
+</div>
+<h2 id="flag-counting">Flag counting</h2>
+<p>A common scenario for options is to allow specifying a value-less option 
+multiple times without value. The library supports counting flags by using <code>bool[]</code>
+or by checking for the number of values in <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_Values">Values</a>.</p>
+<div class="tabGroup" id="tabgroup_O36EgeKSIa-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_O36EgeKSIa-1_using-attributes" role="tab" aria-controls="tabpanel_O36EgeKSIa-1_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_O36EgeKSIa-1_using-builder-api" role="tab" aria-controls="tabpanel_O36EgeKSIa-1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+</li>
+</ul>
+<section id="tabpanel_O36EgeKSIa-1_using-attributes" role="tabpanel" data-tab="using-attributes">
+<p>Requires <strong>2.3</strong> and newer.</p>
+<pre><code class="lang-c#">//
+// Expected
+//
+
+public class Program
+{
+    [Option]
+    public bool[] Verbose { get; set; }
+
+    public void OnExecute()
+    {
+       Console.WriteLine(&quot;Verbose count = &quot; + Verbose.Length);
+    }
+
+    public static int Main(string[] args) 
+        // result: &quot;Verbose count = 3&quot;
+        =&gt; CommandLineApplication.Execute&lt;Program&gt;(&quot;-v&quot;, &quot;-v&quot;, &quot;-v&quot;);
+}
+</code></pre></section>
+<section id="tabpanel_O36EgeKSIa-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<p>When using the builder API, name and type must be specified explicitly.</p>
+<pre><code class="lang-c#">public class Program
+{
+    public static int Main(string[] args)
+    {
+        var app = new CommandLineApplication();
+
+        var verbose = app.Option(&quot;-v|--verbose&quot;, &quot;Show verbose output&quot;, CommandOptionType.NoValue);
+
+        app.OnExecute(()
+            =&gt; Console.WriteLine(&quot;Verbose count = &quot; + verbose.Values.Count); );
+
+        // result: &quot;Verbose count = 3&quot;
+        return app.Execute(&quot;-v&quot;, &quot;-v&quot;, &quot;-v&quot;);
     }
 }
 </code></pre></section>
@@ -295,7 +348,7 @@ public string Verbose { get; }
 </tbody>
 </table>
 <p>If &quot;Verbose&quot; accepted multiple values:</p>
-<pre><code class="lang-c#">[Option(&quot;-v|--Verbose&quot;, CommandOptionType.SingleValue)]
+<pre><code class="lang-c#">[Option(&quot;-v|--Verbose&quot;, CommandOptionType.MultipleValue)]
 public string[] Verbose { get; }
 </code></pre><table>
 <thead>
@@ -320,6 +373,39 @@ public string[] Verbose { get; }
 <tr>
 <td><code>--verbose banana --verbose strawberry</code></td>
 <td><code>{ &quot;banana&quot;, &quot;strawberry&quot; }</code></td>
+</tr>
+</tbody>
+</table>
+<p>If &quot;Verbose&quot; accepted single or value:</p>
+<pre><code class="lang-c#">[Option(&quot;-v|--Verbose&quot;, CommandOptionType.SingleOrNoValue)]
+public (bool hasValue, string value) Verbose { get; }
+</code></pre><table>
+<thead>
+<tr>
+<th>Inputs</th>
+<th>Value of <code>Verbose</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> (not specified)</td>
+<td><code>(false, null)</code></td>
+</tr>
+<tr>
+<td><code>--verbose</code></td>
+<td><code>(true, null)</code></td>
+</tr>
+<tr>
+<td><code>--verbose:banana</code></td>
+<td><code>(true, &quot;banana&quot;)</code></td>
+</tr>
+<tr>
+<td><code>--verbose=banana</code></td>
+<td><code>(true, &quot;banana&quot;)</code></td>
+</tr>
+<tr>
+<td><code>--verbose banana</code></td>
+<td>Invalid. SingleOrNoValue options cannot use a space delimiter between option name and value.</td>
 </tr>
 </tbody>
 </table>
