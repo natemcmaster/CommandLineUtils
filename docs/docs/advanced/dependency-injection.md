@@ -50,6 +50,25 @@ Next, you can call add the constructor injection convention by calling `UseConst
 
 [!code-csharp[](../../samples/dependency-injection/custom/Program.cs?range=19-22)]
 
-Below is the full source code for the custom services example. Notice that instance of `IMyService` which will be injected into the `Program` constructor thanks to the dependency injection.
+Below is the full source code for the custom services example. Notice that instance of `IMyService` will be injected into the `Program` constructor thanks to the dependency injection.
 
 [!code-csharp[](../../samples/dependency-injection/custom/Program.cs?name=Program&highlight=21-24)]
+
+## Using Generic Host
+
+[Generic host](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-2.1) integration allows you to use the most current DI configuration approach indicated by the aspnet project.  The basic approach starts by creating the builder:
+
+[!code-csharp[](../../samples/dependency-injection/generic-host/Program.cs?name=Program&range=19-19)]
+
+Then you can configure your features:
+
+[!code-csharp[](../../samples/dependency-injection/generic-host/Program.cs?name=Program&range=20-27)]
+
+And finally, run your program:
+
+[!code-csharp[](../../samples/dependency-injection/generic-host/Program.cs?name=Program&range=28-28)]
+
+Below is the full source code for the generic host services example. Notice that instance of `IMyService` will be injected into the `Program` constructor thanks to the dependency injection.
+
+[!code-csharp[](../../samples/dependency-injection/custom/Program.cs?name=Program&highlight=25-25)]
+
