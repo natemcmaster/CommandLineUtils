@@ -11,7 +11,6 @@ namespace CustomServices
 {
 #region Program
     [Command(Name = "di", Description = "Dependency Injection sample project")]
-    [HelpOption]
     class Program
     {
         public static async Task<int> Main(string[] args)
@@ -35,7 +34,7 @@ namespace CustomServices
         {
             _myService = myService;
             _logger = logger;
-            
+
             _logger.LogInformation("Constructed!");
         }
 
