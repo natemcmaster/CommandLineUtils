@@ -7,11 +7,11 @@ using Microsoft.Extensions.Logging;
 namespace McMaster.Extensions.Hosting.CommandLine.Internal
 {
     /// <inheritdoc/>
-    internal class CliService<T> : ICliService where T : class
+    internal class CommandLineService<T> : ICommandLineService where T : class
     {
         private ILogger logger;
         private CommandLineApplication application;
-        private CliArgs args;
+        private CommandLineArgs args;
 
         /// <summary>
         /// Creates a new instance.
@@ -19,7 +19,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         /// <param name="logger">A logger</param>
         /// <param name="args">The command line arguments</param>
         /// <param name="serviceProvider">The DI service provider</param>
-        public CliService(ILogger<CliService<T>> logger, CliArgs args,
+        public CommandLineService(ILogger<CommandLineService<T>> logger, CommandLineArgs args,
             IServiceProvider serviceProvider)
         {
             this.logger = logger;

@@ -21,22 +21,23 @@ namespace McMaster.Extensions.Hosting.CommandLine
         /// <param name="hostBuilder">This instance</param>
         /// <param name="args">The command line arguments</param>
         /// <returns>A task whose result is the exit code of the application</returns>
-        public static async Task<int> RunCliAsync<T>(this IHostBuilder hostBuilder, string[] args) where T : class
+        public static async Task<int> RunCommandLineApplicationAsync<T>(
+            this IHostBuilder hostBuilder, string[] args) where T : class
         {
             using (var host = hostBuilder.UseCli<T>(args).Build())
             {
                 await host.StartAsync();
                 await host.WaitForShutdownAsync();
-                return ((CliLifetime)host.Services.GetService<IHostLifetime>()).ExitCode;
+                return ((CommandLineLifetime)host.Services.GetService<IHostLifetime>()).ExitCode;
             }
         }
 
         /// <summary>
-        /// Sets the <see cref="ICliService"/> to use <code>T</code> for its
+        /// Sets the <see cref="ICommandLineService"/> to use <code>T</code> for its
         /// <see cref="CommandLineApplication"/>.
         /// <para>
         /// This method is not intended to be used directly.  Instead, you should use
-        /// <see cref="RunCliAsync{T}(IHostBuilder, string[])"/>.
+        /// <see cref="RunCommandLineApplicationAsync{T}(IHostBuilder, string[])"/>.
         /// </para>
         /// </summary>
         /// <typeparam name="T">The command line application implementation</typeparam>
@@ -46,8 +47,8 @@ namespace McMaster.Extensions.Hosting.CommandLine
         public static IHostBuilder UseCli<T>(this IHostBuilder hostBuilder, string[] args) where T : class
             => hostBuilder.ConfigureServices(
                 (context, services)
-                    => services.AddSingleton<IHostLifetime, CliLifetime>()
-                        .AddSingleton<CliArgs>(new CliArgs{Value = args})
-                        .AddSingleton<ICliService, CliService<T>>());
+                    => services.AddSingleton<IHostLifetime, CommandLineLifetime>()
+                        .AddSingleton<CommandLineArgs>(new CommandLineArgs{Value = args})
+                        .AddSingleton<ICommandLineService, CommandLineService<T>>());
     }
 }

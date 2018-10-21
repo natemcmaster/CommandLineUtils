@@ -10,17 +10,17 @@ namespace McMaster.Extensions.Hosting.CommandLine
     /// Waits from completion of the <see cref="CommandLineApplication"/> and
     /// initiates shutdown.
     /// </summary>
-    public class CliLifetime : IHostLifetime
+    public class CommandLineLifetime : IHostLifetime
     {
-        private readonly ILogger<CliLifetime> logger;
+        private readonly ILogger<CommandLineLifetime> logger;
         private readonly IApplicationLifetime applicationLifetime;
-        private readonly ICliService cliService;
+        private readonly ICommandLineService cliService;
 
         /// <summary>
         /// Creates a new instance.
         /// </summary>
-        public CliLifetime(ILogger<CliLifetime> logger, IApplicationLifetime applicationLifetime,
-            ICliService cliService)
+        public CommandLineLifetime(ILogger<CommandLineLifetime> logger, IApplicationLifetime applicationLifetime,
+            ICommandLineService cliService)
         {
             this.logger = logger;
             this.applicationLifetime = applicationLifetime;
@@ -38,7 +38,7 @@ namespace McMaster.Extensions.Hosting.CommandLine
 
         /// <summary>
         /// Registers an <code>ApplicationStarted</code> hook that runs the
-        /// <see cref="ICliService"/>. This ensures the container and all
+        /// <see cref="ICommandLineService"/>. This ensures the container and all
         /// hosted services are started before the
         /// <see cref="CommandLineApplication"/> is run.  After the
         /// <code>ICliService</code> completes, the <code>ExitCode</code> is

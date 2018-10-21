@@ -32,7 +32,7 @@ namespace CustomServices
                     services.AddSingleton<IGreeter, Greeter>()
                         .AddSingleton<IConsole>(PhysicalConsole.Singleton);
                 })
-                .RunCliAsync<Program>(args);
+                .RunCommandLineApplicationAsync<Program>(args);
         }
 
         private readonly ILogger<Program> _logger;

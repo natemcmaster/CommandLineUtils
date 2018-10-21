@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 namespace McMaster.Extensions.Hosting.CommandLine
 {
     /// <summary>
-    /// A service to be run as part of the <see cref="CliLifetime"/>.
+    /// A service to be run as part of the <see cref="CommandLineLifetime"/>.
     /// </summary>
-    /// <seealso cref="HostBuilderExtensions.RunCliAsync{T}(Microsoft.Extensions.Hosting.IHostBuilder, string[])"/>
-    public interface ICliService
+    /// <seealso cref="HostBuilderExtensions.RunCommandLineApplicationAsync{T}(Microsoft.Extensions.Hosting.IHostBuilder, string[])"/>
+    public interface ICommandLineService
     {
         /// <summary>
         /// Runs the application asynchronously and returns the exit code.
