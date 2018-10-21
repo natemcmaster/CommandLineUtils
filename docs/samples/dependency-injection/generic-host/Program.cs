@@ -13,6 +13,14 @@ namespace CustomServices
     [Command(Name = "di", Description = "Dependency Injection sample project")]
     class Program
     {
+
+        [Argument(0, Description = "your name")]
+        private string Name { get; } = "dependency injection";
+
+        [Option("-l|--language", Description = "your desired language")]
+        [AllowedValues("english", "spanish", IgnoreCase = true)]
+        public string Language { get; } = "english";
+
         public static async Task<int> Main(string[] args)
         {
             return await new HostBuilder()
@@ -21,44 +29,44 @@ namespace CustomServices
                     builder.AddConsole();
                 })
                 .ConfigureServices((context, services) => {
-                    services.AddSingleton<IMyService, MyServiceImplementation>()
+                    services.AddSingleton<IGreeter, Greeter>()
                         .AddSingleton<IConsole>(PhysicalConsole.Singleton);
                 })
                 .RunCliAsync<Program>(args);
         }
 
         private readonly ILogger<Program> _logger;
-        private readonly IMyService _myService;
+        private readonly IGreeter _greeter;
 
-        public Program(ILogger<Program> logger, IMyService myService)
+        public Program(ILogger<Program> logger, IGreeter greeter)
         {
-            _myService = myService;
             _logger = logger;
+            _greeter = greeter;
 
             _logger.LogInformation("Constructed!");
         }
 
         private void OnExecute()
         {
-            _myService.Invoke();
+            _greeter.Greet(Name, Language);
         }
     }
 #endregion
 
-#region IMyService
-    interface IMyService
+#region IGreeter
+    interface IGreeter
     {
-        void Invoke();
+        void Greet(string name, string language);
     }
 #endregion
 
-#region MyServiceImplementation
-    class MyServiceImplementation : IMyService
+#region Greeter
+    class Greeter : IGreeter
     {
         private readonly IConsole _console;
-        private readonly ILogger<MyServiceImplementation> _logger;
+        private readonly ILogger<Greeter> _logger;
 
-        public MyServiceImplementation(ILogger<MyServiceImplementation> logger,
+        public Greeter(ILogger<Greeter> logger,
             IConsole console)
         {
             _logger = logger;
@@ -67,9 +75,16 @@ namespace CustomServices
             _logger.LogInformation("Constructed!");
         }
 
-        public void Invoke()
+        public void Greet(string name, string language = "english")
         {
-            _console.WriteLine("Hello dependency injection!");
+            string greeting;
+            switch (language)
+            {
+                case "english": greeting = "Hello {0}"; break;
+                case "spanish": greeting = "Hola {0}"; break;
+                default: throw new InvalidOperationException("validation should have caught this");
+            }
+            _console.WriteLine(greeting, name);
         }
     }
 #endregion
