@@ -6,18 +6,6 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
     <Description>Generic Host integration for command-line parsing API.</Description>
-    <PackageDescription>Command-line parsing API and utilities for console applications.
-
-Commonly used types:
-
-McMaster.Extensions.CommandLineUtils.CommandLineApplication
-McMaster.Extensions.CommandLineUtils.CommandOption
-McMaster.Extensions.CommandLineUtils.IConsole
-McMaster.Extensions.CommandLineUtils.Prompt
-McMaster.Extensions.CommandLineUtils.ArgumentEscaper
-
- A community-maintained fork of Microsoft.Extensions.CommandLineUtils, plus many enhancements.
-    </PackageDescription>
     <PackageTags>commandline;parsing</PackageTags>
     <IncludeSymbols>true</IncludeSymbols>
     <IncludeSource>true</IncludeSource>
