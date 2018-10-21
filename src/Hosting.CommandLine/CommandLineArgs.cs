@@ -3,7 +3,7 @@ namespace McMaster.Extensions.Hosting.CommandLine
     /// <summary>
     /// A DI container for storing command line arguments.
     /// </summary>
-    /// <seealso cref="HostBuilderExtensions.UseCli{T}(Microsoft.Extensions.Hosting.IHostBuilder, string[])"/>
+    /// <seealso cref="Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli{T}(Microsoft.Extensions.Hosting.IHostBuilder, string[])"/>
     public class CommandLineArgs
     {
         /// <value>The command line arguments</value>

@@ -6,7 +6,7 @@ namespace McMaster.Extensions.Hosting.CommandLine
     /// <summary>
     /// A service to be run as part of the <see cref="CommandLineLifetime"/>.
     /// </summary>
-    /// <seealso cref="HostBuilderExtensions.RunCommandLineApplicationAsync{T}(Microsoft.Extensions.Hosting.IHostBuilder, string[])"/>
+    /// <seealso cref="Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync{T}(Microsoft.Extensions.Hosting.IHostBuilder, string[])"/>
     public interface ICommandLineService
     {
         /// <summary>
