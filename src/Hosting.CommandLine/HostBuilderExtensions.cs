@@ -29,7 +29,8 @@ namespace Microsoft.Extensions.Hosting
             {
                 await host.StartAsync();
                 await host.WaitForShutdownAsync();
-                return ((CommandLineLifetime)host.Services.GetService<IHostLifetime>()).ExitCode;
+
+                return host.Services.GetService<CommandLineState>().ExitCode;
             }
         }
 
@@ -49,7 +50,7 @@ namespace Microsoft.Extensions.Hosting
             => hostBuilder.ConfigureServices(
                 (context, services)
                     => services.AddSingleton<IHostLifetime, CommandLineLifetime>()
-                        .AddSingleton<CommandLineArgs>(new CommandLineArgs{Value = args})
+                        .AddSingleton<CommandLineState>(new CommandLineState{Arguments = args})
                         .AddSingleton<ICommandLineService, CommandLineService<T>>());
     }
 }

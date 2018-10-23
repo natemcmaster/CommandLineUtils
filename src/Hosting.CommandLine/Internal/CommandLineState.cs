@@ -4,9 +4,10 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
     /// A DI container for storing command line arguments.
     /// </summary>
     /// <seealso cref="Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli{T}(Microsoft.Extensions.Hosting.IHostBuilder, string[])"/>
-    internal class CommandLineArgs
+    internal class CommandLineState
     {
         /// <value>The command line arguments</value>
-        public string[] Value {get; set;}
+        public string[] Arguments {get; set;}
+        public int ExitCode{get; set;}
     }
 }
