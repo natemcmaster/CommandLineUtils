@@ -13,7 +13,8 @@
           ]
         }
       ],
-      "dest": "obj/api/",
+      "dest": "obj/unstable/api/",
+      "filter": "filterConfig.yml",
       "properties": {
         "TargetFramework": "netstandard2.0"
       }
@@ -21,45 +22,22 @@
   ],
   "build": {
     "content": [
-      {
-        "files": [
-          "**.yml"
-        ],
-        "exclude": [
-          "**/obj/**",
-          "**.meta"
-        ],
-        "src": "obj/api",
-        "dest": "api"
-      },
-      {
-        "files": [
-          "**.md",
-          "**.yml"
-        ],
-        "exclude": [
-          "**/obj/**",
-          "**.meta",
-          "README.md"
-        ]
-      }
+      { "version": "unstable", "files": ["**/*.yml", "**/*.md"], "src": "obj/unstable", "dest": "unstable" },
+      { "version": "v2.2", "files": ["**/*.yml", "**/*.md"], "src": "v2.2", "dest": "v2.2" },
+      { "version": "v2.2", "files": ["**/*.yml", "**/*.md"], "exclude": [ "v2.2/","obj/", "**.meta", "README.md", "filterConfig.yml" ] }
     ],
     "resource": [
       {
         "files": [
           ".nojekyll",
           ".gitattributes",
-          "**/images/**",
+          "images/**",
           "*.png"
         ],
         "exclude": [
-          "**/obj/**",
+          "obj/",
           "**.meta"
         ]
-      },
-      {
-        "files": "schemas/**schema.json",
-        "src": ".."
       }
     ],
     "overwrite": "apispec/*.md",
@@ -76,7 +54,7 @@
     "cleanupCacheHistory": false,
     "disableGitFeatures": false,
     "globalMetadata": {
-      "_appFooter": "Generated with docfx",
+      "_appFooter": " ",
       "_appLogoPath": "logo.png"
     }
   }

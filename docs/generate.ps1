@@ -1,6 +1,7 @@
 #requires -version 5
 param(
     [switch]$Serve,
+    [switch]$Install,
     [switch]$NoBuild
 )
 $ErrorActionPreference = 'Stop'
@@ -23,7 +24,7 @@ try {
         exec git worktree add $targetDir gh-pages 2>&1 | out-null
     }
 
-    $docfxVersion = '2.37.2'
+    $docfxVersion = '2.40.0'
     $docfxRoot = "$buildRoot/packages/docfx.console/$docfxVersion"
     $docfx = "$docfxRoot/tools/docfx.exe"
     if (-not (Test-Path $docfx)) {
@@ -32,6 +33,9 @@ try {
         Invoke-WebRequest "https://www.nuget.org/api/v2/package/docfx.console/$docfxVersion" -O $temp
         Expand-Archive $temp -DestinationPath $docfxRoot
         Remove-Item $temp
+        if ($Install) {
+            exit 1
+        }
     }
 
     Push-Location $targetDir
@@ -52,9 +56,7 @@ try {
     finally {
         Push-Location $targetDir
         exec git config core.safecrlf false # suppress warning about CRLF
-        exec git add ./
-        Write-Host "Files that changed in docs:"
-        exec git --no-pager status -s
+        exec git add ./ 2>&1 | Out-Null
         Pop-Location
     }
 }
