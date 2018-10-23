@@ -8,7 +8,7 @@
     <title>Arguments </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Arguments ">
-    <meta name="generator" content="docfx 2.37.2.0">
+    <meta name="generator" content="docfx 2.40.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -81,7 +81,7 @@
 <p>When a command executes, the raw <code>string[] args</code> value can be separated into two different categories: options and arguments.</p>
 <p>Arguments are positional and values are specified based by order.</p>
 <p>Options are named and must be specified using a name. Options are covered in <a class="xref" href="options.html">this document.</a></p>
-<p>Arguments are represented by the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a> type.
+<p>Arguments are represented by the <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a> type.
 They have one defining characteristic.</p>
 <ul>
 <li>Position - the order in which arguments appear on command line (after options have been parsed)</li>
@@ -142,7 +142,7 @@ These arguments are collected into a <code>string[]</code> array after all other
 <pre><code>cat -b 123 file1.txt file2.txt file3.txt
 </code></pre><div class="NOTE"><h5>Note</h5><p>Normally, unrecognized arguments is an error. To allow this scenario, you must set ThrowOnUnexpectedArgument to false.</p>
 </div>
-<p>See <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a> for more details.</p>
+<p>See <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a> for more details.</p>
 <div class="tabGroup" id="tabgroup_O1aAyLh+nY-1">
 <ul role="tablist">
 <li role="presentation">
@@ -226,7 +226,7 @@ public class Program
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Generated with docfx
+             
             
           </div>
         </div>
@@ -236,5 +236,14 @@ public class Program
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-38984092-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-38984092-6');
+    </script>
   </body>
 </html>
