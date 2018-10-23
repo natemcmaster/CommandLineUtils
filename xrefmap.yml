@@ -1551,6 +1551,23 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowVersion
   nameWithType: CommandLineApplication.ShowVersion
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.System#IDisposable#Dispose
+  name: IDisposable.Dispose()
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IDisposable_Dispose
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.System#IDisposable#Dispose
+  name.vb: System.IDisposable.Dispose()
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.System.IDisposable.Dispose()
+  nameWithType: CommandLineApplication.IDisposable.Dispose()
+  nameWithType.vb: CommandLineApplication.System.IDisposable.Dispose()
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.System#IDisposable#Dispose*
+  name: IDisposable.Dispose
+  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IDisposable_Dispose_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.System#IDisposable#Dispose
+  isSpec: "True"
+  name.vb: System.IDisposable.Dispose
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.System.IDisposable.Dispose
+  nameWithType: CommandLineApplication.IDisposable.Dispose
+  nameWithType.vb: CommandLineApplication.System.IDisposable.Dispose
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.System#IServiceProvider#GetService(System.Type)
   name: IServiceProvider.GetService(Type)
   href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IServiceProvider_GetService_System_Type_
@@ -1811,25 +1828,6 @@ references:
   fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).ModelFactory
   nameWithType: CommandLineApplication<TModel>.ModelFactory
   nameWithType.vb: CommandLineApplication(Of TModel).ModelFactory
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.System#IDisposable#Dispose
-  name: IDisposable.Dispose()
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_System_IDisposable_Dispose
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.System#IDisposable#Dispose
-  name.vb: System.IDisposable.Dispose()
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.System.IDisposable.Dispose()
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).System.IDisposable.Dispose()
-  nameWithType: CommandLineApplication<TModel>.IDisposable.Dispose()
-  nameWithType.vb: CommandLineApplication(Of TModel).System.IDisposable.Dispose()
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.System#IDisposable#Dispose*
-  name: IDisposable.Dispose
-  href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_System_IDisposable_Dispose_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.System#IDisposable#Dispose
-  isSpec: "True"
-  name.vb: System.IDisposable.Dispose
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.System.IDisposable.Dispose
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).System.IDisposable.Dispose
-  nameWithType: CommandLineApplication<TModel>.IDisposable.Dispose
-  nameWithType.vb: CommandLineApplication(Of TModel).System.IDisposable.Dispose
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
   name: CommandLineApplicationExtensions
   href: api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html
