@@ -17,7 +17,7 @@ commands related to those arguments. The library also provides various other uti
     <div class="col-md-4">
         <div class="panel panel-default" style="min-height: 140px">
             <div class="panel-body">
-                <p><strong><a href="api/index.md">API Reference</a></strong></p>
+                <p><strong> [API Reference](xref:latest_api_ref) </strong></p>
                 <p>Read the API documentation for this library.</p>
             </div>
         </div>

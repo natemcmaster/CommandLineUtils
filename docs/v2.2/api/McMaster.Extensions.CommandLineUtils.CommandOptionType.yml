@@ -1,0 +1,197 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOptionType
+  id: CommandOptionType
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.CommandOptionType.MultipleValue
+  - McMaster.Extensions.CommandLineUtils.CommandOptionType.NoValue
+  - McMaster.Extensions.CommandLineUtils.CommandOptionType.SingleOrNoValue
+  - McMaster.Extensions.CommandLineUtils.CommandOptionType.SingleValue
+  langs:
+  - csharp
+  - vb
+  name: CommandOptionType
+  nameWithType: CommandOptionType
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  type: Enum
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandOptionType.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: CommandOptionType
+    path: ../src/CommandLineUtils/CommandOptionType.cs
+    startLine: 9
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nDefines the kinds of inputs <xref href=\"McMaster.Extensions.CommandLineUtils.CommandOption\" data-throw-if-not-resolved=\"false\"></xref> accepts.\n"
+  example: []
+  syntax:
+    content: public enum CommandOptionType
+    content.vb: Public Enum CommandOptionType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: McMaster.Extensions.CommandLineUtils.CommandOptionType.MultipleValue
+  commentId: F:McMaster.Extensions.CommandLineUtils.CommandOptionType.MultipleValue
+  id: MultipleValue
+  parent: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  langs:
+  - csharp
+  - vb
+  name: MultipleValue
+  nameWithType: CommandOptionType.MultipleValue
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOptionType.MultipleValue
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandOptionType.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: MultipleValue
+    path: ../src/CommandLineUtils/CommandOptionType.cs
+    startLine: 17
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe option can be specified multiple times.\n<p>\nExample input: <code>--letter A --letter B --letter C</code>\n</p>\n"
+  example: []
+  syntax:
+    content: MultipleValue = 0
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: McMaster.Extensions.CommandLineUtils.CommandOptionType.SingleValue
+  commentId: F:McMaster.Extensions.CommandLineUtils.CommandOptionType.SingleValue
+  id: SingleValue
+  parent: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  langs:
+  - csharp
+  - vb
+  name: SingleValue
+  nameWithType: CommandOptionType.SingleValue
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOptionType.SingleValue
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandOptionType.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: SingleValue
+    path: ../src/CommandLineUtils/CommandOptionType.cs
+    startLine: 31
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe option can only be specified once.\n<p>\nExample input: <code>--letter A</code>\n</p>\n<p>\nExample input: <code>--letter=A</code>\n</p>\n<p>\nExample input: <code>--letter:A</code>\n</p>\n"
+  example: []
+  syntax:
+    content: SingleValue = 1
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: McMaster.Extensions.CommandLineUtils.CommandOptionType.SingleOrNoValue
+  commentId: F:McMaster.Extensions.CommandLineUtils.CommandOptionType.SingleOrNoValue
+  id: SingleOrNoValue
+  parent: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  langs:
+  - csharp
+  - vb
+  name: SingleOrNoValue
+  nameWithType: CommandOptionType.SingleOrNoValue
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOptionType.SingleOrNoValue
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandOptionType.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: SingleOrNoValue
+    path: ../src/CommandLineUtils/CommandOptionType.cs
+    startLine: 46
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe option can only be specified once, and may or may not have a value.\n<p>\nTo disambiguate this from <xref href=\"McMaster.Extensions.CommandLineUtils.CommandOptionType.NoValue\" data-throw-if-not-resolved=\"false\"></xref>, values provided cannot be space-separated from the option name,\nbut must use &apos;=&apos; or &apos;:&apos;\n</p>\n<p>\nExample input: <code>--log</code>\n</p>\n<p>\nExample input: <code>--log:verbose</code>\n</p>\n"
+  example: []
+  syntax:
+    content: SingleOrNoValue = 2
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: McMaster.Extensions.CommandLineUtils.CommandOptionType.NoValue
+  commentId: F:McMaster.Extensions.CommandLineUtils.CommandOptionType.NoValue
+  id: NoValue
+  parent: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  langs:
+  - csharp
+  - vb
+  name: NoValue
+  nameWithType: CommandOptionType.NoValue
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOptionType.NoValue
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandOptionType.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: NoValue
+    path: ../src/CommandLineUtils/CommandOptionType.cs
+    startLine: 54
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe option can only be specified once, and does not have a value.\n<p>\nExample input: <code>--no-commit</code>\n</p>\n"
+  example: []
+  syntax:
+    content: NoValue = 3
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOption
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandOption
+  nameWithType: CommandOption
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOptionType
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandOptionType
+  nameWithType: CommandOptionType
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOptionType
+- uid: McMaster.Extensions.CommandLineUtils.CommandOptionType.NoValue
+  commentId: F:McMaster.Extensions.CommandLineUtils.CommandOptionType.NoValue
+  isExternal: true

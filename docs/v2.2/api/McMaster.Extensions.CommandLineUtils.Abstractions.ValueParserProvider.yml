@@ -1,0 +1,825 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  id: ValueParserProvider
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.Add(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser)
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddOrReplace(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser)
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddRange(System.Collections.Generic.IEnumerable{McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser})
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser(System.Type)
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser``1
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.ParseCulture
+  langs:
+  - csharp
+  - vb
+  name: ValueParserProvider
+  nameWithType: ValueParserProvider
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ValueParserProvider
+    path: ../src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+    startLine: 14
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nA store of value parsers that are used to convert argument values from strings to types.\n"
+  example: []
+  syntax:
+    content: public class ValueParserProvider
+    content.vb: Public Class ValueParserProvider
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.ParseCulture
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.ParseCulture
+  id: ParseCulture
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  langs:
+  - csharp
+  - vb
+  name: ParseCulture
+  nameWithType: ValueParserProvider.ParseCulture
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.ParseCulture
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ParseCulture
+    path: ../src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+    startLine: 44
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nGets or sets the CultureInfo which is used to convert argument values to types.\n"
+  remarks: "\nThe default value is <xref href=\"System.Globalization.CultureInfo.CurrentCulture\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public CultureInfo ParseCulture { get; set; }
+    parameters: []
+    return:
+      type: System.Globalization.CultureInfo
+    content.vb: Public Property ParseCulture As CultureInfo
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.ParseCulture*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser(System.Type)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser(System.Type)
+  id: GetParser(System.Type)
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  langs:
+  - csharp
+  - vb
+  name: GetParser(Type)
+  nameWithType: ValueParserProvider.GetParser(Type)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser(System.Type)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetParser
+    path: ../src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+    startLine: 56
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nReturns a parser registered for the given type.\n"
+  example: []
+  syntax:
+    content: public IValueParser GetParser(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: ''
+    return:
+      type: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+      description: ''
+    content.vb: Public Function GetParser(type As Type) As IValueParser
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser``1
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser``1
+  id: GetParser``1
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  langs:
+  - csharp
+  - vb
+  name: GetParser<T>()
+  nameWithType: ValueParserProvider.GetParser<T>()
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser<T>()
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetParser
+    path: ../src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+    startLine: 70
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nReturns a parser for the generic type T.\n"
+  remarks: "\nIf parser is not registered, null is returned.\n"
+  example: []
+  syntax:
+    content: public IValueParser<T> GetParser<T>()
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{{T}}
+      description: ''
+    content.vb: Public Function GetParser(Of T) As IValueParser(Of T)
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser*
+  nameWithType.vb: ValueParserProvider.GetParser(Of T)()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser(Of T)()
+  name.vb: GetParser(Of T)()
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.Add(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.Add(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser)
+  id: Add(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser)
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  langs:
+  - csharp
+  - vb
+  name: Add(IValueParser)
+  nameWithType: ValueParserProvider.Add(IValueParser)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.Add(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Add
+    path: ../src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+    startLine: 142
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nAdd a new value parser to the provider.\n"
+  example: []
+  syntax:
+    content: public void Add(IValueParser parser)
+    parameters:
+    - id: parser
+      type: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+      description: An instance of the parser that is used to convert an argument from a string.
+    content.vb: Public Sub Add(parser As IValueParser)
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.Add*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: "\nA value parser with the same <xref href=\"McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType\" data-throw-if-not-resolved=\"false\"></xref> is already registered.\n"
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code data-dev-comment-type="paramref" class="paramref">parser</code> is null.
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddRange(System.Collections.Generic.IEnumerable{McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddRange(System.Collections.Generic.IEnumerable{McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser})
+  id: AddRange(System.Collections.Generic.IEnumerable{McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser})
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  langs:
+  - csharp
+  - vb
+  name: AddRange(IEnumerable<IValueParser>)
+  nameWithType: ValueParserProvider.AddRange(IEnumerable<IValueParser>)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddRange(System.Collections.Generic.IEnumerable<McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: AddRange
+    path: ../src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+    startLine: 155
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nAdd collection of a new value parsers to the provider.\n"
+  example: []
+  syntax:
+    content: public void AddRange(IEnumerable<IValueParser> parsers)
+    parameters:
+    - id: parsers
+      type: System.Collections.Generic.IEnumerable{McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser}
+      description: The collection whose parsers should be added.
+    content.vb: Public Sub AddRange(parsers As IEnumerable(Of IValueParser))
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddRange*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: "\nA value parser with the same <xref href=\"McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType\" data-throw-if-not-resolved=\"false\"></xref> is already registered.\n"
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code data-dev-comment-type="paramref" class="paramref">parsers</code> is null.
+  nameWithType.vb: ValueParserProvider.AddRange(IEnumerable(Of IValueParser))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddRange(System.Collections.Generic.IEnumerable(Of McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser))
+  name.vb: AddRange(IEnumerable(Of IValueParser))
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddOrReplace(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddOrReplace(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser)
+  id: AddOrReplace(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser)
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  langs:
+  - csharp
+  - vb
+  name: AddOrReplace(IValueParser)
+  nameWithType: ValueParserProvider.AddOrReplace(IValueParser)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddOrReplace(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: AddOrReplace
+    path: ../src/CommandLineUtils/Abstractions/ValueParserProvider.cs
+    startLine: 174
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nAdd a new value parser to the provider, or if a value provider already exists for\n<xref href=\"McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType\" data-throw-if-not-resolved=\"false\"></xref> then replaces it with <code data-dev-comment-type=\"paramref\" class=\"paramref\">parser</code>.\n"
+  example: []
+  syntax:
+    content: public void AddOrReplace(IValueParser parser)
+    parameters:
+    - id: parser
+      type: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+      description: An instance of the parser that is used to convert an argument from a string.
+    content.vb: Public Sub AddOrReplace(parser As IValueParser)
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddOrReplace*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code data-dev-comment-type="paramref" class="paramref">parser</code> is null.
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Globalization.CultureInfo.CurrentCulture
+  commentId: P:System.Globalization.CultureInfo.CurrentCulture
+  isExternal: true
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.ParseCulture*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.ParseCulture
+  name: ParseCulture
+  nameWithType: ValueParserProvider.ParseCulture
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.ParseCulture
+- uid: System.Globalization.CultureInfo
+  commentId: T:System.Globalization.CultureInfo
+  parent: System.Globalization
+  isExternal: true
+  name: CultureInfo
+  nameWithType: CultureInfo
+  fullName: System.Globalization.CultureInfo
+- uid: System.Globalization
+  commentId: N:System.Globalization
+  isExternal: true
+  name: System.Globalization
+  nameWithType: System.Globalization
+  fullName: System.Globalization
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser
+  name: GetParser
+  nameWithType: ValueParserProvider.GetParser
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GetParser
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  name: IValueParser
+  nameWithType: IValueParser
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{{T}}
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{`0}
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  definition: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  name: IValueParser<T>
+  nameWithType: IValueParser<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
+  nameWithType.vb: IValueParser(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T)
+  name.vb: IValueParser(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  name: IValueParser<T>
+  nameWithType: IValueParser<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
+  nameWithType.vb: IValueParser(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T)
+  name.vb: IValueParser(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  name: TargetType
+  nameWithType: IValueParser.TargetType
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.Add*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.Add
+  name: Add
+  nameWithType: ValueParserProvider.Add
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.Add
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddRange*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddRange
+  name: AddRange
+  nameWithType: ValueParserProvider.AddRange
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddRange
+- uid: System.Collections.Generic.IEnumerable{McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser}
+  commentId: T:System.Collections.Generic.IEnumerable{McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<IValueParser>
+  nameWithType: IEnumerable<IValueParser>
+  fullName: System.Collections.Generic.IEnumerable<McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser>
+  nameWithType.vb: IEnumerable(Of IValueParser)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser)
+  name.vb: IEnumerable(Of IValueParser)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddOrReplace*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddOrReplace
+  name: AddOrReplace
+  nameWithType: ValueParserProvider.AddOrReplace
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.AddOrReplace

@@ -1,0 +1,136 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+  id: IModelAccessor
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModel
+  - McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModelType
+  langs:
+  - csharp
+  - vb
+  name: IModelAccessor
+  nameWithType: IModelAccessor
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/IModelAccessor.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IModelAccessor
+    path: ../src/CommandLineUtils/Abstractions/IModelAccessor.cs
+    startLine: 10
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nProvides access to a command line application model.\n"
+  example: []
+  syntax:
+    content: public interface IModelAccessor
+    content.vb: Public Interface IModelAccessor
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModelType
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModelType
+  id: GetModelType
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+  langs:
+  - csharp
+  - vb
+  name: GetModelType()
+  nameWithType: IModelAccessor.GetModelType()
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModelType()
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/IModelAccessor.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetModelType
+    path: ../src/CommandLineUtils/Abstractions/IModelAccessor.cs
+    startLine: 16
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nGets the type of the model.\n"
+  example: []
+  syntax:
+    content: Type GetModelType()
+    return:
+      type: System.Type
+      description: The type.
+    content.vb: Function GetModelType As Type
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModelType*
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModel
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModel
+  id: GetModel
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+  langs:
+  - csharp
+  - vb
+  name: GetModel()
+  nameWithType: IModelAccessor.GetModel()
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModel()
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/IModelAccessor.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetModel
+    path: ../src/CommandLineUtils/Abstractions/IModelAccessor.cs
+    startLine: 22
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nGets the model.\n"
+  example: []
+  syntax:
+    content: object GetModel()
+    return:
+      type: System.Object
+      description: The model.
+    content.vb: Function GetModel As Object
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModel*
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModelType*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModelType
+  name: GetModelType
+  nameWithType: IModelAccessor.GetModelType
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModelType
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModel*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModel
+  name: GetModel
+  nameWithType: IModelAccessor.GetModel
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModel
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object

@@ -1,0 +1,531 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  id: CommandLineContext
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+  - McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+  - McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+  langs:
+  - csharp
+  - vb
+  name: CommandLineContext
+  nameWithType: CommandLineContext
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: CommandLineContext
+    path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nContains information about the execution context of the command-line application.\n"
+  example: []
+  syntax:
+    content: public abstract class CommandLineContext
+    content.vb: Public MustInherit Class CommandLineContext
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+  id: Arguments
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  langs:
+  - csharp
+  - vb
+  name: Arguments
+  nameWithType: CommandLineContext.Arguments
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Arguments
+    path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs
+    startLine: 23
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nThe arguments as provided in Program.Main.\n"
+  remarks: "\nCannot be null.\n"
+  example: []
+  syntax:
+    content: public string[] Arguments { get; protected set; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public Property Arguments As String()
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments*
+  modifiers.csharp:
+  - public
+  - get
+  - protected set
+  modifiers.vb:
+  - Public
+  - Get
+  - Protected Set
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+  id: WorkingDirectory
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  langs:
+  - csharp
+  - vb
+  name: WorkingDirectory
+  nameWithType: CommandLineContext.WorkingDirectory
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WorkingDirectory
+    path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs
+    startLine: 35
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nThe current working directory. Defaults to <xref href=\"System.IO.Directory.GetCurrentDirectory\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  remarks: "\nCannot be null, and must be an absolute file path.\n"
+  example: []
+  syntax:
+    content: public string WorkingDirectory { get; protected set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WorkingDirectory As String
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory*
+  modifiers.csharp:
+  - public
+  - get
+  - protected set
+  modifiers.vb:
+  - Public
+  - Get
+  - Protected Set
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+  id: Console
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  langs:
+  - csharp
+  - vb
+  name: Console
+  nameWithType: CommandLineContext.Console
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Console
+    path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs
+    startLine: 60
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nThe console.\n"
+  remarks: "\nCannot be null.\n"
+  example: []
+  syntax:
+    content: public IConsole Console { get; protected set; }
+    parameters: []
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+    content.vb: Public Property Console As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console*
+  modifiers.csharp:
+  - public
+  - get
+  - protected set
+  modifiers.vb:
+  - Public
+  - Get
+  - Protected Set
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+  name: Arguments
+  nameWithType: CommandLineContext.Arguments
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+- uid: System.String[]
+  isExternal: true
+  name: String[]
+  nameWithType: String[]
+  fullName: System.String[]
+  nameWithType.vb: String()
+  fullName.vb: System.String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.IO.Directory.GetCurrentDirectory
+  commentId: M:System.IO.Directory.GetCurrentDirectory
+  isExternal: true
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+  name: WorkingDirectory
+  nameWithType: CommandLineContext.WorkingDirectory
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+  name: Console
+  nameWithType: CommandLineContext.Console
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+- uid: McMaster.Extensions.CommandLineUtils.IConsole
+  commentId: T:McMaster.Extensions.CommandLineUtils.IConsole
+  parent: McMaster.Extensions.CommandLineUtils
+  name: IConsole
+  nameWithType: IConsole
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
