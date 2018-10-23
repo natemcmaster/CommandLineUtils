@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 namespace McMaster.Extensions.Hosting.CommandLine.Internal
 {
     /// <inheritdoc/>
-    internal class CommandLineService<T> : ICommandLineService where T : class
+    internal class CommandLineService<T> : IDisposable, ICommandLineService where T : class
     {
         private ILogger logger;
         private CommandLineApplication application;
@@ -31,6 +31,11 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
             application.Conventions
                 .UseDefaultConventions()
                 .UseConstructorInjection(serviceProvider);
+        }
+
+        public void Dispose()
+        {
+            ((IDisposable)application).Dispose();
         }
 
         /// <inheritdoc/>
