@@ -12,7 +12,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Describes a set of command line arguments, options, and execution behavior
     /// using a type of <typeparamref name="TModel" /> to model the application.
     /// </summary>
-    public class CommandLineApplication<TModel> : CommandLineApplication, IModelAccessor, IDisposable
+    public class CommandLineApplication<TModel> : CommandLineApplication, IModelAccessor
         where TModel : class
     {
         private Lazy<TModel> _lazy;
@@ -108,20 +108,14 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private protected override ConventionContext CreateConventionContext() => new ConventionContext(this, typeof(TModel));
 
-        void IDisposable.Dispose()
+        private protected override void Dispose()
         {
             if (Model is IDisposable dt)
             {
                 dt?.Dispose();
             }
 
-            foreach (var command in Commands)
-            {
-                if (command is IDisposable dc)
-                {
-                    dc.Dispose();
-                }
-            }
+            base.Dispose();
         }
     }
 }

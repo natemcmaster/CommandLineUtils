@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Describes a set of command line arguments, options, and execution behavior.
     /// <see cref="CommandLineApplication"/> can be nested to support subcommands.
     /// </summary>
-    public partial class CommandLineApplication : IServiceProvider
+    public partial class CommandLineApplication : IServiceProvider, IDisposable
     {
         private List<Action<ParseResult>> _onParsingComplete;
         internal readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
@@ -1033,6 +1033,19 @@ namespace McMaster.Extensions.CommandLineUtils
 
             _settingContext = false;
         }
+
+        private protected virtual void Dispose()
+        {
+            foreach (var command in Commands)
+            {
+                if (command is IDisposable dc)
+                {
+                    dc.Dispose();
+                }
+            }
+        }
+
+        void IDisposable.Dispose() => this.Dispose();
 
         internal IServiceProvider AdditionalServices { get; set; }
 
