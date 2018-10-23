@@ -4,13 +4,13 @@ using Microsoft.Extensions.Logging;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace McMaster.Extensions.Hosting.CommandLine
+namespace McMaster.Extensions.Hosting.CommandLine.Internal
 {
     /// <summary>
     /// Waits from completion of the <see cref="CommandLineApplication"/> and
     /// initiates shutdown.
     /// </summary>
-    public class CommandLineLifetime : IHostLifetime
+    internal class CommandLineLifetime : IHostLifetime
     {
         private readonly ILogger<CommandLineLifetime> logger;
         private readonly IApplicationLifetime applicationLifetime;
