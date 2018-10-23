@@ -1,0 +1,10 @@
+apiRules:
+- exclude:
+  uidRegex: ^System\.Object
+  type: Type
+- exclude:
+  uidRegex: ^System\.Attribute
+  type: Type
+- exclude:
+  uidRegex: ^System\.ComponentModel\.DataAnnotations\.ValidationAttribute
+  type: Type

@@ -56,9 +56,7 @@ try {
     finally {
         Push-Location $targetDir
         exec git config core.safecrlf false # suppress warning about CRLF
-        exec git add ./
-        Write-Host "Files that changed in docs:"
-        exec git --no-pager status -s
+        exec git add ./ 2>&1 | Out-Null
         Pop-Location
     }
 }
