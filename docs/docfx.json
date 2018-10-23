@@ -22,7 +22,6 @@
   "build": {
     "content": [
       { "version": "unstable", "files": ["**/*.yml", "**/*.md"], "src": "obj/unstable", "dest": "unstable" },
-      { "version": "unstable", "files": ["**/*.md"], "src": "unstable/", "dest": "unstable" },
       { "version": "v2.2", "files": ["**/*.yml", "**/*.md"], "src": "v2.2", "dest": "v2.2" },
       { "version": "v2.2", "files": ["**/*.yml", "**/*.md"], "exclude": [ "v2.2/","obj/", "**.meta", "README.md" ] }
     ],
