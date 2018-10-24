@@ -3,15 +3,23 @@
 namespace McMaster.Extensions.CommandLineUtils
 {
     /// <summary>
-    /// The exception that is thrown when trying to intianciate a model with no parameterless constructor.
+    /// The exception that is thrown when trying to instantiate a model with no parameterless constructor.
     /// </summary>
-    /// <typeparam name="TModel">The type of the model to instanciate</typeparam>
-    public class MissingParameterlessConstructorException<TModel> : Exception
+    public class MissingParameterlessConstructorException : Exception
     {
         /// <summary>
-        /// Initializes an instance of <see cref="MissingParameterlessConstructorException{TModel}"/>.
+        /// Gets the type that caused the exception.
         /// </summary>
+        public Type Type { get; private set; }
+
+        /// <summary>
+        /// Initializes an instance of <see cref="MissingParameterlessConstructorException" />.
+        /// </summary>
+        /// <param name="type">The type missing a parameterless constructor.</param>
         /// <param name="innerException">The original exception.</param>
-        public MissingParameterlessConstructorException(Exception innerException) : base($"Class {typeof(TModel).FullName} does not have a parameterless constructor", innerException) { }
+        public MissingParameterlessConstructorException(Type type, Exception innerException) : base($"Class {type.FullName} does not have a parameterless constructor", innerException)
+        {
+            Type = type;
+        }
     }
 }

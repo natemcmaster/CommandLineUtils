@@ -81,7 +81,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsForNoParameterlessConstructor()
         {
             var app = new CommandLineApplication<TestClass>();
-            Assert.Throws<MissingParameterlessConstructorException<TestClass>>(() => app.Execute());
+            var exception = Assert.Throws<MissingParameterlessConstructorException>(() => app.Execute());
+            Assert.Equal(typeof(TestClass), exception.Type);
         }
     }
 }

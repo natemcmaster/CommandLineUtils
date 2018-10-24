@@ -82,7 +82,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             catch (MissingMethodException ex)
             {
-                throw new MissingParameterlessConstructorException<TModel>(ex);
+                throw new MissingParameterlessConstructorException(typeof(TModel), ex);
             }
         }
 
