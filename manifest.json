@@ -222,6 +222,19 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html",
+          "hash": "Hxd7lUY7chKF2sAx1pEDkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "unstable",
+      "group": "unstable"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.yml",
       "output": {
         ".html": {
@@ -239,7 +252,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.html",
-          "hash": "6Kk2t8p5TBb1RpIYkj9bUA=="
+          "hash": "Bvty3gz+T8asJ4h+6uIWwQ=="
         }
       },
       "is_incremental": false,
@@ -1396,7 +1409,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/toc.html",
-          "hash": "RkdOeL64uW8bptYpNdYKJQ=="
+          "hash": "WK5ff99vn/GvsM5/umVRow=="
         }
       },
       "is_incremental": false,
@@ -2596,13 +2609,13 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build"
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
           "incrementalPhase": "build"
         }
       }
@@ -2619,11 +2632,11 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         }

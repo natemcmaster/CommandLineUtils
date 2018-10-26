@@ -167,6 +167,55 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand
   nameWithType: ParseResult.SelectedCommand
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
+  name: ValueParser
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
+  nameWithType: ValueParser
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type,System.Func{System.String,System.String,System.Globalization.CultureInfo,System.Object})
+  name: Create(Type, Func<String, String, CultureInfo, Object>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create_System_Type_System_Func_System_String_System_String_System_Globalization_CultureInfo_System_Object__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type,System.Func{System.String,System.String,System.Globalization.CultureInfo,System.Object})
+  name.vb: Create(Type, Func(Of String, String, CultureInfo, Object))
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type, System.Func<System.String, System.String, System.Globalization.CultureInfo, System.Object>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type, System.Func(Of System.String, System.String, System.Globalization.CultureInfo, System.Object))
+  nameWithType: ValueParser.Create(Type, Func<String, String, CultureInfo, Object>)
+  nameWithType.vb: ValueParser.Create(Type, Func(Of String, String, CultureInfo, Object))
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create*
+  name: Create
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create
+  nameWithType: ValueParser.Create
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}})
+  name: Create<T>(Func<String, CultureInfo, (Boolean, T)>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create__1_System_Func_System_String_System_Globalization_CultureInfo_System_ValueTuple_System_Boolean___0___
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}})
+  name.vb: Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)))
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<System.String, System.Globalization.CultureInfo, System.ValueTuple<System.Boolean, T>>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(Of T)(System.Func(Of System.String, System.Globalization.CultureInfo, System.ValueTuple(Of System.Boolean, T)))
+  nameWithType: ValueParser.Create<T>(Func<String, CultureInfo, (Boolean, T)>)
+  nameWithType.vb: ValueParser.Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)))
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}},System.Func{System.String,System.String,System.FormatException})
+  name: Create<T>(Func<String, CultureInfo, (Boolean, T)>, Func<String, String, FormatException>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create__1_System_Func_System_String_System_Globalization_CultureInfo_System_ValueTuple_System_Boolean___0___System_Func_System_String_System_String_System_FormatException__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}},System.Func{System.String,System.String,System.FormatException})
+  name.vb: Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)), Func(Of String, String, FormatException))
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<System.String, System.Globalization.CultureInfo, System.ValueTuple<System.Boolean, T>>, System.Func<System.String, System.String, System.FormatException>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(Of T)(System.Func(Of System.String, System.Globalization.CultureInfo, System.ValueTuple(Of System.Boolean, T)), System.Func(Of System.String, System.String, System.FormatException))
+  nameWithType: ValueParser.Create<T>(Func<String, CultureInfo, (Boolean, T)>, Func<String, String, FormatException>)
+  nameWithType.vb: ValueParser.Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)), Func(Of String, String, FormatException))
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.String,System.Globalization.CultureInfo,``0})
+  name: Create<T>(Func<String, String, CultureInfo, T>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create__1_System_Func_System_String_System_String_System_Globalization_CultureInfo___0__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.String,System.Globalization.CultureInfo,``0})
+  name.vb: Create(Of T)(Func(Of String, String, CultureInfo, T))
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<System.String, System.String, System.Globalization.CultureInfo, T>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(Of T)(System.Func(Of System.String, System.String, System.Globalization.CultureInfo, T))
+  nameWithType: ValueParser.Create<T>(Func<String, String, CultureInfo, T>)
+  nameWithType.vb: ValueParser.Create(Of T)(Func(Of String, String, CultureInfo, T))
 - uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
   name: ValueParserProvider
   href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.html
