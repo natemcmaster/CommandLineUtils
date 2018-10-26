@@ -330,7 +330,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html",
-          "hash": "ZVPnJ6QqgjKHca4lTDo74w=="
+          "hash": "+W8OTi+pJrxkkrEXFMhctA=="
         }
       },
       "is_incremental": false,
@@ -924,6 +924,19 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.html",
+          "hash": "CwqMjoG1ZjSJHYvA08zxUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "unstable",
+      "group": "unstable"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.NullConsole.yml",
       "output": {
         ".html": {
@@ -1344,7 +1357,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.html",
-          "hash": "9051oGm8q5ApQyN+NYIvHQ=="
+          "hash": "BSZn4S2d6Mqw+aoP9/oSIA=="
         }
       },
       "is_incremental": false,
@@ -1357,7 +1370,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/toc.html",
-          "hash": "R5wGy5+WRnSJWHBoss0Ogg=="
+          "hash": "M8GTjUl1DanYBKMSGxqIGQ=="
         }
       },
       "is_incremental": false,
@@ -2575,13 +2588,13 @@
         "incrementalPhase": "build"
       },
       "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
