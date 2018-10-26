@@ -30,6 +30,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{509D6286
 		version.props = version.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McMaster.Extensions.Hosting.CommandLine", "src\Hosting.CommandLine\McMaster.Extensions.Hosting.CommandLine.csproj", "{407245F7-3F2C-4634-8578-7EFCA9BD26BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{1258544C-1FDE-4810-9A1B-189A925E9B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1258544C-1FDE-4810-9A1B-189A925E9B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1258544C-1FDE-4810-9A1B-189A925E9B45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{407245F7-3F2C-4634-8578-7EFCA9BD26BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407245F7-3F2C-4634-8578-7EFCA9BD26BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407245F7-3F2C-4634-8578-7EFCA9BD26BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407245F7-3F2C-4634-8578-7EFCA9BD26BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CBCFAFF3-A3B1-4C41-B2D1-092BF7307A4E} = {95D4B35E-0A21-4D64-8BAF-27DD6C019FC5}
 		{1258544C-1FDE-4810-9A1B-189A925E9B45} = {C4842A1B-019E-40FF-A396-CF5AFDE8FA54}
+		{407245F7-3F2C-4634-8578-7EFCA9BD26BD} = {95D4B35E-0A21-4D64-8BAF-27DD6C019FC5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55FD25E0-565D-49F9-9370-28DA7196E539}
