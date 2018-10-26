@@ -1,17 +1,21 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using McMaster.Extensions.CommandLineUtils;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
+
 namespace McMaster.Extensions.Hosting.CommandLine.Internal
 {
     /// <summary>
     ///     A DI container for storing command line arguments.
     /// </summary>
-    /// <seealso
-    ///     cref="Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli{T}(Microsoft.Extensions.Hosting.IHostBuilder, string[])" />
-    internal class CommandLineState
+    internal class CommandLineState : CommandLineContext
     {
-        /// <value>The command line arguments</value>
-        public string[] Arguments { get; set; }
+        public CommandLineState(string[] args)
+        {
+            Arguments = args;
+            Console = PhysicalConsole.Singleton;
+        }
 
         public int ExitCode { get; set; }
     }

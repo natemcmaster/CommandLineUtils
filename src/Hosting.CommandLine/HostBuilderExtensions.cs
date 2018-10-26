@@ -4,6 +4,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.Hosting.CommandLine.Internal;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -29,11 +30,13 @@ namespace Microsoft.Extensions.Hosting
             this IHostBuilder hostBuilder, string[] args, CancellationToken cancellationToken = default)
             where TApp : class
         {
+            var state = new CommandLineState(args);
             hostBuilder.ConfigureServices(
                 (context, services)
                     => services
                         .AddSingleton<IHostLifetime, CommandLineLifetime>()
-                        .AddSingleton(new CommandLineState { Arguments = args })
+                        .AddSingleton(state)
+                        .AddSingleton<CommandLineContext>(state)
                         .AddSingleton(PhysicalConsole.Singleton)
                         .AddSingleton<ICommandLineService, CommandLineService<TApp>>());
 
