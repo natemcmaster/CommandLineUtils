@@ -71,5 +71,18 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () => CommandLineParser.ParseArgs<SimpleProgram>(_output, "-f"));
             Assert.StartsWith("Unrecognized option '-f'", ex.Message);
         }
+
+        private class TestClass
+        {
+            public TestClass(string _) { }
+        }
+
+        [Fact]
+        public void ThrowsForNoParameterlessConstructor()
+        {
+            var app = new CommandLineApplication<TestClass>();
+            var exception = Assert.Throws<MissingParameterlessConstructorException>(() => app.Execute());
+            Assert.Equal(typeof(TestClass), exception.Type);
+        }
     }
 }

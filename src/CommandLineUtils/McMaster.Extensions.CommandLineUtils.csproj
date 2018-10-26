@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard1.6;net45</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
     <IsPackable>true</IsPackable>
     <Description>Command-line parsing API.</Description>
     <PackageDescription>Command-line parsing API and utilities for console applications.
@@ -18,11 +19,6 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
  A community-maintained fork of Microsoft.Extensions.CommandLineUtils, plus many enhancements.
     </PackageDescription>
     <PackageTags>commandline;parsing</PackageTags>
-    <IncludeSymbols>true</IncludeSymbols>
-    <IncludeSource>true</IncludeSource>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <PackageIconUrl>https://natemcmaster.github.io/CommandLineUtils/logo.png</PackageIconUrl>
-    <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
