@@ -21,18 +21,18 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             AddRange(
                 new IValueParser[]
                 {
-                    StringValueParser.Singleton,
-                    BooleanValueParser.Singleton,
-                    ByteValueParser.Singleton,
-                    Int16ValueParser.Singleton,
-                    Int32ValueParser.Singleton,
-                    Int64ValueParser.Singleton,
-                    UInt16ValueParser.Singleton,
-                    UInt32ValueParser.Singleton,
-                    UInt64ValueParser.Singleton,
-                    FloatValueParser.Singleton,
-                    DoubleValueParser.Singleton,
-                    UriValueParser.Singleton,
+                    StockValueParsers.String,
+                    StockValueParsers.Boolean,
+                    StockValueParsers.Byte,
+                    StockValueParsers.Int16,
+                    StockValueParsers.Int32,
+                    StockValueParsers.Int64,
+                    StockValueParsers.UInt16,
+                    StockValueParsers.UInt32,
+                    StockValueParsers.UInt64,
+                    StockValueParsers.Float,
+                    StockValueParsers.Double,
+                    StockValueParsers.Uri,
                 });
         }
 
@@ -96,14 +96,14 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
             if (typeInfo.IsEnum)
             {
-                return new EnumParser(type);
+                return EnumParser.Create(type);
             }
 
             if (ReflectionHelper.IsNullableType(typeInfo, out var wrappedType))
             {
                 if (wrappedType.GetTypeInfo().IsEnum)
                 {
-                    return new NullableValueParser(new EnumParser(wrappedType));
+                    return new NullableValueParser(EnumParser.Create(wrappedType));
                 }
 
                 if (_parsers.TryGetValue(wrappedType, out parser))
@@ -125,8 +125,8 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 {
                     return null;
                 }
-                var parserType = typeof(ValueTupleValueParser<>).MakeGenericType(typeInfo.GenericTypeArguments[1]);
-                return (IValueParser)Activator.CreateInstance(parserType, new object[] { innerParser });
+                var method = typeof(ValueTupleValueParser).GetTypeInfo().GetMethod(nameof(ValueTupleValueParser.Create)).MakeGenericMethod(typeInfo.GenericTypeArguments[1]);
+                return (IValueParser)method.Invoke(null, new object[] { innerParser });
             }
 
             return null;
