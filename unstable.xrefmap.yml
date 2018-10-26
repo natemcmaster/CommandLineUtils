@@ -5694,3 +5694,47 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.MemberName
   nameWithType: VersionOptionFromMemberAttribute.MemberName
+- uid: Microsoft.Extensions.Hosting
+  name: Microsoft.Extensions.Hosting
+  href: unstable/api/Microsoft.Extensions.Hosting.html
+  commentId: N:Microsoft.Extensions.Hosting
+  fullName: Microsoft.Extensions.Hosting
+  nameWithType: Microsoft.Extensions.Hosting
+- uid: Microsoft.Extensions.Hosting.HostBuilderExtensions
+  name: HostBuilderExtensions
+  href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html
+  commentId: T:Microsoft.Extensions.Hosting.HostBuilderExtensions
+  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions
+  nameWithType: HostBuilderExtensions
+- uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync*
+  name: RunCommandLineApplicationAsync
+  href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync_
+  commentId: Overload:Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync
+  isSpec: "True"
+  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync
+  nameWithType: HostBuilderExtensions.RunCommandLineApplicationAsync
+- uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[])
+  name: RunCommandLineApplicationAsync<T>(IHostBuilder, String[])
+  href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___
+  commentId: M:Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[])
+  name.vb: RunCommandLineApplicationAsync(Of T)(IHostBuilder, String())
+  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync<T>(Microsoft.Extensions.Hosting.IHostBuilder, System.String[])
+  fullName.vb: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync(Of T)(Microsoft.Extensions.Hosting.IHostBuilder, System.String())
+  nameWithType: HostBuilderExtensions.RunCommandLineApplicationAsync<T>(IHostBuilder, String[])
+  nameWithType.vb: HostBuilderExtensions.RunCommandLineApplicationAsync(Of T)(IHostBuilder, String())
+- uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli*
+  name: UseCli
+  href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_UseCli_
+  commentId: Overload:Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli
+  isSpec: "True"
+  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli
+  nameWithType: HostBuilderExtensions.UseCli
+- uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[])
+  name: UseCli<T>(IHostBuilder, String[])
+  href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_UseCli__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___
+  commentId: M:Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[])
+  name.vb: UseCli(Of T)(IHostBuilder, String())
+  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli<T>(Microsoft.Extensions.Hosting.IHostBuilder, System.String[])
+  fullName.vb: Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli(Of T)(Microsoft.Extensions.Hosting.IHostBuilder, System.String())
+  nameWithType: HostBuilderExtensions.UseCli<T>(IHostBuilder, String[])
+  nameWithType.vb: HostBuilderExtensions.UseCli(Of T)(IHostBuilder, String())

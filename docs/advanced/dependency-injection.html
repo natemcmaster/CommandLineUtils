@@ -176,8 +176,167 @@ class Program
 app.Conventions
     .UseDefaultConventions()
     .UseConstructorInjection(services);
-</code></pre><p>Below is the full source code for the custom services example. Notice that instance of <code>IMyService</code> which will be injected into the <code>Program</code> constructor thanks to the dependency injection.</p>
+</code></pre><p>Below is the full source code for the custom services example. Notice that instance of <code>IMyService</code> will be injected into the <code>Program</code> constructor thanks to the dependency injection.</p>
 <pre><code class="lang-csharp" highlight-lines="21-24">[Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
+[HelpOption]
+class Program
+{
+    public static int Main(string[] args)
+    {
+        var services = new ServiceCollection()
+            .AddSingleton&lt;IMyService, MyServiceImplementation&gt;()
+            .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton)
+            .BuildServiceProvider();
+
+        var app = new CommandLineApplication&lt;Program&gt;();
+        app.Conventions
+            .UseDefaultConventions()
+            .UseConstructorInjection(services);
+        return app.Execute(args);
+    }
+
+    private readonly IMyService _myService;
+
+    public Program(IMyService myService)
+    {
+        _myService = myService;
+    }
+
+    private void OnExecute()
+    {
+        _myService.Invoke();
+    }
+}
+</code></pre><h2 id="using-generic-host">Using Generic Host</h2>
+<p><a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-2.1">Generic host</a> integration allows you to use the most current DI configuration approach indicated by the aspnet project.  The basic approach starts by creating the builder:</p>
+<pre><code class="lang-csharp">[Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
+class Program
+{
+
+    [Argument(0, Description = &quot;your name&quot;)]
+    private string Name { get; } = &quot;dependency injection&quot;;
+
+    [Option(&quot;-l|--language&quot;, Description = &quot;your desired language&quot;)]
+    [AllowedValues(&quot;english&quot;, &quot;spanish&quot;, IgnoreCase = true)]
+    public string Language { get; } = &quot;english&quot;;
+
+    public static async Task&lt;int&gt; Main(string[] args)
+    {
+        return await new HostBuilder()
+            .ConfigureLogging((context, builder) =&gt;
+            {
+                builder.AddConsole();
+            })
+            .ConfigureServices((context, services) =&gt; {
+                services.AddSingleton&lt;IGreeter, Greeter&gt;()
+                    .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton);
+            })
+            .RunCommandLineApplicationAsync&lt;Program&gt;(args);
+    }
+
+    private readonly ILogger&lt;Program&gt; _logger;
+    private readonly IGreeter _greeter;
+
+    public Program(ILogger&lt;Program&gt; logger, IGreeter greeter)
+    {
+        _logger = logger;
+        _greeter = greeter;
+
+        _logger.LogInformation(&quot;Constructed!&quot;);
+    }
+
+    private void OnExecute()
+    {
+        _greeter.Greet(Name, Language);
+    }
+}
+</code></pre><p>Then you can configure your features:</p>
+<pre><code class="lang-csharp">[Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
+class Program
+{
+
+    [Argument(0, Description = &quot;your name&quot;)]
+    private string Name { get; } = &quot;dependency injection&quot;;
+
+    [Option(&quot;-l|--language&quot;, Description = &quot;your desired language&quot;)]
+    [AllowedValues(&quot;english&quot;, &quot;spanish&quot;, IgnoreCase = true)]
+    public string Language { get; } = &quot;english&quot;;
+
+    public static async Task&lt;int&gt; Main(string[] args)
+    {
+        return await new HostBuilder()
+            .ConfigureLogging((context, builder) =&gt;
+            {
+                builder.AddConsole();
+            })
+            .ConfigureServices((context, services) =&gt; {
+                services.AddSingleton&lt;IGreeter, Greeter&gt;()
+                    .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton);
+            })
+            .RunCommandLineApplicationAsync&lt;Program&gt;(args);
+    }
+
+    private readonly ILogger&lt;Program&gt; _logger;
+    private readonly IGreeter _greeter;
+
+    public Program(ILogger&lt;Program&gt; logger, IGreeter greeter)
+    {
+        _logger = logger;
+        _greeter = greeter;
+
+        _logger.LogInformation(&quot;Constructed!&quot;);
+    }
+
+    private void OnExecute()
+    {
+        _greeter.Greet(Name, Language);
+    }
+}
+</code></pre><p>And finally, run your program:</p>
+<pre><code class="lang-csharp">[Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
+class Program
+{
+
+    [Argument(0, Description = &quot;your name&quot;)]
+    private string Name { get; } = &quot;dependency injection&quot;;
+
+    [Option(&quot;-l|--language&quot;, Description = &quot;your desired language&quot;)]
+    [AllowedValues(&quot;english&quot;, &quot;spanish&quot;, IgnoreCase = true)]
+    public string Language { get; } = &quot;english&quot;;
+
+    public static async Task&lt;int&gt; Main(string[] args)
+    {
+        return await new HostBuilder()
+            .ConfigureLogging((context, builder) =&gt;
+            {
+                builder.AddConsole();
+            })
+            .ConfigureServices((context, services) =&gt; {
+                services.AddSingleton&lt;IGreeter, Greeter&gt;()
+                    .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton);
+            })
+            .RunCommandLineApplicationAsync&lt;Program&gt;(args);
+    }
+
+    private readonly ILogger&lt;Program&gt; _logger;
+    private readonly IGreeter _greeter;
+
+    public Program(ILogger&lt;Program&gt; logger, IGreeter greeter)
+    {
+        _logger = logger;
+        _greeter = greeter;
+
+        _logger.LogInformation(&quot;Constructed!&quot;);
+    }
+
+    private void OnExecute()
+    {
+        _greeter.Greet(Name, Language);
+    }
+}
+</code></pre><p>Below is the full source code for the generic host services example. Notice that instance of <code>IGreeter</code> will be injected into the <code>Program</code> constructor thanks to the dependency injection.</p>
+<!--  in query parameter `highlight`. -->
+<pre><code class="lang-csharp" highlight-lines="32-32">[Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
 [HelpOption]
 class Program
 {
