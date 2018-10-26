@@ -1370,7 +1370,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html",
-          "hash": "juTbihLaY4ytQu08R06fxA=="
+          "hash": "Tr+rvC7sAqfaROHYNpiPaQ=="
         }
       },
       "is_incremental": false,
@@ -2596,13 +2596,13 @@
         "incrementalPhase": "build"
       },
       "processors": {
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
           "incrementalPhase": "build"
         }
       }
@@ -2619,11 +2619,11 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         }

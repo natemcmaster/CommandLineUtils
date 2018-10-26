@@ -124,21 +124,21 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___.md&amp;value=---%0Auid%3A%20Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync%60%601(Microsoft.Extensions.Hosting.IHostBuilder%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync%60%601(Microsoft.Extensions.Hosting.IHostBuilder%2CSystem.String%5B%5D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/Hosting.CommandLine/HostBuilderExtensions.cs/#L26">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/Hosting.CommandLine/HostBuilderExtensions.cs/#L29">View Source</a>
   </span>
   <a id="Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync_" data-uid="Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync*"></a>
-  <h4 id="Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___" data-uid="Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[])">RunCommandLineApplicationAsync&lt;TApp&gt;(IHostBuilder, String[])</h4>
-  <div class="markdown level1 summary"><p>Runs <pre><code>T</code></pre> as a <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a> with the
-supplied <pre><code>args</code></pre>.  This method should be the primary approach
+  <h4 id="Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___System_Threading_CancellationToken_" data-uid="Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[],System.Threading.CancellationToken)">RunCommandLineApplicationAsync&lt;TApp&gt;(IHostBuilder, String[], CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Runs an instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TApp</code> using <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a> to provide
+command line parsing on the given <code data-dev-comment-type="paramref" class="paramref">args</code>.  This method should be the primary approach
 taken for command line applications.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; RunCommandLineApplicationAsync&lt;TApp&gt;(this IHostBuilder hostBuilder, string[] args)
+    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; RunCommandLineApplicationAsync&lt;TApp&gt;(this IHostBuilder hostBuilder, string[] args, CancellationToken cancellationToken = default(CancellationToken))
     where TApp : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -161,6 +161,12 @@ taken for command line applications.</p>
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">args</span></td>
         <td><p>The command line arguments</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>A cancellation token</p>
 </td>
       </tr>
     </tbody>
@@ -192,85 +198,7 @@ taken for command line applications.</p>
     <tbody>
       <tr>
         <td><span class="parametername">TApp</span></td>
-        <td><p>The command line application implementation</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=Microsoft_Extensions_Hosting_HostBuilderExtensions_UseCli__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___.md&amp;value=---%0Auid%3A%20Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli%60%601(Microsoft.Extensions.Hosting.IHostBuilder%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/Hosting.CommandLine/HostBuilderExtensions.cs/#L51">View Source</a>
-  </span>
-  <a id="Microsoft_Extensions_Hosting_HostBuilderExtensions_UseCli_" data-uid="Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli*"></a>
-  <h4 id="Microsoft_Extensions_Hosting_HostBuilderExtensions_UseCli__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___" data-uid="Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[])">UseCli&lt;T&gt;(IHostBuilder, String[])</h4>
-  <div class="markdown level1 summary"><p>Sets the <span class="xref">McMaster.Extensions.Hosting.CommandLine.Internal.ICommandLineService</span> to use <pre><code>T</code></pre> for its
-<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.
-<p>
-    This method is not intended to be used directly.  Instead, you should use
-<a class="xref" href="Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___">RunCommandLineApplicationAsync&lt;TApp&gt;(IHostBuilder, String[])</a>.
-</p></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IHostBuilder UseCli&lt;T&gt;(this IHostBuilder hostBuilder, string[] args)
-    where T : class</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.Extensions.Hosting.IHostBuilder</span></td>
-        <td><span class="parametername">hostBuilder</span></td>
-        <td><p>This instance</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><span class="parametername">args</span></td>
-        <td><p>The command line arguments</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.Extensions.Hosting.IHostBuilder</span></td>
-        <td><p>This instance</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The command line application implementation</p>
+        <td><p>The type of the command line application implementation</p>
 </td>
       </tr>
     </tbody>
@@ -290,7 +218,7 @@ taken for command line applications.</p>
                     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=Microsoft_Extensions_Hosting_HostBuilderExtensions.md&amp;value=---%0Auid%3A%20Microsoft.Extensions.Hosting.HostBuilderExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/Hosting.CommandLine/HostBuilderExtensions.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/Hosting.CommandLine/HostBuilderExtensions.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
