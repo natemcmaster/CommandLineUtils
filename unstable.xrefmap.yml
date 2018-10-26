@@ -957,6 +957,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Description
   nameWithType: CommandLineApplication.Description
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Dispose
+  name: Dispose()
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Dispose
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Dispose
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Dispose()
+  nameWithType: CommandLineApplication.Dispose()
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Dispose*
+  name: Dispose
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Dispose_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Dispose
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Dispose
+  nameWithType: CommandLineApplication.Dispose
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Error
   name: Error
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Error
@@ -1539,23 +1552,6 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowVersion
   nameWithType: CommandLineApplication.ShowVersion
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.System#IDisposable#Dispose
-  name: IDisposable.Dispose()
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IDisposable_Dispose
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.System#IDisposable#Dispose
-  name.vb: System.IDisposable.Dispose()
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.System.IDisposable.Dispose()
-  nameWithType: CommandLineApplication.IDisposable.Dispose()
-  nameWithType.vb: CommandLineApplication.System.IDisposable.Dispose()
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.System#IDisposable#Dispose*
-  name: IDisposable.Dispose
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IDisposable_Dispose_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.System#IDisposable#Dispose
-  isSpec: "True"
-  name.vb: System.IDisposable.Dispose
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.System.IDisposable.Dispose
-  nameWithType: CommandLineApplication.IDisposable.Dispose
-  nameWithType.vb: CommandLineApplication.System.IDisposable.Dispose
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.System#IServiceProvider#GetService(System.Type)
   name: IServiceProvider.GetService(Type)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IServiceProvider_GetService_System_Type_
@@ -1727,6 +1723,23 @@ references:
   fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).CreateModel
   nameWithType: CommandLineApplication<TModel>.CreateModel
   nameWithType.vb: CommandLineApplication(Of TModel).CreateModel
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.Dispose
+  name: Dispose()
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_Dispose
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.Dispose
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.Dispose()
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).Dispose()
+  nameWithType: CommandLineApplication<TModel>.Dispose()
+  nameWithType.vb: CommandLineApplication(Of TModel).Dispose()
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.Dispose*
+  name: Dispose
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_Dispose_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.Dispose
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.Dispose
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).Dispose
+  nameWithType: CommandLineApplication<TModel>.Dispose
+  nameWithType.vb: CommandLineApplication(Of TModel).Dispose
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.HandleParseResult(McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult)
   name: HandleParseResult(ParseResult)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_HandleParseResult_McMaster_Extensions_CommandLineUtils_Abstractions_ParseResult_
@@ -5714,14 +5727,14 @@ references:
   fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync
   nameWithType: HostBuilderExtensions.RunCommandLineApplicationAsync
 - uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[])
-  name: RunCommandLineApplicationAsync<T>(IHostBuilder, String[])
+  name: RunCommandLineApplicationAsync<TApp>(IHostBuilder, String[])
   href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___
   commentId: M:Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[])
-  name.vb: RunCommandLineApplicationAsync(Of T)(IHostBuilder, String())
-  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync<T>(Microsoft.Extensions.Hosting.IHostBuilder, System.String[])
-  fullName.vb: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync(Of T)(Microsoft.Extensions.Hosting.IHostBuilder, System.String())
-  nameWithType: HostBuilderExtensions.RunCommandLineApplicationAsync<T>(IHostBuilder, String[])
-  nameWithType.vb: HostBuilderExtensions.RunCommandLineApplicationAsync(Of T)(IHostBuilder, String())
+  name.vb: RunCommandLineApplicationAsync(Of TApp)(IHostBuilder, String())
+  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync<TApp>(Microsoft.Extensions.Hosting.IHostBuilder, System.String[])
+  fullName.vb: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync(Of TApp)(Microsoft.Extensions.Hosting.IHostBuilder, System.String())
+  nameWithType: HostBuilderExtensions.RunCommandLineApplicationAsync<TApp>(IHostBuilder, String[])
+  nameWithType.vb: HostBuilderExtensions.RunCommandLineApplicationAsync(Of TApp)(IHostBuilder, String())
 - uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCli*
   name: UseCli
   href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_UseCli_
