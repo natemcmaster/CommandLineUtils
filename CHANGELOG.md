@@ -4,13 +4,33 @@
 
 Bugs fixed:
 
-* [@handcraftedsource]: handled nested HelpOptions (fixes #86 - InvalidOperationException when multiple help options were defined)
-* Fix #163 - Obsolete CommandOption.Template and fix help text generation to accurately list available options
+* Fix ([#86][86]) [@handcraftedsource]: handled nested HelpOptions. Fixes InvalidOperationException when multiple help options were defined.([#158][158])
+* Fix [#163][163] - Obsolete CommandOption.Template and fix help text generation to accurately list available options
+
+[86]: https://github.com/natemcmaster/CommandLineUtils/pull/86
+[158]: https://github.com/natemcmaster/CommandLineUtils/pull/158
+[163]: https://github.com/natemcmaster/CommandLineUtils/pull/163
 
 Enhancements:
 
-* [@jcaillon]: Add API for `UnrecognizedCommandParsingException` which includes suggestions for similar options or commands.
-* Fix #143 - support counting of bool/flag variables using `bool[]`
+* [@jcaillon]: Add a new API `UnrecognizedCommandParsingException` which includes suggestions for similar options or
+  commands. ([#164][164])
+* Add support counting of bool/flag variables using `bool[]`. ([#143][143])
+* [@EricStG]: Add a new API `MissingParameterlessConstructorException` that includes the type causing the exception in the message. ([#148][148])
+* [@atifaziz]: Add a new API `ValueParser.Create` which makes it easier to create implementations of `IValueParser`
+    ([#169][169])
+
+[143]: https://github.com/natemcmaster/CommandLineUtils/pull/143
+[164]: https://github.com/natemcmaster/CommandLineUtils/pull/164
+[168]: https://github.com/natemcmaster/CommandLineUtils/pull/168
+[169]: https://github.com/natemcmaster/CommandLineUtils/pull/169
+
+### New package: McMaster.Extensions.Hosting.CommandLine
+
+Thanks to [@lucastheisen] for writing a new package, McMaster.Extensions.Hosting.CommandLine ([#167][167]). This new package provides
+integration with ASP.NET Core's ["Generic Host" feature.](https://docs.microsoft.com/aspnet/core/fundamentals/host/generic-host).
+
+[167]: https://github.com/natemcmaster/CommandLineUtils/pull/167
 
 ## [v2.3.0-alpha]
 
@@ -232,15 +252,18 @@ Other:
  - Updated TFM to support .NET Standard 2.0
 
 
+[@atifaziz]: https://github.com/atifaziz
 [@atruskie]: https://github.com/atruskie
 [@bording]: https://github.com/bording
 [@bjorg]: https://github.com/bjorg
 [@couven92]: https://github.com/couven92
 [@demosdemon]: https://github.com/demosdemon
+[@EricStG]: https://github.com/EricStG
 [@handcraftedsource]: https://github.com/handcraftedsource
 [@jcaillon]: https://github.com/jcaillon
 [@jerriep]: https://github.com/jerriep
 [@kant2002]: https://github.com/kant2002
+[@lucastheisen]: https://github.com/lucastheisen
 [@liamdawson]: https://github.com/liamdawson
 [@lvermeulen]: https://github.com/lvermeulen
 [@MadbHatter]: https://github.com/MadbHatter
