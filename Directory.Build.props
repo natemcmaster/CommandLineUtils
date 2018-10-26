@@ -17,6 +17,10 @@
     <RepositoryType>git</RepositoryType>
     <DebugType>embedded</DebugType>
     <IsPackable>false</IsPackable>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PackageIconUrl>https://natemcmaster.github.io/CommandLineUtils/logo.png</PackageIconUrl>
     <NoPackageAnalysis>true</NoPackageAnalysis>
     <LangVersion>7.2</LangVersion>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)src\StrongName.snk</AssemblyOriginatorKeyFile>

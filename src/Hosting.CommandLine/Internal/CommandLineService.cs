@@ -1,3 +1,6 @@
+// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,15 +9,15 @@ using Microsoft.Extensions.Logging;
 
 namespace McMaster.Extensions.Hosting.CommandLine.Internal
 {
-    /// <inheritdoc/>
+    /// <inheritdoc />
     internal class CommandLineService<T> : IDisposable, ICommandLineService where T : class
     {
-        private ILogger logger;
-        private CommandLineApplication application;
-        private CommandLineState state;
+        private readonly CommandLineApplication _application;
+        private readonly ILogger _logger;
+        private readonly CommandLineState _state;
 
         /// <summary>
-        /// Creates a new instance.
+        ///     Creates a new instance.
         /// </summary>
         /// <param name="logger">A logger</param>
         /// <param name="state">The command line state</param>
@@ -22,27 +25,27 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         public CommandLineService(ILogger<CommandLineService<T>> logger, CommandLineState state,
             IServiceProvider serviceProvider)
         {
-            this.logger = logger;
-            this.state = state;
+            _logger = logger;
+            _state = state;
 
             logger.LogDebug("Constructing CommandLineApplication<{type}> with args [{args}]",
-                typeof(T).FullName, String.Join(",", state.Arguments));
-            application = new CommandLineApplication<T>();
-            application.Conventions
+                typeof(T).FullName, string.Join(",", state.Arguments));
+            _application = new CommandLineApplication<T>();
+            _application.Conventions
                 .UseDefaultConventions()
                 .UseConstructorInjection(serviceProvider);
         }
 
-        public void Dispose()
-        {
-            ((IDisposable)application).Dispose();
-        }
-
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public Task<int> RunAsync(CancellationToken cancellationToken)
         {
-            logger.LogDebug("Running");
-            return Task.Run(() => state.ExitCode = application.Execute(state.Arguments));
+            _logger.LogDebug("Running");
+            return Task.Run(() => _state.ExitCode = _application.Execute(_state.Arguments), cancellationToken);
+        }
+
+        public void Dispose()
+        {
+            _application.Dispose();
         }
     }
 }

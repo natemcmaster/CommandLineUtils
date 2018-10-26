@@ -1034,7 +1034,8 @@ namespace McMaster.Extensions.CommandLineUtils
             _settingContext = false;
         }
 
-        private protected virtual void Dispose()
+        /// <inheritdoc />
+        public virtual void Dispose()
         {
             foreach (var command in Commands)
             {
@@ -1044,8 +1045,6 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
         }
-
-        void IDisposable.Dispose() => this.Dispose();
 
         internal IServiceProvider AdditionalServices { get; set; }
 

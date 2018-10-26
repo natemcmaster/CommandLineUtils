@@ -120,11 +120,12 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private protected override ConventionContext CreateConventionContext() => new ConventionContext(this, typeof(TModel));
 
-        private protected override void Dispose()
+        /// <inheritdoc />
+        public override void Dispose()
         {
             if (Model is IDisposable dt)
             {
-                dt?.Dispose();
+                dt.Dispose();
             }
 
             base.Dispose();
