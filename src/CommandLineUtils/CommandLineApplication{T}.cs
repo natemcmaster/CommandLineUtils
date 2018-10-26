@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
         where TModel : class
     {
         private Lazy<TModel> _lazy;
-        private Func<TModel> _modelFactory = () => Activator.CreateInstance<TModel>();
+        private Func<TModel> _modelFactory = DefaultModelFactory;
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -72,6 +72,18 @@ namespace McMaster.Extensions.CommandLineUtils
         private void Initialize()
         {
             _lazy = new Lazy<TModel>(CreateModel);
+        }
+
+        private static TModel DefaultModelFactory()
+        {
+            try
+            {
+                return Activator.CreateInstance<TModel>();
+            }
+            catch (MissingMethodException ex)
+            {
+                throw new MissingParameterlessConstructorException(typeof(TModel), ex);
+            }
         }
 
         /// <summary>
