@@ -53,7 +53,9 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         }
 
         private static IValueParser<T> FloatingPointParser<T>(NumberParser<T> parser) =>
-            Create(parser, NumberStyles.Float, (argName, value) => InvalidValueException(argName, $"'{value}' is not a valid floating-point number."));
+            Create(parser, NumberStyles.Float
+                         | NumberStyles.AllowThousands,
+                   (argName, value) => InvalidValueException(argName, $"'{value}' is not a valid floating-point number."));
 
         public static readonly IValueParser<double> Double = FloatingPointParser<double>(double.TryParse);
         public static readonly IValueParser<float>  Float  = FloatingPointParser<float> (float.TryParse );
