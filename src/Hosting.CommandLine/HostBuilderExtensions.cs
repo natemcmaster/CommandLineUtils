@@ -34,12 +34,12 @@ namespace Microsoft.Extensions.Hosting
                     => services
                         .AddSingleton<IHostLifetime, CommandLineLifetime>()
                         .AddSingleton(new CommandLineState { Arguments = args })
+                        .AddSingleton(PhysicalConsole.Singleton)
                         .AddSingleton<ICommandLineService, CommandLineService<TApp>>());
 
             using (var host = hostBuilder.Build())
             {
-                await host.StartAsync(cancellationToken);
-                await host.WaitForShutdownAsync(cancellationToken);
+                await host.RunAsync(cancellationToken);
 
                 return host.Services.GetService<CommandLineState>().ExitCode;
             }
