@@ -76,5 +76,27 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         public static readonly IValueParser<uint>   UInt32 = NonNegativeIntegerParser<uint>  (uint.TryParse  );
         public static readonly IValueParser<ulong>  UInt64 = NonNegativeIntegerParser<ulong> (ulong.TryParse );
 
+        private delegate bool DateTimeParser<T>(string s, IFormatProvider provider, DateTimeStyles styles, out T result);
+
+        private static IValueParser<T> Create<T>(DateTimeParser<T> parser, DateTimeStyles styles, Func<string, string, FormatException> errorSelector)
+        {
+            if (parser == null) throw new ArgumentNullException(nameof(parser));
+            if (errorSelector == null) throw new ArgumentNullException(nameof(errorSelector));
+
+            return ValueParser.Create((value, culture) => parser(value, culture.DateTimeFormat, styles, out var result)
+                                                        ? (true, result)
+                                                        : default,
+                                      errorSelector);
+        }
+
+        public static readonly IValueParser<DateTime> DateTime = Create<DateTime>(System.DateTime.TryParse, DateTimeStyles.RoundtripKind | DateTimeStyles.AllowWhiteSpaces,
+            (argName, value) => InvalidValueException(argName, $"'{value}' is not a valid date-time."));
+
+        public static readonly IValueParser<DateTimeOffset> DateTimeOffset = Create<DateTimeOffset>(System.DateTimeOffset.TryParse, DateTimeStyles.RoundtripKind | DateTimeStyles.AllowWhiteSpaces,
+            (argName, value) => InvalidValueException(argName, $"'{value}' is not a valid date-time (with offset)."));
+
+        public static readonly IValueParser<TimeSpan> TimeSpan = ValueParser.Create(
+            (value, culture) => System.TimeSpan.TryParse(value, culture, out var result) ? (true, result) : default,
+            (argName, value) => InvalidValueException(argName, $"'{value}' is not a valid time-span."));
     }
 }

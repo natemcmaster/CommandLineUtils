@@ -33,6 +33,9 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                     StockValueParsers.Float,
                     StockValueParsers.Double,
                     StockValueParsers.Uri,
+                    StockValueParsers.DateTime,
+                    StockValueParsers.DateTimeOffset,
+                    StockValueParsers.TimeSpan
                 });
         }
 
