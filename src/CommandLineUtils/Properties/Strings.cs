@@ -91,5 +91,8 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static string NoPropertyOrMethodFound(string memberName, Type type)
             => $"Could not find a property or method named {memberName} on type {type.FullName}";
+
+        public static string NoParameterTypeRegistered(Type modelType, Type paramType)
+            => $"The constructor of type '{modelType}' contains the parameter of type '{paramType}' is not registered, Ensure the type '{paramType}' are registered in additional services with CommandLineApplication.Conventions.UseConstructorInjection(IServiceProvider additionalServices)";
     }
 }

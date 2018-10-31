@@ -1,8 +1,10 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
@@ -115,6 +117,24 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var subcmd = Assert.IsType<CommandLineApplication<Child>>(result.SelectedCommand);
             Assert.NotNull(subcmd.Model.Parent);
             Assert.Same(app.Model, subcmd.Model.Parent);
+        }
+
+        private class InjectedTestConsole
+        {
+            public TestConsole Console { get; }
+
+            public InjectedTestConsole(TestConsole console)
+            {
+                Console = console;
+            }
+        }
+
+        [Fact]
+        public void ThrowsWhenParameterTypeNotRegistered(){
+            var app = new CommandLineApplication<InjectedTestConsole>();
+            var ex = Assert.Throws<TargetInvocationException>(() => app.Conventions.UseConstructorInjection());
+            Assert.IsType<InvalidOperationException>(ex.InnerException);
+            Assert.Equal(Strings.NoParameterTypeRegistered(typeof(InjectedTestConsole), typeof(TestConsole)), ex.InnerException.Message);
         }
     }
 }

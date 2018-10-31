@@ -74,7 +74,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     var service = ((IServiceProvider)context.Application).GetService(paramType);
                     if (service == null)
                     {
-                        break;
+                        throw new InvalidOperationException(Strings.NoParameterTypeRegistered(typeof(TModel), paramType));
                     }
                     args[i] = service;
                     matched = i == parameters.Length - 1;
