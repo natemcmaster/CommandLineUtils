@@ -44,7 +44,7 @@ namespace Microsoft.Extensions.Hosting
             {
                 await host.RunAsync(cancellationToken);
 
-                return host.Services.GetService<CommandLineState>().ExitCode;
+                return state.ExitCode;
             }
         }
     }
