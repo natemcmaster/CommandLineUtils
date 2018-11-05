@@ -148,6 +148,24 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void ArgumentsCanBeUsedOnParentCommands()
+        {
+            CommandArgument projArg = null;
+            var app = new CommandLineApplication();
+            var slnArg = app.Argument("SLN_PATH", "Solution file");
+
+            app.Command("sln", c =>
+            {
+                projArg = c.Argument("PROJ_PATH", "Project file");
+            });
+
+            var exitCode = app.Execute("CommandLineUtils.sln", "sln", "Tests.csproj");
+            Assert.Equal(0, exitCode);
+            Assert.Equal("CommandLineUtils.sln", slnArg.Value);
+            Assert.Equal("Tests.csproj", projArg.Value);
+        }
+
+        [Fact]
         public void MultipleValuesArgumentConsumesAllRemainingArgumentValues()
         {
             CommandArgument first = null;

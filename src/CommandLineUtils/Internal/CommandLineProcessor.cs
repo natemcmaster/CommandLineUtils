@@ -124,6 +124,8 @@ namespace McMaster.Extensions.CommandLineUtils
                 if (subcommand.MatchesName(arg.Raw))
                 {
                     _currentCommand = subcommand;
+                    // Reset the arguments enumerator when moving down the subcommand tree.
+                    _currentCommandArguments = null;
                     return true;
                 }
             }
@@ -420,11 +422,6 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
 
                 return ParameterType.LongOption;
-            }
-
-            public bool MoveNext()
-            {
-                throw new NotImplementedException();
             }
         }
 
