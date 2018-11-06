@@ -119,22 +119,66 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Same(app.Model, subcmd.Model.Parent);
         }
 
-        private class InjectedTestConsole
+        private class TestAppWithoutPublicConstructor
         {
-            public TestConsole Console { get; }
+            private TestAppWithoutPublicConstructor()
+            {
+            }
+        }
 
-            public InjectedTestConsole(TestConsole console)
+        [Fact]
+        public void ThrowsWhenNoAnyPublicConstructorFound()
+        {
+            var app = new CommandLineApplication<TestAppWithoutPublicConstructor>();
+            var ex = Assert.Throws<TargetInvocationException>(() => app.Conventions.UseConstructorInjection());
+            Assert.IsType<InvalidOperationException>(ex.InnerException);
+            Assert.Equal(Strings.NoAnyPublicConstuctorFound(typeof(TestAppWithoutPublicConstructor)), ex.InnerException.Message);
+        }
+
+        private class TestAppWithoutMatchedConstructor
+        {
+            public IConsole Console { get; }
+
+            public TestAppWithoutMatchedConstructor(TestConsole console)
             {
                 Console = console;
             }
         }
 
         [Fact]
-        public void ThrowsWhenParameterTypeNotRegistered(){
-            var app = new CommandLineApplication<InjectedTestConsole>();
+        public void ThrowsWhenNoMatchedConstructorFound()
+        {
+            var app = new CommandLineApplication<TestAppWithoutMatchedConstructor>();
             var ex = Assert.Throws<TargetInvocationException>(() => app.Conventions.UseConstructorInjection());
             Assert.IsType<InvalidOperationException>(ex.InnerException);
-            Assert.Equal(Strings.NoParameterTypeRegistered(typeof(InjectedTestConsole), typeof(TestConsole)), ex.InnerException.Message);
+            Assert.Equal(Strings.NoParameterTypeRegistered(typeof(TestAppWithoutMatchedConstructor), typeof(TestConsole)), ex.InnerException.Message);
+        }
+
+        private class TestAppWithAlternativeConstructor
+        {
+            public IConsole Console { get; }
+            public CommandLineApplication App { get; }
+
+            public TestAppWithAlternativeConstructor(TestConsole console, CommandLineApplication app)
+            {
+                Console = console;
+                App = app;
+            }
+
+            public TestAppWithAlternativeConstructor(IConsole console)
+            {
+                Console = console;
+            }
+        }
+
+        [Fact]
+        public void ItInjectsAlternativeConstructor()
+        {
+            var app = new CommandLineApplication<TestAppWithAlternativeConstructor>();
+            app.Conventions.UseConstructorInjection();
+            app.Parse();
+            Assert.NotNull(app.Model.Console);
+            Assert.IsType<PhysicalConsole>(app.Model.Console);
         }
     }
 }
