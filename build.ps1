@@ -78,4 +78,9 @@ exec dotnet test --no-restore --no-build --configuration $Configuration '-clp:Su
     @testArgs `
     @MSBuildArgs
 
+exec dotnet test --no-restore --no-build --configuration $Configuration '-clp:Summary' `
+    "$PSScriptRoot/test/Hosting.CommandLine.Tests/McMaster.Extensions.Hosting.CommandLine.Tests.csproj" `
+    @testArgs `
+    @MSBuildArgs
+
 write-host -f magenta 'Done'

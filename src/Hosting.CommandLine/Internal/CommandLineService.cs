@@ -5,6 +5,8 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
+using McMaster.Extensions.CommandLineUtils.Conventions;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace McMaster.Extensions.Hosting.CommandLine.Internal
@@ -30,10 +32,15 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
 
             logger.LogDebug("Constructing CommandLineApplication<{type}> with args [{args}]",
                 typeof(T).FullName, string.Join(",", state.Arguments));
-            _application = new CommandLineApplication<T>();
+            _application = new CommandLineApplication<T>(state.Console, state.WorkingDirectory, true);
             _application.Conventions
                 .UseDefaultConventions()
                 .UseConstructorInjection(serviceProvider);
+
+            foreach (var convention in serviceProvider.GetServices<IConvention>())
+            {
+                _application.Conventions.AddConvention(convention);
+            }
         }
 
         /// <inheritdoc />
