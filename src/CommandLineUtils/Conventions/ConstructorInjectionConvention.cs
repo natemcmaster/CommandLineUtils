@@ -59,34 +59,69 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             if (constructors.Length == 0)
             {
-                throw new InvalidOperationException("Could not find any public constructors on " + typeof(TModel).FullName);
+                throw new InvalidOperationException(Strings.NoAnyPublicConstuctorFound(typeof(TModel)));
             }
 
-            // find the constructor with the most parameters first
-            foreach (var ctorCandidate in constructors.OrderByDescending(c => c.GetParameters().Count()))
+            var (matchedCtor, matchedArgs) = (constructors.Length == 1)
+                // shortcut for single constructor
+                ? FindMatchedConstructor(constructors, context.Application,
+                    throwIfNoParameterTypeRegistered: true)
+                // find the constructor with the most parameters first
+                : FindMatchedConstructor(constructors, context.Application,
+                    throwIfNoParameterTypeRegistered: false);
+
+            var parameterLessCtor = Array.Find(constructors, c => c.GetParameters().Length == 0);
+
+            if (matchedCtor == null && parameterLessCtor != null)
+            {
+                return;
+            }
+
+            if (matchedCtor == null && parameterLessCtor == null)
+            {
+                throw new InvalidOperationException(Strings.NoMatchedConstructorFound(typeof(TModel)));
+            }
+
+            if (matchedCtor != null)
+            {
+                (context.Application as CommandLineApplication<TModel>).ModelFactory =
+                    () => (TModel)matchedCtor.Invoke(matchedArgs);
+            }
+        }
+
+        private (ConstructorInfo matchedCtor, object[] matchedArgs) FindMatchedConstructor(
+            ConstructorInfo[] constructors,
+            IServiceProvider services,
+            bool throwIfNoParameterTypeRegistered = false)
+        {
+            foreach (var ctorCandidate in constructors.OrderByDescending(c => c.GetParameters().Length))
             {
                 var parameters = ctorCandidate.GetParameters().ToArray();
                 var args = new object[parameters.Length];
-                var matched = false;
                 for (var i = 0; i < parameters.Length; i++)
                 {
                     var paramType = parameters[i].ParameterType;
-                    var service = ((IServiceProvider)context.Application).GetService(paramType);
+                    var service = services.GetService(paramType);
                     if (service == null)
                     {
-                        break;
+                        if (!throwIfNoParameterTypeRegistered)
+                        {
+                            continue;
+                        }
+                        throw new InvalidOperationException(Strings.NoParameterTypeRegistered(ctorCandidate.DeclaringType, paramType));
                     }
                     args[i] = service;
-                    matched = i == parameters.Length - 1;
-                }
-
-                if (matched)
-                {
-                    (context.Application as CommandLineApplication<TModel>).ModelFactory =
-                        () => (TModel)ctorCandidate.Invoke(args);
-                    return;
+                    if (i == parameters.Length - 1)
+                    {
+                        var matchedArgsLength = args.Count(x => x != null);
+                        if (parameters.Length == matchedArgsLength)
+                        {
+                            return (ctorCandidate, args);
+                        }
+                    }
                 }
             }
+            return (null, null);
         }
     }
 }

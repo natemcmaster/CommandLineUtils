@@ -1,8 +1,10 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
@@ -115,6 +117,68 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var subcmd = Assert.IsType<CommandLineApplication<Child>>(result.SelectedCommand);
             Assert.NotNull(subcmd.Model.Parent);
             Assert.Same(app.Model, subcmd.Model.Parent);
+        }
+
+        private class TestAppWithoutPublicConstructor
+        {
+            private TestAppWithoutPublicConstructor()
+            {
+            }
+        }
+
+        [Fact]
+        public void ThrowsWhenNoAnyPublicConstructorFound()
+        {
+            var app = new CommandLineApplication<TestAppWithoutPublicConstructor>();
+            var ex = Assert.Throws<TargetInvocationException>(() => app.Conventions.UseConstructorInjection());
+            Assert.IsType<InvalidOperationException>(ex.InnerException);
+            Assert.Equal(Strings.NoAnyPublicConstuctorFound(typeof(TestAppWithoutPublicConstructor)), ex.InnerException.Message);
+        }
+
+        private class TestAppWithoutMatchedConstructor
+        {
+            public IConsole Console { get; }
+
+            public TestAppWithoutMatchedConstructor(TestConsole console)
+            {
+                Console = console;
+            }
+        }
+
+        [Fact]
+        public void ThrowsWhenNoMatchedConstructorFound()
+        {
+            var app = new CommandLineApplication<TestAppWithoutMatchedConstructor>();
+            var ex = Assert.Throws<TargetInvocationException>(() => app.Conventions.UseConstructorInjection());
+            Assert.IsType<InvalidOperationException>(ex.InnerException);
+            Assert.Equal(Strings.NoParameterTypeRegistered(typeof(TestAppWithoutMatchedConstructor), typeof(TestConsole)), ex.InnerException.Message);
+        }
+
+        private class TestAppWithAlternativeConstructor
+        {
+            public IConsole Console { get; }
+            public CommandLineApplication App { get; }
+
+            public TestAppWithAlternativeConstructor(TestConsole console, CommandLineApplication app)
+            {
+                Console = console;
+                App = app;
+            }
+
+            public TestAppWithAlternativeConstructor(IConsole console)
+            {
+                Console = console;
+            }
+        }
+
+        [Fact]
+        public void ItInjectsAlternativeConstructor()
+        {
+            var app = new CommandLineApplication<TestAppWithAlternativeConstructor>();
+            app.Conventions.UseConstructorInjection();
+            app.Parse();
+            Assert.NotNull(app.Model.Console);
+            Assert.IsType<PhysicalConsole>(app.Model.Console);
         }
     }
 }
