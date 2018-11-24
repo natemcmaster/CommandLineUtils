@@ -45,6 +45,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pager", "pager\Pager.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "McMaster.Extensions.CommandLineUtils", "..\..\src\CommandLineUtils\McMaster.Extensions.CommandLineUtils.csproj", "{289BEC92-5FB8-4DBB-9B9B-EB9452034121}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "McMaster.Extensions.Hosting.CommandLine", "..\..\src\Hosting.CommandLine\McMaster.Extensions.Hosting.CommandLine.csproj", "{9C9517D2-6F8B-4172-99EE-6B77D77346C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericHost", "dependency-injection\generic-host\GenericHost.csproj", "{290D1618-9069-4322-8E68-0BA6284C5770}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,7 +61,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1342040D-42E1-4013-A44C-0B0F2B48F710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1342040D-42E1-4013-A44C-0B0F2B48F710}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1342040D-42E1-4013-A44C-0B0F2B48F710}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -262,6 +266,30 @@ Global
 		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Release|x64.Build.0 = Release|Any CPU
 		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Release|x86.ActiveCfg = Release|Any CPU
 		{289BEC92-5FB8-4DBB-9B9B-EB9452034121}.Release|x86.Build.0 = Release|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Debug|x64.Build.0 = Debug|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Debug|x86.Build.0 = Debug|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Release|x64.ActiveCfg = Release|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Release|x64.Build.0 = Release|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Release|x86.ActiveCfg = Release|Any CPU
+		{9C9517D2-6F8B-4172-99EE-6B77D77346C8}.Release|x86.Build.0 = Release|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Debug|x64.Build.0 = Debug|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Debug|x86.Build.0 = Debug|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Release|Any CPU.Build.0 = Release|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Release|x64.ActiveCfg = Release|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Release|x64.Build.0 = Release|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Release|x86.ActiveCfg = Release|Any CPU
+		{290D1618-9069-4322-8E68-0BA6284C5770}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3D6570C6-11DC-40E7-9C96-8936D23C606A} = {E03982B3-80F2-4D55-9501-378EACE93E5B}
@@ -273,5 +301,6 @@ Global
 		{38D690F0-025F-4A60-B5F9-F22FE9445F62} = {E6049162-CBBC-4A4F-858E-15D8AE3574BF}
 		{EF23CAC9-C537-4CFB-8263-31632ABF8091} = {C34F685A-0C1F-4FF4-90F0-4A12C98E9067}
 		{5F46A3E6-C4B5-4664-BD74-C9E3F24F2FA4} = {C34F685A-0C1F-4FF4-90F0-4A12C98E9067}
+		{290D1618-9069-4322-8E68-0BA6284C5770} = {E03982B3-80F2-4D55-9501-378EACE93E5B}
 	EndGlobalSection
 EndGlobal
