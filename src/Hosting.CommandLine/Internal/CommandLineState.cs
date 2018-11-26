@@ -14,7 +14,11 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         public CommandLineState(string[] args)
         {
             Arguments = args;
-            Console = PhysicalConsole.Singleton;
+        }
+
+        internal void SetConsole(IConsole console)
+        {
+            Console = console;
         }
 
         public int ExitCode { get; set; }
