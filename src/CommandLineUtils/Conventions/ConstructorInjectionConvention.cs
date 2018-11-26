@@ -62,34 +62,16 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 throw new InvalidOperationException(Strings.NoAnyPublicConstuctorFound(typeof(TModel)));
             }
 
-            var (matchedCtor, matchedArgs) = (constructors.Length == 1)
-                // shortcut for single constructor
-                ? FindMatchedConstructor(constructors, context.Application,
-                    throwIfNoParameterTypeRegistered: true)
-                // find the constructor with the most parameters first
-                : FindMatchedConstructor(constructors, context.Application,
-                    throwIfNoParameterTypeRegistered: false);
+            var factory = FindMatchedConstructor<TModel>(constructors, context.Application,
+                constructors.Length == 1);
 
-            var parameterLessCtor = Array.Find(constructors, c => c.GetParameters().Length == 0);
-
-            if (matchedCtor == null && parameterLessCtor != null)
+            if (factory != null)
             {
-                return;
-            }
-
-            if (matchedCtor == null && parameterLessCtor == null)
-            {
-                throw new InvalidOperationException(Strings.NoMatchedConstructorFound(typeof(TModel)));
-            }
-
-            if (matchedCtor != null)
-            {
-                (context.Application as CommandLineApplication<TModel>).ModelFactory =
-                    () => (TModel)matchedCtor.Invoke(matchedArgs);
+                ((CommandLineApplication<TModel>) context.Application).ModelFactory = factory;
             }
         }
 
-        private (ConstructorInfo matchedCtor, object[] matchedArgs) FindMatchedConstructor(
+        private static Func<TModel> FindMatchedConstructor<TModel>(
             ConstructorInfo[] constructors,
             IServiceProvider services,
             bool throwIfNoParameterTypeRegistered = false)
@@ -97,6 +79,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             foreach (var ctorCandidate in constructors.OrderByDescending(c => c.GetParameters().Length))
             {
                 var parameters = ctorCandidate.GetParameters().ToArray();
+                if (parameters.Length == 0)
+                {
+                    return null;
+                }
+
                 var args = new object[parameters.Length];
                 for (var i = 0; i < parameters.Length; i++)
                 {
@@ -106,22 +93,25 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     {
                         if (!throwIfNoParameterTypeRegistered)
                         {
-                            continue;
+                            goto nextCtor;
                         }
-                        throw new InvalidOperationException(Strings.NoParameterTypeRegistered(ctorCandidate.DeclaringType, paramType));
+
+                        return () =>
+                            throw new InvalidOperationException(
+                                Strings.NoParameterTypeRegistered(ctorCandidate.DeclaringType, paramType));
                     }
+
                     args[i] = service;
                     if (i == parameters.Length - 1)
                     {
-                        var matchedArgsLength = args.Count(x => x != null);
-                        if (parameters.Length == matchedArgsLength)
-                        {
-                            return (ctorCandidate, args);
-                        }
+                        return () => (TModel) ctorCandidate.Invoke(args);
                     }
                 }
+
+                nextCtor: ;
             }
-            return (null, null);
+
+            return () => throw new InvalidOperationException(Strings.NoMatchedConstructorFound(typeof(TModel)));
         }
     }
 }
