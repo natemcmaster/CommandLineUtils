@@ -209,6 +209,21 @@ namespace McMaster.Extensions.CommandLineUtils
             => builder.AddConvention(new ConstructorInjectionConvention(additionalServices));
 
         /// <summary>
+        /// Enables using injection to provide the model.
+        /// </summary>
+        /// <param name="builder"></param>
+        public static IConventionBuilder UseInjectedModel(this IConventionBuilder builder)
+            => builder.AddConvention(new InjectedModelConvention());
+
+        /// <summary>
+        /// Enables using injection to provide the model.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="additionalServices">Additional services that should be passed to the service provider.</param>
+        public static IConventionBuilder UseInjectedModel(this IConventionBuilder builder, IServiceProvider additionalServices)
+            => builder.AddConvention(new InjectedModelConvention(additionalServices));
+
+        /// <summary>
         /// Sets the subcommand name using the model type, if available and not otherwise set using <see cref="CommandAttribute"/>.
         /// </summary>
         /// <param name="builder"></param>
