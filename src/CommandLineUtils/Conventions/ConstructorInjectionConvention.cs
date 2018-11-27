@@ -57,11 +57,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 .GetTypeInfo()
                 .GetConstructors(BindingFlags.Public | BindingFlags.Instance);
 
-            if (constructors.Length == 0)
-            {
-                throw new InvalidOperationException(Strings.NoAnyPublicConstuctorFound(typeof(TModel)));
-            }
-
             var factory = FindMatchedConstructor<TModel>(constructors, context.Application,
                 constructors.Length == 1);
 
@@ -76,6 +71,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             IServiceProvider services,
             bool throwIfNoParameterTypeRegistered = false)
         {
+            if (constructors.Length == 0)
+            {
+                return () => throw new InvalidOperationException(Strings.NoAnyPublicConstuctorFound(typeof(TModel)));
+            }
+
             foreach (var ctorCandidate in constructors.OrderByDescending(c => c.GetParameters().Length))
             {
                 var parameters = ctorCandidate.GetParameters().ToArray();
