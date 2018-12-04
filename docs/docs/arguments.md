@@ -104,7 +104,7 @@ public class Program
 
 ### [Using Builder API](#tab/using-builder-api)
 
-To enable this, See @McMaster.Extensions.CommandLineUtils.CommandArgument.MultipleValues must be set to true,
+To enable this, @McMaster.Extensions.CommandLineUtils.CommandArgument.MultipleValues must be set to true,
 and the argument must be the last one specified.
 
 ```c#
@@ -170,5 +170,7 @@ to include all values. See @McMaster.Extensions.CommandLineUtils.Conventions.Rem
 [!code-csharp[Program](../samples/passthru-args/attributes/Program.cs)]
 
 ### [Using Builder API](#tab/using-builder-api)
+
+When `throwOnUnexpctedArg` is set to false,
 
 [!code-csharp[Program](../samples/passthru-args/builder-api/Program.cs)]

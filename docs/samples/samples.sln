@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderApiPassThru", "passt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttributesPassThru", "passthru-args\attributes\AttributesPassThru.csproj", "{1EE15348-5FF4-4988-AEA4-3E267ED4C288}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericHost", "generic-host\GenericHost.csproj", "{A85A6B2B-924F-48CE-8606-04B704A467D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -292,6 +294,18 @@ Global
 		{1EE15348-5FF4-4988-AEA4-3E267ED4C288}.Release|x64.Build.0 = Release|Any CPU
 		{1EE15348-5FF4-4988-AEA4-3E267ED4C288}.Release|x86.ActiveCfg = Release|Any CPU
 		{1EE15348-5FF4-4988-AEA4-3E267ED4C288}.Release|x86.Build.0 = Release|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Debug|x64.Build.0 = Debug|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Debug|x86.Build.0 = Debug|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Release|x64.ActiveCfg = Release|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Release|x64.Build.0 = Release|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Release|x86.ActiveCfg = Release|Any CPU
+		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3D6570C6-11DC-40E7-9C96-8936D23C606A} = {E03982B3-80F2-4D55-9501-378EACE93E5B}

@@ -35,11 +35,11 @@ public class Program
 
             if (showMilliseconds.HasValue())
             {
-                Console.WriteLine($"Time = {timer.Elapsed.TotalMilliseconds:F} ms");
+                Console.WriteLine($"Time = {timer.Elapsed.TotalMilliseconds} ms");
             }
             else
             {
-                Console.WriteLine($"Time = {timer.Elapsed.TotalSeconds:F}s");
+                Console.WriteLine($"Time = {timer.Elapsed.TotalSeconds}s");
             }
         });
 
