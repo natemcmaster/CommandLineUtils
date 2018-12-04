@@ -175,7 +175,7 @@ attribute and settable to <code>string[]</code> or <code>IEnumerable&lt;string&g
 }
 </code></pre></section>
 <section id="tabpanel_O1aAyLh+nY-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
-<p>To enable this, See <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html#McMaster_Extensions_CommandLineUtils_CommandArgument_MultipleValues">MultipleValues</a> must be set to true,
+<p>To enable this, <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html#McMaster_Extensions_CommandLineUtils_CommandArgument_MultipleValues">MultipleValues</a> must be set to true,
 and the argument must be the last one specified.</p>
 <pre><code class="lang-c#">public class Program
 {
@@ -262,16 +262,17 @@ public class Program
 
         if (Milliseconds)
         {
-            Console.WriteLine($&quot;Time = {timer.Elapsed.TotalMilliseconds:F} ms&quot;);
+            Console.WriteLine($&quot;Time = {timer.Elapsed.TotalMilliseconds} ms&quot;);
         }
         else
         {
-            Console.WriteLine($&quot;Time = {timer.Elapsed.TotalSeconds:F}s&quot;);
+            Console.WriteLine($&quot;Time = {timer.Elapsed.TotalSeconds}s&quot;);
         }
     }
 }
 </code></pre></section>
 <section id="tabpanel_O1aAyLh+nY-2_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<p>When <code>throwOnUnexpctedArg</code> is set to false,</p>
 <pre><code class="lang-csharp" name="Program">using System;
 using System.Diagnostics;
 using System.Linq;
@@ -309,11 +310,11 @@ public class Program
 
             if (showMilliseconds.HasValue())
             {
-                Console.WriteLine($&quot;Time = {timer.Elapsed.TotalMilliseconds:F} ms&quot;);
+                Console.WriteLine($&quot;Time = {timer.Elapsed.TotalMilliseconds} ms&quot;);
             }
             else
             {
-                Console.WriteLine($&quot;Time = {timer.Elapsed.TotalSeconds:F}s&quot;);
+                Console.WriteLine($&quot;Time = {timer.Elapsed.TotalSeconds}s&quot;);
             }
         });
 

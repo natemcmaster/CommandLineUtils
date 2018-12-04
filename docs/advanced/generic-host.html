@@ -1,0 +1,322 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using Generic Host </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using Generic Host ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" height="55" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="generic-host">
+<h1 id="using-generic-host">Using Generic Host</h1>
+
+<p>The McMaster.Extensions.Hosting.CommandLine package provides support for integrating command line parsing with
+.NET&#39;s <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/generic-host">generic host</a>.</p>
+<h2 id="get-started">Get started</h2>
+<p>To get started, install the <code>McMaster.Extensions.Hosting.CommandLine</code> package.
+The main usage for generic host is <code>RunCommandLineApplicationAsync&lt;TApp&gt;(args)</code>, where <code>TApp</code> is a class
+which will be bound to command line arguments and options using attributes and <code>CommandLineApplication.Execute&lt;T&gt;</code>.</p>
+<h3 id="sample">Sample</h3>
+<p>This minimal sample shows how to take advantage of generic host features, such as <code>IHostingEnvironment</code>,
+as well as command line parsing options with this library.</p>
+<pre><code class="lang-csharp">using System;
+using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils;
+using Microsoft.Extensions.Hosting;
+
+class Program
+{
+    static Task&lt;int&gt; Main(string[] args)
+        =&gt; new HostBuilder()
+        .RunCommandLineApplicationAsync&lt;Program&gt;(args);
+
+    [Option]
+    public int Port { get; } = 8080;
+
+    private IHostingEnvironment _env;
+
+    public Program(IHostingEnvironment env)
+    {
+        _env = env;
+    }
+
+    private void OnExecute()
+    {
+        Console.WriteLine($&quot;Starting on port {Port}, env = {_env.EnvironmentName}&quot;);
+    }
+}
+</code></pre><h2 id="dependency-injection">Dependency injection</h2>
+<p>Generic host integration allows you to use the most current DI configuration approach indicated by the aspnet project.  The basic approach starts by creating the builder:</p>
+<pre><code class="lang-csharp">[Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
+class Program
+{
+
+    [Argument(0, Description = &quot;your name&quot;)]
+    private string Name { get; } = &quot;dependency injection&quot;;
+
+    [Option(&quot;-l|--language&quot;, Description = &quot;your desired language&quot;)]
+    [AllowedValues(&quot;english&quot;, &quot;spanish&quot;, IgnoreCase = true)]
+    public string Language { get; } = &quot;english&quot;;
+
+    public static async Task&lt;int&gt; Main(string[] args)
+    {
+        return await new HostBuilder()
+            .ConfigureLogging((context, builder) =&gt;
+            {
+                builder.AddConsole();
+            })
+            .ConfigureServices((context, services) =&gt; {
+                services.AddSingleton&lt;IGreeter, Greeter&gt;()
+                    .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton);
+            })
+            .RunCommandLineApplicationAsync&lt;Program&gt;(args);
+    }
+
+    private readonly ILogger&lt;Program&gt; _logger;
+    private readonly IGreeter _greeter;
+
+    public Program(ILogger&lt;Program&gt; logger, IGreeter greeter)
+    {
+        _logger = logger;
+        _greeter = greeter;
+
+        _logger.LogInformation(&quot;Constructed!&quot;);
+    }
+
+    private void OnExecute()
+    {
+        _greeter.Greet(Name, Language);
+    }
+}
+</code></pre><p>Then you can configure your features:</p>
+<pre><code class="lang-csharp">[Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
+class Program
+{
+
+    [Argument(0, Description = &quot;your name&quot;)]
+    private string Name { get; } = &quot;dependency injection&quot;;
+
+    [Option(&quot;-l|--language&quot;, Description = &quot;your desired language&quot;)]
+    [AllowedValues(&quot;english&quot;, &quot;spanish&quot;, IgnoreCase = true)]
+    public string Language { get; } = &quot;english&quot;;
+
+    public static async Task&lt;int&gt; Main(string[] args)
+    {
+        return await new HostBuilder()
+            .ConfigureLogging((context, builder) =&gt;
+            {
+                builder.AddConsole();
+            })
+            .ConfigureServices((context, services) =&gt; {
+                services.AddSingleton&lt;IGreeter, Greeter&gt;()
+                    .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton);
+            })
+            .RunCommandLineApplicationAsync&lt;Program&gt;(args);
+    }
+
+    private readonly ILogger&lt;Program&gt; _logger;
+    private readonly IGreeter _greeter;
+
+    public Program(ILogger&lt;Program&gt; logger, IGreeter greeter)
+    {
+        _logger = logger;
+        _greeter = greeter;
+
+        _logger.LogInformation(&quot;Constructed!&quot;);
+    }
+
+    private void OnExecute()
+    {
+        _greeter.Greet(Name, Language);
+    }
+}
+</code></pre><p>And finally, run your program:</p>
+<pre><code class="lang-csharp">[Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
+class Program
+{
+
+    [Argument(0, Description = &quot;your name&quot;)]
+    private string Name { get; } = &quot;dependency injection&quot;;
+
+    [Option(&quot;-l|--language&quot;, Description = &quot;your desired language&quot;)]
+    [AllowedValues(&quot;english&quot;, &quot;spanish&quot;, IgnoreCase = true)]
+    public string Language { get; } = &quot;english&quot;;
+
+    public static async Task&lt;int&gt; Main(string[] args)
+    {
+        return await new HostBuilder()
+            .ConfigureLogging((context, builder) =&gt;
+            {
+                builder.AddConsole();
+            })
+            .ConfigureServices((context, services) =&gt; {
+                services.AddSingleton&lt;IGreeter, Greeter&gt;()
+                    .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton);
+            })
+            .RunCommandLineApplicationAsync&lt;Program&gt;(args);
+    }
+
+    private readonly ILogger&lt;Program&gt; _logger;
+    private readonly IGreeter _greeter;
+
+    public Program(ILogger&lt;Program&gt; logger, IGreeter greeter)
+    {
+        _logger = logger;
+        _greeter = greeter;
+
+        _logger.LogInformation(&quot;Constructed!&quot;);
+    }
+
+    private void OnExecute()
+    {
+        _greeter.Greet(Name, Language);
+    }
+}
+</code></pre><p>Below is the full source code for the generic host services example. Notice that instance of <code>IGreeter</code> will be injected into the <code>Program</code> constructor thanks to the dependency injection.</p>
+<!--  in query parameter `highlight`. -->
+<pre><code class="lang-csharp" highlight-lines="32-32">[Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
+[HelpOption]
+class Program
+{
+    public static int Main(string[] args)
+    {
+        var services = new ServiceCollection()
+            .AddSingleton&lt;IMyService, MyServiceImplementation&gt;()
+            .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton)
+            .BuildServiceProvider();
+
+        var app = new CommandLineApplication&lt;Program&gt;();
+        app.Conventions
+            .UseDefaultConventions()
+            .UseConstructorInjection(services);
+        return app.Execute(args);
+    }
+
+    private readonly IMyService _myService;
+
+    public Program(IMyService myService)
+    {
+        _myService = myService;
+    }
+
+    private void OnExecute()
+    {
+        _myService.Invoke();
+    }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/docs/docs/advanced/generic-host.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+             
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-38984092-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-38984092-6');
+    </script>
+  </body>
+</html>
