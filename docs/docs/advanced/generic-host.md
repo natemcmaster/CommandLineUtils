@@ -1,7 +1,7 @@
 ---
 uid: generic-host
 ---
-# Using Generic Host
+# Integration with Generic Host
 
 The McMaster.Extensions.Hosting.CommandLine package provides support for integrating command line parsing with
 .NET's [generic host](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/generic-host).
