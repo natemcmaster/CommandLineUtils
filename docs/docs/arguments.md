@@ -17,7 +17,7 @@ They have one defining characteristic.
 
 ### [Using Attributes](#tab/using-attributes)
 
-@McMaster.Extensions.CommandLineUtils.ARgumentAttribute can be used on properties to define arguments.
+@McMaster.Extensions.CommandLineUtils.ArgumentAttribute can be used on properties to define arguments.
 The argument order must be specified explicitly.
 
 ```c#
@@ -126,6 +126,8 @@ public class Program
     }
 }
 ```
+
+***
 
 ## Pass-thru arguments
 
