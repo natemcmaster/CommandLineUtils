@@ -1,13 +1,2 @@
-<Project>
-
-  <PropertyGroup>
-    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
-  </PropertyGroup>
-
-  <Target Name="UpdateBuildDetails" BeforeTargets="CollectPackageReferences" Condition="'$(APPVEYOR)' == 'true'">
-    <Exec Command="appveyor UpdateBuild -Version $(PackageVersion)"
-          IgnoreExitCode="true"
-          IgnoreStandardErrorWarningFormat="true" />
-  </Target>
-
-</Project>
+<!-- This file is intentionally empty -->
+<Project />
