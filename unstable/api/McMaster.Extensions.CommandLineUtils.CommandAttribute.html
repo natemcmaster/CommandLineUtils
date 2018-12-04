@@ -348,6 +348,58 @@ public sealed class CommandAttribute : Attribute</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandAttribute_ClusterOptions.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/Attributes/CommandAttribute.cs/#L129">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandAttribute_ClusterOptions_" data-uid="McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandAttribute_ClusterOptions" data-uid="McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions">ClusterOptions</h4>
+  <div class="markdown level1 summary"><p>
+One or more options of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html#McMaster_Extensions_CommandLineUtils_CommandOptionType_NoValue">NoValue</a>, followed by at most one option that takes values, should be accepted when grouped behind one &apos;-&apos; delimiter.
+</p>
+<p>
+When true, the following are equivalent.
+
+<pre><code>-abcXyellow
+-abcX=yellow
+-abcX:yellow
+-abc -X=yellow
+-ab -cX=yellow
+-a -b -c -Xyellow
+-a -b -c -X yellow
+-a -b -c -X=yellow
+-a -b -c -X:yellow</code></pre>
+</p>
+<p>
+This defaults to true unless an option with a short name of two or more characters is added.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ClusterOptions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="McMaster_Extensions_CommandLineUtils_CommandAttribute_ClusterOptions_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><a href="https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html">https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html</a></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandAttribute_Description.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandAttribute.Description%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">

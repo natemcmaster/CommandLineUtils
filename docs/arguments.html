@@ -136,14 +136,11 @@ The argument order must be specified explicitly.</p>
 }
 </code></pre></section>
 </div>
-<h2 id="remaining-arguments">Remaining arguments</h2>
+<h2 id="variable-numbers-of-arguments">Variable numbers of arguments</h2>
 <p>A common scenario is to allow a command line tool to take in a variable number of arguments.
 These arguments are collected into a <code>string[]</code> array after all other arguments and options are parsed.</p>
 <pre><code>cat -b 123 file1.txt file2.txt file3.txt
-</code></pre><div class="NOTE"><h5>Note</h5><p>Normally, unrecognized arguments is an error. To allow this scenario, you must set ThrowOnUnexpectedArgument to false.</p>
-</div>
-<p>See <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a> for more details.</p>
-<div class="tabGroup" id="tabgroup_O1aAyLh+nY-1">
+</code></pre><div class="tabGroup" id="tabgroup_O1aAyLh+nY-1">
 <ul role="tablist">
 <li role="presentation">
 <a href="#tabpanel_O1aAyLh+nY-1_using-attributes" role="tab" aria-controls="tabpanel_O1aAyLh+nY-1_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
@@ -151,23 +148,29 @@ These arguments are collected into a <code>string[]</code> array after all other
 <li role="presentation">
 <a href="#tabpanel_O1aAyLh+nY-1_using-builder-api" role="tab" aria-controls="tabpanel_O1aAyLh+nY-1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
 </li>
+<li role="presentation">
+<a href="#tabpanel_O1aAyLh+nY-1_using-attributes" role="tab" aria-controls="tabpanel_O1aAyLh+nY-1_using-attributes" data-tab="using-attributes" tabindex="-1">Using Attributes</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_O1aAyLh+nY-1_using-builder-api" role="tab" aria-controls="tabpanel_O1aAyLh+nY-1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+</li>
 </ul>
 <section id="tabpanel_O1aAyLh+nY-1_using-attributes" role="tabpanel" data-tab="using-attributes">
-<p>By default, attribute binding will set a <code>string[]</code> or <code>IList&lt;string&gt;</code> property named <code>RemainingArguments</code> or <code>RemainingArgs</code>
-to include all values</p>
-<pre><code class="lang-c#">[Command(ThrowOnUnexpectedArgument = false)]
-public class Program
+<p>By default, attribute binding will assume multiple values can be set for properties with the <code>[Argument]</code>
+attribute and settable to <code>string[]</code> or <code>IEnumerable&lt;string&gt;</code>.</p>
+<pre><code class="lang-c#">public class Program
 {
     [Option(&quot;-b&quot;)]
     public int BlankLines { get; }
 
-    public string[] RemainingArguments { get; } // = { &quot;file1.txt&quot;, &quot;file2.txt&quot;, &quot;file3.txt&quot; }
+    [Argument(0)]
+    public string[] Files { get; } // = { &quot;file1.txt&quot;, &quot;file2.txt&quot;, &quot;file3.txt&quot; }
 
     private void OnExecute()
     {
-        if (RemainingArguments != null)
+        if (Files != null)
         {
-            foreach (var file in RemainingArguments)
+            foreach (var file in Files)
             {
                 // do something
             }
@@ -178,22 +181,138 @@ public class Program
 }
 </code></pre></section>
 <section id="tabpanel_O1aAyLh+nY-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<p>To enable this, See <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html#McMaster_Extensions_CommandLineUtils_CommandArgument_MultipleValues">MultipleValues</a> must be set to true,
+and the argument must be the last one specified.</p>
 <pre><code class="lang-c#">public class Program
 {
     public static int Main(string[] args)
     {
-        var app = new CommandLineApplication(throwOnUnexpectedArg: false);
+        var app = new CommandLineApplication();
         var blankLines = app.Option&lt;int&gt;(&quot;-b &lt;LINES&gt;&quot;, &quot;Blank lines&quot;, CommandOptionType.SingleValue);
+        var files = app.Argument(&quot;Files&quot;, &quot;Files to count&quot;, multipleValues: true);
         app.OnExecute(() =&gt;
         {
-            if (app.RemainingArguments != null)
+            foreach (var file in files.Values)
             {
-                foreach (var file in app.RemainingArguments)
-                {
-                    // do something
-                }
+                // do something
             }
         });
+        return app.Execute(args);
+    }
+}
+</code></pre><h2 id="pass-thru-arguments">Pass-thru arguments</h2>
+<p>Another common scenario is to create a command line tool which wraps another tool. These kinds of command lines
+need to collect arguments which are passed to the to the tool they wrap. For example, the Unix command <code>time</code>
+or the Windows command <code>cmd</code> take some arguments, and pass the rest on to the command they invoke.</p>
+<div class="NOTE"><h5>Note</h5><p>Example:</p>
+<pre><code>time -l ls -a -l ./
+</code></pre><p>In this example, <code>-l</code> is an option on <code>time</code>. This starts a timer which then invokes <code>ls</code> with additional arguments.
+<code>-l</code> is also an option on <code>ls</code>.</p>
+</div>
+<p>Normally, unrecognized arguments is an error. You must set ThrowOnUnexpectedArgument to <code>false</code> to allow the parser
+to allow unrecognized arguments and options.</p>
+<h3 id="the-double-dash-convention---">The double-dash convention <code>--</code></h3>
+<p>It is common for apps which pass-thru arguments to allow the caller to use <code>--</code> to distinguish between the
+options on the parent command and all remaining arguments.</p>
+<pre><code>bash -c -- ls -a -l
+</code></pre><p>In this example, the presence of <code>--</code> forces bash to stop parsing and treat everything after <code>--</code> as an argument
+to be passed to the inner command.</p>
+<p>The double dash command is enabled by setting <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AllowArgumentSeparator">AllowArgumentSeparator</a>.</p>
+</section>
+<section id="tabpanel_O1aAyLh+nY-1_using-attributes" role="tabpanel" data-tab="using-attributes" aria-hidden="true" hidden="hidden">
+<p>By default, attribute binding will set a <code>string[]</code> or <code>IList&lt;string&gt;</code> property named <code>RemainingArguments</code> or <code>RemainingArgs</code>
+to include all values. See <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a> for more details.</p>
+<pre><code class="lang-csharp" name="Program">using System;
+using System.Diagnostics;
+using System.Linq;
+using McMaster.Extensions.CommandLineUtils;
+
+[Command(ThrowOnUnexpectedArgument = false, AllowArgumentSeparator = true)]
+public class Program
+{
+    public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
+
+    [Option(&quot;-m&quot;, Description = &quot;Show time in milliseconds&quot;)]
+    public bool Milliseconds { get; }
+
+    public string[] RemainingArguments { get; } // = { &quot;ls&quot;, &quot;-a&quot;, &quot;-l&quot; }
+
+    private void OnExecute()
+    {
+        var timer = Stopwatch.StartNew();
+        if (RemainingArguments != null &amp;&amp; RemainingArguments.Length &gt; 0)
+        {
+            var process = new Process
+            {
+                StartInfo =
+                {
+                    FileName = RemainingArguments[0],
+                    Arguments = ArgumentEscaper.EscapeAndConcatenate(RemainingArguments.Skip(1)),
+                }
+            };
+            process.Start();
+            process.WaitForExit();
+        }
+
+        timer.Stop();
+
+        if (Milliseconds)
+        {
+            Console.WriteLine($&quot;Time = {timer.Elapsed.TotalMilliseconds:F} ms&quot;);
+        }
+        else
+        {
+            Console.WriteLine($&quot;Time = {timer.Elapsed.TotalSeconds:F}s&quot;);
+        }
+    }
+}
+</code></pre></section>
+<section id="tabpanel_O1aAyLh+nY-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-csharp" name="Program">using System;
+using System.Diagnostics;
+using System.Linq;
+using McMaster.Extensions.CommandLineUtils;
+
+public class Program
+{
+    public static int Main(string[] args)
+    {
+        var app = new CommandLineApplication(throwOnUnexpectedArg: false)
+        {
+            AllowArgumentSeparator = true
+        };
+
+        var showMilliseconds = app.Option&lt;int&gt;(&quot;-m&quot;, &quot;Show time in milliseconds&quot;, CommandOptionType.NoValue);
+
+        app.OnExecute(() =&gt;
+        {
+            var timer = Stopwatch.StartNew();
+            if (app.RemainingArguments != null &amp;&amp; app.RemainingArguments.Count &gt; 0)
+            {
+                var process = new Process
+                {
+                    StartInfo =
+                {
+                    FileName = app.RemainingArguments[0],
+                    Arguments = ArgumentEscaper.EscapeAndConcatenate(app.RemainingArguments.Skip(1)),
+                }
+                };
+                process.Start();
+                process.WaitForExit();
+            }
+
+            timer.Stop();
+
+            if (showMilliseconds.HasValue())
+            {
+                Console.WriteLine($&quot;Time = {timer.Elapsed.TotalMilliseconds:F} ms&quot;);
+            }
+            else
+            {
+                Console.WriteLine($&quot;Time = {timer.Elapsed.TotalSeconds:F}s&quot;);
+            }
+        });
+
         return app.Execute(args);
     }
 }

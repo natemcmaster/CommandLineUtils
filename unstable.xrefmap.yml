@@ -692,6 +692,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.AllowArgumentSeparator
   nameWithType: CommandAttribute.AllowArgumentSeparator
+- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
+  name: ClusterOptions
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ClusterOptions
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
+  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
+  nameWithType: CommandAttribute.ClusterOptions
+- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions*
+  name: ClusterOptions
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ClusterOptions_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.ClusterOptions
+  nameWithType: CommandAttribute.ClusterOptions
 - uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.Description
   name: Description
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_Description
@@ -942,6 +955,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Arguments
   nameWithType: CommandLineApplication.Arguments
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions
+  name: ClusterOptions
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ClusterOptions
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions
+  nameWithType: CommandLineApplication.ClusterOptions
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions*
+  name: ClusterOptions
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ClusterOptions_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions
+  nameWithType: CommandLineApplication.ClusterOptions
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Boolean)
   name: Command(String, Action<CommandLineApplication>, Boolean)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command_System_String_System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Boolean_
@@ -1271,6 +1297,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.LongVersionGetter
   nameWithType: CommandLineApplication.LongVersionGetter
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.MakeSuggestionsInErrorMessage
+  name: MakeSuggestionsInErrorMessage
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_MakeSuggestionsInErrorMessage
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.MakeSuggestionsInErrorMessage
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.MakeSuggestionsInErrorMessage
+  nameWithType: CommandLineApplication.MakeSuggestionsInErrorMessage
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.MakeSuggestionsInErrorMessage*
+  name: MakeSuggestionsInErrorMessage
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_MakeSuggestionsInErrorMessage_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.MakeSuggestionsInErrorMessage
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.MakeSuggestionsInErrorMessage
+  nameWithType: CommandLineApplication.MakeSuggestionsInErrorMessage
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Name
   name: Name
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Name
@@ -1478,19 +1517,6 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Parse
   nameWithType: CommandLineApplication.Parse
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings
-  name: ParserSettings
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ParserSettings
-  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings
-  nameWithType: CommandLineApplication.ParserSettings
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings*
-  name: ParserSettings
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ParserSettings_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings
-  isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserSettings
-  nameWithType: CommandLineApplication.ParserSettings
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.RemainingArguments
   name: RemainingArguments
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_RemainingArguments
@@ -4568,38 +4594,6 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Pager.Writer
   nameWithType: Pager.Writer
-- uid: McMaster.Extensions.CommandLineUtils.ParserSettings
-  name: ParserSettings
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ParserSettings.html
-  commentId: T:McMaster.Extensions.CommandLineUtils.ParserSettings
-  fullName: McMaster.Extensions.CommandLineUtils.ParserSettings
-  nameWithType: ParserSettings
-- uid: McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions
-  name: ClusterOptions
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ParserSettings.html#McMaster_Extensions_CommandLineUtils_ParserSettings_ClusterOptions
-  commentId: P:McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions
-  fullName: McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions
-  nameWithType: ParserSettings.ClusterOptions
-- uid: McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions*
-  name: ClusterOptions
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ParserSettings.html#McMaster_Extensions_CommandLineUtils_ParserSettings_ClusterOptions_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions
-  isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.ParserSettings.ClusterOptions
-  nameWithType: ParserSettings.ClusterOptions
-- uid: McMaster.Extensions.CommandLineUtils.ParserSettings.MakeSuggestionsInErrorMessage
-  name: MakeSuggestionsInErrorMessage
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ParserSettings.html#McMaster_Extensions_CommandLineUtils_ParserSettings_MakeSuggestionsInErrorMessage
-  commentId: P:McMaster.Extensions.CommandLineUtils.ParserSettings.MakeSuggestionsInErrorMessage
-  fullName: McMaster.Extensions.CommandLineUtils.ParserSettings.MakeSuggestionsInErrorMessage
-  nameWithType: ParserSettings.MakeSuggestionsInErrorMessage
-- uid: McMaster.Extensions.CommandLineUtils.ParserSettings.MakeSuggestionsInErrorMessage*
-  name: MakeSuggestionsInErrorMessage
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ParserSettings.html#McMaster_Extensions_CommandLineUtils_ParserSettings_MakeSuggestionsInErrorMessage_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.ParserSettings.MakeSuggestionsInErrorMessage
-  isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.ParserSettings.MakeSuggestionsInErrorMessage
-  nameWithType: ParserSettings.MakeSuggestionsInErrorMessage
 - uid: McMaster.Extensions.CommandLineUtils.PhysicalConsole
   name: PhysicalConsole
   href: unstable/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.html
@@ -4899,12 +4893,15 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException
   fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException
   nameWithType: UnrecognizedCommandParsingException
-- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String)
-  name: UnrecognizedCommandParsingException(CommandLineApplication, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html#McMaster_Extensions_CommandLineUtils_UnrecognizedCommandParsingException__ctor_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.UnrecognizedCommandParsingException(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.String)
-  nameWithType: UnrecognizedCommandParsingException.UnrecognizedCommandParsingException(CommandLineApplication, String)
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Collections.Generic.IEnumerable{System.String},System.String)
+  name: UnrecognizedCommandParsingException(CommandLineApplication, IEnumerable<String>, String)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html#McMaster_Extensions_CommandLineUtils_UnrecognizedCommandParsingException__ctor_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Collections_Generic_IEnumerable_System_String__System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Collections.Generic.IEnumerable{System.String},System.String)
+  name.vb: UnrecognizedCommandParsingException(CommandLineApplication, IEnumerable(Of String), String)
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.UnrecognizedCommandParsingException(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Collections.Generic.IEnumerable<System.String>, System.String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.UnrecognizedCommandParsingException(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Collections.Generic.IEnumerable(Of System.String), System.String)
+  nameWithType: UnrecognizedCommandParsingException.UnrecognizedCommandParsingException(CommandLineApplication, IEnumerable<String>, String)
+  nameWithType.vb: UnrecognizedCommandParsingException.UnrecognizedCommandParsingException(CommandLineApplication, IEnumerable(Of String), String)
 - uid: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.#ctor*
   name: UnrecognizedCommandParsingException
   href: unstable/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html#McMaster_Extensions_CommandLineUtils_UnrecognizedCommandParsingException__ctor_
