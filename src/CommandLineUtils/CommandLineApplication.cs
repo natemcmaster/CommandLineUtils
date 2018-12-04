@@ -104,7 +104,7 @@ namespace McMaster.Extensions.CommandLineUtils
             SetContext(context);
             _services = new Lazy<IServiceProvider>(() => new ServiceProvider(this));
             ValueParsers = parent?.ValueParsers ?? new ValueParserProvider();
-            ParserSettings = parent?.ParserSettings ?? new ParserSettings();
+            _clusterOptions = parent?._clusterOptions;
 
             _conventionContext = CreateConventionContext();
 
@@ -279,6 +279,42 @@ namespace McMaster.Extensions.CommandLineUtils
         /// The way arguments and options are matched.
         /// </summary>
         public StringComparison OptionsComparison { get; set; }
+
+        /// <summary>
+        /// <para>
+        /// One or more options of <see cref="CommandOptionType.NoValue"/>, followed by at most one option that takes values, should be accepted when grouped behind one '-' delimiter.
+        /// </para>
+        /// <para>
+        /// When true, the following are equivalent.
+        ///
+        /// <code>
+        /// -abcXyellow
+        /// -abcX=yellow
+        /// -abcX:yellow
+        /// -abc -X=yellow
+        /// -ab -cX=yellow
+        /// -a -b -c -Xyellow
+        /// -a -b -c -X yellow
+        /// -a -b -c -X=yellow
+        /// -a -b -c -X:yellow
+        /// </code>
+        /// </para>
+        /// <para>
+        /// This defaults to true unless an option with a short name of two or more characters is added.
+        /// </para>
+        /// </summary>
+        /// <remarks>
+        /// <seealso href="https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html"/>
+        /// </remarks>
+        public bool ClusterOptions
+        {
+            get => _clusterOptions ?? true;
+            set => _clusterOptions = value;
+        }
+
+        private bool? _clusterOptions;
+
+        internal bool ClusterOptionsWasSetExplicitly => _clusterOptions.HasValue;
 
         /// <summary>
         /// Gets the default value parser provider.
@@ -623,16 +659,25 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             args = args ?? new string[0];
 
-            var processor = new CommandLineProcessor(this, ParserSettings, args);
+            var processor = new CommandLineProcessor(this, args);
             var result = processor.Process();
             result.SelectedCommand.HandleParseResult(result);
             return result;
         }
 
         /// <summary>
-        /// Settings to control the behavior of the parser.
+        /// When an invalid argument is given, make suggestions in the error message
+        /// about similar, valid commands or options.
+        /// <para>
+        /// $ git pshu
+        /// Specify --help for a list of available options and commands
+        /// Unrecognized command or argument 'pshu'
+        ///
+        /// Did you mean this?
+        ///     push
+        /// </para>
         /// </summary>
-        public ParserSettings ParserSettings { get; }
+        public bool MakeSuggestionsInErrorMessage { get; set; } = true;
 
         /// <summary>
         /// Handle the result of parsing command line arguments.

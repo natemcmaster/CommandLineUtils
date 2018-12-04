@@ -158,7 +158,6 @@ namespace McMaster.Extensions.CommandLineUtils
                 .Where(candidate => candidate.normalizedDistance >= threshold)
                 .OrderByDescending(candidate => candidate.normalizedDistance)
                 .Select(candidate => candidate.stringValue);
-
         }
     }
 }

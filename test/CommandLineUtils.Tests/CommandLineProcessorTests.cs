@@ -38,10 +38,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication
             {
-                ParserSettings =
-                {
-                    ClusterOptions = true
-                }
+                ClusterOptions = true
             };
 
             var optA = app.Option("-a", "Option A", CommandOptionType.NoValue);
@@ -60,14 +57,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication
             {
-                ParserSettings =
-                {
-                    ClusterOptions = true
-                }
+                ClusterOptions = true
             };
 
             var optA = app.Option("-a|--all", "Option A", CommandOptionType.NoValue);
-            app.Parse("-aaa","-a", "--all");
+            app.Parse("-aaa", "-a", "--all");
             Assert.True(optA.HasValue());
             Assert.Equal(5, optA.Values.Count);
         }
@@ -81,10 +75,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication
             {
-                ParserSettings =
-                {
-                    ClusterOptions = true
-                }
+                ClusterOptions = true
             };
             var verbose = app.Option("-v|--verbose", "Verbose output", CommandOptionType.NoValue);
             var log = app.Option("-l|--log[:<LEVEL>]", "Log level", CommandOptionType.SingleOrNoValue);
@@ -107,10 +98,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication
             {
-                ParserSettings =
-                {
-                    ClusterOptions = true
-                }
+                ClusterOptions = true
             };
 
             app.Option("-v|--verbose", "Verbose output", CommandOptionType.NoValue);
@@ -124,10 +112,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication
             {
-                ParserSettings =
-                {
-                    ClusterOptions = true
-                }
+                ClusterOptions = true
             };
 
             app.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue);
@@ -138,7 +123,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Command]
         private class ShortNameType
         {
-            [Option(ShortName ="au")]
+            [Option(ShortName = "au")]
             public string Auth { get; }
         }
 
@@ -148,19 +133,19 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app1 = new CommandLineApplication();
             app1.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue);
             app1.Parse();
-            Assert.False(app1.ParserSettings.ClusterOptions);
+            Assert.False(app1.ClusterOptions);
 
             var app2 = new CommandLineApplication();
             app2.Command("sub", c => c.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue));
-            Assert.False(app2.ParserSettings.ClusterOptionsWasSetExplicitly);
+            Assert.False(app2.ClusterOptionsWasSetExplicitly);
             app2.Parse();
-            Assert.False(app2.ParserSettings.ClusterOptions);
+            Assert.False(app2.ClusterOptions);
 
             var app3 = new CommandLineApplication<ShortNameType>();
             app3.Conventions.UseDefaultConventions();
-            Assert.False(app3.ParserSettings.ClusterOptionsWasSetExplicitly);
+            Assert.False(app3.ClusterOptionsWasSetExplicitly);
             app3.Parse();
-            Assert.False(app2.ParserSettings.ClusterOptions);
+            Assert.False(app2.ClusterOptions);
         }
 
         [Fact]
@@ -169,18 +154,18 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             app.Option("-a|--auth", "Verbose output", CommandOptionType.NoValue);
             app.Parse();
-            Assert.True(app.ParserSettings.ClusterOptions);
+            Assert.True(app.ClusterOptions);
         }
 
         [Fact]
-        public void ParserSettingsAreInherited()
+        public void ClusterOptionsSettingIsInherited()
         {
             var app = new CommandLineApplication
             {
-                ParserSettings = { ClusterOptions = false }
+                ClusterOptions = false
             };
             var cmd = app.Command("save", c => { });
-            Assert.Same(app.ParserSettings, cmd.ParserSettings);
+            Assert.Equal(app.ClusterOptions, cmd.ClusterOptions);
         }
 
         [Theory]
@@ -194,10 +179,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication
             {
-                ParserSettings =
-                {
-                    ClusterOptions = true
-                }
+                ClusterOptions = true
             };
             app.Option("-v|--verbose", "Verbose output", CommandOptionType.NoValue);
             app.Option("-l|--log:<LEVEL>", "Log level", CommandOptionType.SingleValue);
@@ -260,10 +242,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ItFindsSubcommandsByAliases()
         {
             var app = new CommandLineApplication();
-            var cmd = app.Command("sub1", c =>
-            {
-                c.AddName("s");
-            });
+            var cmd = app.Command("sub1", c => { c.AddName("s"); });
 
             var result = app.Parse("s");
             Assert.Same(cmd, result.SelectedCommand);
