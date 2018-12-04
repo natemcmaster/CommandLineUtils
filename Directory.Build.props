@@ -11,11 +11,12 @@
     <Copyright>Copyright © Nate McMaster</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/natemcmaster/CommandLineUtils</PackageProjectUrl>
     <RepositoryUrl>https://github.com/natemcmaster/CommandLineUtils.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <DebugType>embedded</DebugType>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DebugType>portable</DebugType>
     <IsPackable>false</IsPackable>
     <IncludeSymbols>true</IncludeSymbols>
     <IncludeSource>true</IncludeSource>

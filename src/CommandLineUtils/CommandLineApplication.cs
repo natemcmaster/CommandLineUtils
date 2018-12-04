@@ -23,15 +23,14 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public partial class CommandLineApplication : IServiceProvider, IDisposable
     {
+        private const int HelpExitCode = 0;
+        internal const int ValidationErrorExitCode = 1;
+
         private List<Action<ParseResult>> _onParsingComplete;
         internal readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
         internal readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
         private readonly HashSet<string> _names = new HashSet<string>(StringComparer.Ordinal);
-
-
-        private const int HelpExitCode = 0;
-        internal const int ValidationErrorExitCode = 1;
-
+        private string _primaryCommandName;
         internal CommandLineContext _context;
         private IHelpTextGenerator _helpTextGenerator;
         private CommandOption _optionHelp;
@@ -137,11 +136,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public string Name
         {
-            get => _name;
+            get => _primaryCommandName;
             set
             {
                 Parent?.AssertCommandNameIsUnique(value, this);
-                _name = value;
+                _primaryCommandName = value;
             }
         }
 
@@ -1011,8 +1010,6 @@ namespace McMaster.Extensions.CommandLineUtils
         private protected virtual ConventionContext CreateConventionContext() => new ConventionContext(this, null);
 
         private bool _settingContext;
-        private string _name;
-
         internal void SetContext(CommandLineContext context)
         {
             if (_settingContext)

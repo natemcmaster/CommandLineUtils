@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
-#if NETCOREAPP2_1
+#if NETCOREAPP
 using System.IO;
 using Xunit;
 
@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
     }
 }
-#elif NET461
+#elif NET472
 #else
 #error Update target frameworks
 #endif

@@ -1,10 +1,10 @@
 language: csharp
 sudo: true
-dist: trusty
+dist: xenial
 mono: none
-dotnet: 2.1.300
+dotnet: 2.2
 before_install:
-  - bash <(curl -fsSL https://raw.githubusercontent.com/PowerShell/PowerShell/v6.0.1/tools/install-powershell.sh)
+  - bash <(curl -fsSL https://raw.githubusercontent.com/PowerShell/PowerShell/v6.1.1/tools/install-powershell.sh)
 script:
   - ./build.ps1
 branches:
@@ -12,3 +12,4 @@ branches:
     - master
     - develop
     - travis
+    - /^feature\/.*/
