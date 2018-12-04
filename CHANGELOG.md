@@ -1,15 +1,17 @@
 # Changelog
 
-## [Unreleased]
+## [v2.3.0-beta]
 
 Bugs fixed:
 
 * Fix ([#86][86]) [@handcraftedsource]: handled nested HelpOptions. Fixes InvalidOperationException when multiple help options were defined.([#158][158])
 * Fix [#163][163] - Obsolete CommandOption.Template and fix help text generation to accurately list available options
+* [@TheConstructor]: fixed a bug in ConstructorInjectionConvention ([#181][181])
 
 [86]: https://github.com/natemcmaster/CommandLineUtils/pull/86
 [158]: https://github.com/natemcmaster/CommandLineUtils/pull/158
 [163]: https://github.com/natemcmaster/CommandLineUtils/pull/163
+[181]: https://github.com/natemcmaster/CommandLineUtils/pull/181
 
 Enhancements:
 
@@ -19,11 +21,17 @@ Enhancements:
 * [@EricStG]: Add a new API `MissingParameterlessConstructorException` that includes the type causing the exception in the message. ([#148][148])
 * [@atifaziz]: Add a new API `ValueParser.Create` which makes it easier to create implementations of `IValueParser`
     ([#169][169])
+* [@TheConstructor]: Support injection of IConsole and IConvention in generic host ([#178][178])
+
 
 [143]: https://github.com/natemcmaster/CommandLineUtils/pull/143
 [164]: https://github.com/natemcmaster/CommandLineUtils/pull/164
 [168]: https://github.com/natemcmaster/CommandLineUtils/pull/168
 [169]: https://github.com/natemcmaster/CommandLineUtils/pull/169
+[178]: https://github.com/natemcmaster/CommandLineUtils/pull/178
+
+Other notes:
+* I adjusted some API released in the alpha - primarily, I removed ParserSettings.
 
 ### New package: McMaster.Extensions.Hosting.CommandLine
 
@@ -72,7 +80,7 @@ Details:
 
 * **Clustering options:** I've added this behavior as the new default, but only if I think it won't interfere with existing apps.
   If it causes issues or you don't like clustering, you can disable this by setting
-  `CommandLineApplication.ParserSettings.ClusterOptions = false`.
+  `CommandLineApplication.ClusterOptions = false`.
   To preserve compatibility with existing apps, this behavior is off if you have configured options with short names with
   multiple characters. In a future version, this will cause an error unless you set `ClusterOptions = false`.
 
@@ -270,8 +278,10 @@ Other:
 [@rmcc13]: https://github.com/rmcc13
 [@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros
+[@TheConstructor]: https://github.com/TheConstructor
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0-alpha...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0-beta...HEAD
+[v2.3.0-beta]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-beta
 [v2.3.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-alpha
 [v2.2.5]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.4...v2.2.5
 [v2.2.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.3...v2.2.4
