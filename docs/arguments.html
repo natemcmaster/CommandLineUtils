@@ -96,7 +96,7 @@ They have one defining characteristic.</p>
 </li>
 </ul>
 <section id="tabpanel_O1aAyLh+nY_using-attributes" role="tabpanel" data-tab="using-attributes">
-<p>@McMaster.Extensions.CommandLineUtils.ARgumentAttribute can be used on properties to define arguments.
+<p><a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html">ArgumentAttribute</a> can be used on properties to define arguments.
 The argument order must be specified explicitly.</p>
 <pre><code class="lang-c#">public class Program
 {
@@ -148,12 +148,6 @@ These arguments are collected into a <code>string[]</code> array after all other
 <li role="presentation">
 <a href="#tabpanel_O1aAyLh+nY-1_using-builder-api" role="tab" aria-controls="tabpanel_O1aAyLh+nY-1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
 </li>
-<li role="presentation">
-<a href="#tabpanel_O1aAyLh+nY-1_using-attributes" role="tab" aria-controls="tabpanel_O1aAyLh+nY-1_using-attributes" data-tab="using-attributes" tabindex="-1">Using Attributes</a>
-</li>
-<li role="presentation">
-<a href="#tabpanel_O1aAyLh+nY-1_using-builder-api" role="tab" aria-controls="tabpanel_O1aAyLh+nY-1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
-</li>
 </ul>
 <section id="tabpanel_O1aAyLh+nY-1_using-attributes" role="tabpanel" data-tab="using-attributes">
 <p>By default, attribute binding will assume multiple values can be set for properties with the <code>[Argument]</code>
@@ -200,7 +194,9 @@ and the argument must be the last one specified.</p>
         return app.Execute(args);
     }
 }
-</code></pre><h2 id="pass-thru-arguments">Pass-thru arguments</h2>
+</code></pre></section>
+</div>
+<h2 id="pass-thru-arguments">Pass-thru arguments</h2>
 <p>Another common scenario is to create a command line tool which wraps another tool. These kinds of command lines
 need to collect arguments which are passed to the to the tool they wrap. For example, the Unix command <code>time</code>
 or the Windows command <code>cmd</code> take some arguments, and pass the rest on to the command they invoke.</p>
@@ -218,8 +214,16 @@ options on the parent command and all remaining arguments.</p>
 </code></pre><p>In this example, the presence of <code>--</code> forces bash to stop parsing and treat everything after <code>--</code> as an argument
 to be passed to the inner command.</p>
 <p>The double dash command is enabled by setting <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AllowArgumentSeparator">AllowArgumentSeparator</a>.</p>
-</section>
-<section id="tabpanel_O1aAyLh+nY-1_using-attributes" role="tabpanel" data-tab="using-attributes" aria-hidden="true" hidden="hidden">
+<div class="tabGroup" id="tabgroup_O1aAyLh+nY-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_O1aAyLh+nY-2_using-attributes" role="tab" aria-controls="tabpanel_O1aAyLh+nY-2_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_O1aAyLh+nY-2_using-builder-api" role="tab" aria-controls="tabpanel_O1aAyLh+nY-2_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+</li>
+</ul>
+<section id="tabpanel_O1aAyLh+nY-2_using-attributes" role="tabpanel" data-tab="using-attributes">
 <p>By default, attribute binding will set a <code>string[]</code> or <code>IList&lt;string&gt;</code> property named <code>RemainingArguments</code> or <code>RemainingArgs</code>
 to include all values. See <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a> for more details.</p>
 <pre><code class="lang-csharp" name="Program">using System;
@@ -267,7 +271,7 @@ public class Program
     }
 }
 </code></pre></section>
-<section id="tabpanel_O1aAyLh+nY-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_O1aAyLh+nY-2_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-csharp" name="Program">using System;
 using System.Diagnostics;
 using System.Linq;
