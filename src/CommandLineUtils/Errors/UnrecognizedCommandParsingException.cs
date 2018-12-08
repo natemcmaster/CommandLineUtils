@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -11,23 +12,28 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public class UnrecognizedCommandParsingException : CommandParsingException
     {
-
         /// <summary>
         /// Initializes an instance of <see cref="UnrecognizedCommandParsingException"/>.
         /// </summary>
         /// <param name="command"></param>
+        /// <param name="nearestMatches">The options or commands that </param>
         /// <param name="message"></param>
-        public UnrecognizedCommandParsingException(CommandLineApplication command, string message) : base(command, message)
-        { }
+        public UnrecognizedCommandParsingException(CommandLineApplication command,
+            IEnumerable<string> nearestMatches,
+            string message)
+            : base(command, message)
+        {
+            NearestMatches = nearestMatches ?? throw new ArgumentNullException(nameof(nearestMatches));
+        }
 
         /// <summary>
-        /// A list of strings representing suggestions about similar and valid commands or options for the invalid
+        /// A collection of strings representing suggestions about similar and valid commands or options for the invalid
         /// argument that caused this <see cref="UnrecognizedCommandParsingException"/>.
         /// </summary>
         /// <remarks>
-        /// This property is set if <see cref="ParserSettings.MakeSuggestionsInErrorMessage"/> is true
+        /// This property always be empty <see cref="CommandLineApplication.MakeSuggestionsInErrorMessage"/> is false.
         /// </remarks>
         /// <value>This property get/set the suggestions for an invalid argument.</value>
-        public List<string> NearestMatches { get; set; }
+        public IEnumerable<string> NearestMatches { get; }
     }
 }

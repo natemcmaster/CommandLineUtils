@@ -3,11 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <LangVersion>7.1</LangVersion>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Hosting.CommandLine\McMaster.Extensions.Hosting.CommandLine.csproj" />
+    <ProjectReference Include="..\..\..\src\Hosting.CommandLine\McMaster.Extensions.Hosting.CommandLine.csproj" />
   </ItemGroup>
 
 </Project>

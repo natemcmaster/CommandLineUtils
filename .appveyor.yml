@@ -1,5 +1,6 @@
 ﻿version: 2.3.0.{build}
 build_script:
+  - ps: iwr https://get.dot.net/v1/dotnet-install.ps1 -out dotnet-install.ps1; ./dotnet-install.ps1 -Version 2.2.100
   - ps: .\build.ps1 -ci
   - ps: .\docs\generate.ps1 -NoBuild -Verbose
 environment:
@@ -20,7 +21,8 @@ branches:
 artifacts:
   - path: 'artifacts\*.nupkg'
     name: Packages
-    type: NuGetPackages
+  - path: 'artifacts\*.snupkg'
+    name: Symbols
 after_deploy:
   - ps: .\docs\push.ps1 -AppVeyor
 deploy:

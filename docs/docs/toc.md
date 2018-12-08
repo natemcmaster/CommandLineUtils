@@ -5,3 +5,4 @@
 # [@-files (Response File Parsing)](xref:response-file-parsing)
 # Advanced concepts
 ## [Dependency Injection](xref:dependency-injection)
+## [Integration with Generic Host](xref:generic-host)

@@ -15,7 +15,6 @@ namespace McMaster.Extensions.CommandLineUtils
     internal sealed class CommandLineProcessor
     {
         private readonly CommandLineApplication _app;
-        private readonly ParserSettings _settings;
         private readonly CommandLineApplication _initialCommand;
         private readonly ParameterEnumerator _enumerator;
 
@@ -32,30 +31,28 @@ namespace McMaster.Extensions.CommandLineUtils
         private CommandArgumentEnumerator _currentCommandArguments;
 
         public CommandLineProcessor(CommandLineApplication command,
-            ParserSettings settings,
             IReadOnlyList<string> arguments)
         {
             _app = command;
-            _settings = settings;
             _initialCommand = command;
             _enumerator = new ParameterEnumerator(arguments ?? new string[0]);
 
             // TODO in 3.0, remove this check, and make ClusterOptions true always
             // and make it an error to use short options with multiple characters
             var allOptions = command.Commands.SelectMany(c => c.Options).Concat(command.GetOptions());
-            if (!settings.ClusterOptionsWasSetExplicitly)
+            if (!command.ClusterOptionsWasSetExplicitly)
             {
-                settings.ClusterOptions = !allOptions.Any(o => o.ShortName != null && o.ShortName.Length > 1);
+                command.ClusterOptions = !allOptions.Any(o => o.ShortName != null && o.ShortName.Length > 1);
             }
 
-            if (settings.ClusterOptions)
+            if (command.ClusterOptions)
             {
                 foreach (var option in allOptions)
                 {
                     if (option.ShortName != null && option.ShortName.Length != 1)
                     {
                         throw new CommandParsingException(command,
-                            $"The ShortName on CommandOption is too long: '{option.ShortName}'. Short names cannot be more than one character long when {nameof(ParserSettings.ClusterOptions)} is enabled.");
+                            $"The ShortName on CommandOption is too long: '{option.ShortName}'. Short names cannot be more than one character long when {nameof(CommandLineApplication.ClusterOptions)} is enabled.");
                     }
                 }
             }
@@ -156,7 +153,7 @@ namespace McMaster.Extensions.CommandLineUtils
             var name = arg.Name;
             if (arg.Type == ParameterType.ShortOption)
             {
-                if (_settings.ClusterOptions)
+                if (_currentCommand.ClusterOptions)
                 {
                     for (var i = 0; i < arg.Name.Length; i++)
                     {
@@ -344,16 +341,15 @@ namespace McMaster.Extensions.CommandLineUtils
                 _currentCommand.ShowHint();
                 var value = argValue ?? _enumerator.Current?.Raw;
 
-                List<string> suggestions = null;
-                if (_settings.MakeSuggestionsInErrorMessage && !string.IsNullOrEmpty(value))
+                var suggestions = Enumerable.Empty<string>();
+
+                if (_currentCommand.MakeSuggestionsInErrorMessage && !string.IsNullOrEmpty(value))
                 {
                     suggestions = SuggestionCreator.GetTopSuggestions(_currentCommand, value);
                 }
 
-                throw new UnrecognizedCommandParsingException(_currentCommand, $"Unrecognized {argTypeName} '{value}'")
-                {
-                    NearestMatches = suggestions
-                };
+                throw new UnrecognizedCommandParsingException(_currentCommand, suggestions,
+                    $"Unrecognized {argTypeName} '{value}'");
             }
 
             // All remaining arguments are stored for further use

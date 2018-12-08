@@ -7,6 +7,7 @@ using McMaster.Extensions.CommandLineUtils;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.Hosting.CommandLine.Internal;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Microsoft.Extensions.Hosting
 {
@@ -33,12 +34,20 @@ namespace Microsoft.Extensions.Hosting
             var state = new CommandLineState(args);
             hostBuilder.ConfigureServices(
                 (context, services)
-                    => services
+                    =>
+                {
+                    services
                         .AddSingleton<IHostLifetime, CommandLineLifetime>()
-                        .AddSingleton(state)
+                        .TryAddSingleton(PhysicalConsole.Singleton);
+                    services
+                        .AddSingleton(provider =>
+                        {
+                            state.SetConsole(provider.GetService<IConsole>());
+                            return state;
+                        })
                         .AddSingleton<CommandLineContext>(state)
-                        .AddSingleton(PhysicalConsole.Singleton)
-                        .AddSingleton<ICommandLineService, CommandLineService<TApp>>());
+                        .AddSingleton<ICommandLineService, CommandLineService<TApp>>();
+                });
 
             using (var host = hostBuilder.Build())
             {
