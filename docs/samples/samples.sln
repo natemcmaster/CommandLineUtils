@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomConvention", "custom-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependency-injection", "dependency-injection", "{E03982B3-80F2-4D55-9501-378EACE93E5B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericHostDI", "dependency-injection\generic-host\GenericHostDI.csproj", "{8A8A1C2F-2A9B-4F78-866A-677A126B846C}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomServices", "dependency-injection\custom\CustomServices.csproj", "{3D6570C6-11DC-40E7-9C96-8936D23C606A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardServices", "dependency-injection\standard\StandardServices.csproj", "{D5812A40-7F2B-4F63-88A9-483784020E56}"
@@ -52,6 +54,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttributesPassThru", "passthru-args\attributes\AttributesPassThru.csproj", "{1EE15348-5FF4-4988-AEA4-3E267ED4C288}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericHost", "generic-host\GenericHost.csproj", "{A85A6B2B-924F-48CE-8606-04B704A467D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "McMaster.Extensions.Hosting.CommandLine", "..\..\src\Hosting.CommandLine\McMaster.Extensions.Hosting.CommandLine.csproj", "{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -306,6 +310,30 @@ Global
 		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Release|x64.Build.0 = Release|Any CPU
 		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Release|x86.ActiveCfg = Release|Any CPU
 		{A85A6B2B-924F-48CE-8606-04B704A467D9}.Release|x86.Build.0 = Release|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Debug|x64.Build.0 = Debug|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Debug|x86.Build.0 = Debug|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Release|x64.ActiveCfg = Release|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Release|x64.Build.0 = Release|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Release|x86.ActiveCfg = Release|Any CPU
+		{EA3C7CF5-2986-4E24-BD1A-7E45EA4E64B9}.Release|x86.Build.0 = Release|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Debug|x64.Build.0 = Debug|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Debug|x86.Build.0 = Debug|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Release|x64.ActiveCfg = Release|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Release|x64.Build.0 = Release|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Release|x86.ActiveCfg = Release|Any CPU
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3D6570C6-11DC-40E7-9C96-8936D23C606A} = {E03982B3-80F2-4D55-9501-378EACE93E5B}
@@ -319,5 +347,6 @@ Global
 		{5F46A3E6-C4B5-4664-BD74-C9E3F24F2FA4} = {C34F685A-0C1F-4FF4-90F0-4A12C98E9067}
 		{24EFFC95-EA40-4684-8036-5E577E0295F5} = {75E74B42-039E-4661-B39C-160363B6884A}
 		{1EE15348-5FF4-4988-AEA4-3E267ED4C288} = {75E74B42-039E-4661-B39C-160363B6884A}
+		{8A8A1C2F-2A9B-4F78-866A-677A126B846C} = {E03982B3-80F2-4D55-9501-378EACE93E5B}
 	EndGlobalSection
 EndGlobal
