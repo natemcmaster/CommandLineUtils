@@ -145,7 +145,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app3.Conventions.UseDefaultConventions();
             Assert.False(app3.ClusterOptionsWasSetExplicitly);
             app3.Parse();
-            Assert.False(app2.ClusterOptions);
+            Assert.False(app3.ClusterOptions);
         }
 
         [Fact]
