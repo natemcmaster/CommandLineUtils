@@ -39,21 +39,42 @@ namespace McMaster.Extensions.CommandLineUtils
 
             // TODO in 3.0, remove this check, and make ClusterOptions true always
             // and make it an error to use short options with multiple characters
-            var allOptions = command.Commands.SelectMany(c => c.Options).Concat(command.GetOptions());
             if (!command.ClusterOptionsWasSetExplicitly)
             {
-                command.ClusterOptions = !allOptions.Any(o => o.ShortName != null && o.ShortName.Length > 1);
+                foreach (var option in AllOptions(command))
+                {
+                    if (option.ShortName != null && option.ShortName.Length != 1)
+                    {
+                        command.ClusterOptions = false;
+                        break;
+                    }
+                }
             }
-
-            if (command.ClusterOptions)
+            else if (command.ClusterOptions)
             {
-                foreach (var option in allOptions)
+                foreach (var option in AllOptions(command))
                 {
                     if (option.ShortName != null && option.ShortName.Length != 1)
                     {
                         throw new CommandParsingException(command,
                             $"The ShortName on CommandOption is too long: '{option.ShortName}'. Short names cannot be more than one character long when {nameof(CommandLineApplication.ClusterOptions)} is enabled.");
                     }
+                }
+            }
+        }
+
+        static internal IEnumerable<CommandOption> AllOptions(CommandLineApplication command)
+        {
+            foreach (var option in command.Options)
+            {
+                yield return option;
+            }
+
+            foreach (var subCommand in command.Commands)
+            {
+                foreach (var option in AllOptions(subCommand))
+                {
+                    yield return option;
                 }
             }
         }

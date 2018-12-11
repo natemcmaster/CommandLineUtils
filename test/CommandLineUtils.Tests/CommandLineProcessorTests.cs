@@ -127,6 +127,20 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public string Auth { get; }
         }
 
+        [Command]
+        [Subcommand(typeof(ShortNameType))]
+        private class ParentCommand
+        {
+
+        }
+
+        [Command]
+        [Subcommand(typeof(ParentCommand))]
+        private class ParentParentCommand
+        {
+
+        }
+
         [Fact]
         public void ItInfersClusterOptionsCannotBeUsed()
         {
@@ -147,6 +161,22 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             {
                 var app = new CommandLineApplication<ShortNameType>();
+                app.Conventions.UseDefaultConventions();
+                Assert.False(app.ClusterOptionsWasSetExplicitly);
+                app.Parse();
+                Assert.False(app.ClusterOptions);
+            }
+
+            {
+                var app = new CommandLineApplication<ParentCommand>();
+                app.Conventions.UseDefaultConventions();
+                Assert.False(app.ClusterOptionsWasSetExplicitly);
+                app.Parse();
+                Assert.False(app.ClusterOptions);
+            }
+
+            {
+                var app = new CommandLineApplication<ParentParentCommand>();
                 app.Conventions.UseDefaultConventions();
                 Assert.False(app.ClusterOptionsWasSetExplicitly);
                 app.Parse();
