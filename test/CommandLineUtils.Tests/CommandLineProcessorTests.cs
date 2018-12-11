@@ -130,22 +130,28 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItInfersClusterOptionsCannotBeUsed()
         {
-            var app1 = new CommandLineApplication();
-            app1.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue);
-            app1.Parse();
-            Assert.False(app1.ClusterOptions);
+            {
+                var app = new CommandLineApplication();
+                app.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue);
+                app.Parse();
+                Assert.False(app.ClusterOptions);
+            }
 
-            var app2 = new CommandLineApplication();
-            app2.Command("sub", c => c.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue));
-            Assert.False(app2.ClusterOptionsWasSetExplicitly);
-            app2.Parse();
-            Assert.False(app2.ClusterOptions);
+            {
+                var app = new CommandLineApplication();
+                app.Command("sub", c => c.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue));
+                Assert.False(app.ClusterOptionsWasSetExplicitly);
+                app.Parse();
+                Assert.False(app.ClusterOptions);
+            }
 
-            var app3 = new CommandLineApplication<ShortNameType>();
-            app3.Conventions.UseDefaultConventions();
-            Assert.False(app3.ClusterOptionsWasSetExplicitly);
-            app3.Parse();
-            Assert.False(app3.ClusterOptions);
+            {
+                var app = new CommandLineApplication<ShortNameType>();
+                app.Conventions.UseDefaultConventions();
+                Assert.False(app.ClusterOptionsWasSetExplicitly);
+                app.Parse();
+                Assert.False(app.ClusterOptions);
+            }
         }
 
         [Fact]
