@@ -3,6 +3,7 @@
 
 using System;
 using System.Reflection;
+using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
@@ -71,22 +72,37 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
         private async Task<int> InvokeAsync(MethodInfo method, object instance, object[] arguments)
         {
-            var result = (Task)method.Invoke(instance, arguments);
-            if (result is Task<int> intResult)
+            try
             {
-                return await intResult;
+                var result = (Task) method.Invoke(instance, arguments);
+                if (result is Task<int> intResult)
+                {
+                    return await intResult;
+                }
+
+                await result;
+            }
+            catch (TargetInvocationException e)
+            {
+                ExceptionDispatchInfo.Capture(e.InnerException).Throw();
             }
 
-            await result;
             return 0;
         }
 
         private int Invoke(MethodInfo method, object instance, object[] arguments)
         {
-            var result = method.Invoke(instance, arguments);
-            if (method.ReturnType == typeof(int))
+            try
             {
-                return (int)result;
+                var result = method.Invoke(instance, arguments);
+                if (method.ReturnType == typeof(int))
+                {
+                    return (int) result;
+                }
+            }
+            catch (TargetInvocationException e)
+            {
+                ExceptionDispatchInfo.Capture(e.InnerException).Throw();
             }
 
             return 0;

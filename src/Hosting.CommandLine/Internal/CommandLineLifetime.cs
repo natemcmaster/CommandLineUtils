@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Runtime.ExceptionServices;
 using System.Threading;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
@@ -18,6 +19,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         private readonly IApplicationLifetime _applicationLifetime;
         private readonly ICommandLineService _cliService;
         private readonly IConsole _console;
+        private readonly IUnhandledExceptionHandler _unhandledExceptionHandler;
         private readonly ManualResetEvent _disposeComplete = new ManualResetEvent(false);
 
         /// <summary>
@@ -25,11 +27,13 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         /// </summary>
         public CommandLineLifetime(IApplicationLifetime applicationLifetime,
             ICommandLineService cliService,
-            IConsole console)
+            IConsole console,
+            IUnhandledExceptionHandler unhandledExceptionHandler)
         {
             _applicationLifetime = applicationLifetime;
             _cliService = cliService;
             _console = console;
+            _unhandledExceptionHandler = unhandledExceptionHandler;
         }
 
         /// <summary>The exit code returned by the command line application</summary>
@@ -56,7 +60,22 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         {
             _applicationLifetime.ApplicationStarted.Register(async () =>
             {
-                ExitCode = await _cliService.RunAsync(cancellationToken).ConfigureAwait(false);
+                try
+                {
+                    ExitCode = await _cliService.RunAsync(cancellationToken).ConfigureAwait(false);
+                }
+                catch (Exception e)
+                {
+                    if (_unhandledExceptionHandler != null)
+                    {
+                        _unhandledExceptionHandler.HandleException(e);
+                    }
+                    else
+                    {
+                        ExceptionDispatchInfo.Capture(e).Throw();
+                    }
+                }
+
                 _applicationLifetime.StopApplication();
             });
 
