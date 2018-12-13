@@ -32,7 +32,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Validates arguments and options.
         /// </summary>
         /// <returns>The first validation result that is not <see cref="ValidationResult.Success"/> if there is an error.</returns>
-        internal ValidationResult GetValidationResult()
+        public ValidationResult GetValidationResult()
         {
             if (Parent != null)
             {
