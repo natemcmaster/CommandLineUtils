@@ -6,12 +6,12 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
     /// Implementation of <see cref="IUnhandledExceptionHandler"/> that stores an unhandled exception so it can later be
     /// rethrown by <see cref="CommandLineService{T}"/>.
     /// </summary>
-    public class StoreExceptionHandler : IUnhandledExceptionHandler
+    internal class StoreExceptionHandler : IUnhandledExceptionHandler
     {
         /// <summary>
         /// The captured exception, if any
         /// </summary>
-        public Exception StoredException { get; private set; } = null;
+        public Exception StoredException { get; private set; }
 
         /// <summary>
         /// This will store the first unhandled exception and throw an <see cref="AggregateException"/> if called a
