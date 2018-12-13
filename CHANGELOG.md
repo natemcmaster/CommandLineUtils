@@ -5,7 +5,13 @@
 Bugs fixed:
 * Fix [#189][189] by [@TheConstructor]: fix inferrence about clustering options for sub-sub-commands
 
+Enhancements:
+* Fix [#166][166] by [@TheConstructor]: make CommandLineApplication.GetValidationResult() public
+* PR [#192][192] by [@TheConstructor]: improve error handling in generic host, and unwrap TargetInvocationException
+
 [189]: https://github.com/natemcmaster/CommandLineUtils/pull/189
+[166]: https://github.com/natemcmaster/CommandLineUtils/pull/166
+[192]: https://github.com/natemcmaster/CommandLineUtils/pull/192
 
 ## [v2.3.0-beta]
 
