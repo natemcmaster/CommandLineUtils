@@ -1,10 +1,17 @@
 # Changelog
 
+## [Unreleased]
+
+Bugs fixed:
+* Fix [#189][189] by [@TheConstructor]: fix inferrence about clustering options for sub-sub-commands
+
+[189]: https://github.com/natemcmaster/CommandLineUtils/pull/189
+
 ## [v2.3.0-beta]
 
 Bugs fixed:
 
-* Fix ([#86][86]) [@handcraftedsource]: handled nested HelpOptions. Fixes InvalidOperationException when multiple help options were defined.([#158][158])
+* Fix [#86][86] by [@handcraftedsource]: handled nested HelpOptions. Fixes InvalidOperationException when multiple help options were defined.([#158][158])
 * Fix [#163][163] - Obsolete CommandOption.Template and fix help text generation to accurately list available options
 * [@TheConstructor]: fixed a bug in ConstructorInjectionConvention ([#181][181])
 
