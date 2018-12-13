@@ -1,10 +1,12 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Runtime.ExceptionServices;
 using System.Threading;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
+using McMaster.Extensions.Hosting.CommandLine;
 using McMaster.Extensions.Hosting.CommandLine.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -31,11 +33,14 @@ namespace Microsoft.Extensions.Hosting
             this IHostBuilder hostBuilder, string[] args, CancellationToken cancellationToken = default)
             where TApp : class
         {
+            var exceptionHandler = new StoreExceptionHandler();
             var state = new CommandLineState(args);
             hostBuilder.ConfigureServices(
                 (context, services)
                     =>
                 {
+                    services
+                        .TryAddSingleton<IUnhandledExceptionHandler>(exceptionHandler);
                     services
                         .AddSingleton<IHostLifetime, CommandLineLifetime>()
                         .TryAddSingleton(PhysicalConsole.Singleton);
@@ -52,6 +57,11 @@ namespace Microsoft.Extensions.Hosting
             using (var host = hostBuilder.Build())
             {
                 await host.RunAsync(cancellationToken);
+
+                if (exceptionHandler.StoredException != null)
+                {
+                    ExceptionDispatchInfo.Capture(exceptionHandler.StoredException).Throw();
+                }
 
                 return state.ExitCode;
             }
