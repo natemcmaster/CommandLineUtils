@@ -1,9 +1,9 @@
 # Changelog
 
-## [Unreleased]
+## [v2.3.0-rc]
 
 Bugs fixed:
-* Fix [#189][189] by [@TheConstructor]: fix inferrence about clustering options for sub-sub-commands
+* Fix [#189][189] by [@TheConstructor]: fix inference about clustering options for sub-sub-commands
 
 Enhancements:
 * Fix [#166][166] by [@TheConstructor]: make CommandLineApplication.GetValidationResult() public
@@ -293,7 +293,8 @@ Other:
 [@sebastienros]: https://github.com/sebastienros
 [@TheConstructor]: https://github.com/TheConstructor
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0-beta...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0-rc...HEAD
+[v2.3.0-rc]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-rc
 [v2.3.0-beta]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-beta
 [v2.3.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-alpha
 [v2.2.5]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.4...v2.2.5

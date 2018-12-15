@@ -3,7 +3,9 @@
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.0'">
       <![CDATA[
 
-Enhancements:
+2.3.0 Release Candidate - no more changes are expected between this release and 2.3.0 unless there is a bad bug.
+
+## Enhancements:
 
 * Support the POSIX convention for cluster multiple options. For example, `-ixd` is treated the same as `-i -x -d`.
 
@@ -36,7 +38,9 @@ Enhancements:
 
 * @jcaillon: Add API for `UnrecognizedCommandParsingException` which includes suggestions for similar options or commands.
 
-Bugs fixed:
+* @TheConstructor: add CommandLineApplication.GetValidationResult()
+
+## Bugs fixed:
 
 * Duplicate subcommand names used to cause undefined behavior. Now, attempting to add a duplicate subcommand name or aliases will
   cause the library to throw before the app can execute.
