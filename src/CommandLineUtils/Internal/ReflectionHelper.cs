@@ -82,7 +82,11 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 else
                 {
-                    throw new InvalidOperationException(Strings.UnsupportedParameterTypeOnMethod(method.Name, methodParam));
+                    arguments[i]= command.AdditionalServices?.GetService(methodParam.ParameterType);
+                    if (arguments[i] == null)
+                    {
+                        throw new InvalidOperationException(Strings.UnsupportedParameterTypeOnMethod(method.Name, methodParam));
+                    }
                 }
             }
 
