@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 
 namespace McMaster.Extensions.Hosting.CommandLine.Internal
 {
-    /// <inheritdoc />
+    /// <inheritdoc cref="ICommandLineService" />
     internal class CommandLineService<T> : IDisposable, ICommandLineService where T : class
     {
         private readonly CommandLineApplication _application;
@@ -44,10 +44,12 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         }
 
         /// <inheritdoc />
-        public Task<int> RunAsync(CancellationToken cancellationToken)
+        public async Task<int> RunAsync(CancellationToken cancellationToken)
         {
             _logger.LogDebug("Running");
-            return Task.Run(() => _state.ExitCode = _application.Execute(_state.Arguments), cancellationToken);
+            var exitCode = await _application.ExecuteAsync(_state.Arguments);
+            _state.ExitCode = exitCode;
+            return exitCode;
         }
 
         public void Dispose()

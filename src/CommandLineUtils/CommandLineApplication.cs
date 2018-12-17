@@ -236,10 +236,36 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public bool IsShowingInformation { get; protected set; }
 
+        private Func<int> _invoke;
+        private Func<Task<int>> _invokeAsync;
+
         /// <summary>
         /// The action to call when this command is matched and <see cref="IsShowingInformation"/> is <c>false</c>.
+        /// Specify this or <see cref="InvokeAsync"/>.
         /// </summary>
-        public Func<int> Invoke { get; set; }
+        public Func<int> Invoke
+        {
+            get => _invoke;
+            set
+            {
+                _invoke = value;
+                _invokeAsync = () => Task.FromResult(value());
+            }
+        }
+
+        /// <summary>
+        /// The async action to call when this command is matched and <see cref="IsShowingInformation"/> is <c>false</c>.
+        /// Specify this or <see cref="Invoke"/>.
+        /// </summary>
+        public Func<Task<int>> InvokeAsync
+        {
+            get => _invokeAsync;
+            set
+            {
+                _invokeAsync = value;
+                _invoke = () => value().GetAwaiter().GetResult();
+            }
+        }
 
         /// <summary>
         /// The long-form of the version to display in generated help text.
@@ -632,7 +658,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="invoke"></param>
         public void OnExecute(Func<Task<int>> invoke)
         {
-            Invoke = () => invoke().GetAwaiter().GetResult();
+            InvokeAsync = invoke;
         }
 
         /// <summary>
@@ -753,6 +779,42 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             return command.Invoke();
+        }
+
+        /// <summary>
+        /// Parses an array of strings using <see cref="Parse(string[])"/>.
+        /// <para>
+        /// If <see cref="OptionHelp"/> was matched, the generated help text is displayed in command line output.
+        /// </para>
+        /// <para>
+        /// If <see cref="OptionVersion"/> was matched, the generated version info is displayed in command line output.
+        /// </para>
+        /// <para>
+        /// If there were any validation errors produced from <see cref="GetValidationResult"/>, <see cref="ValidationErrorHandler"/> is invoked.
+        /// </para>
+        /// <para>
+        /// If the parse result matches this command, <see cref="Invoke"/> will be invoked.
+        /// </para>
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns>The return code from <see cref="Invoke"/>.</returns>
+        public async Task<int> ExecuteAsync(params string[] args)
+        {
+            var parseResult = Parse(args);
+            var command = parseResult.SelectedCommand;
+
+            if (command.IsShowingInformation)
+            {
+                return HelpExitCode;
+            }
+
+            var validationResult = command.GetValidationResult();
+            if (validationResult != ValidationResult.Success)
+            {
+                return command.ValidationErrorHandler(validationResult);
+            }
+
+            return await command.InvokeAsync();
         }
 
         /// <summary>

@@ -29,25 +29,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static int Execute<TApp>(CommandLineContext context)
             where TApp : class
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-
-            if (context.Arguments == null)
-            {
-                throw new ArgumentNullException(nameof(context) + "." + nameof(context.Arguments));
-            }
-
-            if (context.WorkingDirectory == null)
-            {
-                throw new ArgumentNullException(nameof(context) + "." + nameof(context.WorkingDirectory));
-            }
-
-            if (context.Console == null)
-            {
-                throw new ArgumentNullException(nameof(context) + "." + nameof(context.Console));
-            }
+            VerifyContext(context);
 
             try
             {
@@ -60,16 +42,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             catch (CommandParsingException ex)
             {
-                context.Console.Error.WriteLine(ex.Message);
-
-                if (ex is UnrecognizedCommandParsingException uex && uex.NearestMatches.Any())
-                {
-                    context.Console.Error.WriteLine();
-                    context.Console.Error.WriteLine("Did you mean this?");
-                    context.Console.Error.WriteLine("    " + uex.NearestMatches.First());
-                }
-
-                return ValidationErrorExitCode;
+                return HandleCommandParsingException(context, ex);
             }
         }
 
@@ -117,8 +90,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static Task<int> ExecuteAsync<TApp>(params string[] args)
-        where TApp : class
-        => ExecuteAsync<TApp>(PhysicalConsole.Singleton, args);
+            where TApp : class
+            => ExecuteAsync<TApp>(PhysicalConsole.Singleton, args);
 
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
@@ -149,8 +122,61 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
-        public static Task<int> ExecuteAsync<TApp>(CommandLineContext context)
+        public static async Task<int> ExecuteAsync<TApp>(CommandLineContext context)
             where TApp : class
-            => Task.FromResult(Execute<TApp>(context));
+        {
+            VerifyContext(context);
+
+            try
+            {
+                using (var app = new CommandLineApplication<TApp>())
+                {
+                    app.SetContext(context);
+                    app.Conventions.UseDefaultConventions();
+                    return await app.ExecuteAsync(context.Arguments);
+                }
+            }
+            catch (CommandParsingException ex)
+            {
+                return HandleCommandParsingException(context, ex);
+            }
+        }
+
+        private static void VerifyContext(CommandLineContext context)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            if (context.Arguments == null)
+            {
+                throw new ArgumentNullException(nameof(context) + "." + nameof(context.Arguments));
+            }
+
+            if (context.WorkingDirectory == null)
+            {
+                throw new ArgumentNullException(nameof(context) + "." + nameof(context.WorkingDirectory));
+            }
+
+            if (context.Console == null)
+            {
+                throw new ArgumentNullException(nameof(context) + "." + nameof(context.Console));
+            }
+        }
+
+        private static int HandleCommandParsingException(CommandLineContext context, CommandParsingException ex)
+        {
+            context.Console.Error.WriteLine(ex.Message);
+
+            if (ex is UnrecognizedCommandParsingException uex && uex.NearestMatches.Any())
+            {
+                context.Console.Error.WriteLine();
+                context.Console.Error.WriteLine("Did you mean this?");
+                context.Console.Error.WriteLine("    " + uex.NearestMatches.First());
+            }
+
+            return ValidationErrorExitCode;
+        }
     }
 }
