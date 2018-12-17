@@ -4,6 +4,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Internal;
@@ -91,7 +92,22 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The process exit code</returns>
         public static Task<int> ExecuteAsync<TApp>(params string[] args)
             where TApp : class
-            => ExecuteAsync<TApp>(PhysicalConsole.Singleton, args);
+            => ExecuteAsync<TApp>(PhysicalConsole.Singleton, default, args);
+
+        /// <summary>
+        /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
+        /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
+        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
+        /// </summary>
+        /// <param name="cancellationToken">Optional cancellation-token</param>
+        /// <param name="args">The arguments</param>
+        /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
+        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
+        /// <returns>The process exit code</returns>
+        public static Task<int> ExecuteAsync<TApp>(CancellationToken cancellationToken, params string[] args)
+            where TApp : class
+            => ExecuteAsync<TApp>(PhysicalConsole.Singleton, cancellationToken, args);
 
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
@@ -106,10 +122,27 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The process exit code</returns>
         public static Task<int> ExecuteAsync<TApp>(IConsole console, params string[] args)
             where TApp : class
+            => ExecuteAsync<TApp>(console, default, args);
+
+        /// <summary>
+        /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
+        /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
+        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
+        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
+        /// </summary>
+        /// <param name="console">The console to use</param>
+        /// <param name="cancellationToken">Optional cancellation-token</param>
+        /// <param name="args">The arguments</param>
+        /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
+        /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
+        /// <returns>The process exit code</returns>
+        public static Task<int> ExecuteAsync<TApp>(IConsole console, CancellationToken cancellationToken,
+            params string[] args)
+            where TApp : class
         {
             args = args ?? new string[0];
             var context = new DefaultCommandLineContext(console, Directory.GetCurrentDirectory(), args);
-            return ExecuteAsync<TApp>(context);
+            return ExecuteAsync<TApp>(context, cancellationToken);
         }
 
         /// <summary>
@@ -119,13 +152,16 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
         /// <param name="context">The execution context.</param>
+        /// <param name="cancellationToken">Optional cancellation-token</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
-        public static async Task<int> ExecuteAsync<TApp>(CommandLineContext context)
+        public static async Task<int> ExecuteAsync<TApp>(CommandLineContext context,
+            CancellationToken cancellationToken = default)
             where TApp : class
         {
             VerifyContext(context);
+            cancellationToken.ThrowIfCancellationRequested();
 
             try
             {
@@ -133,6 +169,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     app.SetContext(context);
                     app.Conventions.UseDefaultConventions();
+                    cancellationToken.ThrowIfCancellationRequested();
                     return await app.ExecuteAsync(context.Arguments);
                 }
             }

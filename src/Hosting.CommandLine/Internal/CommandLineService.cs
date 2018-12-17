@@ -47,7 +47,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         public async Task<int> RunAsync(CancellationToken cancellationToken)
         {
             _logger.LogDebug("Running");
-            var exitCode = await _application.ExecuteAsync(_state.Arguments);
+            var exitCode = await _application.ExecuteAsync(cancellationToken, _state.Arguments);
             _state.ExitCode = exitCode;
             return exitCode;
         }

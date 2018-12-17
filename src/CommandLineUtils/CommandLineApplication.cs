@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Conventions;
@@ -237,7 +238,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public bool IsShowingInformation { get; protected set; }
 
         private Func<int> _invoke;
-        private Func<Task<int>> _invokeAsync;
+        private Func<CancellationToken, Task<int>> _invokeAsync;
 
         /// <summary>
         /// The action to call when this command is matched and <see cref="IsShowingInformation"/> is <c>false</c>.
@@ -249,7 +250,7 @@ namespace McMaster.Extensions.CommandLineUtils
             set
             {
                 _invoke = value;
-                _invokeAsync = () => Task.FromResult(value());
+                _invokeAsync = ct => Task.FromResult(value());
             }
         }
 
@@ -257,13 +258,13 @@ namespace McMaster.Extensions.CommandLineUtils
         /// The async action to call when this command is matched and <see cref="IsShowingInformation"/> is <c>false</c>.
         /// Specify this or <see cref="Invoke"/>.
         /// </summary>
-        public Func<Task<int>> InvokeAsync
+        public Func<CancellationToken, Task<int>> InvokeAsync
         {
             get => _invokeAsync;
             set
             {
                 _invokeAsync = value;
-                _invoke = () => value().GetAwaiter().GetResult();
+                _invoke = () => value(default).GetAwaiter().GetResult();
             }
         }
 
@@ -658,6 +659,15 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="invoke"></param>
         public void OnExecute(Func<Task<int>> invoke)
         {
+            InvokeAsync = ct => invoke();
+        }
+
+        /// <summary>
+        /// Defines an asynchronous callback.
+        /// </summary>
+        /// <param name="invoke"></param>
+        public void OnExecute(Func<CancellationToken, Task<int>> invoke)
+        {
             InvokeAsync = invoke;
         }
 
@@ -800,8 +810,32 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The return code from <see cref="Invoke"/>.</returns>
         public async Task<int> ExecuteAsync(params string[] args)
         {
+            return await ExecuteAsync(default, args);
+        }
+
+        /// <summary>
+        /// Parses an array of strings using <see cref="Parse(string[])"/>.
+        /// <para>
+        /// If <see cref="OptionHelp"/> was matched, the generated help text is displayed in command line output.
+        /// </para>
+        /// <para>
+        /// If <see cref="OptionVersion"/> was matched, the generated version info is displayed in command line output.
+        /// </para>
+        /// <para>
+        /// If there were any validation errors produced from <see cref="GetValidationResult"/>, <see cref="ValidationErrorHandler"/> is invoked.
+        /// </para>
+        /// <para>
+        /// If the parse result matches this command, <see cref="Invoke"/> will be invoked.
+        /// </para>
+        /// </summary>
+        /// <param name="cancellationToken">Optional cancellation-token</param>
+        /// <param name="args"></param>
+        /// <returns>The return code from <see cref="Invoke"/>.</returns>
+        public async Task<int> ExecuteAsync(CancellationToken cancellationToken, params string[] args)
+        {
             var parseResult = Parse(args);
             var command = parseResult.SelectedCommand;
+            cancellationToken.ThrowIfCancellationRequested();
 
             if (command.IsShowingInformation)
             {
@@ -814,7 +848,8 @@ namespace McMaster.Extensions.CommandLineUtils
                 return command.ValidationErrorHandler(validationResult);
             }
 
-            return await command.InvokeAsync();
+            cancellationToken.ThrowIfCancellationRequested();
+            return await command.InvokeAsync(cancellationToken);
         }
 
         /// <summary>

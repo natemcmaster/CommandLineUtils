@@ -4,6 +4,7 @@
 using System;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
@@ -23,10 +24,10 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            context.Application.OnExecute(async () => await this.OnExecute(context));
+            context.Application.OnExecute(async cancellationToken => await OnExecute(context, cancellationToken));
         }
 
-        private async Task<int> OnExecute(ConventionContext context)
+        private async Task<int> OnExecute(ConventionContext context, CancellationToken cancellationToken)
         {
             const BindingFlags binding = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
 
@@ -55,7 +56,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 throw new InvalidOperationException(Strings.NoOnExecuteMethodFound);
             }
 
-            var arguments = ReflectionHelper.BindParameters(method, context.Application);
+            var arguments = ReflectionHelper.BindParameters(method, context.Application, cancellationToken);
             var model = context.ModelAccessor.GetModel();
 
             if (method.ReturnType == typeof(Task) || method.ReturnType == typeof(Task<int>))
