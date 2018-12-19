@@ -28,7 +28,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         public CommandLineLifetime(IApplicationLifetime applicationLifetime,
             ICommandLineService cliService,
             IConsole console,
-            IUnhandledExceptionHandler unhandledExceptionHandler)
+            IUnhandledExceptionHandler unhandledExceptionHandler = null)
         {
             _applicationLifetime = applicationLifetime;
             _cliService = cliService;
@@ -75,8 +75,10 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
                         ExceptionDispatchInfo.Capture(e).Throw();
                     }
                 }
-
-                _applicationLifetime.StopApplication();
+                finally
+                {
+                    _applicationLifetime.StopApplication();
+                }
             });
 
             // Ensures services are disposed before the application exits.
