@@ -47,7 +47,9 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         public Task<int> RunAsync(CancellationToken cancellationToken)
         {
             _logger.LogDebug("Running");
-            return Task.Run(() => _state.ExitCode = _application.Execute(_state.Arguments), cancellationToken);
+            // TODO support cancellation tokens. See #111
+            _state.ExitCode = _application.Execute(_state.Arguments);
+            return Task.FromResult(_state.ExitCode);
         }
 
         public void Dispose()
