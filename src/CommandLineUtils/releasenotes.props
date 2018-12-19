@@ -3,8 +3,6 @@
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.0'">
       <![CDATA[
 
-2.3.0 Release Candidate - no more changes are expected between this release and 2.3.0 unless there is a bad bug.
-
 ## Enhancements:
 
 * Support the POSIX convention for cluster multiple options. For example, `-ixd` is treated the same as `-i -x -d`.
@@ -52,20 +50,6 @@
 
 * @handcraftedsource: handled nested HelpOptions (fixes #86 - InvalidOperationException when multiple help options were defined)
 
-
-See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
-]]>
-    </PackageReleaseNotes>
-    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.2.5'">
-<![CDATA[
-Bug fixes:
-
-* @bording and @SeanFeldman: Unable to create new instance of `CommandOption<T>` for type that is already registered
-
-Minor improvements:
-
- * Started code signing the NuGet package and binaries
- * [@jerriep]: added documentation for response file parsing
 
 See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
 ]]>
