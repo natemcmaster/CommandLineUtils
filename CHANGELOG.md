@@ -1,5 +1,18 @@
 # Changelog
 
+## [v2.3.0]
+
+**Dec. 31, 2018**
+
+Enhancements:
+* PR [#192][192] by [@TheConstructor]: Add IUnhandledExceptionHandler
+
+Bugs fixed:
+* Fix [#195][195]: don't use Task.Run in generic host
+
+[192]: https://github.com/natemcmaster/CommandLineUtils/pull/192
+[195]: https://github.com/natemcmaster/CommandLineUtils/issues/195
+
 ## [v2.3.0-rc]
 
 Bugs fixed:
@@ -293,7 +306,8 @@ Other:
 [@sebastienros]: https://github.com/sebastienros
 [@TheConstructor]: https://github.com/TheConstructor
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0-rc...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0...HEAD
+[v2.3.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0
 [v2.3.0-rc]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-rc
 [v2.3.0-beta]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-beta
 [v2.3.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-alpha

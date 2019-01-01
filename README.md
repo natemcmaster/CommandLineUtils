@@ -19,7 +19,7 @@ This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/asp
 
 ## Install
 
-Install the NuGet package into your project.
+Install the [NuGet package][main-nuget] into your project.
 
 ```
 PM> Install-Package McMaster.Extensions.CommandLineUtils
@@ -29,7 +29,7 @@ $ dotnet add package McMaster.Extensions.CommandLineUtils
 ```
 ```xml
 <ItemGroup>
-  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.5" />
+  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.3.0" />
 </ItemGroup>
 ```
 
