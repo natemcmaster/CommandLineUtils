@@ -8,7 +8,7 @@
     <title>Dependency Injection </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Dependency Injection ">
-    <meta name="generator" content="docfx 2.40.0.0">
+    <meta name="generator" content="docfx 2.40.5.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -114,23 +114,23 @@ class Program
 <tbody>
 <tr>
 <td><code>CommandLineApplication</code></td>
-<td>Injects the <a class="xref" href="../../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a> instance.</td>
+<td>Injects the <a class="xref" href="../../v2.3/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a> instance.</td>
 </tr>
 <tr>
 <td><code>IConsole</code></td>
-<td>Injects the <a class="xref" href="../../v2.2/api/McMaster.Extensions.CommandLineUtils.IConsole.html">IConsole</a> implementation.</td>
+<td>Injects the <a class="xref" href="../../v2.3/api/McMaster.Extensions.CommandLineUtils.IConsole.html">IConsole</a> implementation.</td>
 </tr>
 <tr>
 <td><code>IEnumerable&lt;CommandOption&gt;</code></td>
-<td>Injects the definitions for the <a class="xref" href="../../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandOption.html">options</a> passed to the command.</td>
+<td>Injects the definitions for the <a class="xref" href="../../v2.3/api/McMaster.Extensions.CommandLineUtils.CommandOption.html">options</a> passed to the command.</td>
 </tr>
 <tr>
 <td><code>IEnumerable&lt;CommandArgument&gt;</code></td>
-<td>Injects the definitions for the <a class="xref" href="../../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html">arguments</a> passed to the command.</td>
+<td>Injects the definitions for the <a class="xref" href="../../v2.3/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html">arguments</a> passed to the command.</td>
 </tr>
 <tr>
 <td><code>CommandLineContext</code></td>
-<td>Injects the <a class="xref" href="../../v2.2/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.html">CommandLineContext</a> which contains information abount the execution context of the command.</td>
+<td>Injects the <a class="xref" href="../../v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.html">CommandLineContext</a> which contains information abount the execution context of the command.</td>
 </tr>
 <tr>
 <td><code>IServiceProvider</code></td>
@@ -143,7 +143,7 @@ class Program
 </tbody>
 </table>
 <h2 id="using-your-own-services">Using your own services</h2>
-<p>You can register your own services by using the <a class="xref" href="../../v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.html">ConstructorInjectionConvention</a> and making use of the <code>Microsoft.Extensions.DependencyInjection</code> NuGet package to contruct services.</p>
+<p>You can register your own services by using the <a class="xref" href="../../v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.html">ConstructorInjectionConvention</a> and making use of the <code>Microsoft.Extensions.DependencyInjection</code> NuGet package to contruct services.</p>
 <p>In the example below, we have defined a service named <code>IMyService</code> with a single method named <code>Invoke</code>:</p>
 <pre><code class="lang-csharp">interface IMyService
 {

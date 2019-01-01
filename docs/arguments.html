@@ -8,7 +8,7 @@
     <title>Arguments </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Arguments ">
-    <meta name="generator" content="docfx 2.40.0.0">
+    <meta name="generator" content="docfx 2.40.5.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -81,7 +81,7 @@
 <p>When a command executes, the raw <code>string[] args</code> value can be separated into two different categories: options and arguments.</p>
 <p>Arguments are positional and values are specified based by order.</p>
 <p>Options are named and must be specified using a name. Options are covered in <a class="xref" href="options.html">this document.</a></p>
-<p>Arguments are represented by the <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a> type.
+<p>Arguments are represented by the <a class="xref" href="../v2.3/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a> type.
 They have one defining characteristic.</p>
 <ul>
 <li>Position - the order in which arguments appear on command line (after options have been parsed)</li>
@@ -96,7 +96,7 @@ They have one defining characteristic.</p>
 </li>
 </ul>
 <section id="tabpanel_O1aAyLh+nY_using-attributes" role="tabpanel" data-tab="using-attributes">
-<p><a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html">ArgumentAttribute</a> can be used on properties to define arguments.
+<p><a class="xref" href="../v2.3/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html">ArgumentAttribute</a> can be used on properties to define arguments.
 The argument order must be specified explicitly.</p>
 <pre><code class="lang-c#">public class Program
 {
@@ -175,7 +175,7 @@ attribute and settable to <code>string[]</code> or <code>IEnumerable&lt;string&g
 }
 </code></pre></section>
 <section id="tabpanel_O1aAyLh+nY-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
-<p>To enable this, <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html#McMaster_Extensions_CommandLineUtils_CommandArgument_MultipleValues">MultipleValues</a> must be set to true,
+<p>To enable this, <a class="xref" href="../v2.3/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html#McMaster_Extensions_CommandLineUtils_CommandArgument_MultipleValues">MultipleValues</a> must be set to true,
 and the argument must be the last one specified.</p>
 <pre><code class="lang-c#">public class Program
 {
@@ -213,7 +213,7 @@ options on the parent command and all remaining arguments.</p>
 <pre><code>bash -c -- ls -a -l
 </code></pre><p>In this example, the presence of <code>--</code> forces bash to stop parsing and treat everything after <code>--</code> as an argument
 to be passed to the inner command.</p>
-<p>The double dash command is enabled by setting <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AllowArgumentSeparator">AllowArgumentSeparator</a>.</p>
+<p>The double dash command is enabled by setting <a class="xref" href="../v2.3/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AllowArgumentSeparator">AllowArgumentSeparator</a>.</p>
 <div class="tabGroup" id="tabgroup_O1aAyLh+nY-2">
 <ul role="tablist">
 <li role="presentation">
@@ -225,7 +225,7 @@ to be passed to the inner command.</p>
 </ul>
 <section id="tabpanel_O1aAyLh+nY-2_using-attributes" role="tabpanel" data-tab="using-attributes">
 <p>By default, attribute binding will set a <code>string[]</code> or <code>IList&lt;string&gt;</code> property named <code>RemainingArguments</code> or <code>RemainingArgs</code>
-to include all values. See <a class="xref" href="../v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a> for more details.</p>
+to include all values. See <a class="xref" href="../v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a> for more details.</p>
 <pre><code class="lang-csharp" name="Program">using System;
 using System.Diagnostics;
 using System.Linq;

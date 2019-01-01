@@ -1,24 +1,6 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
-- uid: arguments
-  name: Arguments
-  href: docs/arguments.html
-- uid: dependency-injection
-  name: Dependency Injection
-  href: docs/advanced/dependency-injection.html
-- uid: doc-intro
-  name: Introduction
-  href: docs/intro.html
-- uid: generic-host
-  name: Integration with Generic Host
-  href: docs/advanced/generic-host.html
-- uid: help-text
-  name: Help Text
-  href: docs/help-text.html
-- uid: latest_api_ref
-  name: API Reference
-  href: api/index.html
 - uid: McMaster.Extensions.CommandLineUtils
   name: McMaster.Extensions.CommandLineUtils
   href: v2.2/api/McMaster.Extensions.CommandLineUtils.html
@@ -5407,9 +5389,3 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.MemberName
   nameWithType: VersionOptionFromMemberAttribute.MemberName
-- uid: options
-  name: Options
-  href: docs/options.html
-- uid: response-file-parsing
-  name: '@-files (Response File Parsing)'
-  href: docs/response-file-parsing.html
