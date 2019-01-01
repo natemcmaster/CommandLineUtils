@@ -1,0 +1,743 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter
+  commentId: T:McMaster.Extensions.CommandLineUtils.NullReporter
+  id: NullReporter
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.NullReporter.Error(System.String)
+  - McMaster.Extensions.CommandLineUtils.NullReporter.Output(System.String)
+  - McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+  - McMaster.Extensions.CommandLineUtils.NullReporter.Verbose(System.String)
+  - McMaster.Extensions.CommandLineUtils.NullReporter.Warn(System.String)
+  langs:
+  - csharp
+  - vb
+  name: NullReporter
+  nameWithType: NullReporter
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: NullReporter
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 9
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nA reporter that does nothing.\n"
+  example: []
+  syntax:
+    content: 'public class NullReporter : IReporter'
+    content.vb: >-
+      Public Class NullReporter
+          Implements IReporter
+  inheritance:
+  - System.Object
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+  commentId: P:McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+  id: Singleton
+  parent: McMaster.Extensions.CommandLineUtils.NullReporter
+  langs:
+  - csharp
+  - vb
+  name: Singleton
+  nameWithType: NullReporter.Singleton
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: Singleton
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 17
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nA shared instance of <xref href=\"McMaster.Extensions.CommandLineUtils.NullReporter\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public static IReporter Singleton { get; }
+    parameters: []
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IReporter
+    content.vb: Public Shared ReadOnly Property Singleton As IReporter
+  overload: McMaster.Extensions.CommandLineUtils.NullReporter.Singleton*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Verbose(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.NullReporter.Verbose(System.String)
+  id: Verbose(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.NullReporter
+  langs:
+  - csharp
+  - vb
+  name: Verbose(String)
+  nameWithType: NullReporter.Verbose(String)
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Verbose(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: Verbose
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 20
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nReport a verbose message.\n"
+  example: []
+  syntax:
+    content: public void Verbose(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Sub Verbose(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.NullReporter.Verbose*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Output(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.NullReporter.Output(System.String)
+  id: Output(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.NullReporter
+  langs:
+  - csharp
+  - vb
+  name: Output(String)
+  nameWithType: NullReporter.Output(String)
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Output(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: Output
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 24
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nReport console output.\n"
+  example: []
+  syntax:
+    content: public void Output(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Sub Output(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.NullReporter.Output*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Warn(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.NullReporter.Warn(System.String)
+  id: Warn(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.NullReporter
+  langs:
+  - csharp
+  - vb
+  name: Warn(String)
+  nameWithType: NullReporter.Warn(String)
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Warn(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: Warn
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 28
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nReport a warning.\n"
+  example: []
+  syntax:
+    content: public void Warn(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Sub Warn(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.NullReporter.Warn*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Error(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.NullReporter.Error(System.String)
+  id: Error(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.NullReporter
+  langs:
+  - csharp
+  - vb
+  name: Error(String)
+  nameWithType: NullReporter.Error(String)
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Error(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: Error
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 32
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nReport an error.\n"
+  example: []
+  syntax:
+    content: public void Error(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Sub Error(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.NullReporter.Error*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: McMaster.Extensions.CommandLineUtils.IReporter
+  commentId: T:McMaster.Extensions.CommandLineUtils.IReporter
+  parent: McMaster.Extensions.CommandLineUtils
+  name: IReporter
+  nameWithType: IReporter
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter
+  commentId: T:McMaster.Extensions.CommandLineUtils.NullReporter
+  name: NullReporter
+  nameWithType: NullReporter
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Singleton*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+  name: Singleton
+  nameWithType: NullReporter.Singleton
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Verbose*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullReporter.Verbose
+  name: Verbose
+  nameWithType: NullReporter.Verbose
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Verbose
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  name: Verbose(String)
+  nameWithType: IReporter.Verbose(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+    name: Verbose
+    nameWithType: IReporter.Verbose
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Verbose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+    name: Verbose
+    nameWithType: IReporter.Verbose
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Verbose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Output*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullReporter.Output
+  name: Output
+  nameWithType: NullReporter.Output
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Output
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  name: Output(String)
+  nameWithType: IReporter.Output(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+    name: Output
+    nameWithType: IReporter.Output
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Output
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+    name: Output
+    nameWithType: IReporter.Output
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Output
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Warn*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullReporter.Warn
+  name: Warn
+  nameWithType: NullReporter.Warn
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Warn
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  name: Warn(String)
+  nameWithType: IReporter.Warn(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+    name: Warn
+    nameWithType: IReporter.Warn
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Warn
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+    name: Warn
+    nameWithType: IReporter.Warn
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Warn
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Error*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullReporter.Error
+  name: Error
+  nameWithType: NullReporter.Error
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Error
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  name: Error(String)
+  nameWithType: IReporter.Error(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+    name: Error
+    nameWithType: IReporter.Error
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Error
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+    name: Error
+    nameWithType: IReporter.Error
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Error
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )

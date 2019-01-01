@@ -6,50 +6,23 @@
 ## Enhancements:
 
 * Support the POSIX convention for cluster multiple options. For example, `-ixd` is treated the same as `-i -x -d`.
-
 * @bjorg: support SingleOrNoValue notation. `--option[:value]`
-
 * New type: `Pager`. Provides a simple interaction model for displaying console output in a pager.
-
 * Display help text using the `less` pager on macOS/Linux.
-
-* Make suggestions when invalid options or commands are used, but there is a valid one that is similar.
-  (Thanks to @MadbHatter for doing the initial work on this.)
-
+* Make suggestions when invalid options or commands are used, but there is a valid one that is similar. (Thanks to @MadbHatter for doing the initial work on this.)
 * Add support for subcommand aliases. Commands can be given multiple names.
-  ```c#
-  [Command("organization", "org", "o")]
-  public class OrgCommand { }
-  ```
-
 * Obsolete the constructor of `[Subcommand]` which takes a string.
-
 * Infer subcommand names from the type name
-  ```c#
-  [Subcommand(typeof(AddCommand))]
-  public class Git { }
-
-  public class AddCommand { } // subcommand name = "add"
-  ```
-
 * @lvermeulen: Sort subcommands by name in help text. This can be disabled with `DefaultHelpTextGenerator.SortCommandsByName`.
-
 * @jcaillon: Add API for `UnrecognizedCommandParsingException` which includes suggestions for similar options or commands.
-
 * @TheConstructor: add CommandLineApplication.GetValidationResult()
 
 ## Bugs fixed:
 
-* Duplicate subcommand names used to cause undefined behavior. Now, attempting to add a duplicate subcommand name or aliases will
-  cause the library to throw before the app can execute.
-
-* Fix bug in subcommand name inference. When not specified, the subcommand always matched the entry assembly name.
-  In this update, this convention only applies to the parent command.
-
+* Duplicate subcommand names used to cause undefined behavior. Now, attempting to add a duplicate subcommand name or aliases will cause the library to throw before the app can execute.
+* Fix bug in subcommand name inference. When not specified, the subcommand always matched the entry assembly name. In this update, this convention only applies to the parent command.
 * Add generic overloads of `.IsRequired()` for `CommandOption<T>` and `CommandArgument<T>`.
-
 * @handcraftedsource: handled nested HelpOptions (fixes #86 - InvalidOperationException when multiple help options were defined)
-
 
 See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
 ]]>
