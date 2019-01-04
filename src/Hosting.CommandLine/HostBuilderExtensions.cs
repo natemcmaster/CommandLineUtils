@@ -11,7 +11,7 @@ using McMaster.Extensions.Hosting.CommandLine.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace Microsoft.Extensions.Hosting
+namespace McMaster.Extensions.Hosting.CommandLine
 {
     /// <summary>
     ///     Extension methods for <see cref="IHostBuilder" /> support.
