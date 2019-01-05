@@ -131,6 +131,9 @@ namespace McMaster.Extensions.CommandLineUtils
                     FileName = "less",
                     Arguments = ArgumentEscaper.EscapeAndConcatenate(args),
                     RedirectStandardInput = true,
+#if NET45
+                    UseShellExecute = false,
+#endif
                 }
             };
 
@@ -139,7 +142,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 process.Start();
                 return process;
             }
-            catch (Win32Exception ex)
+            catch (Exception ex)
             {
                 if (DotNetCliContext.IsGlobalVerbose())
                 {
