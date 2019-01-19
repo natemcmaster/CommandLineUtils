@@ -11,6 +11,8 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RestoreLockedMode Condition="'$(CI)' == 'true'">true</RestoreLockedMode>
     <PackageProjectUrl>https://github.com/natemcmaster/CommandLineUtils</PackageProjectUrl>
     <RepositoryUrl>https://github.com/natemcmaster/CommandLineUtils.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
