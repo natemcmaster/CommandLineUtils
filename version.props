@@ -2,14 +2,16 @@
   <PropertyGroup>
     <VersionPrefix>2.3.1</VersionPrefix>
     <VersionSuffix>build</VersionSuffix>
-    <PackageVersion Condition="'$(APPVEYOR_REPO_TAG)' == 'true' AND '$(VersionSuffix)' != ''">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
-    <PackageVersion Condition="'$(APPVEYOR_REPO_TAG)' == 'true' AND '$(VersionSuffix)' == 'rtm'">$(VersionPrefix)</PackageVersion>
-
+    <IncludePreReleaseLabelInPackageVersion Condition="'$(IsFinalBuild)' != 'true'">true</IncludePreReleaseLabelInPackageVersion>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(APPVEYOR_BUILD_NUMBER)</BuildNumber>
+    <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(BUILD_BUILDNUMBER)</BuildNumber>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
     <FileVersion>$(VersionPrefix).$(BuildNumber)</FileVersion>
     <VersionSuffix Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix).$(BuildNumber)</VersionSuffix>
-    <RepositoryCommit>$(APPVEYOR_REPO_COMMIT)</RepositoryCommit>
+    <RepositoryCommit Condition="'$(RepositoryCommit)' == ''">$(APPVEYOR_REPO_COMMIT)</RepositoryCommit>
+    <RepositoryCommit Condition="'$(RepositoryCommit)' == ''">$(BUILD_SOURCEVERSION)</RepositoryCommit>
+    <PackageVersion>$(VersionPrefix)</PackageVersion>
+    <PackageVersion Condition="'$(IncludePreReleaseLabelInPackageVersion)' == 'true'">$(PackageVersion)-$(VersionSuffix)</PackageVersion>
     <InformationalVersion Condition="'$(RepositoryCommit)' != ''">$(PackageVersion)+$(RepositoryCommit)</InformationalVersion>
   </PropertyGroup>
 </Project>

@@ -32,7 +32,12 @@ if ($ci) {
     $MSBuildArgs += '-p:CI=true'
 }
 
-$CodeSign = $sign -or ($ci -and -not $env:APPVEYOR_PULL_REQUEST_HEAD_COMMIT -and ($IsWindows -or -not $IsCoreCLR))
+$isPr = $env:APPVEYOR_PULL_REQUEST_HEAD_COMMIT -or ($env:BUILD_REASON -eq 'PullRequest')
+if (-not (Test-Path variable:\IsCoreCLR)) {
+    $IsWindows = $true
+}
+
+$CodeSign = $sign -or ($ci -and -not $isPr -and $IsWindows)
 
 if ($CodeSign) {
     $toolsDir = "$PSScriptRoot/.build/tools"
@@ -71,6 +76,9 @@ exec dotnet pack --no-restore --no-build --configuration $Configuration -o $arti
 [string[]] $testArgs=@()
 if ($PSVersionTable.PSEdition -eq 'Core' -and -not $IsWindows) {
     $testArgs += '--framework','netcoreapp2.1'
+}
+if ($env:TF_BUILD) {
+    $testArgs += '--logger', 'trx'
 }
 
 exec dotnet test --no-restore --no-build --configuration $Configuration '-clp:Summary' `

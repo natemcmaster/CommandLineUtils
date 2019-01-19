@@ -1,0 +1,55 @@
+name: $(Date:yyMMdd).$(Rev:rr)
+
+trigger:
+- '*'
+
+pr:
+- '*'
+
+variables:
+- group: AzureKeyVault
+- name: DOTNET_SKIP_FIRST_TIME_EXPERIENCE
+  value: 1
+
+jobs:
+- job: Windows
+  pool:
+    vmImage: vs2017-win2016
+  steps:
+  - task: DotNetCoreInstaller@0
+    displayName: Install .NET Core 2.2
+    inputs:
+      version: '2.2.102'
+  - powershell: ./build.ps1 -ci /p:AzureKeyVaultClientSecret=$(kv-access-token)
+    displayName: Invoke build.ps1
+  - task: PublishTestResults@2
+    displayName: Upload test results
+    condition: always()
+    continueOnError: true
+    inputs:
+      testRunTitle: Windows
+      testRunner: vstest
+      testResultsFiles: '**/*.trx'
+  - task: PublishBuildArtifacts@1
+    displayName: Publish artifacts
+    inputs:
+      pathtoPublish: 'artifacts/'
+      artifactName: 'Packages'
+- job: Linux
+  pool:
+    vmImage: 'Ubuntu-16.04'
+  steps:
+  - task: DotNetCoreInstaller@0
+    displayName: Install .NET Core 2.2
+    inputs:
+      version: '2.2.102'
+  - script: ./build.ps1 -ci
+    displayName: Invoke build.ps1
+  - task: PublishTestResults@2
+    displayName: Upload test results
+    condition: always()
+    continueOnError: true
+    inputs:
+      testRunTitle: Linux
+      testRunner: vstest
+      testResultsFiles: '**/*.trx'
