@@ -1,5 +1,12 @@
 # Changelog
 
+## [v2.3.1]
+
+Bugs fixed:
+* Fix [#203][203] - fix InvalidOperationException thrown during help text generation on Mono
+
+[203]: https://github.com/natemcmaster/CommandLineUtils/issues/203
+
 ## [v2.3.0]
 
 **Dec. 31, 2018**
@@ -306,7 +313,8 @@ Other:
 [@sebastienros]: https://github.com/sebastienros
 [@TheConstructor]: https://github.com/TheConstructor
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.1...HEAD
+[v2.3.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0...v2.3.1
 [v2.3.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0
 [v2.3.0-rc]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-rc
 [v2.3.0-beta]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-beta

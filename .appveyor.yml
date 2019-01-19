@@ -1,13 +1,7 @@
-﻿version: 2.3.0.{build}
-build_script:
+﻿build_script:
   - ps: iwr https://get.dot.net/v1/dotnet-install.ps1 -out dotnet-install.ps1; ./dotnet-install.ps1 -Version 2.2.100
-  - ps: .\build.ps1 -ci
-  - ps: .\docs\generate.ps1 -NoBuild -Verbose
+  - ps: .\docs\generate.ps1 -Verbose
 environment:
-  KEYVAULT_CLIENT_SECRET:
-    secure: Y89qXSB30HLwCrA53cB7Tic3a8GxsTxv8SdhyvU96ROKS8zX9Lf1FWnhEMIal2mo
-  GITHUB_ACCESS_TOKEN:
-    secure: 7gza5cyC0Fwp5LcFPz9dGMcHXP2jxbrnu7er9R/HkdvnhzGJVADvOtfYO7+Vow5p
   global:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
     DOTNET_CLI_TELEMETRY_OPTOUT: 1
@@ -16,32 +10,5 @@ os: Visual Studio 2017
 branches:
   only:
     - master
-    - appveyor
-    - /^feature\/.*/
-artifacts:
-  - path: 'artifacts\*.nupkg'
-    name: Packages
-  - path: 'artifacts\*.snupkg'
-    name: Symbols
 after_deploy:
   - ps: .\docs\push.ps1 -AppVeyor
-deploy:
-  - provider: NuGet
-    name: myget
-    artifact: Packages
-    server: https://www.myget.org/F/natemcmaster/api/v2/package
-    symbol_server: https://www.myget.org/F/natemcmaster/api/v2/package
-    on:
-      branch: master
-    api_key:
-      secure: KF1yGk4IHJyyfiHfFSCxJ+p5iZX+KPfCTnCihjD5iIZjasTS1lHeilpbaon4wvcM
-  - provider: GitHub
-    description: 'See https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md for details'
-    auth_token:
-      secure: 7gza5cyC0Fwp5LcFPz9dGMcHXP2jxbrnu7er9R/HkdvnhzGJVADvOtfYO7+Vow5p
-    artifact: Packages
-    draft: false
-    prerelease: false
-    on:
-      branch: master                 # release from master branch only
-      appveyor_repo_tag: true        # deploy on tag push only

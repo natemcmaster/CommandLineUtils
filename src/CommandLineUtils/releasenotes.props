@@ -1,5 +1,9 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.1'">
+Bugs fixed:
+* Fix for InvalidOperationException thrown during help text generation on Mono
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.0'">
       <![CDATA[
 
