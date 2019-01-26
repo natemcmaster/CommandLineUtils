@@ -7,7 +7,12 @@ pr:
 - '*'
 
 variables:
+# Set this to an empty value for pull-request builds
+- name: kv-access-token
+  value: ''
+# This contains secrets for accessing code-signing certificates during an official build
 - group: AzureKeyVault
+# Skip the package warm up step
 - name: DOTNET_SKIP_FIRST_TIME_EXPERIENCE
   value: 1
 
