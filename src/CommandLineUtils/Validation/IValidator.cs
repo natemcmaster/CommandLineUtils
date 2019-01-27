@@ -4,9 +4,9 @@
 namespace McMaster.Extensions.CommandLineUtils.Validation
 {
     /// <summary>
-    /// Provides validation for <see cref="CommandArgument"/> and <see cref="CommandOption"/>.
+    /// Provides validation for <see cref="CommandArgument"/>, <see cref="CommandOption"/>, and <see cref="ICommandValidator"/>.
     /// </summary>
-    public interface IValidator : IOptionValidator, IArgumentValidator
+    public interface IValidator : IOptionValidator, IArgumentValidator, ICommandValidator
     {
     }
 }
