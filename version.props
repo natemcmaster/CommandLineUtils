@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <VersionPrefix>2.3.2</VersionPrefix>
+    <VersionPrefix>2.3.1</VersionPrefix>
     <VersionSuffix>build</VersionSuffix>
     <IncludePreReleaseLabelInPackageVersion Condition="'$(IsStableBuild)' != 'true'">true</IncludePreReleaseLabelInPackageVersion>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(APPVEYOR_BUILD_NUMBER)</BuildNumber>
