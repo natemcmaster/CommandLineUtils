@@ -75,7 +75,7 @@ exec dotnet pack --no-restore --no-build --configuration $Configuration -o $arti
 
 [string[]] $testArgs=@()
 if ($PSVersionTable.PSEdition -eq 'Core' -and -not $IsWindows) {
-    $testArgs += '--framework','netcoreapp2.1'
+    $testArgs += '--framework','netcoreapp2.2'
 }
 if ($env:TF_BUILD) {
     $testArgs += '--logger', 'trx'
