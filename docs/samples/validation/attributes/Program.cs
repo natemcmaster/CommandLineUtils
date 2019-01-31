@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using McMaster.Extensions.CommandLineUtils;
 
-[RequiredDependentsValidation(nameof(Attachments), nameof(MaxSize))]
+[MaxSizeOptionRequiresAttachmentValidation()]
 class AttributeProgram
 {
     public static int Main(string[] args) => CommandLineApplication.Execute<AttributeProgram>(args);
@@ -75,80 +75,17 @@ class RedOrBlueAttribute : ValidationAttribute
 }
 
 [AttributeUsage(AttributeTargets.Class)]
-public class RequiredDependentsValidationAttribute : ValidationAttribute
+public class MaxSizeOptionRequiresAttachmentValidationAttribute : ValidationAttribute
 {
-
-    public string[] DependentProperties { get; set; }
-
-    public string[] Properties { get; set; }
-
-    public RequiredDependentsValidationAttribute(string dependentProperty, params string[] properties)
-        : this(new string[] { dependentProperty } ?? throw new ArgumentException(nameof(dependentProperty)), properties) { }
-
-
-    public RequiredDependentsValidationAttribute(string[] dependentProperties, string[] properties)
-        : base()
-    {
-        switch (dependentProperties)
-        {
-            case null:
-                throw new ArgumentNullException(nameof(dependentProperties));
-            case var a when a.Length is 0:
-            case var b when b.Length > 0 && b.All(String.IsNullOrWhiteSpace):
-                throw new ArgumentException(nameof(dependentProperties));
-            default:
-                DependentProperties = dependentProperties;
-                break;
-        }
-
-        switch (properties)
-        {
-            case null:
-                throw new ArgumentNullException(nameof(properties));
-            case var p when p.Length is 0:
-                throw new ArgumentException(nameof(properties));
-            default:
-                Properties = properties;
-                break;
-        }
-    }
-
     protected override ValidationResult IsValid(object value, ValidationContext context)
     {
-        var type = value.GetType();
-
-        var dependents = type.GetProperties().Join(DependentProperties, pi => pi.Name, s => s, ((info, s) => info)).ToArray();
-        var properties = type.GetProperties().Join(Properties, pi => pi.Name, s => s, ((info, s) => info)).ToArray();
-
-        if (dependents?.Count() == 0 || properties?.Count() == 0)
+        if (value is AttributeProgram obj)
         {
-            return new ValidationResult(ErrorMessage);
-        }
-
-        var checkProps = false;
-
-        foreach (var dependent in dependents)
-        {
-            checkProps = dependent.GetValue(value) != null;
-            if (checkProps)
+            if (obj.MaxSize.HasValue && (obj.Attachments == null || obj.Attachments?.Length == 0))
             {
-                break;
+                return new ValidationResult("--max-size cannot be used unless --attachments is also specified");
             }
         }
-
-        if (!checkProps)
-        {
-            return ValidationResult.Success;
-        }
-
-        foreach (var property in properties)
-        {
-            if (property.GetValue(value) is null)
-            {
-                return new ValidationResult(ErrorMessage);
-            }
-        }
-
         return ValidationResult.Success;
     }
 }
