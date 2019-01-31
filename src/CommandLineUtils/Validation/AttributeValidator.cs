@@ -11,7 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
     /// <summary>
     /// A validator that uses a <see cref="ValidationAttribute"/> to validate a command, command line option, or argument.
     /// </summary>
-    public class AttributeValidator : IValidator
+    public class AttributeValidator : IValidator, ICommandValidator
     {
         private readonly ValidationAttribute _attribute;
 
