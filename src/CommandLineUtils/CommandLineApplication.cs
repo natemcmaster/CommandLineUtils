@@ -29,7 +29,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private List<Action<ParseResult>> _onParsingComplete;
         internal readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
         internal readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
-        private readonly HashSet<string> _names = new HashSet<string>(StringComparer.Ordinal);
+        private readonly HashSet<string> _names = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         private string _primaryCommandName;
         internal CommandLineContext _context;
         private IHelpTextGenerator _helpTextGenerator;
@@ -1003,7 +1003,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
         internal bool MatchesName(string name)
         {
-            // TODO: make this case-sensitive by default and add a parser setting
             if (string.Equals(name, Name, StringComparison.OrdinalIgnoreCase))
             {
                 return true;

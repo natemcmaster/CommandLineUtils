@@ -1,5 +1,9 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.2'">
+Bugs fixed:
+* @jcaillon: Option for the case sensitivity of command names.
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.1'">
 Bugs fixed:
 * Fix for InvalidOperationException thrown during help text generation on Mono

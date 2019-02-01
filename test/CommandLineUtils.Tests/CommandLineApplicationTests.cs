@@ -41,6 +41,21 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void CommandsNamesAreCaseInsensitive()
+        {
+            var app = new CommandLineApplication();
+            var cmd = app.Command("TEST", c => {
+                c.OnExecute(() => 5);
+            });
+            cmd.AddName("TE");
+
+            Assert.Equal(5, app.Execute("test"));
+            Assert.Equal(5, app.Execute("TEST"));
+            Assert.Equal(5, app.Execute("te"));
+            Assert.Equal(5, app.Execute("TE"));
+        }
+
+        [Fact]
         public void RemainingArgsArePassed()
         {
             CommandArgument first = null;

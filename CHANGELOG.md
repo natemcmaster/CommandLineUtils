@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+Enhancements:
+
+Bugs fixed:
+* Fix [#207](https://github.com/natemcmaster/CommandLineUtils/issues/207) by [@jcaillon]: Option for the case sensitivity of command names
+
 ## [v2.3.1]
 
 Bugs fixed:
