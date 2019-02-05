@@ -175,20 +175,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private sealed class ClassLevelValidationAttribute : ValidationAttribute
         {
             public override bool IsValid(object value)
-            {
-                if (value is ClassLevelValidationApp app)
-                {
-                    if (app.Arg1.Contains("good") && app.Arg2.Contains("good"))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
+                => value is ClassLevelValidationApp app
+                    && app.Arg1.Contains("good")
+                    && app.Arg2.Contains("good");
         }
     }
 }
