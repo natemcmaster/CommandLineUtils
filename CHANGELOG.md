@@ -6,82 +6,83 @@ Enhancements:
 * Fix [#211] by [@rlvandaveer] - honor attributes on classes which implement ValidationAttribute
 
 Bugs fixed:
-* Fix [#207](https://github.com/natemcmaster/CommandLineUtils/issues/207) by [@jcaillon]: Option for the case sensitivity of command names
+* Fix [#207] by [@jcaillon]: Option for the case sensitivity of command names
 
+[#207]: https://github.com/natemcmaster/CommandLineUtils/issues/207
 [#211]: https://github.com/natemcmaster/CommandLineUtils/issues/211
 
 ## [v2.3.1]
 
 Bugs fixed:
-* Fix [#203][203] - fix InvalidOperationException thrown during help text generation on Mono
+* Fix [#203] - fix InvalidOperationException thrown during help text generation on Mono
 
-[203]: https://github.com/natemcmaster/CommandLineUtils/issues/203
+[#203]: https://github.com/natemcmaster/CommandLineUtils/issues/203
 
 ## [v2.3.0]
 
 **Dec. 31, 2018**
 
 Enhancements:
-* PR [#192][192] by [@TheConstructor]: Add IUnhandledExceptionHandler
+* PR [#192] by [@TheConstructor]: Add IUnhandledExceptionHandler
 
 Bugs fixed:
-* Fix [#195][195]: don't use Task.Run in generic host
+* Fix [#195]: don't use Task.Run in generic host
 
-[192]: https://github.com/natemcmaster/CommandLineUtils/pull/192
-[195]: https://github.com/natemcmaster/CommandLineUtils/issues/195
+[#192]: https://github.com/natemcmaster/CommandLineUtils/pull/192
+[#195]: https://github.com/natemcmaster/CommandLineUtils/issues/195
 
 ## [v2.3.0-rc]
 
 Bugs fixed:
-* Fix [#189][189] by [@TheConstructor]: fix inference about clustering options for sub-sub-commands
+* Fix [#189] by [@TheConstructor]: fix inference about clustering options for sub-sub-commands
 
 Enhancements:
-* Fix [#166][166] by [@TheConstructor]: make CommandLineApplication.GetValidationResult() public
-* PR [#192][192] by [@TheConstructor]: improve error handling in generic host, and unwrap TargetInvocationException
+* Fix [#166] by [@TheConstructor]: make CommandLineApplication.GetValidationResult() public
+* PR [#192] by [@TheConstructor]: improve error handling in generic host, and unwrap TargetInvocationException
 
-[189]: https://github.com/natemcmaster/CommandLineUtils/pull/189
-[166]: https://github.com/natemcmaster/CommandLineUtils/pull/166
-[192]: https://github.com/natemcmaster/CommandLineUtils/pull/192
+[#189]: https://github.com/natemcmaster/CommandLineUtils/pull/189
+[#166]: https://github.com/natemcmaster/CommandLineUtils/pull/166
+[#192]: https://github.com/natemcmaster/CommandLineUtils/pull/192
 
 ## [v2.3.0-beta]
 
 Bugs fixed:
 
-* Fix [#86][86] by [@handcraftedsource]: handled nested HelpOptions. Fixes InvalidOperationException when multiple help options were defined.([#158][158])
-* Fix [#163][163] - Obsolete CommandOption.Template and fix help text generation to accurately list available options
-* [@TheConstructor]: fixed a bug in ConstructorInjectionConvention ([#181][181])
+* Fix [#86] by [@handcraftedsource]: handled nested HelpOptions. Fixes InvalidOperationException when multiple help options were defined.([#158])
+* Fix [#163] - Obsolete CommandOption.Template and fix help text generation to accurately list available options
+* [@TheConstructor]: fixed a bug in ConstructorInjectionConvention ([#181])
 
-[86]: https://github.com/natemcmaster/CommandLineUtils/pull/86
-[158]: https://github.com/natemcmaster/CommandLineUtils/pull/158
-[163]: https://github.com/natemcmaster/CommandLineUtils/pull/163
-[181]: https://github.com/natemcmaster/CommandLineUtils/pull/181
+[#86]: https://github.com/natemcmaster/CommandLineUtils/pull/86
+[#158]: https://github.com/natemcmaster/CommandLineUtils/pull/158
+[#163]: https://github.com/natemcmaster/CommandLineUtils/pull/163
+[#181]: https://github.com/natemcmaster/CommandLineUtils/pull/181
 
 Enhancements:
 
 * [@jcaillon]: Add a new API `UnrecognizedCommandParsingException` which includes suggestions for similar options or
-  commands. ([#164][164])
-* Add support counting of bool/flag variables using `bool[]`. ([#143][143])
-* [@EricStG]: Add a new API `MissingParameterlessConstructorException` that includes the type causing the exception in the message. ([#148][148])
+  commands. ([#164])
+* Add support counting of bool/flag variables using `bool[]`. ([#143])
+* [@EricStG]: Add a new API `MissingParameterlessConstructorException` that includes the type causing the exception in the message. ([#148])
 * [@atifaziz]: Add a new API `ValueParser.Create` which makes it easier to create implementations of `IValueParser`
-    ([#169][169])
-* [@TheConstructor]: Support injection of IConsole and IConvention in generic host ([#178][178])
+    ([#169])
+* [@TheConstructor]: Support injection of IConsole and IConvention in generic host ([#178])
 
 
-[143]: https://github.com/natemcmaster/CommandLineUtils/pull/143
-[164]: https://github.com/natemcmaster/CommandLineUtils/pull/164
-[168]: https://github.com/natemcmaster/CommandLineUtils/pull/168
-[169]: https://github.com/natemcmaster/CommandLineUtils/pull/169
-[178]: https://github.com/natemcmaster/CommandLineUtils/pull/178
+[#143]: https://github.com/natemcmaster/CommandLineUtils/pull/143
+[#164]: https://github.com/natemcmaster/CommandLineUtils/pull/164
+[#168]: https://github.com/natemcmaster/CommandLineUtils/pull/168
+[#169]: https://github.com/natemcmaster/CommandLineUtils/pull/169
+[#178]: https://github.com/natemcmaster/CommandLineUtils/pull/178
 
 Other notes:
 * I adjusted some API released in the alpha - primarily, I removed ParserSettings.
 
 ### New package: McMaster.Extensions.Hosting.CommandLine
 
-Thanks to [@lucastheisen] for writing a new package, McMaster.Extensions.Hosting.CommandLine ([#167][167]). This new package provides
+Thanks to [@lucastheisen] for writing a new package, McMaster.Extensions.Hosting.CommandLine ([#167]). This new package provides
 integration with ASP.NET Core's ["Generic Host" feature.](https://docs.microsoft.com/aspnet/core/fundamentals/host/generic-host).
 
-[167]: https://github.com/natemcmaster/CommandLineUtils/pull/167
+[#167]: https://github.com/natemcmaster/CommandLineUtils/pull/167
 
 ## [v2.3.0-alpha]
 
