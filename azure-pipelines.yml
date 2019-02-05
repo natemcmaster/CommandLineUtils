@@ -5,8 +5,13 @@ pr:
 - '*'
 
 variables:
-  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-  BUILD_NUMBER: $[counter('buildnumber', 1)]
+- name: kv-access-token
+  value: ''
+- group: AzureKeyVault
+- name: DOTNET_SKIP_FIRST_TIME_EXPERIENCE
+  value: 1
+- name: BUILD_NUMBER
+  value: $[counter('buildnumber', 1)]
 
 jobs:
 - job: Windows
