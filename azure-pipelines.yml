@@ -1,5 +1,3 @@
-name: $(Date:yyMMdd).$(Rev:r)
-
 trigger:
 - '*'
 
@@ -7,9 +5,8 @@ pr:
 - '*'
 
 variables:
-- group: AzureKeyVault
-- name: DOTNET_SKIP_FIRST_TIME_EXPERIENCE
-  value: 1
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  BUILD_NUMBER: $[counter('buildnumber', 1)]
 
 jobs:
 - job: Windows
