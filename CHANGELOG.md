@@ -3,9 +3,12 @@
 ## [Unreleased]
 
 Enhancements:
+* Fix [#211] by [@rlvandaveer] - honor attributes on classes which implement ValidationAttribute
 
 Bugs fixed:
 * Fix [#207](https://github.com/natemcmaster/CommandLineUtils/issues/207) by [@jcaillon]: Option for the case sensitivity of command names
+
+[#211]: https://github.com/natemcmaster/CommandLineUtils/issues/211
 
 ## [v2.3.1]
 
@@ -315,6 +318,7 @@ Other:
 [@liamdawson]: https://github.com/liamdawson
 [@lvermeulen]: https://github.com/lvermeulen
 [@MadbHatter]: https://github.com/MadbHatter
+[@rlvandaveer]: https://github.com/rlvandaveer
 [@rmcc13]: https://github.com/rmcc13
 [@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros

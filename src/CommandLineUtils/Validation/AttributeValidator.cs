@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Validation
 {
     /// <summary>
-    /// A validator that uses a <see cref="ValidationAttribute"/> to validate a command line option or argument.
+    /// A validator that uses a <see cref="ValidationAttribute"/> to validate a command, command line option, or argument.
     /// </summary>
-    public class AttributeValidator : IValidator
+    public class AttributeValidator : IValidator, ICommandValidator
     {
         private readonly ValidationAttribute _attribute;
 
@@ -73,6 +74,17 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
             }
 
             return ValidationResult.Success;
+        }
+
+        /// <summary>Checks whether the command is valid using any associated validation attributes.</summary>
+        /// <param name="command">The command line application to validate</param>
+        /// <param name="context">The context under which validation should be performed</param>
+        public ValidationResult GetValidationResult(CommandLineApplication command, ValidationContext context)
+        {
+            var model = (command as IModelAccessor)?.GetModel();
+            return model != null
+                ? _attribute.GetValidationResult(model, context)
+                : _attribute.GetValidationResult(command, context);
         }
     }
 }

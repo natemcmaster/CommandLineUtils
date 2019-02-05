@@ -3,8 +3,10 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using McMaster.Extensions.CommandLineUtils;
 
+[MaxSizeOptionRequiresAttachmentValidation()]
 class AttributeProgram
 {
     public static int Main(string[] args) => CommandLineApplication.Execute<AttributeProgram>(args);
@@ -49,6 +51,8 @@ class AttributeProgram
         {
             Console.WriteLine("Max size = " + MaxSize.Value);
         }
+
+        Console.ReadKey();
     }
 }
 
@@ -66,6 +70,22 @@ class RedOrBlueAttribute : ValidationAttribute
             return new ValidationResult(FormatErrorMessage(context.DisplayName));
         }
 
+        return ValidationResult.Success;
+    }
+}
+
+[AttributeUsage(AttributeTargets.Class)]
+public class MaxSizeOptionRequiresAttachmentValidationAttribute : ValidationAttribute
+{
+    protected override ValidationResult IsValid(object value, ValidationContext context)
+    {
+        if (value is AttributeProgram obj)
+        {
+            if (obj.MaxSize.HasValue && (obj.Attachments == null || obj.Attachments?.Length == 0))
+            {
+                return new ValidationResult("--max-size cannot be used unless --attachments is also specified");
+            }
+        }
         return ValidationResult.Success;
     }
 }

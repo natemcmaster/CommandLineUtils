@@ -1,6 +1,9 @@
 <Project>
   <PropertyGroup>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.2'">
+Enhancement:
+* @rlvandaveer: honor attributes on classes which implement ValidationAttribute
+
 Bugs fixed:
 * @jcaillon: Option for the case sensitivity of command names.
     </PackageReleaseNotes>
