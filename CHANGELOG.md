@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [v2.3.2]
 
 Enhancements:
 * Fix [#211] by [@rlvandaveer] - honor attributes on classes which implement ValidationAttribute
@@ -89,12 +89,12 @@ integration with ASP.NET Core's ["Generic Host" feature.](https://docs.microsoft
 Enhancements:
 
 * Support the POSIX convention for cluster multiple options. For example, `-ixd` is treated the same as `-i -x -d`.
-  Resolved [#93][issue-93].
+  Resolved [#93].
 * [@bjorg]: support SingleOrNoValue notation. `--option[:value]`
 * New type: `Pager`. Provides a simple interaction model for displaying console output in a pager.
 * Display help text using the `less` pager on macOS/Linux.
 * Make suggestions when invalid options or commands are used, but there is a valid one that is similar.
-  (Thanks to [@MadbHatter][@MadbHatter] for doing the initial work on this.)
+  (Thanks to [@MadbHatter] for doing the initial work on this.)
 * Add support for subcommand aliases. Commands can be given multiple names.
 
   ```c#
@@ -110,6 +110,8 @@ Enhancements:
   public class AddCommand { } // subcommand name = "add"
   ```
 * [@lvermeulen]: Sort subcommands by name in help text. This can be disabled with `DefaultHelpTextGenerator.SortCommandsByName`.
+
+[#93]: https://github.com/natemcmaster/CommandLineUtils/issues/93
 
 Bugs fixed:
 
@@ -325,7 +327,8 @@ Other:
 [@sebastienros]: https://github.com/sebastienros
 [@TheConstructor]: https://github.com/TheConstructor
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.1...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.2...HEAD
+[v2.3.2]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.1...v2.3.2
 [v2.3.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0...v2.3.1
 [v2.3.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0
 [v2.3.0-rc]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-rc
@@ -344,5 +347,3 @@ Other:
 [v2.1.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.1...v2.1.0
 [v2.0.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.0...v2.0.1
 [v2.0.0]: https://github.com/natemcmaster/CommandLineUtils/compare/b0c662d331c35ccf3145875cdef850df7e896c0f...v2.0.0
-
-[issue-93]: https://github.com/natemcmaster/CommandLineUtils/issues/93

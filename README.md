@@ -1,11 +1,7 @@
 CommandLineUtils
 ================
 
-[![Travis build status][travis-badge]](https://travis-ci.org/natemcmaster/CommandLineUtils/branches)
-[![AppVeyor build status][appveyor-badge]](https://ci.appveyor.com/project/natemcmaster/CommandLineUtils/branch/master)
-
-[travis-badge]: https://img.shields.io/travis/natemcmaster/CommandLineUtils/master.svg?label=travis&style=flat-square
-[appveyor-badge]: https://img.shields.io/appveyor/ci/natemcmaster/CommandLineUtils/master.svg?label=appveyor&style=flat-square
+[![Build Status](https://dev.azure.com/natemcmaster/github/_apis/build/status/CommandLineUtils?branchName=master)](https://dev.azure.com/natemcmaster/github/_build/latest?definitionId=3&branchName=master)
 
 [![NuGet][main-nuget-badge]][main-nuget] [![MyGet][main-myget-badge]][main-myget]
 
@@ -29,7 +25,7 @@ $ dotnet add package McMaster.Extensions.CommandLineUtils
 ```
 ```xml
 <ItemGroup>
-  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.3.0" />
+  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.3.2" />
 </ItemGroup>
 ```
 
