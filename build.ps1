@@ -69,7 +69,7 @@ if ($CodeSign) {
 $artifacts = "$PSScriptRoot/artifacts/"
 
 Remove-Item -Recurse $artifacts -ErrorAction Ignore
-
+exec dotnet msbuild /t:UpdateCiSettings @MSBuildArgs
 exec dotnet build --configuration $Configuration '-warnaserror:CS1591' @MSBuildArgs
 exec dotnet pack --no-restore --no-build --configuration $Configuration -o $artifacts @MSBuildArgs
 

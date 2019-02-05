@@ -1,5 +1,5 @@
-<Project InitialTargets="UpdateCiSettings">
-  <Target Name="UpdateCiSettings" Condition="'$(CI)' == 'true'">
+<Project>
+  <Target Name="UpdateCiSettings" Condition="'$(CI)' == 'true' AND '$(OS)' == 'Windows_NT' AND '$(IsPackable)' == 'true'">
     <Message Importance="High" Text="##vso[build.updatebuildnumber]$(PackageVersion)" />
     <!-- These tags can be used in Azure release pipelines to filter actions based on the type of build. -->
     <Message Importance="high" Text="##vso[build.addbuildtag]daily-build" Condition=" '$(IsStableBuild)' != 'true' AND '$(BUILD_REASON)' != 'PullRequest' " />
