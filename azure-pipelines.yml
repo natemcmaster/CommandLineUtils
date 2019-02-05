@@ -7,12 +7,7 @@ pr:
 - '*'
 
 variables:
-# Set this to an empty value for pull-request builds
-- name: kv-access-token
-  value: ''
-# This contains secrets for accessing code-signing certificates during an official build
 - group: AzureKeyVault
-# Skip the package warm up step
 - name: DOTNET_SKIP_FIRST_TIME_EXPERIENCE
   value: 1
 
@@ -25,8 +20,12 @@ jobs:
     displayName: Install .NET Core 2.2
     inputs:
       version: '2.2.102'
+  - powershell: ./build.ps1 -ci
+    displayName: Invoke build.ps1
+    condition: eq(variables['kv-access-token'], '')
   - powershell: ./build.ps1 -ci /p:AzureKeyVaultClientSecret=$(kv-access-token)
     displayName: Invoke build.ps1
+    condition: ne(variables['kv-access-token'], '')
   - task: PublishTestResults@2
     displayName: Upload test results
     condition: always()

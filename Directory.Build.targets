@@ -2,8 +2,8 @@
   <Target Name="UpdateCiSettings" Condition="'$(CI)' == 'true'">
     <Message Importance="High" Text="##vso[build.updatebuildnumber]$(PackageVersion)" />
     <!-- These tags can be used in Azure release pipelines to filter actions based on the type of build. -->
-    <Message Importance="high" Text="##vso[build.addbuildtag]daily-build" Condition=" '$(IsStableBuild)' != 'true' " />
-    <Message Importance="high" Text="##vso[build.addbuildtag]release-candidate" Condition=" '$(IsStableBuild)' == 'true' " />
-    <Message Importance="high" Text="##vso[build.addbuildtag]code-signed" Condition=" '$(CodeSign)' == 'true' " />
+    <Message Importance="high" Text="##vso[build.addbuildtag]daily-build" Condition=" '$(IsStableBuild)' != 'true' AND '$(BUILD_REASON)' != 'PullRequest' " />
+    <Message Importance="high" Text="##vso[build.addbuildtag]release-candidate" Condition=" '$(IsStableBuild)' == 'true' AND '$(BUILD_REASON)' != 'PullRequest' " />
+    <Message Importance="high" Text="##vso[build.addbuildtag]code-signed" Condition=" '$(CodeSign)' == 'true' AND '$(BUILD_REASON)' != 'PullRequest' " />
   </Target>
 </Project>
