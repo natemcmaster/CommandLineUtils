@@ -50,7 +50,7 @@ public class Program
 
         var firstNameArg = app.Argument("first name", "the first name of the person")
             .IsRequired();
-        var lastNameArg = app.Argument("first name", "the first name of the person");
+        var lastNameArg = app.Argument("last name", "the last name of the person");
 
         app.OnExecute(() =>
         {
