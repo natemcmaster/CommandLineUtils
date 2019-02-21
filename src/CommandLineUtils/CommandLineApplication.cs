@@ -172,7 +172,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Whether a Pager should be used to display help text.
         /// </summary>
-        public bool HelpUsePager { get; set; } = true;
+        public bool UsePagerForHelpText { get; set; } = true;
 
         /// <summary>
         /// All names by which the command can be referenced. This includes <see cref="Name"/> and an aliases added in <see cref="AddName"/>.
@@ -844,7 +844,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Show full help.
         /// </summary>
-        public void ShowHelp() => ShowHelp(usePager: HelpUsePager);
+        public void ShowHelp() => ShowHelp(usePager: UsePagerForHelpText);
 
         /// <summary>
         /// Show full help.
