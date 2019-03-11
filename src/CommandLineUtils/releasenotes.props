@@ -1,5 +1,9 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.3'">
+Enhancement:
+* @mpipo: add an API to disable the pager for help text (CommandLineApplication.UsePagerForHelpText)
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.2'">
 Enhancement:
 * @rlvandaveer: honor attributes on classes which implement ValidationAttribute

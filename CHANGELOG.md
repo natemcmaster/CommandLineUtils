@@ -1,5 +1,12 @@
 # Changelog
 
+## [v2.3.3]
+
+Enhancements:
+* [@mpipo]: add an API to disable the pager for help text (CommandLineApplication.UsePagerForHelpText) ([#216])
+
+[#216]: https://github.com/natemcmaster/CommandLineUtils/pull/216
+
 ## [v2.3.2]
 
 Enhancements:
@@ -321,13 +328,15 @@ Other:
 [@liamdawson]: https://github.com/liamdawson
 [@lvermeulen]: https://github.com/lvermeulen
 [@MadbHatter]: https://github.com/MadbHatter
+[@mpipo]: https://github.com/mpipo
 [@rlvandaveer]: https://github.com/rlvandaveer
 [@rmcc13]: https://github.com/rmcc13
 [@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros
 [@TheConstructor]: https://github.com/TheConstructor
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.2...HEAD
+[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.3...HEAD
+[v2.3.3]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.2...v2.3.3
 [v2.3.2]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.1...v2.3.2
 [v2.3.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0...v2.3.1
 [v2.3.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0

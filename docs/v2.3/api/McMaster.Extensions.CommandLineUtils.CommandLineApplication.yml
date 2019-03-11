@@ -74,6 +74,7 @@ items:
   - McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowVersion
   - McMaster.Extensions.CommandLineUtils.CommandLineApplication.System#IServiceProvider#GetService(System.Type)
   - McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
   - McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValidationErrorHandler
   - McMaster.Extensions.CommandLineUtils.CommandLineApplication.Validators
   - McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValueParsers
@@ -812,6 +813,43 @@ items:
       type: System.Boolean
     content.vb: Public Property ThrowOnUnexpectedArgument As Boolean
   overload: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
+  id: UsePagerForHelpText
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  langs:
+  - csharp
+  - vb
+  name: UsePagerForHelpText
+  nameWithType: CommandLineApplication.UsePagerForHelpText
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplication.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: UsePagerForHelpText
+    path: ../src/CommandLineUtils/CommandLineApplication.cs
+    startLine: 175
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nWhether a Pager should be used to display help text.\n"
+  example: []
+  syntax:
+    content: public bool UsePagerForHelpText { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property UsePagerForHelpText As Boolean
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText*
   modifiers.csharp:
   - public
   - get
@@ -5973,6 +6011,16 @@ references:
   name: ThrowOnUnexpectedArgument
   nameWithType: CommandLineApplication.ThrowOnUnexpectedArgument
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText*
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
+  name: UsePagerForHelpText
+  nameWithType: CommandLineApplication.UsePagerForHelpText
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
+  name: UsePagerForHelpText
+  nameWithType: CommandLineApplication.UsePagerForHelpText
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionHelp
   commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionHelp
   parent: McMaster.Extensions.CommandLineUtils.CommandLineApplication
