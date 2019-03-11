@@ -1670,6 +1670,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument
   nameWithType: CommandLineApplication.ThrowOnUnexpectedArgument
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
+  name: UsePagerForHelpText
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_UsePagerForHelpText
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
+  nameWithType: CommandLineApplication.UsePagerForHelpText
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText*
+  name: UsePagerForHelpText
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_UsePagerForHelpText_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
+  nameWithType: CommandLineApplication.UsePagerForHelpText
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValidationErrorHandler
   name: ValidationErrorHandler
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ValidationErrorHandler
@@ -4985,6 +4998,12 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
   fullName: McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument, System.ComponentModel.DataAnnotations.ValidationContext)
   nameWithType: AttributeValidator.GetValidationResult(CommandArgument, ValidationContext)
+- uid: McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  name: GetValidationResult(CommandLineApplication, ValidationContext)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.html#McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_ComponentModel_DataAnnotations_ValidationContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.ComponentModel.DataAnnotations.ValidationContext)
+  nameWithType: AttributeValidator.GetValidationResult(CommandLineApplication, ValidationContext)
 - uid: McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
   name: GetValidationResult(CommandOption, ValidationContext)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.html#McMaster_Extensions_CommandLineUtils_Validation_AttributeValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandOption_System_ComponentModel_DataAnnotations_ValidationContext_
