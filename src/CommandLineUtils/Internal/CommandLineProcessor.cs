@@ -37,8 +37,6 @@ namespace McMaster.Extensions.CommandLineUtils
             _initialCommand = command;
             _enumerator = new ParameterEnumerator(arguments ?? new string[0]);
 
-            // TODO in 3.0, remove this check, and make ClusterOptions true always
-            // and make it an error to use short options with multiple characters
             if (!command.ClusterOptionsWasSetExplicitly)
             {
                 foreach (var option in AllOptions(command))
@@ -63,7 +61,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        static internal IEnumerable<CommandOption> AllOptions(CommandLineApplication command)
+        internal static IEnumerable<CommandOption> AllOptions(CommandLineApplication command)
         {
             foreach (var option in command.Options)
             {

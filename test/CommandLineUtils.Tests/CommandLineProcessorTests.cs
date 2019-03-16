@@ -182,6 +182,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 app.Parse();
                 Assert.False(app.ClusterOptions);
             }
+
+            {
+                // Issue #218
+                var app = new CommandLineApplication();
+                app.Command("sub1", c => { c.Option("-o1", "Option 1", CommandOptionType.SingleValue); });
+                Assert.False(app.ClusterOptionsWasSetExplicitly);
+                app.Parse("sub1", "-o1", "abc");
+                Assert.False(app.ClusterOptions);
+            }
         }
 
         [Fact]

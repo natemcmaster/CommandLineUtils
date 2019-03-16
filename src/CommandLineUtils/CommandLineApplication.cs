@@ -313,7 +313,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </remarks>
         public bool ClusterOptions
         {
-            get => _clusterOptions ?? true;
+            // unless explicitly set, use the value of cluster options from the parent command
+            // or default to true if this is the root command
+            get => _clusterOptions.HasValue
+                ? _clusterOptions.Value
+                : Parent == null || Parent.ClusterOptions;
             set => _clusterOptions = value;
         }
 

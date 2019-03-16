@@ -1,5 +1,9 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.4'">
+Bugs fixed:
+* Handle options with multiple characters in the short option name when only specified in a subcommand
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.3'">
 Enhancement:
 * @mpipo: add an API to disable the pager for help text (CommandLineApplication.UsePagerForHelpText)
