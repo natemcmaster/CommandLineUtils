@@ -174,7 +174,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var outData = sb.ToString();
 
             Assert.True(app.OptionHelp.HasValue());
-            Assert.Contains("Usage: lvl1 lvl2 [arguments] [options]", outData);
+            Assert.Contains("Usage: lvl1 lvl2 [options] <lvl-arg>", outData);
         }
 
         [Theory]

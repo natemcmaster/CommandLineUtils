@@ -732,7 +732,7 @@ Examples:
                 var outData = outWriter.ToString();
 
                 Assert.True(helpOption.HasValue());
-                Assert.Contains("Usage: lvl1 lvl2 [arguments] [options]", outData);
+                Assert.Contains("Usage: lvl1 lvl2 [options] <lvl-arg>", outData);
 
                 inputs = new[] { helpOptionString };
                 app.Execute(inputs);
