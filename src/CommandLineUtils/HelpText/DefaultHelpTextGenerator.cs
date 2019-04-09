@@ -113,14 +113,16 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 output.Write(stack.Pop());
             }
 
-            if (visibleArguments.Any())
-            {
-                output.Write(" [arguments]");
-            }
-
             if (visibleOptions.Any())
             {
                 output.Write(" [options]");
+            }
+
+            foreach (var argument in visibleArguments)
+            {
+                output.Write(" <");
+                output.Write(argument.Name);
+                output.Write(">");
             }
 
             if (visibleCommands.Any())
