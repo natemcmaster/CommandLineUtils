@@ -1,5 +1,15 @@
 # Changelog
 
+## [v2.3.4]
+
+Bugs fixed:
+
+* Fix [#218]: Handle options with multiple characters in the short option name when only specified in a subcommand
+* PR [#224] by [@SteveBenz]: Rearrange the order that commands are listed in the USAGE block and list all the commands on the line
+
+[#218]: https://github.com/natemcmaster/CommandLineUtils/issues/218
+[#224]: https://github.com/natemcmaster/CommandLineUtils/pull/224
+
 ## [v2.3.3]
 
 Enhancements:
@@ -10,7 +20,7 @@ Enhancements:
 ## [v2.3.2]
 
 Enhancements:
-* Fix [#211] by [@rlvandaveer] - honor attributes on classes which implement ValidationAttribute
+* Fix [#211] by [@rlvandaveer]: honor attributes on classes which implement ValidationAttribute
 
 Bugs fixed:
 * Fix [#207] by [@jcaillon]: Option for the case sensitivity of command names
@@ -333,6 +343,7 @@ Other:
 [@rmcc13]: https://github.com/rmcc13
 [@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros
+[@SteveBenz]: https://github.com/SteveBenz
 [@TheConstructor]: https://github.com/TheConstructor
 
 [Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.3...HEAD
