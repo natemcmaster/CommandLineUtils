@@ -1,5 +1,7 @@
 # Changelog
 
+[See unreleased changes][unreleased].
+
 ## [v2.3.4]
 
 Bugs fixed:
@@ -346,7 +348,8 @@ Other:
 [@SteveBenz]: https://github.com/SteveBenz
 [@TheConstructor]: https://github.com/TheConstructor
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.3...HEAD
+[unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.4...HEAD
+[v2.3.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.3...v2.3.4
 [v2.3.3]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.2...v2.3.3
 [v2.3.2]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.1...v2.3.2
 [v2.3.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0...v2.3.1
