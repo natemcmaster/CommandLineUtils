@@ -23,11 +23,6 @@ PM> Install-Package McMaster.Extensions.CommandLineUtils
 ```
 $ dotnet add package McMaster.Extensions.CommandLineUtils
 ```
-```xml
-<ItemGroup>
-  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.3.2" />
-</ItemGroup>
-```
 
 Pre-release builds and symbols: https://www.myget.org/gallery/natemcmaster/
 

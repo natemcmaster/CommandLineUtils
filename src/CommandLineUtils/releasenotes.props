@@ -3,6 +3,7 @@
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.4'">
 Bugs fixed:
 * Handle options with multiple characters in the short option name when only specified in a subcommand
+* Rearrange the order that commands are listed in the USAGE block and list all the commands on the line
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.3'">
 Enhancement:
