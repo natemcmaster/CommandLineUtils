@@ -18,6 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(new[] { @"C:\Program Files\dotnet\" }, @"""C:\Program Files\dotnet\\""")]
         [InlineData(new[] { @"backslash\""preceedingquote" }, @"backslash\\\""preceedingquote")]
         [InlineData(new[] { @""" hello nate """ }, @"""\"" hello nate \""""")]
+        [InlineData(new[] { "one", "", "three" }, "one \"\" three")]
         public void EscapesArguments(string[] args, string expected)
         {
             Assert.Equal(expected, ArgumentEscaper.EscapeAndConcatenate(args));

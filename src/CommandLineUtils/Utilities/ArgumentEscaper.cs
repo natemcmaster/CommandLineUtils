@@ -29,7 +29,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             var sb = new StringBuilder();
 
-            var needsQuotes = ContainsWhitespace(arg);
+            var needsQuotes = arg.Length == 0 || ContainsWhitespace(arg);
             var isQuoted = needsQuotes || IsSurroundedWithQuotes(arg);
 
             if (needsQuotes)
