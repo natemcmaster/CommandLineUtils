@@ -262,6 +262,15 @@ namespace McMaster.Extensions.CommandLineUtils
             => builder.Satisfies<FileExistsAttribute>(errorMessage);
 
         /// <summary>
+        /// Specifies that values must be a path to a file that does not already exist.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder NonExistingFile(this IValidationBuilder builder, string errorMessage = null)
+            => builder.Satisfies<FileNotExistsAttribute>(errorMessage);
+
+        /// <summary>
         /// Specifies that values must be a path to a directory that already exists.
         /// </summary>
         /// <param name="builder">The builder.</param>
@@ -271,6 +280,15 @@ namespace McMaster.Extensions.CommandLineUtils
             => builder.Satisfies<DirectoryExistsAttribute>(errorMessage);
 
         /// <summary>
+        /// Specifies that values must be a path to a directory that does not already exist.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder NonExistingDirectory(this IValidationBuilder builder, string errorMessage = null)
+            => builder.Satisfies<DirectoryNotExistsAttribute>(errorMessage);
+
+        /// <summary>
         /// Specifies that values must be a valid file path or directory, and the file path must already exist.
         /// </summary>
         /// <param name="builder">The builder.</param>
@@ -278,6 +296,15 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The builder.</returns>
         public static IValidationBuilder ExistingFileOrDirectory(this IValidationBuilder builder, string errorMessage = null)
             => builder.Satisfies<FileOrDirectoryExistsAttribute>(errorMessage);
+
+        /// <summary>
+        /// Specifies that values must be a valid file path or directory, and the file path must not already exist.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="errorMessage">A custom error message to display.</param>
+        /// <returns>The builder.</returns>
+        public static IValidationBuilder NonExistingFileOrDirectory(this IValidationBuilder builder, string errorMessage = null)
+            => builder.Satisfies<FileOrDirectoryNotExistsAttribute>(errorMessage);
 
         /// <summary>
         /// Specifies that values must be legal file paths.
