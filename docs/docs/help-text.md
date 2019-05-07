@@ -115,7 +115,7 @@ interface.
 ```csharp
 class MyHelpTextGenerator : IHelpTextGenerator
 {
-    public void void Generate(CommandLineApplication application, TextWriter output)
+    public void Generate(CommandLineApplication application, TextWriter output)
     {
         output.WriteLine(@"To use this command, throw salt over your shoulder and spit twice.");
     }
