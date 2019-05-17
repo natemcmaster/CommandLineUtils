@@ -3,16 +3,23 @@
 # Number of days of inactivity before an issue becomes stale
 daysUntilStale: 90
 # Number of days of inactivity before a stale issue is closed
-daysUntilClose: 7
+daysUntilClose: 14
 # Label to use when marking an issue as stale
-staleLabel: closed-wontfix
+staleLabel: closed-stale
 # Skip issues in a milestone
 exemptMilestones: true
+# Skipp issues assigned to someone
+exemptAssignees: true
+exemptLabels:
+- announcement
 # Comment to post when marking an issue as stale. Set to `false` to disable
 markComment: >
   This issue has been automatically marked as stale because it has not had
   recent activity. It will be closed if no further activity occurs.
-  Please comment if you believe this should remain open, otherwise it will be closed in 7 days.
+  Please comment if you believe this should remain open, otherwise it will be closed in 14 days.
   Thank you for your contributions to this project.
 # Comment to post when closing a stale issue. Set to `false` to disable
-closeComment: false
+closeComment: >
+  Closing because there was no response to the previous comment.
+  
+  If you are looking at this issue in the future and think it should be reopened, please make a comment and mention natemcmaster so he sees it.
