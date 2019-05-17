@@ -13,6 +13,8 @@ CommandLineUtils
 
 This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This fork, on the other hand, will continue to make improvements, release updates and take contributions.
 
+The roadmap for this project can be found [here](https://github.com/natemcmaster/CommandLineUtils/issues/206).
+
 ## Install
 
 Install the [NuGet package][main-nuget] into your project.
