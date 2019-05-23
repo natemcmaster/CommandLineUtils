@@ -792,7 +792,7 @@ Examples:
         public void UsePagerForHelpTextPropertyIsInherited(bool usePagerForHelpText)
         {
             var app = new CommandLineApplication { UsePagerForHelpText = usePagerForHelpText };
-            var sub = app.Command("sub", a => a.HelpOption());
+            var sub = app.Command("sub", _ => { });
             Assert.Equal(usePagerForHelpText, sub.UsePagerForHelpText);
         }
 
