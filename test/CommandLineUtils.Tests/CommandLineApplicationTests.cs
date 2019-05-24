@@ -786,6 +786,16 @@ Examples:
             Assert.NotSame(help, sub2.OptionHelp);
         }
 
+        [Theory]
+        [InlineData(false)]
+        [InlineData(true)]
+        public void UsePagerForHelpTextPropertyIsInherited(bool usePagerForHelpText)
+        {
+            var app = new CommandLineApplication { UsePagerForHelpText = usePagerForHelpText };
+            var sub = app.Command("sub", _ => { });
+            Assert.Equal(usePagerForHelpText, sub.UsePagerForHelpText);
+        }
+
         [Fact]
         public void VersionOptionIsSet()
         {

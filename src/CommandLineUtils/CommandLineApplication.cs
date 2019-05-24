@@ -105,6 +105,7 @@ namespace McMaster.Extensions.CommandLineUtils
             _services = new Lazy<IServiceProvider>(() => new ServiceProvider(this));
             ValueParsers = parent?.ValueParsers ?? new ValueParserProvider();
             _clusterOptions = parent?._clusterOptions;
+            UsePagerForHelpText = parent?.UsePagerForHelpText ?? true;
 
             _conventionContext = CreateConventionContext();
 
@@ -172,7 +173,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Whether a Pager should be used to display help text.
         /// </summary>
-        public bool UsePagerForHelpText { get; set; } = true;
+        public bool UsePagerForHelpText { get; set; }
 
         /// <summary>
         /// All names by which the command can be referenced. This includes <see cref="Name"/> and an aliases added in <see cref="AddName"/>.
