@@ -13,7 +13,7 @@ namespace McMaster.Extensions.CommandLineUtils.Errors
         /// <summary>
         /// Initializes an instance of <see cref="SubcommandCycleException"/>.
         /// </summary>
-        /// <param name="modelType"></param>
+        /// <param name="modelType">The type of the cycled command model</param>
         public SubcommandCycleException(Type modelType)
             : base($"Subcommand cycle detected: trying to add command of model {modelType} as its own direct or indirect subcommand")
         {
