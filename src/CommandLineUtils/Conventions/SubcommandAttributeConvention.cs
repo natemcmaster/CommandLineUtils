@@ -1,6 +1,8 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using McMaster.Extensions.CommandLineUtils.Abstractions;
+using McMaster.Extensions.CommandLineUtils.Errors;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -28,6 +30,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 var contextArgs = new object[] { context, attribute };
                 foreach (var type in attribute.Types)
                 {
+                    AssertSubcommandIsNotCycled(type, context.Application);
+
                     var impl = s_addSubcommandMethod.MakeGenericMethod(type);
                     try
                     {
@@ -39,6 +43,19 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         throw ex.InnerException ?? ex;
                     }
                 }
+            }
+        }
+
+        private void AssertSubcommandIsNotCycled(Type modelType, CommandLineApplication parentCommand)
+        {
+            while (parentCommand != null)
+            {
+                if (parentCommand is IModelAccessor parentCommandAccessor
+                    && parentCommandAccessor.GetModelType() == modelType)
+                {
+                    throw new SubcommandCycleException(modelType);
+                }
+                parentCommand = parentCommand.Parent;
             }
         }
 

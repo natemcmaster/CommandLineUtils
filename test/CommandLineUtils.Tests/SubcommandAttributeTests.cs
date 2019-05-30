@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using McMaster.Extensions.CommandLineUtils.Errors;
 using System;
 using System.IO;
 using System.Linq;
@@ -197,6 +198,38 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<DuplicateSubCommands>(new TestConsole(_output)));
             Assert.Equal(Strings.DuplicateSubcommandName("level1"), ex.Message);
+        }
+
+        [Command, Subcommand(typeof(CycledCommand2))]
+        private class CycledCommand1
+        {
+        }
+
+        [Command, Subcommand(typeof(CycledCommand1))]
+        private class CycledCommand2
+        {
+        }
+
+        [Fact]
+        public void ThrowsForCycledSubCommand()
+        {
+            var ex = Assert.Throws<SubcommandCycleException>(
+                () => CommandLineApplication.Execute<CycledCommand1>(new TestConsole(_output)));
+            Assert.Equal(typeof(CycledCommand1), ex.ModelType);
+        }
+
+        [Command, Subcommand(typeof(SelfCycledCommand))]
+        private class SelfCycledCommand
+        {
+
+        }
+
+        [Fact]
+        public void ThrowsForSelfCycledCommand()
+        {
+            var ex = Assert.Throws<SubcommandCycleException>(
+                () => CommandLineApplication.Execute<SelfCycledCommand>(new TestConsole(_output)));
+            Assert.Equal(typeof(SelfCycledCommand), ex.ModelType);
         }
     }
 }
