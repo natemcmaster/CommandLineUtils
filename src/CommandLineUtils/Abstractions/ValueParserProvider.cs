@@ -71,7 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// </remarks>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public IValueParser<T> GetParser<T>()
+        public IValueParser<T>? GetParser<T>()
         {
             var parser = GetParserImpl<T>();
             if (parser == null)
@@ -87,7 +87,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             return new GenericParserAdapter<T>(parser);
         }
 
-        internal IValueParser GetParserImpl<T>()
+        internal IValueParser? GetParserImpl<T>()
         {
             var type = typeof(T);
             if (_parsers.TryGetValue(type, out var parser))
@@ -219,7 +219,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         private sealed class GenericParserAdapter<T> : IValueParser<T>
         {
-            private IValueParser _inner;
+            private readonly IValueParser _inner;
 
             public GenericParserAdapter(IValueParser inner)
             {

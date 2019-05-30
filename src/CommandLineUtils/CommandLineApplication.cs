@@ -33,7 +33,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private string _primaryCommandName;
         internal CommandLineContext _context;
         private IHelpTextGenerator _helpTextGenerator;
-        private CommandOption _optionHelp;
+        private CommandOption? _optionHelp;
         private readonly Lazy<IServiceProvider> _services;
         private readonly ConventionContext _conventionContext;
         private readonly List<IConvention> _conventions = new List<IConvention>();
@@ -86,7 +86,8 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        internal CommandLineApplication(CommandLineApplication parent,
+        internal CommandLineApplication(
+            CommandLineApplication? parent,
             IHelpTextGenerator helpTextGenerator,
             CommandLineContext context,
             bool throwOnUnexpectedArg)
@@ -121,7 +122,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Defaults to null. A link to the parent command if this is instance is a subcommand.
         /// </summary>
-        public CommandLineApplication Parent { get; set; }
+        public CommandLineApplication? Parent { get; set; }
 
         /// <summary>
         /// The help text generator to use.
@@ -148,12 +149,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The full name of the command to show in the help text.
         /// </summary>
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
 
         /// <summary>
         /// A description of the command.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Determines if this command appears in generated help text.
@@ -163,7 +164,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Additional text that appears at the bottom of generated help text.
         /// </summary>
-        public string ExtendedHelpText { get; set; }
+        public string? ExtendedHelpText { get; set; }
 
         /// <summary>
         /// Available command-line options on this command. Use <see cref="GetOptions"/> to get all available options, which may include inherited options.
@@ -197,7 +198,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The option used to determine if help text should be displayed. This is set by calling <see cref="HelpOption(string)"/>.
         /// </summary>
-        public CommandOption OptionHelp
+        public CommandOption? OptionHelp
         {
             get
             {
@@ -218,7 +219,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The options used to determine if the command version should be displayed. This is set by calling <see cref="VersionOption(string, Func{string}, Func{string})"/>.
         /// </summary>
-        public CommandOption OptionVersion { get; internal set; }
+        public CommandOption? OptionVersion { get; internal set; }
 
         /// <summary>
         /// Required command-line arguments.
@@ -250,12 +251,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The long-form of the version to display in generated help text.
         /// </summary>
-        public Func<string> LongVersionGetter { get; set; }
+        public Func<string>? LongVersionGetter { get; set; }
 
         /// <summary>
         /// The short-form of the version to display in generated help text.
         /// </summary>
-        public Func<string> ShortVersionGetter { get; set; }
+        public Func<string>? ShortVersionGetter { get; set; }
 
         /// <summary>
         /// Subcommands.
@@ -316,9 +317,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             // unless explicitly set, use the value of cluster options from the parent command
             // or default to true if this is the root command
-            get => _clusterOptions.HasValue
-                ? _clusterOptions.Value
-                : Parent == null || Parent.ClusterOptions;
+            get => _clusterOptions ?? Parent == null || Parent.ClusterOptions;
             set => _clusterOptions = value;
         }
 
@@ -414,7 +413,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Commands.Add(subcommand);
         }
 
-        private void AssertCommandNameIsUnique(string name, CommandLineApplication skip)
+        private void AssertCommandNameIsUnique(string name, CommandLineApplication? commandToIgnore)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -423,7 +422,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             foreach (var cmd in Commands)
             {
-                if (ReferenceEquals(cmd, skip))
+                if (ReferenceEquals(cmd, commandToIgnore))
                 {
                     continue;
                 }
@@ -656,7 +655,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 throw new ArgumentNullException(nameof(action));
             }
 
-            _onParsingComplete = _onParsingComplete ?? new List<Action<ParseResult>>();
+            _onParsingComplete ??= new List<Action<ParseResult>>();
             _onParsingComplete.Add(action);
         }
 
@@ -667,7 +666,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The result of parsing.</returns>
         public ParseResult Parse(params string[] args)
         {
-            args = args ?? new string[0];
+            args ??= Util.EmptyArray<string>();
 
             var processor = new CommandLineProcessor(this, args);
             var result = processor.Process();
@@ -797,7 +796,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns></returns>
         public CommandOption VersionOption(string template,
             string shortFormVersion,
-            string longFormVersion = null)
+            string? longFormVersion = null)
         {
             if (longFormVersion == null)
             {
@@ -818,7 +817,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns></returns>
         public CommandOption VersionOption(string template,
             Func<string> shortFormVersionGetter,
-            Func<string> longFormVersionGetter = null)
+            Func<string>? longFormVersionGetter = null)
         {
             // Version option is special because we stop parsing once we see it
             // So we store it separately for further use
@@ -857,17 +856,17 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="usePager">Use a console pager to display help text, if possible.</param>
         public void ShowHelp(bool usePager)
         {
-            for (var cmd = this; cmd != null; cmd = cmd.Parent)
+            CommandLineApplication? cmd = this;
+            while (cmd != null)
             {
                 cmd.IsShowingInformation = true;
+                cmd = cmd.Parent;
             }
 
             if (usePager && ReferenceEquals(Out, _context.Console.Out))
             {
-                using (var pager = new Pager(_context.Console))
-                {
-                    _helpTextGenerator.Generate(this, pager.Writer);
-                }
+                using var pager = new Pager(_context.Console);
+                _helpTextGenerator.Generate(this, pager.Writer);
             }
             else
             {
@@ -883,7 +882,7 @@ namespace McMaster.Extensions.CommandLineUtils
         [Obsolete("This method has been marked as obsolete and will be removed in a future version." +
             "The recommended replacement is ShowHelp()")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public void ShowHelp(string commandName = null)
+        public void ShowHelp(string? commandName = null)
         {
             if (commandName == null)
             {
@@ -929,7 +928,7 @@ namespace McMaster.Extensions.CommandLineUtils
         [Obsolete("This method has been marked as obsolete and will be removed in a future version." +
             "The recommended replacement is GetHelpText()")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public virtual string GetHelpText(string commandName = null)
+        public virtual string GetHelpText(string? commandName = null)
         {
             CommandLineApplication target;
 
@@ -956,9 +955,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public void ShowVersion()
         {
-            for (var cmd = this; cmd != null; cmd = cmd.Parent)
+            CommandLineApplication? cmd = this;
+            while (cmd != null)
             {
                 cmd.IsShowingInformation = true;
+                cmd = cmd.Parent;
             }
 
             Out.Write(GetVersionText());
@@ -977,7 +978,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 sb.AppendLine(FullName);
             }
 
-            sb.AppendLine(LongVersionGetter());
+            if (LongVersionGetter != null)
+            {
+                sb.AppendLine(LongVersionGetter());
+            }
             return sb.ToString();
         }
 
@@ -987,7 +991,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns></returns>
         public virtual string GetFullNameAndVersion()
         {
-            var items = new List<string>
+            var items = new List<string?>
             {
                 FullName,
                 ShortVersionGetter?.Invoke()
@@ -1044,7 +1048,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        private IConventionBuilder _builder;
+        private IConventionBuilder? _builder;
 
         /// <summary>
         /// Gets a builder that can be used to apply conventions to
@@ -1097,7 +1101,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        internal IServiceProvider AdditionalServices { get; set; }
+        internal IServiceProvider? AdditionalServices { get; set; }
 
         object IServiceProvider.GetService(Type serviceType) => _services.Value.GetService(serviceType);
 
@@ -1110,7 +1114,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 _parent = parent;
             }
 
-            public object GetService(Type serviceType)
+            public object? GetService(Type serviceType)
             {
                 if (typeof(object) == serviceType)
                 {

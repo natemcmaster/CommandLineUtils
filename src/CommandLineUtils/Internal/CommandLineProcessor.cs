@@ -28,7 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils
             set => _enumerator.CurrentCommand = value;
         }
 
-        private CommandArgumentEnumerator _currentCommandArguments;
+        private CommandArgumentEnumerator? _currentCommandArguments;
 
         public CommandLineProcessor(CommandLineApplication command,
             IReadOnlyList<string> arguments)
@@ -92,10 +92,7 @@ namespace McMaster.Extensions.CommandLineUtils
             _enumerator.Reset();
 
         finished:
-            return new ParseResult
-            {
-                SelectedCommand = _currentCommand
-            };
+            return new ParseResult(_currentCommand);
         }
 
         private bool ProcessNext()
@@ -166,7 +163,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private bool ProcessOption()
         {
-            CommandOption option = null;
+            CommandOption? option = null;
             var arg = _enumerator.Current;
             var value = arg.Value;
             var name = arg.Name;
@@ -310,7 +307,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return true;
         }
 
-        private CommandOption FindOption(string name, Func<CommandOption, string> by)
+        private CommandOption? FindOption(string name, Func<CommandOption, string> by)
         {
             var options = _currentCommand
                 .GetOptions()
@@ -353,7 +350,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return false;
         }
 
-        private void HandleUnexpectedArg(string argTypeName, string argValue = null)
+        private void HandleUnexpectedArg(string argTypeName, string? argValue = null)
         {
             if (_currentCommand.ThrowOnUnexpectedArgument)
             {
@@ -440,20 +437,20 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        private sealed class ParameterEnumerator : IEnumerator<Parameter>
+        private sealed class ParameterEnumerator : IEnumerator<Parameter?>
         {
             private readonly IEnumerator<string> _rawArgEnumerator;
-            private Parameter _current;
-            private IEnumerator<string> _rspEnumerator;
+            private Parameter? _current;
+            private IEnumerator<string>? _rspEnumerator;
 
             public ParameterEnumerator(IReadOnlyList<string> rawArguments)
             {
                 _rawArgEnumerator = rawArguments.GetEnumerator();
             }
 
-            public Parameter Current => _current;
+            public Parameter? Current => _current;
 
-            object IEnumerator.Current => _current;
+            object? IEnumerator.Current => _current;
 
             // currently this must be settable because some parsing behavior can be set per subcommand
             public CommandLineApplication CurrentCommand { get; set; }

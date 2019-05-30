@@ -6,6 +6,10 @@
     <TargetFrameworks>netstandard2.0;netstandard1.6;net45</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <!-- Until .NET Core 3.0 P6 is available -->
+    <NullableContextOptions>enable</NullableContextOptions>
     <IsPackable>true</IsPackable>
     <Description>Command-line parsing API.</Description>
     <PackageDescription>Command-line parsing API and utilities for console applications.

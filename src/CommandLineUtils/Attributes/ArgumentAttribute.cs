@@ -27,7 +27,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="order">The order</param>
         /// <param name="name">The name</param>
-        public ArgumentAttribute(int order, string name)
+        public ArgumentAttribute(int order, string? name)
             : this(order, name, null)
         { }
 
@@ -37,7 +37,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="order">The order</param>
         /// <param name="name">The name</param>
         /// <param name="description">The description</param>
-        public ArgumentAttribute(int order, string name, string description)
+        public ArgumentAttribute(int order, string? name, string? description)
         {
             Order = order;
             Name = name;
@@ -52,7 +52,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The name of the argument. <seealso cref="CommandArgument.Name"/>.
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Determines if the argument appears in the generated help-text.  <seealso cref="CommandArgument.ShowInHelpText"/>.
@@ -62,7 +62,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// A description of the argument.  <seealso cref="CommandArgument.Description"/>.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         internal CommandArgument Configure(PropertyInfo prop)
         {
