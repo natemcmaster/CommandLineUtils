@@ -394,23 +394,49 @@ namespace McMaster.Extensions.CommandLineUtils
         [DebuggerDisplay("{Raw} ({Type})")]
         private sealed class Parameter
         {
-            public Parameter(string raw)
+            public Parameter(string raw, CommandLineApplication currentCommand)
             {
+                var nameValueSeparators = new[] { ':', '=' };
+
                 Raw = raw;
                 Type = GetType(raw);
 
                 if (Type == ParameterType.LongOption || Type == ParameterType.ShortOption)
                 {
-                    var parts = Raw.Split(new[] { ':', '=' }, 2);
+                    var sublen = Type == ParameterType.ShortOption
+                        ? 1
+                        : 2;
+                    var trimmedNameValue = Raw.Substring(sublen);
+
+                    // If the entire argument matches a name then return the whole argument as the name.
+                    // This is to support options with names containing separators, ex: "--nested:option"
+                    if (currentCommand.Options.Any(option => option.LongName == trimmedNameValue))
+                    {
+                        Name = trimmedNameValue;
+                        return;
+                    }
+
+                    // We might also have an argument "--nested:option:value" or "--nested:option=value"
+                    // In this case we want to find the last separator and see if the first part, "nested:option" matches an option
+                    var indexOfLastSeparator = trimmedNameValue.LastIndexOfAny(nameValueSeparators);
+                    if (indexOfLastSeparator >= 0)
+                    {
+                        var name = trimmedNameValue.Substring(0, indexOfLastSeparator);
+                        if (currentCommand.Options.Any(option => option.LongName == name))
+                        {
+                            Name = name;
+                            Value = trimmedNameValue.Substring(indexOfLastSeparator + 1);
+                            return;
+                        }
+                    }
+
+                    // Fall back to splitting on all separators
+                    var parts = trimmedNameValue.Split(nameValueSeparators, 2);
                     if (parts.Length > 1)
                     {
                         Value = parts[1];
                     }
-
-                    var sublen = Type == ParameterType.ShortOption
-                        ? 1
-                        : 2;
-                    Name = parts[0].Substring(sublen);
+                    Name = parts[0];
                 }
             }
 
@@ -466,7 +492,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     if (_rspEnumerator.MoveNext())
                     {
-                        _current = new Parameter(_rspEnumerator.Current);
+                        _current = new Parameter(_rspEnumerator.Current, CurrentCommand);
                         return true;
                     }
 
@@ -486,7 +512,7 @@ namespace McMaster.Extensions.CommandLineUtils
                         }
                     }
 
-                    _current = new Parameter(_rawArgEnumerator.Current);
+                    _current = new Parameter(_rawArgEnumerator.Current, CurrentCommand);
                     return true;
                 }
 

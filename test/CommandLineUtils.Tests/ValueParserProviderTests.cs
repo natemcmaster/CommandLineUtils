@@ -110,6 +110,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             [Option("--timespan")]
             public TimeSpan TimeSpan { get; }
+
+            [Option("--nested:option:<VALUE>")]
+            public string NestedOption { get; }
         }
 
         private sealed class InCulture : IDisposable
@@ -372,6 +375,18 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var parsed = CommandLineParser.ParseArgs<Program>(input);
             Assert.True(parsed.ValueTuple.HasValue);
             Assert.Equal(expected, parsed.ValueTuple.Value);
+        }
+
+        [Theory]
+        [InlineData(new string[] { "--nested:option", "value" }, "value")]
+        [InlineData(new string[] { "--nested:option=value" }, "value")]
+        [InlineData(new string[] { "--nested:option:value" }, "value")]
+        [InlineData(new string[] { "--nested:option:" }, "")]
+        [InlineData(new string[] { "--nested:option: " }, " ")]
+        public void ParsesHierarchicalName(string[] input, string expected)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>(input);
+            Assert.Equal(expected, parsed.NestedOption);
         }
 
         [Theory]

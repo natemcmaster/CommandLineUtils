@@ -26,6 +26,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("--name=<VALUE>", null, null, "name", "VALUE")]
         [InlineData("-a:<VALUE> --name:<VALUE>", "a", null, "name", "VALUE")]
         [InlineData("-a=<VALUE> --name=<VALUE>", "a", null, "name", "VALUE")]
+        [InlineData("--nested:option <test>", null, null, "nested:option", "test")]
+        [InlineData("--nested:option:<test>", null, null, "nested:option", "test")]
+        [InlineData("-n|--nested:option:<test>", "n", null, "nested:option", "test")]
         public void ItParsesSingleValueTemplate(string template, string shortName, string symbolName, string longName, string valueName)
         {
             var opt = new CommandOption(template, CommandOptionType.SingleValue);

@@ -29,12 +29,34 @@ namespace McMaster.Extensions.CommandLineUtils
 #pragma warning restore 618
             OptionType = optionType;
 
-            var separators = (optionType == CommandOptionType.SingleOrNoValue)
-                ? new[] { ' ', '|', ':', '=', '[', ']' }
-                : new[] { ' ', '|', ':', '=' };
+            // ':' is a special separator we want to look only for an occurrence next to a '<'
+            // so we can support "--nested:option:<value>"
+            var separators = new[] { ' ', '|', '=' };
+
+            if (optionType == CommandOptionType.SingleOrNoValue)
+            {
+                // the '[' and ']' characters are for help only and do not affect the resulting option
+                template = template.Replace("[", "").Replace("]", "");
+            }
             foreach (var part in template.Split(separators, StringSplitOptions.RemoveEmptyEntries))
             {
-                if (part.StartsWith("--"))
+                if (part.StartsWith("-") && part.EndsWith(">"))
+                {
+                    if (!part.Contains(":<"))
+                    {
+                        throw new ArgumentException($"Invalid template pattern '{template}'", nameof(template));
+                    }
+                    var subparts = part.Split(new string[] { ":<" }, StringSplitOptions.None);
+                    if (subparts[0].StartsWith("--"))
+                    {
+                        LongName = subparts[0].Substring(2);
+                    }
+                    else {
+                        ShortName = subparts[0].Substring(1);
+                    }
+                    ValueName = subparts[1].Trim('<', '>');
+                }
+                else if (part.StartsWith("--"))
                 {
                     LongName = part.Substring(2);
                 }
