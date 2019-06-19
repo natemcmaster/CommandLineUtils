@@ -25,8 +25,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             var props = ReflectionHelper.GetProperties(context.ModelType);
 
-            HelpOptionAttribute helpOptionAttr = null;
-            PropertyInfo property = null;
+            HelpOptionAttribute? helpOptionAttr = null;
+            PropertyInfo? property = null;
 
             foreach (var prop in props)
             {
@@ -54,7 +54,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 EnsureDoesNotHaveArgumentAttribute(prop);
             }
 
-            if (helpOptionAttr == null)
+            if (helpOptionAttr == null || property == null)
             {
                 return;
             }

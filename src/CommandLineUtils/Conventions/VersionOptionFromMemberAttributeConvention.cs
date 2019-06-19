@@ -14,13 +14,14 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// <inheritdoc />
         public virtual void Apply(ConventionContext context)
         {
-            if (context.ModelType == null)
+            var modelAccessor = context.ModelAccessor;
+            if (context.ModelType == null || modelAccessor == null)
             {
                 return;
             }
 
             var versionOptionFromMember = context.ModelType.GetTypeInfo().GetCustomAttribute<VersionOptionFromMemberAttribute>();
-            versionOptionFromMember?.Configure(context.Application, context.ModelType, context.ModelAccessor.GetModel);
+            versionOptionFromMember?.Configure(context.Application, context.ModelType, modelAccessor.GetModel);
         }
     }
 }

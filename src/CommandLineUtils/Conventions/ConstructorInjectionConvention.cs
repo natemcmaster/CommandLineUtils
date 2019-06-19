@@ -13,7 +13,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
     /// </summary>
     public class ConstructorInjectionConvention : IConvention
     {
-        private readonly IServiceProvider _additionalServices;
+        private readonly IServiceProvider? _additionalServices;
 
         /// <summary>
         /// Initializes an instance of <see cref="ConstructorInjectionConvention" />.
@@ -66,7 +66,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
         }
 
-        private static Func<TModel> FindMatchedConstructor<TModel>(
+        private static Func<TModel>? FindMatchedConstructor<TModel>(
             ConstructorInfo[] constructors,
             IServiceProvider services,
             bool throwIfNoParameterTypeRegistered = false)

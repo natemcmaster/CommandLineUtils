@@ -32,12 +32,17 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The name of the property or method that returns short version information.
         /// </summary>
-        public string MemberName { get; set; }
+        public string? MemberName { get; set; }
+
+        /// <summary>
+        /// The option template. This is parsed into the short and long name.
+        /// </summary>
+        public new string Template { get; set; }
 
         internal CommandOption Configure(CommandLineApplication app, Type type, Func<object> targetInstanceFactory)
         {
-            Func<string> shortFormGetter = null;
-            Func<string> longFormGetter = null;
+            Func<string>? shortFormGetter = null;
+            Func<string>? longFormGetter = null;
 
             if (MemberName != null)
             {
@@ -55,7 +60,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 shortFormGetter = () =>
                 {
-                    return methods[0].Invoke(targetInstanceFactory?.Invoke(), Util.EmptyArray<object>()) as string;
+                    return (string)methods[0].Invoke(targetInstanceFactory.Invoke(), Util.EmptyArray<object>());
                 };
             }
 

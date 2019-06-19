@@ -14,7 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             return
                 ValueParser.Create((argName, value, culture) =>
                     value == null
-                        ? (true, default)
+                        ? (true, default!)
                         : (true, typeParser.Parse(argName, value, culture)));
         }
     }

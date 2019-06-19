@@ -22,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             _parserCulture = parserCulture;
         }
 
-        public object Parse(string argName, IReadOnlyList<string> values)
+        public object Parse(string? argName, IReadOnlyList<string?> values)
         {
             var list = (IList)Activator.CreateInstance(_listType, new object[] { values.Count });
             for (var i = 0; i < values.Count; i++)

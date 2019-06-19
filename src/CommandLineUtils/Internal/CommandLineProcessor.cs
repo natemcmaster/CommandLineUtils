@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         private readonly CommandLineApplication _app;
         private readonly CommandLineApplication _initialCommand;
-        private readonly ParameterEnumerator _enumerator;
+        private readonly ArgumentEnumerator _enumerator;
 
         private CommandLineApplication _currentCommand
         {
@@ -35,7 +35,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             _app = command;
             _initialCommand = command;
-            _enumerator = new ParameterEnumerator(arguments ?? new string[0]);
+            _enumerator = new ArgumentEnumerator(command, arguments ?? new string[0]);
 
             if (!command.ClusterOptionsWasSetExplicitly)
             {
@@ -97,25 +97,24 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private bool ProcessNext()
         {
-            switch (_enumerator.Current.Type)
+            switch (_enumerator.Current)
             {
-                case ParameterType.ArgumentSeparator:
+                case ArgumentSeparatorArgument _:
                     if (!ProcessArgumentSeparator())
                     {
                         return false;
                     }
 
                     break;
-                case ParameterType.ShortOption:
-                case ParameterType.LongOption:
-                    if (!ProcessOption())
+                case OptionArgument arg:
+                    if (!ProcessOption(arg))
                     {
                         return false;
                     }
 
                     break;
-                case ParameterType.CommandOrArgument:
-                    if (!ProcessCommandOrArgument())
+                case CommandOrParameterArgument arg:
+                    if (!ProcessCommandOrParameter(arg))
                     {
                         return false;
                     }
@@ -129,9 +128,8 @@ namespace McMaster.Extensions.CommandLineUtils
             return true;
         }
 
-        private bool ProcessCommandOrArgument()
+        private bool ProcessCommandOrParameter(CommandOrParameterArgument arg)
         {
-            var arg = _enumerator.Current;
             foreach (var subcommand in _currentCommand.Commands)
             {
                 if (subcommand.MatchesName(arg.Raw))
@@ -161,13 +159,12 @@ namespace McMaster.Extensions.CommandLineUtils
             return true;
         }
 
-        private bool ProcessOption()
+        private bool ProcessOption(OptionArgument arg)
         {
             CommandOption? option = null;
-            var arg = _enumerator.Current;
             var value = arg.Value;
             var name = arg.Name;
-            if (arg.Type == ParameterType.ShortOption)
+            if (arg.IsShortOption)
             {
                 if (_currentCommand.ClusterOptions)
                 {
@@ -296,7 +293,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
 
                 var nextArg = _enumerator.Current;
-                if (!option.TryParse(nextArg.Raw))
+                if (nextArg != null && !option.TryParse(nextArg.Raw))
                 {
                     _currentCommand.ShowHint();
                     throw new CommandParsingException(_currentCommand,
@@ -307,7 +304,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return true;
         }
 
-        private CommandOption? FindOption(string name, Func<CommandOption, string> by)
+        private CommandOption? FindOption(string name, Func<CommandOption, string?> by)
         {
             var options = _currentCommand
                 .GetOptions()
@@ -376,79 +373,76 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             do
             {
-                _currentCommand.RemainingArguments.Add(_enumerator.Current.Raw);
+                var arg = _enumerator.Current;
+                if (arg != null)
+                {
+                    _currentCommand.RemainingArguments.Add(arg.Raw);
+                }
             } while (_enumerator.MoveNext());
         }
 
-        private enum ParameterType
+        private class ArgumentSeparatorArgument : Argument
         {
-            CommandOrArgument,
-            ShortOption,
-            LongOption,
-            ArgumentSeparator
+            private ArgumentSeparatorArgument() : base("--")
+            {
+            }
+
+            public static ArgumentSeparatorArgument Instance { get; } = new ArgumentSeparatorArgument();
+        }
+
+        private class CommandOrParameterArgument : Argument
+        {
+            public CommandOrParameterArgument(string raw) : base(raw)
+            {
+            }
+        }
+
+        private class OptionArgument : Argument
+        {
+            public OptionArgument(string raw, bool isShortOption) : base(raw)
+            {
+                IsShortOption = isShortOption;
+                var parts = Raw.Split(new[] { ':', '=' }, 2);
+                if (parts.Length > 1)
+                {
+                    Value = parts[1];
+                }
+
+                var sublen = isShortOption
+                    ? 1
+                    : 2;
+                Name = parts[0].Substring(sublen);
+            }
+
+            public string Name { get; set; }
+            public string? Value { get; set; }
+            public bool IsShortOption { get; }
         }
 
         [DebuggerDisplay("{Raw} ({Type})")]
-        private sealed class Parameter
+        private abstract class Argument
         {
-            public Parameter(string raw)
+            public Argument(string raw)
             {
                 Raw = raw;
-                Type = GetType(raw);
-
-                if (Type == ParameterType.LongOption || Type == ParameterType.ShortOption)
-                {
-                    var parts = Raw.Split(new[] { ':', '=' }, 2);
-                    if (parts.Length > 1)
-                    {
-                        Value = parts[1];
-                    }
-
-                    var sublen = Type == ParameterType.ShortOption
-                        ? 1
-                        : 2;
-                    Name = parts[0].Substring(sublen);
-                }
             }
 
             public string Raw { get; }
-            public string Name { get; }
-            public string Value { get; }
-            public ParameterType Type { get; }
-
-            private static ParameterType GetType(string raw)
-            {
-                if (string.IsNullOrEmpty(raw) || raw == "-" || raw[0] != '-')
-                {
-                    return ParameterType.CommandOrArgument;
-                }
-
-                if (raw[1] != '-')
-                {
-                    return ParameterType.ShortOption;
-                }
-
-                if (raw.Length == 2)
-                {
-                    return ParameterType.ArgumentSeparator;
-                }
-
-                return ParameterType.LongOption;
-            }
         }
 
-        private sealed class ParameterEnumerator : IEnumerator<Parameter?>
+        private sealed class ArgumentEnumerator : IEnumerator<Argument?>
         {
             private readonly IEnumerator<string> _rawArgEnumerator;
-            private Parameter? _current;
+            private Argument? _current;
             private IEnumerator<string>? _rspEnumerator;
 
-            public ParameterEnumerator(IReadOnlyList<string> rawArguments)
+            public ArgumentEnumerator(CommandLineApplication command, IReadOnlyList<string> rawArguments)
             {
+                CurrentCommand = command;
                 _rawArgEnumerator = rawArguments.GetEnumerator();
             }
 
-            public Parameter? Current => _current;
+            public Argument? Current => _current;
 
             object? IEnumerator.Current => _current;
 
@@ -463,7 +457,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     if (_rspEnumerator.MoveNext())
                     {
-                        _current = new Parameter(_rspEnumerator.Current);
+                        _current = CreateArgument(_rspEnumerator.Current);
                         return true;
                     }
 
@@ -483,11 +477,31 @@ namespace McMaster.Extensions.CommandLineUtils
                         }
                     }
 
-                    _current = new Parameter(_rawArgEnumerator.Current);
+                    _current = CreateArgument(_rawArgEnumerator.Current);
                     return true;
                 }
 
                 return false;
+            }
+
+            private Argument CreateArgument(string raw)
+            {
+                if (string.IsNullOrEmpty(raw) || raw == "-" || raw[0] != '-')
+                {
+                    return new CommandOrParameterArgument(raw);
+                }
+
+                if (raw[1] != '-')
+                {
+                    return new OptionArgument(raw, isShortOption: true);
+                }
+
+                if (raw.Length == 2)
+                {
+                    return ArgumentSeparatorArgument.Instance;
+                }
+
+                return new OptionArgument(raw, isShortOption: false);
             }
 
             private IEnumerator<string> CreateRspParser(string path)

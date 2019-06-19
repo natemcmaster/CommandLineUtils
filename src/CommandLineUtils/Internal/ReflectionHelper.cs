@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
             var setter = prop.GetSetMethod(nonPublic: true);
             if (setter != null)
             {
-                return (obj, value) => setter.Invoke(obj, new object[] { value });
+                return (obj, value) => setter.Invoke(obj, new object?[] { value });
             }
             else
             {
@@ -82,18 +82,19 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 else
                 {
-                    arguments[i]= command.AdditionalServices?.GetService(methodParam.ParameterType);
-                    if (arguments[i] == null)
+                    object? service = command.AdditionalServices?.GetService(methodParam.ParameterType);
+                    if (service == null)
                     {
                         throw new InvalidOperationException(Strings.UnsupportedParameterTypeOnMethod(method.Name, methodParam));
                     }
+                    arguments[i] = service;
                 }
             }
 
             return arguments;
         }
 
-        public static bool IsNullableType(TypeInfo typeInfo, out Type wrappedType)
+        public static bool IsNullableType(TypeInfo typeInfo, out Type? wrappedType)
         {
             var result = typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>);
             wrappedType = result ? typeInfo.GetGenericArguments().First() : null;

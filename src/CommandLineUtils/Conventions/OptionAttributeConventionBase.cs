@@ -18,6 +18,12 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
     {
         private protected void AddOption(ConventionContext context, CommandOption option, PropertyInfo prop)
         {
+            var modelAccessor = context.ModelAccessor;
+            if (modelAccessor == null)
+            {
+                throw new InvalidOperationException(Strings.ConventionRequiresModel);
+            }
+
             foreach (var attr in prop.GetCustomAttributes().OfType<ValidationAttribute>())
             {
                 option.Validators.Add(new AttributeValidator(attr));
@@ -67,7 +73,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         {
                             return;
                         }
-                        setter.Invoke(context.ModelAccessor.GetModel(), collectionParser.Parse(option.LongName, option.Values));
+                        setter.Invoke(modelAccessor.GetModel(), collectionParser.Parse(option.LongName, option.Values));
                     });
                     break;
                 case CommandOptionType.SingleOrNoValue:
@@ -83,7 +89,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         {
                             return;
                         }
-                        setter.Invoke(context.ModelAccessor.GetModel(), parser.Parse(option.LongName, option.Value(), context.Application.ValueParsers.ParseCulture));
+                        setter.Invoke(modelAccessor.GetModel(), parser.Parse(option.LongName, option.Value(), context.Application.ValueParsers.ParseCulture));
                     });
                     break;
                 case CommandOptionType.NoValue:
@@ -93,7 +99,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         {
                             if (!option.HasValue())
                             {
-                                setter.Invoke(context.ModelAccessor.GetModel(), Util.EmptyArray<bool>());
+                                setter.Invoke(modelAccessor.GetModel(), Util.EmptyArray<bool>());
                             }
 
                             var count = new bool[option.Values.Count];
@@ -101,8 +107,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                             {
                                 count[i] = true;
                             }
-                            
-                            setter.Invoke(context.ModelAccessor.GetModel(), count);
+
+                            setter.Invoke(modelAccessor.GetModel(), count);
                         }
                         else
                         {
@@ -111,7 +117,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                                 return;
                             }
 
-                            setter.Invoke(context.ModelAccessor.GetModel(), option.HasValue());
+                            setter.Invoke(modelAccessor.GetModel(), option.HasValue());
                         }
                     });
                     break;

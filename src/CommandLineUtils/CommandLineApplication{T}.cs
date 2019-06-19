@@ -18,6 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private Lazy<TModel> _lazy;
         private Func<TModel> _modelFactory = DefaultModelFactory;
 
+#nullable disable
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
         /// </summary>
@@ -68,6 +69,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             Initialize();
         }
+#nullable enable
 
         private void Initialize()
         {

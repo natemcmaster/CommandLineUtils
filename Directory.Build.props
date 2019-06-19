@@ -31,7 +31,7 @@
     <CodeSignCertName>DigiCertCodeSign</CodeSignCertName>
 
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <GenerateFullPaths Condition="'$(VSCODE_CWD)' != ''">true</GenerateFullPaths>
+    <GenerateFullPaths Condition="'$(TERM_PROGRAM)' == 'vscode'">true</GenerateFullPaths>
     <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory).build\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
     <BaseOutputPath>$(MSBuildThisFileDirectory).build\bin\$(MSBuildProjectName)\</BaseOutputPath>
   </PropertyGroup>

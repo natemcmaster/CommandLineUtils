@@ -37,6 +37,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public string Version { get; set; }
 
+        /// <summary>
+        /// The option template. This is parsed into the short and long name.
+        /// </summary>
+        public new string Template { get; set; }
+
         internal CommandOption Configure(CommandLineApplication app)
         {
             var opt = app.VersionOption(Template, Version);

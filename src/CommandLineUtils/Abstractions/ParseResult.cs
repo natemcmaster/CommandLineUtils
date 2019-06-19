@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.ComponentModel;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
@@ -25,6 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// The recommended replacement is <see cref="ParseResult(CommandLineApplication)" />
         /// </summary>
         [Obsolete("This constructor is obsolete and will be removed in a future version. The recommended replacement is ctor(CommandLineApplication selectedCommand)")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ParseResult()
         {
         }

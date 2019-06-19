@@ -53,7 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="template">The template</param>
         /// <param name="description">The option description</param>
         /// <param name="optionType">The option type</param>
-        public OptionAttribute(string template, string description, CommandOptionType optionType)
+        public OptionAttribute(string? template, string? description, CommandOptionType optionType)
         {
             Template = template;
             Description = description;

@@ -38,6 +38,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// Can be null when applied to <see cref="CommandLineApplication" /> instead of
         /// <see cref="CommandLineApplication{TModel}" />.
         /// </summary>
-        public IModelAccessor ModelAccessor => Application as IModelAccessor;
+        public IModelAccessor? ModelAccessor => Application as IModelAccessor;
     }
 }

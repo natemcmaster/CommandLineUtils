@@ -26,11 +26,11 @@ namespace McMaster.Extensions.CommandLineUtils
         private const int HelpExitCode = 0;
         internal const int ValidationErrorExitCode = 1;
 
-        private List<Action<ParseResult>> _onParsingComplete;
+        private List<Action<ParseResult>>? _onParsingComplete;
         internal readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
         internal readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
         private readonly HashSet<string> _names = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-        private string _primaryCommandName;
+        private string? _primaryCommandName;
         internal CommandLineContext _context;
         private IHelpTextGenerator _helpTextGenerator;
         private CommandOption? _optionHelp;
@@ -99,9 +99,11 @@ namespace McMaster.Extensions.CommandLineUtils
             Arguments = new List<CommandArgument>();
             Commands = new List<CommandLineApplication>();
             RemainingArguments = new List<string>();
-            HelpTextGenerator = helpTextGenerator;
+            _helpTextGenerator = helpTextGenerator ?? throw new ArgumentNullException(nameof(helpTextGenerator));
             Invoke = () => 0;
-            ValidationErrorHandler = DefaultValidationErrorHandler;
+            _validationErrorHandler = DefaultValidationErrorHandler;
+            Out = context.Console.Out;
+            Error = context.Console.Error;
             SetContext(context);
             _services = new Lazy<IServiceProvider>(() => new ServiceProvider(this));
             ValueParsers = parent?.ValueParsers ?? new ValueParserProvider();
@@ -136,7 +138,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The short name of the command. When this is a subcommand, it is the name of the word used to invoke the subcommand.
         /// </summary>
-        public string Name
+        public string? Name
         {
             get => _primaryCommandName;
             set
@@ -251,12 +253,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The long-form of the version to display in generated help text.
         /// </summary>
-        public Func<string>? LongVersionGetter { get; set; }
+        public Func<string?>? LongVersionGetter { get; set; }
 
         /// <summary>
         /// The short-form of the version to display in generated help text.
         /// </summary>
-        public Func<string>? ShortVersionGetter { get; set; }
+        public Func<string?>? ShortVersionGetter { get; set; }
 
         /// <summary>
         /// Subcommands.
@@ -413,7 +415,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Commands.Add(subcommand);
         }
 
-        private void AssertCommandNameIsUnique(string name, CommandLineApplication? commandToIgnore)
+        private void AssertCommandNameIsUnique(string? name, CommandLineApplication? commandToIgnore)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -795,7 +797,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="longFormVersion"></param>
         /// <returns></returns>
         public CommandOption VersionOption(string template,
-            string shortFormVersion,
+            string? shortFormVersion,
             string? longFormVersion = null)
         {
             if (longFormVersion == null)
@@ -816,8 +818,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="longFormVersionGetter"></param>
         /// <returns></returns>
         public CommandOption VersionOption(string template,
-            Func<string> shortFormVersionGetter,
-            Func<string>? longFormVersionGetter = null)
+            Func<string?>? shortFormVersionGetter,
+            Func<string?>? longFormVersionGetter = null)
         {
             // Version option is special because we stop parsing once we see it
             // So we store it separately for further use

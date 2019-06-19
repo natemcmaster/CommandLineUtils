@@ -143,7 +143,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             if (distanceMethod == null || value == null || values == null)
             {
-                return null;
+                return Enumerable.Empty<string>();
             }
 
             return values

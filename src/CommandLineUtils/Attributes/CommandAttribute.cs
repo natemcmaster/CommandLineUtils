@@ -44,10 +44,20 @@ namespace McMaster.Extensions.CommandLineUtils
         /// The name of the command line application. When this is a subcommand, it is the name of the word used to invoke the subcommand.
         /// <seealso cref="CommandLineApplication.Name" />
         /// </summary>
-        public string Name
+        public string? Name
         {
             get => _names.Length > 0 ? _names[0] : null;
-            set => _names = new[] { value };
+            set
+            {
+                if (value != null)
+                {
+                    _names = new[] { value };
+                }
+                else
+                {
+                    _names = Util.EmptyArray<string>();
+                }
+            }
         }
 
         /// <summary>
@@ -58,12 +68,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The full name of the command line application to show in help text. <seealso cref="CommandLineApplication.FullName" />
         /// </summary>
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
 
         /// <summary>
         /// A description of the command. <seealso cref="CommandLineApplication.Description"/>
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Determines if this command appears in generated help text. <seealso cref="CommandLineApplication.ShowInHelpText"/>
@@ -73,7 +83,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Additional text that appears at the bottom of generated help text. <seealso cref="CommandLineApplication.ExtendedHelpText"/>
         /// </summary>
-        public string ExtendedHelpText { get; set; }
+        public string? ExtendedHelpText { get; set; }
 
         /// <summary>
         /// Throw when unexpected arguments are encountered. <seealso cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>

@@ -14,7 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             return
                 ValueParser.Create((argName, value, culture) =>
                     value == null
-                        ? Tuple.Create<bool, T>(false, default)
+                        ? Tuple.Create<bool, T>(false, default!)
                         : Tuple.Create(true, typeParser.Parse(argName, value, culture)));
         }
     }

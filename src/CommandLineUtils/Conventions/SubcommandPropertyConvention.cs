@@ -15,7 +15,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// <inheritdoc />
         public virtual void Apply(ConventionContext context)
         {
-            if (context.ModelType == null)
+            var modelAccessor = context.ModelAccessor;
+            if (context.ModelType == null || modelAccessor == null)
             {
                 return;
             }
@@ -29,14 +30,14 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             var setter = ReflectionHelper.GetPropertySetter(subcommandProp);
             context.Application.OnParsingComplete(r =>
             {
-                var subCommand = r.SelectedCommand;
+                CommandLineApplication? subCommand = r.SelectedCommand;
                 while (subCommand != null)
                 {
                     if (ReferenceEquals(subCommand.Parent, context.Application))
                     {
                         if (subCommand is IModelAccessor subcmdAccessor)
                         {
-                            setter(context.ModelAccessor.GetModel(), subcmdAccessor.GetModel());
+                            setter(modelAccessor.GetModel(), subcmdAccessor.GetModel());
                         }
                         return;
                     }

@@ -13,33 +13,33 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The option template. This is parsed into the short and long name.
         /// </summary>
-        public string Template { get; set; }
+        public string? Template { get; set; }
 
         /// <summary>
         /// The short command line flag used to identify this option. On command line, this is preceeded by a single '-{ShortName}'.
         /// </summary>
-        public string ShortName { get; set; }
+        public string? ShortName { get; set; }
 
         /// <summary>
         /// The long command line flag used to identify this option. On command line, this is preceeded by a double dash: '--{LongName}'.
         /// </summary>
-        public string LongName { get; set; }
+        public string? LongName { get; set; }
 
         /// <summary>
         /// Can be used in addition to <see cref="ShortName"/> to add a single, non-English character.
         /// Example "-?".
         /// </summary>
-        public string SymbolName { get; set; }
+        public string? SymbolName { get; set; }
 
         /// <summary>
         /// The name of value(s) shown in help text when OptionType is not <see cref="CommandOptionType.NoValue"/>.
         /// </summary>
-        public string ValueName { get; set; }
+        public string? ValueName { get; set; }
 
         /// <summary>
         /// A description of this option to show in generated help text. <seealso cref="CommandOption.Description"/>.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Determines if this option should be shown in generated help text. <seealso cref="CommandOption.ShowInHelpText"/>.

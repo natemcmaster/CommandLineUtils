@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             _parserCulture = parserCulture;
         }
 
-        public object Parse(string argName, IReadOnlyList<string> values)
+        public object Parse(string? argName, IReadOnlyList<string?> values)
         {
             var array = Array.CreateInstance(_elementType, values.Count);
             for (var i = 0; i < values.Count; i++)

@@ -107,9 +107,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void MatchingWithNullReturnsNull()
         {
-            Assert.Null(StringDistance.GetBestMatchesSorted(null, "", new []{ ""}, 0));
-            Assert.Null(StringDistance.GetBestMatchesSorted((s, s1) => 1, null, new []{ ""}, 0));
-            Assert.Null(StringDistance.GetBestMatchesSorted((s, s1) => 1, "", null, 0));
+            Assert.Empty(StringDistance.GetBestMatchesSorted(null, "", new []{ ""}, 0));
+            Assert.Empty(StringDistance.GetBestMatchesSorted((s, s1) => 1, null, new []{ ""}, 0));
+            Assert.Empty(StringDistance.GetBestMatchesSorted((s, s1) => 1, "", null, 0));
         }
 
         [Theory]
