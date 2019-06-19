@@ -1,0 +1,11 @@
+<Project>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory)..\, Directory.Build.props))\Directory.Build.props" />
+
+  <PropertyGroup>
+    <!-- Set samples to use the latest stable C# until C# 8 is released -->
+    <LangVersion>7.3</LangVersion>
+    <Nullable />
+    <NullableContextOptions />
+  </PropertyGroup>
+
+</Project>
