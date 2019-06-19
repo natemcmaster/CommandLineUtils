@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static CollectionParserProvider Default { get; } = new CollectionParserProvider();
 
-        public ICollectionParser GetParser(Type type, ValueParserProvider valueParsers)
+        public ICollectionParser? GetParser(Type type, ValueParserProvider valueParsers)
         {
             if (type.IsArray)
             {

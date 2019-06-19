@@ -22,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class EmptyShortName
         {
             [Option(ShortName = "")]
-            public string Option { get; }
+            public string? Option { get; }
         }
 
         [Fact]
@@ -53,8 +53,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<EmptyShortName>();
             app.Conventions.UseDefaultConventions();
-            app.Command("b", null);
-            app.Command("a", null);
+            app.Command("b", _ => { });
+            app.Command("a", _ => { });
             var helpText = GetHelpText(app);
 
             var indexOfA = helpText.IndexOf("  a", StringComparison.InvariantCulture);
@@ -68,8 +68,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             DefaultHelpTextGenerator.Singleton.SortCommandsByName = false;
             var app = new CommandLineApplication<EmptyShortName>();
             app.Conventions.UseDefaultConventions();
-            app.Command("b", null);
-            app.Command("a", null);
+            app.Command("b", _ => { });
+            app.Command("a", _ => { });
             var helpText = GetHelpText(app);
 
             var indexOfA = helpText.IndexOf("  a", StringComparison.InvariantCulture);

@@ -19,7 +19,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public class Pager : IDisposable
     {
-        private readonly Lazy<Process> _less;
+        private readonly Lazy<Process?> _less;
         private readonly TextWriter _fallbackWriter;
         private bool _enabled;
         private bool _disposed;
@@ -52,7 +52,7 @@ namespace McMaster.Extensions.CommandLineUtils
 #error Update target frameworks
 #endif
 
-            _less = new Lazy<Process>(CreateWriter);
+            _less = new Lazy<Process?>(CreateWriter);
             _fallbackWriter = console.Out;
         }
 
@@ -105,13 +105,13 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public void Kill()
         {
-            if (_less.IsValueCreated)
+            if (_less.IsValueCreated && _less.Value != null)
             {
                 _less.Value.Kill();
             }
         }
 
-        private Process CreateWriter()
+        private Process? CreateWriter()
         {
             if (!_enabled)
             {

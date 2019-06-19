@@ -15,7 +15,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// <inheritdoc />
         public virtual void Apply(ConventionContext context)
         {
-            if (context.ModelType == null)
+            var modelAccessor = context.ModelAccessor;
+            if (context.ModelType == null || modelAccessor == null)
             {
                 return;
             }
@@ -25,8 +26,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             var props = ReflectionHelper.GetProperties(context.ModelType);
 
-            VersionOptionAttribute versionOptionAttr = null;
-            PropertyInfo property = null;
+            VersionOptionAttribute? versionOptionAttr = null;
+            PropertyInfo? property = null;
 
             foreach (var prop in props)
             {
@@ -54,7 +55,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 EnsureDoesNotHaveArgumentAttribute(prop);
             }
 
-            if (versionOptionAttr == null)
+            if (versionOptionAttr == null || property == null)
             {
                 return;
             }

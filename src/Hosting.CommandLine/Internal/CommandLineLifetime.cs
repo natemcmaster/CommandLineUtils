@@ -19,7 +19,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         private readonly IApplicationLifetime _applicationLifetime;
         private readonly ICommandLineService _cliService;
         private readonly IConsole _console;
-        private readonly IUnhandledExceptionHandler _unhandledExceptionHandler;
+        private readonly IUnhandledExceptionHandler? _unhandledExceptionHandler;
         private readonly ManualResetEvent _disposeComplete = new ManualResetEvent(false);
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         public CommandLineLifetime(IApplicationLifetime applicationLifetime,
             ICommandLineService cliService,
             IConsole console,
-            IUnhandledExceptionHandler unhandledExceptionHandler = null)
+            IUnhandledExceptionHandler? unhandledExceptionHandler = null)
         {
             _applicationLifetime = applicationLifetime;
             _cliService = cliService;

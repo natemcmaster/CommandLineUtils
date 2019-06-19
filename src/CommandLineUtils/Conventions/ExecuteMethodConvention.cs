@@ -5,6 +5,7 @@ using System;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
@@ -31,8 +32,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             const BindingFlags binding = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
 
             var typeInfo = context.ModelType.GetTypeInfo();
-            MethodInfo method;
-            MethodInfo asyncMethod;
+            MethodInfo? method;
+            MethodInfo? asyncMethod;
             try
             {
                 method = typeInfo.GetMethod("OnExecute", binding);
@@ -56,7 +57,12 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
 
             var arguments = ReflectionHelper.BindParameters(method, context.Application);
-            var model = context.ModelAccessor.GetModel();
+            var modelAccessor = context.ModelAccessor;
+            if (modelAccessor == null)
+            {
+                throw new InvalidOperationException(Strings.ConventionRequiresModel);
+            }
+            var model = modelAccessor.GetModel();
 
             if (method.ReturnType == typeof(Task) || method.ReturnType == typeof(Task<int>))
             {

@@ -33,7 +33,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        public CommandOptionType GetOptionType(Type clrType, ValueParserProvider valueParsers = null)
+        public CommandOptionType GetOptionType(Type clrType, ValueParserProvider? valueParsers = null)
         {
             if (clrType == typeof(bool) || clrType == typeof(bool[]))
             {

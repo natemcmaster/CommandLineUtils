@@ -74,7 +74,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             var commands = application.Commands.Where(c => c.ShowInHelpText).ToList();
 
             var firstColumnWidth = 2 + Math.Max(
-                arguments.Count > 0 ? arguments.Max(a => a.Name.Length) : 0,
+                arguments.Count > 0 ? arguments.Max(a => a.Name?.Length ?? 0) : 0,
                 Math.Max(
                     options.Count > 0 ? options.Max(o => Format(o).Length) : 0,
                     commands.Count > 0 ? commands.Max(c => c.Name?.Length ?? 0) : 0));
@@ -101,8 +101,8 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             IReadOnlyList<CommandLineApplication> visibleCommands)
         {
             output.Write("Usage:");
-            var stack = new Stack<string>();
-            for (var cmd = application; cmd != null; cmd = cmd.Parent)
+            var stack = new Stack<string?>();
+            for (CommandLineApplication? cmd = application; cmd != null; cmd = cmd.Parent)
             {
                 stack.Push(cmd.Name);
             }

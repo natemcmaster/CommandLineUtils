@@ -80,7 +80,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 var context = factory.Create(option);
 
-                string name = null;
+                string? name = null;
                 if (option.LongName != null)
                 {
                     name = "--" + option.LongName;

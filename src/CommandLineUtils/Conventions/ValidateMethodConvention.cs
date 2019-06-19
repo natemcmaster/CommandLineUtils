@@ -17,7 +17,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <inheritdoc />
         public void Apply(ConventionContext context)
         {
-            if (context.ModelType == null)
+            var modelAccessor = context.ModelAccessor;
+            if (context.ModelType == null || modelAccessor == null)
             {
                 return;
             }
@@ -38,7 +39,6 @@ namespace McMaster.Extensions.CommandLineUtils
                 throw new InvalidOperationException(Strings.InvalidOnValidateReturnType(context.ModelType));
             }
 
-            var accessor = context.ModelAccessor;
             var methodParams = method.GetParameters();
             context.Application.OnValidate(ctx =>
             {
@@ -62,7 +62,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     }
                 }
 
-                return (ValidationResult)method.Invoke(accessor.GetModel(), arguments);
+                return (ValidationResult)method.Invoke(modelAccessor.GetModel(), arguments);
             });
         }
     }

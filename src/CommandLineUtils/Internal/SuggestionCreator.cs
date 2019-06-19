@@ -37,7 +37,10 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             foreach (var cmd in command.Commands)
             {
-                yield return cmd.Name;
+                if (cmd.Name != null)
+                {
+                    yield return cmd.Name;
+                }
             }
 
             foreach (var option in command.GetOptions().Where(o => o.ShowInHelpText))

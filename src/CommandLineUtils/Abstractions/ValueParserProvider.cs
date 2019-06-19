@@ -71,7 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// </remarks>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public IValueParser<T> GetParser<T>()
+        public IValueParser<T>? GetParser<T>()
         {
             var parser = GetParserImpl<T>();
             if (parser == null)
@@ -87,7 +87,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             return new GenericParserAdapter<T>(parser);
         }
 
-        internal IValueParser GetParserImpl<T>()
+        internal IValueParser? GetParserImpl<T>()
         {
             var type = typeof(T);
             if (_parsers.TryGetValue(type, out var parser))
@@ -102,7 +102,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 return EnumParser.Create(type);
             }
 
-            if (ReflectionHelper.IsNullableType(typeInfo, out var wrappedType))
+            if (ReflectionHelper.IsNullableType(typeInfo, out var wrappedType) && wrappedType != null)
             {
                 if (wrappedType.GetTypeInfo().IsEnum)
                 {
@@ -187,7 +187,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 throw new ArgumentNullException(nameof(parser));
             }
 
-            var targetType = parser.TargetType;
+            Type targetType = parser.TargetType;
 
             if (targetType == null)
             {
@@ -197,7 +197,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             }
 
             // strip nullable wrappers since we have a dedicated nullable value parser
-            targetType = ReflectionHelper.IsNullableType(targetType.GetTypeInfo(), out var wrappedType)
+            targetType = ReflectionHelper.IsNullableType(targetType.GetTypeInfo(), out var wrappedType) && wrappedType != null
                 ? wrappedType
                 : targetType;
 
@@ -219,7 +219,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         private sealed class GenericParserAdapter<T> : IValueParser<T>
         {
-            private IValueParser _inner;
+            private readonly IValueParser _inner;
 
             public GenericParserAdapter(IValueParser inner)
             {
@@ -228,9 +228,9 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
             public Type TargetType => _inner.TargetType;
 
-            public T Parse(string argName, string value, CultureInfo culture) => (T)_inner.Parse(argName, value, culture);
+            public T Parse(string? argName, string? value, CultureInfo culture) => (T)_inner.Parse(argName, value, culture)!;
 
-            object IValueParser.Parse(string argName, string value, CultureInfo culture) => _inner.Parse(argName, value, culture);
+            object? IValueParser.Parse(string? argName, string? value, CultureInfo culture) => _inner.Parse(argName, value, culture);
         }
     }
 }

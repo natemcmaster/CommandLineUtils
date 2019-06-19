@@ -17,7 +17,7 @@ namespace McMaster.Extensions.CommandLineUtils.Errors
         public SubcommandCycleException(Type modelType)
             : base($"Subcommand cycle detected: trying to add command of model {modelType} as its own direct or indirect subcommand")
         {
-            ModelType = modelType;
+            ModelType = modelType ?? throw new ArgumentNullException(nameof(modelType));
         }
 
         /// <summary>

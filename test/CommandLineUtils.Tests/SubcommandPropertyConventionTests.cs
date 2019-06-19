@@ -10,12 +10,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Subcommand(typeof(AddCommand))]
         private class Program
         {
-            public object Subcommand { get; set; }
+            public object? Subcommand { get; set; }
         }
 
         private class AddCommand
         {
-            public object Parent { get; }
+            public object? Parent { get; }
         }
 
         [Fact]

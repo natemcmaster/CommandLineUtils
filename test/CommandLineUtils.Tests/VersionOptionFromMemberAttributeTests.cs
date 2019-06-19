@@ -19,7 +19,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<Property>();
             app.Conventions.UseVersionOptionFromMemberAttribute();
-            Assert.Equal("2.0.0", app.ShortVersionGetter());
+            Assert.Equal("2.0.0", app.ShortVersionGetter?.Invoke());
             Assert.Equal(app.ShortVersionGetter, app.LongVersionGetter);
         }
 
@@ -34,7 +34,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<Method>();
             app.Conventions.UseVersionOptionFromMemberAttribute();
-            Assert.Equal("2.0.0", app.ShortVersionGetter());
+            Assert.Equal("2.0.0", app.ShortVersionGetter?.Invoke());
             Assert.Equal(app.ShortVersionGetter, app.LongVersionGetter);
         }
 
@@ -49,7 +49,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<StaticMethod>();
             app.Conventions.UseVersionOptionFromMemberAttribute();
-            Assert.Equal("2.0.0", app.ShortVersionGetter());
+            Assert.Equal("2.0.0", app.ShortVersionGetter?.Invoke());
             Assert.Equal(app.ShortVersionGetter, app.LongVersionGetter);
         }
 

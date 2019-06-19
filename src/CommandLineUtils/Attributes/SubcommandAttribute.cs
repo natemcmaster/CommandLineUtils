@@ -26,6 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public SubcommandAttribute(string name, Type commandType)
         {
             CommandType = commandType;
+            Types = new[] { commandType };
             Name = name;
         }
 
@@ -63,7 +64,7 @@ namespace McMaster.Extensions.CommandLineUtils
         [Obsolete("This property is obsolete and will be removed in a future version. " +
                   "The recommended replacement is to use CommandAttribute to set names for subcommands.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// This property is obsolete and will be replaced in a future version.
@@ -77,7 +78,7 @@ namespace McMaster.Extensions.CommandLineUtils
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Type CommandType
         {
-            get => Types.Length > 0 ? Types[0] : null;
+            get => Types[0];
             set
             {
                 if (value == null)

@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class AppWithUnknownOptionType
         {
             [Option]
-            public OptionAttributeTests Option { get; }
+            public OptionAttributeTests? Option { get; }
         }
 
         [Fact]
@@ -37,10 +37,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class ShortNameOverride
         {
             [Option(ShortName = "d1")]
-            public string Detail1 { get; }
+            public string? Detail1 { get; }
 
             [Option(ShortName = "d2")]
-            public string Detail2 { get; }
+            public string? Detail2 { get; }
         }
 
         [Fact]
@@ -60,10 +60,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class EmptyShortName
         {
             [Option(ShortName = "")]
-            public string Detail1 { get; }
+            public string? Detail1 { get; }
 
             [Option(ShortName = "")]
-            public string Detail2 { get; }
+            public string? Detail2 { get; }
         }
 
         [Fact]
@@ -177,7 +177,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app4.Parse("-a3", "-a4");
             Assert.True(app4.Model.Arg3.HasValue);
             Assert.True(app4.Model.Arg4.hasValue);
-            Assert.True(app4.Model.Arg3.Value);
+            Assert.True(app4.Model.Arg3);
             Assert.Equal((true, null), app4.Model.Arg4);
         }
 

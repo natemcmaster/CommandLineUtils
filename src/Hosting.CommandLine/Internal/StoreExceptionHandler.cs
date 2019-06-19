@@ -11,7 +11,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         /// <summary>
         /// The captured exception, if any
         /// </summary>
-        public Exception StoredException { get; private set; }
+        public Exception? StoredException { get; private set; }
 
         /// <summary>
         /// This will store the first unhandled exception and throw an <see cref="AggregateException"/> if called a

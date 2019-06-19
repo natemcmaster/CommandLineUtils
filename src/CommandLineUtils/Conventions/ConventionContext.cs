@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// </summary>
         /// <param name="application">The application</param>
         /// <param name="modelType">The type of the model.</param>
-        public ConventionContext(CommandLineApplication application, Type modelType)
+        public ConventionContext(CommandLineApplication application, Type? modelType)
         {
             Application = application ?? throw new ArgumentNullException(nameof(application));
             ModelType = modelType;
@@ -31,13 +31,13 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// The type of the application model. Can be null when applied to <see cref="CommandLineApplication" />
         /// instead of <see cref="CommandLineApplication{TModel}" />.
         /// </summary>
-        public Type ModelType { get; private set; }
+        public Type? ModelType { get; private set; }
 
         /// <summary>
         /// A convenience accessor for getting the application model object.
         /// Can be null when applied to <see cref="CommandLineApplication" /> instead of
         /// <see cref="CommandLineApplication{TModel}" />.
         /// </summary>
-        public IModelAccessor ModelAccessor => Application as IModelAccessor;
+        public IModelAccessor? ModelAccessor => Application as IModelAccessor;
     }
 }

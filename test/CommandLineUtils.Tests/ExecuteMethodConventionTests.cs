@@ -88,7 +88,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Theory]
         [InlineData(null, 0)]
         [InlineData("subcommand", 1)]
-        public void OnExecuteIsExecutedOnSelectedSubcommand(string args, int expectedResult)
+        public void OnExecuteIsExecutedOnSelectedSubcommand(string? args, int expectedResult)
         {
             var app = new CommandLineApplication<MainExecute>();
             app.Conventions.UseSubcommandAttributes();
@@ -96,7 +96,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Conventions.UseOnExecuteMethodFromModel();
 
             // this tests that the model is actually given values before it passed to command validation
-            var parseResult = app.Parse(args?.Split(' '));
+            var parseResult = app.Parse(args?.Split(' ') ?? Util.EmptyArray<string>());
 
             var result = parseResult.SelectedCommand.Invoke();
             Assert.Equal(expectedResult, result);

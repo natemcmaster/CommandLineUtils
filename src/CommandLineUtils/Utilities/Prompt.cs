@@ -33,7 +33,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 Write($"{prompt} {answerHint}", promptColor, promptBgColor);
                 Console.Write(' ');
 
-                string resp;
+                string? resp;
                 using (ShowCursor())
                 {
                     resp = Console.ReadLine()?.ToLower()?.Trim();
@@ -67,7 +67,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="promptColor">The console color to use for the prompt</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
         /// <returns>The response the user gave. Can be null or empty</returns>
-        public static string GetString(string prompt, string defaultValue = null, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+        public static string? GetString(string prompt, string? defaultValue = null, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
         {
             if (defaultValue != null)
             {
@@ -162,7 +162,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>A stream of characters as input by the user including Backspace for deletions.</returns>
         private static IEnumerable<char> ReadObfuscatedLine(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
         {
-            const string whiteOut = "\b \b";
+            const string WhiteOut = "\b \b";
             Write(prompt, promptColor, promptBgColor);
             Console.Write(' ');
             const ConsoleModifiers IgnoredModifiersMask = ConsoleModifiers.Alt | ConsoleModifiers.Control;
@@ -188,7 +188,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     case ConsoleKey.Backspace:
                         if (readChars > 0)
                         {
-                            Console.Write(whiteOut);
+                            Console.Write(WhiteOut);
                             --readChars;
                             yield return Backspace;
                         }
@@ -197,7 +197,7 @@ namespace McMaster.Extensions.CommandLineUtils
                         // Reset the password
                         while (readChars > 0)
                         {
-                            Console.Write(whiteOut);
+                            Console.Write(WhiteOut);
                             yield return Backspace;
                             --readChars;
                         }
@@ -231,7 +231,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 Console.Write(' ');
 
-                string resp;
+                string? resp;
                 using (ShowCursor())
                 {
                     resp = Console.ReadLine()?.ToLower()?.Trim();

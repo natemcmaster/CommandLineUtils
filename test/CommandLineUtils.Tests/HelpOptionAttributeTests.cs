@@ -67,7 +67,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class HelpOptionOnNonBoolean
         {
             [HelpOption]
-            public string IsHelpOption { get; set; }
+            public string? IsHelpOption { get; set; }
         }
 
         [Fact]
@@ -82,7 +82,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             [HelpOption]
             [Option]
-            public string IsHelpOption { get; set; }
+            public string? IsHelpOption { get; set; }
         }
 
         [Fact]
@@ -105,11 +105,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication<WithTypeHelpOption>();
             app.Conventions.UseHelpOptionAttribute();
             Assert.NotNull(app.OptionHelp);
-            Assert.Equal(CommandOptionType.NoValue, app.OptionHelp.OptionType);
-            Assert.Null(app.OptionHelp.SymbolName);
-            Assert.Equal("h", app.OptionHelp.ShortName);
-            Assert.Equal("help", app.OptionHelp.LongName);
-            Assert.Equal("My help info", app.OptionHelp.Description);
+            Assert.Equal(CommandOptionType.NoValue, app.OptionHelp?.OptionType);
+            Assert.Null(app.OptionHelp?.SymbolName);
+            Assert.Equal("h", app.OptionHelp?.ShortName);
+            Assert.Equal("help", app.OptionHelp?.LongName);
+            Assert.Equal("My help info", app.OptionHelp?.Description);
         }
 
         private class WithPropHelpOption
@@ -124,11 +124,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication<WithPropHelpOption>();
             app.Conventions.UseHelpOptionAttribute();
             Assert.NotNull(app.OptionHelp);
-            Assert.Equal(CommandOptionType.NoValue, app.OptionHelp.OptionType);
-            Assert.Null(app.OptionHelp.SymbolName);
-            Assert.Equal("h", app.OptionHelp.ShortName);
-            Assert.Equal("help", app.OptionHelp.LongName);
-            Assert.Equal("My help info", app.OptionHelp.Description);
+            Assert.Equal(CommandOptionType.NoValue, app.OptionHelp?.OptionType);
+            Assert.Null(app.OptionHelp?.SymbolName);
+            Assert.Equal("h", app.OptionHelp?.ShortName);
+            Assert.Equal("help", app.OptionHelp?.LongName);
+            Assert.Equal("My help info", app.OptionHelp?.Description);
         }
 
         [HelpOption]
@@ -158,7 +158,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             private class Sub
             {
                 [Argument(0, Name = "lvl-arg", Description = "subcommand argument")]
-                public string Arg { get; }
+                public string? Arg { get; }
             }
         }
 
@@ -173,7 +173,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Execute("lvl2", "--help");
             var outData = sb.ToString();
 
-            Assert.True(app.OptionHelp.HasValue());
+            Assert.True(app.OptionHelp?.HasValue());
             Assert.Contains("Usage: lvl1 lvl2 [options] <lvl-arg>", outData);
         }
 
@@ -196,7 +196,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 getCommand.Description = "Gets a list of things.";
                 getCommand.HelpOption();
-                
+
                 getCommand.OnExecute(() =>
                 {
                     getCommand.ShowHelp();

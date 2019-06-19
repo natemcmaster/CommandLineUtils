@@ -16,12 +16,19 @@ variables:
 jobs:
 - job: Windows
   pool:
-    vmImage: vs2017-win2016
+    vmImage: windows-2019
   steps:
-  - task: DotNetCoreInstaller@0
-    displayName: Install .NET Core 2.2
+  - task: UseDotNet@2
+    displayName: Install .NET Core 3 SDK
     inputs:
-      version: '2.2.102'
+      version: '3.x'
+      packageType: sdk
+      includePreviewVersions: true
+  - task: UseDotNet@2
+    displayName: Install .NET Core 2.2 runtime
+    inputs:
+      version: '2.2.x'
+      packageType: runtime
   - powershell: ./build.ps1 -ci
     displayName: Invoke build.ps1
     condition: eq(variables['kv-access-token'], '')
@@ -47,10 +54,17 @@ jobs:
   pool:
     vmImage: 'Ubuntu-16.04'
   steps:
-  - task: DotNetCoreInstaller@0
-    displayName: Install .NET Core 2.2
+  - task: UseDotNet@2
+    displayName: Install .NET Core 3 SDK
     inputs:
-      version: '2.2.102'
+      version: '3.x'
+      packageType: sdk
+      includePreviewVersions: true
+  - task: UseDotNet@2
+    displayName: Install .NET Core 2.2 runtime
+    inputs:
+      version: '2.2.x'
+      packageType: runtime
   - script: ./build.ps1 -ci
     displayName: Invoke build.ps1
   - task: PublishTestResults@2

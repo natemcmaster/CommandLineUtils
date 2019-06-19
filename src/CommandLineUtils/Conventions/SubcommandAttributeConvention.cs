@@ -1,11 +1,11 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using McMaster.Extensions.CommandLineUtils.Abstractions;
-using McMaster.Extensions.CommandLineUtils.Errors;
 using System;
 using System.Linq;
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
+using McMaster.Extensions.CommandLineUtils.Errors;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
@@ -18,7 +18,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// <inheritdoc />
         public virtual void Apply(ConventionContext context)
         {
-            if (context.ModelType == null)
+            var modelAccessor = context.ModelAccessor;
+            if (context.ModelType == null || modelAccessor == null)
             {
                 return;
             }
@@ -46,7 +47,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
         }
 
-        private void AssertSubcommandIsNotCycled(Type modelType, CommandLineApplication parentCommand)
+        private void AssertSubcommandIsNotCycled(Type modelType, CommandLineApplication? parentCommand)
         {
             while (parentCommand != null)
             {
@@ -67,7 +68,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             where TSubCommand : class
         {
 #pragma warning disable 618
-            context.Application.Command<TSubCommand>(subcommand.Name, subcommand.Configure);
+            context.Application.Command<TSubCommand>(subcommand.Name!, subcommand.Configure);
 #pragma warning restore 618
         }
     }

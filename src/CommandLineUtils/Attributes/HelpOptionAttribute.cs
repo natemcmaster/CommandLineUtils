@@ -29,6 +29,11 @@ namespace McMaster.Extensions.CommandLineUtils
             Description = Strings.DefaultHelpOptionDescription;
         }
 
+        /// <summary>
+        /// The option template. This is parsed into the short and long name.
+        /// </summary>
+        public new string Template { get; set; }
+
         internal CommandOption Configure(CommandLineApplication app)
         {
             var opt = app.HelpOption(Template);

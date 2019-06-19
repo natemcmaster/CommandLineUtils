@@ -14,7 +14,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// <inheritdoc />
         public virtual void Apply(ConventionContext context)
         {
-            if (context.ModelType == null)
+            var modelAccessor = context.ModelAccessor;
+            if (context.ModelType == null || modelAccessor == null)
             {
                 return;
             }
@@ -30,11 +31,10 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            var accessor = context.ModelAccessor;
             context.Application.ValidationErrorHandler = (v) =>
             {
                 var arguments = ReflectionHelper.BindParameters(method, context.Application);
-                var result = method.Invoke(accessor.GetModel(), arguments);
+                var result = method.Invoke(modelAccessor.GetModel(), arguments);
                 if (method.ReturnType == typeof(int))
                 {
                     return (int)result;

@@ -169,7 +169,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static CommandOption VersionOptionFromAssemblyAttributes(CommandLineApplication app, string template, Assembly assembly)
             => app.VersionOption(template, GetInformationalVersion(assembly));
 
-        private static string GetInformationalVersion(Assembly assembly)
+        private static string? GetInformationalVersion(Assembly assembly)
         {
             var infoVersion = assembly
                 ?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()

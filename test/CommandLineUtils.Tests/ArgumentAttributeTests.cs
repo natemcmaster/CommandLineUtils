@@ -27,7 +27,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class DuplicateArguments
         {
             [Argument(0)]
-            public string First { get; }
+            public string? First { get; }
 
             [Argument(0)]
             public int AlsoFirst { get; }
@@ -50,10 +50,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class MultipleValuesMultipleArgs
         {
             [Argument(0)]
-            public string[] Words { get; }
+            public string[]? Words { get; }
 
             [Argument(1)]
-            public string[] MoreWords { get; }
+            public string[]? MoreWords { get; }
         }
 
         [Fact]

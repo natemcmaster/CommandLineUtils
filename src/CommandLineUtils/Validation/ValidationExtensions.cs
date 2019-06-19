@@ -20,7 +20,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="allowEmptyStrings">Indicates whether an empty string is allowed.</param>
         /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The option.</returns>
-        public static CommandOption IsRequired(this CommandOption option, bool allowEmptyStrings = false, string errorMessage = null)
+        public static CommandOption IsRequired(this CommandOption option, bool allowEmptyStrings = false, string? errorMessage = null)
         {
             var attribute = GetValidationAttr<RequiredAttribute>(errorMessage);
             attribute.AllowEmptyStrings = allowEmptyStrings;
@@ -36,7 +36,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The option.</returns>
         public static CommandOption<T> IsRequired<T>(this CommandOption<T> option, bool allowEmptyStrings = false,
-            string errorMessage = null)
+            string? errorMessage = null)
         {
 
             IsRequired((CommandOption)option, allowEmptyStrings, errorMessage);
@@ -50,7 +50,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="allowEmptyStrings">Indicates whether an empty string is allowed.</param>
         /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The argument.</returns>
-        public static CommandArgument IsRequired(this CommandArgument argument, bool allowEmptyStrings = false, string errorMessage = null)
+        public static CommandArgument IsRequired(this CommandArgument argument, bool allowEmptyStrings = false, string? errorMessage = null)
         {
             var attribute = GetValidationAttr<RequiredAttribute>(errorMessage);
             attribute.AllowEmptyStrings = allowEmptyStrings;
@@ -65,7 +65,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="allowEmptyStrings">Indicates whether an empty string is allowed.</param>
         /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The argument.</returns>
-        public static CommandArgument<T> IsRequired<T>(this CommandArgument<T> argument, bool allowEmptyStrings = false, string errorMessage = null)
+        public static CommandArgument<T> IsRequired<T>(this CommandArgument<T> argument, bool allowEmptyStrings = false, string? errorMessage = null)
         {
             IsRequired((CommandArgument)argument, allowEmptyStrings, errorMessage);
             return argument;
@@ -249,7 +249,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder EmailAddress(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder EmailAddress(this IValidationBuilder builder, string? errorMessage = null)
             => builder.Satisfies<EmailAddressAttribute>(errorMessage);
 
         /// <summary>
@@ -258,7 +258,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder ExistingFile(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder ExistingFile(this IValidationBuilder builder, string? errorMessage = null)
             => builder.Satisfies<FileExistsAttribute>(errorMessage);
 
         /// <summary>
@@ -267,7 +267,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder NonExistingFile(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder NonExistingFile(this IValidationBuilder builder, string? errorMessage = null)
             => builder.Satisfies<FileNotExistsAttribute>(errorMessage);
 
         /// <summary>
@@ -276,7 +276,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder ExistingDirectory(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder ExistingDirectory(this IValidationBuilder builder, string? errorMessage = null)
             => builder.Satisfies<DirectoryExistsAttribute>(errorMessage);
 
         /// <summary>
@@ -285,7 +285,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder NonExistingDirectory(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder NonExistingDirectory(this IValidationBuilder builder, string? errorMessage = null)
             => builder.Satisfies<DirectoryNotExistsAttribute>(errorMessage);
 
         /// <summary>
@@ -294,7 +294,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder ExistingFileOrDirectory(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder ExistingFileOrDirectory(this IValidationBuilder builder, string? errorMessage = null)
             => builder.Satisfies<FileOrDirectoryExistsAttribute>(errorMessage);
 
         /// <summary>
@@ -303,7 +303,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder NonExistingFileOrDirectory(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder NonExistingFileOrDirectory(this IValidationBuilder builder, string? errorMessage = null)
             => builder.Satisfies<FileOrDirectoryNotExistsAttribute>(errorMessage);
 
         /// <summary>
@@ -312,7 +312,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder LegalFilePath(this IValidationBuilder builder, string errorMessage = null)
+        public static IValidationBuilder LegalFilePath(this IValidationBuilder builder, string? errorMessage = null)
             => builder.Satisfies<LegalFilePathAttribute>(errorMessage);
 
         /// <summary>
@@ -322,7 +322,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="length">The minimum length.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder MinLength(this IValidationBuilder builder, int length, string errorMessage = null)
+        public static IValidationBuilder MinLength(this IValidationBuilder builder, int length, string? errorMessage = null)
             => builder.Satisfies<MinLengthAttribute>(errorMessage, length);
 
         /// <summary>
@@ -332,7 +332,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="length">The maximum length.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder MaxLength(this IValidationBuilder builder, int length, string errorMessage = null)
+        public static IValidationBuilder MaxLength(this IValidationBuilder builder, int length, string? errorMessage = null)
             => builder.Satisfies<MaxLengthAttribute>(errorMessage, length);
 
         /// <summary>
@@ -342,7 +342,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="pattern">The regular expression.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder RegularExpression(this IValidationBuilder builder, string pattern, string errorMessage = null)
+        public static IValidationBuilder RegularExpression(this IValidationBuilder builder, string pattern, string? errorMessage = null)
             => builder.Satisfies<RegularExpressionAttribute>(errorMessage, pattern);
 
         /// <summary>
@@ -353,7 +353,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="ctorArgs">Constructor arguments for <typeparamref name="TAttribute"/>.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder Satisfies<TAttribute>(this IValidationBuilder builder, string errorMessage = null, params object[] ctorArgs)
+        public static IValidationBuilder Satisfies<TAttribute>(this IValidationBuilder builder, string? errorMessage = null, params object[] ctorArgs)
             where TAttribute : ValidationAttribute
         {
             var attribute = GetValidationAttr<TAttribute>(errorMessage, ctorArgs);
@@ -369,7 +369,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="maximum">The maximum allowed value.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder<int> Range(this IValidationBuilder<int> builder, int minimum, int maximum, string errorMessage = null)
+        public static IValidationBuilder<int> Range(this IValidationBuilder<int> builder, int minimum, int maximum, string? errorMessage = null)
         {
             var attribute = GetValidationAttr<RangeAttribute>(errorMessage, new object[] { minimum, maximum });
             builder.Use(new AttributeValidator(attribute));
@@ -384,7 +384,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="maximum">The maximum allowed value.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder<double> Range(this IValidationBuilder<double> builder, double minimum, double maximum, string errorMessage = null)
+        public static IValidationBuilder<double> Range(this IValidationBuilder<double> builder, double minimum, double maximum, string? errorMessage = null)
         {
             var attribute = GetValidationAttr<RangeAttribute>(errorMessage, new object[] { minimum, maximum });
             builder.Use(new AttributeValidator(attribute));
@@ -427,7 +427,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return option;
         }
 
-        private static T GetValidationAttr<T>(string errorMessage, object[] ctorArgs = null)
+        private static T GetValidationAttr<T>(string? errorMessage, object[]? ctorArgs = null)
             where T : ValidationAttribute
         {
             var attribute = (T)Activator.CreateInstance(typeof(T), ctorArgs ?? new object[0]);

@@ -24,12 +24,12 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             _parserCulture = parserCulture;
         }
 
-        public object Parse(string argName, IReadOnlyList<string> values)
+        public object Parse(string? argName, IReadOnlyList<string?> values)
         {
             var set = Activator.CreateInstance(_listType, Util.EmptyArray<object>());
             for (var i = 0; i < values.Count; i++)
             {
-                _addMethod.Invoke(set, new object[] { _elementParser.Parse(argName, values[i], _parserCulture) });
+                _addMethod.Invoke(set, new object?[] { _elementParser.Parse(argName, values[i], _parserCulture) });
             }
             return set;
         }

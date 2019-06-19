@@ -83,38 +83,38 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         [Obsolete("This property is obsolete and will be removed in a future version.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public string Template { get; set; }
+        public string? Template { get; set; }
 
         /// <summary>
         /// The short command line flag used to identify this option. On command line, this is preceeded by a single '-{ShortName}'.
         /// </summary>
-        public string ShortName { get; set; }
+        public string? ShortName { get; set; }
 
         /// <summary>
         /// The long command line flag used to identify this option. On command line, this is preceeded by a double dash: '--{LongName}'.
         /// </summary>
-        public string LongName { get; set; }
+        public string? LongName { get; set; }
 
         /// <summary>
         /// Can be used in addition to <see cref="ShortName"/> to add a single, non-English character.
         /// Example "-?".
         /// </summary>
-        public string SymbolName { get; set; }
+        public string? SymbolName { get; set; }
 
         /// <summary>
         /// The name of value(s) shown in help text when <see cref="OptionType"/> is not <see cref="CommandOptionType.NoValue"/>.
         /// </summary>
-        public string ValueName { get; set; }
+        public string? ValueName { get; set; }
 
         /// <summary>
         /// A description of this option to show in generated help text.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Any values found during parsing, if any.
         /// </summary>
-        public List<string> Values { get; } = new List<string>();
+        public List<string?> Values { get; } = new List<string?>();
 
         /// <summary>
         /// Defines the type of the option.
@@ -143,7 +143,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public bool TryParse(string value)
+        public bool TryParse(string? value)
         {
             switch (OptionType)
             {
@@ -187,7 +187,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Returns the first element of <see cref="Values"/>, if any.
         /// </summary>
         /// <returns></returns>
-        public string Value()
+        public string? Value()
         {
             return HasValue() ? Values[0] : null;
         }

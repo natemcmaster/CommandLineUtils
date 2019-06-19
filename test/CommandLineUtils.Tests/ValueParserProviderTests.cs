@@ -64,22 +64,22 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public ulong UInt64 { get; }
 
             [Option("--string-arr")]
-            public string[] StringArray { get; }
+            public string[]? StringArray { get; }
 
             [Option("--int32-arr")]
-            public int[] Int32Array { get; }
+            public int[]? Int32Array { get; }
 
             [Option("--flag")]
-            public bool[] Flags { get; }
+            public bool[]? Flags { get; }
 
             [Option("--string-ilist")]
-            public IList<string> StringIList { get; }
+            public IList<string>? StringIList { get; }
 
             [Option("--string-list")]
-            public List<string> StringList { get; }
+            public List<string>? StringList { get; }
 
             [Option("--string-set")]
-            public ISet<string> StringSet { get; }
+            public ISet<string>? StringSet { get; }
 
             [Option("--color")]
             public Color Color { get; }
@@ -100,7 +100,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public (bool HasValue, Color Value) EnumValueTuple { get; }
 
             [Option("--uri")]
-            public Uri Uri { get; set; }
+            public Uri? Uri { get; set; }
 
             [Option("--datetime")]
             public DateTime DateTime { get; }
@@ -128,6 +128,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             }
         }
 
+// Workaround https://github.com/dotnet/roslyn/issues/33199 https://github.com/xunit/xunit/issues/1897
+#nullable disable
         public static IEnumerable<object[]> GetFloatingPointSymbolsData()
         {
             using (new InCulture(CultureInfo.InvariantCulture))
@@ -141,6 +143,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 };
             }
         }
+#nullable enable
 
         [Theory]
         [InlineData("255", byte.MaxValue)]
@@ -315,32 +318,32 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ParsesInt32Array()
         {
             var parsed = CommandLineParser.ParseArgs<Program>("--int32-arr", "-1", "--int32-arr", "1");
-            Assert.Equal(-1, parsed.Int32Array[0]);
-            Assert.Equal(1, parsed.Int32Array[1]);
+            Assert.Equal(-1, parsed.Int32Array?[0]);
+            Assert.Equal(1, parsed.Int32Array?[1]);
         }
 
         [Fact]
         public void ParsesStringArray()
         {
             var parsed = CommandLineParser.ParseArgs<Program>("--string-arr", "first", "--string-arr", "second");
-            Assert.Equal("first", parsed.StringArray[0]);
-            Assert.Equal("second", parsed.StringArray[1]);
+            Assert.Equal("first", parsed.StringArray?[0]);
+            Assert.Equal("second", parsed.StringArray?[1]);
         }
 
         [Fact]
         public void ParsesStringIList()
         {
             var parsed = CommandLineParser.ParseArgs<Program>("--string-ilist", "first", "--string-ilist", "second");
-            Assert.Equal("first", parsed.StringIList[0]);
-            Assert.Equal("second", parsed.StringIList[1]);
+            Assert.Equal("first", parsed.StringIList?[0]);
+            Assert.Equal("second", parsed.StringIList?[1]);
         }
 
         [Fact]
         public void ParsesStringList()
         {
             var parsed = CommandLineParser.ParseArgs<Program>("--string-list", "first", "--string-list", "second");
-            Assert.Equal("first", parsed.StringList[0]);
-            Assert.Equal("second", parsed.StringList[1]);
+            Assert.Equal("first", parsed.StringList?[0]);
+            Assert.Equal("second", parsed.StringList?[1]);
         }
 
 
@@ -424,7 +427,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ParsesUri(string uriString)
         {
             var parsed = CommandLineParser.ParseArgs<Program>("--uri", uriString);
-            Assert.Equal(uriString, parsed.Uri.ToString());
+            Assert.Equal(uriString, parsed.Uri?.ToString());
         }
 
         [Theory]
@@ -473,7 +476,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             var parsed = CommandLineParser.ParseArgs<Program>(args.ToArray());
             Assert.NotNull(parsed.Flags);
-            Assert.Equal(repeat, parsed.Flags.Length);
+            Assert.Equal(repeat, parsed.Flags?.Length);
             Assert.All(parsed.Flags, value => Assert.True(value));
         }
 
@@ -501,7 +504,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public bool BoolArg { get; }
 
             [Argument(2)]
-            public IList<string> TheRest { get; }
+            public IList<string>? TheRest { get; }
         }
 
         [Fact]
@@ -515,9 +518,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Equal(1, parsed.Int32Arg);
             Assert.True(parsed.BoolArg);
-            Assert.Equal(2, parsed.TheRest.Count);
-            Assert.Equal("a", parsed.TheRest[0]);
-            Assert.Equal("b", parsed.TheRest[1]);
+            Assert.Equal(2, parsed.TheRest?.Count);
+            Assert.Equal("a", parsed.TheRest?[0]);
+            Assert.Equal("b", parsed.TheRest?[1]);
         }
 
         [Fact]

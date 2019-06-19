@@ -19,7 +19,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// to parse and a culture to use for parsing.
         /// </summary>
 
-        public static IValueParser Create(Type targetType, Func<string, string, CultureInfo, object> parser) =>
+        public static IValueParser Create(Type targetType, Func<string?, string?, CultureInfo, object> parser) =>
             new DelegatingValueParser(targetType, Create(parser));
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// parse and a culture to use for parsing.
         /// </summary>
 
-        public static IValueParser<T> Create<T>(Func<string, string, CultureInfo, T> parser) =>
+        public static IValueParser<T> Create<T>(Func<string?, string?, CultureInfo, T> parser) =>
             new DelegatingValueParser<T>(parser);
 
         /// <summary>
@@ -53,14 +53,14 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// unsuccessful.
         /// </summary>
 
-        public static IValueParser<T> Create<T>(Func<string, CultureInfo, (bool, T)> parser, Func<string, string, FormatException> errorSelector)
+        public static IValueParser<T> Create<T>(Func<string, CultureInfo, (bool, T)> parser, Func<string?, string?, FormatException> errorSelector)
         {
             if (parser == null) throw new ArgumentNullException(nameof(parser));
             if (errorSelector == null) throw new ArgumentNullException(nameof(errorSelector));
 
             return Create((argName, value, culture) =>
             {
-                if (value == null) return default;
+                if (value == null) return default!;
 
                 var (parsed, result) = parser(value, culture);
                 return parsed ? result : throw errorSelector(argName, value);
@@ -69,19 +69,19 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         private sealed class DelegatingValueParser<T> : IValueParser<T>
         {
-            readonly Func<string, string, CultureInfo, T> _parser;
+            readonly Func<string?, string?, CultureInfo, T> _parser;
 
-            public DelegatingValueParser(Func<string, string, CultureInfo, T> parser)
+            public DelegatingValueParser(Func<string?, string?, CultureInfo, T> parser)
             {
                 _parser = parser ?? throw new ArgumentNullException(nameof(parser));
             }
 
             public Type TargetType => typeof(T);
 
-            public T Parse(string argName, string value, CultureInfo culture) =>
+            public T Parse(string? argName, string? value, CultureInfo culture) =>
                 _parser(argName, value, culture);
 
-            object IValueParser.Parse(string argName, string value, CultureInfo culture) =>
+            object? IValueParser.Parse(string? argName, string? value, CultureInfo culture) =>
                 Parse(argName, value, culture);
         }
 
@@ -97,7 +97,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
             public Type TargetType { get; }
 
-            public object Parse(string argName, string value, CultureInfo culture) =>
+            public object? Parse(string? argName, string? value, CultureInfo culture) =>
                 _parser.Parse(argName, value, culture);
         }
     }

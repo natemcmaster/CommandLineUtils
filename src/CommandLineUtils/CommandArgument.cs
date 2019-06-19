@@ -21,13 +21,13 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public CommandArgument()
         {
-            Values = new List<string>();
+            Values = new List<string?>();
         }
 
         /// <summary>
         /// The name of the argument.
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Determines if the argument appears in the generated help-text.
@@ -37,12 +37,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// A description of the argument.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// All values specified, if any.
         /// </summary>
-        public List<string> Values { get; private set; }
+        public List<string?> Values { get; private set; }
 
         /// <summary>
         /// Allow multiple values.
@@ -52,7 +52,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The first value from <see cref="Values"/>, if any.
         /// </summary>
-        public string Value => Values.FirstOrDefault();
+        public string? Value => Values.FirstOrDefault();
 
         /// <summary>
         /// A collection of validators that execute before invoking <see cref="CommandLineApplication.OnExecute(Func{int})"/>.

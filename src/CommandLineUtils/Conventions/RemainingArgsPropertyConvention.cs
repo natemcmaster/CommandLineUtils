@@ -20,7 +20,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// <inheritdoc />
         public virtual void Apply(ConventionContext context)
         {
-            if (context.ModelType == null)
+            var modelAccessor = context.ModelAccessor;
+            if (context.ModelType == null || modelAccessor == null)
             {
                 return;
             }
@@ -38,7 +39,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             if (prop.PropertyType == typeof(string[]))
             {
                 context.Application.OnParsingComplete(r =>
-                    setter(context.ModelAccessor.GetModel(), r.SelectedCommand.RemainingArguments.ToArray()));
+                    setter(modelAccessor.GetModel(), r.SelectedCommand.RemainingArguments.ToArray()));
                 return;
             }
 
@@ -48,7 +49,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
 
             context.Application.OnParsingComplete(r =>
-                setter(context.ModelAccessor.GetModel(), r.SelectedCommand.RemainingArguments));
+                setter(modelAccessor.GetModel(), r.SelectedCommand.RemainingArguments));
         }
     }
 }

@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -27,6 +28,9 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public const string NoOnExecuteMethodFound
             = "No method named 'OnExecute' or 'OnExecuteAsync' could be found";
+
+        public const string ConventionRequiresModel
+            = "This convention cannot be used on a command that does not implement " + nameof(IModelAccessor);
 
         public static string InvalidOnExecuteReturnType(string methodName)
             => methodName + " must have a return type of int or void, or if the method is async, Task<int> or Task.";
@@ -62,7 +66,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static string DuplicateArgumentPosition(int order, PropertyInfo first, PropertyInfo second)
             => $"Duplicate value for argument order. Both {first.DeclaringType.FullName}.{first.Name} and {second.DeclaringType.FullName}.{second.Name} have set Order = {order}";
 
-        public static string OnlyLastArgumentCanAllowMultipleValues(string lastArgName)
+        public static string OnlyLastArgumentCanAllowMultipleValues(string? lastArgName)
             => $"The last argument '{lastArgName}' accepts multiple values. No more argument can be added.";
 
         public static string CannotDetermineParserType(Type type)

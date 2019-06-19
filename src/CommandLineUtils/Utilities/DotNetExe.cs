@@ -28,7 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </para>
         /// </summary>
         /// <returns>The path or null</returns>
-        public static string FullPath { get; }
+        public static string? FullPath { get; }
 
         /// <summary>
         /// Finds the full filepath to the .NET Core CLI executable,
@@ -38,7 +38,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static string FullPathOrDefault()
             => FullPath ?? FileName;
 
-        private static string TryFindDotNetExePath()
+        private static string? TryFindDotNetExePath()
         {
             var fileName = FileName;
 #if NET45

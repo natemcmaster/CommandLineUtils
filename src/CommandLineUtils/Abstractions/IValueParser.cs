@@ -24,6 +24,6 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// <param name="culture">The culture that should be used to parse values.</param>
         /// <returns>The parsed value object.</returns>
         /// <throws name="System.FormatException">When the value cannot be parsed.</throws>
-        object Parse(string argName, string value, CultureInfo culture);
+        object? Parse(string? argName, string? value, CultureInfo culture);
     }
 }

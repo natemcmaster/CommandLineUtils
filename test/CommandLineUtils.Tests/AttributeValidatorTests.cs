@@ -83,7 +83,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class EmailArgumentApp
         {
             [Argument(0), EmailAddress]
-            public string Email { get; }
+            public string? Email { get; }
             private void OnExecute() { }
         }
 
@@ -121,16 +121,16 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class OptionApp
         {
             [Option, EmailAddress]
-            public string Email { get; }
+            public string? Email { get; }
 
             [Option, MinLength(1)]
-            public string Name { get; }
+            public string? Name { get; }
 
             [Option, MaxLength(10)]
-            public string Address { get; }
+            public string? Address { get; }
 
             [Option, RegularExpression("^abc.*")]
-            public string Regex { get; }
+            public string? Regex { get; }
 
             private void OnExecute() { }
         }
@@ -166,9 +166,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private sealed class ClassLevelValidationApp
         {
             [Option]
-            public string Arg1 { get; set; }
+            public string? Arg1 { get; set; }
             [Option]
-            public string Arg2 { get; set; }
+            public string? Arg2 { get; set; }
         }
 
         [AttributeUsage(AttributeTargets.Class)]
@@ -176,8 +176,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             public override bool IsValid(object value)
                 => value is ClassLevelValidationApp app
-                    && app.Arg1.Contains("good")
-                    && app.Arg2.Contains("good");
+                    && app.Arg1 != null && app.Arg1.Contains("good")
+                    && app.Arg2 != null && app.Arg2.Contains("good");
         }
     }
 }
