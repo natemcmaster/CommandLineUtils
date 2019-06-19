@@ -30,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             return rsp;
         }
 
-        private List<string> ParseResponseFile(ResponseFileHandling options, params string[] responseFileLines)
+        private List<string?> ParseResponseFile(ResponseFileHandling options, params string[] responseFileLines)
         {
             var rsp = CreateResponseFile(responseFileLines);
             var app = new CommandLineApplication
@@ -261,7 +261,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void SubcommandsCanResponseFileOptions()
         {
             var app = new CommandLineApplication();
-            CommandArgument wordArgs = null;
+            CommandArgument? wordArgs = null;
             app.Command("save", c =>
             {
                 c.ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated;
@@ -269,7 +269,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             });
             var rspFile = CreateResponseFile(" 'lorem ipsum' ", "dolor sit amet");
             app.Execute("save", "@" + rspFile);
-            Assert.Collection(wordArgs.Values,
+            Assert.Collection(wordArgs?.Values,
                 a => Assert.Equal("lorem ipsum", a),
                 a => Assert.Equal("dolor", a),
                 a => Assert.Equal("sit", a),

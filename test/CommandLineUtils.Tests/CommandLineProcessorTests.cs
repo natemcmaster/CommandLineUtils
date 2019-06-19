@@ -124,7 +124,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class ShortNameType
         {
             [Option(ShortName = "au")]
-            public string Auth { get; }
+            public string? Auth { get; }
         }
 
         [Command]

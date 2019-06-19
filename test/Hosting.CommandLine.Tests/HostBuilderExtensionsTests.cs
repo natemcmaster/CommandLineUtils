@@ -105,8 +105,9 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         }
 
         public class ValueHolder<T>
+            where T : class
         {
-            public T Value { get; set; }
+            public T? Value { get; set; }
         }
 
         [Command("Capture")]
@@ -114,7 +115,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         {
             public ValueHolder<string[]> ValueHolder { get; set; }
 
-            public string[] RemainingArguments
+            public string[]? RemainingArguments
             {
                 get => ValueHolder.Value;
                 set => ValueHolder.Value = value;

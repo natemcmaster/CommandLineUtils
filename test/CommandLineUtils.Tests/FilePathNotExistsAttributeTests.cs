@@ -23,7 +23,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             [Argument(0)]
             [FileOrDirectoryNotExists]
-            public string File { get; }
+            public string? File { get; }
 
             private void OnExecute() { }
         }
@@ -44,7 +44,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             app.Argument("Files", "Files")
                 .Accepts().NonExistingFileOrDirectory();
-                
+
             var result = app
                 .Parse(filePath)
                 .SelectedCommand
@@ -56,15 +56,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var console = new TestConsole(_output);
             Assert.NotEqual(0, CommandLineApplication.Execute<App>(console, filePath));
         }
-
-        public static TheoryData<string> BadFilePaths
-            => new TheoryData<string>
-            {
-                "notfound.txt",
-                "\0",
-                null,
-                string.Empty,
-            };
 
         [Fact]
         public void ValidatesFilesRelativeToAppContext()
@@ -133,7 +124,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             [Argument(0)]
             [DirectoryNotExists]
-            public string Dir { get; }
+            public string? Dir { get; }
 
             private void OnExecute() { }
         }
@@ -142,7 +133,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             [Argument(0)]
             [FileNotExists]
-            public string Path { get; }
+            public string? Path { get; }
 
             private void OnExecute() { }
         }

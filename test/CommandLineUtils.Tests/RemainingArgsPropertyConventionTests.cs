@@ -23,7 +23,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private class RemainingArguments_Array
         {
-            public string[] RemainingArguments { get; }
+            public string[]? RemainingArguments { get; }
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private class RemainingArgs_Array
         {
-            public string[] RemainingArgs { get; }
+            public string[]? RemainingArgs { get; }
         }
 
 
@@ -50,7 +50,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private class Parent
         {
-            public object Subcommand { get; }
+            public object? Subcommand { get; }
         }
 
         [Fact]
@@ -65,7 +65,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private class RemainingArgs_List
         {
-            public List<string> RemainingArguments { get; }
+            public List<string>? RemainingArguments { get; }
         }
 
         [Fact]

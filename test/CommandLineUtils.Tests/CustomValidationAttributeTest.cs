@@ -49,7 +49,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class RedBlueProgram
         {
             [Option, RedOrBlue]
-            public string Color { get; }
+            public string? Color { get; }
         }
 
         class RedOrBlueAttribute : ValidationAttribute

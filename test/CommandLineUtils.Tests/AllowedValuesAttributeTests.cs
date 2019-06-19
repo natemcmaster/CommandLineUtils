@@ -19,7 +19,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             [Argument(0)]
             [AllowedValues("red", "blue", "green")]
-            public string Option { get; }
+            public string? Option { get; }
 
             private void OnExecute() { }
         }
@@ -47,7 +47,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             [Argument(0)]
             [AllowedValues("red", "blue", "green", IgnoreCase = true)]
-            public string Option { get; }
+            public string? Option { get; }
 
             private void OnExecute() { }
         }

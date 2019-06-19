@@ -80,9 +80,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
                 Assert.Equal(typeof(CommandLineApplication<SubcommandValidate>), context.ObjectInstance.GetType());
                 var subcommand = (CommandLineApplication<SubcommandValidate>) context.ObjectInstance;
-                var main = (CommandLineApplication<MainValidate>) subcommand.Parent;
+                var main = (CommandLineApplication<MainValidate>?) subcommand.Parent;
 
-                var middle = main.Model.Middle;
+                var middle = main?.Model.Middle;
                 if (middle.HasValue)
                 {
                     if (middle.Value < this.Start || middle.Value >= this.End)

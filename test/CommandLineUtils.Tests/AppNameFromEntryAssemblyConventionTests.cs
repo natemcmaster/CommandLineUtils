@@ -27,7 +27,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication();
             app.Conventions.SetAppNameFromEntryAssembly();
-            var subcmd = app.Command(null, null);
+            var subcmd = app.Command(null!, null!);
             Assert.Null(subcmd.Name);
         }
     }

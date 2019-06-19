@@ -136,9 +136,9 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="values">The values to search through.</param>
         /// <param name="threshold">A threshold for word possible match.</param>
         /// <returns>The index of the best match or -1 when none is found</returns>
-        internal static IEnumerable<string> GetBestMatchesSorted(Func<string, string, int> distanceMethod,
-            string value,
-            IEnumerable<string> values,
+        internal static IEnumerable<string> GetBestMatchesSorted(Func<string, string, int>? distanceMethod,
+            string? value,
+            IEnumerable<string>? values,
             double threshold)
         {
             if (distanceMethod == null || value == null || values == null)

@@ -22,7 +22,10 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <PackageIconUrl>https://natemcmaster.github.io/CommandLineUtils/logo.png</PackageIconUrl>
     <NoPackageAnalysis>true</NoPackageAnalysis>
-    <LangVersion>7.2</LangVersion>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <!-- Some previews of .NET Core 3 don't have the rename yet -->
+    <NullableContextOptions>enable</NullableContextOptions>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)src\StrongName.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <AzureKeyVaultUrl>https://nmcmaster.vault.azure.net</AzureKeyVaultUrl>

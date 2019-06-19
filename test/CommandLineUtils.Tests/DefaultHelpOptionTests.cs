@@ -16,8 +16,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<ProgramWithHelpOption>();
             app.Conventions.UseDefaultConventions();
-            Assert.Equal("H", app.OptionHelp.ShortName);
-            Assert.Null(app.OptionHelp.LongName);
+            Assert.Equal("H", app.OptionHelp?.ShortName);
+            Assert.Null(app.OptionHelp?.LongName);
         }
 
         [Fact]
@@ -36,9 +36,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Option("-h", "test", CommandOptionType.NoValue);
             app.Conventions.UseDefaultHelpOption();
             Assert.NotNull(app.OptionHelp);
-            Assert.Null(app.OptionHelp.ShortName);
-            Assert.NotNull(app.OptionHelp.LongName);
-            Assert.NotNull(app.OptionHelp.SymbolName);
+            Assert.Null(app.OptionHelp?.ShortName);
+            Assert.NotNull(app.OptionHelp?.LongName);
+            Assert.NotNull(app.OptionHelp?.SymbolName);
         }
 
         [Fact]
@@ -53,9 +53,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Null(app.OptionHelp);
             Assert.NotNull(subcmd.OptionHelp);
-            Assert.Null(subcmd.OptionHelp.ShortName);
-            Assert.NotNull(subcmd.OptionHelp.LongName);
-            Assert.NotNull(subcmd.OptionHelp.SymbolName);
+            Assert.Null(subcmd.OptionHelp?.ShortName);
+            Assert.NotNull(subcmd.OptionHelp?.LongName);
+            Assert.NotNull(subcmd.OptionHelp?.SymbolName);
         }
 
         [Subcommand(typeof(Sub))]
@@ -71,11 +71,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Conventions.UseDefaultConventions();
             var subcmd = Assert.Single(app.Commands);
             Assert.NotNull(app.OptionHelp);
-            Assert.False(app.OptionHelp.Inherited);
-            Assert.Equal("?", app.OptionHelp.SymbolName);
-            Assert.Equal("h", app.OptionHelp.ShortName);
-            Assert.Equal("help", app.OptionHelp.LongName);
-            Assert.Null(app.OptionHelp.ValueName);
+            Assert.False(app.OptionHelp?.Inherited);
+            Assert.Equal("?", app.OptionHelp?.SymbolName);
+            Assert.Equal("h", app.OptionHelp?.ShortName);
+            Assert.Equal("help", app.OptionHelp?.LongName);
+            Assert.Null(app.OptionHelp?.ValueName);
             Assert.NotSame(app.OptionHelp, subcmd.OptionHelp);
         }
 

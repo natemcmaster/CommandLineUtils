@@ -49,9 +49,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class YellowMember
         {
             [MyAttributeConvention("yellow")]
-            private string _color;
+            private string? _color;
 
-            public string Color { get => _color; set => _color = value; }
+            public string? Color { get => _color; set => _color = value; }
         }
 
         [Fact]
@@ -78,7 +78,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 {
                     context.Application.OnParsingComplete(r =>
                     {
-                        field.SetValue(context.ModelAccessor.GetModel(), _value);
+                        var modelAccessor = context.ModelAccessor;
+                        if (modelAccessor != null)
+                        {
+                            field.SetValue(modelAccessor.GetModel(), _value);
+                        }
                     });
                 }
             }
@@ -87,9 +91,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class YellowMemberWithDefault
         {
             [MyDefaultValue("yellow")]
-            private string _color;
+            private string? _color;
 
-            public string Color { get => _color; set => _color = value; }
+            public string? Color { get => _color; set => _color = value; }
         }
 
         [Fact]
@@ -100,7 +104,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(16, app.Commands.Count);
         }
 
-#pragma warning disable CS0169, CS0649, CS0067
+#pragma warning disable CS0169, CS0649, CS0067, CS8618
         private class MemberProgram
         {
             [Custom]

@@ -22,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class VoidExecuteMethodWithNoArgs
         {
             [Option]
-            public string Message { get; set; }
+            public string? Message { get; set; }
 
             private void OnExecute()
             {
@@ -104,7 +104,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private class BadReturnType
         {
-            private string OnExecute() => null;
+            private string? OnExecute() => null;
         }
 
         [Fact]
@@ -118,7 +118,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private class BadAsyncReturnType
         {
-            private Task<string> OnExecute() => null;
+            private Task<string>? OnExecute() => null;
         }
 
         [Fact]

@@ -15,7 +15,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             public Type TargetType { get; } = typeof(DateTimeOffset);
 
-            public object Parse(string argName, string value, CultureInfo culture)
+            public object? Parse(string? argName, string? value, CultureInfo culture)
             {
                 if (!DateTimeOffset.TryParse(value, culture, DateTimeStyles.None, out var result))
                 {
@@ -31,7 +31,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             public Type TargetType { get; } = typeof(ValueTuple<int, double, string>?);
 
-            public object Parse(string argName, string value, CultureInfo culture)
+            public object? Parse(string? argName, string? value, CultureInfo culture)
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
@@ -73,7 +73,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             public Type TargetType { get; } = typeof(double);
 
-            public object Parse(string argName, string value, CultureInfo culture)
+            public object? Parse(string? argName, string? value, CultureInfo culture)
             {
                 if (!double.TryParse(value, NumberStyles.Number, _iso80000NumberFormatInfo, out var result))
                 {
@@ -104,7 +104,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             ValueTuple<int, double, string>? expectedComplexValue = null;
 
             var app = new CommandLineApplication<CustomParserProgram>();
-            
+
             app.ValueParsers.Add(new ComplexTupleParser());
             app.ValueParsers.AddOrReplace(new MyDateTimeOffsetParser());
             app.ValueParsers.AddOrReplace(new MyDoubleParser());
@@ -216,7 +216,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void CustomParsersAreAvailableToSubCommands()
         {
             var expectedDate = new DateTimeOffset(2018, 02, 16, 21, 30, 33, 45, TimeSpan.FromHours(10));
-            
+
             var app = new CommandLineApplication<CustomParserProgramAttributes>();
             app.ValueParsers.AddOrReplace(new MyDateTimeOffsetParser());
             app.Conventions.UseDefaultConventions();
@@ -261,9 +261,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private class BadValueParser : IValueParser
         {
-            public Type TargetType { get; } = null;
+#nullable disable // Intentionally testing compatibility
+            public Type TargetType { get; }
+#nullable enable
 
-            public object Parse(string argName, string value, CultureInfo culture)
+            public object? Parse(string? argName, string? value, CultureInfo culture)
             {
                 throw new NotImplementedException();
             }
@@ -305,7 +307,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () =>
                 {
                     var app = new CommandLineApplication<CustomParserProgram>();
-                    app.ValueParsers.Add(null);
+                    app.ValueParsers.Add(null!);
                 });
 
             Assert.Contains("parser", ex.Message);
@@ -318,7 +320,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () =>
                 {
                     var app = new CommandLineApplication<CustomParserProgram>();
-                    app.ValueParsers.AddRange(null);
+                    app.ValueParsers.AddRange(null!);
                 });
 
             Assert.Contains("parsers", ex.Message);
@@ -331,7 +333,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () =>
                 {
                     var app = new CommandLineApplication<CustomParserProgram>();
-                    app.ValueParsers.AddOrReplace(null);
+                    app.ValueParsers.AddOrReplace(null!);
                 });
 
             Assert.Contains("parser", ex.Message);

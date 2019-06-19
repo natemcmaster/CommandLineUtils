@@ -68,10 +68,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public int GetArgCount() => _arguments.Count();
 
             [Option]
-            public string Opt { get; }
+            public string? Opt { get; }
 
             [Argument(0)]
-            public string Arg { get; }
+            public string? Arg { get; }
         }
 
         [Fact]
@@ -157,7 +157,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class TestAppWithAlternativeConstructor
         {
             public IConsole Console { get; }
-            public CommandLineApplication App { get; }
+            public CommandLineApplication? App { get; }
 
             public TestAppWithAlternativeConstructor(TestConsole console, CommandLineApplication app)
             {

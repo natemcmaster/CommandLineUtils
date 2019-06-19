@@ -18,7 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class AttributesNotUsedClass
         {
             public int OptionA { get; set; }
-            public string OptionB { get; set; }
+            public string? OptionB { get; set; }
         }
 
         [Fact]
@@ -37,13 +37,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class SimpleProgram
         {
             [Argument(0)]
-            public string Command { get; set; }
+            public string? Command { get; set; }
 
             [Option]
-            public string Message { get; set; }
+            public string? Message { get; set; }
 
             [Option("-F <file>")]
-            public string File { get; set; }
+            public string? File { get; set; }
 
             [Option]
             public bool Amend { get; set; }

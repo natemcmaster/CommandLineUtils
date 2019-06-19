@@ -22,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 {
                     var editorBrowsable = type.GetCustomAttribute<EditorBrowsableAttribute>();
                     Assert.True(editorBrowsable != null, $"Type: {type.FullName} should have [EditorBrowsable]");
-                    Assert.True(editorBrowsable.State == EditorBrowsableState.Never,
+                    Assert.True(editorBrowsable!.State == EditorBrowsableState.Never,
                         $"Type: {type.FullName} should have EditorBrowsable.State == Never");
                 }
 
@@ -43,7 +43,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                     var editorBrowsable = member.GetCustomAttribute<EditorBrowsableAttribute>();
                     Assert.True(editorBrowsable != null,
                         $"{type.FullName}.{member.Name} should have [EditorBrowsable]");
-                    Assert.True(editorBrowsable.State == EditorBrowsableState.Never,
+                    Assert.True(editorBrowsable!.State == EditorBrowsableState.Never,
                         $"{type.FullName}.{member.Name} should have EditorBrowsable.State == Never");
                 }
             }
