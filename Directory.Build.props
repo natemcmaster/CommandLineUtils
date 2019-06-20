@@ -18,10 +18,10 @@
     <DebugType>portable</DebugType>
     <IsPackable>false</IsPackable>
     <IncludeSymbols>true</IncludeSymbols>
-    <IncludeSource>true</IncludeSource>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <PackageIconUrl>https://natemcmaster.github.io/CommandLineUtils/logo.png</PackageIconUrl>
     <NoPackageAnalysis>true</NoPackageAnalysis>
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <!-- Some previews of .NET Core 3 don't have the rename yet -->
@@ -40,8 +40,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- For x-plat develpment. Workaround for https://github.com/dotnet/sdk/issues/335 -->
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0-alpha-004" PrivateAssets="all" />
+    <!-- For x-plat development. Workaround for https://github.com/dotnet/sdk/issues/335 -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0-preview.2" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>
