@@ -28,7 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             var typeInfo = context.ModelType.GetTypeInfo();
             var prop = typeInfo.GetProperty("RemainingArguments", PropertyBindingFlags);
-            prop = prop ?? typeInfo.GetProperty("RemainingArgs", PropertyBindingFlags);
+            prop ??= typeInfo.GetProperty("RemainingArgs", PropertyBindingFlags);
             if (prop == null)
             {
                 return;

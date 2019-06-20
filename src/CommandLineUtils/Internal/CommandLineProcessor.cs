@@ -8,13 +8,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
-using McMaster.Extensions.CommandLineUtils.Internal;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
     internal sealed class CommandLineProcessor
     {
-        private readonly CommandLineApplication _app;
         private readonly CommandLineApplication _initialCommand;
         private readonly ArgumentEnumerator _enumerator;
 
@@ -33,10 +31,13 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandLineProcessor(CommandLineApplication command,
             IReadOnlyList<string> arguments)
         {
-            _app = command;
             _initialCommand = command;
             _enumerator = new ArgumentEnumerator(command, arguments ?? new string[0]);
+            CheckForShortOptionClustering(command);
+        }
 
+        private static void CheckForShortOptionClustering(CommandLineApplication command)
+        {
             if (!command.ClusterOptionsWasSetExplicitly)
             {
                 foreach (var option in AllOptions(command))

@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         private int _boldRecursion;
-        private bool _useConsoleColor;
+        private readonly bool _useConsoleColor;
 
         public static AnsiConsole GetOutput(bool useConsoleColor)
         {

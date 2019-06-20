@@ -49,7 +49,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 throw new InvalidOperationException(Strings.AmbiguousOnExecuteMethod);
             }
 
-            method = method ?? asyncMethod;
+            method ??= asyncMethod;
 
             if (method == null)
             {

@@ -83,11 +83,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 else
                 {
                     object? service = command.AdditionalServices?.GetService(methodParam.ParameterType);
-                    if (service == null)
-                    {
-                        throw new InvalidOperationException(Strings.UnsupportedParameterTypeOnMethod(method.Name, methodParam));
-                    }
-                    arguments[i] = service;
+                    arguments[i] = service ?? throw new InvalidOperationException(Strings.UnsupportedParameterTypeOnMethod(method.Name, methodParam));
                 }
             }
 

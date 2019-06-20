@@ -101,6 +101,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         public void Dispose()
         {
             _disposeComplete.Set();
+            _disposeComplete.Dispose();
         }
     }
 }

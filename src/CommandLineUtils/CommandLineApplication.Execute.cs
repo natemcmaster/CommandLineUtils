@@ -51,12 +51,10 @@ namespace McMaster.Extensions.CommandLineUtils
 
             try
             {
-                using (var app = new CommandLineApplication<TApp>())
-                {
-                    app.SetContext(context);
-                    app.Conventions.UseDefaultConventions();
-                    return app.Execute(context.Arguments);
-                }
+                using var app = new CommandLineApplication<TApp>();
+                app.SetContext(context);
+                app.Conventions.UseDefaultConventions();
+                return app.Execute(context.Arguments);
             }
             catch (CommandParsingException ex)
             {
@@ -101,7 +99,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static int Execute<TApp>(IConsole console, params string[] args)
             where TApp : class
         {
-            args = args ?? new string[0];
+            args ??= Util.EmptyArray<string>();
             var context = new DefaultCommandLineContext(console, Directory.GetCurrentDirectory(), args);
             return Execute<TApp>(context);
         }
@@ -134,7 +132,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static Task<int> ExecuteAsync<TApp>(IConsole console, params string[] args)
             where TApp : class
         {
-            args = args ?? new string[0];
+            args ??= Util.EmptyArray<string>();
             var context = new DefaultCommandLineContext(console, Directory.GetCurrentDirectory(), args);
             return ExecuteAsync<TApp>(context);
         }

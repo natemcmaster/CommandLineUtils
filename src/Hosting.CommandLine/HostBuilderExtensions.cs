@@ -54,17 +54,15 @@ namespace Microsoft.Extensions.Hosting
                         .AddSingleton<ICommandLineService, CommandLineService<TApp>>();
                 });
 
-            using (var host = hostBuilder.Build())
+            using var host = hostBuilder.Build();
+            await host.RunAsync(cancellationToken);
+
+            if (exceptionHandler.StoredException != null)
             {
-                await host.RunAsync(cancellationToken);
-
-                if (exceptionHandler.StoredException != null)
-                {
-                    ExceptionDispatchInfo.Capture(exceptionHandler.StoredException).Throw();
-                }
-
-                return state.ExitCode;
+                ExceptionDispatchInfo.Capture(exceptionHandler.StoredException).Throw();
             }
+
+            return state.ExitCode;
         }
     }
 }

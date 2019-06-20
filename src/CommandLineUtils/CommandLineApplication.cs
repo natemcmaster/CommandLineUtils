@@ -917,7 +917,8 @@ namespace McMaster.Extensions.CommandLineUtils
         public virtual string GetHelpText()
         {
             var sb = new StringBuilder();
-            _helpTextGenerator.Generate(this, new StringWriter(sb));
+            using var writer = new StringWriter(sb);
+            _helpTextGenerator.Generate(this, writer);
             return sb.ToString();
         }
 
