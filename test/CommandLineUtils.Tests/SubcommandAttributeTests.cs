@@ -190,7 +190,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         [Command("LEVEL1")]
         private class Level1DuplicateCmd
-        {}
+        { }
 
         [Fact]
         public void CommandNamesCannotDifferByCaseOnly()

@@ -44,7 +44,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void CommandsNamesAreCaseInsensitive()
         {
             var app = new CommandLineApplication();
-            var cmd = app.Command("TEST", c => {
+            var cmd = app.Command("TEST", c =>
+            {
                 c.OnExecute(() => 5);
             });
             cmd.AddName("TE");
@@ -106,10 +107,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 c.AddName("s");
             });
 
-            var ex = Assert.Throws<InvalidOperationException>(() => app.Command("sub1", _ => {}));
+            var ex = Assert.Throws<InvalidOperationException>(() => app.Command("sub1", _ => { }));
             Assert.Equal(Strings.DuplicateSubcommandName("sub1"), ex.Message);
 
-            ex = Assert.Throws<InvalidOperationException>(() => app.Command("s", _ => {}));
+            ex = Assert.Throws<InvalidOperationException>(() => app.Command("s", _ => { }));
             Assert.Equal(Strings.DuplicateSubcommandName("s"), ex.Message);
         }
 
@@ -947,7 +948,7 @@ Examples:
         public void CommandNamesMatchingIsCaseInsensitive()
         {
             var app = new CommandLineApplication(throwOnUnexpectedArg: false);
-            var cmd = app.Command("CMD1", _ => {});
+            var cmd = app.Command("CMD1", _ => { });
 
             Assert.Same(cmd, app.Parse("CMD1").SelectedCommand);
             Assert.Same(cmd, app.Parse("cmd1").SelectedCommand);

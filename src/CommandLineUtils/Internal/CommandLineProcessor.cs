@@ -399,10 +399,12 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private class OptionArgument : Argument
         {
+            private static readonly char[] NameValueSeparators = { ':', '=' };
+
             public OptionArgument(string raw, bool isShortOption) : base(raw)
             {
                 IsShortOption = isShortOption;
-                var parts = Raw.Split(new[] { ':', '=' }, 2);
+                var parts = Raw.Split(NameValueSeparators, 2);
                 if (parts.Length > 1)
                 {
                     Value = parts[1];
@@ -414,8 +416,8 @@ namespace McMaster.Extensions.CommandLineUtils
                 Name = parts[0].Substring(sublen);
             }
 
-            public string Name { get; set; }
-            public string? Value { get; set; }
+            public string Name { get; }
+            public string? Value { get; }
             public bool IsShortOption { get; }
         }
 

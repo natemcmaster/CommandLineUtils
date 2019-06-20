@@ -62,7 +62,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             var escapeScan = 0;
-            for (; ;)
+            for (; ; )
             {
                 var escapeIndex = message.IndexOf("\x1b[", escapeScan);
                 if (escapeIndex == -1)

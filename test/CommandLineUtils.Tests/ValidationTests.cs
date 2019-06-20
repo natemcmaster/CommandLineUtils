@@ -100,7 +100,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(0, CommandLineApplication.Execute<RequiredOption>("-p", "p"));
         }
 
-// Workaround https://github.com/dotnet/roslyn/issues/33199 https://github.com/xunit/xunit/issues/1897
+        // Workaround https://github.com/dotnet/roslyn/issues/33199 https://github.com/xunit/xunit/issues/1897
 #nullable disable
         [Theory]
         [InlineData(null)]

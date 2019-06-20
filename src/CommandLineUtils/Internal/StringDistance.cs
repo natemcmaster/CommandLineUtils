@@ -123,7 +123,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 return 1;
             }
 
-            return 1.0d - distance / (double) length;
+            return 1.0d - distance / (double)length;
         }
 
         /// <summary>

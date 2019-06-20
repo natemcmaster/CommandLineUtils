@@ -19,10 +19,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         [Subcommand(typeof(AddCommand))]
         private class Program
-        {}
+        { }
 
         private class AddCommand
-        {}
+        { }
 
         [Fact]
         public void ItInfersSubcommandNameFromTypeName()

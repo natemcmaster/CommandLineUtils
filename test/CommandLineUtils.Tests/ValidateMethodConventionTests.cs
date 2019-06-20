@@ -79,8 +79,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 }
 
                 Assert.Equal(typeof(CommandLineApplication<SubcommandValidate>), context.ObjectInstance.GetType());
-                var subcommand = (CommandLineApplication<SubcommandValidate>) context.ObjectInstance;
-                var main = (CommandLineApplication<MainValidate>?) subcommand.Parent;
+                var subcommand = (CommandLineApplication<SubcommandValidate>)context.ObjectInstance;
+                var main = (CommandLineApplication<MainValidate>?)subcommand.Parent;
 
                 var middle = main?.Model.Middle;
                 if (middle.HasValue)

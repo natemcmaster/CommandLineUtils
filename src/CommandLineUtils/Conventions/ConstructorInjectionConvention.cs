@@ -62,7 +62,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             if (factory != null)
             {
-                ((CommandLineApplication<TModel>) context.Application).ModelFactory = factory;
+                ((CommandLineApplication<TModel>)context.Application).ModelFactory = factory;
             }
         }
 
@@ -104,11 +104,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     args[i] = service;
                     if (i == parameters.Length - 1)
                     {
-                        return () => (TModel) ctorCandidate.Invoke(args);
+                        return () => (TModel)ctorCandidate.Invoke(args);
                     }
                 }
 
-                nextCtor: ;
+            nextCtor:;
             }
 
             return () => throw new InvalidOperationException(Strings.NoMatchedConstructorFound(typeof(TModel)));

@@ -128,7 +128,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             }
         }
 
-// Workaround https://github.com/dotnet/roslyn/issues/33199 https://github.com/xunit/xunit/issues/1897
+        // Workaround https://github.com/dotnet/roslyn/issues/33199 https://github.com/xunit/xunit/issues/1897
 #nullable disable
         public static IEnumerable<object[]> GetFloatingPointSymbolsData()
         {

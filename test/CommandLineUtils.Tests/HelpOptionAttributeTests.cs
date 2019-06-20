@@ -167,7 +167,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var sb = new StringBuilder();
             var outWriter = new StringWriter(sb);
-            var app = new CommandLineApplication<Parent> {Out = outWriter};
+            var app = new CommandLineApplication<Parent> { Out = outWriter };
             app.Conventions.UseDefaultConventions();
             app.Commands.ForEach(f => f.Out = outWriter);
             app.Execute("lvl2", "--help");
@@ -204,7 +204,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 });
             });
 
-            app.OnExecute(() => {
+            app.OnExecute(() =>
+            {
                 app.ShowHelp();
                 return 1;
             });

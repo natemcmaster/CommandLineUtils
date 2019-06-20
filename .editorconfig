@@ -25,7 +25,7 @@ dotnet_sort_system_directives_first                                    = true
 # Stuff that is usually best
 csharp_style_inlined_variable_declaration                              = true
 csharp_style_var_elsewhere                                             = true
-csharp_space_after_cast                                                = true
+csharp_space_after_cast                                                = false
 csharp_style_pattern_matching_over_as_with_null_check                  = true
 csharp_style_pattern_matching_over_is_with_cast_check                  = true
 csharp_style_var_for_built_in_types                                    = true
