@@ -2,6 +2,20 @@
 
 [See unreleased changes][unreleased].
 
+## Unreleased
+
+* Fix [#227] by [@ejball] - ArgumentEscaper should escape empty string
+* PR [#230] by [@IanG] - Attributes for files and directories that must not exist
+* Fix [#221] by [@vpkopylov] - Use Pager for help text option only works on top-level help
+* PR [#239] by [@vpkopylov] - Add check for subcommand cycle
+* Support C# 8.0 and nullable reference types - [#245]
+
+[#221]: https://github.com/natemcmaster/CommandLineUtils/issues/221
+[#227]: https://github.com/natemcmaster/CommandLineUtils/issues/227
+[#230]: https://github.com/natemcmaster/CommandLineUtils/pull/230
+[#239]: https://github.com/natemcmaster/CommandLineUtils/pull/239
+[#245]: https://github.com/natemcmaster/CommandLineUtils/pull/245
+
 ## [v2.3.4]
 
 Bugs fixed:
@@ -332,7 +346,9 @@ Other:
 [@couven92]: https://github.com/couven92
 [@demosdemon]: https://github.com/demosdemon
 [@EricStG]: https://github.com/EricStG
+[@ejball]: https://github.com/ejball
 [@handcraftedsource]: https://github.com/handcraftedsource
+[@IanG]: https://github.com/IanG
 [@jcaillon]: https://github.com/jcaillon
 [@jerriep]: https://github.com/jerriep
 [@kant2002]: https://github.com/kant2002
@@ -347,6 +363,7 @@ Other:
 [@sebastienros]: https://github.com/sebastienros
 [@SteveBenz]: https://github.com/SteveBenz
 [@TheConstructor]: https://github.com/TheConstructor
+[@vpkopylov]: https://github.com/vpkopylov
 
 [unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.4...HEAD
 [v2.3.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.3...v2.3.4
