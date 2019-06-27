@@ -160,19 +160,20 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             int firstColumnWidth,
             DescriptionFormatter descriptionFormatter)
         {
-            if (!visibleArguments.Any()) { return; }
-
-            output.WriteLine();
-            output.WriteLine("Arguments:");
-            var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
-
-            foreach (var arg in visibleArguments)
+            if (visibleArguments.Any())
             {
-                var wrappedDescription = descriptionFormatter.Wrap(arg.Description ?? "");
-                var message = string.Format(outputFormat, arg.Name, wrappedDescription);
-
-                output.Write(message);
                 output.WriteLine();
+                output.WriteLine("Arguments:");
+                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+
+                foreach (var arg in visibleArguments)
+                {
+                    var wrappedDescription = descriptionFormatter.Wrap(arg.Description ?? "");
+                    var message = string.Format(outputFormat, arg.Name, wrappedDescription);
+
+                    output.Write(message);
+                    output.WriteLine();
+                }
             }
         }
 
@@ -191,19 +192,20 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             int firstColumnWidth,
             DescriptionFormatter descriptionFormatter)
         {
-            if (!visibleOptions.Any()) { return; }
-
-            output.WriteLine();
-            output.WriteLine("Options:");
-            var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
-
-            foreach (var opt in visibleOptions)
+            if (visibleOptions.Any())
             {
-                var wrappedDescription = descriptionFormatter.Wrap(opt.Description ?? "");
-                var message = string.Format(outputFormat, Format(opt), opt.Description);
-
-                output.Write(message);
                 output.WriteLine();
+                output.WriteLine("Options:");
+                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+
+                foreach (var opt in visibleOptions)
+                {
+                    var wrappedDescription = descriptionFormatter.Wrap(opt.Description ?? "");
+                    var message = string.Format(outputFormat, Format(opt), opt.Description);
+
+                    output.Write(message);
+                    output.WriteLine();
+                }
             }
         }
 
@@ -222,27 +224,29 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             int firstColumnWidth,
             DescriptionFormatter descriptionFormatter)
         {
-            if (!visibleCommands.Any()) { return; }
-            output.WriteLine();
-            output.WriteLine("Commands:");
-            var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
-
-            var orderedCommands = SortCommandsByName
-                ? visibleCommands.OrderBy(c => c.Name).ToList()
-                : visibleCommands;
-            foreach (var cmd in orderedCommands)
-            {
-                var wrappedDescription = descriptionFormatter.Wrap(cmd.Description ?? "");
-                var message = string.Format(outputFormat, cmd.Name, wrappedDescription);
-
-                output.Write(message);
-                output.WriteLine();
-            }
-
-            if (application.OptionHelp != null)
+            if (visibleCommands.Any())
             {
                 output.WriteLine();
-                output.WriteLine($"Run '{application.Name} [command] --{application.OptionHelp.LongName}' for more information about a command.");
+                output.WriteLine("Commands:");
+                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+
+                var orderedCommands = SortCommandsByName
+                    ? visibleCommands.OrderBy(c => c.Name).ToList()
+                    : visibleCommands;
+                foreach (var cmd in orderedCommands)
+                {
+                    var wrappedDescription = descriptionFormatter.Wrap(cmd.Description ?? "");
+                    var message = string.Format(outputFormat, cmd.Name, wrappedDescription);
+
+                    output.Write(message);
+                    output.WriteLine();
+                }
+
+                if (application.OptionHelp != null)
+                {
+                    output.WriteLine();
+                    output.WriteLine($"Run '{application.Name} [command] --{application.OptionHelp.LongName}' for more information about a command.");
+                }
             }
         }
 
