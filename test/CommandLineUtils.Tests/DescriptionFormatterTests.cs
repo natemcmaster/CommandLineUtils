@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using McMaster.Extensions.CommandLineUtils.HelpText;
 using Xunit;
 
@@ -9,10 +10,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private const int FirstColumnWidth = 18;
         private const int SpacerLength = 2;
         private const int ConsoleWidth = 40; // A very skinny console for testing.
-
-        // Always using \n in our wrapped output as Consoles in Windows these days are fine with this.
-        // As of RS5 so is notepad.exe on Windows.
-        private string _paddedNewline = $"\n{new string(' ', FirstColumnWidth + SpacerLength)}";
+        private string _paddedNewline = Environment.NewLine + new string(' ', FirstColumnWidth + SpacerLength);
 
         private DescriptionFormatter Subject()
         {
@@ -22,6 +20,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private void AssertExpected(string original, string expected)
         {
             Subject().Wrap(original).Should().Be(expected);
+        }
+
+        [Fact]
+        public void EmptReturnsEmpty()
+        {
+            AssertExpected("", "");
         }
 
         [Fact]

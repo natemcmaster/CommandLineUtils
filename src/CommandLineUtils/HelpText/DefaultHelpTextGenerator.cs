@@ -15,6 +15,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
     public class DefaultHelpTextGenerator : IHelpTextGenerator
     {
         /// <summary>
+        /// The number of spaces between columns.
+        /// </summary>
+        protected const int ColumnSeparatorLength = 2;
+
+        /// <summary>
         /// A singleton instance of <see cref="DefaultHelpTextGenerator" />.
         /// </summary>
         public static DefaultHelpTextGenerator Singleton { get; } = new DefaultHelpTextGenerator();
@@ -73,16 +78,18 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             var options = application.GetOptions().Where(o => o.ShowInHelpText).ToList();
             var commands = application.Commands.Where(c => c.ShowInHelpText).ToList();
 
-            var firstColumnWidth = 2 + Math.Max(
+            var firstColumnWidth = ColumnSeparatorLength + Math.Max(
                 arguments.Count > 0 ? arguments.Max(a => a.Name?.Length ?? 0) : 0,
                 Math.Max(
                     options.Count > 0 ? options.Max(o => Format(o).Length) : 0,
                     commands.Count > 0 ? commands.Max(c => c.Name?.Length ?? 0) : 0));
 
+            var descriptionFormatter = new DescriptionFormatter(firstColumnWidth, ColumnSeparatorLength);
+
             GenerateUsage(application, output, arguments, options, commands);
-            GenerateArguments(application, output, arguments, firstColumnWidth);
-            GenerateOptions(application, output, options, firstColumnWidth);
-            GenerateCommands(application, output, commands, firstColumnWidth);
+            GenerateArguments(application, output, arguments, firstColumnWidth, descriptionFormatter);
+            GenerateOptions(application, output, options, firstColumnWidth, descriptionFormatter);
+            GenerateCommands(application, output, commands, firstColumnWidth, descriptionFormatter);
         }
 
         /// <summary>
@@ -145,28 +152,27 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <param name="output">Help text output</param>
         /// <param name="visibleArguments">Arguments not hidden from help text</param>
         /// <param name="firstColumnWidth">The width of the first column of commands, arguments, and options</param>
+        /// <param name="descriptionFormatter">A description formatter for wrapping the descriptions</param>
         protected virtual void GenerateArguments(
             CommandLineApplication application,
             TextWriter output,
             IReadOnlyList<CommandArgument> visibleArguments,
-            int firstColumnWidth)
+            int firstColumnWidth,
+            DescriptionFormatter descriptionFormatter)
         {
-            if (visibleArguments.Any())
+            if (!visibleArguments.Any()) { return; }
+
+            output.WriteLine();
+            output.WriteLine("Arguments:");
+            var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+
+            foreach (var arg in visibleArguments)
             {
+                var wrappedDescription = descriptionFormatter.Wrap(arg.Description ?? "");
+                var message = string.Format(outputFormat, arg.Name, wrappedDescription);
+
+                output.Write(message);
                 output.WriteLine();
-                output.WriteLine("Arguments:");
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
-
-                var newLineWithMessagePadding = Environment.NewLine + new string(' ', firstColumnWidth + 2);
-
-                foreach (var arg in visibleArguments)
-                {
-                    var message = string.Format(outputFormat, arg.Name, arg.Description);
-                    message = message.Replace(Environment.NewLine, newLineWithMessagePadding);
-
-                    output.Write(message);
-                    output.WriteLine();
-                }
             }
         }
 
@@ -177,28 +183,27 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <param name="output">Help text output</param>
         /// <param name="visibleOptions">Options not hidden from help text</param>
         /// <param name="firstColumnWidth">The width of the first column of commands, arguments, and options</param>
+        /// <param name="descriptionFormatter">A description formatter for wrapping the descriptions</param>
         protected virtual void GenerateOptions(
             CommandLineApplication application,
             TextWriter output,
             IReadOnlyList<CommandOption> visibleOptions,
-            int firstColumnWidth)
+            int firstColumnWidth,
+            DescriptionFormatter descriptionFormatter)
         {
-            if (visibleOptions.Any())
+            if (!visibleOptions.Any()) { return; }
+
+            output.WriteLine();
+            output.WriteLine("Options:");
+            var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+
+            foreach (var opt in visibleOptions)
             {
+                var wrappedDescription = descriptionFormatter.Wrap(opt.Description ?? "");
+                var message = string.Format(outputFormat, Format(opt), opt.Description);
+
+                output.Write(message);
                 output.WriteLine();
-                output.WriteLine("Options:");
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
-
-                var newLineWithMessagePadding = Environment.NewLine + new string(' ', firstColumnWidth + 2);
-
-                foreach (var opt in visibleOptions)
-                {
-                    var message = string.Format(outputFormat, Format(opt), opt.Description);
-                    message = message.Replace(Environment.NewLine, newLineWithMessagePadding);
-
-                    output.Write(message);
-                    output.WriteLine();
-                }
             }
         }
 
@@ -209,37 +214,35 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <param name="output">Help text output</param>
         /// <param name="visibleCommands">Commands not hidden from help text</param>
         /// <param name="firstColumnWidth">The width of the first column of commands, arguments, and options</param>
+        /// <param name="descriptionFormatter">A description formatter for wrapping the descriptions</param>
         protected virtual void GenerateCommands(
             CommandLineApplication application,
             TextWriter output,
             IReadOnlyList<CommandLineApplication> visibleCommands,
-            int firstColumnWidth)
+            int firstColumnWidth,
+            DescriptionFormatter descriptionFormatter)
         {
-            if (visibleCommands.Any())
+            if (!visibleCommands.Any()) { return; }
+            output.WriteLine();
+            output.WriteLine("Commands:");
+            var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+
+            var orderedCommands = SortCommandsByName
+                ? visibleCommands.OrderBy(c => c.Name).ToList()
+                : visibleCommands;
+            foreach (var cmd in orderedCommands)
+            {
+                var wrappedDescription = descriptionFormatter.Wrap(cmd.Description ?? "");
+                var message = string.Format(outputFormat, cmd.Name, wrappedDescription);
+
+                output.Write(message);
+                output.WriteLine();
+            }
+
+            if (application.OptionHelp != null)
             {
                 output.WriteLine();
-                output.WriteLine("Commands:");
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
-
-                var newLineWithMessagePadding = Environment.NewLine + new string(' ', firstColumnWidth + 2);
-
-                var orderedCommands = SortCommandsByName
-                    ? visibleCommands.OrderBy(c => c.Name).ToList()
-                    : visibleCommands;
-                foreach (var cmd in orderedCommands)
-                {
-                    var message = string.Format(outputFormat, cmd.Name, cmd.Description);
-                    message = message.Replace(Environment.NewLine, newLineWithMessagePadding);
-
-                    output.Write(message);
-                    output.WriteLine();
-                }
-
-                if (application.OptionHelp != null)
-                {
-                    output.WriteLine();
-                    output.WriteLine($"Run '{application.Name} [command] --{application.OptionHelp.LongName}' for more information about a command.");
-                }
+                output.WriteLine($"Run '{application.Name} [command] --{application.OptionHelp.LongName}' for more information about a command.");
             }
         }
 
