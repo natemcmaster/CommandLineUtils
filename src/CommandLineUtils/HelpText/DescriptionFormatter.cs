@@ -33,6 +33,10 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             _paddedLine = Environment.NewLine + new string(' ', _paddedLineLength);
         }
 
+        /// <summary>
+        /// Get the Console width.
+        /// </summary>
+        /// <returns>BufferWidth or the default.</returns>
         private int GetDefaultConsoleWidth()
         {
             try
@@ -51,7 +55,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// Dynamically wrap a description.
         /// </summary>
         /// <param name="original">The original description text.</param>
-        /// <returns></returns>
+        /// <returns>Dynamically wrapped description with explicit newlines preserved.</returns>
         public string Wrap(string original)
         {
             if (string.IsNullOrWhiteSpace(original))
@@ -66,6 +70,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             return string.Join(_paddedLine, lines);
         }
 
+        /// <summary>
+        /// Wrap a single description line based on console width.
+        /// </summary>
+        /// <param name="original">The original description text.</param>
+        /// <returns>Description text wrapped with padded newlines.</returns>
         public string WrapSingle(string original)
         {
             StringBuilder sb = new StringBuilder();
