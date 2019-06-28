@@ -201,7 +201,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 foreach (var opt in visibleOptions)
                 {
                     var wrappedDescription = descriptionFormatter.Wrap(opt.Description ?? "");
-                    var message = string.Format(outputFormat, Format(opt), opt.Description);
+                    var message = string.Format(outputFormat, Format(opt), wrappedDescription);
 
                     output.Write(message);
                     output.WriteLine();
