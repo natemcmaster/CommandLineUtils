@@ -19,7 +19,7 @@ public class AsyncWithBuilderApi
         var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
         var optionRepeat = app.Option<int>("-n|--count <N>", "Repeat", CommandOptionType.SingleValue);
 
-        app.OnExecute(async () =>
+        app.OnExecuteAsync(async cancellationToken =>
         {
             var subject = optionSubject.HasValue()
                 ? optionSubject.Value()
@@ -31,7 +31,7 @@ public class AsyncWithBuilderApi
                 Console.Write($"Hello");
 
                 // This pause here is just for indication that some awaitable operation could happens here.
-                await Task.Delay(5000);
+                await Task.Delay(5000, cancellationToken);
                 Console.WriteLine($" {subject}!");
             }
         });

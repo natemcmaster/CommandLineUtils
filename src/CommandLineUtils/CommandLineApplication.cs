@@ -668,13 +668,22 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="invoke"></param>
         public void OnExecute(Func<int> invoke)
         {
-            _action = _ => Task.FromResult(invoke());
+            _handler = _ => Task.FromResult(invoke());
         }
 
         /// <summary>
+        /// <para>
+        /// This method is obsolete and will be removed in a future version.
+        /// The recommended alternative is <see cref="OnExecuteAsync" />.
+        /// </para>
+        /// <para>
         /// Defines an asynchronous callback.
+        /// </para>
         /// </summary>
         /// <param name="invoke"></param>
+        [Obsolete("This method is obsolete and will be removed in a future version. " +
+                  "The recommended replacement is .OnExecuteAsync()")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public void OnExecute(Func<Task<int>> invoke) => OnExecuteAsync(_ => invoke());
 
         /// <summary>

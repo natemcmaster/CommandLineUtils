@@ -3,8 +3,10 @@
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -95,14 +97,37 @@ namespace McMaster.Extensions.CommandLineUtils
             => app.Option(template, "Show verbose output", CommandOptionType.NoValue, inherited: true);
 
         /// <summary>
-        /// Sets <see cref="CommandLineApplication.Invoke"/> with a return code of <c>0</c>.
+        /// <para>
+        /// This method is obsolete and will be removed in a future version.
+        /// The recommended alternative is <see cref="OnExecuteAsync" />.
+        /// </para>
+        /// <para>
+        /// Sets an async handler with a return code of <c>0</c>.
+        /// </para>
         /// </summary>
         /// <param name="app"></param>
         /// <param name="action">An asynchronous action to invoke when the ocmmand is selected..</param>
+        [Obsolete("This method is obsolete and will be removed in a future version. " +
+                  "The recommended replacement is .OnExecuteAsync()")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static void OnExecute(this CommandLineApplication app, Func<Task> action)
-            => app.OnExecute(async () =>
+        {
+            app.OnExecute(async () =>
+                       {
+                           await action();
+                           return 0;
+                       });
+        }
+
+        /// <summary>
+        /// Sets an async handler with a return code of <c>0</c>.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="action">An asynchronous action to invoke when the ocmmand is selected..</param>
+        public static void OnExecuteAsync(this CommandLineApplication app, Func<CancellationToken, Task> action)
+            => app.OnExecuteAsync(async ct =>
             {
-                await action();
+                await action(ct);
                 return 0;
             });
 

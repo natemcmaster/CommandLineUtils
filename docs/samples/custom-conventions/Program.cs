@@ -71,7 +71,7 @@ public class MethodsAsSubcommandsConventions : IConvention
                 }
 
                 // when this subcommand is selected, invoke the method on the model instance
-                cmd.OnExecute(async () =>
+                cmd.OnExecuteAsync(async cancellationToken =>
                 {
                     // get an instance of the model type from CommandLineApplication<TModel>
                     var modelInstance = context.ModelAccessor.GetModel();
