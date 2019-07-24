@@ -3,11 +3,13 @@
 
 using System;
 using System.IO;
+using System.Threading;
+using McMaster.Extensions.CommandLineUtils.Internal;
 using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
-    public class TestConsole : IConsole
+    public class TestConsole : IConsole, ICancellationTokenProvider
     {
         public TestConsole(ITestOutputHelper output)
         {
@@ -29,6 +31,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         public ConsoleColor ForegroundColor { get; set; }
         public ConsoleColor BackgroundColor { get; set; }
+
+        CancellationToken ICancellationTokenProvider.Token => CancelKeyPressToken;
+
+        public CancellationToken CancelKeyPressToken => CancelKeyCancellationSource.Token;
+
+        public CancellationTokenSource CancelKeyCancellationSource { get; } = new CancellationTokenSource();
 
         public event ConsoleCancelEventHandler CancelKeyPress
         {

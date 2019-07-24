@@ -9,7 +9,13 @@
 * Fix [#221] by [@vpkopylov] - Use Pager for help text option only works on top-level help
 * PR [#239] by [@vpkopylov] - Add check for subcommand cycle
 * Support C# 8.0 and nullable reference types - [#245]
+* Add async methods to CommandLineApplication
+* Handle CTRL+C by default
+* Fix [#208] - make `CommandLineApplication.ExecuteAsync` actually asynchronous
+* Fix [#153] - add async methods that accept cancellation tokens
 
+[#153]: https://github.com/natemcmaster/CommandLineUtils/issues/153
+[#208]: https://github.com/natemcmaster/CommandLineUtils/issues/208
 [#221]: https://github.com/natemcmaster/CommandLineUtils/issues/221
 [#227]: https://github.com/natemcmaster/CommandLineUtils/issues/227
 [#230]: https://github.com/natemcmaster/CommandLineUtils/pull/230

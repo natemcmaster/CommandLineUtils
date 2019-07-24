@@ -4,6 +4,7 @@
 using System;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 
@@ -36,7 +37,7 @@ class Program
 
     private HttpClient _client;
 
-    private async Task<int> OnExecuteAsync(CommandLineApplication app)
+    private async Task<int> OnExecuteAsync(CommandLineApplication app, CancellationToken cancellationToken = default)
     {
         if (string.IsNullOrEmpty(Url))
         {
@@ -57,10 +58,10 @@ class Program
         switch (RequestMethod)
         {
             case HttpMethod.Get:
-                result = await GetAsync(uri);
+                result = await GetAsync(uri, cancellationToken);
                 break;
             case HttpMethod.Post:
-                result = await PostAsync(uri);
+                result = await PostAsync(uri, cancellationToken);
                 break;
             default:
                 throw new NotImplementedException();
@@ -80,15 +81,16 @@ class Program
         }
     }
 
-    private async Task<HttpResponseMessage> PostAsync(Uri uri)
+    private async Task<HttpResponseMessage> PostAsync(Uri uri, CancellationToken cancellationToken)
     {
         var content = new ByteArrayContent(Encoding.ASCII.GetBytes(Data ?? string.Empty));
-        return await _client.PostAsync(uri, content);
+        return await _client.PostAsync(uri, content, cancellationToken);
     }
 
-    private async Task<HttpResponseMessage> GetAsync(Uri uri)
+    private async Task<HttpResponseMessage> GetAsync(Uri uri, CancellationToken cancellationToken)
     {
-        var result = await _client.GetAsync(uri);
+        var result = await _client.GetAsync(uri, cancellationToken);
+        cancellationToken.ThrowIfCancellationRequested();
         var content = await result.Content.ReadAsStringAsync();
 
         Console.WriteLine(content);

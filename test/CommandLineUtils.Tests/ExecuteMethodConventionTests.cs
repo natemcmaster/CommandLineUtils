@@ -2,13 +2,23 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Moq;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class ExecuteMethodConventionTests
     {
+        private readonly ITestOutputHelper _output;
+
+        public ExecuteMethodConventionTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         private class ProgramWithExecute
         {
             private int OnExecute(CommandLineApplication<ProgramWithExecute> app)
@@ -22,7 +32,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<ProgramWithExecute>();
             app.Conventions.UseOnExecuteMethodFromModel();
-            var result = app.Invoke();
+            var result = app.Execute();
             Assert.Equal(42, result);
         }
 
@@ -39,7 +49,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<ProgramWithBadOnExecute>();
             app.Conventions.UseOnExecuteMethodFromModel();
-            var ex = Assert.Throws<InvalidOperationException>(() => app.Invoke());
+            var ex = Assert.Throws<InvalidOperationException>(() => app.Execute());
             Assert.Equal(Strings.InvalidOnExecuteReturnType(nameof(ProgramWithBadOnExecute.OnExecute)), ex.Message);
         }
 
@@ -61,7 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication<ProgramWithExecuteInjection>();
             app.AdditionalServices = mock.Object;
             app.Conventions.UseOnExecuteMethodFromModel();
-            var result = app.Invoke();
+            var result = app.Execute();
             Assert.Equal(42, result);
             mock.Verify();
         }
@@ -95,11 +105,34 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Conventions.UseCommandAttribute();
             app.Conventions.UseOnExecuteMethodFromModel();
 
-            // this tests that the model is actually given values before it passed to command validation
-            var parseResult = app.Parse(args?.Split(' ') ?? Util.EmptyArray<string>());
-
-            var result = parseResult.SelectedCommand.Invoke();
+            var result = app.Execute(args?.Split(' ') ?? Util.EmptyArray<string>());
             Assert.Equal(expectedResult, result);
+        }
+
+        private class ProgramWithAsyncOnExecute
+        {
+            public CancellationToken Token { get; private set; }
+
+            public Task<int> OnExecuteAsync(CancellationToken ct)
+            {
+                Token = ct;
+                return Task.FromResult(4);
+            }
+        }
+
+        [Fact]
+        public async Task ItExecutesAsyncMethod()
+        {
+            var console = new TestConsole(_output);
+            var app = new CommandLineApplication<ProgramWithAsyncOnExecute>(console);
+            app.Conventions.UseOnExecuteMethodFromModel();
+
+            var result = await app.ExecuteAsync(Array.Empty<string>());
+            Assert.Equal(4, result);
+            Assert.False(app.Model.Token.IsCancellationRequested);
+            Assert.NotEqual(CancellationToken.None, app.Model.Token);
+            console.CancelKeyCancellationSource.Cancel();
+            Assert.True(app.Model.Token.IsCancellationRequested);
         }
     }
 }

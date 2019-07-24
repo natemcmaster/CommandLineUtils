@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Conventions;
@@ -26,6 +27,8 @@ namespace McMaster.Extensions.CommandLineUtils
         private const int HelpExitCode = 0;
         internal const int ValidationErrorExitCode = 1;
 
+        private static Task<int> DefaultAction(CancellationToken ct) => Task.FromResult(0);
+        private Func<CancellationToken, Task<int>> _action;
         private List<Action<ParseResult>>? _onParsingComplete;
         internal readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
         internal readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
@@ -100,7 +103,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Commands = new List<CommandLineApplication>();
             RemainingArguments = new List<string>();
             _helpTextGenerator = helpTextGenerator ?? throw new ArgumentNullException(nameof(helpTextGenerator));
-            Invoke = () => 0;
+            _action = DefaultAction;
             _validationErrorHandler = DefaultValidationErrorHandler;
             Out = context.Console.Out;
             Error = context.Console.Error;
@@ -246,9 +249,24 @@ namespace McMaster.Extensions.CommandLineUtils
         public bool IsShowingInformation { get; protected set; }
 
         /// <summary>
+        /// <para>
+        /// This property has been marked as obsolete and will be removed in a future version.
+        /// The recommended replacement for setting this property is <see cref="OnExecute(Func{int})" />
+        /// and for invoking this property is <see cref="Execute(string[])" />.
+        /// </para>
+        /// <para>
         /// The action to call when this command is matched and <see cref="IsShowingInformation"/> is <c>false</c>.
+        /// </para>
         /// </summary>
-        public Func<int> Invoke { get; set; }
+        [Obsolete("This property has been marked as obsolete and will be removed in a future version. " +
+            "The recommended replacement for setting this property is OnExecute(Func<int>) " +
+            "and for invoking this property is Execute(string[] args).")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Func<int> Invoke
+        {
+            get => () => _action(GetDefaultCancellationToken()).GetAwaiter().GetResult();
+            set => _action = _ => Task.FromResult(value());
+        }
 
         /// <summary>
         /// The long-form of the version to display in generated help text.
@@ -634,16 +652,22 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="invoke"></param>
         public void OnExecute(Func<int> invoke)
         {
-            Invoke = invoke;
+            _action = _ => Task.FromResult(invoke());
         }
 
         /// <summary>
         /// Defines an asynchronous callback.
         /// </summary>
         /// <param name="invoke"></param>
-        public void OnExecute(Func<Task<int>> invoke)
+        public void OnExecute(Func<Task<int>> invoke) => OnExecuteAsync(_ => invoke());
+
+        /// <summary>
+        /// Defines an asynchronous callback.
+        /// </summary>
+        /// <param name="invoke"></param>
+        public void OnExecuteAsync(Func<CancellationToken, Task<int>> invoke)
         {
-            Invoke = () => invoke().GetAwaiter().GetResult();
+            _action = invoke;
         }
 
         /// <summary>
@@ -749,6 +773,29 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The return code from <see cref="Invoke"/>.</returns>
         public int Execute(params string[] args)
         {
+            return ExecuteAsync(args).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Parses an array of strings using <see cref="Parse(string[])"/>.
+        /// <para>
+        /// If <see cref="OptionHelp"/> was matched, the generated help text is displayed in command line output.
+        /// </para>
+        /// <para>
+        /// If <see cref="OptionVersion"/> was matched, the generated version info is displayed in command line output.
+        /// </para>
+        /// <para>
+        /// If there were any validation errors produced from <see cref="GetValidationResult"/>, <see cref="ValidationErrorHandler"/> is invoked.
+        /// </para>
+        /// <para>
+        /// If the parse result matches this command, <see cref="Invoke"/> will be invoked.
+        /// </para>
+        /// </summary>
+        /// <param name="args"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>The return code from <see cref="Invoke"/>.</returns>
+        public async Task<int> ExecuteAsync(string[] args, CancellationToken cancellationToken = default)
+        {
             var parseResult = Parse(args);
             var command = parseResult.SelectedCommand;
 
@@ -763,7 +810,12 @@ namespace McMaster.Extensions.CommandLineUtils
                 return command.ValidationErrorHandler(validationResult);
             }
 
-            return command.Invoke();
+            if (cancellationToken == CancellationToken.None)
+            {
+                cancellationToken = GetDefaultCancellationToken();
+            }
+
+            return await command._action(cancellationToken);
         }
 
         /// <summary>
@@ -881,7 +933,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// The recommended replacement is <see cref="ShowHelp()" />.
         /// </summary>
         /// <param name="commandName">The subcommand for which to show help. Leave null to show for the current command.</param>
-        [Obsolete("This method has been marked as obsolete and will be removed in a future version." +
+        [Obsolete("This method has been marked as obsolete and will be removed in a future version. " +
             "The recommended replacement is ShowHelp()")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void ShowHelp(string? commandName = null)
@@ -928,7 +980,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="commandName"></param>
         /// <returns></returns>
-        [Obsolete("This method has been marked as obsolete and will be removed in a future version." +
+        [Obsolete("This method has been marked as obsolete and will be removed in a future version. " +
             "The recommended replacement is GetHelpText()")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public virtual string GetHelpText(string? commandName = null)
@@ -1026,6 +1078,16 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             return _names.Contains(name);
+        }
+
+        internal CancellationToken GetDefaultCancellationToken()
+        {
+            if (_context.Console is ICancellationTokenProvider ctp)
+            {
+                return ctp.Token;
+            }
+
+            return default;
         }
 
         private sealed class Builder : IConventionBuilder

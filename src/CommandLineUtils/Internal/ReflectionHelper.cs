@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -79,6 +80,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 else if (typeof(CommandLineContext).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
                 {
                     arguments[i] = command._context;
+                }
+                else if (typeof(CancellationToken) == methodParam.ParameterType)
+                {
+                    arguments[i] = command.GetDefaultCancellationToken();
                 }
                 else
                 {
