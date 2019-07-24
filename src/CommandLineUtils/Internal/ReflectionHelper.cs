@@ -56,7 +56,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return type.GetTypeInfo().GetMembers(binding);
         }
 
-        public static object[] BindParameters(MethodInfo method, CommandLineApplication command)
+        public static object[] BindParameters(MethodInfo method, CommandLineApplication command, CancellationToken cancellationToken)
         {
             var methodParams = method.GetParameters();
             var arguments = new object[methodParams.Length];
@@ -81,9 +81,9 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     arguments[i] = command._context;
                 }
-                else if (typeof(CancellationToken) == methodParam.ParameterType)
+                else if (typeof(CancellationToken) == methodParam.ParameterType && cancellationToken != CancellationToken.None)
                 {
-                    arguments[i] = command.GetDefaultCancellationToken();
+                    arguments[i] = cancellationToken;
                 }
                 else
                 {

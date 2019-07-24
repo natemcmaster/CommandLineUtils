@@ -5,6 +5,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -960,7 +961,7 @@ Examples:
         {
             var app = new CommandLineApplication();
             var tcs = new TaskCompletionSource<int>();
-            app.OnExecute(async () =>
+            app.OnExecuteAsync(async ct =>
             {
                 var val = await tcs.Task.ConfigureAwait(false);
                 if (val > 0)
@@ -975,6 +976,24 @@ Examples:
             Assert.Same(delay, finished);
             tcs.TrySetResult(1);
             await Assert.ThrowsAsync<InvalidOperationException>(async () => await run);
+        }
+
+        [Fact]
+        public async Task OperationCanceledReturnsExpectedOsCode()
+        {
+            var expectedCode = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+                ? unchecked((int)0xC000013A)
+                : 130;
+            var testConsole = new TestConsole(_output);
+            var app = new CommandLineApplication(testConsole);
+            app.OnExecuteAsync(async ct =>
+            {
+                await Task.Delay(-1, ct);
+            });
+            var executeTask = app.ExecuteAsync(Array.Empty<string>());
+            testConsole.RaiseCancelKeyPress();
+            var exitCode = await executeTask;
+            Assert.Equal(expectedCode, exitCode);
         }
     }
 }

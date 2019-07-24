@@ -113,10 +113,16 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             public CancellationToken Token { get; private set; }
 
-            public Task<int> OnExecuteAsync(CancellationToken ct)
+            public static TaskCompletionSource<object?> ExecuteStarted = new TaskCompletionSource<object?>();
+
+            public async Task<int> OnExecuteAsync(CancellationToken ct)
             {
+                ExecuteStarted.TrySetResult(null);
                 Token = ct;
-                return Task.FromResult(4);
+                var tcs = new TaskCompletionSource<object?>();
+                ct.Register(() => tcs.TrySetResult(null));
+                await tcs.Task;
+                return 4;
             }
         }
 
@@ -126,12 +132,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var console = new TestConsole(_output);
             var app = new CommandLineApplication<ProgramWithAsyncOnExecute>(console);
             app.Conventions.UseOnExecuteMethodFromModel();
-
-            var result = await app.ExecuteAsync(Array.Empty<string>());
-            Assert.Equal(4, result);
+            var executeTask = app.ExecuteAsync(Array.Empty<string>());
+            await ProgramWithAsyncOnExecute.ExecuteStarted.Task.ConfigureAwait(false);
             Assert.False(app.Model.Token.IsCancellationRequested);
             Assert.NotEqual(CancellationToken.None, app.Model.Token);
-            console.CancelKeyCancellationSource.Cancel();
+            console.RaiseCancelKeyPress();
+            var result = await executeTask.ConfigureAwait(false);
+            Assert.Equal(4, result);
             Assert.True(app.Model.Token.IsCancellationRequested);
         }
     }

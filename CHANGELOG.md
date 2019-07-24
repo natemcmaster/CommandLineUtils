@@ -10,10 +10,11 @@
 * PR [#239] by [@vpkopylov] - Add check for subcommand cycle
 * Support C# 8.0 and nullable reference types - [#245]
 * Add async methods to CommandLineApplication
-* Handle CTRL+C by default
 * Fix [#208] - make `CommandLineApplication.ExecuteAsync` actually asynchronous
 * Fix [#153] - add async methods that accept cancellation tokens
+* Fix [#111] - Handle CTRL+C by default
 
+[#111]: https://github.com/natemcmaster/CommandLineUtils/issues/111
 [#153]: https://github.com/natemcmaster/CommandLineUtils/issues/153
 [#208]: https://github.com/natemcmaster/CommandLineUtils/issues/208
 [#221]: https://github.com/natemcmaster/CommandLineUtils/issues/221

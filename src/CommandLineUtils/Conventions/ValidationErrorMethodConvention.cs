@@ -33,7 +33,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             context.Application.ValidationErrorHandler = (v) =>
             {
-                var arguments = ReflectionHelper.BindParameters(method, context.Application);
+                var arguments = ReflectionHelper.BindParameters(method, context.Application, default);
                 var result = method.Invoke(modelAccessor.GetModel(), arguments);
                 if (method.ReturnType == typeof(int))
                 {

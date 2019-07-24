@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,9 +27,24 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         private const int HelpExitCode = 0;
         internal const int ValidationErrorExitCode = 1;
+        private static readonly int ExitCodeOperationCanceled;
+
+        static CommandLineApplication()
+        {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                // values from https://www.febooti.com/products/automation-workshop/online-help/events/run-dos-cmd-command/exit-codes/
+                ExitCodeOperationCanceled = unchecked((int)0xC000013A);
+            }
+            else
+            {
+                // Match Process.ExitCode which uses 128 + signo.
+                ExitCodeOperationCanceled = 130; // SIGINT
+            }
+        }
 
         private static Task<int> DefaultAction(CancellationToken ct) => Task.FromResult(0);
-        private Func<CancellationToken, Task<int>> _action;
+        private Func<CancellationToken, Task<int>> _handler;
         private List<Action<ParseResult>>? _onParsingComplete;
         internal readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
         internal readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
@@ -103,7 +119,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Commands = new List<CommandLineApplication>();
             RemainingArguments = new List<string>();
             _helpTextGenerator = helpTextGenerator ?? throw new ArgumentNullException(nameof(helpTextGenerator));
-            _action = DefaultAction;
+            _handler = DefaultAction;
             _validationErrorHandler = DefaultValidationErrorHandler;
             Out = context.Console.Out;
             Error = context.Console.Error;
@@ -264,8 +280,8 @@ namespace McMaster.Extensions.CommandLineUtils
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Func<int> Invoke
         {
-            get => () => _action(GetDefaultCancellationToken()).GetAwaiter().GetResult();
-            set => _action = _ => Task.FromResult(value());
+            get => () => _handler(default).GetAwaiter().GetResult();
+            set => _handler = _ => Task.FromResult(value());
         }
 
         /// <summary>
@@ -667,7 +683,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="invoke"></param>
         public void OnExecuteAsync(Func<CancellationToken, Task<int>> invoke)
         {
-            _action = invoke;
+            _handler = invoke;
         }
 
         /// <summary>
@@ -810,12 +826,46 @@ namespace McMaster.Extensions.CommandLineUtils
                 return command.ValidationErrorHandler(validationResult);
             }
 
-            if (cancellationToken == CancellationToken.None)
+            var handlerCompleted = new ManualResetEventSlim(initialState: false);
+            var handlerCancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+
+            void cancelHandler(object o, ConsoleCancelEventArgs e)
             {
-                cancellationToken = GetDefaultCancellationToken();
+                handlerCancellationTokenSource.Cancel();
+                handlerCompleted.Wait();
             }
 
-            return await command._action(cancellationToken);
+#if !NETSTANDARD1_6
+            void unloadingHandler(object o, EventArgs e)
+            {
+                handlerCancellationTokenSource.Cancel();
+                handlerCompleted.Wait();
+            }
+#endif
+
+            try
+            {
+                // blocks .NET's CTRL+C handler from completing until after async completions are done
+                _context.Console.CancelKeyPress += cancelHandler;
+#if !NETSTANDARD1_6
+                // blocks .NET's process unloading from completing until after async completions are done
+                AppDomain.CurrentDomain.DomainUnload += unloadingHandler;
+#endif
+
+                return await command._handler(handlerCancellationTokenSource.Token);
+            }
+            catch (OperationCanceledException)
+            {
+                return ExitCodeOperationCanceled;
+            }
+            finally
+            {
+                _context.Console.CancelKeyPress -= cancelHandler;
+#if !NETSTANDARD1_6
+                AppDomain.CurrentDomain.DomainUnload -= unloadingHandler;
+#endif
+                handlerCompleted.Set();
+            }
         }
 
         /// <summary>
@@ -1078,16 +1128,6 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             return _names.Contains(name);
-        }
-
-        internal CancellationToken GetDefaultCancellationToken()
-        {
-            if (_context.Console is ICancellationTokenProvider ctp)
-            {
-                return ctp.Token;
-            }
-
-            return default;
         }
 
         private sealed class Builder : IConventionBuilder

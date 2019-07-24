@@ -4,18 +4,14 @@
 
 using System;
 using System.IO;
-using System.Threading;
-using McMaster.Extensions.CommandLineUtils.Internal;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
     /// <summary>
     /// An implementation of <see cref="IConsole"/> that wraps <see cref="System.Console"/>.
     /// </summary>
-    public class PhysicalConsole : IConsole, ICancellationTokenProvider
+    public class PhysicalConsole : IConsole
     {
-        private readonly CancellationTokenSource _cancelKeyPressed;
-
         /// <summary>
         /// A shared instance of <see cref="PhysicalConsole"/>.
         /// </summary>
@@ -23,8 +19,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private PhysicalConsole()
         {
-            _cancelKeyPressed = new CancellationTokenSource();
-            Console.CancelKeyPress += (_, __) => _cancelKeyPressed.Cancel();
         }
 
         /// <summary>
@@ -83,8 +77,6 @@ namespace McMaster.Extensions.CommandLineUtils
             get => Console.BackgroundColor;
             set => Console.BackgroundColor = value;
         }
-
-        CancellationToken ICancellationTokenProvider.Token => _cancelKeyPressed.Token;
 
         /// <summary>
         /// <see cref="Console.ResetColor"/>.

@@ -4,8 +4,8 @@
 using System;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
+using System.Threading;
 using System.Threading.Tasks;
-using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
@@ -24,10 +24,10 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            context.Application.OnExecute(async () => await this.OnExecute(context));
+            context.Application.OnExecuteAsync(async ct => await OnExecute(context, ct));
         }
 
-        private async Task<int> OnExecute(ConventionContext context)
+        private async Task<int> OnExecute(ConventionContext context, CancellationToken cancellationToken)
         {
             const BindingFlags binding = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
 
@@ -56,7 +56,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 throw new InvalidOperationException(Strings.NoOnExecuteMethodFound);
             }
 
-            var arguments = ReflectionHelper.BindParameters(method, context.Application);
+            var arguments = ReflectionHelper.BindParameters(method, context.Application, cancellationToken);
             var modelAccessor = context.ModelAccessor;
             if (modelAccessor == null)
             {
