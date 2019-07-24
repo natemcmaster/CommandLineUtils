@@ -45,11 +45,9 @@ jobs:
       testRunTitle: Windows
       testRunner: vstest
       testResultsFiles: '**/*.trx'
-  - task: PublishBuildArtifacts@1
+  - publish: artifacts/
+    artifact: Packages
     displayName: Publish artifacts
-    inputs:
-      pathtoPublish: 'artifacts/'
-      artifactName: 'Packages'
 - job: Linux
   pool:
     vmImage: 'Ubuntu-16.04'
