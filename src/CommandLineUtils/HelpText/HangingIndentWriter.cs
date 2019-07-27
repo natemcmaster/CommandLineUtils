@@ -18,6 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// </summary>
         public const int DefaultConsoleWidth = 80;
 
+        private bool _indentFirstLine;
         private int _indentSize;
         private int _maxLineLength;
         private string _paddedLine;
@@ -29,10 +30,12 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <param name="maxLineLength">The max length an indented line can be.
         /// Defaults to <see cref="DefaultConsoleWidth"/>.
         /// </param>
-        public HangingIndentWriter(int indentSize, int? maxLineLength = null)
+        /// <param name="indentFirstLine">If true, the first line of text will also be indented.</param>
+        public HangingIndentWriter(int indentSize, int? maxLineLength = null, bool indentFirstLine = false)
         {
             _indentSize = indentSize;
             _maxLineLength = maxLineLength ?? DefaultConsoleWidth;
+            _indentFirstLine = indentFirstLine;
             _paddedLine = Environment.NewLine + new string(' ', _indentSize);
         }
 
@@ -52,7 +55,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 .Split(new[] { "\n", "\r\n" }, StringSplitOptions.None)
                 .Select(WrapSingle);
 
-            return string.Join(_paddedLine, lines);
+            return (_indentFirstLine ? _paddedLine : string.Empty) + string.Join(_paddedLine, lines);
         }
 
         /// <summary>

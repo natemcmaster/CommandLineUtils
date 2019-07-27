@@ -52,6 +52,21 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void TheFirstLineCanAlsoBeIndented()
+        {
+            var originalText = "This argument description is really long. It is a great argument. The best argument.";
+            var expected =
+                _paddedNewline + "This argument" +
+                _paddedNewline + "description is" +
+                _paddedNewline + "really long. It is a" +
+                _paddedNewline + "great argument. The" +
+                _paddedNewline + "best argument.";
+
+            var subject = new HangingIndentWriter(IndentSize, maxLineLength: ConsoleWidth, indentFirstLine: true);
+            subject.Write(originalText).Should().Be(expected);
+        }
+
+        [Fact]
         public void LongRunningFirstLineStaysOnFirstLine()
         {
             var originalText = "SomeReallyLongWordWithNoSpacesAtAll the end.";
