@@ -56,7 +56,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// </summary>
         /// <param name="original">The original description text.</param>
         /// <returns>Dynamically wrapped description with explicit newlines preserved.</returns>
-        public string Wrap(string original)
+        public string Wrap(string? original)
         {
             if (string.IsNullOrWhiteSpace(original))
             {

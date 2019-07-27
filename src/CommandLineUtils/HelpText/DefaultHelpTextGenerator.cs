@@ -168,7 +168,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var arg in visibleArguments)
                 {
-                    var wrappedDescription = descriptionFormatter.Wrap(arg.Description ?? "");
+                    var wrappedDescription = descriptionFormatter.Wrap(arg.Description);
                     var message = string.Format(outputFormat, arg.Name, wrappedDescription);
 
                     output.Write(message);
@@ -200,7 +200,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var opt in visibleOptions)
                 {
-                    var wrappedDescription = descriptionFormatter.Wrap(opt.Description ?? "");
+                    var wrappedDescription = descriptionFormatter.Wrap(opt.Description);
                     var message = string.Format(outputFormat, Format(opt), wrappedDescription);
 
                     output.Write(message);
@@ -235,7 +235,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                     : visibleCommands;
                 foreach (var cmd in orderedCommands)
                 {
-                    var wrappedDescription = descriptionFormatter.Wrap(cmd.Description ?? "");
+                    var wrappedDescription = descriptionFormatter.Wrap(cmd.Description);
                     var message = string.Format(outputFormat, cmd.Name, wrappedDescription);
 
                     output.Write(message);
