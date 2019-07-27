@@ -20,7 +20,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             return new DescriptionFormatter(FirstColumnWidth, SpacerLength, ConsoleWidth);
         }
 
-        private void AssertExpected(string original, string expected)
+        private void AssertWrapBehavior(string original, string expected)
         {
             Subject().Wrap(original).Should().Be(expected);
         }
@@ -28,7 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void EmptReturnsEmpty()
         {
-            AssertExpected("", "");
+            AssertWrapBehavior("", "");
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var originalText = "Verbosity setting";
             var expected = "Verbosity setting";
-            AssertExpected(originalText, expected);
+            AssertWrapBehavior(originalText, expected);
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 _paddedNewline + "great argument. The" +
                 _paddedNewline + "best argument.";
 
-            AssertExpected(originalText, expected);
+            AssertWrapBehavior(originalText, expected);
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var expected = "SomeReallyLongWordWithNoSpacesAtAll" +
                 _paddedNewline + "the end.";
 
-            AssertExpected(originalText, expected);
+            AssertWrapBehavior(originalText, expected);
         }
 
         [Theory]
@@ -74,7 +74,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 _paddedNewline + "still get broken up" +
                 _paddedNewline + "correctly!";
 
-            AssertExpected(originalText, expected);
+            AssertWrapBehavior(originalText, expected);
         }
 
         [Theory]
@@ -86,7 +86,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 _paddedNewline +
                 _paddedNewline + "double lines.";
 
-            AssertExpected(originalText, expected);
+            AssertWrapBehavior(originalText, expected);
         }
     }
 }

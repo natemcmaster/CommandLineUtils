@@ -78,7 +78,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// </summary>
         /// <param name="original">The original description text.</param>
         /// <returns>Description text wrapped with padded newlines.</returns>
-        public string WrapSingle(string original)
+        private string WrapSingle(string original)
         {
             StringBuilder sb = new StringBuilder();
             var lineLength = _paddedLineLength;
