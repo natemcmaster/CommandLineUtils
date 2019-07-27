@@ -11,62 +11,44 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
     /// A formatter for creating nicely wrapped descriptions for display on the command line in the second column
     /// of generated help text.
     /// </summary>
-    public class DescriptionFormatter
+    public class HangingIndentWriter
     {
         /// <summary>
         /// The default console width used for wrapping if the width cannot be gotten from the Console.
         /// </summary>
         public const int DefaultConsoleWidth = 80;
-        private int _paddedLineLength;
-        private int _consoleWidth;
+
+        private int _indentSize;
+        private int _maxLineLength;
         private string _paddedLine;
 
         /// <summary>
         /// A description formatter for dynamically wrapping the description to print in a CLI usage.
         /// </summary>
-        /// <param name="firstColumnWidth">The width of the first column where the option/argument/command is listed.</param>
-        /// <param name="spacerLength">The number of spaces separating the columns.</param>
-        /// <param name="consoleWidth">The max width of the console controlling when to wrap to a new line.
-        /// Defaults to Console.BufferWidth.
+        /// <param name="indentSize">The indent size in spaces to use.</param>
+        /// <param name="maxLineLength">The max length an indented line can be.
+        /// Defaults to <see cref="DefaultConsoleWidth"/>.
         /// </param>
-        public DescriptionFormatter(int firstColumnWidth, int spacerLength, int? consoleWidth = null)
+        public HangingIndentWriter(int indentSize, int? maxLineLength = null)
         {
-            _paddedLineLength = firstColumnWidth + spacerLength;
-            _consoleWidth = consoleWidth ?? GetDefaultConsoleWidth();
-            _paddedLine = Environment.NewLine + new string(' ', _paddedLineLength);
+            _indentSize = indentSize;
+            _maxLineLength = maxLineLength ?? DefaultConsoleWidth;
+            _paddedLine = Environment.NewLine + new string(' ', _indentSize);
         }
 
         /// <summary>
-        /// Get the Console width.
+        /// Dynamically wrap text between.
         /// </summary>
-        /// <returns>BufferWidth or the default.</returns>
-        private int GetDefaultConsoleWidth()
-        {
-            try
-            {
-                return Console.BufferWidth;
-            }
-            catch (System.IO.IOException)
-            {
-                // If there isn't a console - for instance in test enviornments
-                // An IOException will be thrown trying to get the Console.BufferWidth.
-                return DefaultConsoleWidth;
-            }
-        }
-
-        /// <summary>
-        /// Dynamically wrap a description.
-        /// </summary>
-        /// <param name="original">The original description text.</param>
+        /// <param name="input">The original description text.</param>
         /// <returns>Dynamically wrapped description with explicit newlines preserved.</returns>
-        public string Wrap(string? original)
+        public string Write(string? input)
         {
-            if (string.IsNullOrWhiteSpace(original))
+            if (string.IsNullOrWhiteSpace(input))
             {
                 return string.Empty;
             }
 
-            var lines = original
+            var lines = input
                 .Split(new[] { "\n", "\r\n" }, StringSplitOptions.None)
                 .Select(WrapSingle);
 
@@ -74,25 +56,25 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         }
 
         /// <summary>
-        /// Wrap a single description line based on console width.
+        /// Wrap a single line based on console width.
         /// </summary>
         /// <param name="original">The original description text.</param>
         /// <returns>Description text wrapped with padded newlines.</returns>
         private string WrapSingle(string original)
         {
             StringBuilder sb = new StringBuilder();
-            var lineLength = _paddedLineLength;
+            var lineLength = _indentSize;
             foreach (var token in original.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
             {
-                if (lineLength == _paddedLineLength)
+                if (lineLength == _indentSize)
                 {
                     // At the beginning of a new padded line, just append token.
                 }
-                else if (lineLength + 1 + token.Length > _consoleWidth)
+                else if (lineLength + 1 + token.Length > _maxLineLength)
                 {
                     // Adding a space + token would push over console width, need a new line.
                     sb.Append(_paddedLine);
-                    lineLength = _paddedLineLength;
+                    lineLength = _indentSize;
                 }
                 else
                 {

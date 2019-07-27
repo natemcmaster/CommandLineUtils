@@ -8,21 +8,20 @@ using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
-    public class DescriptionFormatterTests
+    public class HangingIndentWriterTests
     {
-        private const int FirstColumnWidth = 18;
-        private const int SpacerLength = 2;
+        private const int IndentSize = 20;
         private const int ConsoleWidth = 40; // A very skinny console for testing.
-        private string _paddedNewline = Environment.NewLine + new string(' ', FirstColumnWidth + SpacerLength);
+        private string _paddedNewline = Environment.NewLine + new string(' ', IndentSize);
 
-        private DescriptionFormatter Subject()
+        private HangingIndentWriter Subject()
         {
-            return new DescriptionFormatter(FirstColumnWidth, SpacerLength, ConsoleWidth);
+            return new HangingIndentWriter(IndentSize, ConsoleWidth);
         }
 
         private void AssertWrapBehavior(string original, string expected)
         {
-            Subject().Wrap(original).Should().Be(expected);
+            Subject().Write(original).Should().Be(expected);
         }
 
         [Fact]

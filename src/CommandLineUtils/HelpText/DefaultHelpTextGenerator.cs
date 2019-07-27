@@ -20,6 +20,12 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         protected const int ColumnSeparatorLength = 2;
 
         /// <summary>
+        /// The hanging indent writer used for formatting indented and wrapped
+        /// descriptions for options and arguments.
+        /// </summary>
+        protected HangingIndentWriter? indentWriter;
+
+        /// <summary>
         /// A singleton instance of <see cref="DefaultHelpTextGenerator" />.
         /// </summary>
         public static DefaultHelpTextGenerator Singleton { get; } = new DefaultHelpTextGenerator();
@@ -84,12 +90,12 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                     options.Count > 0 ? options.Max(o => Format(o).Length) : 0,
                     commands.Count > 0 ? commands.Max(c => c.Name?.Length ?? 0) : 0));
 
-            var descriptionFormatter = new DescriptionFormatter(firstColumnWidth, ColumnSeparatorLength);
+            indentWriter = new HangingIndentWriter(firstColumnWidth + ColumnSeparatorLength, maxLineLength: TryGetConsoleWidth());
 
             GenerateUsage(application, output, arguments, options, commands);
-            GenerateArguments(application, output, arguments, firstColumnWidth, descriptionFormatter);
-            GenerateOptions(application, output, options, firstColumnWidth, descriptionFormatter);
-            GenerateCommands(application, output, commands, firstColumnWidth, descriptionFormatter);
+            GenerateArguments(application, output, arguments, firstColumnWidth);
+            GenerateOptions(application, output, options, firstColumnWidth);
+            GenerateCommands(application, output, commands, firstColumnWidth);
         }
 
         /// <summary>
@@ -152,13 +158,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <param name="output">Help text output</param>
         /// <param name="visibleArguments">Arguments not hidden from help text</param>
         /// <param name="firstColumnWidth">The width of the first column of commands, arguments, and options</param>
-        /// <param name="descriptionFormatter">A description formatter for wrapping the descriptions</param>
         protected virtual void GenerateArguments(
             CommandLineApplication application,
             TextWriter output,
             IReadOnlyList<CommandArgument> visibleArguments,
-            int firstColumnWidth,
-            DescriptionFormatter descriptionFormatter)
+            int firstColumnWidth)
         {
             if (visibleArguments.Any())
             {
@@ -168,7 +172,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var arg in visibleArguments)
                 {
-                    var wrappedDescription = descriptionFormatter.Wrap(arg.Description);
+                    var wrappedDescription = indentWriter!.Write(arg.Description);
                     var message = string.Format(outputFormat, arg.Name, wrappedDescription);
 
                     output.Write(message);
@@ -184,13 +188,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <param name="output">Help text output</param>
         /// <param name="visibleOptions">Options not hidden from help text</param>
         /// <param name="firstColumnWidth">The width of the first column of commands, arguments, and options</param>
-        /// <param name="descriptionFormatter">A description formatter for wrapping the descriptions</param>
         protected virtual void GenerateOptions(
             CommandLineApplication application,
             TextWriter output,
             IReadOnlyList<CommandOption> visibleOptions,
-            int firstColumnWidth,
-            DescriptionFormatter descriptionFormatter)
+            int firstColumnWidth)
         {
             if (visibleOptions.Any())
             {
@@ -200,7 +202,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var opt in visibleOptions)
                 {
-                    var wrappedDescription = descriptionFormatter.Wrap(opt.Description);
+                    var wrappedDescription = indentWriter!.Write(opt.Description);
                     var message = string.Format(outputFormat, Format(opt), wrappedDescription);
 
                     output.Write(message);
@@ -216,13 +218,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <param name="output">Help text output</param>
         /// <param name="visibleCommands">Commands not hidden from help text</param>
         /// <param name="firstColumnWidth">The width of the first column of commands, arguments, and options</param>
-        /// <param name="descriptionFormatter">A description formatter for wrapping the descriptions</param>
         protected virtual void GenerateCommands(
             CommandLineApplication application,
             TextWriter output,
             IReadOnlyList<CommandLineApplication> visibleCommands,
-            int firstColumnWidth,
-            DescriptionFormatter descriptionFormatter)
+            int firstColumnWidth)
         {
             if (visibleCommands.Any())
             {
@@ -235,7 +235,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                     : visibleCommands;
                 foreach (var cmd in orderedCommands)
                 {
-                    var wrappedDescription = descriptionFormatter.Wrap(cmd.Description);
+                    var wrappedDescription = indentWriter!.Write(cmd.Description);
                     var message = string.Format(outputFormat, cmd.Name, wrappedDescription);
 
                     output.Write(message);
@@ -308,6 +308,24 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             }
 
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Get the Console width.
+        /// </summary>
+        /// <returns>BufferWidth or the default.</returns>
+        private int? TryGetConsoleWidth()
+        {
+            try
+            {
+                return Console.BufferWidth;
+            }
+            catch (IOException)
+            {
+                // If there isn't a console - for instance in test enviornments
+                // An IOException will be thrown trying to get the Console.BufferWidth.
+                return null;
+            }
         }
 
     }
