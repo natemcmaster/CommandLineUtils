@@ -23,7 +23,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// The hanging indent writer used for formatting indented and wrapped
         /// descriptions for options and arguments.
         /// </summary>
-        protected HangingIndentWriter? indentWriter;
+        protected HangingIndentWriter? IndentWriter { get; set; }
 
         /// <summary>
         /// A singleton instance of <see cref="DefaultHelpTextGenerator" />.
@@ -90,7 +90,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                     options.Count > 0 ? options.Max(o => Format(o).Length) : 0,
                     commands.Count > 0 ? commands.Max(c => c.Name?.Length ?? 0) : 0));
 
-            indentWriter = new HangingIndentWriter(firstColumnWidth + ColumnSeparatorLength, maxLineLength: TryGetConsoleWidth());
+            IndentWriter = new HangingIndentWriter(firstColumnWidth + ColumnSeparatorLength, maxLineLength: TryGetConsoleWidth());
 
             GenerateUsage(application, output, arguments, options, commands);
             GenerateArguments(application, output, arguments, firstColumnWidth);
@@ -172,7 +172,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var arg in visibleArguments)
                 {
-                    var wrappedDescription = indentWriter!.Write(arg.Description);
+                    var wrappedDescription = IndentWriter?.Write(arg.Description);
                     var message = string.Format(outputFormat, arg.Name, wrappedDescription);
 
                     output.Write(message);
@@ -202,7 +202,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var opt in visibleOptions)
                 {
-                    var wrappedDescription = indentWriter!.Write(opt.Description);
+                    var wrappedDescription = IndentWriter?.Write(opt.Description);
                     var message = string.Format(outputFormat, Format(opt), wrappedDescription);
 
                     output.Write(message);
@@ -235,7 +235,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                     : visibleCommands;
                 foreach (var cmd in orderedCommands)
                 {
-                    var wrappedDescription = indentWriter!.Write(cmd.Description);
+                    var wrappedDescription = IndentWriter?.Write(cmd.Description);
                     var message = string.Format(outputFormat, cmd.Name, wrappedDescription);
 
                     output.Write(message);
