@@ -15,6 +15,17 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
     public class DefaultHelpTextGenerator : IHelpTextGenerator
     {
         /// <summary>
+        /// The number of spaces between columns.
+        /// </summary>
+        protected const int ColumnSeparatorLength = 2;
+
+        /// <summary>
+        /// The hanging indent writer used for formatting indented and wrapped
+        /// descriptions for options and arguments.
+        /// </summary>
+        protected HangingIndentWriter? indentWriter;
+
+        /// <summary>
         /// A singleton instance of <see cref="DefaultHelpTextGenerator" />.
         /// </summary>
         public static DefaultHelpTextGenerator Singleton { get; } = new DefaultHelpTextGenerator();
@@ -73,11 +84,13 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             var options = application.GetOptions().Where(o => o.ShowInHelpText).ToList();
             var commands = application.Commands.Where(c => c.ShowInHelpText).ToList();
 
-            var firstColumnWidth = 2 + Math.Max(
+            var firstColumnWidth = ColumnSeparatorLength + Math.Max(
                 arguments.Count > 0 ? arguments.Max(a => a.Name?.Length ?? 0) : 0,
                 Math.Max(
                     options.Count > 0 ? options.Max(o => Format(o).Length) : 0,
                     commands.Count > 0 ? commands.Max(c => c.Name?.Length ?? 0) : 0));
+
+            indentWriter = new HangingIndentWriter(firstColumnWidth + ColumnSeparatorLength, maxLineLength: TryGetConsoleWidth());
 
             GenerateUsage(application, output, arguments, options, commands);
             GenerateArguments(application, output, arguments, firstColumnWidth);
@@ -157,12 +170,10 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 output.WriteLine("Arguments:");
                 var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
 
-                var newLineWithMessagePadding = Environment.NewLine + new string(' ', firstColumnWidth + 2);
-
                 foreach (var arg in visibleArguments)
                 {
-                    var message = string.Format(outputFormat, arg.Name, arg.Description);
-                    message = message.Replace(Environment.NewLine, newLineWithMessagePadding);
+                    var wrappedDescription = indentWriter!.Write(arg.Description);
+                    var message = string.Format(outputFormat, arg.Name, wrappedDescription);
 
                     output.Write(message);
                     output.WriteLine();
@@ -189,12 +200,10 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 output.WriteLine("Options:");
                 var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
 
-                var newLineWithMessagePadding = Environment.NewLine + new string(' ', firstColumnWidth + 2);
-
                 foreach (var opt in visibleOptions)
                 {
-                    var message = string.Format(outputFormat, Format(opt), opt.Description);
-                    message = message.Replace(Environment.NewLine, newLineWithMessagePadding);
+                    var wrappedDescription = indentWriter!.Write(opt.Description);
+                    var message = string.Format(outputFormat, Format(opt), wrappedDescription);
 
                     output.Write(message);
                     output.WriteLine();
@@ -221,15 +230,13 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 output.WriteLine("Commands:");
                 var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
 
-                var newLineWithMessagePadding = Environment.NewLine + new string(' ', firstColumnWidth + 2);
-
                 var orderedCommands = SortCommandsByName
                     ? visibleCommands.OrderBy(c => c.Name).ToList()
                     : visibleCommands;
                 foreach (var cmd in orderedCommands)
                 {
-                    var message = string.Format(outputFormat, cmd.Name, cmd.Description);
-                    message = message.Replace(Environment.NewLine, newLineWithMessagePadding);
+                    var wrappedDescription = indentWriter!.Write(cmd.Description);
+                    var message = string.Format(outputFormat, cmd.Name, wrappedDescription);
 
                     output.Write(message);
                     output.WriteLine();
@@ -301,6 +308,24 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             }
 
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Get the Console width.
+        /// </summary>
+        /// <returns>BufferWidth or the default.</returns>
+        private int? TryGetConsoleWidth()
+        {
+            try
+            {
+                return Console.BufferWidth;
+            }
+            catch (IOException)
+            {
+                // If there isn't a console - for instance in test enviornments
+                // An IOException will be thrown trying to get the Console.BufferWidth.
+                return null;
+            }
         }
 
     }

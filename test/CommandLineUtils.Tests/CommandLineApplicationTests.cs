@@ -677,8 +677,8 @@ Examples:
         [Theory]
         [InlineData(new[] { "--version", "--flag" }, "1.0")]
         [InlineData(new[] { "-V", "-f" }, "1.0")]
-        [InlineData(new[] { "--help", "--flag" }, "some flag")]
-        [InlineData(new[] { "-h", "-f" }, "some flag")]
+        [InlineData(new[] { "--help", "--flag" }, "some_flag")]
+        [InlineData(new[] { "-h", "-f" }, "some_flag")]
         public void HelpAndVersionOptionStopProcessing(string[] input, string expectedOutData)
         {
             using (var outWriter = new StringWriter())
@@ -686,7 +686,7 @@ Examples:
                 var app = new CommandLineApplication { Out = outWriter };
                 app.HelpOption("-h --help");
                 app.VersionOption("-V --version", "1", "1.0");
-                var optFlag = app.Option("-f |--flag", "some flag", CommandOptionType.NoValue);
+                var optFlag = app.Option("-f |--flag", "some_flag", CommandOptionType.NoValue);
 
                 app.Execute(input);
 
