@@ -18,7 +18,8 @@ variables:
   value: $[counter('buildnumber', 1)]
 
 stages:
-- stage: Build and Test
+- stage: Build
+  displayName: Build And Test
   jobs:
   - job: Windows
     pool:
