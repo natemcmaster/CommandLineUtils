@@ -1,8 +1,8 @@
 #requires -version 5
 param(
     [string]$SourceCommit,
-    [switch]$DryRun,
-    [switch]$AppVeyor
+    [string]$ApiToken,
+    [switch]$DryRun
 )
 
 $ErrorActionPreference = 'Stop'
@@ -14,12 +14,12 @@ $workdir = "$PSScriptRoot/../.build/docs/gh-pages"
 Push-Location $workdir
 try {
 
-    if ($AppVeyor) {
+    if ($env:TF_BUILD) {
         exec git config --global credential.helper store
-        Add-Content "$HOME\.git-credentials" "https://$($env:GITHUB_ACCESS_TOKEN):x-oauth-basic@github.com`n"
-        exec git config --global user.email $env:APPVEYOR_REPO_COMMIT_AUTHOR
-        exec git config --global user.name $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL
-        $SourceCommit = $env:APPVEYOR_REPO_COMMIT
+        Add-Content "$HOME\.git-credentials" "https://$($ApiToken):x-oauth-basic@github.com`n"
+        exec git config --global user.email 'azuredevops@microsoft.com'
+        exec git config --global user.name 'Azure Pipelines'
+        $SourceCommit = $env:BUILD_SOURCEVERSION
     }
 
     if (-not $SourceCommit) {

@@ -1,5 +1,9 @@
 trigger:
-- '*'
+  branches:
+    include:
+      - '*'
+    exclude:
+      - gh-pages
 
 pr:
 - '*'
@@ -13,63 +17,84 @@ variables:
 - name: BUILD_NUMBER
   value: $[counter('buildnumber', 1)]
 
-jobs:
-- job: Windows
-  pool:
-    vmImage: windows-2019
-  steps:
-  - task: UseDotNet@2
-    displayName: Install .NET Core 3 SDK
-    inputs:
-      version: '3.x'
-      packageType: sdk
-      includePreviewVersions: true
-  - task: UseDotNet@2
-    displayName: Install .NET Core 2.2 runtime
-    inputs:
-      version: '2.2.x'
-      packageType: runtime
-  - powershell: ./build.ps1 -ci
-    displayName: Invoke build.ps1
-    condition: eq(variables['kv-access-token'], '')
-  - powershell: ./build.ps1 -ci /p:AzureKeyVaultClientSecret=$(kv-access-token)
-    displayName: Invoke build.ps1
-    condition: ne(variables['kv-access-token'], '')
-  - powershell: .\docs\generate.ps1 -Verbose -NoBuild
-    displayName: Compile documentation
-  - task: PublishTestResults@2
-    displayName: Upload test results
-    condition: always()
-    continueOnError: true
-    inputs:
-      testRunTitle: Windows
-      testRunner: vstest
-      testResultsFiles: '**/*.trx'
-  - publish: artifacts/
-    artifact: Packages
-    displayName: Publish artifacts
-- job: Linux
-  pool:
-    vmImage: 'Ubuntu-16.04'
-  steps:
-  - task: UseDotNet@2
-    displayName: Install .NET Core 3 SDK
-    inputs:
-      version: '3.x'
-      packageType: sdk
-      includePreviewVersions: true
-  - task: UseDotNet@2
-    displayName: Install .NET Core 2.2 runtime
-    inputs:
-      version: '2.2.x'
-      packageType: runtime
-  - script: ./build.ps1 -ci
-    displayName: Invoke build.ps1
-  - task: PublishTestResults@2
-    displayName: Upload test results
-    condition: always()
-    continueOnError: true
-    inputs:
-      testRunTitle: Linux
-      testRunner: vstest
-      testResultsFiles: '**/*.trx'
+stages:
+- stage: Build and Test
+  jobs:
+  - job: Windows
+    pool:
+      vmImage: windows-2019
+    steps:
+    - task: UseDotNet@2
+      displayName: Install .NET Core 3 SDK
+      inputs:
+        version: '3.x'
+        packageType: sdk
+        includePreviewVersions: true
+    - task: UseDotNet@2
+      displayName: Install .NET Core 2.2 runtime
+      inputs:
+        version: '2.2.x'
+        packageType: runtime
+    - powershell: ./build.ps1 -ci
+      displayName: Invoke build.ps1
+      condition: eq(variables['kv-access-token'], '')
+    - powershell: ./build.ps1 -ci /p:AzureKeyVaultClientSecret=$(kv-access-token)
+      displayName: Invoke build.ps1
+      condition: ne(variables['kv-access-token'], '')
+    - powershell: .\docs\generate.ps1 -Verbose -NoBuild
+      displayName: Compile documentation
+    - task: PublishTestResults@2
+      displayName: Upload test results
+      condition: always()
+      continueOnError: true
+      inputs:
+        testRunTitle: Windows
+        testRunner: vstest
+        testResultsFiles: '**/*.trx'
+    - publish: artifacts/
+      artifact: Packages
+      displayName: Publish artifacts
+  - job: Linux
+    pool:
+      vmImage: 'Ubuntu-16.04'
+    steps:
+    - task: UseDotNet@2
+      displayName: Install .NET Core 3 SDK
+      inputs:
+        version: '3.x'
+        packageType: sdk
+        includePreviewVersions: true
+    - task: UseDotNet@2
+      displayName: Install .NET Core 2.2 runtime
+      inputs:
+        version: '2.2.x'
+        packageType: runtime
+    - script: ./build.ps1 -ci
+      displayName: Invoke build.ps1
+    - task: PublishTestResults@2
+      displayName: Upload test results
+      condition: always()
+      continueOnError: true
+      inputs:
+        testRunTitle: Linux
+        testRunner: vstest
+        testResultsFiles: '**/*.trx'
+- stage: Publish
+  jobs:
+  - job: Docs
+    pool:
+      vmImage: windows-2019
+    steps:
+    - task: UseDotNet@2
+      displayName: Install .NET Core 3 SDK
+      inputs:
+        version: '3.x'
+        packageType: sdk
+        includePreviewVersions: true
+    - powershell: ./docs/generate.ps1
+      displayName: Generate docs
+    - powershell: ./docs/push.ps1 -a $(github-api-token-repo-write)
+      displayName: Publish GitHub Pages
+      condition: |
+        and(not(eq(variables['Build.Reason'], 'PullRequest')),
+          eq(variables['Build.SourceBranch'], 'refs/heads/master'))
