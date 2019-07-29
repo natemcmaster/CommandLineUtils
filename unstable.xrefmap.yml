@@ -96,12 +96,15 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
   fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
   nameWithType: IValueParser
-- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.String,System.String,System.Globalization.CultureInfo)
-  name: Parse(String, String, CultureInfo)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_IValueParser_Parse_System_String_System_String_System_Globalization_CultureInfo_
-  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.String,System.String,System.Globalization.CultureInfo)
-  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.String, System.String, System.Globalization.CultureInfo)
-  nameWithType: IValueParser.Parse(String, String, CultureInfo)
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo)
+  name: Parse(Nullable<String>, Nullable<String>, CultureInfo)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_IValueParser_Parse_System_Nullable_System_String__System_Nullable_System_String__System_Globalization_CultureInfo_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo)
+  name.vb: Parse(Nullable(Of String), Nullable(Of String), CultureInfo)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.Nullable<System.String>, System.Nullable<System.String>, System.Globalization.CultureInfo)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.Nullable(Of System.String), System.Nullable(Of System.String), System.Globalization.CultureInfo)
+  nameWithType: IValueParser.Parse(Nullable<String>, Nullable<String>, CultureInfo)
+  nameWithType.vb: IValueParser.Parse(Nullable(Of String), Nullable(Of String), CultureInfo)
 - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse*
   name: Parse
   href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_IValueParser_Parse_
@@ -131,14 +134,15 @@ references:
   fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T)
   nameWithType: IValueParser<T>
   nameWithType.vb: IValueParser(Of T)
-- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse(System.String,System.String,System.Globalization.CultureInfo)
-  name: Parse(String, String, CultureInfo)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html#McMaster_Extensions_CommandLineUtils_Abstractions_IValueParser_1_Parse_System_String_System_String_System_Globalization_CultureInfo_
-  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse(System.String,System.String,System.Globalization.CultureInfo)
-  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>.Parse(System.String, System.String, System.Globalization.CultureInfo)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T).Parse(System.String, System.String, System.Globalization.CultureInfo)
-  nameWithType: IValueParser<T>.Parse(String, String, CultureInfo)
-  nameWithType.vb: IValueParser(Of T).Parse(String, String, CultureInfo)
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse(System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo)
+  name: Parse(Nullable<String>, Nullable<String>, CultureInfo)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html#McMaster_Extensions_CommandLineUtils_Abstractions_IValueParser_1_Parse_System_Nullable_System_String__System_Nullable_System_String__System_Globalization_CultureInfo_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse(System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo)
+  name.vb: Parse(Nullable(Of String), Nullable(Of String), CultureInfo)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>.Parse(System.Nullable<System.String>, System.Nullable<System.String>, System.Globalization.CultureInfo)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T).Parse(System.Nullable(Of System.String), System.Nullable(Of System.String), System.Globalization.CultureInfo)
+  nameWithType: IValueParser<T>.Parse(Nullable<String>, Nullable<String>, CultureInfo)
+  nameWithType.vb: IValueParser(Of T).Parse(Nullable(Of String), Nullable(Of String), CultureInfo)
 - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse*
   name: Parse
   href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html#McMaster_Extensions_CommandLineUtils_Abstractions_IValueParser_1_Parse_
@@ -154,6 +158,19 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
   fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
   nameWithType: ParseResult
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  name: ParseResult(CommandLineApplication)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html#McMaster_Extensions_CommandLineUtils_Abstractions_ParseResult__ctor_McMaster_Extensions_CommandLineUtils_CommandLineApplication_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ParseResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  nameWithType: ParseResult.ParseResult(CommandLineApplication)
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.#ctor*
+  name: ParseResult
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html#McMaster_Extensions_CommandLineUtils_Abstractions_ParseResult__ctor_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.#ctor
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ParseResult
+  nameWithType: ParseResult.ParseResult
 - uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand
   name: SelectedCommand
   href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html#McMaster_Extensions_CommandLineUtils_Abstractions_ParseResult_SelectedCommand
@@ -173,15 +190,15 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
   fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
   nameWithType: ValueParser
-- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type,System.Func{System.String,System.String,System.Globalization.CultureInfo,System.Object})
-  name: Create(Type, Func<String, String, CultureInfo, Object>)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create_System_Type_System_Func_System_String_System_String_System_Globalization_CultureInfo_System_Object__
-  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type,System.Func{System.String,System.String,System.Globalization.CultureInfo,System.Object})
-  name.vb: Create(Type, Func(Of String, String, CultureInfo, Object))
-  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type, System.Func<System.String, System.String, System.Globalization.CultureInfo, System.Object>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type, System.Func(Of System.String, System.String, System.Globalization.CultureInfo, System.Object))
-  nameWithType: ValueParser.Create(Type, Func<String, String, CultureInfo, Object>)
-  nameWithType.vb: ValueParser.Create(Type, Func(Of String, String, CultureInfo, Object))
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type,System.Func{System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo,System.Object})
+  name: Create(Type, Func<Nullable<String>, Nullable<String>, CultureInfo, Object>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create_System_Type_System_Func_System_Nullable_System_String__System_Nullable_System_String__System_Globalization_CultureInfo_System_Object__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type,System.Func{System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo,System.Object})
+  name.vb: Create(Type, Func(Of Nullable(Of String), Nullable(Of String), CultureInfo, Object))
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type, System.Func<System.Nullable<System.String>, System.Nullable<System.String>, System.Globalization.CultureInfo, System.Object>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type, System.Func(Of System.Nullable(Of System.String), System.Nullable(Of System.String), System.Globalization.CultureInfo, System.Object))
+  nameWithType: ValueParser.Create(Type, Func<Nullable<String>, Nullable<String>, CultureInfo, Object>)
+  nameWithType.vb: ValueParser.Create(Type, Func(Of Nullable(Of String), Nullable(Of String), CultureInfo, Object))
 - uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create*
   name: Create
   href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create_
@@ -189,6 +206,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create
   nameWithType: ValueParser.Create
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo,``0})
+  name: Create<T>(Func<Nullable<String>, Nullable<String>, CultureInfo, T>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create__1_System_Func_System_Nullable_System_String__System_Nullable_System_String__System_Globalization_CultureInfo___0__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo,``0})
+  name.vb: Create(Of T)(Func(Of Nullable(Of String), Nullable(Of String), CultureInfo, T))
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<System.Nullable<System.String>, System.Nullable<System.String>, System.Globalization.CultureInfo, T>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(Of T)(System.Func(Of System.Nullable(Of System.String), System.Nullable(Of System.String), System.Globalization.CultureInfo, T))
+  nameWithType: ValueParser.Create<T>(Func<Nullable<String>, Nullable<String>, CultureInfo, T>)
+  nameWithType.vb: ValueParser.Create(Of T)(Func(Of Nullable(Of String), Nullable(Of String), CultureInfo, T))
 - uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}})
   name: Create<T>(Func<String, CultureInfo, (Boolean, T)>)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create__1_System_Func_System_String_System_Globalization_CultureInfo_System_ValueTuple_System_Boolean___0___
@@ -198,24 +224,15 @@ references:
   fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(Of T)(System.Func(Of System.String, System.Globalization.CultureInfo, System.ValueTuple(Of System.Boolean, T)))
   nameWithType: ValueParser.Create<T>(Func<String, CultureInfo, (Boolean, T)>)
   nameWithType.vb: ValueParser.Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)))
-- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}},System.Func{System.String,System.String,System.FormatException})
-  name: Create<T>(Func<String, CultureInfo, (Boolean, T)>, Func<String, String, FormatException>)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create__1_System_Func_System_String_System_Globalization_CultureInfo_System_ValueTuple_System_Boolean___0___System_Func_System_String_System_String_System_FormatException__
-  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}},System.Func{System.String,System.String,System.FormatException})
-  name.vb: Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)), Func(Of String, String, FormatException))
-  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<System.String, System.Globalization.CultureInfo, System.ValueTuple<System.Boolean, T>>, System.Func<System.String, System.String, System.FormatException>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(Of T)(System.Func(Of System.String, System.Globalization.CultureInfo, System.ValueTuple(Of System.Boolean, T)), System.Func(Of System.String, System.String, System.FormatException))
-  nameWithType: ValueParser.Create<T>(Func<String, CultureInfo, (Boolean, T)>, Func<String, String, FormatException>)
-  nameWithType.vb: ValueParser.Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)), Func(Of String, String, FormatException))
-- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.String,System.Globalization.CultureInfo,``0})
-  name: Create<T>(Func<String, String, CultureInfo, T>)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create__1_System_Func_System_String_System_String_System_Globalization_CultureInfo___0__
-  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.String,System.Globalization.CultureInfo,``0})
-  name.vb: Create(Of T)(Func(Of String, String, CultureInfo, T))
-  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<System.String, System.String, System.Globalization.CultureInfo, T>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(Of T)(System.Func(Of System.String, System.String, System.Globalization.CultureInfo, T))
-  nameWithType: ValueParser.Create<T>(Func<String, String, CultureInfo, T>)
-  nameWithType.vb: ValueParser.Create(Of T)(Func(Of String, String, CultureInfo, T))
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}},System.Func{System.Nullable{System.String},System.Nullable{System.String},System.FormatException})
+  name: Create<T>(Func<String, CultureInfo, (Boolean, T)>, Func<Nullable<String>, Nullable<String>, FormatException>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create__1_System_Func_System_String_System_Globalization_CultureInfo_System_ValueTuple_System_Boolean___0___System_Func_System_Nullable_System_String__System_Nullable_System_String__System_FormatException__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}},System.Func{System.Nullable{System.String},System.Nullable{System.String},System.FormatException})
+  name.vb: Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)), Func(Of Nullable(Of String), Nullable(Of String), FormatException))
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<System.String, System.Globalization.CultureInfo, System.ValueTuple<System.Boolean, T>>, System.Func<System.Nullable<System.String>, System.Nullable<System.String>, System.FormatException>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(Of T)(System.Func(Of System.String, System.Globalization.CultureInfo, System.ValueTuple(Of System.Boolean, T)), System.Func(Of System.Nullable(Of System.String), System.Nullable(Of System.String), System.FormatException))
+  nameWithType: ValueParser.Create<T>(Func<String, CultureInfo, (Boolean, T)>, Func<Nullable<String>, Nullable<String>, FormatException>)
+  nameWithType.vb: ValueParser.Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)), Func(Of Nullable(Of String), Nullable(Of String), FormatException))
 - uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
   name: ValueParserProvider
   href: unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.html
@@ -381,18 +398,24 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32)
   fullName: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.ArgumentAttribute(System.Int32)
   nameWithType: ArgumentAttribute.ArgumentAttribute(Int32)
-- uid: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32,System.String)
-  name: ArgumentAttribute(Int32, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html#McMaster_Extensions_CommandLineUtils_ArgumentAttribute__ctor_System_Int32_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.ArgumentAttribute(System.Int32, System.String)
-  nameWithType: ArgumentAttribute.ArgumentAttribute(Int32, String)
-- uid: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32,System.String,System.String)
-  name: ArgumentAttribute(Int32, String, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html#McMaster_Extensions_CommandLineUtils_ArgumentAttribute__ctor_System_Int32_System_String_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32,System.String,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.ArgumentAttribute(System.Int32, System.String, System.String)
-  nameWithType: ArgumentAttribute.ArgumentAttribute(Int32, String, String)
+- uid: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32,System.Nullable{System.String})
+  name: ArgumentAttribute(Int32, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html#McMaster_Extensions_CommandLineUtils_ArgumentAttribute__ctor_System_Int32_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32,System.Nullable{System.String})
+  name.vb: ArgumentAttribute(Int32, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.ArgumentAttribute(System.Int32, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.ArgumentAttribute(System.Int32, System.Nullable(Of System.String))
+  nameWithType: ArgumentAttribute.ArgumentAttribute(Int32, Nullable<String>)
+  nameWithType.vb: ArgumentAttribute.ArgumentAttribute(Int32, Nullable(Of String))
+- uid: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32,System.Nullable{System.String},System.Nullable{System.String})
+  name: ArgumentAttribute(Int32, Nullable<String>, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html#McMaster_Extensions_CommandLineUtils_ArgumentAttribute__ctor_System_Int32_System_Nullable_System_String__System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32,System.Nullable{System.String},System.Nullable{System.String})
+  name.vb: ArgumentAttribute(Int32, Nullable(Of String), Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.ArgumentAttribute(System.Int32, System.Nullable<System.String>, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.ArgumentAttribute(System.Int32, System.Nullable(Of System.String), System.Nullable(Of System.String))
+  nameWithType: ArgumentAttribute.ArgumentAttribute(Int32, Nullable<String>, Nullable<String>)
+  nameWithType.vb: ArgumentAttribute.ArgumentAttribute(Int32, Nullable(Of String), Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor*
   name: ArgumentAttribute
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html#McMaster_Extensions_CommandLineUtils_ArgumentAttribute__ctor_
@@ -1101,6 +1124,15 @@ references:
   fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Execute(Of TApp)(System.String())
   nameWithType: CommandLineApplication.Execute<TApp>(String[])
   nameWithType.vb: CommandLineApplication.Execute(Of TApp)(String())
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync(System.String[],System.Threading.CancellationToken)
+  name: ExecuteAsync(String[], CancellationToken)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ExecuteAsync_System_String___System_Threading_CancellationToken_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync(System.String[],System.Threading.CancellationToken)
+  name.vb: ExecuteAsync(String(), CancellationToken)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync(System.String[], System.Threading.CancellationToken)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync(System.String(), System.Threading.CancellationToken)
+  nameWithType: CommandLineApplication.ExecuteAsync(String[], CancellationToken)
+  nameWithType.vb: CommandLineApplication.ExecuteAsync(String(), CancellationToken)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync*
   name: ExecuteAsync
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ExecuteAsync_
@@ -1108,15 +1140,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync
   nameWithType: CommandLineApplication.ExecuteAsync
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync``1(McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext)
-  name: ExecuteAsync<TApp>(CommandLineContext)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ExecuteAsync__1_McMaster_Extensions_CommandLineUtils_Abstractions_CommandLineContext_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync``1(McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext)
-  name.vb: ExecuteAsync(Of TApp)(CommandLineContext)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync<TApp>(McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync(Of TApp)(McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext)
-  nameWithType: CommandLineApplication.ExecuteAsync<TApp>(CommandLineContext)
-  nameWithType.vb: CommandLineApplication.ExecuteAsync(Of TApp)(CommandLineContext)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync``1(McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext,System.Threading.CancellationToken)
+  name: ExecuteAsync<TApp>(CommandLineContext, CancellationToken)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ExecuteAsync__1_McMaster_Extensions_CommandLineUtils_Abstractions_CommandLineContext_System_Threading_CancellationToken_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync``1(McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext,System.Threading.CancellationToken)
+  name.vb: ExecuteAsync(Of TApp)(CommandLineContext, CancellationToken)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync<TApp>(McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext, System.Threading.CancellationToken)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync(Of TApp)(McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext, System.Threading.CancellationToken)
+  nameWithType: CommandLineApplication.ExecuteAsync<TApp>(CommandLineContext, CancellationToken)
+  nameWithType.vb: CommandLineApplication.ExecuteAsync(Of TApp)(CommandLineContext, CancellationToken)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync``1(McMaster.Extensions.CommandLineUtils.IConsole,System.String[])
   name: ExecuteAsync<TApp>(IConsole, String[])
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ExecuteAsync__1_McMaster_Extensions_CommandLineUtils_IConsole_System_String___
@@ -1135,6 +1167,15 @@ references:
   fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync(Of TApp)(System.String())
   nameWithType: CommandLineApplication.ExecuteAsync<TApp>(String[])
   nameWithType.vb: CommandLineApplication.ExecuteAsync(Of TApp)(String())
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync``1(System.String[],System.Threading.CancellationToken)
+  name: ExecuteAsync<TApp>(String[], CancellationToken)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ExecuteAsync__1_System_String___System_Threading_CancellationToken_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync``1(System.String[],System.Threading.CancellationToken)
+  name.vb: ExecuteAsync(Of TApp)(String(), CancellationToken)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync<TApp>(System.String[], System.Threading.CancellationToken)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync(Of TApp)(System.String(), System.Threading.CancellationToken)
+  nameWithType: CommandLineApplication.ExecuteAsync<TApp>(String[], CancellationToken)
+  nameWithType.vb: CommandLineApplication.ExecuteAsync(Of TApp)(String(), CancellationToken)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExtendedHelpText
   name: ExtendedHelpText
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ExtendedHelpText
@@ -1271,19 +1312,6 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.HelpTextGenerator
   nameWithType: CommandLineApplication.HelpTextGenerator
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Invoke
-  name: Invoke
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Invoke
-  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Invoke
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Invoke
-  nameWithType: CommandLineApplication.Invoke
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Invoke*
-  name: Invoke
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Invoke_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Invoke
-  isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Invoke
-  nameWithType: CommandLineApplication.Invoke
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.IsShowingInformation
   name: IsShowingInformation
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_IsShowingInformation
@@ -1358,15 +1386,6 @@ references:
   fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func(Of System.Int32))
   nameWithType: CommandLineApplication.OnExecute(Func<Int32>)
   nameWithType.vb: CommandLineApplication.OnExecute(Func(Of Int32))
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func{System.Threading.Tasks.Task{System.Int32}})
-  name: OnExecute(Func<Task<Int32>>)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_System_Func_System_Threading_Tasks_Task_System_Int32___
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func{System.Threading.Tasks.Task{System.Int32}})
-  name.vb: OnExecute(Func(Of Task(Of Int32)))
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func<System.Threading.Tasks.Task<System.Int32>>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func(Of System.Threading.Tasks.Task(Of System.Int32)))
-  nameWithType: CommandLineApplication.OnExecute(Func<Task<Int32>>)
-  nameWithType.vb: CommandLineApplication.OnExecute(Func(Of Task(Of Int32)))
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute*
   name: OnExecute
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecute_
@@ -1374,6 +1393,22 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute
   nameWithType: CommandLineApplication.OnExecute
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecuteAsync(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task{System.Int32}})
+  name: OnExecuteAsync(Func<CancellationToken, Task<Int32>>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecuteAsync_System_Func_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Int32___
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecuteAsync(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task{System.Int32}})
+  name.vb: OnExecuteAsync(Func(Of CancellationToken, Task(Of Int32)))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecuteAsync(System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task<System.Int32>>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecuteAsync(System.Func(Of System.Threading.CancellationToken, System.Threading.Tasks.Task(Of System.Int32)))
+  nameWithType: CommandLineApplication.OnExecuteAsync(Func<CancellationToken, Task<Int32>>)
+  nameWithType.vb: CommandLineApplication.OnExecuteAsync(Func(Of CancellationToken, Task(Of Int32)))
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecuteAsync*
+  name: OnExecuteAsync
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnExecuteAsync_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecuteAsync
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecuteAsync
+  nameWithType: CommandLineApplication.OnExecuteAsync
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnParsingComplete(System.Action{McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult})
   name: OnParsingComplete(Action<ParseResult>)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OnParsingComplete_System_Action_McMaster_Extensions_CommandLineUtils_Abstractions_ParseResult__
@@ -1722,21 +1757,24 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValueParsers
   nameWithType: CommandLineApplication.ValueParsers
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,System.Func{System.String},System.Func{System.String})
-  name: VersionOption(String, Func<String>, Func<String>)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_VersionOption_System_String_System_Func_System_String__System_Func_System_String__
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,System.Func{System.String},System.Func{System.String})
-  name.vb: VersionOption(String, Func(Of String), Func(Of String))
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String, System.Func<System.String>, System.Func<System.String>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String, System.Func(Of System.String), System.Func(Of System.String))
-  nameWithType: CommandLineApplication.VersionOption(String, Func<String>, Func<String>)
-  nameWithType.vb: CommandLineApplication.VersionOption(String, Func(Of String), Func(Of String))
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,System.String,System.String)
-  name: VersionOption(String, String, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_VersionOption_System_String_System_String_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,System.String,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String, System.String, System.String)
-  nameWithType: CommandLineApplication.VersionOption(String, String, String)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,System.Nullable{System.Func{System.Nullable{System.String}}},System.Nullable{System.Func{System.Nullable{System.String}}})
+  name: VersionOption(String, Nullable<Func<Nullable<String>>>, Nullable<Func<Nullable<String>>>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_VersionOption_System_String_System_Nullable_System_Func_System_Nullable_System_String____System_Nullable_System_Func_System_Nullable_System_String____
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,System.Nullable{System.Func{System.Nullable{System.String}}},System.Nullable{System.Func{System.Nullable{System.String}}})
+  name.vb: VersionOption(String, Nullable(Of Func(Of Nullable(Of String))), Nullable(Of Func(Of Nullable(Of String))))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String, System.Nullable<System.Func<System.Nullable<System.String>>>, System.Nullable<System.Func<System.Nullable<System.String>>>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String, System.Nullable(Of System.Func(Of System.Nullable(Of System.String))), System.Nullable(Of System.Func(Of System.Nullable(Of System.String))))
+  nameWithType: CommandLineApplication.VersionOption(String, Nullable<Func<Nullable<String>>>, Nullable<Func<Nullable<String>>>)
+  nameWithType.vb: CommandLineApplication.VersionOption(String, Nullable(Of Func(Of Nullable(Of String))), Nullable(Of Func(Of Nullable(Of String))))
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,System.Nullable{System.String},System.Nullable{System.String})
+  name: VersionOption(String, Nullable<String>, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_VersionOption_System_String_System_Nullable_System_String__System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String,System.Nullable{System.String},System.Nullable{System.String})
+  name.vb: VersionOption(String, Nullable(Of String), Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String, System.Nullable<System.String>, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(System.String, System.Nullable(Of System.String), System.Nullable(Of System.String))
+  nameWithType: CommandLineApplication.VersionOption(String, Nullable<String>, Nullable<String>)
+  nameWithType.vb: CommandLineApplication.VersionOption(String, Nullable(Of String), Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption*
   name: VersionOption
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_VersionOption_
@@ -1977,15 +2015,6 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action)
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Action)
   nameWithType: CommandLineApplicationExtensions.OnExecute(CommandLineApplication, Action)
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.Threading.Tasks.Task})
-  name: OnExecute(CommandLineApplication, Func<Task>)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_Threading_Tasks_Task__
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.Threading.Tasks.Task})
-  name.vb: OnExecute(CommandLineApplication, Func(Of Task))
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func<System.Threading.Tasks.Task>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func(Of System.Threading.Tasks.Task))
-  nameWithType: CommandLineApplicationExtensions.OnExecute(CommandLineApplication, Func<Task>)
-  nameWithType.vb: CommandLineApplicationExtensions.OnExecute(CommandLineApplication, Func(Of Task))
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute*
   name: OnExecute
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_
@@ -1993,6 +2022,22 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute
   nameWithType: CommandLineApplicationExtensions.OnExecute
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  name: OnExecuteAsync(CommandLineApplication, Func<CancellationToken, Task>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecuteAsync_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_Threading_CancellationToken_System_Threading_Tasks_Task__
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  name.vb: OnExecuteAsync(CommandLineApplication, Func(Of CancellationToken, Task))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func(Of System.Threading.CancellationToken, System.Threading.Tasks.Task))
+  nameWithType: CommandLineApplicationExtensions.OnExecuteAsync(CommandLineApplication, Func<CancellationToken, Task>)
+  nameWithType.vb: CommandLineApplicationExtensions.OnExecuteAsync(CommandLineApplication, Func(Of CancellationToken, Task))
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync*
+  name: OnExecuteAsync
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecuteAsync_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync
+  nameWithType: CommandLineApplicationExtensions.OnExecuteAsync
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action{System.ComponentModel.DataAnnotations.ValidationResult})
   name: OnValidationError(CommandLineApplication, Action<ValidationResult>)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Action_System_ComponentModel_DataAnnotations_ValidationResult__
@@ -2213,12 +2258,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandOption.SymbolName
   nameWithType: CommandOption.SymbolName
-- uid: McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(System.String)
-  name: TryParse(String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_TryParse_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(System.String)
-  nameWithType: CommandOption.TryParse(String)
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(System.Nullable{System.String})
+  name: TryParse(Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_TryParse_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(System.Nullable{System.String})
+  name.vb: TryParse(Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(System.Nullable(Of System.String))
+  nameWithType: CommandOption.TryParse(Nullable<String>)
+  nameWithType.vb: CommandOption.TryParse(Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.CommandOption.TryParse*
   name: TryParse
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_TryParse_
@@ -3191,12 +3239,15 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
   fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
   nameWithType: ConventionContext
-- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Type)
-  name: ConventionContext(CommandLineApplication, Type)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html#McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext__ctor_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Type_
-  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Type)
-  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ConventionContext(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Type)
-  nameWithType: ConventionContext.ConventionContext(CommandLineApplication, Type)
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Nullable{System.Type})
+  name: ConventionContext(CommandLineApplication, Nullable<Type>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html#McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext__ctor_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Nullable_System_Type__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Nullable{System.Type})
+  name.vb: ConventionContext(CommandLineApplication, Nullable(Of Type))
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ConventionContext(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Nullable<System.Type>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ConventionContext(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Nullable(Of System.Type))
+  nameWithType: ConventionContext.ConventionContext(CommandLineApplication, Nullable<Type>)
+  nameWithType.vb: ConventionContext.ConventionContext(CommandLineApplication, Nullable(Of Type))
 - uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor*
   name: ConventionContext
   href: unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html#McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext__ctor_
@@ -3587,6 +3638,25 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.DirectoryExistsAttribute.DirectoryExistsAttribute
   nameWithType: DirectoryExistsAttribute.DirectoryExistsAttribute
+- uid: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute
+  name: DirectoryNotExistsAttribute
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute
+  nameWithType: DirectoryNotExistsAttribute
+- uid: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.#ctor
+  name: DirectoryNotExistsAttribute()
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.html#McMaster_Extensions_CommandLineUtils_DirectoryNotExistsAttribute__ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.#ctor
+  fullName: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.DirectoryNotExistsAttribute()
+  nameWithType: DirectoryNotExistsAttribute.DirectoryNotExistsAttribute()
+- uid: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.#ctor*
+  name: DirectoryNotExistsAttribute
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.html#McMaster_Extensions_CommandLineUtils_DirectoryNotExistsAttribute__ctor_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.#ctor
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.DirectoryNotExistsAttribute
+  nameWithType: DirectoryNotExistsAttribute.DirectoryNotExistsAttribute
 - uid: McMaster.Extensions.CommandLineUtils.DotNetCliContext
   name: DotNetCliContext
   href: unstable/api/McMaster.Extensions.CommandLineUtils.DotNetCliContext.html
@@ -3638,6 +3708,44 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
   nameWithType: DotNetExe.FullPathOrDefault
+- uid: McMaster.Extensions.CommandLineUtils.Errors
+  name: McMaster.Extensions.CommandLineUtils.Errors
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Errors.html
+  commentId: N:McMaster.Extensions.CommandLineUtils.Errors
+  fullName: McMaster.Extensions.CommandLineUtils.Errors
+  nameWithType: McMaster.Extensions.CommandLineUtils.Errors
+- uid: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException
+  name: SubcommandCycleException
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException
+  fullName: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException
+  nameWithType: SubcommandCycleException
+- uid: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.#ctor(System.Type)
+  name: SubcommandCycleException(Type)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.html#McMaster_Extensions_CommandLineUtils_Errors_SubcommandCycleException__ctor_System_Type_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.#ctor(System.Type)
+  fullName: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.SubcommandCycleException(System.Type)
+  nameWithType: SubcommandCycleException.SubcommandCycleException(Type)
+- uid: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.#ctor*
+  name: SubcommandCycleException
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.html#McMaster_Extensions_CommandLineUtils_Errors_SubcommandCycleException__ctor_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.#ctor
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.SubcommandCycleException
+  nameWithType: SubcommandCycleException.SubcommandCycleException
+- uid: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.ModelType
+  name: ModelType
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.html#McMaster_Extensions_CommandLineUtils_Errors_SubcommandCycleException_ModelType
+  commentId: P:McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.ModelType
+  fullName: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.ModelType
+  nameWithType: SubcommandCycleException.ModelType
+- uid: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.ModelType*
+  name: ModelType
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.html#McMaster_Extensions_CommandLineUtils_Errors_SubcommandCycleException_ModelType_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.ModelType
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.ModelType
+  nameWithType: SubcommandCycleException.ModelType
 - uid: McMaster.Extensions.CommandLineUtils.FileExistsAttribute
   name: FileExistsAttribute
   href: unstable/api/McMaster.Extensions.CommandLineUtils.FileExistsAttribute.html
@@ -3657,6 +3765,25 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.FileExistsAttribute.FileExistsAttribute
   nameWithType: FileExistsAttribute.FileExistsAttribute
+- uid: McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute
+  name: FileNotExistsAttribute
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute
+  nameWithType: FileNotExistsAttribute
+- uid: McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.#ctor
+  name: FileNotExistsAttribute()
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.html#McMaster_Extensions_CommandLineUtils_FileNotExistsAttribute__ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.#ctor
+  fullName: McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.FileNotExistsAttribute()
+  nameWithType: FileNotExistsAttribute.FileNotExistsAttribute()
+- uid: McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.#ctor*
+  name: FileNotExistsAttribute
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.html#McMaster_Extensions_CommandLineUtils_FileNotExistsAttribute__ctor_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.#ctor
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.FileNotExistsAttribute
+  nameWithType: FileNotExistsAttribute.FileNotExistsAttribute
 - uid: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute
   name: FileOrDirectoryExistsAttribute
   href: unstable/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.html
@@ -3676,6 +3803,25 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.FileOrDirectoryExistsAttribute
   nameWithType: FileOrDirectoryExistsAttribute.FileOrDirectoryExistsAttribute
+- uid: McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute
+  name: FileOrDirectoryNotExistsAttribute
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute
+  nameWithType: FileOrDirectoryNotExistsAttribute
+- uid: McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.#ctor
+  name: FileOrDirectoryNotExistsAttribute()
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.html#McMaster_Extensions_CommandLineUtils_FileOrDirectoryNotExistsAttribute__ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.#ctor
+  fullName: McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.FileOrDirectoryNotExistsAttribute()
+  nameWithType: FileOrDirectoryNotExistsAttribute.FileOrDirectoryNotExistsAttribute()
+- uid: McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.#ctor*
+  name: FileOrDirectoryNotExistsAttribute
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.html#McMaster_Extensions_CommandLineUtils_FileOrDirectoryNotExistsAttribute__ctor_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.#ctor
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.FileOrDirectoryNotExistsAttribute
+  nameWithType: FileOrDirectoryNotExistsAttribute.FileOrDirectoryNotExistsAttribute
 - uid: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute
   name: HelpOptionAttribute
   href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.html
@@ -3701,6 +3847,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.HelpOptionAttribute
   nameWithType: HelpOptionAttribute.HelpOptionAttribute
+- uid: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.Template
+  name: Template
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.html#McMaster_Extensions_CommandLineUtils_HelpOptionAttribute_Template
+  commentId: P:McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.Template
+  fullName: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.Template
+  nameWithType: HelpOptionAttribute.Template
+- uid: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.Template*
+  name: Template
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.html#McMaster_Extensions_CommandLineUtils_HelpOptionAttribute_Template_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.Template
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.Template
+  nameWithType: HelpOptionAttribute.Template
 - uid: McMaster.Extensions.CommandLineUtils.HelpText
   name: McMaster.Extensions.CommandLineUtils.HelpText
   href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.html
@@ -3726,6 +3885,12 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.DefaultHelpTextGenerator
   nameWithType: DefaultHelpTextGenerator.DefaultHelpTextGenerator
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.ColumnSeparatorLength
+  name: ColumnSeparatorLength
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_ColumnSeparatorLength
+  commentId: F:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.ColumnSeparatorLength
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.ColumnSeparatorLength
+  nameWithType: DefaultHelpTextGenerator.ColumnSeparatorLength
 - uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format(McMaster.Extensions.CommandLineUtils.CommandOption)
   name: Format(CommandOption)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Format_McMaster_Extensions_CommandLineUtils_CommandOption_
@@ -3855,6 +4020,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage
   nameWithType: DefaultHelpTextGenerator.GenerateUsage
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter
+  name: IndentWriter
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_IndentWriter
+  commentId: P:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter
+  nameWithType: DefaultHelpTextGenerator.IndentWriter
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter*
+  name: IndentWriter
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_IndentWriter_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter
+  nameWithType: DefaultHelpTextGenerator.IndentWriter
 - uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton
   name: Singleton
   href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Singleton
@@ -3881,6 +4059,50 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName
   nameWithType: DefaultHelpTextGenerator.SortCommandsByName
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  name: HangingIndentWriter
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  nameWithType: HangingIndentWriter
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.#ctor(System.Int32,System.Nullable{System.Int32},System.Boolean)
+  name: HangingIndentWriter(Int32, Nullable<Int32>, Boolean)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.html#McMaster_Extensions_CommandLineUtils_HelpText_HangingIndentWriter__ctor_System_Int32_System_Nullable_System_Int32__System_Boolean_
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.#ctor(System.Int32,System.Nullable{System.Int32},System.Boolean)
+  name.vb: HangingIndentWriter(Int32, Nullable(Of Int32), Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.HangingIndentWriter(System.Int32, System.Nullable<System.Int32>, System.Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.HangingIndentWriter(System.Int32, System.Nullable(Of System.Int32), System.Boolean)
+  nameWithType: HangingIndentWriter.HangingIndentWriter(Int32, Nullable<Int32>, Boolean)
+  nameWithType.vb: HangingIndentWriter.HangingIndentWriter(Int32, Nullable(Of Int32), Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.#ctor*
+  name: HangingIndentWriter
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.html#McMaster_Extensions_CommandLineUtils_HelpText_HangingIndentWriter__ctor_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.#ctor
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.HangingIndentWriter
+  nameWithType: HangingIndentWriter.HangingIndentWriter
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.DefaultConsoleWidth
+  name: DefaultConsoleWidth
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.html#McMaster_Extensions_CommandLineUtils_HelpText_HangingIndentWriter_DefaultConsoleWidth
+  commentId: F:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.DefaultConsoleWidth
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.DefaultConsoleWidth
+  nameWithType: HangingIndentWriter.DefaultConsoleWidth
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write(System.Nullable{System.String})
+  name: Write(Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.html#McMaster_Extensions_CommandLineUtils_HelpText_HangingIndentWriter_Write_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write(System.Nullable{System.String})
+  name.vb: Write(Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write(System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write(System.Nullable(Of System.String))
+  nameWithType: HangingIndentWriter.Write(Nullable<String>)
+  nameWithType.vb: HangingIndentWriter.Write(Nullable(Of String))
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write*
+  name: Write
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.html#McMaster_Extensions_CommandLineUtils_HelpText_HangingIndentWriter_Write_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write
+  nameWithType: HangingIndentWriter.Write
 - uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
   name: IHelpTextGenerator
   href: unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html
@@ -4382,6 +4604,15 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(McMaster.Extensions.CommandLineUtils.CommandOptionType)
   fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionAttribute(McMaster.Extensions.CommandLineUtils.CommandOptionType)
   nameWithType: OptionAttribute.OptionAttribute(CommandOptionType)
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.Nullable{System.String},System.Nullable{System.String},McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  name: OptionAttribute(Nullable<String>, Nullable<String>, CommandOptionType)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html#McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_System_Nullable_System_String__System_Nullable_System_String__McMaster_Extensions_CommandLineUtils_CommandOptionType_
+  commentId: M:McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.Nullable{System.String},System.Nullable{System.String},McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  name.vb: OptionAttribute(Nullable(Of String), Nullable(Of String), CommandOptionType)
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionAttribute(System.Nullable<System.String>, System.Nullable<System.String>, McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionAttribute(System.Nullable(Of System.String), System.Nullable(Of System.String), McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  nameWithType: OptionAttribute.OptionAttribute(Nullable<String>, Nullable<String>, CommandOptionType)
+  nameWithType.vb: OptionAttribute.OptionAttribute(Nullable(Of String), Nullable(Of String), CommandOptionType)
 - uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String)
   name: OptionAttribute(String)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html#McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_System_String_
@@ -4394,12 +4625,6 @@ references:
   commentId: M:McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
   fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionAttribute(System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType)
   nameWithType: OptionAttribute.OptionAttribute(String, CommandOptionType)
-- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
-  name: OptionAttribute(String, String, CommandOptionType)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html#McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_
-  commentId: M:McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
-  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionAttribute(System.String, System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType)
-  nameWithType: OptionAttribute.OptionAttribute(String, String, CommandOptionType)
 - uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*
   name: OptionAttribute
   href: unstable/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html#McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_
@@ -4816,15 +5041,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString
   nameWithType: Prompt.GetPasswordAsSecureString
-- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
-  name: GetString(String, String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetString_System_String_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
-  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
-  name.vb: GetString(String, String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
-  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String, System.String, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String, System.String, System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
-  nameWithType: Prompt.GetString(String, String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
-  nameWithType.vb: Prompt.GetString(String, String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.Nullable{System.String},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  name: GetString(String, Nullable<String>, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetString_System_String_System_Nullable_System_String__System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.Nullable{System.String},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  name.vb: GetString(String, Nullable(Of String), Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String, System.Nullable<System.String>, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String, System.Nullable(Of System.String), System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
+  nameWithType: Prompt.GetString(String, Nullable<String>, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  nameWithType.vb: Prompt.GetString(String, Nullable(Of String), Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
 - uid: McMaster.Extensions.CommandLineUtils.Prompt.GetString*
   name: GetString
   href: unstable/api/McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetString_
@@ -5109,6 +5334,25 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.IsValid
   nameWithType: FilePathExistsAttributeBase.IsValid
+- uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+  name: FilePathNotExistsAttributeBase
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+  nameWithType: FilePathNotExistsAttributeBase
+- uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  name: IsValid(Object, ValidationContext)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.html#McMaster_Extensions_CommandLineUtils_Validation_FilePathNotExistsAttributeBase_IsValid_System_Object_System_ComponentModel_DataAnnotations_ValidationContext_
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid(System.Object, System.ComponentModel.DataAnnotations.ValidationContext)
+  nameWithType: FilePathNotExistsAttributeBase.IsValid(Object, ValidationContext)
+- uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid*
+  name: IsValid
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.html#McMaster_Extensions_CommandLineUtils_Validation_FilePathNotExistsAttributeBase_IsValid_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid
+  nameWithType: FilePathNotExistsAttributeBase.IsValid
 - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
   name: IArgumentValidationBuilder
   href: unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.html
@@ -5443,12 +5687,15 @@ references:
   fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(Of T)(McMaster.Extensions.CommandLineUtils.CommandOption(Of T), System.Action(Of McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder(Of T)))
   nameWithType: ValidationExtensions.Accepts<T>(CommandOption<T>, Action<IOptionValidationBuilder<T>>)
   nameWithType.vb: ValidationExtensions.Accepts(Of T)(CommandOption(Of T), Action(Of IOptionValidationBuilder(Of T)))
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
-  name: EmailAddress(IValidationBuilder, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_EmailAddress_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String)
-  nameWithType: ValidationExtensions.EmailAddress(IValidationBuilder, String)
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: EmailAddress(IValidationBuilder, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_EmailAddress_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name.vb: EmailAddress(IValidationBuilder, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.EmailAddress(IValidationBuilder, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.EmailAddress(IValidationBuilder, Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress*
   name: EmailAddress
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_EmailAddress_
@@ -5472,12 +5719,15 @@ references:
   fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum(Of TEnum)(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Boolean)
   nameWithType: ValidationExtensions.Enum<TEnum>(IValidationBuilder, Boolean)
   nameWithType.vb: ValidationExtensions.Enum(Of TEnum)(IValidationBuilder, Boolean)
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
-  name: ExistingDirectory(IValidationBuilder, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String)
-  nameWithType: ValidationExtensions.ExistingDirectory(IValidationBuilder, String)
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: ExistingDirectory(IValidationBuilder, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name.vb: ExistingDirectory(IValidationBuilder, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.ExistingDirectory(IValidationBuilder, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.ExistingDirectory(IValidationBuilder, Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory*
   name: ExistingDirectory
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingDirectory_
@@ -5485,12 +5735,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory
   nameWithType: ValidationExtensions.ExistingDirectory
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
-  name: ExistingFile(IValidationBuilder, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String)
-  nameWithType: ValidationExtensions.ExistingFile(IValidationBuilder, String)
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: ExistingFile(IValidationBuilder, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name.vb: ExistingFile(IValidationBuilder, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.ExistingFile(IValidationBuilder, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.ExistingFile(IValidationBuilder, Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile*
   name: ExistingFile
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFile_
@@ -5498,12 +5751,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile
   nameWithType: ValidationExtensions.ExistingFile
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
-  name: ExistingFileOrDirectory(IValidationBuilder, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String)
-  nameWithType: ValidationExtensions.ExistingFileOrDirectory(IValidationBuilder, String)
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: ExistingFileOrDirectory(IValidationBuilder, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name.vb: ExistingFileOrDirectory(IValidationBuilder, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.ExistingFileOrDirectory(IValidationBuilder, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.ExistingFileOrDirectory(IValidationBuilder, Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory*
   name: ExistingFileOrDirectory
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFileOrDirectory_
@@ -5511,18 +5767,24 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory
   nameWithType: ValidationExtensions.ExistingFileOrDirectory
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Boolean,System.String)
-  name: IsRequired(CommandArgument, Boolean, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_McMaster_Extensions_CommandLineUtils_CommandArgument_System_Boolean_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Boolean,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument, System.Boolean, System.String)
-  nameWithType: ValidationExtensions.IsRequired(CommandArgument, Boolean, String)
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandOption,System.Boolean,System.String)
-  name: IsRequired(CommandOption, Boolean, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_McMaster_Extensions_CommandLineUtils_CommandOption_System_Boolean_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandOption,System.Boolean,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandOption, System.Boolean, System.String)
-  nameWithType: ValidationExtensions.IsRequired(CommandOption, Boolean, String)
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Boolean,System.Nullable{System.String})
+  name: IsRequired(CommandArgument, Boolean, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_McMaster_Extensions_CommandLineUtils_CommandArgument_System_Boolean_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Boolean,System.Nullable{System.String})
+  name.vb: IsRequired(CommandArgument, Boolean, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument, System.Boolean, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument, System.Boolean, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.IsRequired(CommandArgument, Boolean, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.IsRequired(CommandArgument, Boolean, Nullable(Of String))
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandOption,System.Boolean,System.Nullable{System.String})
+  name: IsRequired(CommandOption, Boolean, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_McMaster_Extensions_CommandLineUtils_CommandOption_System_Boolean_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandOption,System.Boolean,System.Nullable{System.String})
+  name.vb: IsRequired(CommandOption, Boolean, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandOption, System.Boolean, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandOption, System.Boolean, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.IsRequired(CommandOption, Boolean, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.IsRequired(CommandOption, Boolean, Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired*
   name: IsRequired
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_
@@ -5530,30 +5792,33 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired
   nameWithType: ValidationExtensions.IsRequired
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.String)
-  name: IsRequired<T>(CommandArgument<T>, Boolean, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired__1_McMaster_Extensions_CommandLineUtils_CommandArgument___0__System_Boolean_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.String)
-  name.vb: IsRequired(Of T)(CommandArgument(Of T), Boolean, String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired<T>(McMaster.Extensions.CommandLineUtils.CommandArgument<T>, System.Boolean, System.String)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(Of T)(McMaster.Extensions.CommandLineUtils.CommandArgument(Of T), System.Boolean, System.String)
-  nameWithType: ValidationExtensions.IsRequired<T>(CommandArgument<T>, Boolean, String)
-  nameWithType.vb: ValidationExtensions.IsRequired(Of T)(CommandArgument(Of T), Boolean, String)
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandOption{``0},System.Boolean,System.String)
-  name: IsRequired<T>(CommandOption<T>, Boolean, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired__1_McMaster_Extensions_CommandLineUtils_CommandOption___0__System_Boolean_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandOption{``0},System.Boolean,System.String)
-  name.vb: IsRequired(Of T)(CommandOption(Of T), Boolean, String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired<T>(McMaster.Extensions.CommandLineUtils.CommandOption<T>, System.Boolean, System.String)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(Of T)(McMaster.Extensions.CommandLineUtils.CommandOption(Of T), System.Boolean, System.String)
-  nameWithType: ValidationExtensions.IsRequired<T>(CommandOption<T>, Boolean, String)
-  nameWithType.vb: ValidationExtensions.IsRequired(Of T)(CommandOption(Of T), Boolean, String)
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
-  name: LegalFilePath(IValidationBuilder, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String)
-  nameWithType: ValidationExtensions.LegalFilePath(IValidationBuilder, String)
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.Nullable{System.String})
+  name: IsRequired<T>(CommandArgument<T>, Boolean, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired__1_McMaster_Extensions_CommandLineUtils_CommandArgument___0__System_Boolean_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.Nullable{System.String})
+  name.vb: IsRequired(Of T)(CommandArgument(Of T), Boolean, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired<T>(McMaster.Extensions.CommandLineUtils.CommandArgument<T>, System.Boolean, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(Of T)(McMaster.Extensions.CommandLineUtils.CommandArgument(Of T), System.Boolean, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.IsRequired<T>(CommandArgument<T>, Boolean, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.IsRequired(Of T)(CommandArgument(Of T), Boolean, Nullable(Of String))
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandOption{``0},System.Boolean,System.Nullable{System.String})
+  name: IsRequired<T>(CommandOption<T>, Boolean, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired__1_McMaster_Extensions_CommandLineUtils_CommandOption___0__System_Boolean_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandOption{``0},System.Boolean,System.Nullable{System.String})
+  name.vb: IsRequired(Of T)(CommandOption(Of T), Boolean, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired<T>(McMaster.Extensions.CommandLineUtils.CommandOption<T>, System.Boolean, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(Of T)(McMaster.Extensions.CommandLineUtils.CommandOption(Of T), System.Boolean, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.IsRequired<T>(CommandOption<T>, Boolean, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.IsRequired(Of T)(CommandOption(Of T), Boolean, Nullable(Of String))
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: LegalFilePath(IValidationBuilder, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name.vb: LegalFilePath(IValidationBuilder, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.LegalFilePath(IValidationBuilder, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.LegalFilePath(IValidationBuilder, Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath*
   name: LegalFilePath
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_
@@ -5561,12 +5826,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath
   nameWithType: ValidationExtensions.LegalFilePath
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
-  name: MaxLength(IValidationBuilder, Int32, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MaxLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Int32, System.String)
-  nameWithType: ValidationExtensions.MaxLength(IValidationBuilder, Int32, String)
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  name: MaxLength(IValidationBuilder, Int32, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MaxLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  name.vb: MaxLength(IValidationBuilder, Int32, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Int32, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Int32, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.MaxLength(IValidationBuilder, Int32, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.MaxLength(IValidationBuilder, Int32, Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength*
   name: MaxLength
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MaxLength_
@@ -5574,12 +5842,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength
   nameWithType: ValidationExtensions.MaxLength
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
-  name: MinLength(IValidationBuilder, Int32, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MinLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Int32, System.String)
-  nameWithType: ValidationExtensions.MinLength(IValidationBuilder, Int32, String)
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  name: MinLength(IValidationBuilder, Int32, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MinLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  name.vb: MinLength(IValidationBuilder, Int32, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Int32, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Int32, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.MinLength(IValidationBuilder, Int32, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.MinLength(IValidationBuilder, Int32, Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength*
   name: MinLength
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MinLength_
@@ -5587,6 +5858,54 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength
   nameWithType: ValidationExtensions.MinLength
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: NonExistingDirectory(IValidationBuilder, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name.vb: NonExistingDirectory(IValidationBuilder, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.NonExistingDirectory(IValidationBuilder, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.NonExistingDirectory(IValidationBuilder, Nullable(Of String))
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory*
+  name: NonExistingDirectory
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingDirectory_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory
+  nameWithType: ValidationExtensions.NonExistingDirectory
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: NonExistingFile(IValidationBuilder, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name.vb: NonExistingFile(IValidationBuilder, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.NonExistingFile(IValidationBuilder, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.NonExistingFile(IValidationBuilder, Nullable(Of String))
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile*
+  name: NonExistingFile
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFile_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile
+  nameWithType: ValidationExtensions.NonExistingFile
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: NonExistingFileOrDirectory(IValidationBuilder, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name.vb: NonExistingFileOrDirectory(IValidationBuilder, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.NonExistingFileOrDirectory(IValidationBuilder, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.NonExistingFileOrDirectory(IValidationBuilder, Nullable(Of String))
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory*
+  name: NonExistingFileOrDirectory
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFileOrDirectory_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory
+  nameWithType: ValidationExtensions.NonExistingFileOrDirectory
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
   name: OnValidate(CommandArgument, Func<ValidationContext, ValidationResult>)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_McMaster_Extensions_CommandLineUtils_CommandArgument_System_Func_System_ComponentModel_DataAnnotations_ValidationContext_System_ComponentModel_DataAnnotations_ValidationResult__
@@ -5621,24 +5940,24 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate
   nameWithType: ValidationExtensions.OnValidate
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder{System.Double},System.Double,System.Double,System.String)
-  name: Range(IValidationBuilder<Double>, Double, Double, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Range_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Double__System_Double_System_Double_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder{System.Double},System.Double,System.Double,System.String)
-  name.vb: Range(IValidationBuilder(Of Double), Double, Double, String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder<System.Double>, System.Double, System.Double, System.String)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder(Of System.Double), System.Double, System.Double, System.String)
-  nameWithType: ValidationExtensions.Range(IValidationBuilder<Double>, Double, Double, String)
-  nameWithType.vb: ValidationExtensions.Range(IValidationBuilder(Of Double), Double, Double, String)
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder{System.Int32},System.Int32,System.Int32,System.String)
-  name: Range(IValidationBuilder<Int32>, Int32, Int32, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Range_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32__System_Int32_System_Int32_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder{System.Int32},System.Int32,System.Int32,System.String)
-  name.vb: Range(IValidationBuilder(Of Int32), Int32, Int32, String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder<System.Int32>, System.Int32, System.Int32, System.String)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder(Of System.Int32), System.Int32, System.Int32, System.String)
-  nameWithType: ValidationExtensions.Range(IValidationBuilder<Int32>, Int32, Int32, String)
-  nameWithType.vb: ValidationExtensions.Range(IValidationBuilder(Of Int32), Int32, Int32, String)
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder{System.Double},System.Double,System.Double,System.Nullable{System.String})
+  name: Range(IValidationBuilder<Double>, Double, Double, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Range_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Double__System_Double_System_Double_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder{System.Double},System.Double,System.Double,System.Nullable{System.String})
+  name.vb: Range(IValidationBuilder(Of Double), Double, Double, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder<System.Double>, System.Double, System.Double, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder(Of System.Double), System.Double, System.Double, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.Range(IValidationBuilder<Double>, Double, Double, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.Range(IValidationBuilder(Of Double), Double, Double, Nullable(Of String))
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder{System.Int32},System.Int32,System.Int32,System.Nullable{System.String})
+  name: Range(IValidationBuilder<Int32>, Int32, Int32, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Range_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32__System_Int32_System_Int32_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder{System.Int32},System.Int32,System.Int32,System.Nullable{System.String})
+  name.vb: Range(IValidationBuilder(Of Int32), Int32, Int32, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder<System.Int32>, System.Int32, System.Int32, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder(Of System.Int32), System.Int32, System.Int32, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.Range(IValidationBuilder<Int32>, Int32, Int32, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.Range(IValidationBuilder(Of Int32), Int32, Int32, Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range*
   name: Range
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Range_
@@ -5646,12 +5965,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range
   nameWithType: ValidationExtensions.Range
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.String)
-  name: RegularExpression(IValidationBuilder, String, String)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_RegularExpression_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_String_
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.String)
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String, System.String)
-  nameWithType: ValidationExtensions.RegularExpression(IValidationBuilder, String, String)
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Nullable{System.String})
+  name: RegularExpression(IValidationBuilder, String, Nullable<String>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_RegularExpression_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_Nullable_System_String__
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Nullable{System.String})
+  name.vb: RegularExpression(IValidationBuilder, String, Nullable(Of String))
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String, System.Nullable<System.String>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String, System.Nullable(Of System.String))
+  nameWithType: ValidationExtensions.RegularExpression(IValidationBuilder, String, Nullable<String>)
+  nameWithType.vb: ValidationExtensions.RegularExpression(IValidationBuilder, String, Nullable(Of String))
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression*
   name: RegularExpression
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_RegularExpression_
@@ -5666,15 +5988,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies
   nameWithType: ValidationExtensions.Satisfies
-- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Object[])
-  name: Satisfies<TAttribute>(IValidationBuilder, String, Object[])
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Satisfies__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_Object___
-  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Object[])
-  name.vb: Satisfies(Of TAttribute)(IValidationBuilder, String, Object())
-  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies<TAttribute>(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String, System.Object[])
-  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies(Of TAttribute)(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String, System.Object())
-  nameWithType: ValidationExtensions.Satisfies<TAttribute>(IValidationBuilder, String, Object[])
-  nameWithType.vb: ValidationExtensions.Satisfies(Of TAttribute)(IValidationBuilder, String, Object())
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String},System.Object[])
+  name: Satisfies<TAttribute>(IValidationBuilder, Nullable<String>, Object[])
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Satisfies__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Nullable_System_String__System_Object___
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String},System.Object[])
+  name.vb: Satisfies(Of TAttribute)(IValidationBuilder, Nullable(Of String), Object())
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies<TAttribute>(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>, System.Object[])
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies(Of TAttribute)(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String), System.Object())
+  nameWithType: ValidationExtensions.Satisfies<TAttribute>(IValidationBuilder, Nullable<String>, Object[])
+  nameWithType.vb: ValidationExtensions.Satisfies(Of TAttribute)(IValidationBuilder, Nullable(Of String), Object())
 - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
   name: Values(IValidationBuilder, Boolean, String[])
   href: unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_System_String___
@@ -5734,6 +6056,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.VersionOptionAttribute
   nameWithType: VersionOptionAttribute.VersionOptionAttribute
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template
+  name: Template
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.html#McMaster_Extensions_CommandLineUtils_VersionOptionAttribute_Template
+  commentId: P:McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template
+  nameWithType: VersionOptionAttribute.Template
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template*
+  name: Template
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.html#McMaster_Extensions_CommandLineUtils_VersionOptionAttribute_Template_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template
+  nameWithType: VersionOptionAttribute.Template
 - uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Version
   name: Version
   href: unstable/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.html#McMaster_Extensions_CommandLineUtils_VersionOptionAttribute_Version
@@ -5785,6 +6120,19 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.MemberName
   nameWithType: VersionOptionFromMemberAttribute.MemberName
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.Template
+  name: Template
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.html#McMaster_Extensions_CommandLineUtils_VersionOptionFromMemberAttribute_Template
+  commentId: P:McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.Template
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.Template
+  nameWithType: VersionOptionFromMemberAttribute.Template
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.Template*
+  name: Template
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.html#McMaster_Extensions_CommandLineUtils_VersionOptionFromMemberAttribute_Template_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.Template
+  isSpec: "True"
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.Template
+  nameWithType: VersionOptionFromMemberAttribute.Template
 - uid: McMaster.Extensions.Hosting.CommandLine
   name: McMaster.Extensions.Hosting.CommandLine
   href: unstable/api/McMaster.Extensions.Hosting.CommandLine.html
