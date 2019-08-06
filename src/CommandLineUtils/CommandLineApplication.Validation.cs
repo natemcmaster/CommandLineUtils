@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -34,32 +35,30 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The first validation result that is not <see cref="ValidationResult.Success"/> if there is an error.</returns>
         public ValidationResult GetValidationResult()
         {
+            List<ValidationResult> validationResults = new List<ValidationResult>();
             if (Parent != null)
             {
                 var result = Parent.GetValidationResult();
-
                 if (result != ValidationResult.Success)
                 {
-                    return result;
+                    validationResults.Add(result);
                 }
             }
 
             var factory = new CommandLineValidationContextFactory(this);
-
             var commandContext = factory.Create(this);
             foreach (var validator in Validators)
             {
                 var result = validator.GetValidationResult(this, commandContext);
                 if (result != ValidationResult.Success)
                 {
-                    return result;
+                    validationResults.Add(result);
                 }
             }
 
             foreach (var argument in Arguments)
             {
                 var context = factory.Create(argument);
-
                 if (!string.IsNullOrEmpty(argument.Name))
                 {
                     context.DisplayName = argument.Name;
@@ -71,7 +70,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     var result = validator.GetValidationResult(argument, context);
                     if (result != ValidationResult.Success)
                     {
-                        return result;
+                        validationResults.Add(result);
                     }
                 }
             }
@@ -112,11 +111,21 @@ namespace McMaster.Extensions.CommandLineUtils
                     var result = validator.GetValidationResult(option, context);
                     if (result != ValidationResult.Success)
                     {
-                        return result;
+                       validationResults.Add(result);
                     }
                 }
             }
 
+            if(validationResults.Count !=0)
+            {
+                var messages = validationResults.SelectMany(validationResult =>
+                    validationResult.MemberNames.Select(member =>
+                    {
+                        return $"{member} - {validationResult.ErrorMessage}";
+                    }));
+
+                return new ValidationResult("CommandLine Error",messages);
+            }
             return ValidationResult.Success;
         }
 
