@@ -14,13 +14,12 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
     ///     Waits from completion of the <see cref="CommandLineApplication" /> and
     ///     initiates shutdown.
     /// </summary>
-    internal class CommandLineLifetime : IHostLifetime, IDisposable
+    internal class CommandLineLifetime : IHostLifetime
     {
         private readonly IApplicationLifetime _applicationLifetime;
         private readonly ICommandLineService _cliService;
         private readonly IConsole _console;
         private readonly IUnhandledExceptionHandler? _unhandledExceptionHandler;
-        private readonly ManualResetEvent _disposeComplete = new ManualResetEvent(false);
 
         /// <summary>
         ///     Creates a new instance.
@@ -85,7 +84,6 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
             AppDomain.CurrentDomain.ProcessExit += (_, __) =>
             {
                 _applicationLifetime.StopApplication();
-                _disposeComplete.WaitOne();
             };
 
             // Capture CTRL+C and prevent it from immediately force killing the app.
@@ -96,12 +94,6 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
             };
 
             return Task.CompletedTask;
-        }
-
-        public void Dispose()
-        {
-            _disposeComplete.Set();
-            _disposeComplete.Dispose();
         }
     }
 }
