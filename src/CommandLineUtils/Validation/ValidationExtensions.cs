@@ -13,6 +13,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public static class ValidationExtensions
     {
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Indicates the option is required.
         /// </summary>
@@ -21,6 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The option.</returns>
         public static CommandOption IsRequired(this CommandOption option, bool allowEmptyStrings = false, string? errorMessage = null)
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
             var attribute = GetValidationAttr<RequiredAttribute>(errorMessage);
             attribute.AllowEmptyStrings = allowEmptyStrings;
@@ -28,6 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return option;
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Indicates the option is required.
         /// </summary>
@@ -36,6 +39,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The option.</returns>
         public static CommandOption<T> IsRequired<T>(this CommandOption<T> option, bool allowEmptyStrings = false,
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
             string? errorMessage = null)
         {
 
@@ -43,6 +47,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return option;
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Indicates the argument is required.
         /// </summary>
@@ -51,6 +56,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The argument.</returns>
         public static CommandArgument IsRequired(this CommandArgument argument, bool allowEmptyStrings = false, string? errorMessage = null)
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
             var attribute = GetValidationAttr<RequiredAttribute>(errorMessage);
             attribute.AllowEmptyStrings = allowEmptyStrings;
@@ -58,6 +64,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return argument;
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Indicates the argument is required.
         /// </summary>
@@ -66,6 +73,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The argument.</returns>
         public static CommandArgument<T> IsRequired<T>(this CommandArgument<T> argument, bool allowEmptyStrings = false, string? errorMessage = null)
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
             IsRequired((CommandArgument)argument, allowEmptyStrings, errorMessage);
             return argument;
@@ -361,6 +369,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return builder;
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Specifies that values must be in a given range.
         /// </summary>
@@ -370,12 +379,14 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
         public static IValidationBuilder<int> Range(this IValidationBuilder<int> builder, int minimum, int maximum, string? errorMessage = null)
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
             var attribute = GetValidationAttr<RangeAttribute>(errorMessage, new object[] { minimum, maximum });
             builder.Use(new AttributeValidator(attribute));
             return builder;
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Specifies that values must be in a given range.
         /// </summary>
@@ -385,6 +396,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
         public static IValidationBuilder<double> Range(this IValidationBuilder<double> builder, double minimum, double maximum, string? errorMessage = null)
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
             var attribute = GetValidationAttr<RangeAttribute>(errorMessage, new object[] { minimum, maximum });
             builder.Use(new AttributeValidator(attribute));

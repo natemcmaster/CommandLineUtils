@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 16
+# Visual Studio Version 16
 VisualStudioVersion = 16.0.0.0
 MinimumVisualStudioVersion = 16.0.0.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{95D4B35E-0A21-4D64-8BAF-27DD6C019FC5}"
@@ -13,7 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "McMaster.Extensions.Command
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{509D6286-77FA-49C1-9EC6-7461DBE79536}"
 	ProjectSection(SolutionItems) = preProject
-		.appveyor.yml = .appveyor.yml
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
@@ -26,14 +25,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{509D6286
 		NOTICE.txt = NOTICE.txt
 		NuGet.config = NuGet.config
 		README.md = README.md
-		releasenotes.props = releasenotes.props
 		version.props = version.props
-		.travis.yml = .travis.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McMaster.Extensions.Hosting.CommandLine", "src\Hosting.CommandLine\McMaster.Extensions.Hosting.CommandLine.csproj", "{407245F7-3F2C-4634-8578-7EFCA9BD26BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "McMaster.Extensions.Hosting.CommandLine", "src\Hosting.CommandLine\McMaster.Extensions.Hosting.CommandLine.csproj", "{407245F7-3F2C-4634-8578-7EFCA9BD26BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hosting.CommandLine.Tests", "test\Hosting.CommandLine.Tests\McMaster.Extensions.Hosting.CommandLine.Tests.csproj", "{04A5D2B8-18E4-4C75-AEF9-79D171FAC210}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "McMaster.Extensions.Hosting.CommandLine.Tests", "test\Hosting.CommandLine.Tests\McMaster.Extensions.Hosting.CommandLine.Tests.csproj", "{04A5D2B8-18E4-4C75-AEF9-79D171FAC210}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -17,9 +17,9 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public static IConsole Singleton { get; } = new PhysicalConsole();
 
-        private PhysicalConsole()
-        {
-        }
+        // private PhysicalConsole()
+        // {
+        // }
 
         /// <summary>
         /// <see cref="Console.CancelKeyPress"/>.

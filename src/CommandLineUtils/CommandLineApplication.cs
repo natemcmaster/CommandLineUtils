@@ -57,11 +57,13 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly ConventionContext _conventionContext;
         private readonly List<IConvention> _conventions = new List<IConvention>();
 
+#pragma warning disable RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
         /// </summary>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(bool throwOnUnexpectedArg = true)
+#pragma warning restore RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
             : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(), throwOnUnexpectedArg)
         {
         }
@@ -470,6 +472,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Adds a subcommand.
         /// </summary>
@@ -478,6 +481,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="throwOnUnexpectedArg"></param>
         /// <returns></returns>
         public CommandLineApplication Command(string name, Action<CommandLineApplication> configuration,
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
             bool throwOnUnexpectedArg = true)
         {
             var command = new CommandLineApplication(this, name, throwOnUnexpectedArg);
@@ -489,6 +493,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return command;
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Adds a subcommand with model of type <typeparamref name="TModel" />.
         /// </summary>
@@ -498,6 +503,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="TModel">The model type of the subcommand.</typeparam>
         /// <returns></returns>
         public CommandLineApplication<TModel> Command<TModel>(string name, Action<CommandLineApplication<TModel>> configuration,
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
             bool throwOnUnexpectedArg = true)
             where TModel : class
         {
@@ -592,6 +598,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return option;
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Adds a command line argument
         /// </summary>
@@ -600,8 +607,10 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="multipleValues"></param>
         /// <returns></returns>
         public CommandArgument Argument(string name, string description, bool multipleValues = false)
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
             => Argument(name, description, _ => { }, multipleValues);
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Adds a command line argument.
         /// </summary>
@@ -611,6 +620,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="multipleValues"></param>
         /// <returns></returns>
         public CommandArgument Argument(string name, string description, Action<CommandArgument> configuration, bool multipleValues = false)
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
             var argument = new CommandArgument
             {
@@ -623,6 +633,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return argument;
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Adds a command line argument with values that should be parsable into <typeparamref name="T" />.
         /// </summary>
@@ -633,6 +644,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="T">The type of the values on the option</typeparam>
         /// <returns></returns>
         public CommandArgument<T> Argument<T>(string name, string description, Action<CommandArgument> configuration, bool multipleValues = false)
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
             var parser = ValueParsers.GetParser<T>();
 
@@ -801,6 +813,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return ExecuteAsync(args).GetAwaiter().GetResult();
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Parses an array of strings using <see cref="Parse(string[])"/>.
         /// <para>
@@ -820,6 +833,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="cancellationToken"></param>
         /// <returns>The return code from <see cref="Invoke"/>.</returns>
         public async Task<int> ExecuteAsync(string[] args, CancellationToken cancellationToken = default)
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
             var parseResult = Parse(args);
             var command = parseResult.SelectedCommand;
@@ -900,6 +914,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return OptionHelp;
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Helper method that adds a version option from known versions strings.
         /// </summary>
@@ -908,6 +923,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="longFormVersion"></param>
         /// <returns></returns>
         public CommandOption VersionOption(string template,
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
             string? shortFormVersion,
             string? longFormVersion = null)
         {
@@ -921,6 +937,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Helper method that adds a version option.
         /// </summary>
@@ -929,6 +946,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="longFormVersionGetter"></param>
         /// <returns></returns>
         public CommandOption VersionOption(string template,
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
             Func<string?>? shortFormVersionGetter,
             Func<string?>? longFormVersionGetter = null)
         {
@@ -995,7 +1013,9 @@ namespace McMaster.Extensions.CommandLineUtils
         [Obsolete("This method has been marked as obsolete and will be removed in a future version. " +
             "The recommended replacement is ShowHelp()")]
         [EditorBrowsable(EditorBrowsableState.Never)]
+#pragma warning disable RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
         public void ShowHelp(string? commandName = null)
+#pragma warning restore RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
         {
             if (commandName == null)
             {

@@ -31,6 +31,7 @@ namespace McMaster.Extensions.CommandLineUtils
             where TApp : class
             => ExecuteAsync<TApp>(context).GetAwaiter().GetResult();
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <see cref="CommandLineContext.Arguments"/>
         /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
@@ -43,6 +44,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static async Task<int> ExecuteAsync<TApp>(CommandLineContext context, CancellationToken cancellationToken = default)
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
             where TApp : class
         {
             if (context == null)
@@ -134,6 +136,7 @@ namespace McMaster.Extensions.CommandLineUtils
         where TApp : class
             => ExecuteAsync<TApp>(PhysicalConsole.Singleton, args);
 
+#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
         /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
@@ -146,6 +149,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
         public static Task<int> ExecuteAsync<TApp>(string[] args, CancellationToken cancellationToken = default)
+#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         where TApp : class
         {
             args ??= Util.EmptyArray<string>();
