@@ -379,6 +379,7 @@ McMaster.Extensions.CommandLineUtils.Pager.Prompt.set -> void
 McMaster.Extensions.CommandLineUtils.Pager.WaitForExit() -> void
 McMaster.Extensions.CommandLineUtils.Pager.Writer.get -> System.IO.TextWriter
 McMaster.Extensions.CommandLineUtils.PhysicalConsole
+McMaster.Extensions.CommandLineUtils.PhysicalConsole.PhysicalConsole() -> void
 McMaster.Extensions.CommandLineUtils.PhysicalConsole.BackgroundColor.get -> System.ConsoleColor
 McMaster.Extensions.CommandLineUtils.PhysicalConsole.BackgroundColor.set -> void
 McMaster.Extensions.CommandLineUtils.PhysicalConsole.CancelKeyPress -> System.ConsoleCancelEventHandler
