@@ -20,7 +20,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         private readonly ICommandLineService _cliService;
         private readonly IConsole _console;
         private readonly IUnhandledExceptionHandler? _unhandledExceptionHandler;
-        private readonly ManualResetEvent _disposeComplete = new ManualResetEvent(false);
+        private readonly ManualResetEvent _blockProcessExit = new ManualResetEvent(false);
 
         /// <summary>
         ///     Creates a new instance.
@@ -81,11 +81,11 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
                 }
             });
 
-            // Ensures services are disposed before the application exits.
             AppDomain.CurrentDomain.ProcessExit += (_, __) =>
             {
                 _applicationLifetime.StopApplication();
-                _disposeComplete.WaitOne();
+                // Ensures services are disposed before the application exits.
+                _blockProcessExit.WaitOne();
             };
 
             // Capture CTRL+C and prevent it from immediately force killing the app.
@@ -100,8 +100,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
 
         public void Dispose()
         {
-            _disposeComplete.Set();
-            _disposeComplete.Dispose();
+            _blockProcessExit.Set();
         }
     }
 }
