@@ -19,11 +19,13 @@ namespace McMaster.Extensions.CommandLineUtils
         private Func<TModel> _modelFactory = DefaultModelFactory;
 
 #nullable disable
+#pragma warning disable RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
         /// </summary>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(bool throwOnUnexpectedArg = true)
+#pragma warning restore RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
             : base(throwOnUnexpectedArg)
         {
             Initialize();

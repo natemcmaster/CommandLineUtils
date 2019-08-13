@@ -4,6 +4,11 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard1.6;net45</TargetFrameworks>
+    <!--
+      The ns1.6 API is a subset of the API available in ns2.0 and net45. The public API tool doesn't handle multiple TFMs.
+      https://github.com/dotnet/roslyn-analyzers/issues/2621
+    -->
+    <DisablePublicApiAnalyzer Condition="'$(TargetFramework)' == 'netstandard1.6'">true</DisablePublicApiAnalyzer>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
     <Description>Command-line parsing API.</Description>

@@ -13,17 +13,13 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         public static IList<string> Parse(string filePath, ResponseFileHandling handling)
         {
-            switch (handling)
+            return handling switch
             {
-                case ResponseFileHandling.Disabled:
-                    return new[] { filePath };
-                case ResponseFileHandling.ParseArgsAsSpaceSeparated:
-                    return ParseAsSpaceSeparated(filePath);
-                case ResponseFileHandling.ParseArgsAsLineSeparated:
-                    return ParseAsLineSeparated(filePath);
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(handling));
-            }
+                ResponseFileHandling.Disabled => new[] { filePath },
+                ResponseFileHandling.ParseArgsAsSpaceSeparated => ParseAsSpaceSeparated(filePath),
+                ResponseFileHandling.ParseArgsAsLineSeparated => ParseAsLineSeparated(filePath),
+                _ => throw new ArgumentOutOfRangeException(nameof(handling)),
+            };
         }
 
         private static IList<string> ParseAsLineSeparated(string filePath)

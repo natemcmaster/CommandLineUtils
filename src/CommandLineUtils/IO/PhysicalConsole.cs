@@ -17,9 +17,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public static IConsole Singleton { get; } = new PhysicalConsole();
 
-        private PhysicalConsole()
-        {
-        }
+        // TODO: in 3.0 make this type truly a singleton by adding a private ctor
+        // this is techinally a breaking change, so wait till 3.0
+        // private PhysicalConsole()
+        // {
+        // }
 
         /// <summary>
         /// <see cref="Console.CancelKeyPress"/>.

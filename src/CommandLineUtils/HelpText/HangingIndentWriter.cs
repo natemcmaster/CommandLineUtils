@@ -18,10 +18,10 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// </summary>
         public const int DefaultConsoleWidth = 80;
 
-        private bool _indentFirstLine;
-        private int _indentSize;
-        private int _maxLineLength;
-        private string _paddedLine;
+        private readonly bool _indentFirstLine;
+        private readonly int _indentSize;
+        private readonly int _maxLineLength;
+        private readonly string _paddedLine;
 
         /// <summary>
         /// A description formatter for dynamically wrapping the description to print in a CLI usage.
