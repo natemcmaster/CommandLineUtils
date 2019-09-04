@@ -1,24 +1,21 @@
 <Project>
   <PropertyGroup>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.0'">
-Features:
+Features and bug fixes by some awesome contributors:
 
 * @IanG: Attributes for files and directories that must not exist
-
-Bug fixes by contributors (thanks!):
-
 * @ejball: ArgumentEscaper should escape empty string
 * @vpkopylov: Use Pager for help text option only works on top-level help
 * @vpkopylov: Add check for subcommand cycle
-* @kyle-rader:Multi-line option descriptions do not indent correctly
+* @kyle-rader: Multi-line option descriptions do not indent correctly
 
 Other things I fixed:
 * Support C# 8.0 and nullable reference types
 * Add async methods to CommandLineApplication
-* make `CommandLineApplication.ExecuteAsync` actually asynchronous
-* add async methods that accept cancellation tokens
+* Make `CommandLineApplication.ExecuteAsync` actually asynchronous
+* Add async methods that accept cancellation tokens
 * Handle CTRL+C by default
-* support calling CommandLineApplication.Execute multiple times
+* Support calling CommandLineApplication.Execute multiple times
     </PackageReleaseNotes>
 
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.4'">
