@@ -12,10 +12,8 @@
     Inputs="$(TargetPath)"
     Outputs="$(CodeSignCacheFile)">
 
-    <Error Text="Missing required property: AzureSignToolPath" Condition="'$(AzureSignToolPath)' == ''" />
-
     <PropertyGroup>
-      <SignToolArgs>"$(AzureSignToolPath)" sign</SignToolArgs>
+      <SignToolArgs>dotnet tool run azuresigntool sign</SignToolArgs>
       <SignToolArgs>$(SignToolArgs) --file-digest sha256</SignToolArgs>
       <SignToolArgs>$(SignToolArgs) --description-url $(PackageProjectUrl)</SignToolArgs>
       <SignToolArgs>$(SignToolArgs) --no-page-hashing</SignToolArgs>
@@ -38,12 +36,11 @@
           BeforeTargets="Pack"
           Inputs="$(PackageOutputAbsolutePath)$(PackageId).$(PackageVersion).nupkg"
           Outputs="$(PackageSignCacheFile)">
-    <Error Text="Missing required property: NuGetKeyVaultSignToolPath" Condition="'$(NuGetKeyVaultSignToolPath)' == ''" />
 
     <PropertyGroup>
       <NupkgTargetPath>$(PackageOutputAbsolutePath)$(PackageId).$(PackageVersion).nupkg</NupkgTargetPath>
 
-      <NupkgSignToolArgs>"$(NuGetKeyVaultSignToolPath)" sign</NupkgSignToolArgs>
+      <NupkgSignToolArgs>dotnet tool run NuGetKeyVaultSignTool sign</NupkgSignToolArgs>
       <NupkgSignToolArgs>$(NupkgSignToolArgs) --file-digest sha256</NupkgSignToolArgs>
       <NupkgSignToolArgs>$(NupkgSignToolArgs) --timestamp-rfc3161 http://timestamp.digicert.com</NupkgSignToolArgs>
       <NupkgSignToolArgs>$(NupkgSignToolArgs) --timestamp-digest sha256</NupkgSignToolArgs>

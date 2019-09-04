@@ -9,11 +9,7 @@ pr:
 - '*'
 
 variables:
-- name: kv-access-token
-  value: ''
 - group: AzureKeyVault
-- name: DOTNET_SKIP_FIRST_TIME_EXPERIENCE
-  value: 1
 - name: BUILD_NUMBER
   value: $[counter('buildnumber', 1)]
 
@@ -38,10 +34,8 @@ stages:
         packageType: runtime
     - powershell: ./build.ps1 -ci
       displayName: Invoke build.ps1
-      condition: eq(variables['kv-access-token'], '')
-    - powershell: ./build.ps1 -ci /p:AzureKeyVaultClientSecret=$(kv-access-token)
-      displayName: Invoke build.ps1
-      condition: ne(variables['kv-access-token'], '')
+      env:
+        KEYVAULT_CLIENT_SECRET: kv-access-token
     - powershell: .\docs\generate.ps1 -Verbose -NoBuild
       displayName: Compile documentation
     - task: PublishTestResults@2
