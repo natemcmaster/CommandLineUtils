@@ -1024,7 +1024,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.IConsole.html",
-          "hash": "Hq99o6qB70L1WwFye5MWUQ=="
+          "hash": "8Vmz6DO+K5zIl3cKrgRMxw=="
         }
       },
       "is_incremental": false,
@@ -1076,7 +1076,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.NullConsole.html",
-          "hash": "ES5xKs1QArFtr4IOj321cw=="
+          "hash": "CmLbTTtlOayv8WO5GgOhHA=="
         }
       },
       "is_incremental": false,
@@ -1147,7 +1147,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.html",
-          "hash": "j69lDj2HriySXxdCx7cIng=="
+          "hash": "fLZN4GMzAt5/tRo3/R8NTA=="
         }
       },
       "is_incremental": false,
@@ -4185,17 +4185,17 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 104,
-          "skipped_file_count": 0
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 104,
           "skipped_file_count": 0
         }
       }
