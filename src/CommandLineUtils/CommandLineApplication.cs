@@ -707,6 +707,27 @@ namespace McMaster.Extensions.CommandLineUtils
             _handler = invoke;
         }
 
+        private void Reset()
+        {
+            foreach (var arg in Arguments)
+            {
+                arg.Reset();
+            }
+
+            foreach (var option in Options)
+            {
+                option.Reset();
+            }
+
+            foreach (var cmd in Commands)
+            {
+                cmd.Reset();
+            }
+
+            IsShowingInformation = default;
+            RemainingArguments.Clear();
+        }
+
         /// <summary>
         /// Adds an action to be invoked when all command line arguments have been parsed and validated.
         /// </summary>
@@ -729,6 +750,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns>The result of parsing.</returns>
         public ParseResult Parse(params string[] args)
         {
+            Reset();
+
             args ??= Util.EmptyArray<string>();
 
             var processor = new CommandLineProcessor(this, args);

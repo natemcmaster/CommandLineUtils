@@ -59,5 +59,10 @@ namespace McMaster.Extensions.CommandLineUtils
         /// When validation fails, <see cref="CommandLineApplication.ValidationErrorHandler"/> is invoked.
         /// </summary>
         public ICollection<IArgumentValidator> Validators { get; } = new List<IArgumentValidator>();
+
+        internal void Reset()
+        {
+            Values.Clear();
+        }
     }
 }

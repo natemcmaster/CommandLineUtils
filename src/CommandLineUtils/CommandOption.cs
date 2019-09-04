@@ -244,5 +244,10 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
         }
+
+        internal void Reset()
+        {
+            Values.Clear();
+        }
     }
 }
