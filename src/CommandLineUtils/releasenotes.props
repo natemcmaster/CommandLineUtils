@@ -1,14 +1,37 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.0'">
+Features:
+
+* @IanG: Attributes for files and directories that must not exist
+
+Bug fixes by contributors (thanks!):
+
+* @ejball: ArgumentEscaper should escape empty string
+* @vpkopylov: Use Pager for help text option only works on top-level help
+* @vpkopylov: Add check for subcommand cycle
+* @kyle-rader:Multi-line option descriptions do not indent correctly
+
+Other things I fixed:
+* Support C# 8.0 and nullable reference types
+* Add async methods to CommandLineApplication
+* make `CommandLineApplication.ExecuteAsync` actually asynchronous
+* add async methods that accept cancellation tokens
+* Handle CTRL+C by default
+* support calling CommandLineApplication.Execute multiple times
+    </PackageReleaseNotes>
+
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.4'">
 Bugs fixed:
 * Handle options with multiple characters in the short option name when only specified in a subcommand
 * Rearrange the order that commands are listed in the USAGE block and list all the commands on the line
     </PackageReleaseNotes>
+
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.3'">
 Enhancement:
 * @mpipo: add an API to disable the pager for help text (CommandLineApplication.UsePagerForHelpText)
     </PackageReleaseNotes>
+
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.2'">
 Enhancement:
 * @rlvandaveer: honor attributes on classes which implement ValidationAttribute
@@ -16,10 +39,12 @@ Enhancement:
 Bugs fixed:
 * @jcaillon: Option for the case sensitivity of command names.
     </PackageReleaseNotes>
+
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.1'">
 Bugs fixed:
 * Fix for InvalidOperationException thrown during help text generation on Mono
     </PackageReleaseNotes>
+
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.0'">
       <![CDATA[
 
@@ -43,9 +68,11 @@ Bugs fixed:
 * Fix bug in subcommand name inference. When not specified, the subcommand always matched the entry assembly name. In this update, this convention only applies to the parent command.
 * Add generic overloads of `.IsRequired()` for `CommandOption<T>` and `CommandArgument<T>`.
 * @handcraftedsource: handled nested HelpOptions (fixes #86 - InvalidOperationException when multiple help options were defined)
+]]>
+    </PackageReleaseNotes>
+    <PackageReleaseNotes>$(PackageReleaseNotes)
 
 See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
-]]>
     </PackageReleaseNotes>
   </PropertyGroup>
 </Project>

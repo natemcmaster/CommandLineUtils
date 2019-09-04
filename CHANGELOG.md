@@ -14,6 +14,7 @@
 * Fix [#153] - add async methods that accept cancellation tokens
 * Fix [#111] - Handle CTRL+C by default
 * Fix [#246] by [@kyle-rader] - Multi-line option descriptions do not indent correctly
+* Fix [#253] - support calling CommandLineApplication.Execute multiple times
 
 [#246]: https://github.com/natemcmaster/CommandLineUtils/issues/246
 [#111]: https://github.com/natemcmaster/CommandLineUtils/issues/111
@@ -21,6 +22,7 @@
 [#208]: https://github.com/natemcmaster/CommandLineUtils/issues/208
 [#221]: https://github.com/natemcmaster/CommandLineUtils/issues/221
 [#227]: https://github.com/natemcmaster/CommandLineUtils/issues/227
+[#253]: https://github.com/natemcmaster/CommandLineUtils/issues/253
 [#230]: https://github.com/natemcmaster/CommandLineUtils/pull/230
 [#239]: https://github.com/natemcmaster/CommandLineUtils/pull/239
 [#245]: https://github.com/natemcmaster/CommandLineUtils/pull/245
