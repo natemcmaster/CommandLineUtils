@@ -26,7 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// <see cref="Console.CancelKeyPress"/>.
         /// </summary>
-        public event ConsoleCancelEventHandler CancelKeyPress
+        public event ConsoleCancelEventHandler? CancelKeyPress
         {
             add => Console.CancelKeyPress += value;
             remove => Console.CancelKeyPress -= value;

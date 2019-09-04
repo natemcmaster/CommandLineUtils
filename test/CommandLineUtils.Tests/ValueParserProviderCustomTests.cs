@@ -38,7 +38,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                     return default(ValueTuple<int, double, string>?);
                 }
 
-                var fragments = value.Split('=');
+                var fragments = value!.Split('=');
 
                 try
                 {

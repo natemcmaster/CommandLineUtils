@@ -203,7 +203,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public static int StaticNumber { get; private set; }
 
             [Option("--static-string")]
-            public static string StaticString { get; }
+            public static string? StaticString { get; }
 
             [Option("--static-value")]
             public static int StaticValue

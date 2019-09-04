@@ -30,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public ConsoleColor ForegroundColor { get; set; }
         public ConsoleColor BackgroundColor { get; set; }
 
-        public event ConsoleCancelEventHandler CancelKeyPress;
+        public event ConsoleCancelEventHandler? CancelKeyPress;
 
         public void ResetColor()
         {

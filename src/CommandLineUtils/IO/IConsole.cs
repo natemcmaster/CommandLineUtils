@@ -15,7 +15,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Raised when Ctrl+C is pressed.
         /// </summary>
-        event ConsoleCancelEventHandler CancelKeyPress;
+        event ConsoleCancelEventHandler? CancelKeyPress;
 
         /// <summary>
         /// stdout

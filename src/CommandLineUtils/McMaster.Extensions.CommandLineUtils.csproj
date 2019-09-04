@@ -25,6 +25,7 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
  A community-maintained fork of Microsoft.Extensions.CommandLineUtils, plus many enhancements.
     </PackageDescription>
     <PackageTags>commandline;parsing</PackageTags>
+    <WarningsNotAsErrors>8602;8603;8604;$(WarningsNotAsErrors)</WarningsNotAsErrors>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
