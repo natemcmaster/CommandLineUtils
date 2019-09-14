@@ -271,6 +271,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// This property has been marked as obsolete and will be removed in a future version.
         /// The recommended replacement for setting this property is <see cref="OnExecute(Func{int})" />
         /// and for invoking this property is <see cref="Execute(string[])" />.
+        /// See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.
         /// </para>
         /// <para>
         /// The action to call when this command is matched and <see cref="IsShowingInformation"/> is <c>false</c>.
@@ -278,7 +279,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         [Obsolete("This property has been marked as obsolete and will be removed in a future version. " +
             "The recommended replacement for setting this property is OnExecute(Func<int>) " +
-            "and for invoking this property is Execute(string[] args).")]
+            "and for invoking this property is Execute(string[] args). " +
+            "See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Func<int> Invoke
         {
@@ -687,6 +689,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <para>
         /// This method is obsolete and will be removed in a future version.
         /// The recommended alternative is <see cref="OnExecuteAsync" />.
+        /// See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.
         /// </para>
         /// <para>
         /// Defines an asynchronous callback.
@@ -694,7 +697,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="invoke"></param>
         [Obsolete("This method is obsolete and will be removed in a future version. " +
-                  "The recommended replacement is .OnExecuteAsync()")]
+                  "The recommended replacement is .OnExecuteAsync(). " +
+                  "See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void OnExecute(Func<Task<int>> invoke) => OnExecuteAsync(_ => invoke());
 

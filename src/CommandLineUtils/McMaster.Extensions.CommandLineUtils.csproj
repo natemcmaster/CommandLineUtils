@@ -1,7 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="releasenotes.props" />
-
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard1.6;net45</TargetFrameworks>
     <!--

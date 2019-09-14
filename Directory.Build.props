@@ -51,4 +51,7 @@
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0-preview.2" PrivateAssets="all" />
   </ItemGroup>
 
+  <Import Project="$(MSBuildProjectDirectory)/releasenotes.props"
+          Condition="Exists('$(MSBuildProjectDirectory)/releasenotes.props')" />
+
 </Project>

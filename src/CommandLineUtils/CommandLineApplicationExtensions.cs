@@ -100,6 +100,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <para>
         /// This method is obsolete and will be removed in a future version.
         /// The recommended alternative is <see cref="OnExecuteAsync" />.
+        /// See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.
         /// </para>
         /// <para>
         /// Sets an async handler with a return code of <c>0</c>.
@@ -108,7 +109,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="app"></param>
         /// <param name="action">An asynchronous action to invoke when the ocmmand is selected..</param>
         [Obsolete("This method is obsolete and will be removed in a future version. " +
-                  "The recommended replacement is .OnExecuteAsync()")]
+                  "The recommended replacement is .OnExecuteAsync(). " +
+                  "See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static void OnExecute(this CommandLineApplication app, Func<Task> action)
         {
