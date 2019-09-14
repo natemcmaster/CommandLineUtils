@@ -2,7 +2,7 @@
 
 [See unreleased changes][unreleased].
 
-## Unreleased
+## [v2.4.0]
 
 * Fix [#227] by [@ejball] - ArgumentEscaper should escape empty string
 * PR [#230] by [@IanG] - Attributes for files and directories that must not exist
@@ -377,7 +377,8 @@ Other:
 [@TheConstructor]: https://github.com/TheConstructor
 [@vpkopylov]: https://github.com/vpkopylov
 
-[unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.4...HEAD
+[unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.0...HEAD
+[v2.4.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.4...v2.4.0
 [v2.3.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.3...v2.3.4
 [v2.3.3]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.2...v2.3.3
 [v2.3.2]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.1...v2.3.2

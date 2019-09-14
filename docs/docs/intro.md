@@ -25,7 +25,7 @@ uid: doc-intro
 
     ```xml
     <ItemGroup>
-    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.5" />
+        <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.4.0" />
     </ItemGroup>
     ```
 

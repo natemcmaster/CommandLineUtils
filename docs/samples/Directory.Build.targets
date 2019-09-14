@@ -1,12 +1,6 @@
 <Project>
 
-  <PropertyGroup>
-    <!-- TODO: revert when 2.3 is done -->
-    <!--<UsePackage Condition="'$(UsePackage)' == '' AND '$(CI)' != 'true'">false</UsePackage>-->
-    <UsePackage Condition="'$(UsePackage)' == ''">false</UsePackage>
-  </PropertyGroup>
-
-  <ItemGroup Condition="'$(UsePackage)' == 'false'">
+  <ItemGroup Condition="'$(UsePackage)' != 'true'">
     <PackageReference Remove="McMaster.Extensions.CommandLineUtils" />
     <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\src\CommandLineUtils\*.csproj" />
   </ItemGroup>

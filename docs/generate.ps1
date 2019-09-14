@@ -24,7 +24,7 @@ try {
         exec git worktree add $targetDir gh-pages 2>&1 | out-null
     }
 
-    $docfxVersion = '2.43.1'
+    $docfxVersion = '2.45.0'
     $docfxRoot = "$buildRoot/packages/docfx.console/$docfxVersion"
     $docfx = "$docfxRoot/tools/docfx.exe"
     if (-not (Test-Path $docfx)) {

@@ -23,7 +23,8 @@
   "build": {
     "content": [
       { "version": "unstable", "files": ["**/*.yml", "**/*.md"], "src": "obj/unstable", "dest": "unstable" },
-      { "version": "v2.3", "files": ["**/*.yml", "**/*.md"], "exclude": [ "v2.2/", "obj/", "**.meta", "README.md", "filterConfig.yml" ] },
+      { "version": "v2.4", "files": ["**/*.yml", "**/*.md"], "exclude": [ "v2.2/", "v2.3/", "obj/", "**.meta", "README.md", "filterConfig.yml" ] },
+      { "version": "v2.3", "files": ["**/*.yml", "**/*.md"], "src": "v2.3", "dest": "v2.3" },
       { "version": "v2.2", "files": ["**/*.yml", "**/*.md"], "src": "v2.2", "dest": "v2.2" }
     ],
     "resource": [
