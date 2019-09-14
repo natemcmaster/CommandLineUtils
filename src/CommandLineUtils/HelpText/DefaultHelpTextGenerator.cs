@@ -172,7 +172,12 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var arg in visibleArguments)
                 {
-                    var wrappedDescription = IndentWriter?.Write(arg.Description);
+                    var enumNames = ExtractamesFromEnum(arg.GetType());
+                    var description = enumNames.Any()
+                        ? $"{arg.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
+                        : arg.Description;
+
+                    var wrappedDescription = IndentWriter?.Write(description);
                     var message = string.Format(outputFormat, arg.Name, wrappedDescription);
 
                     output.Write(message);
@@ -202,7 +207,12 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var opt in visibleOptions)
                 {
-                    var wrappedDescription = IndentWriter?.Write(opt.Description);
+                    var enumNames = ExtractamesFromEnum(opt.GetType());
+                    var description = enumNames.Any()
+                        ? $"{opt.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
+                        : opt.Description;
+
+                    var wrappedDescription = IndentWriter?.Write(description);
                     var message = string.Format(outputFormat, Format(opt), wrappedDescription);
 
                     output.Write(message);
@@ -210,6 +220,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 }
             }
         }
+
 
         /// <summary>
         /// Generate the lines that show information about subcommands
@@ -233,9 +244,15 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 var orderedCommands = SortCommandsByName
                     ? visibleCommands.OrderBy(c => c.Name).ToList()
                     : visibleCommands;
+
                 foreach (var cmd in orderedCommands)
                 {
-                    var wrappedDescription = IndentWriter?.Write(cmd.Description);
+                    var enumNames = ExtractamesFromEnum(cmd.GetType());
+                    var description = enumNames.Any()
+                        ? $"{cmd.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
+                        : cmd.Description;
+
+                    var wrappedDescription = IndentWriter?.Write(description);
                     var message = string.Format(outputFormat, cmd.Name, wrappedDescription);
 
                     output.Write(message);
@@ -326,6 +343,22 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 // An IOException will be thrown trying to get the Console.BufferWidth.
                 return null;
             }
+        }
+
+        string[] ExtractamesFromEnum(Type type)
+        {
+#if NETSTANDARD1_6 // no support for GetGenericArguments()
+            return new string[0];
+#else
+            if (!type.IsGenericType)
+                return new string[0];
+
+            var genericArguments = type.GetGenericArguments();
+            if (genericArguments.Length > 1 || !genericArguments[0].IsEnum)
+                return new string[0];
+
+            return Enum.GetNames(genericArguments[0]);
+#endif
         }
 
     }

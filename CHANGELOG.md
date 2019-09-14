@@ -1,6 +1,7 @@
 # Changelog
 
 [See unreleased changes][unreleased].
+* Fix [#92] by [@kbilsted] - Show enum names in help text for Options and Arguments stored as enum
 
 ## [v2.4.1]
 
