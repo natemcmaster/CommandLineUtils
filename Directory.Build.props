@@ -1,15 +1,10 @@
 <Project>
 
-  <Import Project="version.props" />
-
   <PropertyGroup>
-    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
-
     <Authors>Nate McMaster</Authors>
     <Product>CommandLineUtils</Product>
     <Copyright>Copyright © Nate McMaster</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/natemcmaster/CommandLineUtils</PackageProjectUrl>
     <RepositoryUrl>https://github.com/natemcmaster/CommandLineUtils.git</RepositoryUrl>
@@ -24,9 +19,7 @@
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
     <LangVersion>8.0</LangVersion>
-    <Nullable>enable</Nullable>
-    <!-- Some previews of .NET Core 3 don't have the rename yet -->
-    <NullableContextOptions>enable</NullableContextOptions>
+    <Nullable>annotations</Nullable>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)src\StrongName.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <AzureKeyVaultUrl>https://nmcmaster.vault.azure.net</AzureKeyVaultUrl>
@@ -38,6 +31,19 @@
     <GenerateFullPaths Condition="'$(TERM_PROGRAM)' == 'vscode'">true</GenerateFullPaths>
     <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory).build\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
     <BaseOutputPath>$(MSBuildThisFileDirectory).build\bin\$(MSBuildProjectName)\</BaseOutputPath>
+  </PropertyGroup>
+
+   <PropertyGroup>
+    <VersionPrefix>2.4.0</VersionPrefix>
+    <VersionSuffix>rc</VersionSuffix>
+    <IncludePreReleaseLabelInPackageVersion Condition="'$(IsStableBuild)' != 'true'">true</IncludePreReleaseLabelInPackageVersion>
+    <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(BUILD_NUMBER)</BuildNumber>
+    <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
+    <VersionSuffix Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix).$(BuildNumber)</VersionSuffix>
+    <RepositoryCommit Condition="'$(RepositoryCommit)' == ''">$(BUILD_SOURCEVERSION)</RepositoryCommit>
+    <PackageVersion>$(VersionPrefix)</PackageVersion>
+    <PackageVersion Condition="'$(IncludePreReleaseLabelInPackageVersion)' == 'true'">$(PackageVersion)-$(VersionSuffix)</PackageVersion>
+    <InformationalVersion Condition="'$(RepositoryCommit)' != ''">$(PackageVersion)+$(RepositoryCommit)</InformationalVersion>
   </PropertyGroup>
 
   <ItemGroup>

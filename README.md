@@ -3,12 +3,11 @@ CommandLineUtils
 
 [![Build Status](https://dev.azure.com/natemcmaster/github/_apis/build/status/CommandLineUtils?branchName=master)](https://dev.azure.com/natemcmaster/github/_build/latest?definitionId=3&branchName=master)
 
-[![NuGet][main-nuget-badge]][main-nuget] [![MyGet][main-myget-badge]][main-myget]
+[![NuGet][nuget-badge] ![NuGet Downloads][nuget-download-badge]][nuget]
 
-[main-nuget]: https://www.nuget.org/packages/McMaster.Extensions.CommandLineUtils/
-[main-nuget-badge]: https://img.shields.io/nuget/v/McMaster.Extensions.CommandLineUtils.svg?style=flat-square&label=nuget
-[main-myget]: https://www.myget.org/feed/natemcmaster/package/nuget/McMaster.Extensions.CommandLineUtils
-[main-myget-badge]: https://img.shields.io/www.myget/natemcmaster/vpre/McMaster.Extensions.CommandLineUtils.svg?style=flat-square&label=myget
+[nuget]: https://www.nuget.org/packages/McMaster.Extensions.CommandLineUtils/
+[nuget-badge]: https://img.shields.io/nuget/v/McMaster.Extensions.CommandLineUtils.svg?style=flat-square
+[nuget-download-badge]: https://img.shields.io/nuget/dt/McMaster.Extensions.CommandLineUtils?style=flat-square
 
 
 This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This fork, on the other hand, will continue to make improvements, release updates and take contributions.
@@ -17,7 +16,7 @@ The roadmap for this project can be found [here](https://github.com/natemcmaster
 
 ## Install
 
-Install the [NuGet package][main-nuget] into your project.
+Install the [NuGet package][nuget] into your project.
 
 ```
 PM> Install-Package McMaster.Extensions.CommandLineUtils
@@ -25,8 +24,6 @@ PM> Install-Package McMaster.Extensions.CommandLineUtils
 ```
 $ dotnet add package McMaster.Extensions.CommandLineUtils
 ```
-
-Pre-release builds and symbols: https://www.myget.org/gallery/natemcmaster/
 
 ## Usage
 

@@ -1,6 +1,5 @@
 <Project>
   <PropertyGroup>
-    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <CodeSignCacheFile>$(IntermediateOutputPath)$(TargetFileName).codesign.cache</CodeSignCacheFile>
     <PackageSignCacheFile>$(IntermediateOutputPath)$(PackageId)$(PackageVersion).packagesign.cache</PackageSignCacheFile>
   </PropertyGroup>
