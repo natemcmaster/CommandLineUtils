@@ -4,6 +4,7 @@
   "xrefmap": [
     "xrefmap.yml",
     "unstable.xrefmap.yml",
+    "v2.4.xrefmap.yml",
     "v2.3.xrefmap.yml",
     "v2.2.xrefmap.yml"
   ],
@@ -34,12 +35,12 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "GiVayMn40DQoJc2C0uY0tg=="
+          "hash": "2JUOnIvRk5EdNhStuGFu7Q=="
         }
       },
       "is_incremental": false,
-      "version": "v2.3",
-      "group": "v2.3"
+      "version": "v2.4",
+      "group": "v2.4"
     },
     {
       "type": "Conceptual",
@@ -47,12 +48,12 @@
       "output": {
         ".html": {
           "relative_path": "docs/advanced/dependency-injection.html",
-          "hash": "YIwYrNzFhkYVyj1YQSG/cA=="
+          "hash": "aoRLQ/A6oUvOCbmKfcLDqw=="
         }
       },
       "is_incremental": false,
-      "version": "v2.3",
-      "group": "v2.3"
+      "version": "v2.4",
+      "group": "v2.4"
     },
     {
       "type": "Conceptual",
@@ -60,12 +61,12 @@
       "output": {
         ".html": {
           "relative_path": "docs/advanced/generic-host.html",
-          "hash": "PiKQY0/6mLWoR+/Ab3YkAQ=="
+          "hash": "iVGZAQTZseEquOi81S5Q4A=="
         }
       },
       "is_incremental": false,
-      "version": "v2.3",
-      "group": "v2.3"
+      "version": "v2.4",
+      "group": "v2.4"
     },
     {
       "type": "Conceptual",
@@ -73,12 +74,12 @@
       "output": {
         ".html": {
           "relative_path": "docs/arguments.html",
-          "hash": "N1DGs9SswyAVQYkEhOA+Gg=="
+          "hash": "poOo2T4CnM307fBdr1ZxcA=="
         }
       },
       "is_incremental": false,
-      "version": "v2.3",
-      "group": "v2.3"
+      "version": "v2.4",
+      "group": "v2.4"
     },
     {
       "type": "Conceptual",
@@ -86,12 +87,12 @@
       "output": {
         ".html": {
           "relative_path": "docs/help-text.html",
-          "hash": "dCJe4LcY9kfNDVjHXPgmcA=="
+          "hash": "ckAbxnV+Z1dcveib91iyuA=="
         }
       },
       "is_incremental": false,
-      "version": "v2.3",
-      "group": "v2.3"
+      "version": "v2.4",
+      "group": "v2.4"
     },
     {
       "type": "Conceptual",
@@ -99,12 +100,12 @@
       "output": {
         ".html": {
           "relative_path": "docs/intro.html",
-          "hash": "Z+sF8NzHtrJFb5YIev5iMg=="
+          "hash": "QPNEyTE7b+v+6x8XlxrQJQ=="
         }
       },
       "is_incremental": false,
-      "version": "v2.3",
-      "group": "v2.3"
+      "version": "v2.4",
+      "group": "v2.4"
     },
     {
       "type": "Conceptual",
@@ -112,12 +113,12 @@
       "output": {
         ".html": {
           "relative_path": "docs/options.html",
-          "hash": "3U7bNYck822Qjorf/Tyocw=="
+          "hash": "3YZRZM7WNBsbumm2yE1Zog=="
         }
       },
       "is_incremental": false,
-      "version": "v2.3",
-      "group": "v2.3"
+      "version": "v2.4",
+      "group": "v2.4"
     },
     {
       "type": "Conceptual",
@@ -125,12 +126,12 @@
       "output": {
         ".html": {
           "relative_path": "docs/response-file-parsing.html",
-          "hash": "ZGiyBc1lbFwKQ4mw4mlDNw=="
+          "hash": "VZibM7bpZYSQUcsDlcuPMg=="
         }
       },
       "is_incremental": false,
-      "version": "v2.3",
-      "group": "v2.3"
+      "version": "v2.4",
+      "group": "v2.4"
     },
     {
       "type": "Toc",
@@ -142,8 +143,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.3",
-      "group": "v2.3"
+      "version": "v2.4",
+      "group": "v2.4"
     },
     {
       "type": "Conceptual",
@@ -151,12 +152,12 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "wIvR/OACtAjxY7/n6TyJxQ=="
+          "hash": "52kqw9fh2gdrR29AaVnP8Q=="
         }
       },
       "is_incremental": false,
-      "version": "v2.3",
-      "group": "v2.3"
+      "version": "v2.4",
+      "group": "v2.4"
     },
     {
       "type": "Resource",
@@ -170,15 +171,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.html",
-          "hash": "2jn2OtkfcSSx2YzFncWyeA=="
+          "hash": "38dAHvB1aSovK12u1lw7HA=="
         }
       },
       "is_incremental": false,
@@ -191,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.html",
-          "hash": "sGEF6tIPeiDCeo0QByUAuQ=="
+          "hash": "GQYK7UbqqBJS+DAWFHWfLg=="
         }
       },
       "is_incremental": false,
@@ -204,7 +202,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html",
-          "hash": "RIBa5UHbIBtVhBT1ltRBgw=="
+          "hash": "17OfBdh5iYF+ffvGejBDKA=="
         }
       },
       "is_incremental": false,
@@ -217,7 +215,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.html",
-          "hash": "jz8gnxYCZvZYTeeImPQ13Q=="
+          "hash": "IOxBpje3rTeY2N6n4Dj09A=="
         }
       },
       "is_incremental": false,
@@ -230,7 +228,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html",
-          "hash": "/0KcsYGOudaZUv3c46WxSg=="
+          "hash": "WsKWQ9+lOxsFQ6bseGCggQ=="
         }
       },
       "is_incremental": false,
@@ -238,15 +236,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html",
-          "hash": "I23VuCnOaxT0ezeuoKQQeQ=="
+          "hash": "0N2JZZv//nbrLMbOSmPSMA=="
         }
       },
       "is_incremental": false,
@@ -254,15 +249,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.html",
-          "hash": "EKoyRc/HmQoOn/1BzPi46w=="
+          "hash": "2DoyHCz/8UpZz5Ubokg87w=="
         }
       },
       "is_incremental": false,
@@ -275,7 +267,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Abstractions.html",
-          "hash": "J0CyWSOy8oQkQE57HPlUBg=="
+          "hash": "fmYxD/skN0DT7bzUBbo1OQ=="
         }
       },
       "is_incremental": false,
@@ -288,7 +280,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.AllowedValuesAttribute.html",
-          "hash": "aC7Mg7pAdpp8tXrJCQdU4A=="
+          "hash": "IYy74VJpW5Ih8wwLPAHUdQ=="
         }
       },
       "is_incremental": false,
@@ -301,7 +293,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html",
-          "hash": "MpWezxYtZepsTqZZ5mnyTg=="
+          "hash": "Ec4nm6puihZDhpmqOIG9IA=="
         }
       },
       "is_incremental": false,
@@ -314,7 +306,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.ArgumentEscaper.html",
-          "hash": "wxws1LmGsppIEwfq5yXUow=="
+          "hash": "SqALkuV0NJM4rkbZfD9xqA=="
         }
       },
       "is_incremental": false,
@@ -327,7 +319,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandArgument-1.html",
-          "hash": "uCXCla+dC40He5sx/PkL3Q=="
+          "hash": "EaZAjbVwXL0RFY0LdJknRw=="
         }
       },
       "is_incremental": false,
@@ -340,7 +332,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html",
-          "hash": "Y4ckcSYZ6D0r9gDsPJx5Bg=="
+          "hash": "nYJfbIqJgFgPzjn1AOPezA=="
         }
       },
       "is_incremental": false,
@@ -353,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html",
-          "hash": "2B+feDzIQlJmiVD3f9lPsA=="
+          "hash": "vhOacrZ/F0NaLoiVH3lItw=="
         }
       },
       "is_incremental": false,
@@ -366,7 +358,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html",
-          "hash": "ijagdpEE0c1oU86S32QTKQ=="
+          "hash": "sCdmB8ntXdComd85oh3Ocw=="
         }
       },
       "is_incremental": false,
@@ -374,15 +366,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html",
-          "hash": "3G9XzrHF0mDec2qBxNQgAg=="
+          "hash": "w+To8uhZqXA+XRYTD+o4mw=="
         }
       },
       "is_incremental": false,
@@ -390,15 +379,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html",
-          "hash": "K3KBSM7MSafcd7roHfj/Og=="
+          "hash": "azOz54+oTx78b2DUsS0KOw=="
         }
       },
       "is_incremental": false,
@@ -411,7 +397,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandOption-1.html",
-          "hash": "p8X0bxtcwSV9PtwWRI8aow=="
+          "hash": "uGEWdgqz+w5ugP5UKWJxcw=="
         }
       },
       "is_incremental": false,
@@ -424,7 +410,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandOption.html",
-          "hash": "4ubIhM8IucZD5YfqxArcFA=="
+          "hash": "fGClKpZIackwN2X6ZqmNqw=="
         }
       },
       "is_incremental": false,
@@ -437,7 +423,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandOptionType.html",
-          "hash": "oWkUlm+Qlz4rP5iSmZH4kw=="
+          "hash": "Vdq43lfNi5CuG3ik3lVaMA=="
         }
       },
       "is_incremental": false,
@@ -450,7 +436,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandParsingException.html",
-          "hash": "NF6bd5zt8bTdpAS68fNpDw=="
+          "hash": "jOVPTlR3WjwkDVJd4cIYsw=="
         }
       },
       "is_incremental": false,
@@ -463,7 +449,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html",
-          "hash": "TsnnvCIgTqyouVD43U5aqA=="
+          "hash": "JtGPBl4ec8C6XzYPWZ8g3g=="
         }
       },
       "is_incremental": false,
@@ -471,15 +457,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.html",
-          "hash": "xnFnEYNVmNM9ExhSdPiN/A=="
+          "hash": "P5ieB4Mq9xHud3rSUqwaQw=="
         }
       },
       "is_incremental": false,
@@ -487,15 +470,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html",
-          "hash": "iWX8DyHgBVoMuetjrUWu8Q=="
+          "hash": "nrFXDvgDijQO5Ayt1HbBSg=="
         }
       },
       "is_incremental": false,
@@ -508,7 +488,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention.html",
-          "hash": "P3nz/D6Gyxp9pOAovduVYA=="
+          "hash": "nAZA6rR0dnpyjdkDFvizuQ=="
         }
       },
       "is_incremental": false,
@@ -521,7 +501,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention.html",
-          "hash": "2/Yfb722Y/xaolwfdUNrOw=="
+          "hash": "+iLtxYSUaSwydu3Y839dSA=="
         }
       },
       "is_incremental": false,
@@ -534,7 +514,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.html",
-          "hash": "GP26GAOFwc9wEeT0S0vJQw=="
+          "hash": "UM8+noTU1hEGRg3a0fikHg=="
         }
       },
       "is_incremental": false,
@@ -547,7 +527,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.html",
-          "hash": "V4ZxVOjuHPTRYtnuVKvHpw=="
+          "hash": "2YlB8Q3olRn1WvpBE+BrmA=="
         }
       },
       "is_incremental": false,
@@ -560,7 +540,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.html",
-          "hash": "BCmh/2qwLIVyT+bW25fGdg=="
+          "hash": "1WYKIDQEX1zE4vvixMoFbA=="
         }
       },
       "is_incremental": false,
@@ -573,7 +553,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.html",
-          "hash": "czEX4CcZ5rq0oB38AxMKPw=="
+          "hash": "ZSlJTu4MGJE0a28Xrf6P+A=="
         }
       },
       "is_incremental": false,
@@ -586,7 +566,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html",
-          "hash": "u/zPXSTTWEmoduTmZOkCgw=="
+          "hash": "kBhWKsx7URh4bqX+Mc8Zvw=="
         }
       },
       "is_incremental": false,
@@ -599,7 +579,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html",
-          "hash": "XW3Zc8c414wZ+KCHrBbIGg=="
+          "hash": "lXQInfU6BuqtYgUVdTtLdg=="
         }
       },
       "is_incremental": false,
@@ -607,15 +587,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.html",
-          "hash": "nb1MXep7Z5ZXgcvYhQCoAQ=="
+          "hash": "Dd2voAPtcnxMFbBm5UXJTA=="
         }
       },
       "is_incremental": false,
@@ -628,7 +605,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.html",
-          "hash": "wbPBeaDSQbTLSRqAL+Ws/Q=="
+          "hash": "zGaH6mBJyiLpIvYnJfg4dg=="
         }
       },
       "is_incremental": false,
@@ -641,7 +618,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html",
-          "hash": "zuupFuhu8lL8POzNePk66A=="
+          "hash": "N+rPX6U0ErgheoYVsuoC0Q=="
         }
       },
       "is_incremental": false,
@@ -654,7 +631,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.html",
-          "hash": "EGdMdfiShZSa1uTegI0UWQ=="
+          "hash": "cEvxqueubZ9gWdvkZ3RTnA=="
         }
       },
       "is_incremental": false,
@@ -667,7 +644,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html",
-          "hash": "IwD2bN+ynmbyq1n5oulZ+A=="
+          "hash": "0bzOQAx4dHx8R4gd/C2gQA=="
         }
       },
       "is_incremental": false,
@@ -680,7 +657,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention.html",
-          "hash": "CXXUET7HTzcRU7kMe6sbgg=="
+          "hash": "wQYpolixvkALWJLrfUf9fw=="
         }
       },
       "is_incremental": false,
@@ -693,7 +670,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase-1.html",
-          "hash": "9ybATjcUL574b+zxI9Q6Yg=="
+          "hash": "Ohdh38GbdIdC8JRIOjnTaQ=="
         }
       },
       "is_incremental": false,
@@ -706,7 +683,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention.html",
-          "hash": "IzOKsp2aEcxHqN97RC3BZw=="
+          "hash": "XUpTpuNPync4KL3qhxdbQQ=="
         }
       },
       "is_incremental": false,
@@ -719,7 +696,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html",
-          "hash": "Y40zRtAQlNLxp4oK4c8uSg=="
+          "hash": "I/re0u9HogkvdjyQGFpgJA=="
         }
       },
       "is_incremental": false,
@@ -732,7 +709,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.html",
-          "hash": "LcsF9XCd2q4R2GduN90evA=="
+          "hash": "MO4aLux3BAy4pzAzclw9MQ=="
         }
       },
       "is_incremental": false,
@@ -745,7 +722,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention.html",
-          "hash": "IqH55stsfjNK/JckBnfwSA=="
+          "hash": "yNZYU6jALjHtjlj3/r/oKA=="
         }
       },
       "is_incremental": false,
@@ -758,7 +735,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention.html",
-          "hash": "LMCobigTIyqBOPD2J0laTQ=="
+          "hash": "RZXLpsFuARV0YCAzFFY7Og=="
         }
       },
       "is_incremental": false,
@@ -771,7 +748,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention.html",
-          "hash": "JFvxrp9H4pZFDBI7/vAr1g=="
+          "hash": "n9ZXc2mJHxg7hwin3gAoIA=="
         }
       },
       "is_incremental": false,
@@ -784,7 +761,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention.html",
-          "hash": "1GJjCQRAYFyQ0xAPQc2AvQ=="
+          "hash": "DxC6i0WKuHRKOLgIrRZTCg=="
         }
       },
       "is_incremental": false,
@@ -792,15 +769,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Conventions.html",
-          "hash": "XrmUXZK7J1AjKFNXZEWqhg=="
+          "hash": "3U15Tvov3Ft4IkuLN0GMFA=="
         }
       },
       "is_incremental": false,
@@ -813,7 +787,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.DebugHelper.html",
-          "hash": "xHrV14CyFneW2s6HmEi8lg=="
+          "hash": "uusW3HFM1mcYgHNDSG/qZw=="
         }
       },
       "is_incremental": false,
@@ -826,7 +800,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.DirectoryExistsAttribute.html",
-          "hash": "K/x9LWrFDyEAfkeOVO3HVQ=="
+          "hash": "GPJsSXdB6KGwDr7pmW4vAQ=="
         }
       },
       "is_incremental": false,
@@ -839,7 +813,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.html",
-          "hash": "SExuDHebxgSvekk6F3U9VA=="
+          "hash": "VByBQZHSUEYi9iTtng/DAA=="
         }
       },
       "is_incremental": false,
@@ -852,7 +826,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.DotNetCliContext.html",
-          "hash": "1THz+51zvsomDHkvL8/x9g=="
+          "hash": "Mzl3RMHKZNRwUT//oXn+zg=="
         }
       },
       "is_incremental": false,
@@ -865,7 +839,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.DotNetExe.html",
-          "hash": "KSSv4wNLqJt0t8YMcG8rMw=="
+          "hash": "9JhNHPlVKWgh/dz9X2Up/A=="
         }
       },
       "is_incremental": false,
@@ -878,7 +852,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.html",
-          "hash": "ndZ8OF/eElx6g6P52h5/gw=="
+          "hash": "jK21JJml7Rxz9lnGXUDZEg=="
         }
       },
       "is_incremental": false,
@@ -891,7 +865,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Errors.html",
-          "hash": "VvQSCvI22sasFKxt6JCGMQ=="
+          "hash": "MeEN1Od/dcS+b9fTrkD9bA=="
         }
       },
       "is_incremental": false,
@@ -904,7 +878,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.FileExistsAttribute.html",
-          "hash": "tDG/F5u99/Y83j0stNwlTg=="
+          "hash": "S9UFiquKcescjDd20z0jaw=="
         }
       },
       "is_incremental": false,
@@ -917,7 +891,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.html",
-          "hash": "Au2oEyvKXvLu4ctB+wfbrw=="
+          "hash": "Nwt+0F/xNWYsoi0kn0m4iA=="
         }
       },
       "is_incremental": false,
@@ -930,7 +904,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.html",
-          "hash": "ZLR8teZ7+D8GaZsrCJUkvQ=="
+          "hash": "XshdK5EjjugSwYsJNLjnhg=="
         }
       },
       "is_incremental": false,
@@ -943,7 +917,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.html",
-          "hash": "uxWboCrMQ1l8UwFMMzhfyA=="
+          "hash": "I31QDaUc+aTtsoRsdt8qlg=="
         }
       },
       "is_incremental": false,
@@ -951,15 +925,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.html",
-          "hash": "8vVFOncrQn5VLSynYHo1Yg=="
+          "hash": "rnfY4jru4hiAy2NBxiFJyQ=="
         }
       },
       "is_incremental": false,
@@ -972,7 +943,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html",
-          "hash": "lyudtmTuh3YVth8oFgm47Q=="
+          "hash": "yo5kdUcR17wm1ZDBOLjIOQ=="
         }
       },
       "is_incremental": false,
@@ -985,7 +956,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.html",
-          "hash": "kEoEDCGgd6ZOs2XhbVj/9A=="
+          "hash": "BcLOC2befoICV78teO+xoQ=="
         }
       },
       "is_incremental": false,
@@ -998,7 +969,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html",
-          "hash": "zws463qeNFFw+6no9FJVlA=="
+          "hash": "SIzGny34TD4aQPxUbD9z2w=="
         }
       },
       "is_incremental": false,
@@ -1011,7 +982,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.HelpText.html",
-          "hash": "mM28v2q4/ktvYN35IIVDFg=="
+          "hash": "2JPylXX5Bb9iup31viCoOg=="
         }
       },
       "is_incremental": false,
@@ -1024,7 +995,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.IConsole.html",
-          "hash": "8Vmz6DO+K5zIl3cKrgRMxw=="
+          "hash": "mB8Bu60o7bzyAZG38LDxBw=="
         }
       },
       "is_incremental": false,
@@ -1037,7 +1008,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.IReporter.html",
-          "hash": "lMrAXPMTthodQmFcY0IsTA=="
+          "hash": "ceMhXny7zdi/pVayBemn6A=="
         }
       },
       "is_incremental": false,
@@ -1050,7 +1021,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.html",
-          "hash": "TjLnCb9dKgXW93rQRmUHgg=="
+          "hash": "9A6Zsbqndkw1aBSrvuOT3w=="
         }
       },
       "is_incremental": false,
@@ -1063,7 +1034,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.html",
-          "hash": "V8XpLKdrQ96eABbxWxKfLg=="
+          "hash": "JLj9o7v7JmcYG0vFUebOlA=="
         }
       },
       "is_incremental": false,
@@ -1076,7 +1047,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.NullConsole.html",
-          "hash": "CmLbTTtlOayv8WO5GgOhHA=="
+          "hash": "lhvZ5L0u1+Q7EppQUSxFwA=="
         }
       },
       "is_incremental": false,
@@ -1089,7 +1060,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.NullReporter.html",
-          "hash": "czxKwDGCoIz0dt2/bPBH9g=="
+          "hash": "M+tYzrLhLs25NnDeFiGcwA=="
         }
       },
       "is_incremental": false,
@@ -1097,15 +1068,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html",
-          "hash": "JUndhr2rdnYq1XHYA4NucQ=="
+          "hash": "aPwyRZIZS4JHZQ8fO0ojEw=="
         }
       },
       "is_incremental": false,
@@ -1118,7 +1086,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html",
-          "hash": "g7sbWbIp39toffule5d6Ww=="
+          "hash": "HF3IsPmjWUgoySRdfHJWjA=="
         }
       },
       "is_incremental": false,
@@ -1131,7 +1099,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Pager.html",
-          "hash": "sfpitChz90HJk86/mZvbiQ=="
+          "hash": "6wy44N9t+sjiNjLpq8b1gQ=="
         }
       },
       "is_incremental": false,
@@ -1139,15 +1107,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.html",
-          "hash": "fLZN4GMzAt5/tRo3/R8NTA=="
+          "hash": "Oa/939vf4e5CplAymVcZ+g=="
         }
       },
       "is_incremental": false,
@@ -1160,7 +1125,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Prompt.html",
-          "hash": "MSCgVmsldee0ZZQqr12Jsw=="
+          "hash": "hlAKuzVct8uPFxB0UbfW/A=="
         }
       },
       "is_incremental": false,
@@ -1173,7 +1138,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html",
-          "hash": "KlidFztlQjV2i+GmuQNiMA=="
+          "hash": "cAePoC9Acy2X43oQafgRfQ=="
         }
       },
       "is_incremental": false,
@@ -1186,7 +1151,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html",
-          "hash": "GkRxPinJD69BVxlk1tfAvQ=="
+          "hash": "B9oeMXIG0eYvC5lGzRFCxQ=="
         }
       },
       "is_incremental": false,
@@ -1199,7 +1164,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.html",
-          "hash": "CTw6tN+2KLF0vxWg35+1iA=="
+          "hash": "jZu0oZ3zMrNajNELVlCHoQ=="
         }
       },
       "is_incremental": false,
@@ -1212,7 +1177,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html",
-          "hash": "LfGgUkSWcGcfL23hgATcKg=="
+          "hash": "dRFfbqfpFXaOw9yXc5qIuw=="
         }
       },
       "is_incremental": false,
@@ -1225,7 +1190,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.html",
-          "hash": "Vk9gSIaDsWpFren9df/+LA=="
+          "hash": "KRLaUvshmaW2xRr7gG3vlA=="
         }
       },
       "is_incremental": false,
@@ -1238,7 +1203,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.html",
-          "hash": "4MgvOgVcrpVa736kFyEPVA=="
+          "hash": "6GVHpCcxXHV1EZWIVeNO2A=="
         }
       },
       "is_incremental": false,
@@ -1251,7 +1216,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html",
-          "hash": "oUTfp1DqS4THwzsJwqyE4g=="
+          "hash": "DViwdMej6zD682cfgVqqmw=="
         }
       },
       "is_incremental": false,
@@ -1264,7 +1229,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.html",
-          "hash": "EfmSQEzKUwgBzshzJJZ4lQ=="
+          "hash": "RwOh9hmK8ntGh+4O3MMGyA=="
         }
       },
       "is_incremental": false,
@@ -1277,7 +1242,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.html",
-          "hash": "TVuUviOjgXiKADrVa0mpBg=="
+          "hash": "/cK1pXl1rzOUrZntrQqW2Q=="
         }
       },
       "is_incremental": false,
@@ -1290,7 +1255,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.html",
-          "hash": "FTKxCAlDbKxWWMb7e2Sy/Q=="
+          "hash": "HZb/t7/F1jOeI+UgUq+Weg=="
         }
       },
       "is_incremental": false,
@@ -1303,7 +1268,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.html",
-          "hash": "37GIt4Jz5Kd8n3qYYpBtkQ=="
+          "hash": "2nweLIU+F9258Gp+toakng=="
         }
       },
       "is_incremental": false,
@@ -1311,15 +1276,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html",
-          "hash": "y0bAZVQUBkFKN1HgOnhS8A=="
+          "hash": "NquRrXH5IZdqHic3u/qCHg=="
         }
       },
       "is_incremental": false,
@@ -1327,15 +1289,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.html",
-          "hash": "Xu4A9wx82gAJ2t/yger+BA=="
+          "hash": "RC+GuOEqqKiCZbAsqLM8Ew=="
         }
       },
       "is_incremental": false,
@@ -1348,7 +1307,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.html",
-          "hash": "G0P3qsJpjP4e37XX8owQXA=="
+          "hash": "Lpw02mpvhoxUiecutjMs0A=="
         }
       },
       "is_incremental": false,
@@ -1361,7 +1320,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.html",
-          "hash": "x9FbCbaSDOUrt4NMlBDMrA=="
+          "hash": "3eA+DYo0BJjIlPGDULQT9A=="
         }
       },
       "is_incremental": false,
@@ -1369,15 +1328,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html",
-          "hash": "zn5UQcaSKSV2yttSWLFyJg=="
+          "hash": "eCzTSRuVw8OXyS5vFvN/7A=="
         }
       },
       "is_incremental": false,
@@ -1390,7 +1346,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html",
-          "hash": "29xzi29rO8C5Mk6sXYeQXA=="
+          "hash": "OE3iHTZ9opjppZvHzKN21Q=="
         }
       },
       "is_incremental": false,
@@ -1403,7 +1359,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html",
-          "hash": "FJMYHodEPpktoqm4oQMjWA=="
+          "hash": "M9tT6EUl9paMcPkI+LX82A=="
         }
       },
       "is_incremental": false,
@@ -1416,7 +1372,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.IValidator.html",
-          "hash": "cI0ryFhQ/kF0yjEVYfKHfg=="
+          "hash": "n9Zy/2Jy8iUANCUQ8XUagQ=="
         }
       },
       "is_incremental": false,
@@ -1429,7 +1385,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder-1.html",
-          "hash": "tcUSsGdI7Cto6TPevQqY1Q=="
+          "hash": "PoevWwI9Lc3FxbHr2gPPQA=="
         }
       },
       "is_incremental": false,
@@ -1442,7 +1398,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder.html",
-          "hash": "2bZXPKyQ/dxpjMJWIr/m3Q=="
+          "hash": "HVFYmDgcATSbL4VZ7Mvxaw=="
         }
       },
       "is_incremental": false,
@@ -1455,7 +1411,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.Validation.html",
-          "hash": "EQrpMje6Kgau4qKdrs87Uw=="
+          "hash": "XnzqJOWGq/cBtgo9jF8Owg=="
         }
       },
       "is_incremental": false,
@@ -1463,15 +1419,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html",
-          "hash": "9P9ZoX8UT/fBSMp//T3TOQ=="
+          "hash": "yVNrGHqrmiYaMdB6cdJGHw=="
         }
       },
       "is_incremental": false,
@@ -1479,15 +1432,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.html",
-          "hash": "J9bVZAhiIl8RhiayWtkK2A=="
+          "hash": "XK5KCHd9TRYQuMvYKXzoKQ=="
         }
       },
       "is_incremental": false,
@@ -1500,7 +1450,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.html",
-          "hash": "ohjbx52sb76uCQGiZEUXCQ=="
+          "hash": "BvWHD2VJpGgKOOOfgkrLxw=="
         }
       },
       "is_incremental": false,
@@ -1508,15 +1458,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.html",
-          "hash": "Lma/TsfBr9ejLzUjgbDk0g=="
+          "hash": "whLF85OIWCNj7wWdTjEZ9g=="
         }
       },
       "is_incremental": false,
@@ -1524,15 +1471,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.html",
-          "hash": "fp47N6+gIVPyxpYkpKvMjw=="
+          "hash": "v2qp2hOMRqxktM3dZ7To/Q=="
         }
       },
       "is_incremental": false,
@@ -1540,15 +1484,12 @@
       "group": "unstable"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.Hosting.CommandLine.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.Hosting.CommandLine.html",
-          "hash": "z9JF5ruGvbKLqnE7PP9yAg=="
+          "hash": "9c8+cn7nd9kWbJzTPmn59w=="
         }
       },
       "is_incremental": false,
@@ -1561,7 +1502,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html",
-          "hash": "p/c/J6FIoCLiE+RFY6g1ww=="
+          "hash": "E/MEYmDMsKQ1PEQ4tW8Dbg=="
         }
       },
       "is_incremental": false,
@@ -1574,7 +1515,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/Microsoft.Extensions.Hosting.html",
-          "hash": "5UI1sXoKlE7B6vW7ll2vog=="
+          "hash": "T2xjT5QeVvkbcs4ZaB3qMQ=="
         }
       },
       "is_incremental": false,
@@ -1600,23 +1541,20 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "peoCHP9Xai5TMa40i3o2IA=="
+          "hash": "fUaRrdCFAWNonolL/DWMWQ=="
         }
       },
       "is_incremental": false,
-      "version": "v2.3",
-      "group": "v2.3"
+      "version": "v2.4",
+      "group": "v2.4"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.html",
-          "hash": "rnX7QwK36MNsy51hxpWeWg=="
+          "hash": "F08aouGu8bj1JxhZHU38IQ=="
         }
       },
       "is_incremental": false,
@@ -1629,7 +1567,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.html",
-          "hash": "K/QKHpvdo30VeN0D+rAaIg=="
+          "hash": "Z8HZmeF1s+BH20U72qlnKA=="
         }
       },
       "is_incremental": false,
@@ -1642,7 +1580,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html",
-          "hash": "uf10BNgGA40LPdnvNa1uTQ=="
+          "hash": "5Bwz4xP2484k7IB+qYyaVA=="
         }
       },
       "is_incremental": false,
@@ -1655,7 +1593,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.html",
-          "hash": "MN0AQAezfewx+Me3SPNeXw=="
+          "hash": "U/GQOFeGP6Qep4BZhwP5jw=="
         }
       },
       "is_incremental": false,
@@ -1668,7 +1606,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html",
-          "hash": "jtxQkgMHmldgow7bSCpYng=="
+          "hash": "mzbf56rNza/fsyAIPzamEA=="
         }
       },
       "is_incremental": false,
@@ -1676,15 +1614,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.html",
-          "hash": "lu+T3/rKEy6PWxoyHjwGWg=="
+          "hash": "inmIrZu5Jhk+7WxgwIYEpg=="
         }
       },
       "is_incremental": false,
@@ -1697,7 +1632,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Abstractions.html",
-          "hash": "Bg4Rh0txWNNyCU8yEz42Fg=="
+          "hash": "W6ENseuYBEouD0IO6PmrvA=="
         }
       },
       "is_incremental": false,
@@ -1710,7 +1645,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.AllowedValuesAttribute.html",
-          "hash": "XczaYFSXm+0pD4Zzy4bdhQ=="
+          "hash": "lXrThiHfGl2VZU5DPF+tUw=="
         }
       },
       "is_incremental": false,
@@ -1723,7 +1658,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html",
-          "hash": "Z7SJABUGxBKi4wEEBxpYUw=="
+          "hash": "U+ylbskpTOvB5qgepeZ0Vw=="
         }
       },
       "is_incremental": false,
@@ -1736,7 +1671,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.ArgumentEscaper.html",
-          "hash": "F3cBuXTtMIFmd3NAV0YMqQ=="
+          "hash": "a0sSXXDqdTS08F68KYZkEg=="
         }
       },
       "is_incremental": false,
@@ -1749,7 +1684,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandArgument-1.html",
-          "hash": "oeqVyxc/9Ao7yYz8uJp5Vg=="
+          "hash": "53nTg+K88kOZxbrMY2rk7w=="
         }
       },
       "is_incremental": false,
@@ -1762,7 +1697,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html",
-          "hash": "TPiKtwUiaJHVVaeQR4EMUg=="
+          "hash": "5BG31MbtfwNpoQPKBe4kgQ=="
         }
       },
       "is_incremental": false,
@@ -1775,7 +1710,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html",
-          "hash": "jjKSGtby/94CU58I4gD6Uw=="
+          "hash": "l7RWodSCFNbTS8ahYoD9UQ=="
         }
       },
       "is_incremental": false,
@@ -1788,7 +1723,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html",
-          "hash": "ulq93mHHG5gTIV40bTsfBg=="
+          "hash": "VK1dJjR4y0cEUhcQ+KvtMQ=="
         }
       },
       "is_incremental": false,
@@ -1796,15 +1731,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html",
-          "hash": "5D4zIDkDrTHgm4x1pdHXqQ=="
+          "hash": "18E5vus4+AjxUc4keJN4nw=="
         }
       },
       "is_incremental": false,
@@ -1812,15 +1744,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html",
-          "hash": "7Mr5DKh27xZrCc3NzLvguw=="
+          "hash": "nDRDrAA7F3SsOQrn3nZL+Q=="
         }
       },
       "is_incremental": false,
@@ -1833,7 +1762,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandOption-1.html",
-          "hash": "EDgGNYSbVoxQ6H+Vd2Vvsw=="
+          "hash": "cr6QrtwLq2ClqYN15TU6Kw=="
         }
       },
       "is_incremental": false,
@@ -1846,7 +1775,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandOption.html",
-          "hash": "rWLRCgLawp3dwl8U3kjyHA=="
+          "hash": "W+whuxHKc5v876+MletIUQ=="
         }
       },
       "is_incremental": false,
@@ -1859,7 +1788,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandOptionType.html",
-          "hash": "+WC4/tUfewmBtfX0ymIAbw=="
+          "hash": "7LbbUeCY9OatV8q32woORw=="
         }
       },
       "is_incremental": false,
@@ -1872,7 +1801,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.CommandParsingException.html",
-          "hash": "2p82b5CyTiWMiXA3yQUJbg=="
+          "hash": "pA92jvkxMWp0eaWZIDXhqQ=="
         }
       },
       "is_incremental": false,
@@ -1885,7 +1814,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html",
-          "hash": "AhBOW/wwMrWdPQ1QnuHhqg=="
+          "hash": "Vb/q0FZ79coQfGhKVMBrmQ=="
         }
       },
       "is_incremental": false,
@@ -1893,15 +1822,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.html",
-          "hash": "yanoN44DzyLXDJbqJ2UY3w=="
+          "hash": "u7H3g0GLNL/Q+A5icj6v9w=="
         }
       },
       "is_incremental": false,
@@ -1909,15 +1835,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html",
-          "hash": "Xr7+Dn9h0woEOJXLjfheTw=="
+          "hash": "FnsbfeFJb5bAcU+VRcPlqA=="
         }
       },
       "is_incremental": false,
@@ -1930,7 +1853,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention.html",
-          "hash": "yZk07bgqJu4rG9a+mphG/g=="
+          "hash": "iS328EZUW4b/In/YXK2dng=="
         }
       },
       "is_incremental": false,
@@ -1943,7 +1866,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention.html",
-          "hash": "GUom7UwoZYOnFfoOlydtyA=="
+          "hash": "PIGFCSNzjlLEdTjOI2b9Og=="
         }
       },
       "is_incremental": false,
@@ -1956,7 +1879,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.html",
-          "hash": "eN8QMHNfRcAvvpzm1X7ZJQ=="
+          "hash": "m6fqCO1NxsFXviIqOQueJQ=="
         }
       },
       "is_incremental": false,
@@ -1969,7 +1892,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.html",
-          "hash": "37N3Q871TJzxTEh3sf/JTQ=="
+          "hash": "GaAhjej89RtrfzyEPAQXUA=="
         }
       },
       "is_incremental": false,
@@ -1982,7 +1905,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.html",
-          "hash": "WO/3J650/366gV6nNLH1mA=="
+          "hash": "4BNxFMTjsKr8fQcv1C37kA=="
         }
       },
       "is_incremental": false,
@@ -1995,7 +1918,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html",
-          "hash": "7fqDB2HgvAml6dP2xIOrgQ=="
+          "hash": "CcrfXt7l36X3ctIUseKbJg=="
         }
       },
       "is_incremental": false,
@@ -2008,7 +1931,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html",
-          "hash": "lL618Xm1gf0Art5ZOiAXAA=="
+          "hash": "7j3dkMoDOAv85x/nPwLTsQ=="
         }
       },
       "is_incremental": false,
@@ -2021,7 +1944,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.html",
-          "hash": "J/OXiSUdfGX8dKvV7Kou7A=="
+          "hash": "EXnzyHhumidZe8yRxXh2Ug=="
         }
       },
       "is_incremental": false,
@@ -2034,7 +1957,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.html",
-          "hash": "m8NNrUpox0ms1/u5Qbqfjw=="
+          "hash": "LQHj/pij1GdsTbvyPTKF8A=="
         }
       },
       "is_incremental": false,
@@ -2047,7 +1970,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html",
-          "hash": "Tsv/KbBgPl3M0eVHNw4Bvg=="
+          "hash": "nLa3cJva1LAqM2Icn/Pydw=="
         }
       },
       "is_incremental": false,
@@ -2060,7 +1983,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.html",
-          "hash": "kPmsnGezE88l6BniFgTb5A=="
+          "hash": "yr70JBQC65KrT7nHltFURQ=="
         }
       },
       "is_incremental": false,
@@ -2073,7 +1996,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html",
-          "hash": "jC1LsQIIO2rBcaY5xgxQIw=="
+          "hash": "uZPM/Vv6Z8pll2QNPJluOg=="
         }
       },
       "is_incremental": false,
@@ -2086,7 +2009,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention.html",
-          "hash": "fpmYOX17pXMKUwr+N2FHDA=="
+          "hash": "fJprRSNMc0rWy/6F4scnYQ=="
         }
       },
       "is_incremental": false,
@@ -2099,7 +2022,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase-1.html",
-          "hash": "iPm1U2zkW+6ZAjg/RMGQLQ=="
+          "hash": "mmrPHr7AKqZaT3/O02bygw=="
         }
       },
       "is_incremental": false,
@@ -2112,7 +2035,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention.html",
-          "hash": "xnYAzaIqUqW9ORbdOASScw=="
+          "hash": "9Ujlqkqymt+9GsctJg2+zw=="
         }
       },
       "is_incremental": false,
@@ -2125,7 +2048,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html",
-          "hash": "KD5YqXQBLkLbsydUHUejjQ=="
+          "hash": "JqhWCT9fSAJdaarp7KIAFw=="
         }
       },
       "is_incremental": false,
@@ -2138,7 +2061,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.html",
-          "hash": "1xjbACCB+6Xncdwi9yI1Yw=="
+          "hash": "EBiAgqJnUgbDYmYzU1mqgw=="
         }
       },
       "is_incremental": false,
@@ -2151,7 +2074,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention.html",
-          "hash": "FPetdiLOavMd0YmbXNe9CA=="
+          "hash": "1+kTkt2IH2g4vGbbyRDvXg=="
         }
       },
       "is_incremental": false,
@@ -2164,7 +2087,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention.html",
-          "hash": "1BxgqvgBDY7VnjO7NorhWg=="
+          "hash": "/1Rkc529GXqXyCVG7ybhqA=="
         }
       },
       "is_incremental": false,
@@ -2177,7 +2100,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention.html",
-          "hash": "CtW6+xlsy6VSy4ZELaQb4w=="
+          "hash": "UkBylBUxqe/bIF5FA8+yUg=="
         }
       },
       "is_incremental": false,
@@ -2190,7 +2113,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention.html",
-          "hash": "YG9/XxdvaMu/bkdx0CGY4w=="
+          "hash": "IcRNGQJMAF9Th431dPYSVQ=="
         }
       },
       "is_incremental": false,
@@ -2203,7 +2126,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Conventions.html",
-          "hash": "hx17v2sVlwTPT4ibWCnFyA=="
+          "hash": "SNZfTZDPMNctRpUU43PHtw=="
         }
       },
       "is_incremental": false,
@@ -2216,7 +2139,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.DebugHelper.html",
-          "hash": "Ypgr3mEZTVcxVsFihl0NMQ=="
+          "hash": "TNlc0rRHnan1avbNPifo9Q=="
         }
       },
       "is_incremental": false,
@@ -2229,7 +2152,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.DirectoryExistsAttribute.html",
-          "hash": "evE1TIqOdC6zE6CsZY89vQ=="
+          "hash": "fEAMvaQHT44EVWTQ/5Xbkw=="
         }
       },
       "is_incremental": false,
@@ -2242,7 +2165,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.DotNetCliContext.html",
-          "hash": "A2sU976UN+QD8c+VHp7fOw=="
+          "hash": "svTvwvwaTJRRf4BrZnYhvg=="
         }
       },
       "is_incremental": false,
@@ -2255,7 +2178,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.DotNetExe.html",
-          "hash": "yFmzKZSnP0NrhEPKFITELw=="
+          "hash": "s+XK+t4mlHck6eWl8QRO7w=="
         }
       },
       "is_incremental": false,
@@ -2268,7 +2191,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.FileExistsAttribute.html",
-          "hash": "Ruc03nu/Pvemyyg3vqxfiA=="
+          "hash": "QrG527Z+dblTiVRjc+jpFA=="
         }
       },
       "is_incremental": false,
@@ -2281,7 +2204,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.html",
-          "hash": "NBG0mZ7NcxZbxXsfPTRxpA=="
+          "hash": "d/IA2tbNmR8G8q+7bZNp+w=="
         }
       },
       "is_incremental": false,
@@ -2294,7 +2217,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.html",
-          "hash": "J+A7gNRGdnEDwElmWVhSFQ=="
+          "hash": "a6suz4dmh06PbGrkD9r6GQ=="
         }
       },
       "is_incremental": false,
@@ -2307,7 +2230,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html",
-          "hash": "4c0789m8Ex/zWrLfY9Kuyw=="
+          "hash": "5qPSsdSPvn1scnrK+u01XQ=="
         }
       },
       "is_incremental": false,
@@ -2320,7 +2243,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html",
-          "hash": "qJCDA1/ehcaktBgKFRI2TQ=="
+          "hash": "M5budsOCZ39iUK1dFeS0sg=="
         }
       },
       "is_incremental": false,
@@ -2333,7 +2256,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.HelpText.html",
-          "hash": "bwHhZkRjkVs9zApYd/rCYw=="
+          "hash": "C0bYeG2rReEEjM67f6ihwQ=="
         }
       },
       "is_incremental": false,
@@ -2346,7 +2269,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.IConsole.html",
-          "hash": "jwMzHrJ55J9cFijtPXWRPA=="
+          "hash": "3YcD2VkoUUBUxUQ9Mh94RA=="
         }
       },
       "is_incremental": false,
@@ -2359,7 +2282,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.IReporter.html",
-          "hash": "N5fONJxYasO8rOjwHq+3Mg=="
+          "hash": "lrvbjiLTcVS8i6Hu8K3yIg=="
         }
       },
       "is_incremental": false,
@@ -2372,7 +2295,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.html",
-          "hash": "fwmvNzXFnNDGQdHTPJm78A=="
+          "hash": "3SixWLN5VnhkVMINYRR6IQ=="
         }
       },
       "is_incremental": false,
@@ -2385,7 +2308,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.NullConsole.html",
-          "hash": "bWDcphRaWAP00kHuCOPkgA=="
+          "hash": "JnjA5Cwy8P24vZ0++2CcTA=="
         }
       },
       "is_incremental": false,
@@ -2398,7 +2321,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.NullReporter.html",
-          "hash": "rqMFb/WQxk/vF3wua7eMdA=="
+          "hash": "xZPZUvSmboJefJ3lB9m/pg=="
         }
       },
       "is_incremental": false,
@@ -2411,7 +2334,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html",
-          "hash": "JFyXz35vk1xkB4WPeamnGw=="
+          "hash": "xyTrwnTdjqT5DKQZ5GU2tg=="
         }
       },
       "is_incremental": false,
@@ -2424,7 +2347,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html",
-          "hash": "mMeNNsOqEc3v3hywv1zFnA=="
+          "hash": "2JEVYdv8vlgD3DR2wNCKjQ=="
         }
       },
       "is_incremental": false,
@@ -2432,15 +2355,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.html",
-          "hash": "F1zD23JkEn+nk0xCZiUJzg=="
+          "hash": "P+oFWgPjTf0tH9M6mZXHzw=="
         }
       },
       "is_incremental": false,
@@ -2453,7 +2373,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Prompt.html",
-          "hash": "a2isyUjlFUCii/daMKCY5g=="
+          "hash": "3TG0RaE1Bh5b0be21EnEOQ=="
         }
       },
       "is_incremental": false,
@@ -2466,7 +2386,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html",
-          "hash": "Ipzp5KFVnuhBCBNME7Jd/A=="
+          "hash": "F/I+QfZuxqBxqqTsPAIKHA=="
         }
       },
       "is_incremental": false,
@@ -2479,7 +2399,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html",
-          "hash": "1/RKEwKl/qcCeRDotI2hEw=="
+          "hash": "YuXHZyXSePd8XG6LZiqrow=="
         }
       },
       "is_incremental": false,
@@ -2492,7 +2412,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.html",
-          "hash": "vChDVHn/mlgxvaWlUSVblA=="
+          "hash": "Eiw5j4Wxie02e9gCP+6yUA=="
         }
       },
       "is_incremental": false,
@@ -2505,7 +2425,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.html",
-          "hash": "84SuvUZhDLajAkCYESwLVw=="
+          "hash": "+BmOHQSly4GCuyZSEUV80Q=="
         }
       },
       "is_incremental": false,
@@ -2518,7 +2438,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.html",
-          "hash": "kiH5hoapflkY0IJ7kzurOg=="
+          "hash": "6toLBthQCp6rJh+ghN+SVA=="
         }
       },
       "is_incremental": false,
@@ -2531,7 +2451,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html",
-          "hash": "ltaD+Q1DXpmtkrmPwwUIzw=="
+          "hash": "iqL0oFNiM7Xo5H+FY3mbfg=="
         }
       },
       "is_incremental": false,
@@ -2544,7 +2464,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.html",
-          "hash": "hTxn/dt5AEYlMhyCpUUsvQ=="
+          "hash": "C91j5KipEvzIYe562FYM6g=="
         }
       },
       "is_incremental": false,
@@ -2557,7 +2477,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.html",
-          "hash": "IUHFGabK94FNK6D6pcYZQw=="
+          "hash": "Q7ycsCLES3W24LfFch8rgQ=="
         }
       },
       "is_incremental": false,
@@ -2570,7 +2490,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.html",
-          "hash": "n2vY3befSaxN2LuPSIARtw=="
+          "hash": "LSEzqX1fkibB9NpstO3NSw=="
         }
       },
       "is_incremental": false,
@@ -2578,15 +2498,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html",
-          "hash": "0NQivTV/WXJkqPH+juRMpw=="
+          "hash": "NYxv5azKPaDP4zsudnkHcg=="
         }
       },
       "is_incremental": false,
@@ -2594,15 +2511,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.html",
-          "hash": "TljiEtcoyEeYAdxBMvokKg=="
+          "hash": "eOQ7CR9avnykQVwErXfYzA=="
         }
       },
       "is_incremental": false,
@@ -2615,7 +2529,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.html",
-          "hash": "uLR71RLNCHxmxGgiDMjX/A=="
+          "hash": "vWTP8OKYxjd6HNW43BS8Nw=="
         }
       },
       "is_incremental": false,
@@ -2628,7 +2542,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.html",
-          "hash": "GDCAQ8cnMH180vvVeY0Ong=="
+          "hash": "QWrxtIAfaCAvXk2OsCIWxA=="
         }
       },
       "is_incremental": false,
@@ -2636,15 +2550,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html",
-          "hash": "kpz3PKKJvKf44gtzUgqQXg=="
+          "hash": "4igQ3E+c/Dz1cfrRP6El+A=="
         }
       },
       "is_incremental": false,
@@ -2657,7 +2568,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html",
-          "hash": "iH8fg3b4dtq+eREqCzfMxA=="
+          "hash": "3IIVxWuVY6GwFpf7j5AVOw=="
         }
       },
       "is_incremental": false,
@@ -2670,7 +2581,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html",
-          "hash": "lzeW+1aDUMcfEEqQisDHlA=="
+          "hash": "NDZ+lyVJnOLeIXAFlENHDA=="
         }
       },
       "is_incremental": false,
@@ -2683,7 +2594,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.IValidator.html",
-          "hash": "phimzwpv8upNuuEzXDcbtg=="
+          "hash": "6hUnX4c0bVZT2UrCmwDoqA=="
         }
       },
       "is_incremental": false,
@@ -2696,7 +2607,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder-1.html",
-          "hash": "7vB0noUyCy8t6MjOj1jFYw=="
+          "hash": "sS2EezvBUcpiFx30mDvPWQ=="
         }
       },
       "is_incremental": false,
@@ -2709,7 +2620,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder.html",
-          "hash": "QBdlc99ozPbmvaOMvqFILw=="
+          "hash": "ZtGaa1IBFaIUFG6mH/8/8g=="
         }
       },
       "is_incremental": false,
@@ -2722,7 +2633,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.Validation.html",
-          "hash": "qSAvNauFFs/oQuNWQbzDgw=="
+          "hash": "T7RCcL209xyetLC0NcF4bg=="
         }
       },
       "is_incremental": false,
@@ -2730,15 +2641,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html",
-          "hash": "5whYQ3ZmSQrVZDDUyfjuPQ=="
+          "hash": "6qIgx/EB9+fFEMA4I2OQOw=="
         }
       },
       "is_incremental": false,
@@ -2751,7 +2659,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.html",
-          "hash": "g+jpzExpORTjFj9HbFhEZw=="
+          "hash": "98KsTh50XmOObpIymnYjew=="
         }
       },
       "is_incremental": false,
@@ -2764,7 +2672,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.html",
-          "hash": "fftb0J6Jf0Q2SO+qzYBB9Q=="
+          "hash": "MIDUk/BrdRTdYeXAapOzsw=="
         }
       },
       "is_incremental": false,
@@ -2772,15 +2680,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.yml",
       "output": {
         ".html": {
           "relative_path": "v2.2/api/McMaster.Extensions.CommandLineUtils.html",
-          "hash": "8QuL7KQoz9uoUgutBnhnjw=="
+          "hash": "YrsH22PTpV3nD2HVsdMyCw=="
         }
       },
       "is_incremental": false,
@@ -2793,7 +2698,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.2/api/index.html",
-          "hash": "2tpG9oEv0L1WhgQwN3MMAg=="
+          "hash": "aG2Uh3tw143ASrrpvJmbhw=="
         }
       },
       "is_incremental": false,
@@ -2827,15 +2732,12 @@
       "group": "v2.2"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.html",
-          "hash": "VshrX86pxRe/1S8S76WbcQ=="
+          "hash": "8w40eGHIyaM8eVGd8vQIEQ=="
         }
       },
       "is_incremental": false,
@@ -2848,7 +2750,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.html",
-          "hash": "k/AcgqTvXYsi/hugBX52Zw=="
+          "hash": "9EyzlzKwBs7Jt2aM2pEwcA=="
         }
       },
       "is_incremental": false,
@@ -2861,7 +2763,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html",
-          "hash": "i+Wj79iRi0i4vkTIYdkjRg=="
+          "hash": "1zROXtSvky9Cly9LeOToug=="
         }
       },
       "is_incremental": false,
@@ -2874,7 +2776,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.html",
-          "hash": "/XMcgiwoAveGEzfEff7uzg=="
+          "hash": "tcg3xr7uCxEXgJjggLwjaA=="
         }
       },
       "is_incremental": false,
@@ -2887,7 +2789,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html",
-          "hash": "Qo7sYmWVAU3yooepTxE94g=="
+          "hash": "s24IPJ9kURySjxwM+IhTAA=="
         }
       },
       "is_incremental": false,
@@ -2895,15 +2797,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html",
-          "hash": "Nm6idFldyetQnEhZjrCyww=="
+          "hash": "OOTtXIyfKHBYl2KUgNYSWA=="
         }
       },
       "is_incremental": false,
@@ -2911,15 +2810,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.html",
-          "hash": "nVD7XtAfueVNAImN/XzqxQ=="
+          "hash": "4G8uK6MKssBdhI97Z6bVQA=="
         }
       },
       "is_incremental": false,
@@ -2932,7 +2828,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Abstractions.html",
-          "hash": "1HKzait3wbQdK43zgITeCA=="
+          "hash": "luaa64OOuwL+P6vnJYxuug=="
         }
       },
       "is_incremental": false,
@@ -2945,7 +2841,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.AllowedValuesAttribute.html",
-          "hash": "uYKOrAvGk0X7pXhw8x91hA=="
+          "hash": "YWAEuwpAi7PDsCJzFR4fHA=="
         }
       },
       "is_incremental": false,
@@ -2958,7 +2854,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html",
-          "hash": "tRXJ86Mqs/slW2S0aiarsg=="
+          "hash": "1kyMyY4bEaamy9hbbdJHSw=="
         }
       },
       "is_incremental": false,
@@ -2971,7 +2867,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.ArgumentEscaper.html",
-          "hash": "+ggKev697NljwlBjfZ6/Zw=="
+          "hash": "/BrQbuvsseqN2X6vCGr9eg=="
         }
       },
       "is_incremental": false,
@@ -2984,7 +2880,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandArgument-1.html",
-          "hash": "E2mKDrvDhYyV7uAm2C+pKA=="
+          "hash": "ktFHCBj9EfmTUn4OM/zrQw=="
         }
       },
       "is_incremental": false,
@@ -2997,7 +2893,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html",
-          "hash": "acPWvx6gkReS8Hvo23KLZw=="
+          "hash": "zOH14eXkh5tIdDBEm7H7Mw=="
         }
       },
       "is_incremental": false,
@@ -3010,7 +2906,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html",
-          "hash": "jF7Yyj+NMiRHn/u2R2kONA=="
+          "hash": "f1RrUXtyqkT1cmLfhxM28Q=="
         }
       },
       "is_incremental": false,
@@ -3023,7 +2919,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html",
-          "hash": "lxIoPYHhU81T6G0pZRQhmQ=="
+          "hash": "XkIh3D9VuXqKJ0VulpceFA=="
         }
       },
       "is_incremental": false,
@@ -3031,15 +2927,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html",
-          "hash": "ZUmuNiyb5FbwKU83vBIE1Q=="
+          "hash": "se1cCp7XXFOiYPKbllgKLQ=="
         }
       },
       "is_incremental": false,
@@ -3047,15 +2940,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html",
-          "hash": "pJBRwH5UxCzfciefBrhxwQ=="
+          "hash": "36Z+0UVp0Z+SK7iyiC1tzw=="
         }
       },
       "is_incremental": false,
@@ -3068,7 +2958,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandOption-1.html",
-          "hash": "opYz6ee2PJA259FpPv9TnQ=="
+          "hash": "6OPv97EXB1k3r/P0khugdQ=="
         }
       },
       "is_incremental": false,
@@ -3081,7 +2971,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandOption.html",
-          "hash": "46po1g9i9pkWz6GmO6aedg=="
+          "hash": "aoUphOEm0rHhMl9HqMb/KA=="
         }
       },
       "is_incremental": false,
@@ -3094,7 +2984,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandOptionType.html",
-          "hash": "sXpMe0KS3uguXpySOxZG5w=="
+          "hash": "oLTvcH1jjVFzTq7+wzfMnw=="
         }
       },
       "is_incremental": false,
@@ -3107,7 +2997,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.CommandParsingException.html",
-          "hash": "WZC1YTMFwU6YTMots8g0CQ=="
+          "hash": "iosHCfQjNDSo1xJwc7TXGQ=="
         }
       },
       "is_incremental": false,
@@ -3120,7 +3010,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html",
-          "hash": "ix6eYE3jBsBtJGrc4I+nMw=="
+          "hash": "0rQHcmKWuMNS464X09yJJg=="
         }
       },
       "is_incremental": false,
@@ -3128,15 +3018,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.html",
-          "hash": "UNWOUbRJzI4SIeBGpdXpig=="
+          "hash": "Qe3mLntWWYF5vqrDX6El+A=="
         }
       },
       "is_incremental": false,
@@ -3144,15 +3031,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html",
-          "hash": "129kJwMmPVQ3aVD3xZHXgg=="
+          "hash": "BnRvaen/5Bvk/zGgOsJfbg=="
         }
       },
       "is_incremental": false,
@@ -3165,7 +3049,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention.html",
-          "hash": "SR56H5lhuseEsnODgEctKg=="
+          "hash": "UUfoXNKkXFYq5q3AgS4yQQ=="
         }
       },
       "is_incremental": false,
@@ -3178,7 +3062,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention.html",
-          "hash": "TN9CcnxAOt+417A+8r1GuQ=="
+          "hash": "5A3LiqeRzwXUv1PDZZThuQ=="
         }
       },
       "is_incremental": false,
@@ -3191,7 +3075,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.html",
-          "hash": "vrdTf1oXLK1BKnceykmOOA=="
+          "hash": "laQzsP57WcQgOBOAq0m9QQ=="
         }
       },
       "is_incremental": false,
@@ -3204,7 +3088,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.html",
-          "hash": "DmQ8jVAdXH5SEc+0n0NOlw=="
+          "hash": "PD/W+MnogjpMzRn+nkarAQ=="
         }
       },
       "is_incremental": false,
@@ -3217,7 +3101,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.html",
-          "hash": "TusQ+zYxFMaBWC0l6q2i/w=="
+          "hash": "fPp/Jr2Gs8Nf+/q8wJZv+w=="
         }
       },
       "is_incremental": false,
@@ -3230,7 +3114,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.html",
-          "hash": "VtXD/gF1qV23fn9RrVA4lQ=="
+          "hash": "69R0MQNRWMWedp08iirx/Q=="
         }
       },
       "is_incremental": false,
@@ -3243,7 +3127,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html",
-          "hash": "rksOmmEncLK8oJGzCGkJYA=="
+          "hash": "NszJlJjmNEk8FSrdsGLPJg=="
         }
       },
       "is_incremental": false,
@@ -3256,7 +3140,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html",
-          "hash": "ijWLnwU/mEiMsAy3bxoFTw=="
+          "hash": "L3MwnKCsj1J2yvI/HoN3ug=="
         }
       },
       "is_incremental": false,
@@ -3269,7 +3153,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.html",
-          "hash": "R23nA5pmS8i/2T0s7n+NwQ=="
+          "hash": "W1BhvLPF7jfAXvcnDsA/+Q=="
         }
       },
       "is_incremental": false,
@@ -3282,7 +3166,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.html",
-          "hash": "qUrLBrK6pr21RUotp1zYdA=="
+          "hash": "mVoS0r6fwTHm4BPEvsueWA=="
         }
       },
       "is_incremental": false,
@@ -3295,7 +3179,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html",
-          "hash": "W++8LGqzJ5FlUNiq7mmL1A=="
+          "hash": "Qu6CQFHsF8W9UcjUvRnS4g=="
         }
       },
       "is_incremental": false,
@@ -3308,7 +3192,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.html",
-          "hash": "q12UN1ybEeY9nSbPBO17Nw=="
+          "hash": "raENEQf1ocoU+IPmN+57DA=="
         }
       },
       "is_incremental": false,
@@ -3321,7 +3205,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html",
-          "hash": "iMlf7vfj5bMdKB1VvxsIyQ=="
+          "hash": "Zt5ey9Q8PaUAGePRUM2EYQ=="
         }
       },
       "is_incremental": false,
@@ -3334,7 +3218,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention.html",
-          "hash": "P8EvU48YZ6lpBAq0igRn9Q=="
+          "hash": "VYBgsn1LmJafiRF8ne8vKw=="
         }
       },
       "is_incremental": false,
@@ -3347,7 +3231,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase-1.html",
-          "hash": "k3/GCf1dCiStyeE01gPV3w=="
+          "hash": "yF0tuzOldkkk54A1rlphCQ=="
         }
       },
       "is_incremental": false,
@@ -3360,7 +3244,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention.html",
-          "hash": "26TwTT/sPeZPJUtAeGr2uw=="
+          "hash": "ugu+GwfJZOBC8eKTVJFggQ=="
         }
       },
       "is_incremental": false,
@@ -3373,7 +3257,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html",
-          "hash": "vCfMw61ip45BgG6QnOooNg=="
+          "hash": "yfREdhJay+xbV81niYJjAA=="
         }
       },
       "is_incremental": false,
@@ -3386,7 +3270,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.html",
-          "hash": "d8nU5XHf5wLMevlH9GsCkQ=="
+          "hash": "1adJzaD/buFRQJtENw3/2Q=="
         }
       },
       "is_incremental": false,
@@ -3399,7 +3283,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention.html",
-          "hash": "h2NeX2R2ng+IJMh/KFR7Ww=="
+          "hash": "G3kAweINyDxKGj/WKD8VCA=="
         }
       },
       "is_incremental": false,
@@ -3412,7 +3296,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention.html",
-          "hash": "mLA/VZZ1G+3LqU/RVpTI0A=="
+          "hash": "5NdpOOGf7oJZOOlF3J/Kjw=="
         }
       },
       "is_incremental": false,
@@ -3425,7 +3309,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention.html",
-          "hash": "hyGrupQDrXgpg0j2dF5xow=="
+          "hash": "I3fYIGABD04q9e/v+S898Q=="
         }
       },
       "is_incremental": false,
@@ -3438,7 +3322,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention.html",
-          "hash": "d176ovhysWX2BB8yEtrvGg=="
+          "hash": "gjPuSmrFg3wEPmV3rxZEjw=="
         }
       },
       "is_incremental": false,
@@ -3451,7 +3335,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Conventions.html",
-          "hash": "rEsshQwzUZZoGrAZMpMLoQ=="
+          "hash": "FveSc6wEWA93DVE0Pgm37g=="
         }
       },
       "is_incremental": false,
@@ -3464,7 +3348,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.DebugHelper.html",
-          "hash": "/+XwKUnk+5V0YzTy6lJaSw=="
+          "hash": "1kgI6kguuxiawMUW925OIg=="
         }
       },
       "is_incremental": false,
@@ -3477,7 +3361,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.DirectoryExistsAttribute.html",
-          "hash": "rGK1B/TH7vk5Y1biGl+y4Q=="
+          "hash": "IVlbIIO/+wkmiQ2s1db6YQ=="
         }
       },
       "is_incremental": false,
@@ -3490,7 +3374,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.DotNetCliContext.html",
-          "hash": "6Y65WNdk5aRT+f8lXreTqw=="
+          "hash": "H19NfysOV1z+PuAv/TaEmQ=="
         }
       },
       "is_incremental": false,
@@ -3503,7 +3387,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.DotNetExe.html",
-          "hash": "JRstDFWqfjyjAx0qCg1B7Q=="
+          "hash": "2xpNv+NmoeMj1iHAwZn1Cg=="
         }
       },
       "is_incremental": false,
@@ -3516,7 +3400,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.FileExistsAttribute.html",
-          "hash": "8VCfK+6CSo06rmHjLDxyZA=="
+          "hash": "w1AkIDExHHDuDR1KkDPkjg=="
         }
       },
       "is_incremental": false,
@@ -3529,7 +3413,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.html",
-          "hash": "lX1o3EFsa3b+RO2TgrJsZQ=="
+          "hash": "WB3hG8GkLJ0ojVvaVXYdFQ=="
         }
       },
       "is_incremental": false,
@@ -3537,15 +3421,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.html",
-          "hash": "fBgQEp08xOFekU9f9obW0w=="
+          "hash": "zUX1EsjVGGR5XgDv2mu64g=="
         }
       },
       "is_incremental": false,
@@ -3558,7 +3439,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html",
-          "hash": "MeE/vgRgaK+h6QgBxz3aiw=="
+          "hash": "YNHu+9p16jhWWYxD2hlE1A=="
         }
       },
       "is_incremental": false,
@@ -3571,7 +3452,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html",
-          "hash": "+XOPYFQkYAIab39sbSJemA=="
+          "hash": "A18Nkw4XwRSD7uWwpiZhUw=="
         }
       },
       "is_incremental": false,
@@ -3584,7 +3465,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.HelpText.html",
-          "hash": "N4mMS+yQsVX6MzTF4uaNPQ=="
+          "hash": "ixkFCCNMI12GcCieHEY1Zg=="
         }
       },
       "is_incremental": false,
@@ -3597,7 +3478,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.IConsole.html",
-          "hash": "ytR+cxtrWH8LLZVZteMHQg=="
+          "hash": "52S6HrCVvf3EwrrgViLL8Q=="
         }
       },
       "is_incremental": false,
@@ -3610,7 +3491,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.IReporter.html",
-          "hash": "+F4s6C2TC/ZgKZ77zzu/7g=="
+          "hash": "WIbHfNTPwUbB8M1Vzx/ssQ=="
         }
       },
       "is_incremental": false,
@@ -3623,7 +3504,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.html",
-          "hash": "0D2akt0JXRj3ncJT6IjSGw=="
+          "hash": "0SyOcfNPIyKHwAohXWcgEQ=="
         }
       },
       "is_incremental": false,
@@ -3636,7 +3517,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.html",
-          "hash": "j6U9EN0PNG8UBsypwYYm3w=="
+          "hash": "ZvgG2sa8vtPfFPJHSqJmTA=="
         }
       },
       "is_incremental": false,
@@ -3649,7 +3530,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.NullConsole.html",
-          "hash": "iR7C/j4qEVnAEo1wvO8h8Q=="
+          "hash": "i1Aj2VDV1MrArpJz6LArgw=="
         }
       },
       "is_incremental": false,
@@ -3662,7 +3543,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.NullReporter.html",
-          "hash": "pI6YD4VekuzS2Wt5ETYIDA=="
+          "hash": "PL+yr1DTauLAPIDCS1FNvg=="
         }
       },
       "is_incremental": false,
@@ -3670,15 +3551,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html",
-          "hash": "VYaOVOY61izbls5JZQjaDw=="
+          "hash": "JrvLSXUM1S15YksHVfocAQ=="
         }
       },
       "is_incremental": false,
@@ -3691,7 +3569,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html",
-          "hash": "DNfuzPI8wFeUo7Pjfx3UIQ=="
+          "hash": "DLkZeLwK+h3WTpAcHzVR3Q=="
         }
       },
       "is_incremental": false,
@@ -3704,7 +3582,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Pager.html",
-          "hash": "BzDiIDUtyz/ibMeouNweKQ=="
+          "hash": "5q0pc/NAK2tiTAobwDY+jA=="
         }
       },
       "is_incremental": false,
@@ -3712,15 +3590,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.html",
-          "hash": "rz3ULBhnasZfMhAPUxG8Ig=="
+          "hash": "DlKiUadrAW5vxCx7gP9wig=="
         }
       },
       "is_incremental": false,
@@ -3733,7 +3608,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Prompt.html",
-          "hash": "RX0RdpgOdnptRvjTr7XcAQ=="
+          "hash": "zU18TvUyrFy7aFNh9s3WPA=="
         }
       },
       "is_incremental": false,
@@ -3746,7 +3621,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html",
-          "hash": "nUqXwSvFFnaSYOw1GhuJWA=="
+          "hash": "YpLrG/NhiAK52b1ebA2Ojw=="
         }
       },
       "is_incremental": false,
@@ -3759,7 +3634,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html",
-          "hash": "4dJ4nqAEMy1htIWoeoU+qA=="
+          "hash": "sWhAsZvbKfVcn6eLt25bcA=="
         }
       },
       "is_incremental": false,
@@ -3772,7 +3647,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.html",
-          "hash": "CdvtLwP2M09BbM2xRCevHg=="
+          "hash": "Zn7IRYnqEu6WStTDqr3z+w=="
         }
       },
       "is_incremental": false,
@@ -3785,7 +3660,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html",
-          "hash": "GRzxbegPhnu7hkmvy1VTxA=="
+          "hash": "JiVr/dwXJSOPhuq+763IjQ=="
         }
       },
       "is_incremental": false,
@@ -3798,7 +3673,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.html",
-          "hash": "nxusaQv+Fu5E5YSohKQjVA=="
+          "hash": "F8KSURPU4ukDExwuDsSPww=="
         }
       },
       "is_incremental": false,
@@ -3811,7 +3686,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.html",
-          "hash": "ca0fECJ2Yb7ThvEBje2vuw=="
+          "hash": "k1ytBbYHhgC2/AFJSA590w=="
         }
       },
       "is_incremental": false,
@@ -3824,7 +3699,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html",
-          "hash": "z6/a+6lPXO3AzQdzap7yvg=="
+          "hash": "Q5xpg+EdCy9OIqnh7UKh3g=="
         }
       },
       "is_incremental": false,
@@ -3837,7 +3712,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.html",
-          "hash": "j+f0h77Wr1YQgHnb9pI9nQ=="
+          "hash": "T4EGQc149w+w4u888vB8Cg=="
         }
       },
       "is_incremental": false,
@@ -3850,7 +3725,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.html",
-          "hash": "A3nlinEhTscX7tvPQmRPZA=="
+          "hash": "m4XVzBrFKqeyo2VZJEc3+Q=="
         }
       },
       "is_incremental": false,
@@ -3863,7 +3738,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.html",
-          "hash": "Gw7ZdMC3T0BhS9YSiBHj+g=="
+          "hash": "crOJLFgFlNp/jE/RACsLMA=="
         }
       },
       "is_incremental": false,
@@ -3871,15 +3746,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html",
-          "hash": "4XiD5JoG45/xWN04yRXuSw=="
+          "hash": "h0nK8lBomQWuZhL806UsQQ=="
         }
       },
       "is_incremental": false,
@@ -3887,15 +3759,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.html",
-          "hash": "d1b9nC84jC8XdLA7HOT2wA=="
+          "hash": "v3jGtmq1sy1CfsyWv29ibg=="
         }
       },
       "is_incremental": false,
@@ -3908,7 +3777,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.html",
-          "hash": "Qt2mJAFGx3lx2fvKzpnAcQ=="
+          "hash": "KI7XNd/qEBXmlfOZAv6d7A=="
         }
       },
       "is_incremental": false,
@@ -3921,7 +3790,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.html",
-          "hash": "l+LoN9JZ4ehhjyLz0ayXAQ=="
+          "hash": "yis1Cdp3QmOF0QXEiOFHfw=="
         }
       },
       "is_incremental": false,
@@ -3929,15 +3798,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html",
-          "hash": "4NER04FSh6rOgRgB7VhrKA=="
+          "hash": "l8S51BlSLOP0QuftVlAtdA=="
         }
       },
       "is_incremental": false,
@@ -3950,7 +3816,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html",
-          "hash": "c491Q7hIdgHhyPGsQzXBbA=="
+          "hash": "LYmX3pr4RZOK9KtOzWcXtQ=="
         }
       },
       "is_incremental": false,
@@ -3963,7 +3829,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html",
-          "hash": "zz2tLEmQBvw/r0UvG+phKA=="
+          "hash": "35wywQMi4QB8aB+9oc5RFw=="
         }
       },
       "is_incremental": false,
@@ -3976,7 +3842,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.IValidator.html",
-          "hash": "TOlPCyb6FA6GueGkO1kqVA=="
+          "hash": "fYvbUfhRAwetdVLG8XYwzA=="
         }
       },
       "is_incremental": false,
@@ -3989,7 +3855,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder-1.html",
-          "hash": "gZz/J44LZU3qPmDZFjbpqw=="
+          "hash": "6LfMgZwvVIiv1fcjSvDtzA=="
         }
       },
       "is_incremental": false,
@@ -4002,7 +3868,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder.html",
-          "hash": "EZdjEBmNc8xs5apWe3rO+A=="
+          "hash": "PX0JOC23Q0y5fJx2glRgPw=="
         }
       },
       "is_incremental": false,
@@ -4015,7 +3881,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.Validation.html",
-          "hash": "gJaTpbHog/7WSp6FCwguvw=="
+          "hash": "aaiIxBTCckP0CUUhSUoUaw=="
         }
       },
       "is_incremental": false,
@@ -4023,15 +3889,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html",
-          "hash": "YAoxzEkVl3G3gdFOEkPRRQ=="
+          "hash": "xEoBq6fp1H+hfmVrXihwyg=="
         }
       },
       "is_incremental": false,
@@ -4039,15 +3902,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.html",
-          "hash": "BRerWPIBCKEliSFrBmnw+g=="
+          "hash": "whZUPaL9396AULdS/pbbww=="
         }
       },
       "is_incremental": false,
@@ -4060,7 +3920,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.html",
-          "hash": "IWseINOf0MPN6NXYpeLhpw=="
+          "hash": "x8WI5v7qL6B9hgko+KLiVQ=="
         }
       },
       "is_incremental": false,
@@ -4068,15 +3928,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.CommandLineUtils.html",
-          "hash": "6jiGptzwxuRizFxR+b5AFw=="
+          "hash": "CoHhwf2q0uXle88tJRhqhg=="
         }
       },
       "is_incremental": false,
@@ -4084,15 +3941,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.html",
-          "hash": "SAI9wf6o+yDJPLKYTi/w3Q=="
+          "hash": "0BSThHK+3rVpzRQZSFY+Og=="
         }
       },
       "is_incremental": false,
@@ -4100,15 +3954,12 @@
       "group": "v2.3"
     },
     {
-      "log_codes": [
-        "ReferencedXrefPropertyNotString"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.3/api/McMaster.Extensions.Hosting.CommandLine.yml",
       "output": {
         ".html": {
           "relative_path": "v2.3/api/McMaster.Extensions.Hosting.CommandLine.html",
-          "hash": "GJsurGazvhQMppdnukz0Cg=="
+          "hash": "iWyAkeoFUDCJpXKkmBDcnQ=="
         }
       },
       "is_incremental": false,
@@ -4121,7 +3972,7 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html",
-          "hash": "X3m22C8qWufvwvtkYWvEPg=="
+          "hash": "R9ASbsXj5AYrfcl3yck+/w=="
         }
       },
       "is_incremental": false,
@@ -4134,7 +3985,20 @@
       "output": {
         ".html": {
           "relative_path": "v2.3/api/Microsoft.Extensions.Hosting.html",
-          "hash": "gw0jQkLeCtEoyeGjmtfqmg=="
+          "hash": "BA/7aQiwjMp7EVsdiEI/IA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.3",
+      "group": "v2.3"
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "v2.3/api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "v2.3/api/index.html",
+          "hash": "2V1JKyPZev6SpzsCJwTvgQ=="
         }
       },
       "is_incremental": false,
@@ -4153,6 +4017,1384 @@
       "is_incremental": false,
       "version": "v2.3",
       "group": "v2.3"
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "v2.3/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.3/toc.html",
+          "hash": "/Kw3k6NkY34R5/LPGqNwSA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.3",
+      "group": "v2.3"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.html",
+          "hash": "e+YhsGSbzfmsKuzyuO8B7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.html",
+          "hash": "vpTM4AsNg2+fziQ1fyAyeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html",
+          "hash": "1WtfLKula9wWMJU8VhwNsA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.html",
+          "hash": "O0bxkDZvWKKvGoZT6kqXig=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html",
+          "hash": "ikKGHrPAmJ2ny0DZWRn6pQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html",
+          "hash": "dQL4kA5rO+puUBbdXNbJWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.html",
+          "hash": "jJHfaHHjTIoAkFrtb4CS9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Abstractions.html",
+          "hash": "5p28S2EBXXiRABPdR18Ibw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.AllowedValuesAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.AllowedValuesAttribute.html",
+          "hash": "5eDK6SuLetBtwxaIIkOMsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html",
+          "hash": "seGbD0nxBdvRX7/ZadewHQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ArgumentEscaper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ArgumentEscaper.html",
+          "hash": "Szz9tZPUjCmQrbH/y3koLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandArgument-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandArgument-1.html",
+          "hash": "c+RpdM0MOB61ZQlz9nZvqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandArgument.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html",
+          "hash": "ufGDfCwHTGGLe5vwvI5Q1g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html",
+          "hash": "vtBPwEYOwtzPlpBtY31QpA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html",
+          "hash": "tQUlCaDm5t5F/8xWHpEjpw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html",
+          "hash": "OL9AjGow/cl6YPET0I7V8g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html",
+          "hash": "aBxFa9sg/KQ6zFZOKgouvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandOption-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandOption-1.html",
+          "hash": "v/fYR74kuWOAq1Q/D88JBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandOption.html",
+          "hash": "oZDLwU5tQsZr1bI6OH2JDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandOptionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandOptionType.html",
+          "hash": "vjDDnSl7jAB93dLqssU8Jg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandParsingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.CommandParsingException.html",
+          "hash": "rxCQEbpTlkVCKh0SVfzeFA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ConsoleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html",
+          "hash": "weNwHRIJoLZB9u3Z9JWP1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.html",
+          "hash": "hp2ixCGvjZyx4CgfgHNQMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html",
+          "hash": "rqGie3XB90FcA6aetpcsKg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention.html",
+          "hash": "7CxJ0FCKgR6geflVJxrEew=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention.html",
+          "hash": "XQ8t5U5TTHyVwnkn6EUbgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.html",
+          "hash": "ITY9V6UGw1+ANMkfEChRqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.html",
+          "hash": "cEHWZcCPuHFPcKACN0IZuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.html",
+          "hash": "EzLRQwKnxWWjdWUyhQCFFw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.html",
+          "hash": "blpKlzrMp2Lr78LV41p0Jg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html",
+          "hash": "4BMrl6mjranD8W+BURoQPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html",
+          "hash": "QsHEfCG1aXX2oDGGzpKXVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.html",
+          "hash": "jP4JDzuxQeF056V2zgTcSA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.html",
+          "hash": "HoPbN1tJQ6VnpgfQ8EscDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.IConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html",
+          "hash": "v0fQQP0FwCVyhAUUnq3S0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.html",
+          "hash": "Xt9C7UHGXf4qN6R5w7qxtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html",
+          "hash": "2pX+eM5FYFaNjQ75O0mu4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention.html",
+          "hash": "/nkOIllbUmiRq6ymwgRKmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase-1.html",
+          "hash": "QJTl1nhkut35OKYxsBL1Uw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention.html",
+          "hash": "YYLcQmg2npTG79F0s2rgcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html",
+          "hash": "+bRuVPGRKMvWjol/vYiK2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.html",
+          "hash": "t8VIMJy2LH72femmxYr64w=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention.html",
+          "hash": "/lGmWjwnCGNwBDqMhh653g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention.html",
+          "hash": "08kLjfpY3T/y9q/Nf/HKHQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention.html",
+          "hash": "apV7ohaU0y7toTPDDPDgiA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention.html",
+          "hash": "xNfrFiwr1E5eocoRihD8Ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Conventions.html",
+          "hash": "OOTte7vPExAGmRvFhp+9ng=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.DebugHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.DebugHelper.html",
+          "hash": "eC2oZ8Ua9yJJ4KjKEUlQxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.DirectoryExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.DirectoryExistsAttribute.html",
+          "hash": "6vUCuTVtDq2e1zmVwJcACg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.html",
+          "hash": "/+KWv9W5eyI7C3Ln5XN+Gg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.DotNetCliContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.DotNetCliContext.html",
+          "hash": "f6PluLarOFej2jpiMAx53g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.DotNetExe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.DotNetExe.html",
+          "hash": "cRlMDhiHRNZtXOiE934ZdQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.html",
+          "hash": "ZJ3rjpK134vNXnCriZ69aA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Errors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Errors.html",
+          "hash": "1IgnXaekDXCShxlUaSBR0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.FileExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.FileExistsAttribute.html",
+          "hash": "h1HgLdYvdg/iVr40eBd9wg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.html",
+          "hash": "gLLhFcYx7pcz0NVRzkgNSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.html",
+          "hash": "WDBGKHwKo63n71Ib94Z0Fw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.html",
+          "hash": "i7UohD6kORLm9HSPfFRpPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.html",
+          "hash": "V2BUwC5ukIJPbXsKGLudJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html",
+          "hash": "Aac541HxZ0CqCVcUaiNGUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.html",
+          "hash": "0WbQSYb4X/wPZjMtIKyIxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html",
+          "hash": "jEQl9tjErwCJgXwFbw+tLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.HelpText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.HelpText.html",
+          "hash": "Du4Oe0vsrbFUTU+Q7HEPtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.IConsole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.IConsole.html",
+          "hash": "YRi9C2Lb9Gq8V+qTK/d2MA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.IReporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.IReporter.html",
+          "hash": "I0sLH2V5NzRiE8nN1klRkg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.html",
+          "hash": "Jk7g5FLqyb7+sA90lgY57A=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.html",
+          "hash": "tfQFPBIxdSMBUXdlYQzn0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.NullConsole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.NullConsole.html",
+          "hash": "E1EHyVIjjDEz0JZxi12fYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.NullReporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.NullReporter.html",
+          "hash": "VBgCn/2nqJe3kilQMJAShw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html",
+          "hash": "H6B4AcLt94qGxd5DblDkXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.OptionAttributeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html",
+          "hash": "Lg4AhkIYZXGQWISv2BzifA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Pager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Pager.html",
+          "hash": "81m1MppW0EHaDpePZM6C0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.html",
+          "hash": "BkZCYO6BM9Ol5ny5q1zESg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Prompt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Prompt.html",
+          "hash": "jGtpKUUy5dbCmUIHbxN9Vg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html",
+          "hash": "oBqp/XQQhb1r7xj07OAWCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html",
+          "hash": "813FJ9tSYCJ6JPqGniisfg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.html",
+          "hash": "UbuRq/Rn0z7sC44N5oEZ2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html",
+          "hash": "0V/m9+NDYQQFb8jkdRO/Mg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.html",
+          "hash": "093iclc65OzRxy4yNrZ0WA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.html",
+          "hash": "7BQ4xai0DwB9RyuhEl5SEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html",
+          "hash": "1SNN6wpUpeo3bw2lGZ1w4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.html",
+          "hash": "FcsaQ+RmyWrU9EdiCQ/yUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.html",
+          "hash": "XkccX0GIQvQLdcpRBMyeCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.html",
+          "hash": "HabxVT3HdWog8q74SaF3zw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.html",
+          "hash": "60+Py2m5nIzWrKX+UaPBKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html",
+          "hash": "bOTKI6i+cVNgu6nYiJkvnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.html",
+          "hash": "kz0tPOpeq/6mxpmofhoVQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.html",
+          "hash": "IrgWGaxXyRoNqqZed5RbNA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.html",
+          "hash": "z699ty52SVn3icHA6KXXVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html",
+          "hash": "wiULBpCWk8l82J2zXaFcWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html",
+          "hash": "i0dBnfLHG3zxuRCRvbt8rA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html",
+          "hash": "HusO9ybF76uUk1prXaK/hg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.IValidator.html",
+          "hash": "S1dmKsy07A3p+RHVTx3pgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder-1.html",
+          "hash": "4chn3n2cHjjDID8tnK2dBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder.html",
+          "hash": "+ehPOW9ki+zhmfm9XS+DdA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.Validation.html",
+          "hash": "NGrU+zPl3mGeUzWjptXurQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html",
+          "hash": "TaMSkdUu9e8UQwVHylwYtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.html",
+          "hash": "g8iF2WfaGhSHJZV6PImwUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.html",
+          "hash": "WJeG7u0UBrofmVSAtndaTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.CommandLineUtils.html",
+          "hash": "CjbYIDZqWZ+sXZZfeaxg3g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.html",
+          "hash": "hX/mqI7qsMzabguWCwqxwA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/McMaster.Extensions.Hosting.CommandLine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/McMaster.Extensions.Hosting.CommandLine.html",
+          "hash": "bMsZRqN3vQCyNZxTVEKvyg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html",
+          "hash": "I6UhVoW1hfVXnJtLLDvVlw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.4/api/Microsoft.Extensions.Hosting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/Microsoft.Extensions.Hosting.html",
+          "hash": "s3L4lVOVWyVTCmllHDT5uA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "v2.4/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.4/api/toc.html",
+          "hash": "bx5mUohZcR95ppS3mFowlA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.4",
+      "group": "v2.4"
     }
   ],
   "incremental_info": [
@@ -4226,6 +5468,37 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
+          "total_file_count": 104,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 1,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
           "total_file_count": 97,
           "skipped_file_count": 0
         }
@@ -4275,6 +5548,7 @@
   ],
   "version_info": {
     "unstable": {},
+    "v2.4": {},
     "v2.3": {},
     "v2.2": {}
   },
@@ -4285,6 +5559,10 @@
     {
       "name": "unstable",
       "xrefmap": "unstable.xrefmap.yml"
+    },
+    {
+      "name": "v2.4",
+      "xrefmap": "v2.4.xrefmap.yml"
     },
     {
       "name": "v2.3",
