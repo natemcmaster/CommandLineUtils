@@ -36,8 +36,6 @@ stages:
       displayName: Invoke build.ps1
       env:
         KEYVAULT_CLIENT_SECRET: $(kv-access-token)
-    - powershell: .\docs\generate.ps1 -Verbose -NoBuild
-      displayName: Compile documentation
     - task: PublishTestResults@2
       displayName: Upload test results
       condition: always()

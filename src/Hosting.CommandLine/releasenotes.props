@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.0'">
+Changes:
+* Support C# 8.0 and nullable reference types
+* RunCommandLineApplicationAsync is actually async now, not just sync disguised as an async API
+* Better CTRL+C support
+    </PackageReleaseNotes>
+    <PackageReleaseNotes>$(PackageReleaseNotes)
+
+See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
+    </PackageReleaseNotes>
+  </PropertyGroup>
+</Project>
