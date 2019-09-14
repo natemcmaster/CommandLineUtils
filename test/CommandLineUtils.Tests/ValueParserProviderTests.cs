@@ -415,7 +415,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(Color.Green)]
         public void ParsesNullableEnum(Color? color)
         {
-            var parsed = CommandLineParser.ParseArgs<Program>("--color-opt", color.ToString().ToLowerInvariant());
+            var parsed = CommandLineParser.ParseArgs<Program>("--color-opt", color!.ToString()!.ToLowerInvariant());
             Assert.True(parsed.ColorOpt.HasValue, "Option should have value");
             Assert.Equal(color, parsed.ColorOpt);
         }
@@ -491,7 +491,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Conventions.UseAttributes();
             app.Parse(option, test);
 
-            var actual = typeof(Program).GetProperty(property).GetMethod.Invoke(app.Model, null);
+            var actual = typeof(Program).GetProperty(property)!.GetMethod!.Invoke(app.Model, null);
             Assert.Equal(expected, actual);
         }
 
@@ -569,7 +569,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 };
 
         private static readonly MethodInfo s_ItParsesOptionOfTImpl
-                  = typeof(ValueParserProviderTests).GetMethod(nameof(ItParsesOptionOfTImpl), BindingFlags.NonPublic | BindingFlags.Instance);
+                  = typeof(ValueParserProviderTests).GetMethod(nameof(ItParsesOptionOfTImpl), BindingFlags.NonPublic | BindingFlags.Instance)!;
 
         private void ItParsesOptionOfTImpl<T>(string input, T expected)
         {
@@ -581,7 +581,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         private static readonly MethodInfo s_ItParsesArgumentOfTImpl
-                  = typeof(ValueParserProviderTests).GetMethod(nameof(ItParsesArgumentOfTImpl), BindingFlags.NonPublic | BindingFlags.Instance);
+                  = typeof(ValueParserProviderTests).GetMethod(nameof(ItParsesArgumentOfTImpl), BindingFlags.NonPublic | BindingFlags.Instance)!;
 
         private void ItParsesArgumentOfTImpl<T>(string input, T expected)
         {

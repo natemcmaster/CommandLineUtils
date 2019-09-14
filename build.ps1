@@ -55,20 +55,14 @@ exec dotnet pack --no-restore --no-build --configuration $Configuration -o $arti
 exec dotnet build --configuration $Configuration "$PSScriptRoot/docs/samples/samples.sln"
 
 [string[]] $testArgs=@()
-if ($PSVersionTable.PSEdition -eq 'Core' -and -not $IsWindows) {
-    $testArgs += '--framework','netcoreapp2.2'
+if (-not $IsWindows) {
+    $testArgs += '-p:TestFullFramework=false'
 }
 if ($env:TF_BUILD) {
     $testArgs += '--logger', 'trx'
 }
 
-exec dotnet test --no-restore --no-build --configuration $Configuration '-clp:Summary' `
-    "$PSScriptRoot/test/CommandLineUtils.Tests/McMaster.Extensions.CommandLineUtils.Tests.csproj" `
-    @testArgs `
-    @MSBuildArgs
-
-exec dotnet test --no-restore --no-build --configuration $Configuration '-clp:Summary' `
-    "$PSScriptRoot/test/Hosting.CommandLine.Tests/McMaster.Extensions.Hosting.CommandLine.Tests.csproj" `
+exec dotnet test --no-restore --no-build --configuration $Configuration `
     @testArgs `
     @MSBuildArgs
 
