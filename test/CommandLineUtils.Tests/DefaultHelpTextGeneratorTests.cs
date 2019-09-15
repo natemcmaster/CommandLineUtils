@@ -65,27 +65,39 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void DoesNotOrderCommandsByName()
         {
-            DefaultHelpTextGenerator.Singleton.SortCommandsByName = false;
             var app = new CommandLineApplication<EmptyShortName>();
             app.Conventions.UseDefaultConventions();
             app.Command("b", _ => { });
             app.Command("a", _ => { });
-            var helpText = GetHelpText(app);
+            var generator = new DefaultHelpTextGenerator() {SortCommandsByName = false};
+            var helpText = GetHelpText(app, generator);
 
             var indexOfA = helpText.IndexOf("  a", StringComparison.InvariantCulture);
             var indexOfB = helpText.IndexOf("  b", StringComparison.InvariantCulture);
             Assert.True(indexOfA > indexOfB);
         }
 
-        private string GetHelpText(CommandLineApplication app)
+        private string GetHelpText(CommandLineApplication app, DefaultHelpTextGenerator generator)
         {
             var sb = new StringBuilder();
-            DefaultHelpTextGenerator.Singleton.Generate(app, new StringWriter(sb));
+            generator.Generate(app, new StringWriter(sb));
             var helpText = sb.ToString();
+
             _output.WriteLine(helpText);
+
             return helpText;
         }
-        
+
+        private string GetHelpText(CommandLineApplication app)
+        {
+            var generator = new DefaultHelpTextGenerator
+            {
+                OverriddenConsoleWidth = 80
+            };
+
+            return GetHelpText(app, generator);
+        }
+
         enum SomeEnum { None, Normal, Extreme }
 
         [Fact]

@@ -34,12 +34,17 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <summary>
         /// Initializes a new instance of <see cref="DefaultHelpTextGenerator"/>.
         /// </summary>
-        protected DefaultHelpTextGenerator() { }
+        public DefaultHelpTextGenerator() { }
 
         /// <summary>
         /// Determines if commands are ordered by name in generated help text
         /// </summary>
         public bool SortCommandsByName { get; set; } = true;
+
+        /// <summary>
+        /// If set it overrides, the console width is not from the running system.
+        /// </summary>
+        public int? OverriddenConsoleWidth { get; set; } = null;
 
         /// <inheritdoc />
         public virtual void Generate(CommandLineApplication application, TextWriter output)
@@ -336,11 +341,14 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         {
             try
             {
+                if (OverriddenConsoleWidth.HasValue)
+                    return OverriddenConsoleWidth;
+
                 return Console.BufferWidth;
             }
             catch (IOException)
             {
-                // If there isn't a console - for instance in test enviornments
+                // If there isn't a console - for instance in test environments
                 // An IOException will be thrown trying to get the Console.BufferWidth.
                 return null;
             }
