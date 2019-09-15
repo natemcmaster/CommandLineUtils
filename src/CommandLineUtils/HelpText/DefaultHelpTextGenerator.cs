@@ -172,7 +172,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var arg in visibleArguments)
                 {
-                    var enumNames = ExtractamesFromEnum(arg.GetType());
+                    var enumNames = ExtractNamesFromEnum(arg.GetType());
                     var description = enumNames.Any()
                         ? $"{arg.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
                         : arg.Description;
@@ -207,7 +207,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var opt in visibleOptions)
                 {
-                    var enumNames = ExtractamesFromEnum(opt.GetType());
+                    var enumNames = ExtractNamesFromEnum(opt.GetType());
                     var description = enumNames.Any()
                         ? $"{opt.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
                         : opt.Description;
@@ -247,7 +247,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var cmd in orderedCommands)
                 {
-                    var enumNames = ExtractamesFromEnum(cmd.GetType());
+                    var enumNames = ExtractNamesFromEnum(cmd.GetType());
                     var description = enumNames.Any()
                         ? $"{cmd.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
                         : cmd.Description;
