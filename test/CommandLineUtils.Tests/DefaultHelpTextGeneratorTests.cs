@@ -98,10 +98,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Option<SomeEnum>("--enumOpt <E>", "enum option desc", CommandOptionType.SingleValue);
             app.Argument("SomeArgument1", "arg desc");
             app.Argument<SomeEnum>("SomeArgument2", "arg desc");
-
-            StringWriter sw = new StringWriter();
-            app.Out = sw;
-            app.ShowHelp(false);
+            var helpText = GetHelpText(app);
 
             Assert.Equal(@"Usage:  [options] <SomeArgument1> <SomeArgument2>
 
@@ -118,7 +115,7 @@ Options:
                  Allowed values are: None, Normal, Extreme
 
 ",
-            sw.ToString(),
+            helpText,
             ignoreLineEndingDifferences: true);
         }
     }
