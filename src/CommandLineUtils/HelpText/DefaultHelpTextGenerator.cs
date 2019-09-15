@@ -345,7 +345,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             }
         }
 
-        string[] ExtractamesFromEnum(Type type)
+        private string[] ExtractNamesFromEnum(Type type)
         {
 #if NETSTANDARD1_6 // no support for GetGenericArguments()
             return new string[0];
