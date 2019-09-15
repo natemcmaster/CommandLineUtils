@@ -117,7 +117,9 @@ Options:
   --enumOpt <E>  enum option desc
                  Allowed values are: None, Normal, Extreme
 
-", sw.ToString());
+",
+            sw.ToString(),
+            ignoreLineEndingDifferences: true);
         }
     }
 }
