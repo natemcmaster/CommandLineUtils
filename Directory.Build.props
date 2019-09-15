@@ -34,8 +34,8 @@
   </PropertyGroup>
 
    <PropertyGroup>
-    <VersionPrefix>2.4.0</VersionPrefix>
-    <VersionSuffix>rc</VersionSuffix>
+    <VersionPrefix>2.4.1</VersionPrefix>
+    <VersionSuffix>alpha</VersionSuffix>
     <IncludePreReleaseLabelInPackageVersion Condition="'$(IsStableBuild)' != 'true'">true</IncludePreReleaseLabelInPackageVersion>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(BUILD_NUMBER)</BuildNumber>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
