@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils.HelpText
@@ -347,19 +348,14 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
         private string[] ExtractNamesFromEnum(Type type)
         {
-#if NETSTANDARD1_6 // no support for GetGenericArguments()
-            return new string[0];
-#else
-            if (!type.IsGenericType)
+            if(!type.GetTypeInfo().IsGenericType)
                 return new string[0];
 
-            var genericArguments = type.GetGenericArguments();
-            if (genericArguments.Length > 1 || !genericArguments[0].IsEnum)
+            var genericArguments = type.GetTypeInfo().GetGenericArguments();
+            if (genericArguments.Length > 1 || !genericArguments[0].GetTypeInfo().IsEnum)
                 return new string[0];
 
             return Enum.GetNames(genericArguments[0]);
-#endif
         }
-
     }
 }
