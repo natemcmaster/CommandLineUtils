@@ -60,6 +60,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public ICollection<IArgumentValidator> Validators { get; } = new List<IArgumentValidator>();
 
+        /// <summary>
+        /// Defines the underlying type of the option for the help-text-generator
+        /// </summary>
+        public Type UnderlyingType { get; set; }
+
         internal void Reset()
         {
             Values.Clear();

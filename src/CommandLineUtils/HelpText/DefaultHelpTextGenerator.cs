@@ -178,7 +178,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var arg in visibleArguments)
                 {
-                    var enumNames = ExtractNamesFromEnum(arg.GetType());
+                    var enumNames = ExtractNamesFromEnum(arg.UnderlyingType);
                     var description = enumNames.Any()
                         ? $"{arg.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
                         : arg.Description;
@@ -213,7 +213,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var opt in visibleOptions)
                 {
-                    var enumNames = ExtractNamesFromEnum(opt.GetType());
+                    var enumNames = ExtractNamesFromEnum(opt.UnderlyingType);
                     var description = enumNames.Any()
                         ? $"{opt.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
                         : opt.Description;
@@ -253,7 +253,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var cmd in orderedCommands)
                 {
-                    var enumNames = ExtractNamesFromEnum(cmd.GetType());
+                    var enumNames = ExtractNamesFromEnumGeneric(cmd.GetType());
                     var description = enumNames.Any()
                         ? $"{cmd.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
                         : cmd.Description;
@@ -354,16 +354,26 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             }
         }
 
-        private string[] ExtractNamesFromEnum(Type type)
+        private string[] ExtractNamesFromEnumGeneric(Type type)
         {
             if(!type.GetTypeInfo().IsGenericType)
                 return new string[0];
 
             var genericArguments = type.GetTypeInfo().GetGenericArguments();
-            if (genericArguments.Length > 1 || !genericArguments[0].GetTypeInfo().IsEnum)
+            if (genericArguments.Length > 1)
                 return new string[0];
 
-            return Enum.GetNames(genericArguments[0]);
+            return ExtractNamesFromEnum(genericArguments[0]);
+        }
+
+        private string[] ExtractNamesFromEnum(Type type)
+        {
+            if(type==null)
+                return new string[0];
+            if (!type.GetTypeInfo().IsEnum)
+                return new string[0];
+
+            return Enum.GetNames(type);
         }
     }
 }

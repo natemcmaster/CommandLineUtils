@@ -57,6 +57,8 @@ McMaster.Extensions.CommandLineUtils.CommandArgument.Name.get -> string
 McMaster.Extensions.CommandLineUtils.CommandArgument.Name.set -> void
 McMaster.Extensions.CommandLineUtils.CommandArgument.ShowInHelpText.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandArgument.ShowInHelpText.set -> void
+McMaster.Extensions.CommandLineUtils.CommandArgument.UnderlyingType.get -> System.Type
+McMaster.Extensions.CommandLineUtils.CommandArgument.UnderlyingType.set -> void
 McMaster.Extensions.CommandLineUtils.CommandArgument.Validators.get -> System.Collections.Generic.ICollection<McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator>
 McMaster.Extensions.CommandLineUtils.CommandArgument.Value.get -> string
 McMaster.Extensions.CommandLineUtils.CommandArgument.Values.get -> System.Collections.Generic.List<string>
@@ -204,6 +206,8 @@ McMaster.Extensions.CommandLineUtils.CommandOption.SymbolName.get -> string
 McMaster.Extensions.CommandLineUtils.CommandOption.SymbolName.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption.Template.get -> string
 McMaster.Extensions.CommandLineUtils.CommandOption.Template.set -> void
+McMaster.Extensions.CommandLineUtils.CommandOption.UnderlyingType.get -> System.Type
+McMaster.Extensions.CommandLineUtils.CommandOption.UnderlyingType.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(string value) -> bool
 McMaster.Extensions.CommandLineUtils.CommandOption.Validators.get -> System.Collections.Generic.ICollection<McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator>
 McMaster.Extensions.CommandLineUtils.CommandOption.Value() -> string

@@ -28,6 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandArgument(IValueParser<T> valueParser)
         {
             _valueParser = valueParser ?? throw new ArgumentNullException(nameof(valueParser));
+            UnderlyingType = typeof(T);
         }
 
         /// <summary>

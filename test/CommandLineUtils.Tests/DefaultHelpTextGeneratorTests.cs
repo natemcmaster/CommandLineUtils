@@ -130,5 +130,50 @@ Options:
             helpText,
             ignoreLineEndingDifferences: true);
         }
+
+
+        [Fact]
+        public void ShowHelpFromAttributes()
+        {
+            var app = new CommandLineApplication<MyApp>(){Name = "test"};
+            app.Conventions.UseDefaultConventions();
+            var helpText = GetHelpText(app);
+
+            Assert.Equal(@"Usage: test [options] <SomeStringArgument> <SomeEnumArgument>
+
+Arguments:
+  SomeStringArgument                string arg desc
+  SomeEnumArgument                  enum arg desc
+                                    Allowed values are: None, Normal, Extreme
+
+Options:
+  -strOpt|--str-opt <STR_OPT>       str option desc
+  -intOpt|--int-opt <INT_OPT>       int option desc
+  -enumOpt|--verbosity <VERBOSITY>  enum option desc
+                                    Allowed values are: None, Normal, Extreme
+  -?|-h|--help                      Show help information
+
+",
+                helpText,
+                ignoreLineEndingDifferences: true);
+        }
+
+        public class MyApp
+        {
+            [Option(ShortName = "strOpt", Description = "str option desc")]
+            public string strOpt{ get; set; }
+
+            [Option(ShortName = "intOpt", Description = "int option desc")]
+            public int intOpt { get; set; }
+
+            [Option(ShortName = "enumOpt", Description = "enum option desc")]
+            public SomeEnum Verbosity { get; set; }
+
+            [Argument(0, Description = "string arg desc")]
+            public string SomeStringArgument { get; set; }
+
+            [Argument(1, Description = "enum arg desc")]
+            public SomeEnum SomeEnumArgument { get; set; }
+        }
     }
 }

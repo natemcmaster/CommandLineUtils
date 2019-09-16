@@ -30,6 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils
             : base(template, optionType)
         {
             _valueParser = valueParser ?? throw new ArgumentNullException(nameof(valueParser));
+            UnderlyingType = typeof(T);
         }
 
         /// <summary>

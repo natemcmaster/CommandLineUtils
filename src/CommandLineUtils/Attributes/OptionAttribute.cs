@@ -81,6 +81,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     LongName = longName,
                     ShortName = longName.Substring(0, 1),
                     ValueName = prop.Name.ToConstantCase(),
+                    UnderlyingType = prop.PropertyType,
                 };
             }
 

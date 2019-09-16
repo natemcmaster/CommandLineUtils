@@ -71,6 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 Name = Name ?? prop.Name,
                 Description = Description,
                 ShowInHelpText = ShowInHelpText,
+                UnderlyingType = prop.PropertyType,
             };
         }
     }
