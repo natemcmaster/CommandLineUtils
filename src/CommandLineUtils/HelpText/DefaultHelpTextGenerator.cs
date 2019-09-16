@@ -253,10 +253,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var cmd in orderedCommands)
                 {
-                    var enumNames = ExtractNamesFromEnumGeneric(cmd.GetType());
-                    var description = enumNames.Any()
-                        ? $"{cmd.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
-                        : cmd.Description;
+                    var description = cmd.Description;
 
                     var wrappedDescription = IndentWriter?.Write(description);
                     var message = string.Format(outputFormat, cmd.Name, wrappedDescription);
@@ -354,22 +351,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             }
         }
 
-        private string[] ExtractNamesFromEnumGeneric(Type type)
-        {
-            if(!type.GetTypeInfo().IsGenericType)
-                return new string[0];
-
-            var genericArguments = type.GetTypeInfo().GetGenericArguments();
-            if (genericArguments.Length > 1)
-                return new string[0];
-
-            return ExtractNamesFromEnum(genericArguments[0]);
-        }
-
         private string[] ExtractNamesFromEnum(Type type)
         {
-            if(type==null)
+            if(type == null)
                 return new string[0];
+
             if (!type.GetTypeInfo().IsEnum)
                 return new string[0];
 
