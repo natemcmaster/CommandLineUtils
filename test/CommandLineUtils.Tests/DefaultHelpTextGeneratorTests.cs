@@ -98,33 +98,33 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             return GetHelpText(app, generator);
         }
 
-        enum SomeEnum { None, Normal, Extreme }
+        public enum SomeEnum { None, Normal, Extreme }
 
         [Fact]
         public void ShowHelp()
         {
             var app = new CommandLineApplication();
             app.HelpOption();
-            app.Option("--strOpt <E>", "int option desc", CommandOptionType.SingleValue);
+            app.Option("--strOpt <E>", "str option desc", CommandOptionType.SingleValue);
             app.Option<int>("--intOpt <E>", "int option desc", CommandOptionType.SingleValue);
             app.Option<SomeEnum>("--enumOpt <E>", "enum option desc", CommandOptionType.SingleValue);
-            app.Argument("SomeArgument1", "arg desc");
-            app.Argument<SomeEnum>("SomeArgument2", "arg desc");
+            app.Argument("SomeStringArgument", "string arg desc");
+            app.Argument<SomeEnum>("SomeEnumArgument", "enum arg desc");
             var helpText = GetHelpText(app);
 
-            Assert.Equal(@"Usage:  [options] <SomeArgument1> <SomeArgument2>
+            Assert.Equal(@"Usage:  [options] <SomeStringArgument> <SomeEnumArgument>
 
 Arguments:
-  SomeArgument1  arg desc
-  SomeArgument2  arg desc
-                 Allowed values are: None, Normal, Extreme
+  SomeStringArgument  string arg desc
+  SomeEnumArgument    enum arg desc
+                      Allowed values are: None, Normal, Extreme
 
 Options:
-  -?|-h|--help   Show help information
-  --strOpt <E>   int option desc
-  --intOpt <E>   int option desc
-  --enumOpt <E>  enum option desc
-                 Allowed values are: None, Normal, Extreme
+  -?|-h|--help        Show help information
+  --strOpt <E>        str option desc
+  --intOpt <E>        int option desc
+  --enumOpt <E>       enum option desc
+                      Allowed values are: None, Normal, Extreme
 
 ",
             helpText,
