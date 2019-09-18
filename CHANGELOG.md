@@ -381,7 +381,8 @@ Other:
 [@TheConstructor]: https://github.com/TheConstructor
 [@vpkopylov]: https://github.com/vpkopylov
 
-[unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.0...HEAD
+[unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.1...HEAD
+[v2.4.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.0...v2.4.1
 [v2.4.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.4...v2.4.0
 [v2.3.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.3...v2.3.4
 [v2.3.3]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.2...v2.3.3
