@@ -2,4 +2,14 @@
   <Target Name="UpdateCiSettings" Condition="'$(CI)' == 'true' AND '$(OS)' == 'Windows_NT' AND '$(IsPackable)' == 'true'">
     <Message Importance="High" Text="##vso[build.updatebuildnumber]$(PackageVersion)" />
   </Target>
+
+
+  <!-- Workaround https://github.com/NuGet/Home/issues/7001 -->
+  <Target Name="DisableNuGetDeterministicPackaging"
+          BeforeTargets="GenerateNuspec"
+          AfterTargets="CoreCompile">
+    <PropertyGroup>
+      <Deterministic>false</Deterministic>
+    </PropertyGroup>
+  </Target>
 </Project>

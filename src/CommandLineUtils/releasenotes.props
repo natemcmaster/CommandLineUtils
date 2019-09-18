@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.0'">
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.1'">
 Features and bug fixes by some awesome contributors:
 
 * @IanG: Attributes for files and directories that must not exist
@@ -16,6 +16,10 @@ Other things I fixed:
 * Add async methods that accept cancellation tokens
 * Handle CTRL+C by default
 * Support calling CommandLineApplication.Execute multiple times
+
+2.4.1 hot fix:
+* Workaround a bizarre NuGet bug which causes problems for users in Europe and Asia
+  (see https://github.com/NuGet/Home/issues/8603)
     </PackageReleaseNotes>
 
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.4'">

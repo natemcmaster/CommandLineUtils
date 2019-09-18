@@ -2,6 +2,10 @@
 
 [See unreleased changes][unreleased].
 
+## [v2.4.1]
+
+* Fix [#277] - workaround a bug in NuGet's 'deterministic packaging' feature which causes issues based on your timezone
+
 ## [v2.4.0]
 
 * Fix [#227] by [@ejball] - ArgumentEscaper should escape empty string

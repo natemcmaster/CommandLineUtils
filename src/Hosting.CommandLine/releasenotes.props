@@ -1,10 +1,14 @@
 <Project>
   <PropertyGroup>
-    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.0'">
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.1'">
 Changes:
 * Support C# 8.0 and nullable reference types
 * RunCommandLineApplicationAsync is actually async now, not just sync disguised as an async API
 * Better CTRL+C support
+
+2.4.1 hot fix:
+* Workaround a bizarre NuGet bug which causes problems for users in Europe and Asia
+  (see https://github.com/NuGet/Home/issues/8603)
     </PackageReleaseNotes>
     <PackageReleaseNotes>$(PackageReleaseNotes)
 
