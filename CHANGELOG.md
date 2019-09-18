@@ -6,6 +6,8 @@
 
 * Fix [#277] - workaround a bug in NuGet's 'deterministic packaging' feature which causes issues based on your timezone
 
+[#277]: https://github.com/natemcmaster/CommandLineUtils/issues/277
+
 ## [v2.4.0]
 
 * Fix [#227] by [@ejball] - ArgumentEscaper should escape empty string
