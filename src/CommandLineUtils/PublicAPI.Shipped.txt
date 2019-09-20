@@ -298,6 +298,8 @@ McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.HelpOptionAttribute() -
 McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.HelpOptionAttribute(string template) -> void
 McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
 McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.DefaultHelpTextGenerator() -> void
+McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength.get -> int?
+McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength.set -> void
 McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName.get -> bool
 McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName.set -> void
 McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils.HelpText
@@ -33,12 +34,17 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <summary>
         /// Initializes a new instance of <see cref="DefaultHelpTextGenerator"/>.
         /// </summary>
-        protected DefaultHelpTextGenerator() { }
+        public DefaultHelpTextGenerator() { }
 
         /// <summary>
         /// Determines if commands are ordered by name in generated help text
         /// </summary>
         public bool SortCommandsByName { get; set; } = true;
+
+        /// <summary>
+        /// Override the console width disregarding any value from the executing environment.
+        /// </summary>
+        public int? MaxLineLength { get; set; } = null;
 
         /// <inheritdoc />
         public virtual void Generate(CommandLineApplication application, TextWriter output)
@@ -172,7 +178,12 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var arg in visibleArguments)
                 {
-                    var wrappedDescription = IndentWriter?.Write(arg.Description);
+                    var enumNames = ExtractNamesFromEnum(arg.UnderlyingType);
+                    var description = enumNames.Any()
+                        ? $"{arg.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
+                        : arg.Description;
+
+                    var wrappedDescription = IndentWriter?.Write(description);
                     var message = string.Format(outputFormat, arg.Name, wrappedDescription);
 
                     output.Write(message);
@@ -202,7 +213,12 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var opt in visibleOptions)
                 {
-                    var wrappedDescription = IndentWriter?.Write(opt.Description);
+                    var enumNames = ExtractNamesFromEnum(opt.UnderlyingType);
+                    var description = enumNames.Any()
+                        ? $"{opt.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
+                        : opt.Description;
+
+                    var wrappedDescription = IndentWriter?.Write(description);
                     var message = string.Format(outputFormat, Format(opt), wrappedDescription);
 
                     output.Write(message);
@@ -210,6 +226,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 }
             }
         }
+
 
         /// <summary>
         /// Generate the lines that show information about subcommands
@@ -233,9 +250,12 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 var orderedCommands = SortCommandsByName
                     ? visibleCommands.OrderBy(c => c.Name).ToList()
                     : visibleCommands;
+
                 foreach (var cmd in orderedCommands)
                 {
-                    var wrappedDescription = IndentWriter?.Write(cmd.Description);
+                    var description = cmd.Description;
+
+                    var wrappedDescription = IndentWriter?.Write(description);
                     var message = string.Format(outputFormat, cmd.Name, wrappedDescription);
 
                     output.Write(message);
@@ -318,15 +338,28 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         {
             try
             {
+                if (MaxLineLength.HasValue)
+                    return MaxLineLength;
+
                 return Console.BufferWidth;
             }
             catch (IOException)
             {
-                // If there isn't a console - for instance in test enviornments
+                // If there isn't a console - for instance in test environments
                 // An IOException will be thrown trying to get the Console.BufferWidth.
                 return null;
             }
         }
 
+        private string[] ExtractNamesFromEnum(Type type)
+        {
+            if(type == null)
+                return new string[0];
+
+            if (!type.GetTypeInfo().IsEnum)
+                return new string[0];
+
+            return Enum.GetNames(type);
+        }
     }
 }
