@@ -92,7 +92,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var generator = new DefaultHelpTextGenerator
             {
-                OverriddenConsoleWidth = 80
+                MaxLineLength = 80
             };
 
             return GetHelpText(app, generator);

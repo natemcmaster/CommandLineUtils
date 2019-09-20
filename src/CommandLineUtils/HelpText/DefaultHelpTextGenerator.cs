@@ -42,9 +42,9 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         public bool SortCommandsByName { get; set; } = true;
 
         /// <summary>
-        /// If set it overrides, the console width is not from the running system.
+        /// Override the console width disregarding any value from the executing environment.
         /// </summary>
-        public int? OverriddenConsoleWidth { get; set; } = null;
+        public int? MaxLineLength { get; set; } = null;
 
         /// <inheritdoc />
         public virtual void Generate(CommandLineApplication application, TextWriter output)
@@ -338,8 +338,8 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         {
             try
             {
-                if (OverriddenConsoleWidth.HasValue)
-                    return OverriddenConsoleWidth;
+                if (MaxLineLength.HasValue)
+                    return MaxLineLength;
 
                 return Console.BufferWidth;
             }
