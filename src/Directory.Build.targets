@@ -1,7 +1,7 @@
 <Project>
 
   <ItemGroup Condition=" '$(CI)' == 'true' ">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-18618-05" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(DisablePublicApiAnalyzer)' != 'true'">
