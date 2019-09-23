@@ -42,7 +42,6 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             }
         }
 
-        /// <summary> The console. </summary>
         /// <remarks> Cannot be null. </remarks>
         public IConsole Console
         {

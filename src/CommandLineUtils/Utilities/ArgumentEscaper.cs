@@ -16,7 +16,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// receive the same string[] args.
         /// </summary>
         /// <remarks> See https://blogs.msdn.microsoft.com/twistylittlepassagesallalike/2011/04/23/everyone-quotes-command-line-arguments-the-wrong-way/ </remarks>
-        /// <param name="args">The arguments</param>
         /// <returns>A single string of escaped arguments</returns>
         public static string EscapeAndConcatenate(IEnumerable<string> args)
             => string.Join(" ", args.Select(EscapeSingleArg));

@@ -15,22 +15,16 @@ namespace McMaster.Extensions.CommandLineUtils
     public sealed class ArgumentAttribute : Attribute
     {
         /// <summary> Initializes a new <see cref="ArgumentAttribute" />. </summary>
-        /// <param name="order">The order</param>
         public ArgumentAttribute(int order)
             : this(order, null)
         { }
 
         /// <summary> Initializes a new <see cref="ArgumentAttribute" />. </summary>
-        /// <param name="order">The order</param>
-        /// <param name="name">The name</param>
         public ArgumentAttribute(int order, string? name)
             : this(order, name, null)
         { }
 
         /// <summary> Initializes a new <see cref="ArgumentAttribute" />. </summary>
-        /// <param name="order">The order</param>
-        /// <param name="name">The name</param>
-        /// <param name="description">The description</param>
         public ArgumentAttribute(int order, string? name, string? description)
         {
             Order = order;

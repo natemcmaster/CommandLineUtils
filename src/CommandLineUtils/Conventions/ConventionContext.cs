@@ -10,7 +10,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
     public class ConventionContext
     {
         /// <summary> Initializes an instance of <see cref="ConventionContext" />. </summary>
-        /// <param name="application">The application</param>
         /// <param name="modelType">The type of the model.</param>
         public ConventionContext(CommandLineApplication application, Type? modelType)
         {

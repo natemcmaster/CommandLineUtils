@@ -11,7 +11,6 @@ namespace McMaster.Extensions.CommandLineUtils
         //
 
         /// <summary> Writes an empty line. </summary>
-        /// <param name="console">The console.</param>
         /// <returns>the console.</returns>
         public static IConsole WriteLine(this IConsole console)
         {
@@ -20,8 +19,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Writes a string followed by a line terminator. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>the console.</returns>
         public static IConsole WriteLine(this IConsole console, string value)
         {
@@ -30,7 +27,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg">Argument used to format.</param>
         /// <returns>The console.</returns>
@@ -41,7 +37,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <returns>The console.</returns>
@@ -52,7 +47,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <param name="arg1">The second argument to replace in the format string.</param>
@@ -64,7 +58,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <param name="arg1">The second argument to replace in the format string.</param>
@@ -77,8 +70,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, ulong value)
         {
@@ -87,8 +78,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, bool value)
         {
@@ -97,8 +86,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, char value)
         {
@@ -107,8 +94,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes an array of characters as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="buffer">The buffer.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, char[] buffer)
         {
@@ -117,8 +102,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a portion of a character buffer as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="buffer">The buffer.</param>
         /// <param name="index">The start index.</param>
         /// <param name="count">The number of characters to write.</param>
         /// <returns>The console.</returns>
@@ -129,8 +112,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, decimal value)
         {
@@ -139,8 +120,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, double value)
         {
@@ -149,8 +128,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, uint value)
         {
@@ -159,8 +136,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, int value)
         {
@@ -169,8 +144,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, object value)
         {
@@ -179,8 +152,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, float value)
         {
@@ -189,8 +160,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, long value)
         {
@@ -203,8 +172,6 @@ namespace McMaster.Extensions.CommandLineUtils
         //
 
         /// <summary> Writes a string console output. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>the console.</returns>
         public static IConsole Write(this IConsole console, string value)
         {
@@ -213,7 +180,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg">Argument used to format.</param>
         /// <returns>The console.</returns>
@@ -224,7 +190,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <returns>The console.</returns>
@@ -235,7 +200,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <param name="arg1">The second argument to replace in the format string.</param>
@@ -247,7 +211,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <param name="arg1">The second argument to replace in the format string.</param>
@@ -260,8 +223,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, uint value)
         {
@@ -270,8 +231,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, decimal value)
         {
@@ -280,8 +239,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, int value)
         {
@@ -290,8 +247,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, ulong value)
         {
@@ -300,8 +255,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, bool value)
         {
@@ -310,8 +263,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, char value)
         {
@@ -320,8 +271,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes an array of characters. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="buffer">The buffer.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, char[] buffer)
         {
@@ -330,8 +279,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a portion of a character buffer. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="buffer">The buffer.</param>
         /// <param name="index">The start index.</param>
         /// <param name="count">The number of characters to write.</param>
         /// <returns>The console.</returns>
@@ -342,8 +289,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, double value)
         {
@@ -352,8 +297,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, long value)
         {
@@ -362,8 +305,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, object value)
         {
@@ -372,8 +313,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="console">The console.</param>
-        /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, float value)
         {

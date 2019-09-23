@@ -94,7 +94,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
         /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
-        /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
@@ -109,7 +108,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
         /// <param name="console">The console to use</param>
-        /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
@@ -127,7 +125,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
         /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
-        /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
@@ -142,7 +139,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
         /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
-        /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
@@ -162,7 +158,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
         /// <param name="console">The console to use</param>
-        /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>

@@ -8,7 +8,6 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
     public interface IOptionValidationBuilder : IValidationBuilder
     {
         /// <summary> Use the given <see cref="IOptionValidator"/>. </summary>
-        /// <param name="validator">The validator.</param>
         void Use(IOptionValidator validator);
     }
 }

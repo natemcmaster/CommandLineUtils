@@ -8,13 +8,11 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
     public class ValidationBuilder<T> : ValidationBuilder, IArgumentValidationBuilder<T>, IOptionValidationBuilder<T>
     {
         /// <summary> Creates a new instance of <see cref="ValidationBuilder"/> for a given <see cref="CommandArgument{T}"/>. </summary>
-        /// <param name="argument">The argument.</param>
         public ValidationBuilder(CommandArgument<T> argument) : base(argument)
         {
         }
 
         /// <summary> Creates a new instance of <see cref="ValidationBuilder"/> for a given <see cref="CommandOption{T}"/>. </summary>
-        /// <param name="option">The option.</param>
         public ValidationBuilder(CommandOption<T> option) : base(option)
         {
         }

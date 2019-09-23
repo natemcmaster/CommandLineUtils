@@ -7,7 +7,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
     public interface IConventionBuilder
     {
         /// <summary> Add a convention that will be applied later. </summary>
-        /// <param name="convention">The convention</param>
         IConventionBuilder AddConvention(IConvention convention);
     }
 }

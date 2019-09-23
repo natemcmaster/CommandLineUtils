@@ -10,8 +10,6 @@ namespace McMaster.Extensions.CommandLineUtils
     public class CommandParsingException : Exception
     {
         /// <summary> Initializes an instance of <see cref="CommandParsingException"/>. </summary>
-        /// <param name="command">The command.</param>
-        /// <param name="message">The message.</param>
         public CommandParsingException(CommandLineApplication command, string message)
             : base(message)
         {
@@ -19,8 +17,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Initializes an instance of <see cref="CommandParsingException"/>. </summary>
-        /// <param name="command">The command.</param>
-        /// <param name="message">The message.</param>
         /// <param name="innerException">The inner exception</param>
         public CommandParsingException(CommandLineApplication command, string message, Exception innerException)
             : base(message, innerException)

@@ -10,7 +10,6 @@ namespace McMaster.Extensions.CommandLineUtils
     public sealed class VersionOptionAttribute : OptionAttributeBase
     {
         /// <summary> Initializes a new <see cref="VersionOptionAttribute"/> with the template <c>--version</c>. </summary>
-        /// <param name="version">The version</param>
         public VersionOptionAttribute(string version)
             : this(Strings.DefaultVersionTemplate, version)
         {
@@ -18,7 +17,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
         /// <summary> Initializes a new <see cref="VersionOptionAttribute"/>. </summary>
         /// <param name="template">The string template. <seealso cref="CommandOption.Template"/>.</param>
-        /// <param name="version">The version</param>
         public VersionOptionAttribute(string template, string version)
         {
             Version = version;

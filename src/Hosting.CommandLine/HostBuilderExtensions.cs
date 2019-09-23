@@ -23,7 +23,6 @@ namespace Microsoft.Extensions.Hosting
         ///     taken for command line applications.
         /// </summary>
         /// <typeparam name="TApp">The type of the command line application implementation</typeparam>
-        /// <param name="hostBuilder">This instance</param>
         /// <param name="args">The command line arguments</param>
         /// <param name="cancellationToken">A cancellation token</param>
         /// <returns>A task whose result is the exit code of the application</returns>

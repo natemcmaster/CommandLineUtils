@@ -9,7 +9,6 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
     public interface ICommandValidator
     {
         /// <summary> Validates a command </summary>
-        /// <param name="command">The command.</param>
         /// <param name="context">The validation context.</param>
         /// <returns>The validation result. Returns <see cref="ValidationResult.Success"/> if the values pass validation.</returns>
         ValidationResult GetValidationResult(CommandLineApplication command, ValidationContext context);
