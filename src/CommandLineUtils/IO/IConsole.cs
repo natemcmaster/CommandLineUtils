@@ -13,13 +13,10 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary> Raised when Ctrl+C is pressed. </summary>
         event ConsoleCancelEventHandler? CancelKeyPress;
 
-        /// <summary> stdout </summary>
         TextWriter Out { get; }
 
-        /// <summary> stderr </summary>
         TextWriter Error { get; }
 
-        /// <summary> stdin </summary>
         TextReader In { get; }
 
         /// <summary> Is stdin piped from somewhere? </summary>

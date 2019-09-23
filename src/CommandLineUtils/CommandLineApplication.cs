@@ -256,7 +256,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary> The short-form of the version to display in generated help text. </summary>
         public Func<string?>? ShortVersionGetter { get; set; }
 
-        /// <summary> Subcommands. </summary>
         public List<CommandLineApplication> Commands { get; private set; }
 
         /// <summary> Determines if '--' can be used to separate known arguments and options from additional content passed to <see cref="RemainingArguments"/>. </summary>
