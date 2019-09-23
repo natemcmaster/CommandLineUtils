@@ -13,30 +13,22 @@ namespace McMaster.Extensions.CommandLineUtils
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class VersionOptionFromMemberAttribute : OptionAttributeBase
     {
-        /// <summary>
-        /// Initializes an instance of <see cref="VersionOptionFromMemberAttribute"/> with <c>--version</c> as the template.
-        /// </summary>
+        /// <summary> Initializes an instance of <see cref="VersionOptionFromMemberAttribute"/> with <c>--version</c> as the template. </summary>
         public VersionOptionFromMemberAttribute()
             : this(Strings.DefaultVersionTemplate)
         { }
 
-        /// <summary>
-        /// Initializes an instance of <see cref="VersionOptionFromMemberAttribute"/> with <c>--version</c> as the template.
-        /// </summary>
+        /// <summary> Initializes an instance of <see cref="VersionOptionFromMemberAttribute"/> with <c>--version</c> as the template. </summary>
         /// <param name="template">The version template.</param>
         public VersionOptionFromMemberAttribute(string template)
         {
             Template = template;
         }
 
-        /// <summary>
-        /// The name of the property or method that returns short version information.
-        /// </summary>
+        /// <summary> The name of the property or method that returns short version information. </summary>
         public string? MemberName { get; set; }
 
-        /// <summary>
-        /// The option template. This is parsed into the short and long name.
-        /// </summary>
+        /// <summary> The option template. This is parsed into the short and long name. </summary>
         public new string Template { get; set; }
 
         internal CommandOption Configure(CommandLineApplication app, Type type, Func<object> targetInstanceFactory)

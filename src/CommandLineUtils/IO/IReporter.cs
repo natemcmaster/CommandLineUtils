@@ -4,33 +4,19 @@
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Gathers messages with levels.
-    /// </summary>
+    /// <summary> Gathers messages with levels. </summary>
     public interface IReporter
     {
-        /// <summary>
-        /// Report a verbose message.
-        /// </summary>
-        /// <param name="message"></param>
+        /// <summary> Report a verbose message. </summary>
         void Verbose(string message);
 
-        /// <summary>
-        /// Report console output.
-        /// </summary>
-        /// <param name="message"></param>
+        /// <summary> Report console output. </summary>
         void Output(string message);
 
-        /// <summary>
-        /// Report a warning.
-        /// </summary>
-        /// <param name="message"></param>
+        /// <summary> Report a warning. </summary>
         void Warn(string message);
 
-        /// <summary>
-        /// Report an error.
-        /// </summary>
-        /// <param name="message"></param>
+        /// <summary> Report an error. </summary>
         void Error(string message);
     }
 }

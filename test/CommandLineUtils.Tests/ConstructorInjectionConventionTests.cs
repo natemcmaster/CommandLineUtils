@@ -90,7 +90,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Subcommand(typeof(Child))]
         private class Parent
         {
-
         }
 
         [Command("test")]

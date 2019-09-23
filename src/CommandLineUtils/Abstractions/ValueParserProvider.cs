@@ -9,9 +9,7 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    /// <summary>
-    /// A store of value parsers that are used to convert argument values from strings to types.
-    /// </summary>
+    /// <summary> A store of value parsers that are used to convert argument values from strings to types. </summary>
     public class ValueParserProvider
     {
         private readonly Dictionary<Type, IValueParser> _parsers = new Dictionary<Type, IValueParser>(10);
@@ -39,12 +37,8 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 });
         }
 
-        /// <summary>
-        /// Gets or sets the CultureInfo which is used to convert argument values to types.
-        /// </summary>
-        /// <remarks>
-        /// The default value is <see cref="CultureInfo.CurrentCulture"/>.
-        /// </remarks>
+        /// <summary> Gets or sets the CultureInfo which is used to convert argument values to types. </summary>
+        /// <remarks> The default value is <see cref="CultureInfo.CurrentCulture"/>. </remarks>
         public CultureInfo ParseCulture { get; set; } = CultureInfo.CurrentCulture;
 
         private static readonly MethodInfo s_GetParserGeneric
@@ -52,25 +46,15 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 .GetMethods(BindingFlags.Instance | BindingFlags.Public)
                 .Single(m => m.Name == nameof(GetParser) && m.IsGenericMethod);
 
-        /// <summary>
-        /// Returns a parser registered for the given type.
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
+        /// <summary> Returns a parser registered for the given type. </summary>
         public IValueParser GetParser(Type type)
         {
             var method = s_GetParserGeneric.MakeGenericMethod(type);
             return (IValueParser)method.Invoke(this, Util.EmptyArray<object>());
         }
 
-        /// <summary>
-        /// Returns a parser for the generic type T.
-        /// </summary>
-        /// <remarks>
-        /// If parser is not registered, null is returned.
-        /// </remarks>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        /// <summary> Returns a parser for the generic type T. </summary>
+        /// <remarks> If parser is not registered, null is returned. </remarks>
         public IValueParser<T>? GetParser<T>()
         {
             var parser = GetParserImpl<T>();
@@ -135,9 +119,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             return null;
         }
 
-        /// <summary>
-        /// Add a new value parser to the provider.
-        /// </summary>
+        /// <summary> Add a new value parser to the provider. </summary>
         /// <param name="parser">An instance of the parser that is used to convert an argument from a string.</param>
         /// <exception cref="ArgumentException">
         /// A value parser with the same <see cref="IValueParser.TargetType"/> is already registered.
@@ -148,9 +130,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             SafeAdd(parser);
         }
 
-        /// <summary>
-        /// Add collection of a new value parsers to the provider.
-        /// </summary>
+        /// <summary> Add collection of a new value parsers to the provider. </summary>
         /// <param name="parsers">The collection whose parsers should be added.</param>
         /// <exception cref="ArgumentException">
         /// A value parser with the same <see cref="IValueParser.TargetType"/> is already registered.

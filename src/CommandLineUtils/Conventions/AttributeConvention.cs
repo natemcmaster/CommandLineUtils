@@ -6,9 +6,7 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    /// <summary>
-    /// Searches the model type and its members for attributes that implement <see cref="IMemberConvention"/> or <see cref="IConvention"/>.
-    /// </summary>
+    /// <summary> Searches the model type and its members for attributes that implement <see cref="IMemberConvention"/> or <see cref="IConvention"/>. </summary>
     public class AttributeConvention : IConvention
     {
         /// <inheritdoc />

@@ -161,7 +161,7 @@ Options:
         public class MyApp
         {
             [Option(ShortName = "strOpt", Description = "str option desc")]
-            public string strOpt{ get; set; }
+            public string strOpt { get; set; }
 
             [Option(ShortName = "intOpt", Description = "int option desc")]
             public int intOpt { get; set; }

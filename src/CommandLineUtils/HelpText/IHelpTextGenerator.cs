@@ -5,16 +5,10 @@ using System.IO;
 
 namespace McMaster.Extensions.CommandLineUtils.HelpText
 {
-    /// <summary>
-    /// Generates help text for a command line application.
-    /// </summary>
+    /// <summary> Generates help text for a command line application. </summary>
     public interface IHelpTextGenerator
     {
-        /// <summary>
-        /// Generate help text for the application.
-        /// </summary>
-        /// <param name="application"></param>
-        /// <param name="output"></param>
+        /// <summary> Generate help text for the application. </summary>
         void Generate(CommandLineApplication application, TextWriter output);
     }
 }

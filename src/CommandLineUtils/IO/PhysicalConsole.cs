@@ -7,14 +7,10 @@ using System.IO;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// An implementation of <see cref="IConsole"/> that wraps <see cref="System.Console"/>.
-    /// </summary>
+    /// <summary> An implementation of <see cref="IConsole"/> that wraps <see cref="System.Console"/>. </summary>
     public class PhysicalConsole : IConsole
     {
-        /// <summary>
-        /// A shared instance of <see cref="PhysicalConsole"/>.
-        /// </summary>
+        /// <summary> A shared instance of <see cref="PhysicalConsole"/>. </summary>
         public static IConsole Singleton { get; } = new PhysicalConsole();
 
         // TODO: in 3.0 make this type truly a singleton by adding a private ctor
@@ -23,66 +19,46 @@ namespace McMaster.Extensions.CommandLineUtils
         // {
         // }
 
-        /// <summary>
-        /// <see cref="Console.CancelKeyPress"/>.
-        /// </summary>
+        /// <summary> <see cref="Console.CancelKeyPress"/>. </summary>
         public event ConsoleCancelEventHandler? CancelKeyPress
         {
             add => Console.CancelKeyPress += value;
             remove => Console.CancelKeyPress -= value;
         }
 
-        /// <summary>
-        /// <see cref="Console.Error"/>.
-        /// </summary>
+        /// <summary> <see cref="Console.Error"/>. </summary>
         public TextWriter Error => Console.Error;
 
-        /// <summary>
-        /// <see cref="Console.In"/>.
-        /// </summary>
+        /// <summary> <see cref="Console.In"/>. </summary>
         public TextReader In => Console.In;
 
-        /// <summary>
-        /// <see cref="Console.Out"/>.
-        /// </summary>
+        /// <summary> <see cref="Console.Out"/>. </summary>
         public TextWriter Out => Console.Out;
 
-        /// <summary>
-        /// <see cref="Console.IsInputRedirected"/>.
-        /// </summary>
+        /// <summary> <see cref="Console.IsInputRedirected"/>. </summary>
         public bool IsInputRedirected => Console.IsInputRedirected;
 
-        /// <summary>
-        /// <see cref="Console.IsOutputRedirected"/>.
-        /// </summary>
+        /// <summary> <see cref="Console.IsOutputRedirected"/>. </summary>
         public bool IsOutputRedirected => Console.IsOutputRedirected;
 
-        /// <summary>
-        /// <see cref="Console.IsErrorRedirected"/>.
-        /// </summary>
+        /// <summary> <see cref="Console.IsErrorRedirected"/>. </summary>
         public bool IsErrorRedirected => Console.IsErrorRedirected;
 
-        /// <summary>
-        /// <see cref="Console.ForegroundColor"/>.
-        /// </summary>
+        /// <summary> <see cref="Console.ForegroundColor"/>. </summary>
         public ConsoleColor ForegroundColor
         {
             get => Console.ForegroundColor;
             set => Console.ForegroundColor = value;
         }
 
-        /// <summary>
-        /// <see cref="Console.BackgroundColor"/>.
-        /// </summary>
+        /// <summary> <see cref="Console.BackgroundColor"/>. </summary>
         public ConsoleColor BackgroundColor
         {
             get => Console.BackgroundColor;
             set => Console.BackgroundColor = value;
         }
 
-        /// <summary>
-        /// <see cref="Console.ResetColor"/>.
-        /// </summary>
+        /// <summary> <see cref="Console.ResetColor"/>. </summary>
         public void ResetColor() => Console.ResetColor();
     }
 }

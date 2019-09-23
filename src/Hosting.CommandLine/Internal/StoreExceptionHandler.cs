@@ -8,9 +8,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
     /// </summary>
     internal class StoreExceptionHandler : IUnhandledExceptionHandler
     {
-        /// <summary>
-        /// The captured exception, if any
-        /// </summary>
+        /// <summary> The captured exception, if any </summary>
         public Exception? StoredException { get; private set; }
 
         /// <summary>

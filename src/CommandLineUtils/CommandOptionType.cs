@@ -4,9 +4,7 @@
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Defines the kinds of inputs <see cref="CommandOption"/> accepts.
-    /// </summary>
+    /// <summary> Defines the kinds of inputs <see cref="CommandOption"/> accepts. </summary>
     public enum CommandOptionType
     {
         /// <summary>

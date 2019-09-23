@@ -3,19 +3,14 @@
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Helper methods for <see cref="IConsole"/>.
-    /// </summary>
+    /// <summary> Helper methods for <see cref="IConsole"/>. </summary>
     public static class ConsoleExtensions
     {
-
         //
         // WriteLine extensions
         //
 
-        /// <summary>
-        /// Writes an empty line.
-        /// </summary>
+        /// <summary> Writes an empty line. </summary>
         /// <param name="console">The console.</param>
         /// <returns>the console.</returns>
         public static IConsole WriteLine(this IConsole console)
@@ -24,9 +19,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Writes a string followed by a line terminator.
-        /// </summary>
+        /// <summary> Writes a string followed by a line terminator. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>the console.</returns>
@@ -36,9 +29,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg">Argument used to format.</param>
@@ -49,9 +40,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
@@ -62,9 +51,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
@@ -76,9 +63,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
@@ -91,9 +76,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -103,9 +86,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -115,9 +96,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -127,9 +106,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes an array of characters as a new line.
-        /// </summary>
+        /// <summary> Formats and writes an array of characters as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="buffer">The buffer.</param>
         /// <returns>The console.</returns>
@@ -139,9 +116,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a portion of a character buffer as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a portion of a character buffer as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="buffer">The buffer.</param>
         /// <param name="index">The start index.</param>
@@ -153,9 +128,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -165,9 +138,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -177,9 +148,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -189,9 +158,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -201,9 +168,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -213,9 +178,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -225,9 +188,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value as a new line.
-        /// </summary>
+        /// <summary> Formats and writes a value as a new line. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -241,9 +202,7 @@ namespace McMaster.Extensions.CommandLineUtils
         // Write methods
         //
 
-        /// <summary>
-        /// Writes a string console output.
-        /// </summary>
+        /// <summary> Writes a string console output. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>the console.</returns>
@@ -253,9 +212,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg">Argument used to format.</param>
@@ -266,9 +223,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
@@ -279,9 +234,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
@@ -293,9 +246,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
@@ -308,9 +259,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -320,9 +269,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -332,9 +279,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -344,9 +289,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -356,9 +299,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -368,9 +309,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -380,9 +319,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes an array of characters.
-        /// </summary>
+        /// <summary> Formats and writes an array of characters. </summary>
         /// <param name="console">The console.</param>
         /// <param name="buffer">The buffer.</param>
         /// <returns>The console.</returns>
@@ -392,9 +329,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a portion of a character buffer.
-        /// </summary>
+        /// <summary> Formats and writes a portion of a character buffer. </summary>
         /// <param name="console">The console.</param>
         /// <param name="buffer">The buffer.</param>
         /// <param name="index">The start index.</param>
@@ -406,9 +341,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -418,9 +351,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -430,9 +361,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>
@@ -442,9 +371,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return console;
         }
 
-        /// <summary>
-        /// Formats and writes a value.
-        /// </summary>
+        /// <summary> Formats and writes a value. </summary>
         /// <param name="console">The console.</param>
         /// <param name="value">The value.</param>
         /// <returns>The console.</returns>

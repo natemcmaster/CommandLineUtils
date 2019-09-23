@@ -18,9 +18,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         private readonly ILogger _logger;
         private readonly CommandLineState _state;
 
-        /// <summary>
-        ///     Creates a new instance.
-        /// </summary>
+        /// <summary> Creates a new instance. </summary>
         /// <param name="logger">A logger</param>
         /// <param name="state">The command line state</param>
         /// <param name="serviceProvider">The DI service provider</param>

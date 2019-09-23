@@ -14,42 +14,32 @@ namespace McMaster.Extensions.CommandLineUtils
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public sealed class OptionAttribute : OptionAttributeBase
     {
-        /// <summary>
-        /// Initializes a new <see cref="OptionAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes a new <see cref="OptionAttribute"/>. </summary>
         public OptionAttribute()
         {
         }
 
-        /// <summary>
-        /// Initializes a new <see cref="OptionAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes a new <see cref="OptionAttribute"/>. </summary>
         /// <param name="template">The string template. <see cref="CommandOption.Template"/>.</param>
         public OptionAttribute(string template)
         {
             Template = template;
         }
 
-        /// <summary>
-        /// Initializes a new <see cref="OptionAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes a new <see cref="OptionAttribute"/>. </summary>
         /// <param name="optionType">The optionType</param>
         public OptionAttribute(CommandOptionType optionType)
             : this(null, null, optionType)
         { }
 
-        /// <summary>
-        /// Initializes a new <see cref="OptionAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes a new <see cref="OptionAttribute"/>. </summary>
         /// <param name="template">The template</param>
         /// <param name="optionType">The option type</param>
         public OptionAttribute(string template, CommandOptionType optionType)
             : this(template, null, optionType)
         { }
 
-        /// <summary>
-        /// Initializes a new <see cref="OptionAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes a new <see cref="OptionAttribute"/>. </summary>
         /// <param name="template">The template</param>
         /// <param name="description">The option description</param>
         /// <param name="optionType">The option type</param>
@@ -60,9 +50,7 @@ namespace McMaster.Extensions.CommandLineUtils
             OptionType = optionType;
         }
 
-        /// <summary>
-        /// Defines the type of the option. When not set, this will be inferred from the CLR type of the property. <seealso cref="CommandOption.OptionType"/>
-        /// </summary>
+        /// <summary> Defines the type of the option. When not set, this will be inferred from the CLR type of the property. <seealso cref="CommandOption.OptionType"/> </summary>
         public CommandOptionType? OptionType { get; set; }
 
         internal CommandOption Configure(CommandLineApplication app, PropertyInfo prop)

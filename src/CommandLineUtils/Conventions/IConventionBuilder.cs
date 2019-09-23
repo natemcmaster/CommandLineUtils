@@ -3,14 +3,10 @@
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    /// <summary>
-    /// Builds a collection of conventions.
-    /// </summary>
+    /// <summary> Builds a collection of conventions. </summary>
     public interface IConventionBuilder
     {
-        /// <summary>
-        /// Add a convention that will be applied later.
-        /// </summary>
+        /// <summary> Add a convention that will be applied later. </summary>
         /// <param name="convention">The convention</param>
         IConventionBuilder AddConvention(IConvention convention);
     }

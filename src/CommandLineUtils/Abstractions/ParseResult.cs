@@ -6,14 +6,10 @@ using System.ComponentModel;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    /// <summary>
-    /// The result of parsing command line arguments.
-    /// </summary>
+    /// <summary> The result of parsing command line arguments. </summary>
     public class ParseResult
     {
-        /// <summary>
-        /// Initializes <see cref="ParseResult"/>.
-        /// </summary>
+        /// <summary> Initializes <see cref="ParseResult"/>. </summary>
         /// <param name="selectedCommand">The command selected for execution.</param>
         public ParseResult(CommandLineApplication selectedCommand)
         {
@@ -32,9 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         }
 #pragma warning restore CS8618 // Non-nullable field is uninitialized.
 
-        /// <summary>
-        /// The application or subcommand that matches the command line arguments.
-        /// </summary>
+        /// <summary> The application or subcommand that matches the command line arguments. </summary>
         public CommandLineApplication SelectedCommand { get; set; }
     }
 }

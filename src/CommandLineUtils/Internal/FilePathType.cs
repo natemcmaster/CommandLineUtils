@@ -5,25 +5,17 @@ using System;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    /// <summary>
-    /// Represents file path types.
-    /// </summary>
+    /// <summary> Represents file path types. </summary>
     [Flags]
     internal enum FilePathType
     {
-        /// <summary>
-        /// A file path to a directory.
-        /// </summary>
+        /// <summary> A file path to a directory. </summary>
         Directory = 1 << 0,
 
-        /// <summary>
-        /// A file path to a file.
-        /// </summary>
+        /// <summary> A file path to a file. </summary>
         File = 1 << 1,
 
-        /// <summary>
-        /// Any type of filepath.
-        /// </summary>
+        /// <summary> Any type of filepath. </summary>
         Any = Directory | File,
     }
 }

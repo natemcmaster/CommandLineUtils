@@ -9,10 +9,7 @@ using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    /// <summary>
-    /// Shared implementation for adding conventions based on <see cref="OptionAttributeBase"/>.
-    /// </summary>
-    /// <typeparam name="TAttribute"></typeparam>
+    /// <summary> Shared implementation for adding conventions based on <see cref="OptionAttributeBase"/>. </summary>
     public abstract class OptionAttributeConventionBase<TAttribute>
         where TAttribute : OptionAttributeBase
     {

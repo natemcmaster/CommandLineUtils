@@ -13,9 +13,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Microsoft.Extensions.Hosting
 {
-    /// <summary>
-    ///     Extension methods for <see cref="IHostBuilder" /> support.
-    /// </summary>
+    /// <summary> Extension methods for <see cref="IHostBuilder" /> support. </summary>
     /// <seealso href="https://github.com/natemcmaster/CommandLineUtils/issues/134">host support</seealso>
     public static class HostBuilderExtensions
     {

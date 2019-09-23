@@ -7,25 +7,17 @@ using System.IO;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// A thread-safe reporter that forwards to console output.
-    /// </summary>
+    /// <summary> A thread-safe reporter that forwards to console output. </summary>
     public class ConsoleReporter : IReporter
     {
         private readonly object _writeLock = new object();
 
-        /// <summary>
-        /// Initializes an instance of <see cref="ConsoleReporter"/>.
-        /// </summary>
-        /// <param name="console"></param>
+        /// <summary> Initializes an instance of <see cref="ConsoleReporter"/>. </summary>
         public ConsoleReporter(IConsole console)
             : this(console, verbose: false, quiet: false)
         { }
 
-        /// <summary>
-        /// Initializes an instance of <see cref="ConsoleReporter"/>.
-        /// </summary>
-        /// <param name="console"></param>
+        /// <summary> Initializes an instance of <see cref="ConsoleReporter"/>. </summary>
         /// <param name="verbose">When false, Verbose does not display output.</param>
         /// <param name="quiet">When true, only Warn and Error display output</param>
         public ConsoleReporter(IConsole console, bool verbose, bool quiet)
@@ -35,28 +27,16 @@ namespace McMaster.Extensions.CommandLineUtils
             IsQuiet = quiet;
         }
 
-        /// <summary>
-        /// The console to write to.
-        /// </summary>
+        /// <summary> The console to write to. </summary>
         protected IConsole Console { get; }
 
-        /// <summary>
-        /// Is verbose output displayed.
-        /// </summary>
+        /// <summary> Is verbose output displayed. </summary>
         public bool IsVerbose { get; set; }
 
-        /// <summary>
-        /// Is verbose output and regular output hidden.
-        /// </summary>
+        /// <summary> Is verbose output and regular output hidden. </summary>
         public bool IsQuiet { get; set; }
 
-        /// <summary>
-        /// Write a line with color.
-        /// </summary>
-        /// <param name="writer"></param>
-        /// <param name="message"></param>
-        /// <param name="foregroundColor"></param>
-        /// <param name="backgroundColor"></param>
+        /// <summary> Write a line with color. </summary>
         protected virtual void WriteLine(TextWriter writer, string message, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = default)
         {
             lock (_writeLock)
@@ -80,24 +60,15 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        /// <summary>
-        /// Writes a message in <see cref="ConsoleColor.Red"/> to <see cref="IConsole.Error"/>.
-        /// </summary>
-        /// <param name="message"></param>
+        /// <summary> Writes a message in <see cref="ConsoleColor.Red"/> to <see cref="IConsole.Error"/>. </summary>
         public virtual void Error(string message)
             => WriteLine(Console.Error, message, ConsoleColor.Red);
 
-        /// <summary>
-        /// Writes a message in <see cref="ConsoleColor.Yellow"/> to <see cref="IConsole.Out"/>.
-        /// </summary>
-        /// <param name="message"></param>
+        /// <summary> Writes a message in <see cref="ConsoleColor.Yellow"/> to <see cref="IConsole.Out"/>. </summary>
         public virtual void Warn(string message)
             => WriteLine(Console.Out, message, ConsoleColor.Yellow);
 
-        /// <summary>
-        /// Writes a message to <see cref="IConsole.Out"/>.
-        /// </summary>
-        /// <param name="message"></param>
+        /// <summary> Writes a message to <see cref="IConsole.Out"/>. </summary>
         public virtual void Output(string message)
         {
             if (IsQuiet)
@@ -107,10 +78,7 @@ namespace McMaster.Extensions.CommandLineUtils
             WriteLine(Console.Out, message, foregroundColor: null);
         }
 
-        /// <summary>
-        /// Writes a message in <see cref="ConsoleColor.DarkGray"/> to <see cref="IConsole.Out"/>.
-        /// </summary>
-        /// <param name="message"></param>
+        /// <summary> Writes a message in <see cref="ConsoleColor.DarkGray"/> to <see cref="IConsole.Out"/>. </summary>
         public virtual void Verbose(string message)
         {
             if (!IsVerbose)

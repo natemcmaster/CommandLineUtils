@@ -9,9 +9,7 @@ using System.Threading;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Helps handle debug command-line arguments.
-    /// </summary>
+    /// <summary> Helps handle debug command-line arguments. </summary>
     public static class DebugHelper
     {
         /// <summary>

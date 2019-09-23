@@ -13,7 +13,6 @@ namespace CustomServices
     [Command(Name = "di", Description = "Dependency Injection sample project")]
     class Program
     {
-
         [Argument(0, Description = "your name")]
         private string Name { get; } = "dependency injection";
 

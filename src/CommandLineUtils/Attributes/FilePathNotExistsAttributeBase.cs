@@ -8,17 +8,13 @@ using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Validation
 {
-    /// <summary>
-    /// Base type for attributes that check for files or directories not existing.
-    /// </summary>
+    /// <summary> Base type for attributes that check for files or directories not existing. </summary>
     [AttributeUsage(AttributeTargets.Property)]
     public abstract class FilePathNotExistsAttributeBase : ValidationAttribute
     {
         private readonly FilePathType _filePathType;
 
-        /// <summary>
-        /// Initializes an instance of <see cref="FilePathNotExistsAttributeBase"/>.
-        /// </summary>
+        /// <summary> Initializes an instance of <see cref="FilePathNotExistsAttributeBase"/>. </summary>
         /// <param name="filePathType">Acceptable file path types</param>
         internal FilePathNotExistsAttributeBase(FilePathType filePathType)
             : base(GetDefaultErrorMessage(filePathType))

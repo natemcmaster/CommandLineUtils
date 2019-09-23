@@ -19,20 +19,13 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         private readonly string[] _allowedValues;
 
-        /// <summary>
-        /// Initializes an instance of <see cref="AllowedValuesAttribute"/>.
-        /// </summary>
-        /// <param name="allowedValues"></param>
+        /// <summary> Initializes an instance of <see cref="AllowedValuesAttribute"/>. </summary>
         public AllowedValuesAttribute(params string[] allowedValues)
             : this(StringComparison.CurrentCulture, allowedValues)
         {
         }
 
-        /// <summary>
-        /// Initializes an instance of <see cref="AllowedValuesAttribute"/>.
-        /// </summary>
-        /// <param name="comparer"></param>
-        /// <param name="allowedValues"></param>
+        /// <summary> Initializes an instance of <see cref="AllowedValuesAttribute"/>. </summary>
         public AllowedValuesAttribute(StringComparison comparer, params string[] allowedValues)
             : base(GetDefaultError(allowedValues))
         {
@@ -43,14 +36,10 @@ namespace McMaster.Extensions.CommandLineUtils
         private static string GetDefaultError(string[] allowedValues)
             => "Invalid value '{0}'. Allowed values are: " + string.Join(", ", allowedValues);
 
-        /// <summary>
-        /// The comparison method used.
-        /// </summary>
+        /// <summary> The comparison method used. </summary>
         public StringComparison Comparer { get; set; }
 
-        /// <summary>
-        /// Comparison between values and allowed values should ignore case.
-        /// </summary>
+        /// <summary> Comparison between values and allowed values should ignore case. </summary>
         public bool IgnoreCase
         {
             get

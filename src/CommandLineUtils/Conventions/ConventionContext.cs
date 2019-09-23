@@ -6,14 +6,10 @@ using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    /// <summary>
-    /// The context in which a convention is applied.
-    /// </summary>
+    /// <summary> The context in which a convention is applied. </summary>
     public class ConventionContext
     {
-        /// <summary>
-        /// Initializes an instance of <see cref="ConventionContext" />.
-        /// </summary>
+        /// <summary> Initializes an instance of <see cref="ConventionContext" />. </summary>
         /// <param name="application">The application</param>
         /// <param name="modelType">The type of the model.</param>
         public ConventionContext(CommandLineApplication application, Type? modelType)
@@ -22,9 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             ModelType = modelType;
         }
 
-        /// <summary>
-        /// The application to which the convention is applied.
-        /// </summary>
+        /// <summary> The application to which the convention is applied. </summary>
         public CommandLineApplication Application { get; private set; }
 
         /// <summary>

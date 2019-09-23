@@ -221,7 +221,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Command, Subcommand(typeof(SelfCycledCommand))]
         private class SelfCycledCommand
         {
-
         }
 
         [Fact]

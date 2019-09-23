@@ -16,42 +16,28 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public class CommandArgument
     {
-        /// <summary>
-        /// Initializes a new instance of <see cref="CommandArgument"/>.
-        /// </summary>
+        /// <summary> Initializes a new instance of <see cref="CommandArgument"/>. </summary>
         public CommandArgument()
         {
             Values = new List<string?>();
         }
 
-        /// <summary>
-        /// The name of the argument.
-        /// </summary>
+        /// <summary> The name of the argument. </summary>
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Determines if the argument appears in the generated help-text.
-        /// </summary>
+        /// <summary> Determines if the argument appears in the generated help-text. </summary>
         public bool ShowInHelpText { get; set; } = true;
 
-        /// <summary>
-        /// A description of the argument.
-        /// </summary>
+        /// <summary> A description of the argument. </summary>
         public string? Description { get; set; }
 
-        /// <summary>
-        /// All values specified, if any.
-        /// </summary>
+        /// <summary> All values specified, if any. </summary>
         public List<string?> Values { get; private set; }
 
-        /// <summary>
-        /// Allow multiple values.
-        /// </summary>
+        /// <summary> Allow multiple values. </summary>
         public bool MultipleValues { get; set; }
 
-        /// <summary>
-        /// The first value from <see cref="Values"/>, if any.
-        /// </summary>
+        /// <summary> The first value from <see cref="Values"/>, if any. </summary>
         public string? Value => Values.FirstOrDefault();
 
         /// <summary>
@@ -60,9 +46,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public ICollection<IArgumentValidator> Validators { get; } = new List<IArgumentValidator>();
 
-        /// <summary>
-        /// Defines the underlying type of the argument for the help-text-generator
-        /// </summary>
+        /// <summary> Defines the underlying type of the argument for the help-text-generator </summary>
         internal Type UnderlyingType { get; set; }
 
         internal void Reset()

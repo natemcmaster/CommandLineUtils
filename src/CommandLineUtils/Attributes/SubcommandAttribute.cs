@@ -8,15 +8,11 @@ using System.ComponentModel;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Represents a subcommand.
-    /// </summary>
+    /// <summary> Represents a subcommand. </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
     public sealed class SubcommandAttribute : Attribute
     {
-        /// <summary>
-        /// This constructor is obsolete. The recommended replacement is <see cref="SubcommandAttribute(Type[])"/>.
-        /// </summary>
+        /// <summary> This constructor is obsolete. The recommended replacement is <see cref="SubcommandAttribute(Type[])"/>. </summary>
         /// <param name="name">The name of the subcommand</param>
         /// <param name="commandType">The type of the subcommand.</param>
         [Obsolete("[Subcommand(string, Type)] is obsolete and will be removed in a future version. " +
@@ -30,9 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Name = name;
         }
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="McMaster.Extensions.CommandLineUtils.SubcommandAttribute" />.
-        /// </summary>
+        /// <summary> Initializes a new instance of <see cref="McMaster.Extensions.CommandLineUtils.SubcommandAttribute" />. </summary>
         /// <param name="subcommands">The subcommand types.</param>
         public SubcommandAttribute(params Type[] subcommands)
         {
@@ -49,9 +43,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Types = subcommands;
         }
 
-        /// <summary>
-        /// The types of the subcommands.
-        /// </summary>
+        /// <summary> The types of the subcommands. </summary>
         public Type[] Types { get; private set; }
 
         /// <summary>

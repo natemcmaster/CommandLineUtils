@@ -6,17 +6,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace McMaster.Extensions.CommandLineUtils.Validation
 {
-    /// <summary>
-    /// Implements a validator with an anonymous function
-    /// </summary>
+    /// <summary> Implements a validator with an anonymous function </summary>
     public class DelegateValidator : ICommandValidator, IArgumentValidator, IOptionValidator
     {
         private readonly Func<ValidationContext, ValidationResult> _validator;
 
-        /// <summary>
-        /// Initializes an instance of <see cref="DelegateValidator"/>.
-        /// </summary>
-        /// <param name="validator"></param>
+        /// <summary> Initializes an instance of <see cref="DelegateValidator"/>. </summary>
         public DelegateValidator(Func<ValidationContext, ValidationResult> validator)
         {
             _validator = validator ?? throw new ArgumentNullException(nameof(validator));

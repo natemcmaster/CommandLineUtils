@@ -12,12 +12,8 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public class UnrecognizedCommandParsingException : CommandParsingException
     {
-        /// <summary>
-        /// Initializes an instance of <see cref="UnrecognizedCommandParsingException"/>.
-        /// </summary>
-        /// <param name="command"></param>
+        /// <summary> Initializes an instance of <see cref="UnrecognizedCommandParsingException"/>. </summary>
         /// <param name="nearestMatches">The options or commands that </param>
-        /// <param name="message"></param>
         public UnrecognizedCommandParsingException(CommandLineApplication command,
             IEnumerable<string> nearestMatches,
             string message)
@@ -30,9 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// A collection of strings representing suggestions about similar and valid commands or options for the invalid
         /// argument that caused this <see cref="UnrecognizedCommandParsingException"/>.
         /// </summary>
-        /// <remarks>
-        /// This property always be empty <see cref="CommandLineApplication.MakeSuggestionsInErrorMessage"/> is false.
-        /// </remarks>
+        /// <remarks> This property always be empty <see cref="CommandLineApplication.MakeSuggestionsInErrorMessage"/> is false. </remarks>
         /// <value>This property get/set the suggestions for an invalid argument.</value>
         public IEnumerable<string> NearestMatches { get; }
     }

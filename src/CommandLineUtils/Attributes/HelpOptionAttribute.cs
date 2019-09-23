@@ -5,23 +5,17 @@ using System;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// The option used to determine if help text should be displayed. This should only be used once per command line app.
-    /// </summary>
+    /// <summary> The option used to determine if help text should be displayed. This should only be used once per command line app. </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class)]
     public sealed class HelpOptionAttribute : OptionAttributeBase
     {
-        /// <summary>
-        /// Initializes a new <see cref="HelpOptionAttribute"/> with the template <c>-?|-h|--help</c>.
-        /// </summary>
+        /// <summary> Initializes a new <see cref="HelpOptionAttribute"/> with the template <c>-?|-h|--help</c>. </summary>
         public HelpOptionAttribute()
             : this(Strings.DefaultHelpTemplate)
         {
         }
 
-        /// <summary>
-        /// Initializes a new <see cref="HelpOptionAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes a new <see cref="HelpOptionAttribute"/>. </summary>
         /// <param name="template">The string template. <see cref="CommandOption.Template"/>.</param>
         public HelpOptionAttribute(string template)
         {
@@ -29,9 +23,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Description = Strings.DefaultHelpOptionDescription;
         }
 
-        /// <summary>
-        /// The option template. This is parsed into the short and long name.
-        /// </summary>
+        /// <summary> The option template. This is parsed into the short and long name. </summary>
         public new string Template { get; set; }
 
         internal CommandOption Configure(CommandLineApplication app)

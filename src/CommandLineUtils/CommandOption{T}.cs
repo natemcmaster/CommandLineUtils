@@ -20,9 +20,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly List<T> _parsedValues = new List<T>();
         private readonly IValueParser<T> _valueParser;
 
-        /// <summary>
-        /// Intializes a new instance of <see cref="CommandOption{T}" />
-        /// </summary>
+        /// <summary> Intializes a new instance of <see cref="CommandOption{T}" /> </summary>
         /// <param name="valueParser">The parser use to convert values into type of T.</param>
         /// <param name="template">The option tempalte.</param>
         /// <param name="optionType">The optiont type</param>
@@ -33,14 +31,10 @@ namespace McMaster.Extensions.CommandLineUtils
             UnderlyingType = typeof(T);
         }
 
-        /// <summary>
-        /// The parsed value.
-        /// </summary>
+        /// <summary> The parsed value. </summary>
         public T ParsedValue => _parsedValues.FirstOrDefault();
 
-        /// <summary>
-        /// All parsed values;
-        /// </summary>
+        /// <summary> All parsed values; </summary>
         public IReadOnlyList<T> ParsedValues => _parsedValues;
 
         void IInternalCommandParamOfT.Parse(CultureInfo culture)

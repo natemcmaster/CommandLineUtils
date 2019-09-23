@@ -7,19 +7,14 @@ using System.IO;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Specifies that a value must be a legal file path.
-    /// </summary>
+    /// <summary> Specifies that a value must be a legal file path. </summary>
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class LegalFilePathAttribute : ValidationAttribute
     {
-        /// <summary>
-        /// Initializes an instance of <see cref="LegalFilePathAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes an instance of <see cref="LegalFilePathAttribute"/>. </summary>
         public LegalFilePathAttribute()
             : base("'{0}' is an invalid file path.")
         {
-
         }
 
         /// <inheritdoc />

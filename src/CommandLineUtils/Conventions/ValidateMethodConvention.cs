@@ -9,9 +9,7 @@ using McMaster.Extensions.CommandLineUtils.Conventions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Invokes a method named "OnValidate" on the model type after parsing.
-    /// </summary>
+    /// <summary> Invokes a method named "OnValidate" on the model type after parsing. </summary>
     public class ValidateMethodConvention : IConvention
     {
         /// <inheritdoc />

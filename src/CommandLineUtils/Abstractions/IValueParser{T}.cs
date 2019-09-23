@@ -5,14 +5,10 @@ using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    /// <summary>
-    /// A parser that can convert string into <typeparamref name="T" />.
-    /// </summary>
+    /// <summary> A parser that can convert string into <typeparamref name="T" />. </summary>
     public interface IValueParser<T> : IValueParser
     {
-        /// <summary>
-        /// Parses the raw string value.
-        /// </summary>
+        /// <summary> Parses the raw string value. </summary>
         /// <param name="argName">The name of the argument this value will be bound to.</param>
         /// <param name="value">The raw string value to parse.</param>
         /// <param name="culture">The culture that should be used to parse values.</param>

@@ -131,14 +131,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Subcommand(typeof(ShortNameType))]
         private class ParentCommand
         {
-
         }
 
         [Command]
         [Subcommand(typeof(ParentCommand))]
         private class ParentParentCommand
         {
-
         }
 
         [Fact]

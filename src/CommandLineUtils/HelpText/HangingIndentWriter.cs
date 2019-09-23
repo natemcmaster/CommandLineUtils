@@ -13,9 +13,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
     /// </summary>
     public class HangingIndentWriter
     {
-        /// <summary>
-        /// The default console width used for wrapping if the width cannot be gotten from the Console.
-        /// </summary>
+        /// <summary> The default console width used for wrapping if the width cannot be gotten from the Console. </summary>
         public const int DefaultConsoleWidth = 80;
 
         private readonly bool _indentFirstLine;
@@ -23,9 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         private readonly int _maxLineLength;
         private readonly string _paddedLine;
 
-        /// <summary>
-        /// A description formatter for dynamically wrapping the description to print in a CLI usage.
-        /// </summary>
+        /// <summary> A description formatter for dynamically wrapping the description to print in a CLI usage. </summary>
         /// <param name="indentSize">The indent size in spaces to use.</param>
         /// <param name="maxLineLength">The max length an indented line can be.
         /// Defaults to <see cref="DefaultConsoleWidth"/>.
@@ -39,9 +35,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             _paddedLine = Environment.NewLine + new string(' ', _indentSize);
         }
 
-        /// <summary>
-        /// Dynamically wrap text between.
-        /// </summary>
+        /// <summary> Dynamically wrap text between. </summary>
         /// <param name="input">The original description text.</param>
         /// <returns>Dynamically wrapped description with explicit newlines preserved.</returns>
         public string Write(string? input)
@@ -58,9 +52,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             return (_indentFirstLine ? _paddedLine : string.Empty) + string.Join(_paddedLine, lines);
         }
 
-        /// <summary>
-        /// Wrap a single line based on console width.
-        /// </summary>
+        /// <summary> Wrap a single line based on console width. </summary>
         /// <param name="original">The original description text.</param>
         /// <returns>Description text wrapped with padded newlines.</returns>
         private string WrapSingle(string original)

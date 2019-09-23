@@ -22,9 +22,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         private readonly IUnhandledExceptionHandler? _unhandledExceptionHandler;
         private readonly ManualResetEvent _blockProcessExit = new ManualResetEvent(false);
 
-        /// <summary>
-        ///     Creates a new instance.
-        /// </summary>
+        /// <summary> Creates a new instance. </summary>
         public CommandLineLifetime(IApplicationLifetime applicationLifetime,
             ICommandLineService cliService,
             IConsole console,
@@ -54,7 +52,6 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         ///     recorded and the application is stopped.
         /// </summary>
         /// <param name="cancellationToken">Used to indicate when stop should no longer be graceful.</param>
-        /// <returns></returns>
         /// <seealso cref="IHostLifetime.WaitForStartAsync(CancellationToken)" />
         public Task WaitForStartAsync(CancellationToken cancellationToken)
         {

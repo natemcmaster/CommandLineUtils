@@ -15,9 +15,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public enum ResponseFileHandling
     {
-        /// <summary>
-        /// Do not parse response files or treat arguments with '@' as a response file
-        /// </summary>
+        /// <summary> Do not parse response files or treat arguments with '@' as a response file </summary>
         Disabled,
 
         /// <summary>

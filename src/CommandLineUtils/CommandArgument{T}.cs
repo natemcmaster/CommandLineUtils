@@ -21,9 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly List<T> _parsedValues = new List<T>();
         private readonly IValueParser<T> _valueParser;
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="CommandArgument{T}" />
-        /// </summary>
+        /// <summary> Initializes a new instance of <see cref="CommandArgument{T}" /> </summary>
         /// <param name="valueParser">The value parser.</param>
         public CommandArgument(IValueParser<T> valueParser)
         {
@@ -31,14 +29,10 @@ namespace McMaster.Extensions.CommandLineUtils
             UnderlyingType = typeof(T);
         }
 
-        /// <summary>
-        /// The parsed value.
-        /// </summary>
+        /// <summary> The parsed value. </summary>
         public T ParsedValue => _parsedValues.FirstOrDefault();
 
-        /// <summary>
-        /// All parsed values;
-        /// </summary>
+        /// <summary> All parsed values; </summary>
         public IReadOnlyList<T> ParsedValues => _parsedValues;
 
         void IInternalCommandParamOfT.Parse(CultureInfo culture)

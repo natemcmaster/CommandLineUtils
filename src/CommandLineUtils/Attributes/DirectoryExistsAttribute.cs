@@ -7,15 +7,11 @@ using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Specifies that the data must be an already existing directory, not a file.
-    /// </summary>
+    /// <summary> Specifies that the data must be an already existing directory, not a file. </summary>
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class DirectoryExistsAttribute : FilePathExistsAttributeBase
     {
-        /// <summary>
-        /// Initializes an instance of <see cref="FileExistsAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes an instance of <see cref="FileExistsAttribute"/>. </summary>
         public DirectoryExistsAttribute()
             : base(FilePathType.Directory)
         {

@@ -7,9 +7,7 @@ using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Utilities for getting input from an interactive console.
-    /// </summary>
+    /// <summary> Utilities for getting input from an interactive console. </summary>
     public static class Prompt
     {
         private const char Backspace = '\b';
@@ -59,9 +57,7 @@ namespace McMaster.Extensions.CommandLineUtils
             while (true);
         }
 
-        /// <summary>
-        /// Gets a console response from the console after displaying a <paramref name="prompt" />.
-        /// </summary>
+        /// <summary> Gets a console response from the console after displaying a <paramref name="prompt" />. </summary>
         /// <param name="prompt">The question to display on command line</param>
         /// <param name="defaultValue">If the user enters a blank response, return this value instead.</param>
         /// <param name="promptColor">The console color to use for the prompt</param>
@@ -91,9 +87,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return defaultValue;
         }
 
-        /// <summary>
-        /// Gets a response that contains a password. Input is masked with an asterisk.
-        /// </summary>
+        /// <summary> Gets a response that contains a password. Input is masked with an asterisk. </summary>
         /// <param name="prompt">The question to display on command line</param>
         /// <param name="promptColor">The console color to use for the prompt</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
@@ -119,9 +113,7 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
 #if NET45 || NETSTANDARD2_0
-        /// <summary>
-        /// Gets a response as a SecureString object. Input is masked with an asterisk.
-        /// </summary>
+        /// <summary> Gets a response as a SecureString object. Input is masked with an asterisk. </summary>
         /// <param name="prompt">The question to display on the command line</param>
         /// <param name="promptColor">The console color to use for the prompt</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
@@ -212,9 +204,7 @@ namespace McMaster.Extensions.CommandLineUtils
             while (key.Key != ConsoleKey.Enter);
         }
 
-        /// <summary>
-        /// Gets an integer response from the console after displaying a <paramref name="prompt" />.
-        /// </summary>
+        /// <summary> Gets an integer response from the console after displaying a <paramref name="prompt" />. </summary>
         /// <param name="prompt">The question to display on the command line</param>
         /// <param name="defaultAnswer">If the user provides an empty response, which value should be returned</param>
         /// <param name="promptColor">The console color to display</param>

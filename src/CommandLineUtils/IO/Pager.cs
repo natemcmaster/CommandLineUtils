@@ -25,16 +25,12 @@ namespace McMaster.Extensions.CommandLineUtils
         private bool _disposed;
         private string _prompt = "Use arrow keys to scroll\\. Press 'q' to exit\\.";
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="Pager" /> which displays output in a console pager.
-        /// </summary>
+        /// <summary> Initializes a new instance of <see cref="Pager" /> which displays output in a console pager. </summary>
         public Pager()
             : this(PhysicalConsole.Singleton)
         { }
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="Pager" /> which displays output in a console pager.
-        /// </summary>
+        /// <summary> Initializes a new instance of <see cref="Pager" /> which displays output in a console pager. </summary>
         /// <param name="console">The console to write to.</param>
         public Pager(IConsole console)
         {
@@ -95,14 +91,10 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        /// <summary>
-        /// This will wait until the user exits the pager.
-        /// </summary>
+        /// <summary> This will wait until the user exits the pager. </summary>
         public void WaitForExit() => Dispose();
 
-        /// <summary>
-        /// Force close the pager.
-        /// </summary>
+        /// <summary> Force close the pager. </summary>
         public void Kill()
         {
             if (_less.IsValueCreated && _less.Value != null)
@@ -153,9 +145,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        /// <summary>
-        /// This will wait until the user exits the pager.
-        /// </summary>
+        /// <summary> This will wait until the user exits the pager. </summary>
         public void Dispose()
         {
             if (_disposed)

@@ -8,32 +8,24 @@ using System.Linq;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Represents a command line application using attributes to define options and arguments.
-    /// </summary>
+    /// <summary> Represents a command line application using attributes to define options and arguments. </summary>
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class CommandAttribute : Attribute
     {
         private string[] _names = Util.EmptyArray<string>();
 
-        /// <summary>
-        /// Initializes a new <see cref="CommandAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes a new <see cref="CommandAttribute"/>. </summary>
         public CommandAttribute()
         { }
 
-        /// <summary>
-        /// Initializes a new <see cref="CommandAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes a new <see cref="CommandAttribute"/>. </summary>
         /// <param name="name">The name of the command.</param>
         public CommandAttribute(string name)
         {
             Name = name;
         }
 
-        /// <summary>
-        /// Initializes a new <see cref="CommandAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes a new <see cref="CommandAttribute"/>. </summary>
         /// <param name="names">The names of the command. The first name given is the primary name</param>
         public CommandAttribute(params string[] names)
         {
@@ -60,54 +52,34 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        /// <summary>
-        /// THe names of the command. The first is the primary name. All other names are aliases.
-        /// </summary>
+        /// <summary> THe names of the command. The first is the primary name. All other names are aliases. </summary>
         public IEnumerable<string> Names => _names;
 
-        /// <summary>
-        /// The full name of the command line application to show in help text. <seealso cref="CommandLineApplication.FullName" />
-        /// </summary>
+        /// <summary> The full name of the command line application to show in help text. <seealso cref="CommandLineApplication.FullName" /> </summary>
         public string? FullName { get; set; }
 
-        /// <summary>
-        /// A description of the command. <seealso cref="CommandLineApplication.Description"/>
-        /// </summary>
+        /// <summary> A description of the command. <seealso cref="CommandLineApplication.Description"/> </summary>
         public string? Description { get; set; }
 
-        /// <summary>
-        /// Determines if this command appears in generated help text. <seealso cref="CommandLineApplication.ShowInHelpText"/>
-        /// </summary>
+        /// <summary> Determines if this command appears in generated help text. <seealso cref="CommandLineApplication.ShowInHelpText"/> </summary>
         public bool ShowInHelpText { get; set; } = true;
 
-        /// <summary>
-        /// Additional text that appears at the bottom of generated help text. <seealso cref="CommandLineApplication.ExtendedHelpText"/>
-        /// </summary>
+        /// <summary> Additional text that appears at the bottom of generated help text. <seealso cref="CommandLineApplication.ExtendedHelpText"/> </summary>
         public string? ExtendedHelpText { get; set; }
 
-        /// <summary>
-        /// Throw when unexpected arguments are encountered. <seealso cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>
-        /// </summary>
+        /// <summary> Throw when unexpected arguments are encountered. <seealso cref="CommandLineApplication.ThrowOnUnexpectedArgument"/> </summary>
         public bool ThrowOnUnexpectedArgument { get; set; } = true;
 
-        /// <summary>
-        /// Allow '--' to be used to stop parsing arguments. <seealso cref="CommandLineApplication.AllowArgumentSeparator"/>
-        /// </summary>
+        /// <summary> Allow '--' to be used to stop parsing arguments. <seealso cref="CommandLineApplication.AllowArgumentSeparator"/> </summary>
         public bool AllowArgumentSeparator { get; set; }
 
-        /// <summary>
-        /// Treat arguments beginning as '@' as a response file. <seealso cref="CommandLineApplication.ResponseFileHandling"/>
-        /// </summary>
+        /// <summary> Treat arguments beginning as '@' as a response file. <seealso cref="CommandLineApplication.ResponseFileHandling"/> </summary>
         public ResponseFileHandling ResponseFileHandling { get; set; } = ResponseFileHandling.Disabled;
 
-        /// <summary>
-        /// The way arguments and options are matched.
-        /// </summary>
+        /// <summary> The way arguments and options are matched. </summary>
         public StringComparison OptionsComparison { get; set; } = StringComparison.Ordinal;
 
-        /// <summary>
-        /// Specifies the culture used to convert values into types.
-        /// </summary>
+        /// <summary> Specifies the culture used to convert values into types. </summary>
         public CultureInfo ParseCulture { get; set; } = CultureInfo.CurrentCulture;
 
         /// <summary>
@@ -133,9 +105,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// This defaults to true unless an option with a short name of two or more characters is added.
         /// </para>
         /// </summary>
-        /// <remarks>
-        /// <seealso href="https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html"/>
-        /// </remarks>
+        /// <remarks> <seealso href="https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html"/> </remarks>
         public bool ClusterOptions
         {
             get => _clusterOptions ?? true;

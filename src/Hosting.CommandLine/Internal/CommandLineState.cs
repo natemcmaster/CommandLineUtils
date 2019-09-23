@@ -6,9 +6,7 @@ using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.Hosting.CommandLine.Internal
 {
-    /// <summary>
-    ///     A DI container for storing command line arguments.
-    /// </summary>
+    /// <summary> A DI container for storing command line arguments. </summary>
     internal class CommandLineState : CommandLineContext
     {
         public CommandLineState(string[] args)

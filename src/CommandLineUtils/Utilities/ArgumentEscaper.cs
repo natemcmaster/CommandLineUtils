@@ -8,18 +8,14 @@ using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// A utility for escaping arguments for new processes.
-    /// </summary>
+    /// <summary> A utility for escaping arguments for new processes. </summary>
     public static class ArgumentEscaper
     {
         /// <summary>
         /// Undo the processing which took place to create string[] args in Main, so that the next process will
         /// receive the same string[] args.
         /// </summary>
-        /// <remarks>
-        /// See https://blogs.msdn.microsoft.com/twistylittlepassagesallalike/2011/04/23/everyone-quotes-command-line-arguments-the-wrong-way/
-        /// </remarks>
+        /// <remarks> See https://blogs.msdn.microsoft.com/twistylittlepassagesallalike/2011/04/23/everyone-quotes-command-line-arguments-the-wrong-way/ </remarks>
         /// <param name="args">The arguments</param>
         /// <returns>A single string of escaped arguments</returns>
         public static string EscapeAndConcatenate(IEnumerable<string> args)

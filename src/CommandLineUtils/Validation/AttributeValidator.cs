@@ -8,28 +8,18 @@ using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Validation
 {
-    /// <summary>
-    /// A validator that uses a <see cref="ValidationAttribute"/> to validate a command, command line option, or argument.
-    /// </summary>
+    /// <summary> A validator that uses a <see cref="ValidationAttribute"/> to validate a command, command line option, or argument. </summary>
     public class AttributeValidator : IValidator, ICommandValidator
     {
         private readonly ValidationAttribute _attribute;
 
-        /// <summary>
-        /// Initializes an instance of <see cref="AttributeValidator"/>.
-        /// </summary>
-        /// <param name="attribute"></param>
+        /// <summary> Initializes an instance of <see cref="AttributeValidator"/>. </summary>
         public AttributeValidator(ValidationAttribute attribute)
         {
             _attribute = attribute ?? throw new ArgumentNullException(nameof(attribute));
         }
 
-        /// <summary>
-        /// Gets the validation result for a command line option.
-        /// </summary>
-        /// <param name="option"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
+        /// <summary> Gets the validation result for a command line option. </summary>
         public ValidationResult GetValidationResult(CommandOption option, ValidationContext context)
         {
             if (_attribute is RequiredAttribute && option.OptionType == CommandOptionType.NoValue)
@@ -43,12 +33,7 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
             return GetValidationResult(option.Values, context);
         }
 
-        /// <summary>
-        /// Gets the validation result for a command line argument.
-        /// </summary>
-        /// <param name="argument"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
+        /// <summary> Gets the validation result for a command line argument. </summary>
         public ValidationResult GetValidationResult(CommandArgument argument, ValidationContext context)
             => GetValidationResult(argument.Values, context);
 

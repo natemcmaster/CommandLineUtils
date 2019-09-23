@@ -9,13 +9,8 @@ namespace McMaster.Extensions.CommandLineUtils
 {
     internal static class StringDistance
     {
-        /// <summary>
-        /// Calculates the unnormalized (Damerau-)Levenshtein Distance of two strings
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="t"></param>
+        /// <summary> Calculates the unnormalized (Damerau-)Levenshtein Distance of two strings </summary>
         /// <param name="damareu">Determites if the Damerau deviant is used</param>
-        /// <returns></returns>
         private static int LevenshteinDistance(string s, string t, bool damareu)
         {
             // Short circuit so we don't waste cpu time
@@ -83,33 +78,19 @@ namespace McMaster.Extensions.CommandLineUtils
             return matrix[s.Length, t.Length];
         }
 
-        /// <summary>
-        /// Calculates the unnormalized Levenshtein Distance of two strings
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="t"></param>
-        /// <returns></returns>
+        /// <summary> Calculates the unnormalized Levenshtein Distance of two strings </summary>
         internal static int LevenshteinDistance(string s, string t)
         {
             return LevenshteinDistance(s, t, false);
         }
 
-        /// <summary>
-        /// Calculates the unnormalized Damareu-Levenshtein Distance of two strings
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="t"></param>
-        /// <returns></returns>
+        /// <summary> Calculates the unnormalized Damareu-Levenshtein Distance of two strings </summary>
         internal static int DamareuLevenshteinDistance(string s, string t)
         {
             return LevenshteinDistance(s, t, true);
         }
 
-        /// <summary>
-        /// Normalizes the distance
-        /// </summary>
-        /// <param name="distance"></param>
-        /// <param name="length"></param>
+        /// <summary> Normalizes the distance </summary>
         /// <returns>A value from 0 to 1 with 1 being a perfect match and zero none at all</returns>
         internal static double NormalizeDistance(int distance, int length)
         {

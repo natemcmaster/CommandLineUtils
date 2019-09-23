@@ -9,9 +9,7 @@ using System.Runtime.InteropServices;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Utilities for finding the "dotnet.exe" file from the currently running .NET Core application.
-    /// </summary>
+    /// <summary> Utilities for finding the "dotnet.exe" file from the currently running .NET Core application. </summary>
     public static class DotNetExe
     {
         private const string FileName = "dotnet";

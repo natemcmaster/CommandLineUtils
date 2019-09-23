@@ -20,9 +20,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
 #nullable disable
 #pragma warning disable RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
-        /// <summary>
-        /// Initializes a new instance of <see cref="CommandLineApplication"/>.
-        /// </summary>
+        /// <summary> Initializes a new instance of <see cref="CommandLineApplication"/>. </summary>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>.</param>
         public CommandLineApplication(bool throwOnUnexpectedArg = true)
 #pragma warning restore RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
@@ -31,9 +29,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Initialize();
         }
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="CommandLineApplication"/>.
-        /// </summary>
+        /// <summary> Initializes a new instance of <see cref="CommandLineApplication"/>. </summary>
         /// <param name="console">The console implementation to use.</param>
         public CommandLineApplication(IConsole console)
             : base(console)
@@ -41,9 +37,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Initialize();
         }
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="CommandLineApplication"/>.
-        /// </summary>
+        /// <summary> Initializes a new instance of <see cref="CommandLineApplication"/>. </summary>
         /// <param name="console">The console implementation to use.</param>
         /// <param name="workingDirectory">The current working directory.</param>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>.</param>
@@ -53,9 +47,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Initialize();
         }
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="CommandLineApplication"/>.
-        /// </summary>
+        /// <summary> Initializes a new instance of <see cref="CommandLineApplication"/>. </summary>
         /// <param name="helpTextGenerator">The help text generator to use.</param>
         /// <param name="console">The console implementation to use.</param>
         /// <param name="workingDirectory">The current working directory.</param>
@@ -90,24 +82,18 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        /// <summary>
-        /// An instance of the model associated with the command line application.
-        /// </summary>
+        /// <summary> An instance of the model associated with the command line application. </summary>
         public TModel Model => _lazy.Value;
 
         Type IModelAccessor.GetModelType() => typeof(TModel);
 
         object IModelAccessor.GetModel() => Model;
 
-        /// <summary>
-        ///  Create an instance of <typeparamref name="TModel" />.
-        /// </summary>
+        /// <summary> Create an instance of <typeparamref name="TModel" />. </summary>
         /// <returns>An instance of the context.</returns>
         protected virtual TModel CreateModel() => ModelFactory();
 
-        /// <summary>
-        /// Defines the function that produces an instance of <typeparamref name="TModel" />.
-        /// </summary>
+        /// <summary> Defines the function that produces an instance of <typeparamref name="TModel" />. </summary>
         public Func<TModel> ModelFactory
         {
             get => _modelFactory;

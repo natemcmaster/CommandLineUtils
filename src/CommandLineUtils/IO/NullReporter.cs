@@ -4,17 +4,13 @@
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// A reporter that does nothing.
-    /// </summary>
+    /// <summary> A reporter that does nothing. </summary>
     public class NullReporter : IReporter
     {
         private NullReporter()
         { }
 
-        /// <summary>
-        /// A shared instance of <see cref="NullReporter"/>.
-        /// </summary>
+        /// <summary> A shared instance of <see cref="NullReporter"/>. </summary>
         public static IReporter Singleton { get; } = new NullReporter();
 
         /// <inheritdoc />

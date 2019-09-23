@@ -15,16 +15,12 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
     {
         private readonly IServiceProvider? _additionalServices;
 
-        /// <summary>
-        /// Initializes an instance of <see cref="ConstructorInjectionConvention" />.
-        /// </summary>
+        /// <summary> Initializes an instance of <see cref="ConstructorInjectionConvention" />. </summary>
         public ConstructorInjectionConvention()
         {
         }
 
-        /// <summary>
-        /// Initializes an instance of <see cref="ConstructorInjectionConvention" />.
-        /// </summary>
+        /// <summary> Initializes an instance of <see cref="ConstructorInjectionConvention" />. </summary>
         /// <param name="additionalServices">Additional services use to inject the constructor of the model</param>
         public ConstructorInjectionConvention(IServiceProvider additionalServices)
         {

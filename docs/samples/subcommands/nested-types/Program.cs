@@ -7,9 +7,7 @@ using McMaster.Extensions.CommandLineUtils;
 
 namespace SubcommandSample
 {
-    /// <summary>
-    /// In this example, each command a nested class type.
-    /// </summary>
+    /// <summary> In this example, each command a nested class type. </summary>
     [Command(Name = "fake-docker", Description = "A self-sufficient runtime for containers"),
      Subcommand(typeof(Containers), typeof(Images))]
     class Docker

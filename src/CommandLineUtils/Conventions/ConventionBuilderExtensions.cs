@@ -6,9 +6,7 @@ using McMaster.Extensions.CommandLineUtils.Conventions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Methods for adding commonly used conventions
-    /// </summary>
+    /// <summary> Methods for adding commonly used conventions </summary>
     public static class ConventionBuilderExtensions
     {
         /// <summary>
@@ -37,9 +35,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 .UseCommandNameFromModelType();
         }
 
-        /// <summary>
-        /// Adds --help option, if there isn't already a help flag set.
-        /// </summary>
+        /// <summary> Adds --help option, if there isn't already a help flag set. </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="template">The help template. Defaults to <c>-?|-h|--help</c>.</param>
         /// <returns>The builder.</returns>
@@ -112,73 +108,55 @@ namespace McMaster.Extensions.CommandLineUtils
         public static IConventionBuilder SetAppNameFromEntryAssembly(this IConventionBuilder builder)
             => builder.AddConvention(new AppNameFromEntryAssemblyConvention());
 
-        /// <summary>
-        /// Applies settings from <see cref="CommandAttribute" /> on the model type.
-        /// </summary>
+        /// <summary> Applies settings from <see cref="CommandAttribute" /> on the model type. </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseCommandAttribute(this IConventionBuilder builder)
             => builder.AddConvention(new CommandAttributeConvention());
 
-        /// <summary>
-        /// Applies settings from <see cref="VersionOptionFromMemberAttribute" /> on the model type.
-        /// </summary>
+        /// <summary> Applies settings from <see cref="VersionOptionFromMemberAttribute" /> on the model type. </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseVersionOptionFromMemberAttribute(this IConventionBuilder builder)
             => builder.AddConvention(new VersionOptionFromMemberAttributeConvention());
 
-        /// <summary>
-        /// Applies settings from <see cref="VersionOptionAttribute" /> on the model type.
-        /// </summary>
+        /// <summary> Applies settings from <see cref="VersionOptionAttribute" /> on the model type. </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseVersionOptionAttribute(this IConventionBuilder builder)
             => builder.AddConvention(new VersionOptionAttributeConvention());
 
-        /// <summary>
-        /// Applies settings from <see cref="HelpOptionAttribute" /> on the model type.
-        /// </summary>
+        /// <summary> Applies settings from <see cref="HelpOptionAttribute" /> on the model type. </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseHelpOptionAttribute(this IConventionBuilder builder)
             => builder.AddConvention(new HelpOptionAttributeConvention());
 
-        /// <summary>
-        /// Applies settings from <see cref="OptionAttribute" /> on the model type.
-        /// </summary>
+        /// <summary> Applies settings from <see cref="OptionAttribute" /> on the model type. </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseOptionAttributes(this IConventionBuilder builder)
             => builder.AddConvention(new OptionAttributeConvention());
 
-        /// <summary>
-        /// Applies settings from <see cref="ArgumentAttribute" /> on the model type.
-        /// </summary>
+        /// <summary> Applies settings from <see cref="ArgumentAttribute" /> on the model type. </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseArgumentAttributes(this IConventionBuilder builder)
             => builder.AddConvention(new ArgumentAttributeConvention());
 
-        /// <summary>
-        /// Adds subcommands for each <see cref="McMaster.Extensions.CommandLineUtils.SubcommandAttribute" /> on the model type.
-        /// </summary>
+        /// <summary> Adds subcommands for each <see cref="McMaster.Extensions.CommandLineUtils.SubcommandAttribute" /> on the model type. </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseSubcommandAttributes(this IConventionBuilder builder)
             => builder.AddConvention(new SubcommandAttributeConvention());
 
-        /// <summary>
-        /// Invokes a method named "OnValidate" on the model type after parsing.
-        /// </summary>
+        /// <summary> Invokes a method named "OnValidate" on the model type after parsing. </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseOnValidateMethodFromModel(this IConventionBuilder builder)
             => builder.AddConvention(new ValidateMethodConvention());
 
-        /// <summary>
-        /// Invokes a method named "OnValidationError" on the model type when validation fails.
-        /// </summary>
+        /// <summary> Invokes a method named "OnValidationError" on the model type when validation fails. </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseOnValidationErrorMethodFromModel(this IConventionBuilder builder)
@@ -193,26 +171,16 @@ namespace McMaster.Extensions.CommandLineUtils
         public static IConventionBuilder UseOnExecuteMethodFromModel(this IConventionBuilder builder)
             => builder.AddConvention(new ExecuteMethodConvention());
 
-        /// <summary>
-        /// Enables using constructor injection to initialize the model type.
-        /// </summary>
-        /// <param name="builder"></param>
+        /// <summary> Enables using constructor injection to initialize the model type. </summary>
         public static IConventionBuilder UseConstructorInjection(this IConventionBuilder builder)
             => builder.AddConvention(new ConstructorInjectionConvention());
 
-        /// <summary>
-        /// Enables using constructor injection to initialize the model type.
-        /// </summary>
-        /// <param name="builder"></param>
+        /// <summary> Enables using constructor injection to initialize the model type. </summary>
         /// <param name="additionalServices">Additional services that should be passed to the service provider.</param>
         public static IConventionBuilder UseConstructorInjection(this IConventionBuilder builder, IServiceProvider additionalServices)
             => builder.AddConvention(new ConstructorInjectionConvention(additionalServices));
 
-        /// <summary>
-        /// Sets the subcommand name using the model type, if available and not otherwise set using <see cref="CommandAttribute"/>.
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <returns></returns>
+        /// <summary> Sets the subcommand name using the model type, if available and not otherwise set using <see cref="CommandAttribute"/>. </summary>
         public static IConventionBuilder UseCommandNameFromModelType(this IConventionBuilder builder)
             => builder.AddConvention(new CommandNameFromTypeConvention());
     }

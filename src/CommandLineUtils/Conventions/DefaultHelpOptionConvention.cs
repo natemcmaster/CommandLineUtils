@@ -5,21 +5,14 @@ using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
-    /// <summary>
-    /// Adds a help option of --help if no other help option is specified.
-    /// </summary>
+    /// <summary> Adds a help option of --help if no other help option is specified. </summary>
     public class DefaultHelpOptionConvention : IConvention
     {
-        /// <summary>
-        /// The default help template.
-        /// </summary>
+        /// <summary> The default help template. </summary>
         public const string DefaultHelpTemplate = Strings.DefaultHelpTemplate;
         private readonly string _template;
 
-        /// <summary>
-        /// Initializes an instance of <see cref="DefaultHelpOptionConvention"/>.
-        /// </summary>
-        /// <param name="template"></param>
+        /// <summary> Initializes an instance of <see cref="DefaultHelpOptionConvention"/>. </summary>
         public DefaultHelpOptionConvention(string template)
         {
             _template = template;

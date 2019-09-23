@@ -6,14 +6,10 @@ using System;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// The exception that is thrown when command line arguments could not be parsed.
-    /// </summary>
+    /// <summary> The exception that is thrown when command line arguments could not be parsed. </summary>
     public class CommandParsingException : Exception
     {
-        /// <summary>
-        /// Initializes an instance of <see cref="CommandParsingException"/>.
-        /// </summary>
+        /// <summary> Initializes an instance of <see cref="CommandParsingException"/>. </summary>
         /// <param name="command">The command.</param>
         /// <param name="message">The message.</param>
         public CommandParsingException(CommandLineApplication command, string message)
@@ -22,9 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Command = command;
         }
 
-        /// <summary>
-        /// Initializes an instance of <see cref="CommandParsingException"/>.
-        /// </summary>
+        /// <summary> Initializes an instance of <see cref="CommandParsingException"/>. </summary>
         /// <param name="command">The command.</param>
         /// <param name="message">The message.</param>
         /// <param name="innerException">The inner exception</param>
@@ -34,9 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Command = command;
         }
 
-        /// <summary>
-        /// The command that is throwing the exception.
-        /// </summary>
+        /// <summary> The command that is throwing the exception. </summary>
         public CommandLineApplication Command { get; }
     }
 }

@@ -28,9 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public ICollection<ICommandValidator> Validators { get; } = new List<ICommandValidator>();
 
-        /// <summary>
-        /// Validates arguments and options.
-        /// </summary>
+        /// <summary> Validates arguments and options. </summary>
         /// <returns>The first validation result that is not <see cref="ValidationResult.Success"/> if there is an error.</returns>
         public ValidationResult GetValidationResult()
         {

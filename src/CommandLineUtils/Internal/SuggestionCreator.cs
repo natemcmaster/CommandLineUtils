@@ -6,17 +6,13 @@ using System.Linq;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Creates suggestions based on an input string and a command object.
-    /// </summary>
+    /// <summary> Creates suggestions based on an input string and a command object. </summary>
     internal static class SuggestionCreator
     {
         /// <summary>
         /// Gets a list of suggestions from sub commands and options of <paramref name="command"/> that are likely to
         /// fix the invalid argument <paramref name="input"/>
         /// </summary>
-        /// <param name="command"></param>
-        /// <param name="input"></param>
         /// <returns>A list of string with suggestions or null if no suggestions were found</returns>
         public static IEnumerable<string> GetTopSuggestions(CommandLineApplication command, string input)
         {

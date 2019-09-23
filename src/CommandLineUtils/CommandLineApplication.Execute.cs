@@ -39,7 +39,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
         /// <param name="context">The execution context.</param>
-        /// <param name="cancellationToken"></param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
@@ -144,7 +143,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
         /// <param name="args">The arguments</param>
-        /// <param name="cancellationToken"></param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>

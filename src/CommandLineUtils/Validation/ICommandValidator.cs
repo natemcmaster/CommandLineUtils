@@ -5,14 +5,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace McMaster.Extensions.CommandLineUtils.Validation
 {
-    /// <summary>
-    /// Provides validation on a command
-    /// </summary>
+    /// <summary> Provides validation on a command </summary>
     public interface ICommandValidator
     {
-        /// <summary>
-        /// Validates a command
-        /// </summary>
+        /// <summary> Validates a command </summary>
         /// <param name="command">The command.</param>
         /// <param name="context">The validation context.</param>
         /// <returns>The validation result. Returns <see cref="ValidationResult.Success"/> if the values pass validation.</returns>

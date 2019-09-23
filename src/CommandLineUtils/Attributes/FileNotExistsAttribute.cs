@@ -7,15 +7,11 @@ using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary>
-    /// Specifies that the data must not be an already existing file, not a directory.
-    /// </summary>
+    /// <summary> Specifies that the data must not be an already existing file, not a directory. </summary>
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class FileNotExistsAttribute : FilePathNotExistsAttributeBase
     {
-        /// <summary>
-        /// Initializes an instance of <see cref="FileNotExistsAttribute"/>.
-        /// </summary>
+        /// <summary> Initializes an instance of <see cref="FileNotExistsAttribute"/>. </summary>
         public FileNotExistsAttribute()
             : base(FilePathType.File)
         {
