@@ -10,13 +10,10 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary> Report a verbose message. </summary>
         void Verbose(string message);
 
-        /// <summary> Report console output. </summary>
         void Output(string message);
 
-        /// <summary> Report a warning. </summary>
         void Warn(string message);
 
-        /// <summary> Report an error. </summary>
         void Error(string message);
     }
 }

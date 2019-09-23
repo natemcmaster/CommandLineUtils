@@ -7,7 +7,6 @@ using System.IO;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary> An abstract console. </summary>
     public interface IConsole
     {
         /// <summary> Raised when Ctrl+C is pressed. </summary>

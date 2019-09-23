@@ -8,7 +8,6 @@ using System.ComponentModel;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary> Represents a subcommand. </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
     public sealed class SubcommandAttribute : Attribute
     {
@@ -27,7 +26,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Initializes a new instance of <see cref="McMaster.Extensions.CommandLineUtils.SubcommandAttribute" />. </summary>
-        /// <param name="subcommands">The subcommand types.</param>
         public SubcommandAttribute(params Type[] subcommands)
         {
             if (subcommands == null)

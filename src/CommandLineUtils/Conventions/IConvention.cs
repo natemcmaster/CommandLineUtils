@@ -6,7 +6,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
     /// <summary> Defines a convention for an instance of <see cref="CommandLineApplication{TModel}" />. </summary>
     public interface IConvention
     {
-        /// <summary> Apply the convention. </summary>
         /// <param name="context">The context in which the convention is applied.</param>
         void Apply(ConventionContext context);
     }

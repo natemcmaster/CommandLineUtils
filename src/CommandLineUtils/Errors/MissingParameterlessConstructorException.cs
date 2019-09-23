@@ -14,7 +14,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
         /// <summary> Initializes an instance of <see cref="MissingParameterlessConstructorException" />. </summary>
         /// <param name="type">The type missing a parameterless constructor.</param>
-        /// <param name="innerException">The original exception.</param>
         public MissingParameterlessConstructorException(Type type, Exception innerException)
             : base($"Class {type.FullName} does not have a parameterless constructor", innerException)
         {

@@ -43,7 +43,6 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         }
 
         /// <summary> Generate the first few lines of help output text </summary>
-        /// <param name="output">Help text output</param>
         protected virtual void GenerateHeader(
             CommandLineApplication application,
             TextWriter output)
@@ -63,7 +62,6 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         }
 
         /// <summary> Generate detailed help information </summary>
-        /// <param name="output">Help text output</param>
         protected virtual void GenerateBody(
             CommandLineApplication application,
             TextWriter output)
@@ -87,7 +85,6 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         }
 
         /// <summary> Generate the line that shows usage </summary>
-        /// <param name="output">Help text output</param>
         /// <param name="visibleArguments">Arguments not hidden from help text</param>
         /// <param name="visibleOptions">Options not hidden from help text</param>
         /// <param name="visibleCommands">Commands not hidden from help text</param>
@@ -137,7 +134,6 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         }
 
         /// <summary> Generate the lines that show information about arguments </summary>
-        /// <param name="output">Help text output</param>
         /// <param name="visibleArguments">Arguments not hidden from help text</param>
         /// <param name="firstColumnWidth">The width of the first column of commands, arguments, and options</param>
         protected virtual void GenerateArguments(
@@ -169,7 +165,6 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         }
 
         /// <summary> Generate the lines that show information about options </summary>
-        /// <param name="output">Help text output</param>
         /// <param name="visibleOptions">Options not hidden from help text</param>
         /// <param name="firstColumnWidth">The width of the first column of commands, arguments, and options</param>
         protected virtual void GenerateOptions(
@@ -202,7 +197,6 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
 
         /// <summary> Generate the lines that show information about subcommands </summary>
-        /// <param name="output">Help text output</param>
         /// <param name="visibleCommands">Commands not hidden from help text</param>
         /// <param name="firstColumnWidth">The width of the first column of commands, arguments, and options</param>
         protected virtual void GenerateCommands(
@@ -241,7 +235,6 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         }
 
         /// <summary> Generate the last lines of help text output </summary>
-        /// <param name="output">Help text output</param>
         protected virtual void GenerateFooter(
             CommandLineApplication application,
             TextWriter output)

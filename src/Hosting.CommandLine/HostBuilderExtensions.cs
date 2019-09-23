@@ -24,7 +24,6 @@ namespace Microsoft.Extensions.Hosting
         /// </summary>
         /// <typeparam name="TApp">The type of the command line application implementation</typeparam>
         /// <param name="args">The command line arguments</param>
-        /// <param name="cancellationToken">A cancellation token</param>
         /// <returns>A task whose result is the exit code of the application</returns>
         public static async Task<int> RunCommandLineApplicationAsync<TApp>(
             this IHostBuilder hostBuilder, string[] args, CancellationToken cancellationToken = default)

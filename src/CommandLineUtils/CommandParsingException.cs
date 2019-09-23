@@ -17,7 +17,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Initializes an instance of <see cref="CommandParsingException"/>. </summary>
-        /// <param name="innerException">The inner exception</param>
         public CommandParsingException(CommandLineApplication command, string message, Exception innerException)
             : base(message, innerException)
         {

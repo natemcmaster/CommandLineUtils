@@ -22,8 +22,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
         /// <summary> Intializes a new instance of <see cref="CommandOption{T}" /> </summary>
         /// <param name="valueParser">The parser use to convert values into type of T.</param>
-        /// <param name="template">The option tempalte.</param>
-        /// <param name="optionType">The optiont type</param>
         public CommandOption(IValueParser<T> valueParser, string template, CommandOptionType optionType)
             : base(template, optionType)
         {
@@ -31,7 +29,6 @@ namespace McMaster.Extensions.CommandLineUtils
             UnderlyingType = typeof(T);
         }
 
-        /// <summary> The parsed value. </summary>
         public T ParsedValue => _parsedValues.FirstOrDefault();
 
         /// <summary> All parsed values; </summary>

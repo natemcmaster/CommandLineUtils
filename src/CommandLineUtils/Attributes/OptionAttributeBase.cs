@@ -5,7 +5,6 @@ using System;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    /// <summary> Common option properties. </summary>
     public abstract class OptionAttributeBase : Attribute
     {
         /// <summary> The option template. This is parsed into the short and long name. </summary>

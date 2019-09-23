@@ -19,7 +19,6 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         /// <summary> Initializes a new <see cref="CommandOption"/>. </summary>
         /// <param name="template">The template string. This is parsed into <see cref="ShortName"/> and <see cref="LongName"/>.</param>
-        /// <param name="optionType">The option type.</param>
         public CommandOption(string template, CommandOptionType optionType)
         {
 #pragma warning disable 618

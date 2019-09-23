@@ -9,7 +9,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
     public interface IMemberConvention
     {
         /// <summary> Apply the convention given a property or method. </summary>
-        /// <param name="context">The convention context.</param>
         /// <param name="member">A member of the model type to which the attribute is applied.</param>
         void Apply(ConventionContext context, MemberInfo member);
     }

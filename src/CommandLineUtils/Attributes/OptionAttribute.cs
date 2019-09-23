@@ -32,14 +32,11 @@ namespace McMaster.Extensions.CommandLineUtils
         { }
 
         /// <summary> Initializes a new <see cref="OptionAttribute"/>. </summary>
-        /// <param name="optionType">The option type</param>
         public OptionAttribute(string template, CommandOptionType optionType)
             : this(template, null, optionType)
         { }
 
         /// <summary> Initializes a new <see cref="OptionAttribute"/>. </summary>
-        /// <param name="description">The option description</param>
-        /// <param name="optionType">The option type</param>
         public OptionAttribute(string? template, string? description, CommandOptionType optionType)
         {
             Template = template;

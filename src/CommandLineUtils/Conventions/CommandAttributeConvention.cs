@@ -13,7 +13,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
     /// <seealso cref="McMaster.Extensions.CommandLineUtils.Conventions.IConvention" />
     public class CommandAttributeConvention : IConvention
     {
-        /// <summary> Apply the convention. </summary>
         /// <param name="context">The context in which the convention is applied.</param>
         /// <inheritdoc />
         public virtual void Apply(ConventionContext context)

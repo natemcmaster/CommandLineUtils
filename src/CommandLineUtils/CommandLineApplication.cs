@@ -375,7 +375,6 @@ namespace McMaster.Extensions.CommandLineUtils
             _names.Add(name);
         }
 
-        /// <summary> Add a subcommand </summary>
         public void AddSubcommand(CommandLineApplication subcommand)
         {
             if (subcommand == null)
@@ -413,7 +412,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
 #pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
-        /// <summary> Adds a subcommand. </summary>
         /// <param name="name">The word used to invoke the subcommand.</param>
         public CommandLineApplication Command(string name, Action<CommandLineApplication> configuration,
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
@@ -612,7 +610,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Parses an array of strings, matching them against <see cref="Options"/>, <see cref="Arguments"/>, and <see cref="Commands"/>. </summary>
-        /// <param name="args">Command line arguments.</param>
         /// <returns>The result of parsing.</returns>
         public ParseResult Parse(params string[] args)
         {
@@ -641,7 +638,6 @@ namespace McMaster.Extensions.CommandLineUtils
         public bool MakeSuggestionsInErrorMessage { get; set; } = true;
 
         /// <summary> Handle the result of parsing command line arguments. </summary>
-        /// <param name="parseResult">The parse result.</param>
         protected virtual void HandleParseResult(ParseResult parseResult)
         {
             Parent?.HandleParseResult(parseResult);
@@ -837,10 +833,8 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        /// <summary> Show full help. </summary>
         public void ShowHelp() => ShowHelp(usePager: UsePagerForHelpText);
 
-        /// <summary> Show full help. </summary>
         /// <param name="usePager">Use a console pager to display help text, if possible.</param>
         public void ShowHelp(bool usePager)
         {

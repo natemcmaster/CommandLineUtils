@@ -90,7 +90,6 @@ namespace McMaster.Extensions.CommandLineUtils
             return LevenshteinDistance(s, t, true);
         }
 
-        /// <summary> Normalizes the distance </summary>
         /// <returns>A value from 0 to 1 with 1 being a perfect match and zero none at all</returns>
         internal static double NormalizeDistance(int distance, int length)
         {

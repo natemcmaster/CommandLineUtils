@@ -12,7 +12,6 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// <returns>The type.</returns>
         Type GetModelType();
 
-        /// <summary> Gets the model. </summary>
         /// <returns>The model.</returns>
         object GetModel();
     }

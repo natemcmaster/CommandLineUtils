@@ -9,7 +9,6 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
     public interface IArgumentValidator
     {
         /// <summary> Validates the values specified for <see cref="CommandArgument.Values"/>. </summary>
-        /// <param name="context">The validation context.</param>
         /// <returns>The validation result. Returns <see cref="ValidationResult.Success"/> if the values pass validation.</returns>
         ValidationResult GetValidationResult(CommandArgument argument, ValidationContext context);
     }

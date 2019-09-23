@@ -22,14 +22,12 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly IValueParser<T> _valueParser;
 
         /// <summary> Initializes a new instance of <see cref="CommandArgument{T}" /> </summary>
-        /// <param name="valueParser">The value parser.</param>
         public CommandArgument(IValueParser<T> valueParser)
         {
             _valueParser = valueParser ?? throw new ArgumentNullException(nameof(valueParser));
             UnderlyingType = typeof(T);
         }
 
-        /// <summary> The parsed value. </summary>
         public T ParsedValue => _parsedValues.FirstOrDefault();
 
         /// <summary> All parsed values; </summary>

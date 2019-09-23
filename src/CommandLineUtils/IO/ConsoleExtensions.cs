@@ -27,7 +27,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="format">The format string.</param>
         /// <param name="arg">Argument used to format.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, string format, params object[] arg)
@@ -37,7 +36,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, string format, object arg0)
@@ -47,7 +45,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <param name="arg1">The second argument to replace in the format string.</param>
         /// <returns>The console.</returns>
@@ -58,7 +55,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value as a new line. </summary>
-        /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <param name="arg1">The second argument to replace in the format string.</param>
         /// <param name="arg2">The third argument to replace in the format string.</param>
@@ -102,7 +98,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a portion of a character buffer as a new line. </summary>
-        /// <param name="index">The start index.</param>
         /// <param name="count">The number of characters to write.</param>
         /// <returns>The console.</returns>
         public static IConsole WriteLine(this IConsole console, char[] buffer, int index, int count)
@@ -180,7 +175,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="format">The format string.</param>
         /// <param name="arg">Argument used to format.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, string format, params object[] arg)
@@ -190,7 +184,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, string format, object arg0)
@@ -200,7 +193,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <param name="arg1">The second argument to replace in the format string.</param>
         /// <returns>The console.</returns>
@@ -211,7 +203,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a value. </summary>
-        /// <param name="format">The format string.</param>
         /// <param name="arg0">The first argument to replace in the format string.</param>
         /// <param name="arg1">The second argument to replace in the format string.</param>
         /// <param name="arg2">The third argument to replace in the format string.</param>
@@ -279,7 +270,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary> Formats and writes a portion of a character buffer. </summary>
-        /// <param name="index">The start index.</param>
         /// <param name="count">The number of characters to write.</param>
         /// <returns>The console.</returns>
         public static IConsole Write(this IConsole console, char[] buffer, int index, int count)
