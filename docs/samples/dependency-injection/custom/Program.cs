@@ -4,7 +4,6 @@ using McMaster.Extensions.CommandLineUtils;
 
 namespace CustomServices
 {
-#region Program
     [Command(Name = "di", Description = "Dependency Injection sample project")]
     [HelpOption]
     class Program
@@ -35,16 +34,12 @@ namespace CustomServices
             _myService.Invoke();
         }
     }
-#endregion
 
-#region IMyService
     interface IMyService
     {
         void Invoke();
     }
-#endregion
 
-#region MyServiceImplementation
     class MyServiceImplementation : IMyService
     {
         private readonly IConsole _console;
@@ -59,5 +54,4 @@ namespace CustomServices
             _console.WriteLine("Hello dependency injection!");
         }
     }
-#endregion
 }

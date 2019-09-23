@@ -9,7 +9,6 @@ using Microsoft.Extensions.Logging;
 
 namespace CustomServices
 {
-#region Program
     [Command(Name = "di", Description = "Dependency Injection sample project")]
     class Program
     {
@@ -50,16 +49,12 @@ namespace CustomServices
             _greeter.Greet(Name, Language);
         }
     }
-#endregion
 
-#region IGreeter
     interface IGreeter
     {
         void Greet(string name, string language);
     }
-#endregion
 
-#region Greeter
     class Greeter : IGreeter
     {
         private readonly IConsole _console;
@@ -86,5 +81,4 @@ namespace CustomServices
             _console.WriteLine(greeting, name);
         }
     }
-#endregion
 }
