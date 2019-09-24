@@ -1,7 +1,8 @@
 trigger:
   branches:
     include:
-      - '*'
+      - 'master'
+      - 'release/*'
     exclude:
       - gh-pages
 
@@ -26,7 +27,6 @@ stages:
       inputs:
         version: '3.x'
         packageType: sdk
-        includePreviewVersions: true
     - task: UseDotNet@2
       displayName: Install .NET Core 2.2 runtime
       inputs:
@@ -56,7 +56,6 @@ stages:
       inputs:
         version: '3.x'
         packageType: sdk
-        includePreviewVersions: true
     - task: UseDotNet@2
       displayName: Install .NET Core 2.2 runtime
       inputs:
@@ -83,7 +82,6 @@ stages:
       inputs:
         version: '3.x'
         packageType: sdk
-        includePreviewVersions: true
     - powershell: ./docs/generate.ps1
       displayName: Generate docs
     - powershell: ./docs/push.ps1 -a $(github-api-token-repo-write)
