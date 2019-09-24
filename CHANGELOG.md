@@ -3,6 +3,11 @@
 [See unreleased changes][unreleased].
 * Fix [#92] by [@kbilsted] - Show enum names in help text for Options and Arguments stored as enum
 
+## [v2.4.2]
+* Fix [#286] - fix deadlock in CTRL+C handling on Windows
+
+[#286]: https://github.com/natemcmaster/CommandLineUtils/issues/286
+
 ## [v2.4.1]
 
 * Fix [#277] - workaround a bug in NuGet's 'deterministic packaging' feature which causes issues based on your timezone
