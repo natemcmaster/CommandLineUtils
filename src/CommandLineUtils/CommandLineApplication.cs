@@ -882,11 +882,12 @@ namespace McMaster.Extensions.CommandLineUtils
             void cancelHandler(object o, ConsoleCancelEventArgs e)
             {
                 handlerCancellationTokenSource.Cancel();
-                handlerCompleted.Wait();
+                // Stops the process from exiting forcefully
+                e.Cancel = true;
             }
 
 #if !NETSTANDARD1_6
-            void unloadingHandler(object o, EventArgs e)
+            void processExitHandler(object o, EventArgs e)
             {
                 handlerCancellationTokenSource.Cancel();
                 handlerCompleted.Wait();
@@ -899,7 +900,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 _context.Console.CancelKeyPress += cancelHandler;
 #if !NETSTANDARD1_6
                 // blocks .NET's process unloading from completing until after async completions are done
-                AppDomain.CurrentDomain.DomainUnload += unloadingHandler;
+                AppDomain.CurrentDomain.ProcessExit += processExitHandler;
 #endif
 
                 return await command._handler(handlerCancellationTokenSource.Token);
@@ -912,7 +913,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 _context.Console.CancelKeyPress -= cancelHandler;
 #if !NETSTANDARD1_6
-                AppDomain.CurrentDomain.DomainUnload -= unloadingHandler;
+                AppDomain.CurrentDomain.ProcessExit -= processExitHandler;
 #endif
                 handlerCompleted.Set();
             }
