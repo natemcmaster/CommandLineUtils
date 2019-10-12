@@ -259,6 +259,25 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(2, PrivateSetterProgram.StaticValue);
         }
 
+        abstract class PrivateBaseType
+        {
+            [Option]
+            int Count { get; }
+
+            public int GetCount() => Count;
+        }
+
+        class WithPrivateBaseTypeApplication : PrivateBaseType
+        {
+        }
+
+        [Fact]
+        public void BindsToPrivateBaseTypeProperty()
+        {
+            var parsed = CommandLineParser.ParseArgs<WithPrivateBaseTypeApplication>("--count", "42");
+            Assert.Equal(42, parsed.GetCount());
+        }
+
         [Theory]
         [InlineData("Option123", "o", "option123", "OPTION123")]
         [InlineData("dWORD", "d", "d-word", "D_WORD")]

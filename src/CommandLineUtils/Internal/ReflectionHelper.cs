@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
@@ -35,25 +36,25 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static MethodInfo[] GetPropertyOrMethod(Type type, string name)
         {
-            const BindingFlags binding = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
-            return type.GetTypeInfo()
-                .GetMethods(binding)
+            var members = GetAllMembers(type.GetTypeInfo()).ToList();
+            return members
+                .OfType<MethodInfo>()
                 .Where(m => m.Name == name)
-                .Concat(type.GetTypeInfo().GetProperties(binding).Where(m => m.Name == name).Select(p => p.GetMethod))
+                .Concat(members.OfType<PropertyInfo>().Where(m => m.Name == name).Select(p => p.GetMethod))
                 .Where(m => m.ReturnType == typeof(string) && m.GetParameters().Length == 0)
                 .ToArray();
         }
 
         public static PropertyInfo[] GetProperties(Type type)
         {
-            const BindingFlags binding = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
-            return type.GetTypeInfo().GetProperties(binding);
+            return GetAllMembers(type.GetTypeInfo())
+                .OfType<PropertyInfo>()
+                .ToArray();
         }
 
         public static MemberInfo[] GetMembers(Type type)
         {
-            const BindingFlags binding = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public;
-            return type.GetTypeInfo().GetMembers(binding);
+            return GetAllMembers(type.GetTypeInfo()).ToArray();
         }
 
         public static object[] BindParameters(MethodInfo method, CommandLineApplication command, CancellationToken cancellationToken)
@@ -101,6 +102,22 @@ namespace McMaster.Extensions.CommandLineUtils
             wrappedType = result ? typeInfo.GetGenericArguments().First() : null;
 
             return result;
+        }
+
+        static IEnumerable<MemberInfo> GetAllMembers(TypeInfo typeInfo)
+        {
+            const BindingFlags binding = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.DeclaredOnly;
+
+            while (typeInfo != null) 
+            {
+                var members = typeInfo.GetMembers(binding);
+                foreach (var member in members)
+                {
+                    yield return member;
+                }
+
+                typeInfo = typeInfo.BaseType?.GetTypeInfo();
+            }
         }
     }
 }
