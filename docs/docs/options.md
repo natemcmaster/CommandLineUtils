@@ -226,7 +226,7 @@ Inputs | Value of `Verbose`
 `--verbose banana` | `{ "banana" }`
 `--verbose banana --verbose strawberry` | `{ "banana", "strawberry" }`
 
-If "Verbose" accepted single or value:
+If "Verbose" accepted single or no value:
 
 ```c#
 [Option("-v|--Verbose", CommandOptionType.SingleOrNoValue)]
