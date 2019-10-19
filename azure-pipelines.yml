@@ -25,7 +25,7 @@ stages:
     - task: UseDotNet@2
       displayName: Install .NET Core 3 SDK
       inputs:
-        version: '3.x'
+        version: '3.0.x'
         packageType: sdk
     - task: UseDotNet@2
       displayName: Install .NET Core 2.2 runtime
@@ -54,7 +54,7 @@ stages:
     - task: UseDotNet@2
       displayName: Install .NET Core 3 SDK
       inputs:
-        version: '3.x'
+        version: '3.0.x'
         packageType: sdk
     - task: UseDotNet@2
       displayName: Install .NET Core 2.2 runtime
@@ -80,7 +80,7 @@ stages:
     - task: UseDotNet@2
       displayName: Install .NET Core 3 SDK
       inputs:
-        version: '3.x'
+        version: '3.0.x'
         packageType: sdk
     - powershell: ./docs/generate.ps1
       displayName: Generate docs
