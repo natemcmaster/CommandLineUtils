@@ -1,7 +1,9 @@
 # Changelog
 
-[See unreleased changes][unreleased].
-* Fix [#92] by [@kbilsted] - Show enum names in help text for Options and Arguments stored as enum
+[See unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.2...HEAD).
+
+* [#92] by [@kbilsted] - Show enum names in help text for Options and Arguments stored as enum
+* [#288] by [@Alxandr] - Add support for private base type options
 
 ## [v2.4.2]
 
@@ -365,6 +367,7 @@ Other:
  - Updated TFM to support .NET Standard 2.0
 
 
+[@Alxandr]: https://github.com/Alxandr
 [@atifaziz]: https://github.com/atifaziz
 [@atruskie]: https://github.com/atruskie
 [@bording]: https://github.com/bording
@@ -392,7 +395,6 @@ Other:
 [@TheConstructor]: https://github.com/TheConstructor
 [@vpkopylov]: https://github.com/vpkopylov
 
-[unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.1...HEAD
 [v2.4.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.0...v2.4.1
 [v2.4.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.4...v2.4.0
 [v2.3.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.3...v2.3.4
