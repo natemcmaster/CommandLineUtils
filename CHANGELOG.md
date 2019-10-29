@@ -4,6 +4,7 @@
 
 * [#92] by [@kbilsted] - Show enum names in help text for Options and Arguments stored as enum
 * [#288] by [@Alxandr] - Add support for private base type options
+* [#294] by [@cwoolum] - Import Microsoft.Extensions.Hosting 3.0.0 instead of 2.1.0 for netstandard2.1
 
 ## [v2.4.2]
 
