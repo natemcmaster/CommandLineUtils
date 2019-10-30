@@ -628,6 +628,40 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void OptionNameCanHaveSemicolon()
+        {
+            var app = new CommandLineApplication();
+            app.ParserConfig.OptionNameValueSeparators = new[] { ' ', '=' };
+            var option = new CommandOption(CommandOptionType.SingleValue)
+            {
+                LongName = "debug:hive"
+            };
+            app.Options.Add(option);
+            app.Parse("--debug:hive", "abc");
+            Assert.Equal("abc", option.Value());
+        }
+
+        [Fact]
+        public void OptionSeparatorMustNotUseSpace()
+        {
+            var app = new CommandLineApplication();
+            app.ParserConfig.OptionNameValueSeparators = new[] { '=' };
+            var option = new CommandOption(CommandOptionType.SingleValue)
+            {
+                LongName = "debug:hive"
+            };
+            app.Options.Add(option);
+
+            var ex = Assert.ThrowsAny<CommandParsingException>(() =>
+                app.Parse("--debug:hive", "abc"));
+            Assert.Equal("Missing value for option 'debug:hive'", ex.Message);
+
+            option.Values.Clear();
+            app.Parse("--debug:hive=abc");
+            Assert.Equal("abc", option.Value());
+        }
+
+        [Fact]
         public void HelpTextIgnoresHiddenItems()
         {
             var app = new CommandLineApplication()

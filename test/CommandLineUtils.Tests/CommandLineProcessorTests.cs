@@ -138,59 +138,55 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Subcommand(typeof(ParentCommand))]
         private class ParentParentCommand
         {
+        }
 
+        [Fact]
+        public void ItInfersClusterOptionsCannotBeUsed_MultiCharShortName()
+        {
+            var app = new CommandLineApplication();
+            app.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue);
+            app.Parse();
+            Assert.False(app.ClusterOptions);
+        }
+
+        [Fact]
+        public void ItInfersClusterOptionsCannotBeUsed_MultiCharShortNameInSubcommand()
+        {
+            var app = new CommandLineApplication();
+            app.Command("sub", c => c.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue));
+            Assert.False(app.ClusterOptionsWasSetExplicitly);
+            app.Parse("sub", "-au");
+            Assert.False(app.ClusterOptions);
+        }
+
+        [Fact]
+        public void ItInfersClusterOptionsCannotBeUsed_MultiCharShortNameAttribute()
+        {
+            var app = new CommandLineApplication<ShortNameType>();
+            app.Conventions.UseDefaultConventions();
+            Assert.False(app.ClusterOptionsWasSetExplicitly);
+            app.Parse();
+            Assert.False(app.ClusterOptions);
+        }
+
+        [Fact]
+        public void ItInfersClusterOptionsCannotBeUsed_MultiCharShortNameAttributeSubcommand()
+        {
+            var app = new CommandLineApplication<ParentCommand>();
+            app.Conventions.UseDefaultConventions();
+            Assert.False(app.ClusterOptionsWasSetExplicitly);
+            app.Parse();
+            Assert.False(app.ClusterOptions);
         }
 
         [Fact]
         public void ItInfersClusterOptionsCannotBeUsed()
         {
-            {
-                var app = new CommandLineApplication();
-                app.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue);
-                app.Parse();
-                Assert.False(app.ClusterOptions);
-            }
-
-            {
-                var app = new CommandLineApplication();
-                app.Command("sub", c => c.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue));
-                Assert.False(app.ClusterOptionsWasSetExplicitly);
-                app.Parse();
-                Assert.False(app.ClusterOptions);
-            }
-
-            {
-                var app = new CommandLineApplication<ShortNameType>();
-                app.Conventions.UseDefaultConventions();
-                Assert.False(app.ClusterOptionsWasSetExplicitly);
-                app.Parse();
-                Assert.False(app.ClusterOptions);
-            }
-
-            {
-                var app = new CommandLineApplication<ParentCommand>();
-                app.Conventions.UseDefaultConventions();
-                Assert.False(app.ClusterOptionsWasSetExplicitly);
-                app.Parse();
-                Assert.False(app.ClusterOptions);
-            }
-
-            {
-                var app = new CommandLineApplication<ParentParentCommand>();
-                app.Conventions.UseDefaultConventions();
-                Assert.False(app.ClusterOptionsWasSetExplicitly);
-                app.Parse();
-                Assert.False(app.ClusterOptions);
-            }
-
-            {
-                // Issue #218
-                var app = new CommandLineApplication();
-                app.Command("sub1", c => { c.Option("-o1", "Option 1", CommandOptionType.SingleValue); });
-                Assert.False(app.ClusterOptionsWasSetExplicitly);
-                app.Parse("sub1", "-o1", "abc");
-                Assert.False(app.ClusterOptions);
-            }
+            var app = new CommandLineApplication<ParentParentCommand>();
+            app.Conventions.UseDefaultConventions();
+            Assert.False(app.ClusterOptionsWasSetExplicitly);
+            app.Parse();
+            Assert.False(app.ClusterOptions);
         }
 
         [Fact]

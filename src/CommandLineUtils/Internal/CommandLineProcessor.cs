@@ -14,6 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils
     internal sealed class CommandLineProcessor
     {
         private readonly CommandLineApplication _initialCommand;
+        private readonly ParserConfig _config;
         private readonly ArgumentEnumerator _enumerator;
 
         private CommandLineApplication _currentCommand
@@ -28,11 +29,14 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private CommandArgumentEnumerator? _currentCommandArguments;
 
-        public CommandLineProcessor(CommandLineApplication command,
+        public CommandLineProcessor(
+            CommandLineApplication command,
+            ParserConfig config,
             IReadOnlyList<string> arguments)
         {
             _initialCommand = command;
-            _enumerator = new ArgumentEnumerator(command, arguments ?? new string[0]);
+            _config = config ?? throw new ArgumentNullException(nameof(config));
+            _enumerator = new ArgumentEnumerator(command, _config, arguments ?? new string[0]);
             CheckForShortOptionClustering(command);
         }
 
@@ -287,18 +291,29 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             else
             {
-                if (!_enumerator.MoveNext())
+                if (_config.OptionNameAndValueCanBeSpaceSeparated)
+                {
+                    if (_enumerator.MoveNext())
+                    {
+                        value = _enumerator.Current?.Raw;
+                    }
+                    else
+                    {
+                        _currentCommand.ShowHint();
+                        throw new CommandParsingException(_currentCommand, $"Missing value for option '{name}'");
+                    }
+                }
+                else if (value == null)
                 {
                     _currentCommand.ShowHint();
                     throw new CommandParsingException(_currentCommand, $"Missing value for option '{name}'");
                 }
 
-                var nextArg = _enumerator.Current;
-                if (nextArg != null && !option.TryParse(nextArg.Raw))
+                if (!option.TryParse(value))
                 {
                     _currentCommand.ShowHint();
                     throw new CommandParsingException(_currentCommand,
-                        $"Unexpected value '{nextArg.Raw}' for option '{name}'");
+                        $"Unexpected value '{value}' for option '{name}'");
                 }
             }
 
@@ -400,12 +415,10 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private class OptionArgument : Argument
         {
-            private static readonly char[] NameValueSeparators = { ':', '=' };
-
-            public OptionArgument(string raw, bool isShortOption) : base(raw)
+            public OptionArgument(string raw, char[] nameValueSeparators, bool isShortOption) : base(raw)
             {
                 IsShortOption = isShortOption;
-                var parts = Raw.Split(NameValueSeparators, 2);
+                var parts = Raw.Split(nameValueSeparators, 2);
                 if (parts.Length > 1)
                 {
                     Value = parts[1];
@@ -436,18 +449,19 @@ namespace McMaster.Extensions.CommandLineUtils
         private sealed class ArgumentEnumerator : IEnumerator<Argument?>
         {
             private readonly IEnumerator<string> _rawArgEnumerator;
-            private Argument? _current;
             private IEnumerator<string>? _rspEnumerator;
+            private readonly ParserConfig _config;
 
-            public ArgumentEnumerator(CommandLineApplication command, IReadOnlyList<string> rawArguments)
+            public ArgumentEnumerator(CommandLineApplication command, ParserConfig config, IReadOnlyList<string> rawArguments)
             {
+                _config = config;
                 CurrentCommand = command;
                 _rawArgEnumerator = rawArguments.GetEnumerator();
             }
 
-            public Argument? Current => _current;
+            public Argument? Current { get; private set; }
 
-            object? IEnumerator.Current => _current;
+            object? IEnumerator.Current => Current;
 
             // currently this must be settable because some parsing behavior can be set per subcommand
             public CommandLineApplication CurrentCommand { get; set; }
@@ -460,7 +474,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     if (_rspEnumerator.MoveNext())
                     {
-                        _current = CreateArgument(_rspEnumerator.Current);
+                        Current = CreateArgument(_rspEnumerator.Current);
                         return true;
                     }
 
@@ -480,7 +494,7 @@ namespace McMaster.Extensions.CommandLineUtils
                         }
                     }
 
-                    _current = CreateArgument(_rawArgEnumerator.Current);
+                    Current = CreateArgument(_rawArgEnumerator.Current);
                     return true;
                 }
 
@@ -496,7 +510,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 if (raw[1] != '-')
                 {
-                    return new OptionArgument(raw, isShortOption: true);
+                    return new OptionArgument(raw, _config.OptionNameValueSeparators, isShortOption: true);
                 }
 
                 if (raw.Length == 2)
@@ -504,7 +518,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     return ArgumentSeparatorArgument.Instance;
                 }
 
-                return new OptionArgument(raw, isShortOption: false);
+                return new OptionArgument(raw, _config.OptionNameValueSeparators, isShortOption: false);
             }
 
             private IEnumerator<string> CreateRspParser(string path)
@@ -526,14 +540,14 @@ namespace McMaster.Extensions.CommandLineUtils
 
             public void Reset()
             {
-                _current = null;
+                Current = null;
                 _rspEnumerator = null;
                 _rawArgEnumerator.Reset();
             }
 
             public void Dispose()
             {
-                _current = null;
+                Current = null;
                 _rspEnumerator = null;
                 _rawArgEnumerator.Dispose();
             }

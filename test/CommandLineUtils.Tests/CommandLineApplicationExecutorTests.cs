@@ -293,7 +293,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void DisposesSubCommands()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => CommandLineApplication.Execute<ParentCommand>("sub"));
+                () => CommandLineApplication.Execute<ParentCommand>(NullConsole.Singleton, "sub"));
             Assert.Equal("Hello", ex.Message);
         }
 
