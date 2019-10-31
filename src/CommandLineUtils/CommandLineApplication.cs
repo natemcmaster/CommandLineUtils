@@ -886,22 +886,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 e.Cancel = true;
             }
 
-#if !NETSTANDARD1_6
-            void processExitHandler(object o, EventArgs e)
-            {
-                handlerCancellationTokenSource.Cancel();
-                handlerCompleted.Wait();
-            }
-#endif
-
             try
             {
                 // blocks .NET's CTRL+C handler from completing until after async completions are done
                 _context.Console.CancelKeyPress += cancelHandler;
-#if !NETSTANDARD1_6
-                // blocks .NET's process unloading from completing until after async completions are done
-                AppDomain.CurrentDomain.ProcessExit += processExitHandler;
-#endif
 
                 return await command._handler(handlerCancellationTokenSource.Token);
             }
@@ -912,9 +900,6 @@ namespace McMaster.Extensions.CommandLineUtils
             finally
             {
                 _context.Console.CancelKeyPress -= cancelHandler;
-#if !NETSTANDARD1_6
-                AppDomain.CurrentDomain.ProcessExit -= processExitHandler;
-#endif
                 handlerCompleted.Set();
             }
         }
