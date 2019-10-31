@@ -2,6 +2,9 @@
 
 [See unreleased changes][unreleased].
 
+## [v2.4.3]
+* Fix [#292] - fix deadlock when `Environment.Exit` is called
+
 ## [v2.4.2]
 * Fix [#286] - fix deadlock in CTRL+C handling on Windows
 
