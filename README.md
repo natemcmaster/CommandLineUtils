@@ -31,7 +31,7 @@ See [documentation](https://natemcmaster.github.io/CommandLineUtils/) for API re
 See [samples/](./docs/samples/) for more examples, such as:
 
  - [Async console apps](./docs/samples/helloworld-async/)
- - [Structing an app with subcommands](./docs/samples/subcommands/)
+ - [Structuring an app with subcommands](./docs/samples/subcommands/)
  - [Defining options with attributes](./docs/samples/attributes/)
  - [Interactive console prompts](./docs/samples/interactive-prompts/)
  - [Required options and arguments](./docs/samples/validation/)
