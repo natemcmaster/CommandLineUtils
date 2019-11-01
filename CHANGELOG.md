@@ -1,31 +1,35 @@
 # Changelog
 
-[See unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.2...HEAD).
+[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.2...HEAD):
 
-* [#92] by [@kbilsted] - Show enum names in help text for Options and Arguments stored as enum
-* [#288] by [@Alxandr] - Add support for private base type options
+* Fix [#92] by [@kbilsted] - Show enum names in help text for Options and Arguments stored as enum
+* Fix [#287] by [@Alxandr] - Add support for private base type options
+
+[@kbilsted]: https://github.com/kbilsted
+[@Alxandr]: https://github.com/Alxandr
+[#92]: https://github.com/natemcmaster/CommandLineUtils/issues/92
+[#287]: https://github.com/natemcmaster/CommandLineUtils/issues/287
 
 ## [v2.4.3](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.2...v2.4.3)
 
-* Fix [#292] by [@thomaslevesque] - fix deadlock when `Environment.Exit` is called
+* Fix [#292] by [@thomaslevesque](https://github.com/thomaslevesque) - fix deadlock when `Environment.Exit` is called
 
 [#292]: https://github.com/natemcmaster/CommandLineUtils/issues/292
+[@thomaslevesque]: https://github.com/thomaslevesque
 
-## [v2.4.2]
-
-[v2.4.2]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.1...v2.4.2
+## [v2.4.2](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.1...v2.4.2)
 
 * Fix [#286] - fix deadlock in CTRL+C handling on Windows
 
 [#286]: https://github.com/natemcmaster/CommandLineUtils/issues/286
 
-## [v2.4.1]
+## [v2.4.1](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.0...v2.4.1)
 
 * Fix [#277] - workaround a bug in NuGet's 'deterministic packaging' feature which causes issues based on your timezone
 
 [#277]: https://github.com/natemcmaster/CommandLineUtils/issues/277
 
-## [v2.4.0]
+## [v2.4.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.4...v2.4.0)
 
 * Fix [#227] by [@ejball] - ArgumentEscaper should escape empty string
 * PR [#230] by [@IanG] - Attributes for files and directories that must not exist
@@ -373,7 +377,6 @@ Other:
  - Updated TFM to support .NET Standard 2.0
 
 
-[@Alxandr]: https://github.com/Alxandr
 [@atifaziz]: https://github.com/atifaziz
 [@atruskie]: https://github.com/atruskie
 [@bording]: https://github.com/bording
@@ -399,11 +402,8 @@ Other:
 [@sebastienros]: https://github.com/sebastienros
 [@SteveBenz]: https://github.com/SteveBenz
 [@TheConstructor]: https://github.com/TheConstructor
-[@thomaslevesque]: https://github.com/thomaslevesque
 [@vpkopylov]: https://github.com/vpkopylov
 
-[v2.4.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.0...v2.4.1
-[v2.4.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.4...v2.4.0
 [v2.3.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.3...v2.3.4
 [v2.3.3]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.2...v2.3.3
 [v2.3.2]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.1...v2.3.2
