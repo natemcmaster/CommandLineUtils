@@ -5,6 +5,12 @@
 * [#92] by [@kbilsted] - Show enum names in help text for Options and Arguments stored as enum
 * [#288] by [@Alxandr] - Add support for private base type options
 
+## [v2.4.3](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.2...v2.4.3)
+
+* Fix [#292] by [@thomaslevesque] - fix deadlock when `Environment.Exit` is called
+
+[#292]: https://github.com/natemcmaster/CommandLineUtils/issues/292
+
 ## [v2.4.2]
 
 [v2.4.2]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.1...v2.4.2
@@ -393,6 +399,7 @@ Other:
 [@sebastienros]: https://github.com/sebastienros
 [@SteveBenz]: https://github.com/SteveBenz
 [@TheConstructor]: https://github.com/TheConstructor
+[@thomaslevesque]: https://github.com/thomaslevesque
 [@vpkopylov]: https://github.com/vpkopylov
 
 [v2.4.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.0...v2.4.1

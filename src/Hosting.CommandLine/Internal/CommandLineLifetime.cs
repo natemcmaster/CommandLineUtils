@@ -20,7 +20,6 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         private readonly ICommandLineService _cliService;
         private readonly IConsole _console;
         private readonly IUnhandledExceptionHandler? _unhandledExceptionHandler;
-        private readonly ManualResetEvent _blockProcessExit = new ManualResetEvent(false);
 
         /// <summary>
         ///     Creates a new instance.
@@ -81,13 +80,6 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
                 }
             });
 
-            AppDomain.CurrentDomain.ProcessExit += (_, __) =>
-            {
-                _applicationLifetime.StopApplication();
-                // Ensures services are disposed before the application exits.
-                _blockProcessExit.WaitOne();
-            };
-
             // Capture CTRL+C and prevent it from immediately force killing the app.
             _console.CancelKeyPress += (_, e) =>
             {
@@ -100,7 +92,6 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
 
         public void Dispose()
         {
-            _blockProcessExit.Set();
         }
     }
 }
