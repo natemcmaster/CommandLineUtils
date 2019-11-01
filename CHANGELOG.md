@@ -2,6 +2,11 @@
 
 [See unreleased changes][unreleased].
 
+## [v2.4.3]
+* Fix [#292] by [@thomaslevesque] - fix deadlock when `Environment.Exit` is called
+
+[#292]: https://github.com/natemcmaster/CommandLineUtils/issues/292
+
 ## [v2.4.2]
 * Fix [#286] - fix deadlock in CTRL+C handling on Windows
 
@@ -384,6 +389,7 @@ Other:
 [@sebastienros]: https://github.com/sebastienros
 [@SteveBenz]: https://github.com/SteveBenz
 [@TheConstructor]: https://github.com/TheConstructor
+[@thomaslevesque]: https://github.com/thomaslevesque
 [@vpkopylov]: https://github.com/vpkopylov
 
 [unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.0...HEAD
