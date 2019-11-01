@@ -17,6 +17,12 @@ Other things I fixed:
 * Handle CTRL+C by default
 * Support calling CommandLineApplication.Execute multiple times
     </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.3'">
+$(PackageReleaseNotes)
+
+2.4.3 patch:
+* Fix deadlock when calling Environment.Exit()
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.2'">
 $(PackageReleaseNotes)
 

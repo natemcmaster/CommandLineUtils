@@ -1,11 +1,18 @@
 <Project>
   <PropertyGroup>
-    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.1'">
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('2.4.'))">
 Changes:
 * Support C# 8.0 and nullable reference types
 * RunCommandLineApplicationAsync is actually async now, not just sync disguised as an async API
 * Better CTRL+C support
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.3'">
+$(PackageReleaseNotes)
 
+2.4.3 patch:
+* Fix deadlock when calling Environment.Exit()
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.1'">
 2.4.1 hot fix:
 * Workaround a bizarre NuGet bug which causes problems for users in Europe and Asia
   (see https://github.com/NuGet/Home/issues/8603)
