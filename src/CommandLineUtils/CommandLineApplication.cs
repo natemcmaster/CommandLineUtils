@@ -57,6 +57,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly Lazy<IServiceProvider> _services;
         private readonly ConventionContext _conventionContext;
         private readonly List<IConvention> _conventions = new List<IConvention>();
+        private bool _supportsCancellation;
 
 #pragma warning disable RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
         /// <summary>
@@ -691,15 +692,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Defines a callback for when this command is invoked.
         /// </summary>
         /// <param name="invoke"></param>
-        public void OnExecute(Func<int> invoke)
-        {
-            _handler = _ => Task.FromResult(invoke());
-        }
+        public void OnExecute(Func<int> invoke) => OnExecuteAsync(_ => Task.FromResult(invoke()), false);
 
         /// <summary>
         /// <para>
         /// This method is obsolete and will be removed in a future version.
-        /// The recommended alternative is <see cref="OnExecuteAsync" />.
+        /// The recommended alternative is <see cref="OnExecuteAsync(Func{CancellationToken, Task{int}})" />.
         /// See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.
         /// </para>
         /// <para>
@@ -711,15 +709,18 @@ namespace McMaster.Extensions.CommandLineUtils
                   "The recommended replacement is .OnExecuteAsync(). " +
                   "See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public void OnExecute(Func<Task<int>> invoke) => OnExecuteAsync(_ => invoke());
+        public void OnExecute(Func<Task<int>> invoke) => OnExecuteAsync(_ => invoke(), false);
 
         /// <summary>
         /// Defines an asynchronous callback.
         /// </summary>
         /// <param name="invoke"></param>
-        public void OnExecuteAsync(Func<CancellationToken, Task<int>> invoke)
+        public void OnExecuteAsync(Func<CancellationToken, Task<int>> invoke) => OnExecuteAsync(invoke, true);
+
+        internal void OnExecuteAsync(Func<CancellationToken, Task<int>> invoke, bool supportsCancellation)
         {
             _handler = invoke;
+            _supportsCancellation = supportsCancellation;
         }
 
         private void Reset()
@@ -899,8 +900,11 @@ namespace McMaster.Extensions.CommandLineUtils
 
             try
             {
-                // blocks .NET's CTRL+C handler from completing until after async completions are done
-                _context.Console.CancelKeyPress += cancelHandler;
+                if (_supportsCancellation)
+                {
+                    // blocks .NET's CTRL+C handler from completing until after async completions are done
+                    _context.Console.CancelKeyPress += cancelHandler;
+                }
 
                 return await command._handler(handlerCancellationTokenSource.Token);
             }
@@ -910,7 +914,11 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             finally
             {
-                _context.Console.CancelKeyPress -= cancelHandler;
+                if (_supportsCancellation)
+                {
+                    _context.Console.CancelKeyPress -= cancelHandler;
+                }
+
                 handlerCompleted.Set();
             }
         }

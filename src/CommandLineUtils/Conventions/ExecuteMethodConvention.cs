@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
 using System.Threading;
@@ -24,10 +25,12 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            context.Application.OnExecuteAsync(async ct => await OnExecute(context, ct));
+            var handler = CreateHandler(context, out bool supportsCancellation);
+
+            context.Application.OnExecuteAsync(handler, supportsCancellation);
         }
 
-        private async Task<int> OnExecute(ConventionContext context, CancellationToken cancellationToken)
+        private Func<CancellationToken, Task<int>> CreateHandler(ConventionContext context, out bool supportsCancellation)
         {
             const BindingFlags binding = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
 
@@ -41,21 +44,32 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
             catch (AmbiguousMatchException ex)
             {
-                throw new InvalidOperationException(Strings.AmbiguousOnExecuteMethod, ex);
+                supportsCancellation = false;
+                return _ => throw new InvalidOperationException(Strings.AmbiguousOnExecuteMethod, ex);
             }
 
             if (method != null && asyncMethod != null)
             {
-                throw new InvalidOperationException(Strings.AmbiguousOnExecuteMethod);
+                supportsCancellation = false;
+                return _ => throw new InvalidOperationException(Strings.AmbiguousOnExecuteMethod);
             }
 
             method ??= asyncMethod;
 
             if (method == null)
             {
-                throw new InvalidOperationException(Strings.NoOnExecuteMethodFound);
+                supportsCancellation = false;
+                return _ => throw new InvalidOperationException(Strings.NoOnExecuteMethodFound);
             }
 
+            var parameters = method.GetParameters();
+            supportsCancellation = parameters.Any(p => p.ParameterType == typeof(CancellationToken));
+
+            return ct => InvokeMethodAsync(method, context, ct);
+        }
+
+        private async Task<int> InvokeMethodAsync(MethodInfo method, ConventionContext context, CancellationToken cancellationToken)
+        {
             var arguments = ReflectionHelper.BindParameters(method, context.Application, cancellationToken);
             var modelAccessor = context.ModelAccessor;
             if (modelAccessor == null)

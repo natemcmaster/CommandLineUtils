@@ -131,7 +131,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 await action(ct);
                 return 0;
-            });
+            }, true);
 
         /// <summary>
         /// Sets <see cref="CommandLineApplication.Invoke"/> with a return code of <c>0</c>.
