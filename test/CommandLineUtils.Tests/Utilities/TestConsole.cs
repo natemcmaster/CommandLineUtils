@@ -38,14 +38,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
         }
 
-        public void RaiseCancelKeyPress()
+        public void RaiseCancelKeyPress(out bool wasCanceled)
         {
             // See https://github.com/dotnet/corefx/blob/f2292af3a1794378339d6f5c8adcc0f2019a2cf9/src/System.Console/src/System/ConsoleCancelEventArgs.cs#L14
-            var eventArgs = typeof(ConsoleCancelEventArgs)
+            var eventArgs = (ConsoleCancelEventArgs)typeof(ConsoleCancelEventArgs)
                 .GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance)
                 .First()
                 .Invoke(new object[] { ConsoleSpecialKey.ControlC });
-            CancelKeyPress?.Invoke(this, (ConsoleCancelEventArgs)eventArgs);
+            CancelKeyPress?.Invoke(this, eventArgs);
+            wasCanceled = eventArgs.Cancel;
         }
     }
 }

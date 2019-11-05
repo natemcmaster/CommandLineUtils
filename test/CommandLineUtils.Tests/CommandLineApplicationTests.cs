@@ -1048,7 +1048,7 @@ Examples:
                 await Task.Delay(-1, ct);
             });
             var executeTask = app.ExecuteAsync(Array.Empty<string>());
-            testConsole.RaiseCancelKeyPress();
+            testConsole.RaiseCancelKeyPress(out _);
             var exitCode = await executeTask;
             Assert.Equal(expectedCode, exitCode);
         }

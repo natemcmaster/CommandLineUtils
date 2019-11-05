@@ -109,7 +109,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(expectedResult, result);
         }
 
-        private class ProgramWithAsyncOnExecute
+        private class ProgramWithAsyncOnExecuteWithCancellation
         {
             public CancellationToken Token { get; private set; }
 
@@ -127,19 +127,42 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
-        public async Task ItExecutesAsyncMethod()
+        public async Task ItExecutesAsyncMethodWithCancellation()
         {
             var console = new TestConsole(_output);
-            var app = new CommandLineApplication<ProgramWithAsyncOnExecute>(console);
+            var app = new CommandLineApplication<ProgramWithAsyncOnExecuteWithCancellation>(console);
             app.Conventions.UseOnExecuteMethodFromModel();
             var executeTask = app.ExecuteAsync(Array.Empty<string>());
-            await ProgramWithAsyncOnExecute.ExecuteStarted.Task.ConfigureAwait(false);
+            await ProgramWithAsyncOnExecuteWithCancellation.ExecuteStarted.Task.ConfigureAwait(false);
             Assert.False(app.Model.Token.IsCancellationRequested);
             Assert.NotEqual(CancellationToken.None, app.Model.Token);
-            console.RaiseCancelKeyPress();
+            console.RaiseCancelKeyPress(out bool wasCanceled);
             var result = await executeTask.ConfigureAwait(false);
             Assert.Equal(4, result);
             Assert.True(app.Model.Token.IsCancellationRequested);
+            Assert.True(wasCanceled);
+        }
+
+        private class ProgramWithAsyncOnExecuteWithoutCancellation
+        {
+            public async Task<int> OnExecuteAsync()
+            {
+                await Task.Yield();
+                return 4;
+            }
+        }
+
+        [Fact]
+        public async Task ItExecutesAsyncMethodWithoutCancellation()
+        {
+            var console = new TestConsole(_output);
+            var app = new CommandLineApplication<ProgramWithAsyncOnExecuteWithoutCancellation>(console);
+            app.Conventions.UseOnExecuteMethodFromModel();
+            var executeTask = app.ExecuteAsync(Array.Empty<string>());
+            console.RaiseCancelKeyPress(out bool wasCanceled);
+            var result = await executeTask.ConfigureAwait(false);
+            Assert.Equal(4, result);
+            Assert.False(wasCanceled);
         }
     }
 }
