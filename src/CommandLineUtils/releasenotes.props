@@ -17,6 +17,12 @@ Other things I fixed:
 * Handle CTRL+C by default
 * Support calling CommandLineApplication.Execute multiple times
     </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.4'">
+$(PackageReleaseNotes)
+
+2.4.4 patch:
+* Fix regression introduced in 2.4.2 which caused Ctrl+C handling not to terminate the process quickly
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.3'">
 $(PackageReleaseNotes)
 
