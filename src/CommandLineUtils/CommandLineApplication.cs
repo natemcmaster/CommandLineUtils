@@ -887,19 +887,15 @@ namespace McMaster.Extensions.CommandLineUtils
                 return command.ValidationErrorHandler(validationResult);
             }
 
-            var handlerCompleted = new ManualResetEventSlim(initialState: false);
             var handlerCancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
 
             void cancelHandler(object o, ConsoleCancelEventArgs e)
             {
                 handlerCancellationTokenSource.Cancel();
-                // Stops the process from exiting forcefully
-                e.Cancel = true;
             }
 
             try
             {
-                // blocks .NET's CTRL+C handler from completing until after async completions are done
                 _context.Console.CancelKeyPress += cancelHandler;
 
                 return await command._handler(handlerCancellationTokenSource.Token);
@@ -911,7 +907,6 @@ namespace McMaster.Extensions.CommandLineUtils
             finally
             {
                 _context.Console.CancelKeyPress -= cancelHandler;
-                handlerCompleted.Set();
             }
         }
 
