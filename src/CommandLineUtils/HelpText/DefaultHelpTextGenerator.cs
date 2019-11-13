@@ -19,6 +19,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// The number of spaces between columns.
         /// </summary>
         protected const int ColumnSeparatorLength = 2;
+        private int? _maxLineLength = null;
 
         /// <summary>
         /// The hanging indent writer used for formatting indented and wrapped
@@ -44,7 +45,19 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <summary>
         /// Override the console width disregarding any value from the executing environment.
         /// </summary>
-        public int? MaxLineLength { get; set; } = null;
+        public int? MaxLineLength
+        {
+            get => _maxLineLength;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Value must be greater than zero", nameof(value));
+                }
+
+                _maxLineLength = value;
+            }
+        }
 
         /// <inheritdoc />
         public virtual void Generate(CommandLineApplication application, TextWriter output)
@@ -338,10 +351,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         {
             try
             {
-                if (MaxLineLength.HasValue)
-                    return MaxLineLength;
+                var retVal = MaxLineLength ?? Console.BufferWidth;
 
-                return Console.BufferWidth;
+                return retVal > 0
+                    ? retVal
+                    : default(int?);
             }
             catch (IOException)
             {
@@ -353,11 +367,10 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
         private string[] ExtractNamesFromEnum(Type type)
         {
-            if(type == null)
-                return new string[0];
-
-            if (!type.GetTypeInfo().IsEnum)
-                return new string[0];
+            if (type == null || !type.GetTypeInfo().IsEnum)
+            {
+                return Util.EmptyArray<string>();
+            }
 
             return Enum.GetNames(type);
         }
