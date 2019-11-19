@@ -181,9 +181,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(new[] { "get", "--help" }, "Usage: updater get [options]")]
         [InlineData(new[] { "get", "-h" }, "Usage: updater get [options]")]
         [InlineData(new[] { "get", "-?" }, "Usage: updater get [options]")]
-        [InlineData(new[] { "--help" }, "Usage: updater [options] [command]")]
-        [InlineData(new[] { "-h" }, "Usage: updater [options] [command]")]
-        [InlineData(new[] { "-?" }, "Usage: updater [options] [command]")]
+        [InlineData(new[] { "--help" }, "Usage: updater [command] [options]")]
+        [InlineData(new[] { "-h" }, "Usage: updater [command] [options]")]
+        [InlineData(new[] { "-?" }, "Usage: updater [command] [options]")]
         public void NestedHelpOptionsChoosesHelpOptionNearestSelectedCommand(string[] args, string helpNeedle)
         {
             var sb = new StringBuilder();

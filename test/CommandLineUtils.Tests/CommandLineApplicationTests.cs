@@ -800,7 +800,7 @@ Examples:
                 outData = outWriter.ToString();
 
                 Assert.True(helpOption.HasValue());
-                Assert.Contains("Usage: lvl1 [options]", outData);
+                Assert.Contains("Usage: lvl1 [command] [options]", outData);
             }
         }
 
