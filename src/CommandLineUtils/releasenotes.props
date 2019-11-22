@@ -5,6 +5,7 @@ Features and bug fixes:
 
 * @kbilsted: Show enum names in help text for Options and Arguments stored as enum
 * @Alxandr: Add support for private base type options
+* @AndreGleichner: Update generated help to display [command] first then [options]
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('2.4.'))">
 Features and bug fixes by some awesome contributors:

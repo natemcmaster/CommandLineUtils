@@ -4,11 +4,14 @@
 
 * Fix [#92] by [@kbilsted] - Show enum names in help text for Options and Arguments stored as enum
 * Fix [#287] by [@Alxandr] - Add support for private base type options
+* Fix [#303] by [@AndreGleichner] - Update generated help to display [command] first then [options]
 
 [@kbilsted]: https://github.com/kbilsted
 [@Alxandr]: https://github.com/Alxandr
+[@AndreGleichner]: https://github.com/AndreGleichner
 [#92]: https://github.com/natemcmaster/CommandLineUtils/issues/92
 [#287]: https://github.com/natemcmaster/CommandLineUtils/issues/287
+[#303]: https://github.com/natemcmaster/CommandLineUtils/issues/303
 
 ## [v2.4.4](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.3...v2.4.4)
 
