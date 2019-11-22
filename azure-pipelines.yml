@@ -14,78 +14,53 @@ variables:
 - name: BUILD_NUMBER
   value: $[counter('buildnumber', 1)]
 
-stages:
-- stage: Build
-  displayName: Build And Test
-  jobs:
-  - job: Windows
-    pool:
-      vmImage: windows-2019
-    steps:
-    - task: UseDotNet@2
-      displayName: Install .NET Core 3 SDK
-      inputs:
-        version: '3.0.x'
-        packageType: sdk
-    - task: UseDotNet@2
-      displayName: Install .NET Core 2.2 runtime
-      inputs:
-        version: '2.2.x'
-        packageType: runtime
-    - powershell: ./build.ps1 -ci
-      displayName: Invoke build.ps1
-      env:
-        KEYVAULT_CLIENT_SECRET: $(kv-access-token)
-    - task: PublishTestResults@2
-      displayName: Upload test results
-      condition: always()
-      continueOnError: true
-      inputs:
-        testRunTitle: Windows
-        testRunner: vstest
-        testResultsFiles: '**/*.trx'
-    - publish: artifacts/
-      artifact: Packages
-      displayName: Publish artifacts
-  - job: Linux
-    pool:
-      vmImage: 'Ubuntu-16.04'
-    steps:
-    - task: UseDotNet@2
-      displayName: Install .NET Core 3 SDK
-      inputs:
-        version: '3.0.x'
-        packageType: sdk
-    - task: UseDotNet@2
-      displayName: Install .NET Core 2.2 runtime
-      inputs:
-        version: '2.2.x'
-        packageType: runtime
-    - script: ./build.ps1 -ci
-      displayName: Invoke build.ps1
-    - task: PublishTestResults@2
-      displayName: Upload test results
-      condition: always()
-      continueOnError: true
-      inputs:
-        testRunTitle: Linux
-        testRunner: vstest
-        testResultsFiles: '**/*.trx'
-- stage: Publish
-  jobs:
-  - job: Docs
-    pool:
-      vmImage: windows-2019
-    steps:
-    - task: UseDotNet@2
-      displayName: Install .NET Core 3 SDK
-      inputs:
-        version: '3.0.x'
-        packageType: sdk
-    - powershell: ./docs/generate.ps1
-      displayName: Generate docs
-    - powershell: ./docs/push.ps1 -a $(github-api-token-repo-write)
-      displayName: Publish GitHub Pages
-      condition: |
-        and(not(eq(variables['Build.Reason'], 'PullRequest')),
-          eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+jobs:
+- job: Build
+  strategy:
+    matrix:
+      Linux:
+        vmImage: ubuntu-16.04
+      MacOS:
+        vmImage: macOS-latest
+      Windows:
+        vmImage: windows-2019
+  pool:
+    vmImage: $(vmImage)
+  steps:
+  - task: UseDotNet@2
+    displayName: Install .NET Core 3 SDK
+    inputs:
+      version: '3.0.x'
+      packageType: sdk
+  - task: UseDotNet@2
+    displayName: Install .NET Core 2.2 runtime
+    inputs:
+      version: '2.2.x'
+      packageType: runtime
+  - powershell: ./build.ps1 -ci
+    displayName: Invoke build.ps1
+    env:
+      KEYVAULT_CLIENT_SECRET: $(kv-access-token)
+  - task: PublishTestResults@2
+    displayName: Upload test results
+    condition: always()
+    continueOnError: true
+    inputs:
+      testRunTitle: $(vmImage)
+      testRunner: vstest
+      testResultsFiles: '**/*.trx'
+  - publish: artifacts/
+    artifact: Packages
+    displayName: Publish artifacts
+    condition: and(succeeded(), eq('windows-2019', variables['vmImage']))
+  - powershell: ./docs/generate.ps1 -NoBuild
+    displayName: Generate docs
+    condition: and(succeeded(), eq('windows-2019', variables['vmImage']))
+  - powershell: ./docs/push.ps1 -a $(github-api-token-repo-write)
+    displayName: Publish docs to GitHub Pages
+    condition: |
+      and(
+        succeeded(),
+        eq('windows-2019', variables['vmImage']),
+        not(eq(variables['Build.Reason'], 'PullRequest')),
+        eq(variables['Build.SourceBranch'], 'refs/heads/master'))
