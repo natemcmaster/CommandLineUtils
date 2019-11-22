@@ -140,7 +140,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             };
             var rc = CommandLineApplication.Execute<MasterApp>(console, "level1", "--help");
             Assert.Equal(0, rc);
-            Assert.Contains("Usage: master level1 [options]", sb.ToString());
+            Assert.Contains("Usage: master level1 [command] [options]", sb.ToString());
         }
 
         [Fact]
@@ -154,7 +154,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             };
             var rc = CommandLineApplication.Execute<MasterApp>(console, "--help");
             Assert.Equal(0, rc);
-            Assert.Contains("Usage: master [options]", sb.ToString());
+            Assert.Contains("Usage: master [command] [options]", sb.ToString());
         }
 
         [Fact]

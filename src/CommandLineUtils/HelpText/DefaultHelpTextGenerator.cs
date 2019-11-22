@@ -145,6 +145,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 output.Write(stack.Pop());
             }
 
+            if (visibleCommands.Any())
+            {
+                output.Write(" [command]");
+            }
+
             if (visibleOptions.Any())
             {
                 output.Write(" [options]");
@@ -155,11 +160,6 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 output.Write(" <");
                 output.Write(argument.Name);
                 output.Write(">");
-            }
-
-            if (visibleCommands.Any())
-            {
-                output.Write(" [command]");
             }
 
             if (application.AllowArgumentSeparator)
