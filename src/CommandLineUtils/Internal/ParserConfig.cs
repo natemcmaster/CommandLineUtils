@@ -8,7 +8,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <summary>
     /// Configures the argument parser.
     /// </summary>
-    public class ParserConfig
+    internal class ParserConfig
     {
         private char[] _optionNameValueSeparators = { ' ', ':', '=' };
 

@@ -21,7 +21,7 @@
 
 ## [v2.4.3](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.2...v2.4.3)
 
-* Fix [#292] by [@thomaslevesque](https://github.com/thomaslevesque) - fix deadlock when `Environment.Exit` is called
+* Fix [#292] by [@thomaslevesque] - fix deadlock when `Environment.Exit` is called
 
 [#292]: https://github.com/natemcmaster/CommandLineUtils/issues/292
 [@thomaslevesque]: https://github.com/thomaslevesque
