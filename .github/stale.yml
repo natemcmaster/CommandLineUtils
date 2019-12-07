@@ -1,17 +1,18 @@
 # See https://github.com/probot/stale
 
 # Number of days of inactivity before an issue becomes stale
-daysUntilStale: 90
+daysUntilStale: 365
 # Number of days of inactivity before a stale issue is closed
 daysUntilClose: 14
 # Label to use when marking an issue as stale
 staleLabel: closed-stale
 # Skip issues in a milestone
 exemptMilestones: true
-# Skipp issues assigned to someone
+# Skip issues assigned to someone
 exemptAssignees: true
 exemptLabels:
 - announcement
+- planning
 # Comment to post when marking an issue as stale. Set to `false` to disable
 markComment: >
   This issue has been automatically marked as stale because it has not had
