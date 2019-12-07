@@ -631,7 +631,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void OptionNameCanHaveSemicolon()
         {
             var app = new CommandLineApplication();
-            app.ParserConfig.OptionNameValueSeparators = new[] { ' ', '=' };
+            app.OptionNameValueSeparators = new[] { ' ', '=' };
             var option = new CommandOption(CommandOptionType.SingleValue)
             {
                 LongName = "debug:hive"
@@ -645,7 +645,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void OptionSeparatorMustNotUseSpace()
         {
             var app = new CommandLineApplication();
-            app.ParserConfig.OptionNameValueSeparators = new[] { '=' };
+            app.OptionNameValueSeparators = new[] { '=' };
             var option = new CommandOption(CommandOptionType.SingleValue)
             {
                 LongName = "debug:hive"

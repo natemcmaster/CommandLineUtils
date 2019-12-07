@@ -104,11 +104,11 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
-        static IEnumerable<MemberInfo> GetAllMembers(TypeInfo typeInfo)
+        private static IEnumerable<MemberInfo> GetAllMembers(TypeInfo typeInfo)
         {
             const BindingFlags binding = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.DeclaredOnly;
 
-            while (typeInfo != null) 
+            while (typeInfo != null)
             {
                 var members = typeInfo.GetMembers(binding);
                 foreach (var member in members)

@@ -1,6 +1,2 @@
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserConfig.get -> McMaster.Extensions.CommandLineUtils.ParserConfig
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.ParserConfig.set -> void
-McMaster.Extensions.CommandLineUtils.ParserConfig
-McMaster.Extensions.CommandLineUtils.ParserConfig.ParserConfig() -> void
-McMaster.Extensions.CommandLineUtils.ParserConfig.OptionNameValueSeparators.get -> char[]
-McMaster.Extensions.CommandLineUtils.ParserConfig.OptionNameValueSeparators.set -> void
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionNameValueSeparators.get -> char[]
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionNameValueSeparators.set -> void

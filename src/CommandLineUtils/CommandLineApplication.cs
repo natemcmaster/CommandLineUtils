@@ -129,7 +129,7 @@ namespace McMaster.Extensions.CommandLineUtils
             SetContext(context);
             _services = new Lazy<IServiceProvider>(() => new ServiceProvider(this));
             ValueParsers = parent?.ValueParsers ?? new ValueParserProvider();
-            _parserConfig = parent?.ParserConfig ?? new ParserConfig();
+            _parserConfig = parent?._parserConfig ?? new ParserConfig();
             _clusterOptions = parent?._clusterOptions;
             UsePagerForHelpText = parent?.UsePagerForHelpText ?? true;
 
@@ -156,15 +156,6 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             get => _helpTextGenerator;
             set => _helpTextGenerator = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Configures the parser.
-        /// </summary>
-        public ParserConfig ParserConfig
-        {
-            get => _parserConfig;
-            set => _parserConfig = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
@@ -375,6 +366,25 @@ namespace McMaster.Extensions.CommandLineUtils
         private bool? _clusterOptions;
 
         internal bool ClusterOptionsWasSetExplicitly => _clusterOptions.HasValue;
+
+        /// <summary>
+        /// Characters used to separate the option name from the value.
+        /// <para>
+        /// By default, allowed separators are ' ' (space), :, and =
+        /// </para>
+        /// </summary>
+        /// <remarks>
+        /// Space actually implies multiple spaces due to the way most operating system shells parse command
+        /// line arguments before starting a new process.
+        /// </remarks>
+        /// <example>
+        /// Given --name=value, = is the separator.
+        /// </example>
+        public char[] OptionNameValueSeparators
+        {
+            get => _parserConfig.OptionNameValueSeparators;
+            set => _parserConfig.OptionNameValueSeparators = value;
+        }
 
         /// <summary>
         /// Gets the default value parser provider.
@@ -769,7 +779,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             args ??= Util.EmptyArray<string>();
 
-            var processor = new CommandLineProcessor(this, ParserConfig, args);
+            var processor = new CommandLineProcessor(this, _parserConfig, args);
             var result = processor.Process();
             result.SelectedCommand.HandleParseResult(result);
             return result;
