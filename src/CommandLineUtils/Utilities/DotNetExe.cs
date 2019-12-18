@@ -24,10 +24,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The full filepath to the .NET Core CLI executable.
         /// <para>
-        /// May be <c>null</c> if the CLI cannot be found. <seealso cref="FullPathOrDefault" />
+        /// May be <c>null</c> if the CLI cannot be found.
         /// </para>
         /// </summary>
         /// <returns>The path or null</returns>
+        /// <seealso cref="FullPathOrDefault" />
         public static string? FullPath { get; }
 
         /// <summary>
