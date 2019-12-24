@@ -48,7 +48,7 @@
 
   <ItemGroup>
     <!-- For x-plat development. Workaround for https://github.com/dotnet/sdk/issues/335 -->
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0-preview.2" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <Import Project="$(MSBuildProjectDirectory)/releasenotes.props"
