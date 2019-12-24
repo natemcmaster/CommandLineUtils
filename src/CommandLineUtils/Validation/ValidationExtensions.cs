@@ -19,7 +19,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="option">The option.</param>
         /// <param name="allowEmptyStrings">Indicates whether an empty string is allowed.</param>
-        /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
+        /// <param name="errorMessage">The custom error message to display. See also: <see cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The option.</returns>
         public static CommandOption IsRequired(this CommandOption option, bool allowEmptyStrings = false, string? errorMessage = null)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
@@ -36,7 +36,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="option">The option.</param>
         /// <param name="allowEmptyStrings">Indicates whether an empty string is allowed.</param>
-        /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
+        /// <param name="errorMessage">The custom error message to display. See also: <see cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The option.</returns>
         public static CommandOption<T> IsRequired<T>(this CommandOption<T> option, bool allowEmptyStrings = false,
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
@@ -53,7 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="argument">The argument.</param>
         /// <param name="allowEmptyStrings">Indicates whether an empty string is allowed.</param>
-        /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
+        /// <param name="errorMessage">The custom error message to display. See also: <see cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The argument.</returns>
         public static CommandArgument IsRequired(this CommandArgument argument, bool allowEmptyStrings = false, string? errorMessage = null)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
@@ -70,7 +70,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="argument">The argument.</param>
         /// <param name="allowEmptyStrings">Indicates whether an empty string is allowed.</param>
-        /// <param name="errorMessage">The custom error message to display. See also <seealso cref="ValidationAttribute.ErrorMessage"/>.</param>
+        /// <param name="errorMessage">The custom error message to display. See also: <see cref="ValidationAttribute.ErrorMessage"/>.</param>
         /// <returns>The argument.</returns>
         public static CommandArgument<T> IsRequired<T>(this CommandArgument<T> argument, bool allowEmptyStrings = false, string? errorMessage = null)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters

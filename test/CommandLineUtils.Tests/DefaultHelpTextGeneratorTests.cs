@@ -69,7 +69,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Conventions.UseDefaultConventions();
             app.Command("b", _ => { });
             app.Command("a", _ => { });
-            var generator = new DefaultHelpTextGenerator() {SortCommandsByName = false};
+            var generator = new DefaultHelpTextGenerator() { SortCommandsByName = false };
             var helpText = GetHelpText(app, generator);
 
             var indexOfA = helpText.IndexOf("  a", StringComparison.InvariantCulture);
@@ -135,7 +135,7 @@ Options:
         [Fact]
         public void ShowHelpFromAttributes()
         {
-            var app = new CommandLineApplication<MyApp>(){Name = "test"};
+            var app = new CommandLineApplication<MyApp>() { Name = "test" };
             app.Conventions.UseDefaultConventions();
             var helpText = GetHelpText(app);
 
@@ -161,7 +161,7 @@ Options:
         public class MyApp
         {
             [Option(ShortName = "strOpt", Description = "str option desc")]
-            public string strOpt{ get; set; }
+            public string strOpt { get; set; }
 
             [Option(ShortName = "intOpt", Description = "int option desc")]
             public int intOpt { get; set; }

@@ -12,8 +12,8 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <summary>
     /// Represents one or many positional command line arguments.
     /// Arguments are parsed in the order in which <see cref="CommandLineApplication.Arguments"/> lists them.
-    /// Compare to <seealso cref="CommandOption"/>.
     /// </summary>
+    /// <seealso cref="CommandOption"/>
     public class CommandArgument
     {
         /// <summary>
