@@ -28,14 +28,14 @@ jobs:
     vmImage: $(vmImage)
   steps:
   - task: UseDotNet@2
-    displayName: Install .NET Core 3 SDK
+    displayName: Install .NET Core 3.1 SDK
     inputs:
-      version: '3.0.x'
+      version: '3.1.x'
       packageType: sdk
   - task: UseDotNet@2
-    displayName: Install .NET Core 2.2 runtime
+    displayName: Install .NET Core 2.1 runtime
     inputs:
-      version: '2.2.x'
+      version: '2.1.x'
       packageType: runtime
   - powershell: ./build.ps1 -ci
     displayName: Invoke build.ps1

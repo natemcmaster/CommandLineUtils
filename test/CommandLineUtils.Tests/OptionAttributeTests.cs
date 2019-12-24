@@ -241,7 +241,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(1, PrivateSetterProgram.StaticNumber);
         }
 
-#if !NETCOREAPP3_0
+#if !NETCOREAPP3_1
         // .NET Core 3.0 made an intentional breaking change
         // see https://github.com/dotnet/coreclr/issues/21268
         [Fact]
