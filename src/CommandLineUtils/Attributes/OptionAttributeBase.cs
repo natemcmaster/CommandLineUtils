@@ -37,19 +37,22 @@ namespace McMaster.Extensions.CommandLineUtils
         public string? ValueName { get; set; }
 
         /// <summary>
-        /// A description of this option to show in generated help text. <seealso cref="CommandOption.Description"/>.
+        /// A description of this option to show in generated help text.
         /// </summary>
+        /// <seealso cref="CommandOption.Description"/>
         public string? Description { get; set; }
 
         /// <summary>
-        /// Determines if this option should be shown in generated help text. <seealso cref="CommandOption.ShowInHelpText"/>.
+        /// Determines if this option should be shown in generated help text.
         /// </summary>
+        /// <seealso cref="CommandOption.ShowInHelpText"/>
         public bool ShowInHelpText { get; set; } = true;
 
         /// <summary>
         /// Determines if subcommands added to <see cref="CommandLineApplication.Commands"/>
-        /// should also have access to this option. <seealso cref="CommandOption.Inherited"/>.
+        /// should also have access to this option.
         /// </summary>
+        /// <seealso cref="CommandOption.Inherited"/>
         public bool Inherited { get; set; }
 
         internal void Configure(CommandOption option)

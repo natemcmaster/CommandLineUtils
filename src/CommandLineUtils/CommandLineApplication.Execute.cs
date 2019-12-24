@@ -20,9 +20,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <see cref="CommandLineContext.Arguments"/>
         /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
+        /// <seealso cref="OptionAttribute" />
+        /// <seealso cref="ArgumentAttribute" />
+        /// <seealso cref="HelpOptionAttribute"/>
+        /// <seealso cref="VersionOptionAttribute"/>
         /// <param name="context">The execution context.</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
@@ -35,9 +37,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <see cref="CommandLineContext.Arguments"/>
         /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
+        /// <seealso cref="OptionAttribute" />
+        /// <seealso cref="ArgumentAttribute" />
+        /// <seealso cref="HelpOptionAttribute"/>
+        /// <seealso cref="VersionOptionAttribute"/>
         /// <param name="context">The execution context.</param>
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
@@ -92,9 +96,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
         /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
+        /// <seealso cref="OptionAttribute" />
+        /// <seealso cref="ArgumentAttribute" />
+        /// <seealso cref="HelpOptionAttribute"/>
+        /// <seealso cref="VersionOptionAttribute"/>
         /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
@@ -106,9 +112,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
         /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
+        /// <seealso cref="OptionAttribute" />
+        /// <seealso cref="ArgumentAttribute" />
+        /// <seealso cref="HelpOptionAttribute"/>
+        /// <seealso cref="VersionOptionAttribute"/>
         /// <param name="console">The console to use</param>
         /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
@@ -125,9 +133,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
         /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
+        /// <seealso cref="OptionAttribute" />
+        /// <seealso cref="ArgumentAttribute" />
+        /// <seealso cref="HelpOptionAttribute"/>
+        /// <seealso cref="VersionOptionAttribute"/>
         /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
@@ -140,9 +150,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
         /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
+        /// <seealso cref="OptionAttribute" />
+        /// <seealso cref="ArgumentAttribute" />
+        /// <seealso cref="HelpOptionAttribute"/>
+        /// <seealso cref="VersionOptionAttribute"/>
         /// <param name="args">The arguments</param>
         /// <param name="cancellationToken"></param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
@@ -160,9 +172,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Creates an instance of <typeparamref name="TApp"/>, matching <paramref name="args"/>
         /// to all attributes on the type, and then invoking a method named "OnExecute" or "OnExecuteAsync" if it exists.
-        /// See <seealso cref="OptionAttribute" />, <seealso cref="ArgumentAttribute" />,
-        /// <seealso cref="HelpOptionAttribute"/>, and <seealso cref="VersionOptionAttribute"/>.
         /// </summary>
+        /// <seealso cref="OptionAttribute" />
+        /// <seealso cref="ArgumentAttribute" />
+        /// <seealso cref="HelpOptionAttribute"/>
+        /// <seealso cref="VersionOptionAttribute"/>
         /// <param name="console">The console to use</param>
         /// <param name="args">The arguments</param>
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>

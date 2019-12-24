@@ -42,8 +42,8 @@ namespace McMaster.Extensions.CommandLineUtils
 
         /// <summary>
         /// The name of the command line application. When this is a subcommand, it is the name of the word used to invoke the subcommand.
-        /// <seealso cref="CommandLineApplication.Name" />
         /// </summary>
+        /// <seealso cref="CommandLineApplication.Name" />
         public string? Name
         {
             get => _names.Length > 0 ? _names[0] : null;
@@ -66,38 +66,45 @@ namespace McMaster.Extensions.CommandLineUtils
         public IEnumerable<string> Names => _names;
 
         /// <summary>
-        /// The full name of the command line application to show in help text. <seealso cref="CommandLineApplication.FullName" />
+        /// The full name of the command line application to show in help text.
         /// </summary>
+        /// <seealso cref="CommandLineApplication.FullName" />
         public string? FullName { get; set; }
 
         /// <summary>
-        /// A description of the command. <seealso cref="CommandLineApplication.Description"/>
+        /// A description of the command.
         /// </summary>
+        /// <seealso cref="CommandLineApplication.Description"/>
         public string? Description { get; set; }
 
         /// <summary>
-        /// Determines if this command appears in generated help text. <seealso cref="CommandLineApplication.ShowInHelpText"/>
+        /// Determines if this command appears in generated help text.
         /// </summary>
+        /// <seealso cref="CommandLineApplication.ShowInHelpText"/>
         public bool ShowInHelpText { get; set; } = true;
 
         /// <summary>
-        /// Additional text that appears at the bottom of generated help text. <seealso cref="CommandLineApplication.ExtendedHelpText"/>
+        /// Additional text that appears at the bottom of generated help text.
         /// </summary>
+        /// <seealso cref="CommandLineApplication.ExtendedHelpText"/>
         public string? ExtendedHelpText { get; set; }
 
         /// <summary>
-        /// Throw when unexpected arguments are encountered. <seealso cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>
+        /// Throw when unexpected arguments are encountered.
         /// </summary>
+        /// <seealso cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>
         public bool ThrowOnUnexpectedArgument { get; set; } = true;
 
         /// <summary>
-        /// Allow '--' to be used to stop parsing arguments. <seealso cref="CommandLineApplication.AllowArgumentSeparator"/>
+        /// Allow '--' to be used to stop parsing arguments.
         /// </summary>
+        /// <seealso cref="CommandLineApplication.AllowArgumentSeparator"/>
         public bool AllowArgumentSeparator { get; set; }
 
         /// <summary>
-        /// Treat arguments beginning as '@' as a response file. <seealso cref="CommandLineApplication.ResponseFileHandling"/>
+        /// Treat arguments beginning as '@' as a response file.
         /// </summary>
+        /// <seealso cref="CommandLineApplication.ResponseFileHandling"/>
         public ResponseFileHandling ResponseFileHandling { get; set; } = ResponseFileHandling.Disabled;
 
         /// <summary>

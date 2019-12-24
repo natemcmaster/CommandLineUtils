@@ -61,8 +61,9 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Defines the type of the option. When not set, this will be inferred from the CLR type of the property. <seealso cref="CommandOption.OptionType"/>
+        /// Defines the type of the option. When not set, this will be inferred from the CLR type of the property.
         /// </summary>
+        /// <seealso cref="CommandOption.OptionType"/>
         public CommandOptionType? OptionType { get; set; }
 
         internal CommandOption Configure(CommandLineApplication app, PropertyInfo prop)
