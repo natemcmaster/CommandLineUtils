@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using Moq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -1051,6 +1052,22 @@ Examples:
             testConsole.RaiseCancelKeyPress();
             var exitCode = await executeTask;
             Assert.Equal(expectedCode, exitCode);
+        }
+
+        [Theory]
+        [InlineData("-h")]
+        [InlineData("--h")]
+        [InlineData("-?")]
+        public void ShowHintDisplaysValidInfo(string helpOption)
+        {
+            var app = new CommandLineApplication();
+            var textWriter = new Mock<TextWriter>();
+            app.Out = textWriter.Object;
+            app.HelpOption(helpOption);
+
+            app.ShowHint();
+
+            textWriter.Verify(mock => mock.WriteLine($"Specify {helpOption} for a list of available options and commands."), Times.Once);
         }
     }
 }
