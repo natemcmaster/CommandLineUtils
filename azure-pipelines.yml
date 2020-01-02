@@ -49,6 +49,10 @@ jobs:
       testRunTitle: $(vmImage)
       testRunner: vstest
       testResultsFiles: '**/*.trx'
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: cobertura
+      summaryFileLocation: '**/coverage.cobertura.xml'
   - publish: artifacts/
     artifact: Packages
     displayName: Publish artifacts
