@@ -10,9 +10,9 @@ CommandLineUtils
 [nuget-download-badge]: https://img.shields.io/nuget/dt/McMaster.Extensions.CommandLineUtils?style=flat-square
 
 
-This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This fork, on the other hand, will continue to make improvements, release updates and take contributions.
+This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This fork, on the other hand, will continue to make improvements, release updates, and accept contributions.
 
-The roadmap for this project can be found [here](https://github.com/natemcmaster/CommandLineUtils/issues/206).
+The roadmap for this project is [pinned to the top of the issue list](https://github.com/natemcmaster/CommandLineUtils/issues/).
 
 ## Install
 
@@ -28,7 +28,7 @@ $ dotnet add package McMaster.Extensions.CommandLineUtils
 ## Usage
 
 See [documentation](https://natemcmaster.github.io/CommandLineUtils/) for API reference, samples, and tutorials.
-See [samples/](./docs/samples/) for more examples, such as:
+See [docs/samples/](./docs/samples/) for more examples, such as:
 
  - [Async console apps](./docs/samples/helloworld-async/)
  - [Structuring an app with subcommands](./docs/samples/subcommands/)
