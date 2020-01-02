@@ -5,6 +5,7 @@
     <Product>CommandLineUtils</Product>
     <Copyright>Copyright © Nate McMaster</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/natemcmaster/CommandLineUtils</PackageProjectUrl>
     <RepositoryUrl>https://github.com/natemcmaster/CommandLineUtils.git</RepositoryUrl>
@@ -17,7 +18,7 @@
     <PackageIconUrl>https://natemcmaster.github.io/CommandLineUtils/logo.png</PackageIconUrl>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
-  
+
   <ItemGroup Condition=" '$(IsPackable)' == 'true' ">
     <None Include="$(MSBuildThisFileDirectory)docs\logo.png">
       <Pack>true</Pack>
@@ -25,9 +26,8 @@
       <Visible>false</Visible>
     </None>
   </ItemGroup>
-  
+
   <PropertyGroup>
-    <NoPackageAnalysis>true</NoPackageAnalysis>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
     <LangVersion>8.0</LangVersion>
