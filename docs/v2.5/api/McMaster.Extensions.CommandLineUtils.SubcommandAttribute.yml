@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.SubcommandAttribute
+  id: SubcommandAttribute
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor(System.Type[])
+  - McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types
+  langs:
+  - csharp
+  - vb
+  name: SubcommandAttribute
+  nameWithType: SubcommandAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/SubcommandAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: SubcommandAttribute
+    path: ../src/CommandLineUtils/Attributes/SubcommandAttribute.cs
+    startLine: 13
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nRepresents a subcommand.\n"
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+
+      public sealed class SubcommandAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Class, AllowMultiple:=True, Inherited:=True)>
+
+      Public NotInheritable Class SubcommandAttribute
+          Inherits Attribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 4
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+    - name: Inherited
+      type: System.Boolean
+      value: true
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor(System.Type[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor(System.Type[])
+  id: '#ctor(System.Type[])'
+  parent: McMaster.Extensions.CommandLineUtils.SubcommandAttribute
+  langs:
+  - csharp
+  - vb
+  name: SubcommandAttribute(Type[])
+  nameWithType: SubcommandAttribute.SubcommandAttribute(Type[])
+  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute(System.Type[])
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/SubcommandAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Attributes/SubcommandAttribute.cs
+    startLine: 36
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes a new instance of <xref href=\"McMaster.Extensions.CommandLineUtils.SubcommandAttribute\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public SubcommandAttribute(params Type[] subcommands)
+    parameters:
+    - id: subcommands
+      type: System.Type[]
+      description: The subcommand types.
+    content.vb: Public Sub New(ParamArray subcommands As Type())
+  overload: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor*
+  nameWithType.vb: SubcommandAttribute.SubcommandAttribute(Type())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute(System.Type())
+  name.vb: SubcommandAttribute(Type())
+- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types
+  commentId: P:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types
+  id: Types
+  parent: McMaster.Extensions.CommandLineUtils.SubcommandAttribute
+  langs:
+  - csharp
+  - vb
+  name: Types
+  nameWithType: SubcommandAttribute.Types
+  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/SubcommandAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Types
+    path: ../src/CommandLineUtils/Attributes/SubcommandAttribute.cs
+    startLine: 54
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe types of the subcommands.\n"
+  example: []
+  syntax:
+    content: public Type[] Types { get; }
+    parameters: []
+    return:
+      type: System.Type[]
+    content.vb: Public ReadOnly Property Types As Type()
+  overload: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Attribute
+  commentId: T:System.Attribute
+  parent: System
+  isExternal: true
+  name: Attribute
+  nameWithType: Attribute
+  fullName: System.Attribute
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.SubcommandAttribute
+  name: SubcommandAttribute
+  nameWithType: SubcommandAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute
+- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.#ctor
+  name: SubcommandAttribute
+  nameWithType: SubcommandAttribute.SubcommandAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute
+- uid: System.Type[]
+  isExternal: true
+  name: Type[]
+  nameWithType: Type[]
+  fullName: System.Type[]
+  nameWithType.vb: Type()
+  fullName.vb: System.Type()
+  name.vb: Type()
+  spec.csharp:
+  - uid: System.Type
+    name: Type
+    nameWithType: Type
+    fullName: System.Type
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Type
+    name: Type
+    nameWithType: Type
+    fullName: System.Type
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types
+  name: Types
+  nameWithType: SubcommandAttribute.Types
+  fullName: McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types

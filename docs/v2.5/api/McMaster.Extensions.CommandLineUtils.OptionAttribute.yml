@@ -1,0 +1,508 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.OptionAttribute
+  id: OptionAttribute
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor
+  - McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  - McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String)
+  - McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  - McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  - McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionType
+  langs:
+  - csharp
+  - vb
+  name: OptionAttribute
+  nameWithType: OptionAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/OptionAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: OptionAttribute
+    path: ../src/CommandLineUtils/Attributes/OptionAttribute.cs
+    startLine: 13
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nRepresents one or many command line option that is identified by flag proceeded by &apos;-&apos; or &apos;--&apos;.\nOptions are not positional. Compare to <xref href=\"McMaster.Extensions.CommandLineUtils.ArgumentAttribute\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+
+      public sealed class OptionAttribute : OptionAttributeBase
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False)>
+
+      Public NotInheritable Class OptionAttribute
+          Inherits OptionAttributeBase
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  inheritedMembers:
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Template
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShortName
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.LongName
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.SymbolName
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ValueName
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Description
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShowInHelpText
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Inherited
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 128
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor
+  id: '#ctor'
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: OptionAttribute()
+  nameWithType: OptionAttribute.OptionAttribute()
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionAttribute()
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/OptionAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Attributes/OptionAttribute.cs
+    startLine: 19
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes a new <xref href=\"McMaster.Extensions.CommandLineUtils.OptionAttribute\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public OptionAttribute()
+    content.vb: Public Sub New
+  overload: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: OptionAttribute(String)
+  nameWithType: OptionAttribute.OptionAttribute(String)
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionAttribute(System.String)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/OptionAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Attributes/OptionAttribute.cs
+    startLine: 27
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes a new <xref href=\"McMaster.Extensions.CommandLineUtils.OptionAttribute\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public OptionAttribute(string template)
+    parameters:
+    - id: template
+      type: System.String
+      description: The string template. <xref href="McMaster.Extensions.CommandLineUtils.CommandOption.Template" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(template As String)
+  overload: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  commentId: M:McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  id: '#ctor(McMaster.Extensions.CommandLineUtils.CommandOptionType)'
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: OptionAttribute(CommandOptionType)
+  nameWithType: OptionAttribute.OptionAttribute(CommandOptionType)
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionAttribute(McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/OptionAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Attributes/OptionAttribute.cs
+    startLine: 36
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes a new <xref href=\"McMaster.Extensions.CommandLineUtils.OptionAttribute\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public OptionAttribute(CommandOptionType optionType)
+    parameters:
+    - id: optionType
+      type: McMaster.Extensions.CommandLineUtils.CommandOptionType
+      description: The optionType
+    content.vb: Public Sub New(optionType As CommandOptionType)
+  overload: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  commentId: M:McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  id: '#ctor(System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)'
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: OptionAttribute(String, CommandOptionType)
+  nameWithType: OptionAttribute.OptionAttribute(String, CommandOptionType)
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionAttribute(System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/OptionAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Attributes/OptionAttribute.cs
+    startLine: 45
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes a new <xref href=\"McMaster.Extensions.CommandLineUtils.OptionAttribute\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public OptionAttribute(string template, CommandOptionType optionType)
+    parameters:
+    - id: template
+      type: System.String
+      description: The template
+    - id: optionType
+      type: McMaster.Extensions.CommandLineUtils.CommandOptionType
+      description: The option type
+    content.vb: Public Sub New(template As String, optionType As CommandOptionType)
+  overload: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  commentId: M:McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  id: '#ctor(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)'
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: OptionAttribute(String, String, CommandOptionType)
+  nameWithType: OptionAttribute.OptionAttribute(String, String, CommandOptionType)
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionAttribute(System.String, System.String, McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/OptionAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Attributes/OptionAttribute.cs
+    startLine: 55
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes a new <xref href=\"McMaster.Extensions.CommandLineUtils.OptionAttribute\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public OptionAttribute(string template, string description, CommandOptionType optionType)
+    parameters:
+    - id: template
+      type: System.String
+      description: The template
+    - id: description
+      type: System.String
+      description: The option description
+    - id: optionType
+      type: McMaster.Extensions.CommandLineUtils.CommandOptionType
+      description: The option type
+    content.vb: Public Sub New(template As String, description As String, optionType As CommandOptionType)
+  overload: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionType
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionType
+  id: OptionType
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: OptionType
+  nameWithType: OptionAttribute.OptionType
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionType
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/OptionAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: OptionType
+    path: ../src/CommandLineUtils/Attributes/OptionAttribute.cs
+    startLine: 66
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nDefines the type of the option. When not set, this will be inferred from the CLR type of the property.\n"
+  example: []
+  syntax:
+    content: public CommandOptionType? OptionType { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{McMaster.Extensions.CommandLineUtils.CommandOptionType}
+    content.vb: Public Property OptionType As CommandOptionType?
+  overload: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionType*
+  seealso:
+  - linkId: McMaster.Extensions.CommandLineUtils.CommandOption.OptionType
+    commentId: P:McMaster.Extensions.CommandLineUtils.CommandOption.OptionType
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: McMaster.Extensions.CommandLineUtils.ArgumentAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.ArgumentAttribute
+  name: ArgumentAttribute
+  nameWithType: ArgumentAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.ArgumentAttribute
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Attribute
+  commentId: T:System.Attribute
+  parent: System
+  isExternal: true
+  name: Attribute
+  nameWithType: Attribute
+  fullName: System.Attribute
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  commentId: T:McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  parent: McMaster.Extensions.CommandLineUtils
+  name: OptionAttributeBase
+  nameWithType: OptionAttributeBase
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Template
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Template
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: Template
+  nameWithType: OptionAttributeBase.Template
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Template
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShortName
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShortName
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: ShortName
+  nameWithType: OptionAttributeBase.ShortName
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShortName
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.LongName
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.LongName
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: LongName
+  nameWithType: OptionAttributeBase.LongName
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.LongName
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.SymbolName
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.SymbolName
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: SymbolName
+  nameWithType: OptionAttributeBase.SymbolName
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.SymbolName
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ValueName
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ValueName
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: ValueName
+  nameWithType: OptionAttributeBase.ValueName
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ValueName
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Description
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Description
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: Description
+  nameWithType: OptionAttributeBase.Description
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Description
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShowInHelpText
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShowInHelpText
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: ShowInHelpText
+  nameWithType: OptionAttributeBase.ShowInHelpText
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShowInHelpText
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Inherited
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Inherited
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: Inherited
+  nameWithType: OptionAttributeBase.Inherited
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Inherited
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.OptionAttribute
+  name: OptionAttribute
+  nameWithType: OptionAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor
+  name: OptionAttribute
+  nameWithType: OptionAttribute.OptionAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionAttribute
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption.Template
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandOption.Template
+  isExternal: true
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOptionType
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandOptionType
+  nameWithType: CommandOptionType
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOptionType
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption.OptionType
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandOption.OptionType
+  parent: McMaster.Extensions.CommandLineUtils.CommandOption
+  name: OptionType
+  nameWithType: CommandOption.OptionType
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption.OptionType
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionType*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionType
+  name: OptionType
+  nameWithType: OptionAttribute.OptionType
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionType
+- uid: System.Nullable{McMaster.Extensions.CommandLineUtils.CommandOptionType}
+  commentId: T:System.Nullable{McMaster.Extensions.CommandLineUtils.CommandOptionType}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<CommandOptionType>
+  nameWithType: Nullable<CommandOptionType>
+  fullName: System.Nullable<McMaster.Extensions.CommandLineUtils.CommandOptionType>
+  nameWithType.vb: Nullable(Of CommandOptionType)
+  fullName.vb: System.Nullable(Of McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  name.vb: Nullable(Of CommandOptionType)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOptionType
+    name: CommandOptionType
+    nameWithType: CommandOptionType
+    fullName: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOptionType
+    name: CommandOptionType
+    nameWithType: CommandOptionType
+    fullName: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOption
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandOption
+  nameWithType: CommandOption
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

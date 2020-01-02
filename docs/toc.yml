@@ -3,13 +3,13 @@
 - name: Documentation
   href: docs/
 - name: API Reference
-  href: api/index.md
+  href: api/
   dropdown: true
   items:
-  - name: Latest
-    href: api/index.md
+  - name: Latest (v2.5)
+    href: api/
   - name: v2.4
-    href: v2.4/api/
+    topicHref: /CommandLineUtils/v2.4/api/index.html
   - name: v2.3
     topicHref: /CommandLineUtils/v2.3/api/index.html
   - name: v2.2
