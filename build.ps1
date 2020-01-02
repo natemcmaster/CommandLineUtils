@@ -63,6 +63,7 @@ if ($env:TF_BUILD) {
 }
 
 exec dotnet test --no-restore --no-build --configuration $Configuration `
+    --collect:"XPlat Code Coverage" `
     @testArgs `
     @MSBuildArgs
 
