@@ -42,7 +42,7 @@ jobs:
     env:
       KEYVAULT_CLIENT_SECRET: $(kv-access-token)
   - task: PublishTestResults@2
-    displayName: Upload test results
+    displayName: Publish test results
     condition: always()
     continueOnError: true
     inputs:
@@ -50,9 +50,10 @@ jobs:
       testRunner: vstest
       testResultsFiles: '**/*.trx'
   - task: PublishCodeCoverageResults@1
+    displayName: Publish code coverage results
     inputs:
       codeCoverageTool: cobertura
-      summaryFileLocation: '**/coverage.cobertura.xml'
+      summaryFileLocation: coverlet/reports/Cobertura.xml
   - publish: artifacts/
     artifact: Packages
     displayName: Publish artifacts

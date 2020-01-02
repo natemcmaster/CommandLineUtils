@@ -67,4 +67,10 @@ exec dotnet test --no-restore --no-build --configuration $Configuration `
     @testArgs `
     @MSBuildArgs
 
+if ($ci) {
+    exec dotnet tool run reportgenerator -reports:"$PSScriptRoot/**/coverage.cobertura.xml" `
+        -targetdir:"$PSScriptRoot/coverlet/reports" `
+        -reporttypes:Cobertura
+}
+
 write-host -f magenta 'Done'
