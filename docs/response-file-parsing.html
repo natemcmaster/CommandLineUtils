@@ -8,7 +8,7 @@
     <title>@-files (Response File Parsing) </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="@-files (Response File Parsing) ">
-    <meta name="generator" content="docfx 2.45.0.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -96,7 +96,7 @@
 </li>
 </ul>
 <section id="tabpanel_5s6AVonhGs_using-attributes" role="tabpanel" data-tab="using-attributes">
-<p>When using Attributes, you can enable response file parsing by setting the <a class="xref" href="../v2.4/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../v2.4/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a>.</p>
+<p>When using Attributes, you can enable response file parsing by setting the <a class="xref" href="../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a>.</p>
 <pre><code class="lang-csharp" highlight-lines="1">[Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you&#39;ve done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
 [Subcommand(typeof(ListCommand))]
 class Program
@@ -128,7 +128,7 @@ class ListCommand
 }
 </code></pre></section>
 <section id="tabpanel_5s6AVonhGs_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
-<p>When using the Builder API, you can enable response file parsing by setting the <a class="xref" href="../v2.4/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../v2.4/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
+<p>When using the Builder API, you can enable response file parsing by setting the <a class="xref" href="../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
 <pre><code class="lang-csharp" highlight-lines="9">class Program
 {
     public static int Main(string[] args)
@@ -276,7 +276,7 @@ class ListCommand
 </code></pre></section>
 </div>
 <h2 id="space-separated-arguments">Space separated arguments</h2>
-<p>You can set the <code>ResponseFileHandling</code> property to <a class="xref" href="../v2.4/api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html#McMaster_Extensions_CommandLineUtils_ResponseFileHandling_ParseArgsAsSpaceSeparated">ParseArgsAsSpaceSeparated</a>. In this case, each argument in the response file needs to be separated by a space, instead of a new line, e.g.</p>
+<p>You can set the <code>ResponseFileHandling</code> property to <a class="xref" href="../v2.5/api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html#McMaster_Extensions_CommandLineUtils_ResponseFileHandling_ParseArgsAsSpaceSeparated">ParseArgsAsSpaceSeparated</a>. In this case, each argument in the response file needs to be separated by a space, instead of a new line, e.g.</p>
 <pre><code class="lang-text">&quot;Completed the Boston marathon&quot; --tag major --tag fitness
 </code></pre></article>
           </div>
