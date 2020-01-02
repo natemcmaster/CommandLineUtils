@@ -13,6 +13,12 @@
       "commands": [
         "NuGetKeyVaultSignTool"
       ]
+    },
+    "dotnet-reportgenerator-globaltool": {
+      "version": "4.4.0",
+      "commands": [
+        "reportgenerator"
+      ]
     }
   }
 }
