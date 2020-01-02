@@ -154,6 +154,8 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionHelp.get -> Mc
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Options.get -> System.Collections.Generic.List<McMaster.Extensions.CommandLineUtils.CommandOption>
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionsComparison.get -> System.StringComparison
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionsComparison.set -> void
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionNameValueSeparators.get -> char[]
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionNameValueSeparators.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionVersion.get -> McMaster.Extensions.CommandLineUtils.CommandOption
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Out.get -> System.IO.TextWriter
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Out.set -> void

@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.Hosting.CommandLine
+  commentId: N:McMaster.Extensions.Hosting.CommandLine
+  id: McMaster.Extensions.Hosting.CommandLine
+  children:
+  - McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler
+  langs:
+  - csharp
+  - vb
+  name: McMaster.Extensions.Hosting.CommandLine
+  nameWithType: McMaster.Extensions.Hosting.CommandLine
+  fullName: McMaster.Extensions.Hosting.CommandLine
+  type: Namespace
+  assemblies:
+  - McMaster.Extensions.Hosting.CommandLine
+references:
+- uid: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler
+  commentId: T:McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler
+  name: IUnhandledExceptionHandler
+  nameWithType: IUnhandledExceptionHandler
+  fullName: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler
