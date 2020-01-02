@@ -2,6 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using McMaster.Extensions.CommandLineUtils.HelpText;
@@ -174,6 +176,35 @@ Options:
 
             [Argument(1, Description = "enum arg desc")]
             public SomeEnum SomeEnumArgument { get; set; }
+        }
+
+        [Theory]
+        [InlineData("-h", "-h", "  -h          Show help information", "  Subcommand ")]
+        [InlineData("--help", "--help", "  --help      Show help information", "  Subcommand ")]
+        [InlineData("-?", "-?", "  -?          Show help information", "  Subcommand ")]
+        [InlineData(null, "-?|-h|--help", "  -?|-h|--help  Show help information", "  Subcommand   ")]
+        public void ShowHelpWithSubcommands(string helpOption, string expectedHintText, string expectedOptionsText,
+            string expectedCommandsText)
+        {
+            var app = new CommandLineApplication {Name = "test"};
+            if (helpOption != null) app.HelpOption(helpOption);
+            app.Command("Subcommand", _ => { });
+            app.Conventions.UseDefaultConventions();
+            var helpText = GetHelpText(app);
+
+            Assert.Equal($@"Usage: test [command] [options]
+
+Options:
+{expectedOptionsText}
+
+Commands:
+{expectedCommandsText} 
+
+Run 'test [command] {expectedHintText}' for more information about a command.
+
+",
+                helpText,
+                ignoreLineEndingDifferences: true);
         }
     }
 }

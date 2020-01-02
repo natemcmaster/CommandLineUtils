@@ -278,7 +278,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 if (application.OptionHelp != null)
                 {
                     output.WriteLine();
-                    output.WriteLine($"Run '{application.Name} [command] --{application.OptionHelp.LongName}' for more information about a command.");
+                    output.WriteLine($"Run '{application.Name} [command] {Format(application.OptionHelp)}' for more information about a command.");
                 }
             }
         }

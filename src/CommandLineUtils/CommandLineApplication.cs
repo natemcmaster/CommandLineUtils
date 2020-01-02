@@ -998,7 +998,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 var flag = !string.IsNullOrEmpty(OptionHelp.LongName)
                     ? "--" + OptionHelp.LongName
                     : !string.IsNullOrEmpty(OptionHelp.ShortName)
-                        ? "-" + OptionHelp.LongName
+                        ? "-" + OptionHelp.ShortName
                         : "-" + OptionHelp.SymbolName;
 
                 Out.WriteLine($"Specify {flag} for a list of available options and commands.");
