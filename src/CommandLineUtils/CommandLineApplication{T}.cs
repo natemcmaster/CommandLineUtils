@@ -115,10 +115,9 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <inheritdoc />
+        // TODO remove in 3.0. This doesn't do anything anymore.
         protected override void HandleParseResult(ParseResult parseResult)
         {
-            (this as IModelAccessor).GetModel();
-
             base.HandleParseResult(parseResult);
         }
 
@@ -127,7 +126,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <inheritdoc />
         public override void Dispose()
         {
-            if (Model is IDisposable dt)
+            if (_lazy.IsValueCreated && Model is IDisposable dt)
             {
                 dt.Dispose();
             }
