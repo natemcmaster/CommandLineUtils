@@ -293,7 +293,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void DisposesSubCommands()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => CommandLineApplication.Execute<ParentCommand>(NullConsole.Singleton, "sub"));
+                () => CommandLineApplication.Execute<ParentCommand>(NullConsole.Singleton, "disposable"));
             Assert.Equal("Hello", ex.Message);
         }
 
@@ -312,8 +312,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Command("sub")]
         private class Subcommand
         {
+            public DisposableParentCommand Parent { get; }
+            
             public void OnExecute()
-            { }
+            {
+                Assert.NotNull(Parent);
+            }
         }
 
         [Fact]

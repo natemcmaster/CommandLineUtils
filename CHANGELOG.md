@@ -2,6 +2,10 @@
 
 [Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.0...HEAD):
 
+## [v2.5.1](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.0...v2.5.1)
+
+* Fix [#320] - lazy load command object types to reduce unnecessary allocations
+
 ## [v2.5.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.4...v2.5.0)
 
 * Fix [#92] by [@kbilsted] - Show enum names in help text for Options and Arguments stored as enum

@@ -7,6 +7,9 @@ Features and bug fixes:
 * @Alxandr: Add support for private base type options
 * @AndreGleichner: Update generated help to display [command] first then [options]
 * @daveMueller: Fix generated help to display the help options correctly
+
+Patch 2.5.1:
+* Lazy load command object types to reduce unnecessary allocations
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('2.4.'))">
 Features and bug fixes by some awesome contributors:

@@ -1,8 +1,10 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using Xunit;
 using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
@@ -75,14 +77,51 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class TestClass
         {
             public TestClass(string _) { }
+
+            public void OnExecute() { }
         }
 
         [Fact]
         public void ThrowsForNoParameterlessConstructor()
         {
-            var app = new CommandLineApplication<TestClass>();
+            var app = new CommandLineApplication<TestClass>(new TestConsole(_output));
+            app.Conventions.UseOnExecuteMethodFromModel();
             var exception = Assert.Throws<MissingParameterlessConstructorException>(() => app.Execute());
             Assert.Equal(typeof(TestClass), exception.Type);
+        }
+
+        [Subcommand(typeof(SimpleCommand))]
+        class ThrowsInCtorClass
+        {
+            public ThrowsInCtorClass()
+            {
+                throw new XunitException("Parent comand object should not be initialized.\n" + Environment.StackTrace);
+            }
+
+            public void OnExecute() { }
+        }
+
+        [Fact]
+        public void ItDoesNotInitalizeClassUnlessNecessary()
+        {
+            using var app = new CommandLineApplication<ThrowsInCtorClass>(new TestConsole(_output));
+            app.Conventions.UseDefaultConventions();
+            var parseResult = app.Parse();
+            Assert.NotNull(parseResult);
+            Assert.Same(app, parseResult.SelectedCommand);
+        }
+
+        class SimpleCommand
+        {
+            public int OnExecute() => 2;
+        }
+
+        [Fact]
+        public void ItDoesNotInitalizeParentClassUnlessNecessary()
+        {
+            using var app = new CommandLineApplication<ThrowsInCtorClass>(new TestConsole(_output));
+            app.Conventions.UseDefaultConventions();
+            Assert.Equal(2, app.Execute("simple"));
         }
     }
 }
