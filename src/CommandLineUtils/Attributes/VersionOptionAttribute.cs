@@ -23,7 +23,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Initializes a new <see cref="VersionOptionAttribute"/>.
         /// </summary>
-        /// <param name="template">The string template that will be used for <see cref="CommandOption.Template"/>.</param>
+        /// <param name="template">The string template that will be parsed into <see cref="CommandOption.ShortName"/> and <see cref="CommandOption.LongName"/>.</param>
         /// <param name="version">The version</param>
         public VersionOptionAttribute(string template, string version)
         {

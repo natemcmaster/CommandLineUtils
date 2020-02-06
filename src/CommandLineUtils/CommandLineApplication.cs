@@ -269,28 +269,6 @@ namespace McMaster.Extensions.CommandLineUtils
         public bool IsShowingInformation { get; protected set; }
 
         /// <summary>
-        /// <para>
-        /// This property has been marked as obsolete and will be removed in a future version.
-        /// The recommended replacement for setting this property is <see cref="OnExecute(Func{int})" />
-        /// and for invoking this property is <see cref="Execute(string[])" />.
-        /// See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.
-        /// </para>
-        /// <para>
-        /// The action to call when this command is matched and <see cref="IsShowingInformation"/> is <c>false</c>.
-        /// </para>
-        /// </summary>
-        [Obsolete("This property has been marked as obsolete and will be removed in a future version. " +
-            "The recommended replacement for setting this property is OnExecute(Func<int>) " +
-            "and for invoking this property is Execute(string[] args). " +
-            "See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public Func<int> Invoke
-        {
-            get => () => _handler(default).GetAwaiter().GetResult();
-            set => _handler = _ => Task.FromResult(value());
-        }
-
-        /// <summary>
         /// The long-form of the version to display in generated help text.
         /// </summary>
         public Func<string?>? LongVersionGetter { get; set; }
@@ -707,23 +685,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// <para>
-        /// This method is obsolete and will be removed in a future version.
-        /// The recommended alternative is <see cref="OnExecuteAsync" />.
-        /// See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.
-        /// </para>
-        /// <para>
-        /// Defines an asynchronous callback.
-        /// </para>
-        /// </summary>
-        /// <param name="invoke"></param>
-        [Obsolete("This method is obsolete and will be removed in a future version. " +
-                  "The recommended replacement is .OnExecuteAsync(). " +
-                  "See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public void OnExecute(Func<Task<int>> invoke) => OnExecuteAsync(_ => invoke());
-
-        /// <summary>
         /// Defines an asynchronous callback.
         /// </summary>
         /// <param name="invoke"></param>
@@ -851,11 +812,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// If there were any validation errors produced from <see cref="GetValidationResult"/>, <see cref="ValidationErrorHandler"/> is invoked.
         /// </para>
         /// <para>
-        /// If the parse result matches this command, <see cref="Invoke"/> will be invoked.
+        /// If the parse result matches this command, the function passed to <see cref="OnExecute"/> or <see cref="OnExecuteAsync"/> will be invoked.
         /// </para>
         /// </summary>
         /// <param name="args"></param>
-        /// <returns>The return code from <see cref="Invoke"/>.</returns>
+        /// <returns>The return code from the function passed to <see cref="OnExecute"/> or <see cref="OnExecuteAsync"/>.</returns>
         public int Execute(params string[] args)
         {
             return ExecuteAsync(args).GetAwaiter().GetResult();
@@ -874,12 +835,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// If there were any validation errors produced from <see cref="GetValidationResult"/>, <see cref="ValidationErrorHandler"/> is invoked.
         /// </para>
         /// <para>
-        /// If the parse result matches this command, <see cref="Invoke"/> will be invoked.
+        /// If the parse result matches this command, the function passed to <see cref="OnExecute"/> or <see cref="OnExecuteAsync"/> will be invoked.
         /// </para>
         /// </summary>
         /// <param name="args"></param>
         /// <param name="cancellationToken"></param>
-        /// <returns>The return code from <see cref="Invoke"/>.</returns>
+        /// <returns>The return code from the function passed to <see cref="OnExecute"/> or <see cref="OnExecuteAsync"/>.</returns>
         public async Task<int> ExecuteAsync(string[] args, CancellationToken cancellationToken = default)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
@@ -1035,42 +996,6 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// This method has been marked as obsolete and will be removed in a future version.
-        /// The recommended replacement is <see cref="ShowHelp()" />.
-        /// </summary>
-        /// <param name="commandName">The subcommand for which to show help. Leave null to show for the current command.</param>
-        [Obsolete("This method has been marked as obsolete and will be removed in a future version. " +
-            "The recommended replacement is ShowHelp()")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-#pragma warning disable RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
-        public void ShowHelp(string? commandName = null)
-#pragma warning restore RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
-        {
-            if (commandName == null)
-            {
-                ShowHelp();
-            }
-            CommandLineApplication target;
-
-            if (commandName == null || string.Equals(Name, commandName, StringComparison.OrdinalIgnoreCase))
-            {
-                target = this;
-            }
-            else
-            {
-                target = Commands.SingleOrDefault(cmd => string.Equals(cmd.Name, commandName, StringComparison.OrdinalIgnoreCase));
-
-                if (target == null)
-                {
-                    // The command name is invalid so don't try to show help for something that doesn't exist
-                    target = this;
-                }
-            }
-
-            target.ShowHelp();
-        }
-
-        /// <summary>
         /// Produces help text describing command usage.
         /// </summary>
         /// <returns>The help text.</returns>
@@ -1080,37 +1005,6 @@ namespace McMaster.Extensions.CommandLineUtils
             using var writer = new StringWriter(sb);
             _helpTextGenerator.Generate(this, writer);
             return sb.ToString();
-        }
-
-        /// <summary>
-        /// This method has been marked as obsolete and will be removed in a future version.
-        /// The recommended replacement is <see cref="GetHelpText()" />
-        /// </summary>
-        /// <param name="commandName"></param>
-        /// <returns></returns>
-        [Obsolete("This method has been marked as obsolete and will be removed in a future version. " +
-            "The recommended replacement is GetHelpText()")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public virtual string GetHelpText(string? commandName = null)
-        {
-            CommandLineApplication target;
-
-            if (commandName == null || string.Equals(Name, commandName, StringComparison.OrdinalIgnoreCase))
-            {
-                target = this;
-            }
-            else
-            {
-                target = Commands.SingleOrDefault(cmd => string.Equals(cmd.Name, commandName, StringComparison.OrdinalIgnoreCase));
-
-                if (target == null)
-                {
-                    // The command name is invalid so don't try to show help for something that doesn't exist
-                    target = this;
-                }
-            }
-
-            return target.GetHelpText();
         }
 
         /// <summary>

@@ -18,7 +18,6 @@ McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType.get ->
 McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
 McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>.Parse(string argName, string value, System.Globalization.CultureInfo culture) -> T
 McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
-McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ParseResult() -> void
 McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ParseResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication selectedCommand) -> void
 McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand.get -> McMaster.Extensions.CommandLineUtils.CommandLineApplication
 McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand.set -> void
@@ -130,8 +129,6 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.HelpOption(string te
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.HelpOption(string template) -> McMaster.Extensions.CommandLineUtils.CommandOption
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.HelpTextGenerator.get -> McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.HelpTextGenerator.set -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.Invoke.get -> System.Func<int>
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.Invoke.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.IsShowingInformation.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.IsShowingInformation.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.LongVersionGetter.get -> System.Func<string>
@@ -142,7 +139,6 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.Name.get -> string
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Name.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Names.get -> System.Collections.Generic.IEnumerable<string>
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func<int> invoke) -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecute(System.Func<System.Threading.Tasks.Task<int>> invoke) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnExecuteAsync(System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task<int>> invoke) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OnParsingComplete(System.Action<McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult> action) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(string template, string description, McMaster.Extensions.CommandLineUtils.CommandOptionType optionType, bool inherited) -> McMaster.Extensions.CommandLineUtils.CommandOption
@@ -169,7 +165,6 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShortVersionGetter.g
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShortVersionGetter.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp() -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp(bool usePager) -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHelp(string commandName = null) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowInHelpText.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowInHelpText.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowRootCommandFullNameAndVersion() -> void
@@ -210,8 +205,6 @@ McMaster.Extensions.CommandLineUtils.CommandOption.ShowInHelpText.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandOption.ShowInHelpText.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption.SymbolName.get -> string
 McMaster.Extensions.CommandLineUtils.CommandOption.SymbolName.set -> void
-McMaster.Extensions.CommandLineUtils.CommandOption.Template.get -> string
-McMaster.Extensions.CommandLineUtils.CommandOption.Template.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption.TryParse(string value) -> bool
 McMaster.Extensions.CommandLineUtils.CommandOption.Validators.get -> System.Collections.Generic.ICollection<McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator>
 McMaster.Extensions.CommandLineUtils.CommandOption.Value() -> string
@@ -424,12 +417,7 @@ McMaster.Extensions.CommandLineUtils.ResponseFileHandling.Disabled = 0 -> McMast
 McMaster.Extensions.CommandLineUtils.ResponseFileHandling.ParseArgsAsLineSeparated = 2 -> McMaster.Extensions.CommandLineUtils.ResponseFileHandling
 McMaster.Extensions.CommandLineUtils.ResponseFileHandling.ParseArgsAsSpaceSeparated = 1 -> McMaster.Extensions.CommandLineUtils.ResponseFileHandling
 McMaster.Extensions.CommandLineUtils.SubcommandAttribute
-McMaster.Extensions.CommandLineUtils.SubcommandAttribute.CommandType.get -> System.Type
-McMaster.Extensions.CommandLineUtils.SubcommandAttribute.CommandType.set -> void
-McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Name.get -> string
-McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Name.set -> void
 McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute(params System.Type[] subcommands) -> void
-McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute(string name, System.Type commandType) -> void
 McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types.get -> System.Type[]
 McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
 McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.SuppressDefaultHelpOptionAttribute() -> void
@@ -504,7 +492,6 @@ static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Arg
 static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app, bool inherited) -> McMaster.Extensions.CommandLineUtils.CommandOption
 static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app) -> McMaster.Extensions.CommandLineUtils.CommandOption
 static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app, System.Action action) -> void
-static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app, System.Func<System.Threading.Tasks.Task> action) -> void
 static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app, System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task> action) -> void
 static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app, System.Action<System.ComponentModel.DataAnnotations.ValidationResult> action) -> void
 static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app, System.Func<System.ComponentModel.DataAnnotations.ValidationResult, int> action) -> void
@@ -620,7 +607,6 @@ static McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(this McM
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.Dispose() -> void
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetFullNameAndVersion() -> string
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetHelpText() -> string
-virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetHelpText(string commandName = null) -> string
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetVersionText() -> string
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.HandleParseResult(McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult parseResult) -> void
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHint() -> void
