@@ -58,7 +58,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             protected override int OnExecute(CommandLineApplication app) => 100;
         }
 
-        [Subcommand(typeof(Level2Command))]
+        [Command, Subcommand(typeof(Level2Command))]
         private class Level1Command : CommandBase
         {
             [Option("--mid")]
@@ -69,6 +69,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public MasterApp? Parent { get; }
         }
 
+        [Command]
         private class Level2Command : CommandBase
         {
             [Option("--value")]

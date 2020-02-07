@@ -263,6 +263,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(7, CommandLineApplication.Execute<CustomContextApp>(customContext));
         }
 
+        [Command]
         private class DisposableCommand : IDisposable
         {
             public void OnExecute()
