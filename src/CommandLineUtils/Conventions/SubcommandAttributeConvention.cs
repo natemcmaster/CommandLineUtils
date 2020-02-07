@@ -67,15 +67,13 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         private void AddSubcommandImpl<TSubCommand>(ConventionContext context, SubcommandAttribute subcommand)
             where TSubCommand : class
         {
-//#pragma warning disable 618
             var commandAttribute = typeof(TSubCommand).GetTypeInfo().GetCustomAttributes(typeof(CommandAttribute)).FirstOrDefault() as CommandAttribute;
             if(commandAttribute == null)
             {
-                throw new InvalidOperationException($"A Command attribute was not found on indicated subcommand type {typeof(TSubCommand).Name}");
+                throw new CommandAttributeMissingException(typeof(TSubCommand));
             }
 
             context.Application.Command<TSubCommand>(commandAttribute.Name, commandAttribute.Configure);
-//#pragma warning restore 618
         }
     }
 }

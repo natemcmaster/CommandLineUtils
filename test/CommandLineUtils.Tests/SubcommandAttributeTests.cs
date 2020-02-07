@@ -232,5 +232,19 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () => CommandLineApplication.Execute<SelfCycledCommand>(new TestConsole(_output)));
             Assert.Equal(typeof(SelfCycledCommand), ex.ModelType);
         }
+
+        [Fact]
+        public void ThrowsForSubcommandWithNoCommandAttribute()
+        {
+            var ex = Assert.Throws<CommandAttributeMissingException>(
+                () => CommandLineApplication.Execute<CommandWithBadSubcommand>(new TestConsole(_output)));
+            Assert.Equal(typeof(CommandWithBadSubcommand.BadSubCommand), ex.ModelType);
+        }
+
+        [Command, Subcommand(typeof(BadSubCommand))]
+        private class CommandWithBadSubcommand
+        {
+            public class BadSubCommand { }
+        }
     }
 }
