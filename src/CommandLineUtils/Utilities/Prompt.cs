@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Security;
 using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -118,7 +119,6 @@ namespace McMaster.Extensions.CommandLineUtils
             return resp.ToString();
         }
 
-#if NET45 || NETSTANDARD2_0
         /// <summary>
         /// Gets a response as a SecureString object. Input is masked with an asterisk.
         /// </summary>
@@ -126,9 +126,9 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="promptColor">The console color to use for the prompt</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
         /// <returns>A finalized SecureString object, may be empty.</returns>
-        public static System.Security.SecureString GetPasswordAsSecureString(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+        public static SecureString GetPasswordAsSecureString(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
         {
-            var secureString = new System.Security.SecureString();
+            var secureString = new SecureString();
 
             foreach (var key in ReadObfuscatedLine(prompt, promptColor, promptBgColor))
             {
@@ -146,10 +146,6 @@ namespace McMaster.Extensions.CommandLineUtils
             secureString.MakeReadOnly();
             return secureString;
         }
-#elif NETSTANDARD1_6
-#else
-#error Target frameworks should be updated
-#endif
 
         /// <summary>
         /// Base implementation of GetPassword and GetPasswordAsString. Prompts the user for

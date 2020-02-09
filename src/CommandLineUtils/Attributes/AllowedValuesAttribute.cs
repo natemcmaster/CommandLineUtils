@@ -56,12 +56,7 @@ namespace McMaster.Extensions.CommandLineUtils
             get
             {
                 return Comparer == StringComparison.CurrentCultureIgnoreCase
-#if (NETSTANDARD2_0 || NET45)
                     || Comparer == StringComparison.InvariantCultureIgnoreCase
-#elif NETSTANDARD1_6
-#else
-#error Target frameworks should be updated
-#endif
                     || Comparer == StringComparison.OrdinalIgnoreCase;
             }
             set

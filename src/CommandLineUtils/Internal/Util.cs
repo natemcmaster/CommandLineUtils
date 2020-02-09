@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
             internal static readonly T[] Value = new T[0];
         }
 
-#elif (NETSTANDARD1_6 || NETSTANDARD2_0)
+#elif NETSTANDARD2_0
             => Array.Empty<T>();
 #else
 #error Update target frameworks

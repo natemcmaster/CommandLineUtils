@@ -1,12 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard1.6;net45</TargetFrameworks>
-    <!--
-      The ns1.6 API is a subset of the API available in ns2.0 and net45. The public API tool doesn't handle multiple TFMs.
-      https://github.com/dotnet/roslyn-analyzers/issues/2621
-    -->
-    <DisablePublicApiAnalyzer Condition="'$(TargetFramework)' == 'netstandard1.6'">true</DisablePublicApiAnalyzer>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
     <Description>Command-line parsing API.</Description>
@@ -33,15 +28,6 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.6'">
-    <!-- Keep these at the lowest possible version to support .NET Core 1. -->
-    <PackageReference Include="System.ComponentModel.Annotations" Version="4.1.0" />
-    <PackageReference Include="System.Diagnostics.Process" Version="4.1.0" />
-    <PackageReference Include="System.Threading.Thread" Version="4.0.0" />
-    <PackageReference Include="System.ValueTuple" Version="4.4.0" />
-    <PackageReference Update="NETStandard.Library" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
