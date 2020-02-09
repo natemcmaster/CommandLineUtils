@@ -111,7 +111,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Same(app, parseResult.SelectedCommand);
         }
 
-        [Command]
         class SimpleCommand
         {
             public int OnExecute() => 2;

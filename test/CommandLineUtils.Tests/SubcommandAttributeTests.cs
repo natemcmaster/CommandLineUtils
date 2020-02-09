@@ -58,7 +58,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             protected override int OnExecute(CommandLineApplication app) => 100;
         }
 
-        [Command, Subcommand(typeof(Level2Command))]
+        [Subcommand(typeof(Level2Command))]
         private class Level1Command : CommandBase
         {
             [Option("--mid")]
@@ -69,7 +69,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public MasterApp? Parent { get; }
         }
 
-        [Command]
         private class Level2Command : CommandBase
         {
             [Option("--value")]
@@ -233,18 +232,20 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(typeof(SelfCycledCommand), ex.ModelType);
         }
 
-        [Fact]
-        public void ThrowsForSubcommandWithNoCommandAttribute()
-        {
-            var ex = Assert.Throws<CommandAttributeMissingException>(
-                () => CommandLineApplication.Execute<CommandWithBadSubcommand>(new TestConsole(_output)));
-            Assert.Equal(typeof(CommandWithBadSubcommand.BadSubCommand), ex.ModelType);
-        }
+        [Subcommand(typeof(NamedSubCommand))]
+        private class RootProgram { }
 
-        [Command, Subcommand(typeof(BadSubCommand))]
-        private class CommandWithBadSubcommand
+        [Command(Name = "sub")]
+        private class NamedSubCommand { }
+
+        [Fact]
+        public void CommandAttributeNameIsAttachedToSubCommand()
         {
-            public class BadSubCommand { }
+            var app = new CommandLineApplication<RootProgram>();
+            app.Conventions.UseDefaultConventions();
+
+            var command = Assert.Single(app.Commands);
+            Assert.Equal("sub", command.Name);
         }
     }
 }

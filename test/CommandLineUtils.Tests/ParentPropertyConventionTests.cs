@@ -13,7 +13,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public object? Subcommand { get; set; }
         }
 
-        [Command]
         private class AddCommand
         {
             public object? Parent { get; }

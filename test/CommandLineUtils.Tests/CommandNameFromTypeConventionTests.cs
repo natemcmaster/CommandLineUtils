@@ -21,7 +21,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class Program
         { }
 
-        [Command]
         private class AddCommand
         { }
 

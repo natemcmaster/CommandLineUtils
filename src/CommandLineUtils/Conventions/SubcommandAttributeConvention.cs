@@ -67,13 +67,18 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         private void AddSubcommandImpl<TSubCommand>(ConventionContext context, SubcommandAttribute subcommand)
             where TSubCommand : class
         {
-            var commandAttribute = typeof(TSubCommand).GetTypeInfo().GetCustomAttributes(typeof(CommandAttribute)).FirstOrDefault() as CommandAttribute;
-            if(commandAttribute == null)
-            {
-                throw new CommandAttributeMissingException(typeof(TSubCommand));
-            }
+            var commandAttribute = typeof(TSubCommand).GetTypeInfo()
+                .GetCustomAttributes(typeof(CommandAttribute))
+                .FirstOrDefault() as CommandAttribute;
 
-            context.Application.Command<TSubCommand>(commandAttribute.Name, commandAttribute.Configure);
+            if (commandAttribute == null)
+            {
+                context.Application.Command<TSubCommand>(null, null);
+            }
+            else
+            {
+                context.Application.Command<TSubCommand>(commandAttribute.Name, commandAttribute.Configure);
+            }
         }
     }
 }

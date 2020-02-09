@@ -61,7 +61,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Subcommand(typeof(Sub))]
         private class Program
         {
-            [Command]
             public class Sub { }
         }
 
