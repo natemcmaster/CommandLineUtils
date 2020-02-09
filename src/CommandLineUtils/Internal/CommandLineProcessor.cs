@@ -365,20 +365,25 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private void HandleUnexpectedArg(string argTypeName, string? argValue = null)
         {
-            if (_currentCommand.ThrowOnUnexpectedArgument)
+            switch (_config.UnrecognizedArgumentHandling)
             {
-                _currentCommand.ShowHint();
-                var value = argValue ?? _enumerator.Current?.Raw;
+                case UnrecognizedArgumentHandling.Throw:
+                    _currentCommand.ShowHint();
+                    var value = argValue ?? _enumerator.Current?.Raw;
 
-                var suggestions = Enumerable.Empty<string>();
+                    var suggestions = Enumerable.Empty<string>();
 
-                if (_currentCommand.MakeSuggestionsInErrorMessage && !string.IsNullOrEmpty(value))
-                {
-                    suggestions = SuggestionCreator.GetTopSuggestions(_currentCommand, value);
-                }
+                    if (_currentCommand.MakeSuggestionsInErrorMessage && !string.IsNullOrEmpty(value))
+                    {
+                        suggestions = SuggestionCreator.GetTopSuggestions(_currentCommand, value);
+                    }
 
-                throw new UnrecognizedCommandParsingException(_currentCommand, suggestions,
-                    $"Unrecognized {argTypeName} '{value}'");
+                    throw new UnrecognizedCommandParsingException(_currentCommand, suggestions,
+                        $"Unrecognized {argTypeName} '{value}'");
+
+                case UnrecognizedArgumentHandling.StopParsingAndCollect:
+                default:
+                    break;
             }
 
             // All remaining arguments are stored for further use

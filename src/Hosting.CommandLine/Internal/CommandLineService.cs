@@ -32,7 +32,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
 
             logger.LogDebug("Constructing CommandLineApplication<{type}> with args [{args}]",
                 typeof(T).FullName, string.Join(",", state.Arguments));
-            _application = new CommandLineApplication<T>(state.Console, state.WorkingDirectory, true);
+            _application = new CommandLineApplication<T>(state.Console, state.WorkingDirectory);
             _application.Conventions
                 .UseDefaultConventions()
                 .UseConstructorInjection(serviceProvider);

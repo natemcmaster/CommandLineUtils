@@ -1,6 +1,10 @@
 # Changelog
 
-[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.0...HEAD):
+[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.1...HEAD):
+
+## [v2.6.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.1...v2.6.0)
+
+* Refactor: obsolete throwOnUnexpectedArg in favor of UnrecognizedArgumentHandling. See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details
 
 ## [v2.5.1](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.0...v2.5.1)
 

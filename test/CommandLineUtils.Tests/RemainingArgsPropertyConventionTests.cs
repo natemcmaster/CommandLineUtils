@@ -17,7 +17,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         protected CommandLineApplication<T> Create<T>() where T : class
         {
             var app = Create<T, RemainingArgsPropertyConvention>();
-            app.ThrowOnUnexpectedArgument = false;
+            app.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect;
             return app;
         }
 
@@ -57,7 +57,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ItSetsRemainingArgsOnSubcommand()
         {
             var app = Create<Parent>();
-            app.Command<RemainingArgs_Array>("subcmd", _ => { }, throwOnUnexpectedArg: false);
+            app.Command<RemainingArgs_Array>("subcmd", s =>
+            {
+                s.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect;
+            });
             var result = app.Parse("subcmd", "a", "b");
             var subcmd = Assert.IsType<CommandLineApplication<RemainingArgs_Array>>(result.SelectedCommand);
             Assert.Equal(new[] { "a", "b" }, subcmd.Model.RemainingArgs);
@@ -71,7 +74,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItSetsRemainingArguments_List()
         {
-            var app = new CommandLineApplication<RemainingArgs_List>(false);
+            var app = new CommandLineApplication<RemainingArgs_List>
+            {
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
+            };
             app.Conventions.UseDefaultConventions();
             app.Parse("a", "b");
             Assert.Equal(new[] { "a", "b" }, app.Model.RemainingArguments);

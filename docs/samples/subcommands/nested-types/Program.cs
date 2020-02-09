@@ -57,7 +57,7 @@ namespace SubcommandSample
 
             [Command("run", Description = "Run a command in a new container",
                 AllowArgumentSeparator = true,
-                ThrowOnUnexpectedArgument = false)]
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect)]
             private class Run
             {
                 [Required(ErrorMessage = "You must specify the image name")]
@@ -94,7 +94,7 @@ namespace SubcommandSample
 
 
             [Command("ls", Description = "List images",
-                ThrowOnUnexpectedArgument = false)]
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect)]
             private class List
             {
                 [Option(Description = "Show all containers (default shows just running)")]

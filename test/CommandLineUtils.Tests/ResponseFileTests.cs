@@ -232,7 +232,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication
             {
-                ThrowOnUnexpectedArgument = false,
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
                 ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated,
                 AllowArgumentSeparator = true,
             };
@@ -247,7 +247,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication
             {
-                ThrowOnUnexpectedArgument = false,
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
                 ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated,
                 AllowArgumentSeparator = true,
             };
@@ -279,10 +279,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void HandlesResponseFilesWhenGivenAsOptionArg()
         {
-            var app = new CommandLineApplication(throwOnUnexpectedArg: false)
+            var app = new CommandLineApplication
             {
                 ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated,
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
             };
+
             var opt = app.Option("--message <MESSAGE>", "Message", CommandOptionType.SingleValue);
             var rspFile = CreateResponseFile(" 'lorem ipsum' ", "dolor sit amet");
             app.Execute("--message", "@" + rspFile);

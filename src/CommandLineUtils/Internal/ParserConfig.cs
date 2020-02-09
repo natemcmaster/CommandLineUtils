@@ -40,5 +40,11 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         internal bool OptionNameAndValueCanBeSpaceSeparated { get; private set; } = true;
+
+        /// <summary>
+        /// Set the behavior for how to handle unrecognized arguments.
+        /// </summary>
+        public UnrecognizedArgumentHandling UnrecognizedArgumentHandling { get; set; } =
+            UnrecognizedArgumentHandling.Throw;
     }
 }

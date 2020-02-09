@@ -40,7 +40,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             var app = new CommandLineApplication(
                 new TestConsole(_output),
-                AppContext.BaseDirectory, false);
+                AppContext.BaseDirectory);
 
             app.Argument("Files", "Files")
                 .Accepts().NonExistingFileOrDirectory();
@@ -68,13 +68,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             var appInBaseDir = new CommandLineApplication(
                 new TestConsole(_output),
-                AppContext.BaseDirectory,
-                false);
+                AppContext.BaseDirectory);
             var notFoundDir = Path.Combine(AppContext.BaseDirectory, "notfound");
             var appNotInBaseDir = new CommandLineApplication(
                new TestConsole(_output),
-               notFoundDir,
-               false);
+               notFoundDir);
 
             appInBaseDir.Argument("Files", "Files")
                 .Accepts(v => v.NonExistingFileOrDirectory());

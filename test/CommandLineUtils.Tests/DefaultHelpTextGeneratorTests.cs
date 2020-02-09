@@ -186,7 +186,7 @@ Options:
         public void ShowHelpWithSubcommands(string helpOption, string expectedHintText, string expectedOptionsText,
             string expectedCommandsText)
         {
-            var app = new CommandLineApplication {Name = "test"};
+            var app = new CommandLineApplication { Name = "test" };
             if (helpOption != null) app.HelpOption(helpOption);
             app.Command("Subcommand", _ => { });
             app.Conventions.UseDefaultConventions();

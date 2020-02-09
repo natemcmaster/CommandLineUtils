@@ -1,5 +1,14 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('2.6.'))">
+The refactor-prep release.
+
+The purpose of this release is to introduce new API and obsolete existing API. Obsolete API still works as expected,
+but you will get compiler warnings about what is going to change in 3.0.
+
+Changes:
+* throwOnUnexpectedArg deprecated in favor of UnrecognizedArgumentHandling
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('2.5.'))">
 Features and bug fixes:
 
