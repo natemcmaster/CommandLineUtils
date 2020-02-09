@@ -2,11 +2,16 @@
 
 [Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.0...HEAD):
 
-* Fix [#251] by [@mattnischan] - remove obsolete APIs
+### Breaking changes
+
+* Fix [#251] by [@mattnischan] - remove API that was marked as obsolete in 2.x releases
+* Fix [#294] by [@natemcmaster] - change dependencies on McMaster.Extensions.Hosting.CommandLine to just use Microsoft.Extensions.Hosting.Abstractions
 
 [@mattnischan]: https://github.com/mattnischan
+[@natemcmaster]: https://github.com/natemcmaster
 
 [#251]: https://github.com/natemcmaster/CommandLineUtils/issues/251
+[#294]: https://github.com/natemcmaster/CommandLineUtils/issues/294
 
 ## [v2.5.1](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.0...v2.5.1)
 
