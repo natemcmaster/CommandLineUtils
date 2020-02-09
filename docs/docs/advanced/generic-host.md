@@ -8,9 +8,12 @@ The McMaster.Extensions.Hosting.CommandLine package provides support for integra
 
 ## Get started
 
-To get started, install the `McMaster.Extensions.Hosting.CommandLine` package.
+To get started, install the [McMaster.Extensions.Hosting.CommandLine] and [Microsoft.Extensions.Hosting] packages.
 The main usage for generic host is `RunCommandLineApplicationAsync<TApp>(args)`, where `TApp` is a class
 which will be bound to command line arguments and options using attributes and `CommandLineApplication.Execute<T>`.
+
+[McMaster.Extensions.Hosting.CommandLine]: https://nuget.org/packages/McMaster.Extensions.Hosting.CommandLine
+[Microsoft.Extensions.Hosting]: https://nuget.org/packages/Microsoft.Extensions.Hosting
 
 ### Sample
 
