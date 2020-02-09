@@ -313,7 +313,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class Subcommand
         {
             public DisposableParentCommand Parent { get; }
-            
+
             public void OnExecute()
             {
                 Assert.NotNull(Parent);

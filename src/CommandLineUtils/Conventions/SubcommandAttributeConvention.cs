@@ -28,7 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             foreach (var attribute in attributes)
             {
-                var contextArgs = new object[] { context, attribute };
+                var contextArgs = new object[] { context };
                 foreach (var type in attribute.Types)
                 {
                     AssertSubcommandIsNotCycled(type, context.Application);
@@ -64,21 +64,10 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             = typeof(SubcommandAttributeConvention).GetRuntimeMethods()
                 .Single(m => m.Name == nameof(AddSubcommandImpl));
 
-        private void AddSubcommandImpl<TSubCommand>(ConventionContext context, SubcommandAttribute subcommand)
+        private void AddSubcommandImpl<TSubCommand>(ConventionContext context)
             where TSubCommand : class
         {
-            var commandAttribute = typeof(TSubCommand).GetTypeInfo()
-                .GetCustomAttributes(typeof(CommandAttribute))
-                .FirstOrDefault() as CommandAttribute;
-
-            if (commandAttribute == null)
-            {
-                context.Application.Command<TSubCommand>(null, null);
-            }
-            else
-            {
-                context.Application.Command<TSubCommand>(commandAttribute.Name, commandAttribute.Configure);
-            }
+            context.Application.Command<TSubCommand>(null, null);
         }
     }
 }

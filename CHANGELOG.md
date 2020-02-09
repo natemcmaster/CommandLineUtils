@@ -2,9 +2,17 @@
 
 [Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.0...HEAD):
 
+* Fix [#251] by [@mattnischan] - remove obsolete APIs
+
+[@mattnischan]: https://github.com/mattnischan
+
+[#251]: https://github.com/natemcmaster/CommandLineUtils/issues/251
+
 ## [v2.5.1](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.0...v2.5.1)
 
 * Fix [#320] - lazy load command object types to reduce unnecessary allocations
+
+[#320]: https://github.com/natemcmaster/CommandLineUtils/issues/320
 
 ## [v2.5.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.4...v2.5.0)
 
