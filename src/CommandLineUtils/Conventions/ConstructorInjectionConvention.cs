@@ -53,9 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         private void ApplyImpl<TModel>(ConventionContext context)
             where TModel : class
         {
-            var constructors = typeof(TModel)
-                .GetTypeInfo()
-                .GetConstructors(BindingFlags.Public | BindingFlags.Instance);
+            var constructors = typeof(TModel).GetConstructors(BindingFlags.Public | BindingFlags.Instance);
 
             var factory = FindMatchedConstructor<TModel>(constructors, context.Application,
                 constructors.Length == 1);

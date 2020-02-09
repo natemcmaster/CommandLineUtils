@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            var versionOptionAttrOnType = context.ModelType.GetTypeInfo().GetCustomAttribute<VersionOptionAttribute>();
+            var versionOptionAttrOnType = context.ModelType.GetCustomAttribute<VersionOptionAttribute>();
             versionOptionAttrOnType?.Configure(context.Application);
 
             var props = ReflectionHelper.GetProperties(context.ModelType);

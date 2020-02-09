@@ -19,7 +19,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            foreach (var attr in context.ModelType.GetTypeInfo().GetCustomAttributes().OfType<IConvention>())
+            foreach (var attr in context.ModelType.GetCustomAttributes().OfType<IConvention>())
             {
                 attr.Apply(context);
             }

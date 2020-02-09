@@ -367,7 +367,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
         private string[] ExtractNamesFromEnum(Type type)
         {
-            if (type == null || !type.GetTypeInfo().IsEnum)
+            if (type == null || !type.IsEnum)
             {
                 return Util.EmptyArray<string>();
             }

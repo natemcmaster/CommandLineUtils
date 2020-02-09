@@ -48,7 +48,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         public CultureInfo ParseCulture { get; set; } = CultureInfo.CurrentCulture;
 
         private static readonly MethodInfo s_GetParserGeneric
-            = typeof(ValueParserProvider).GetTypeInfo()
+            = typeof(ValueParserProvider)
                 .GetMethods(BindingFlags.Instance | BindingFlags.Public)
                 .Single(m => m.Name == nameof(GetParser) && m.IsGenericMethod);
 
@@ -95,16 +95,14 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 return parser;
             }
 
-            var typeInfo = type.GetTypeInfo();
-
-            if (typeInfo.IsEnum)
+            if (type.IsEnum)
             {
                 return EnumParser.Create(type);
             }
 
-            if (ReflectionHelper.IsNullableType(typeInfo, out var wrappedType) && wrappedType != null)
+            if (ReflectionHelper.IsNullableType(type, out var wrappedType) && wrappedType != null)
             {
-                if (wrappedType.GetTypeInfo().IsEnum)
+                if (wrappedType.IsEnum)
                 {
                     return new NullableValueParser(EnumParser.Create(wrappedType));
                 }
@@ -115,20 +113,20 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 }
             }
 
-            if (!typeInfo.IsGenericType)
+            if (!type.IsGenericType)
             {
                 return null;
             }
 
-            var typeDef = typeInfo.GetGenericTypeDefinition();
-            if (typeDef == typeof(ValueTuple<,>) && typeInfo.GenericTypeArguments[0] == typeof(bool))
+            var typeDef = type.GetGenericTypeDefinition();
+            if (typeDef == typeof(ValueTuple<,>) && type.GenericTypeArguments[0] == typeof(bool))
             {
-                var innerParser = GetParser(typeInfo.GenericTypeArguments[1]);
+                var innerParser = GetParser(type.GenericTypeArguments[1]);
                 if (innerParser == null)
                 {
                     return null;
                 }
-                var method = typeof(ValueTupleValueParser).GetTypeInfo().GetMethod(nameof(ValueTupleValueParser.Create)).MakeGenericMethod(typeInfo.GenericTypeArguments[1]);
+                var method = typeof(ValueTupleValueParser).GetMethod(nameof(ValueTupleValueParser.Create)).MakeGenericMethod(type.GenericTypeArguments[1]);
                 return (IValueParser)method.Invoke(null, new object[] { innerParser });
             }
 
@@ -197,7 +195,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             }
 
             // strip nullable wrappers since we have a dedicated nullable value parser
-            targetType = ReflectionHelper.IsNullableType(targetType.GetTypeInfo(), out var wrappedType) && wrappedType != null
+            targetType = ReflectionHelper.IsNullableType(targetType, out var wrappedType) && wrappedType != null
                 ? wrappedType
                 : targetType;
 

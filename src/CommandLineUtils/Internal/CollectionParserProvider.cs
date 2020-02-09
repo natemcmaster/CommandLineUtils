@@ -30,11 +30,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 return new ArrayParser(elementType, elementParser, valueParsers.ParseCulture);
             }
 
-            var typeInfo = type.GetTypeInfo();
-            if (typeInfo.IsGenericType)
+            if (type.IsGenericType)
             {
                 var typeDef = type.GetGenericTypeDefinition();
-                var elementType = typeInfo.GetGenericArguments().First();
+                var elementType = type.GetGenericArguments().First();
                 var elementParser = valueParsers.GetParser(elementType);
 
                 if (typeof(IList<>) == typeDef

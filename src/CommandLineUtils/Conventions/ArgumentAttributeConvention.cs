@@ -83,7 +83,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             argument.MultipleValues =
                 prop.PropertyType.IsArray
-                || (typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(prop.PropertyType)
+                || (typeof(IEnumerable).IsAssignableFrom(prop.PropertyType)
                     && prop.PropertyType != typeof(string));
 
             if (argPropOrder.TryGetValue(argumentAttr.Order, out var otherProp))

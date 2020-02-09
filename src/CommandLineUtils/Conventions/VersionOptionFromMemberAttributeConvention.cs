@@ -20,7 +20,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            var versionOptionFromMember = context.ModelType.GetTypeInfo().GetCustomAttribute<VersionOptionFromMemberAttribute>();
+            var versionOptionFromMember = context.ModelType.GetCustomAttribute<VersionOptionFromMemberAttribute>();
             versionOptionFromMember?.Configure(context.Application, context.ModelType, modelAccessor.GetModel);
         }
     }

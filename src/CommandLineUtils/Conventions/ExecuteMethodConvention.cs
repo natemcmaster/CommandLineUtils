@@ -31,13 +31,12 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         {
             const BindingFlags binding = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
 
-            var typeInfo = context.ModelType.GetTypeInfo();
             MethodInfo? method;
             MethodInfo? asyncMethod;
             try
             {
-                method = typeInfo.GetMethod("OnExecute", binding);
-                asyncMethod = typeInfo.GetMethod("OnExecuteAsync", binding);
+                method = context.ModelType.GetMethod("OnExecute", binding);
+                asyncMethod = context.ModelType.GetMethod("OnExecuteAsync", binding);
             }
             catch (AmbiguousMatchException ex)
             {

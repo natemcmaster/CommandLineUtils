@@ -157,7 +157,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<ExecuteWithUnknownTypes>());
-            var method = typeof(ExecuteWithUnknownTypes).GetTypeInfo().GetMethod("OnExecute", BindingFlags.Instance | BindingFlags.NonPublic);
+            var method = typeof(ExecuteWithUnknownTypes).GetMethod("OnExecute", BindingFlags.Instance | BindingFlags.NonPublic);
             var param = Assert.Single(method.GetParameters());
             Assert.Equal(Strings.UnsupportedParameterTypeOnMethod(method.Name, param), ex.Message);
         }

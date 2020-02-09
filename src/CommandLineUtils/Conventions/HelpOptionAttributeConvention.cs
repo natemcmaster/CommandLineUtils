@@ -20,7 +20,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            var helpOptionAttrOnType = context.ModelType.GetTypeInfo().GetCustomAttribute<HelpOptionAttribute>();
+            var helpOptionAttrOnType = context.ModelType.GetCustomAttribute<HelpOptionAttribute>();
             helpOptionAttrOnType?.Configure(context.Application);
 
             var props = ReflectionHelper.GetProperties(context.ModelType);

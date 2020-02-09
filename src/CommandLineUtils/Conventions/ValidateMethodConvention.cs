@@ -25,10 +25,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             const BindingFlags MethodFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 
-            var method = context.ModelType
-                .GetTypeInfo()
-                .GetMethod("OnValidate", MethodFlags);
-
+            var method = context.ModelType.GetMethod("OnValidate", MethodFlags);
             if (method == null)
             {
                 return;
@@ -48,11 +45,11 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     var methodParam = methodParams[i];
 
-                    if (typeof(ValidationContext).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
+                    if (typeof(ValidationContext).IsAssignableFrom(methodParam.ParameterType))
                     {
                         arguments[i] = ctx;
                     }
-                    else if (typeof(CommandLineContext).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
+                    else if (typeof(CommandLineContext).IsAssignableFrom(methodParam.ParameterType))
                     {
                         arguments[i] = context.Application._context;
                     }

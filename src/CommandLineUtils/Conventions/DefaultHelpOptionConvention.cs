@@ -33,14 +33,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            if (context.ModelType != null)
+            if (context.ModelType != null
+                && (context.ModelType.GetCustomAttribute<SuppressDefaultHelpOptionAttribute>() != null
+                || context.ModelType.Assembly.GetCustomAttribute<SuppressDefaultHelpOptionAttribute>() != null))
             {
-                var typeInfo = context.ModelType.GetTypeInfo();
-                if (typeInfo.GetCustomAttribute<SuppressDefaultHelpOptionAttribute>() != null
-                    || typeInfo.Assembly.GetCustomAttribute<SuppressDefaultHelpOptionAttribute>() != null)
-                {
-                    return;
-                }
+                return;
             }
 
             var help = new CommandOption(_template, CommandOptionType.NoValue)

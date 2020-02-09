@@ -27,7 +27,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            var attribute = context.ModelType.GetTypeInfo().GetCustomAttribute<CommandAttribute>();
+            var attribute = context.ModelType.GetCustomAttribute<CommandAttribute>();
             attribute?.Configure(context.Application);
 
             foreach (var subcommand in context.Application.Commands)
@@ -38,7 +38,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 }
             }
 
-            foreach (var attr in context.ModelType.GetTypeInfo().GetCustomAttributes<ValidationAttribute>())
+            foreach (var attr in context.ModelType.GetCustomAttributes<ValidationAttribute>())
             {
                 context.Application.Validators.Add(new AttributeValidator(attr));
             }

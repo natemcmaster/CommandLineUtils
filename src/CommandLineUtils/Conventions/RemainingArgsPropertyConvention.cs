@@ -26,9 +26,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            var typeInfo = context.ModelType.GetTypeInfo();
-            var prop = typeInfo.GetProperty("RemainingArguments", PropertyBindingFlags);
-            prop ??= typeInfo.GetProperty("RemainingArgs", PropertyBindingFlags);
+            var prop = context.ModelType.GetProperty("RemainingArguments", PropertyBindingFlags);
+            prop ??= context.ModelType.GetProperty("RemainingArgs", PropertyBindingFlags);
             if (prop == null)
             {
                 return;
@@ -43,9 +42,9 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            if (!typeof(IReadOnlyList<string>).GetTypeInfo().IsAssignableFrom(prop.PropertyType))
+            if (!typeof(IReadOnlyList<string>).IsAssignableFrom(prop.PropertyType))
             {
-                throw new InvalidOperationException(Strings.RemainingArgsPropsIsUnassignable(typeInfo));
+                throw new InvalidOperationException(Strings.RemainingArgsPropsIsUnassignable(context.ModelType));
             }
 
             context.Application.OnParsingComplete(r =>

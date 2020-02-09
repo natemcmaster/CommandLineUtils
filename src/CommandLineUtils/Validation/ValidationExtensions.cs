@@ -198,7 +198,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static IValidationBuilder Enum<TEnum>(this IValidationBuilder builder, bool ignoreCase = false)
             where TEnum : struct
         {
-            if (!typeof(TEnum).GetTypeInfo().IsEnum)
+            if (!typeof(TEnum).IsEnum)
             {
                 throw new ArgumentException("Type parameter T must be an enum.");
             }

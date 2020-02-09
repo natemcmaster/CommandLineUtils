@@ -24,7 +24,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            var attributes = context.ModelType.GetTypeInfo().GetCustomAttributes<SubcommandAttribute>();
+            var attributes = context.ModelType.GetCustomAttributes<SubcommandAttribute>();
 
             foreach (var attribute in attributes)
             {

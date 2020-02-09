@@ -45,36 +45,35 @@ namespace McMaster.Extensions.CommandLineUtils
                 return CommandOptionType.SingleValue;
             }
 
-            if (clrType.IsArray || typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(clrType))
+            if (clrType.IsArray || typeof(IEnumerable).IsAssignableFrom(clrType))
             {
                 return CommandOptionType.MultipleValue;
             }
 
-            var typeInfo = clrType.GetTypeInfo();
-            if (typeInfo.IsEnum)
+            if (clrType.IsEnum)
             {
                 return CommandOptionType.SingleValue;
             }
 
-            if (typeInfo.IsGenericType)
+            if (clrType.IsGenericType)
             {
-                var typeDef = typeInfo.GetGenericTypeDefinition();
+                var typeDef = clrType.GetGenericTypeDefinition();
                 if (typeDef == typeof(Nullable<>))
                 {
-                    return GetOptionType(typeInfo.GetGenericArguments().First(), valueParsers);
+                    return GetOptionType(clrType.GetGenericArguments().First(), valueParsers);
                 }
 
-                if (typeDef == typeof(Tuple<,>) && typeInfo.GenericTypeArguments[0] == typeof(bool))
+                if (typeDef == typeof(Tuple<,>) && clrType.GenericTypeArguments[0] == typeof(bool))
                 {
-                    if (GetOptionType(typeInfo.GenericTypeArguments[1], valueParsers) == CommandOptionType.SingleValue)
+                    if (GetOptionType(clrType.GenericTypeArguments[1], valueParsers) == CommandOptionType.SingleValue)
                     {
                         return CommandOptionType.SingleOrNoValue;
                     }
                 }
 
-                if (typeDef == typeof(ValueTuple<,>) && typeInfo.GenericTypeArguments[0] == typeof(bool))
+                if (typeDef == typeof(ValueTuple<,>) && clrType.GenericTypeArguments[0] == typeof(bool))
                 {
-                    if (GetOptionType(typeInfo.GenericTypeArguments[1], valueParsers) == CommandOptionType.SingleValue)
+                    if (GetOptionType(clrType.GenericTypeArguments[1], valueParsers) == CommandOptionType.SingleValue)
                     {
                         return CommandOptionType.SingleOrNoValue;
                     }

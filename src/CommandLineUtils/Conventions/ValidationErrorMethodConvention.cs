@@ -22,10 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             const BindingFlags MethodFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 
-            var method = context.ModelType
-                .GetTypeInfo()
-                .GetMethod("OnValidationError", MethodFlags);
-
+            var method = context.ModelType.GetMethod("OnValidationError", MethodFlags);
             if (method == null)
             {
                 return;

@@ -310,8 +310,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ctor = typeof(OptionAttribute).GetConstructor(Array.Empty<Type>());
             var ab = new CustomAttributeBuilder(ctor, Array.Empty<object>());
             pb.SetCustomAttribute(ab);
-            var program = tb.CreateTypeInfo();
-            var appBuilder = typeof(CommandLineApplication<>).MakeGenericType(program.AsType());
+            var program = tb.CreateType();
+            var appBuilder = typeof(CommandLineApplication<>).MakeGenericType(program);
             var app = (CommandLineApplication)Activator.CreateInstance(appBuilder, new object[] { false });
             app.Conventions.UseOptionAttributes();
             return app.Options[0];

@@ -90,8 +90,8 @@ namespace McMaster.Extensions.CommandLineUtils
         public const string MultipleVersionOptionPropertiesFound
             = "Multiple VersionOptionAttributes found. VersionOptionAttribute should only be used on one property per type.";
 
-        public static string RemainingArgsPropsIsUnassignable(TypeInfo typeInfo)
-            => $"The RemainingArguments property type on {typeInfo.Name} is invalid. It must be assignable from string[].";
+        public static string RemainingArgsPropsIsUnassignable(Type type)
+            => $"The RemainingArguments property type on {type.Name} is invalid. It must be assignable from string[].";
 
         public static string NoPropertyOrMethodFound(string memberName, Type type)
             => $"Could not find a property or method named {memberName} on type {type.FullName}";

@@ -22,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             var assembly = Assembly.GetEntryAssembly();
             if (assembly == null && context.ModelType != null)
             {
-                assembly = context.ModelType.GetTypeInfo().Assembly;
+                assembly = context.ModelType.Assembly;
             }
 
             if (assembly != null)

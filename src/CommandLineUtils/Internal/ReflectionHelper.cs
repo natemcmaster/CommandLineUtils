@@ -13,6 +13,8 @@ namespace McMaster.Extensions.CommandLineUtils
 {
     internal class ReflectionHelper
     {
+        private const BindingFlags DeclaredOnlyLookup = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
+
         public static SetPropertyDelegate GetPropertySetter(PropertyInfo prop)
         {
             var setter = prop.GetSetMethod(nonPublic: true);
@@ -22,12 +24,11 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             else
             {
-                var backingFieldName = string.Format("<{0}>k__BackingField", prop.Name);
-                var backingField = prop.DeclaringType.GetTypeInfo().GetDeclaredField(backingFieldName);
+                var backingField = prop.DeclaringType.GetField($"<{prop.Name}>k__BackingField", DeclaredOnlyLookup);
                 if (backingField == null)
                 {
                     throw new InvalidOperationException(
-                        $"Could not find a way to set {prop.DeclaringType.FullName}.{prop.Name}");
+                        $"Could not find a way to set {prop.DeclaringType.FullName}.{prop.Name}. Try adding a private setter.");
                 }
 
                 return (obj, value) => backingField.SetValue(obj, value);
@@ -36,7 +37,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static MethodInfo[] GetPropertyOrMethod(Type type, string name)
         {
-            var members = GetAllMembers(type.GetTypeInfo()).ToList();
+            var members = GetAllMembers(type).ToList();
             return members
                 .OfType<MethodInfo>()
                 .Where(m => m.Name == name)
@@ -47,14 +48,14 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static PropertyInfo[] GetProperties(Type type)
         {
-            return GetAllMembers(type.GetTypeInfo())
+            return GetAllMembers(type)
                 .OfType<PropertyInfo>()
                 .ToArray();
         }
 
         public static MemberInfo[] GetMembers(Type type)
         {
-            return GetAllMembers(type.GetTypeInfo()).ToArray();
+            return GetAllMembers(type).ToArray();
         }
 
         public static object[] BindParameters(MethodInfo method, CommandLineApplication command, CancellationToken cancellationToken)
@@ -66,19 +67,19 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 var methodParam = methodParams[i];
 
-                if (typeof(CommandLineApplication).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
+                if (typeof(CommandLineApplication).IsAssignableFrom(methodParam.ParameterType))
                 {
                     arguments[i] = command;
                 }
-                else if (typeof(IConsole).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
+                else if (typeof(IConsole).IsAssignableFrom(methodParam.ParameterType))
                 {
                     arguments[i] = command._context.Console;
                 }
-                else if (typeof(ValidationResult).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
+                else if (typeof(ValidationResult).IsAssignableFrom(methodParam.ParameterType))
                 {
                     arguments[i] = command.GetValidationResult();
                 }
-                else if (typeof(CommandLineContext).GetTypeInfo().IsAssignableFrom(methodParam.ParameterType))
+                else if (typeof(CommandLineContext).IsAssignableFrom(methodParam.ParameterType))
                 {
                     arguments[i] = command._context;
                 }
@@ -96,27 +97,25 @@ namespace McMaster.Extensions.CommandLineUtils
             return arguments;
         }
 
-        public static bool IsNullableType(TypeInfo typeInfo, out Type? wrappedType)
+        public static bool IsNullableType(Type type, out Type? wrappedType)
         {
-            var result = typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>);
-            wrappedType = result ? typeInfo.GetGenericArguments().First() : null;
+            var result = type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+            wrappedType = result ? type.GetGenericArguments().First() : null;
 
             return result;
         }
 
-        private static IEnumerable<MemberInfo> GetAllMembers(TypeInfo typeInfo)
+        private static IEnumerable<MemberInfo> GetAllMembers(Type type)
         {
-            const BindingFlags binding = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.DeclaredOnly;
-
-            while (typeInfo != null)
+            while (type != null)
             {
-                var members = typeInfo.GetMembers(binding);
+                var members = type.GetMembers(DeclaredOnlyLookup);
                 foreach (var member in members)
                 {
                     yield return member;
                 }
 
-                typeInfo = typeInfo.BaseType?.GetTypeInfo();
+                type = type.BaseType;
             }
         }
     }
