@@ -231,5 +231,21 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 () => CommandLineApplication.Execute<SelfCycledCommand>(new TestConsole(_output)));
             Assert.Equal(typeof(SelfCycledCommand), ex.ModelType);
         }
+
+        [Subcommand(typeof(NamedSubCommand))]
+        private class RootProgram { }
+
+        [Command(Name = "sub")]
+        private class NamedSubCommand { }
+
+        [Fact]
+        public void CommandAttributeNameIsAttachedToSubCommand()
+        {
+            var app = new CommandLineApplication<RootProgram>();
+            app.Conventions.UseDefaultConventions();
+
+            var command = Assert.Single(app.Commands);
+            Assert.Equal("sub", command.Name);
+        }
     }
 }

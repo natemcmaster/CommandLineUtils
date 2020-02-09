@@ -97,35 +97,10 @@ namespace McMaster.Extensions.CommandLineUtils
             => app.Option(template, "Show verbose output", CommandOptionType.NoValue, inherited: true);
 
         /// <summary>
-        /// <para>
-        /// This method is obsolete and will be removed in a future version.
-        /// The recommended alternative is <see cref="OnExecuteAsync" />.
-        /// See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.
-        /// </para>
-        /// <para>
-        /// Sets an async handler with a return code of <c>0</c>.
-        /// </para>
+        /// Sets an async command execution handler with a return code of <c>0</c>.
         /// </summary>
         /// <param name="app"></param>
-        /// <param name="action">An asynchronous action to invoke when the ocmmand is selected..</param>
-        [Obsolete("This method is obsolete and will be removed in a future version. " +
-                  "The recommended replacement is .OnExecuteAsync(). " +
-                  "See https://github.com/natemcmaster/CommandLineUtils/issues/275 for details.")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static void OnExecute(this CommandLineApplication app, Func<Task> action)
-        {
-            app.OnExecute(async () =>
-                       {
-                           await action();
-                           return 0;
-                       });
-        }
-
-        /// <summary>
-        /// Sets an async handler with a return code of <c>0</c>.
-        /// </summary>
-        /// <param name="app"></param>
-        /// <param name="action">An asynchronous action to invoke when the ocmmand is selected..</param>
+        /// <param name="action">An asynchronous action to invoke when the command is selected..</param>
         public static void OnExecuteAsync(this CommandLineApplication app, Func<CancellationToken, Task> action)
             => app.OnExecuteAsync(async ct =>
             {
@@ -134,7 +109,7 @@ namespace McMaster.Extensions.CommandLineUtils
             });
 
         /// <summary>
-        /// Sets <see cref="CommandLineApplication.Invoke"/> with a return code of <c>0</c>.
+        /// Sets the command execution handler with a return code of <c>0</c>.
         /// </summary>
         /// <param name="app"></param>
         /// <param name="action">An action to invoke when the command is selected.</param>

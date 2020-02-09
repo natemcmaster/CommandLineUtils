@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
     /// <summary>
-    /// Sets <see cref="CommandLineApplication.Invoke"/> to call a method named
+    /// Sets a command handler to call a method named
     /// <c>OnExecute</c> or <c>OnExecuteAsync</c> on the model type
     /// of <see cref="CommandLineApplication{TModel}"/>.
     /// </summary>

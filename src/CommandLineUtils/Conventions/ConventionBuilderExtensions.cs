@@ -186,7 +186,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         /// <summary>
         /// Sets a method named "OnExecute" or "OnExecuteAsync" on the model type to handle
-        /// <see cref="CommandLineApplication.Invoke" />
+        /// <see cref="CommandLineApplication.OnExecute" />
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>

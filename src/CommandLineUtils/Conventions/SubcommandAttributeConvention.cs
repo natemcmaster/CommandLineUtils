@@ -67,9 +67,18 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         private void AddSubcommandImpl<TSubCommand>(ConventionContext context, SubcommandAttribute subcommand)
             where TSubCommand : class
         {
-#pragma warning disable 618
-            context.Application.Command<TSubCommand>(subcommand.Name!, subcommand.Configure);
-#pragma warning restore 618
+            var commandAttribute = typeof(TSubCommand).GetTypeInfo()
+                .GetCustomAttributes(typeof(CommandAttribute))
+                .FirstOrDefault() as CommandAttribute;
+
+            if (commandAttribute == null)
+            {
+                context.Application.Command<TSubCommand>(null, null);
+            }
+            else
+            {
+                context.Application.Command<TSubCommand>(commandAttribute.Name, commandAttribute.Configure);
+            }
         }
     }
 }

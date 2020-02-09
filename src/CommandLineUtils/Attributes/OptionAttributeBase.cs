@@ -64,13 +64,6 @@ namespace McMaster.Extensions.CommandLineUtils
             option.LongName = LongName ?? option.LongName;
             option.ValueName = ValueName ?? option.ValueName;
             option.SymbolName = SymbolName ?? option.SymbolName;
-
-#pragma warning disable 618
-            if (option.Template == null)
-            {
-                option.Template = option.ToTemplateString();
-            }
-#pragma warning restore 618
         }
     }
 }

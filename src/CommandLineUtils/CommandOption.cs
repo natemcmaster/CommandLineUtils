@@ -24,9 +24,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="optionType">The option type.</param>
         public CommandOption(string template, CommandOptionType optionType)
         {
-#pragma warning disable 618
-            Template = template;
-#pragma warning restore 618
             OptionType = optionType;
 
             var separators = (optionType == CommandOptionType.SingleOrNoValue)
@@ -72,18 +69,6 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             OptionType = type;
         }
-
-        /// <summary>
-        /// <para>
-        /// This property is obsolete and will be removed in a future version.
-        /// </para>
-        /// <para>
-        /// The argument template.
-        /// </para>
-        /// </summary>
-        [Obsolete("This property is obsolete and will be removed in a future version.")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public string? Template { get; set; }
 
         /// <summary>
         /// The short command line flag used to identify this option. On command line, this is preceeded by a single '-{ShortName}'.
