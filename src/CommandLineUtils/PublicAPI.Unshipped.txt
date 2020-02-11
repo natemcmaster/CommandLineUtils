@@ -13,3 +13,4 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command<TModel>(stri
 McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
 McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.StopParsingAndCollect = 1 -> McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
 McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.Throw = 0 -> McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app, string template, System.Reflection.Assembly assembly) -> McMaster.Extensions.CommandLineUtils.CommandOption

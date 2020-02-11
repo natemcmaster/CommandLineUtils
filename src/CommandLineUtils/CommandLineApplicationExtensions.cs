@@ -168,7 +168,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="template"></param>
         /// <param name="assembly"></param>
         /// <exception cref="ArgumentNullException">Either <paramref name="app"/> or <paramref name="assembly"/> is <c>null</c>.</exception>
-        public static CommandOption VersionOptionFromAssemblyAttributes(CommandLineApplication app, string template, Assembly assembly)
+        public static CommandOption VersionOptionFromAssemblyAttributes(this CommandLineApplication app, string template, Assembly assembly)
             => app.VersionOption(template, GetInformationalVersion(assembly));
 
         private static string? GetInformationalVersion(Assembly assembly)
