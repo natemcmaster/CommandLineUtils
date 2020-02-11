@@ -143,7 +143,7 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
       <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_RemainingArguments">CommandLineApplication.RemainingArguments</a>
     </div>
     <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ThrowOnUnexpectedArgument">CommandLineApplication.ThrowOnUnexpectedArgument</a>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_UnrecognizedArgumentHandling">CommandLineApplication.UnrecognizedArgumentHandling</a>
     </div>
     <div>
       <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_IsShowingInformation">CommandLineApplication.IsShowingInformation</a>
@@ -194,10 +194,10 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
       <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AddSubcommand_McMaster_Extensions_CommandLineUtils_CommandLineApplication_">CommandLineApplication.AddSubcommand(CommandLineApplication)</a>
     </div>
     <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command_System_String_System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Boolean_">CommandLineApplication.Command(String, Action&lt;CommandLineApplication&gt;, Boolean)</a>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command_System_String_System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication__">CommandLineApplication.Command(String, Action&lt;CommandLineApplication&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command__1_System_String_System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication___0___System_Boolean_">CommandLineApplication.Command&lt;TModel&gt;(String, Action&lt;CommandLineApplication&lt;TModel&gt;&gt;, Boolean)</a>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command__1_System_String_System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication___0___">CommandLineApplication.Command&lt;TModel&gt;(String, Action&lt;CommandLineApplication&lt;TModel&gt;&gt;)</a>
     </div>
     <div>
       <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Option_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_">CommandLineApplication.Option(String, String, CommandOptionType)</a>
@@ -342,19 +342,41 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.%23ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator%2CMcMaster.Extensions.CommandLineUtils.IConsole%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L63">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L26">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Boolean_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator,McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Boolean)">CommandLineApplication(IHelpTextGenerator, IConsole, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor">CommandLineApplication()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CommandLineApplication(IHelpTextGenerator helpTextGenerator, IConsole console, string workingDirectory, bool throwOnUnexpectedArg)</code></pre>
+    <pre><code class="lang-csharp hljs">public CommandLineApplication()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_McMaster_Extensions_CommandLineUtils_IConsole_System_String_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.%23ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator%2CMcMaster.Extensions.CommandLineUtils.IConsole%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L65">View Source</a>
+  </span>
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor*"></a>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_McMaster_Extensions_CommandLineUtils_IConsole_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator,McMaster.Extensions.CommandLineUtils.IConsole,System.String)">CommandLineApplication(IHelpTextGenerator, IConsole, String)</h4>
+  <div class="markdown level1 summary"><p>
+This constructor is obsolete and will be removed in a future version.
+The recommended replacement is <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_McMaster_Extensions_CommandLineUtils_IConsole_System_String_">CommandLineApplication(IHelpTextGenerator, IConsole, String)</a>
+</p>
+<p>
+Initializes a new instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandLineApplication(IHelpTextGenerator helpTextGenerator, IConsole console, string workingDirectory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -384,12 +406,6 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
         <td><p>The current working directory.</p>
 </td>
       </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">throwOnUnexpectedArg</span></td>
-        <td><p>Initial value for <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ThrowOnUnexpectedArgument">ThrowOnUnexpectedArgument</a>.</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
@@ -397,11 +413,11 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_IConsole_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.%23ctor(McMaster.Extensions.CommandLineUtils.IConsole)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L38">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L36">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_IConsole_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)">CommandLineApplication(IConsole)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -428,19 +444,19 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.%23ctor(McMaster.Extensions.CommandLineUtils.IConsole%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_IConsole_System_String_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.%23ctor(McMaster.Extensions.CommandLineUtils.IConsole%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L50">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L47">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Boolean_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Boolean)">CommandLineApplication(IConsole, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
+  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_IConsole_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.String)">CommandLineApplication(IConsole, String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CommandLineApplication(IConsole console, string workingDirectory, bool throwOnUnexpectedArg)</code></pre>
+    <pre><code class="lang-csharp hljs">public CommandLineApplication(IConsole console, string workingDirectory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -464,46 +480,6 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
         <td><p>The current working directory.</p>
 </td>
       </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">throwOnUnexpectedArg</span></td>
-        <td><p>Initial value for <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ThrowOnUnexpectedArgument">ThrowOnUnexpectedArgument</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_System_Boolean_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.%23ctor(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L27">View Source</a>
-  </span>
-  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor*"></a>
-  <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_System_Boolean_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(System.Boolean)">CommandLineApplication(Boolean)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CommandLineApplication(bool throwOnUnexpectedArg = true)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">throwOnUnexpectedArg</span></td>
-        <td><p>Initial value for <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ThrowOnUnexpectedArgument">ThrowOnUnexpectedArgument</a>.</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
@@ -513,7 +489,7 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_Model.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.Model%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L96">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L166">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_Model_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.Model*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_Model" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.Model">Model</h4>
@@ -544,7 +520,7 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_ModelFactory.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.ModelFactory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L111">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L181">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_ModelFactory_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.ModelFactory*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_ModelFactory" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.ModelFactory">ModelFactory</h4>
@@ -577,7 +553,7 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_CreateModel.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.CreateModel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L106">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L176">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_CreateModel_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.CreateModel*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_CreateModel" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.CreateModel">CreateModel()</h4>
@@ -609,7 +585,7 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_Dispose.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L127">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L197">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_Dispose_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.Dispose*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_Dispose" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.Dispose">Dispose()</h4>
@@ -626,7 +602,7 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_HandleParseResult_McMaster_Extensions_CommandLineUtils_Abstractions_ParseResult_.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.HandleParseResult(McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L119">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L189">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_HandleParseResult_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.HandleParseResult*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_HandleParseResult_McMaster_Extensions_CommandLineUtils_Abstractions_ParseResult_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.HandleParseResult(McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult)">HandleParseResult(ParseResult)</h4>
@@ -664,7 +640,7 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_McMaster_Extensions_CommandLineUtils_Abstractions_IModelAccessor_GetModel.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.McMaster%23Extensions%23CommandLineUtils%23Abstractions%23IModelAccessor%23GetModel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L100">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L170">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_McMaster_Extensions_CommandLineUtils_Abstractions_IModelAccessor_GetModel_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.McMaster#Extensions#CommandLineUtils#Abstractions#IModelAccessor#GetModel*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_McMaster_Extensions_CommandLineUtils_Abstractions_IModelAccessor_GetModel" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.McMaster#Extensions#CommandLineUtils#Abstractions#IModelAccessor#GetModel">IModelAccessor.GetModel()</h4>
@@ -694,7 +670,7 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_McMaster_Extensions_CommandLineUtils_Abstractions_IModelAccessor_GetModelType.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601.McMaster%23Extensions%23CommandLineUtils%23Abstractions%23IModelAccessor%23GetModelType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L98">View Source</a>
+    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L168">View Source</a>
   </span>
   <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_McMaster_Extensions_CommandLineUtils_Abstractions_IModelAccessor_GetModelType_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.McMaster#Extensions#CommandLineUtils#Abstractions#IModelAccessor#GetModelType*"></a>
   <h4 id="McMaster_Extensions_CommandLineUtils_CommandLineApplication_1_McMaster_Extensions_CommandLineUtils_Abstractions_IModelAccessor_GetModelType" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.McMaster#Extensions#CommandLineUtils#Abstractions#IModelAccessor#GetModelType">IModelAccessor.GetModelType()</h4>
@@ -783,7 +759,7 @@ using a type of <code data-dev-comment-type="typeparamref" class="typeparamref">
                     <a href="https://github.com/natemcmaster/CommandLineUtils/new/master/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplication_1.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplication%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/src/CommandLineUtils/CommandLineApplication{T}.cs/#L16" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

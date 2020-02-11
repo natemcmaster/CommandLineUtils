@@ -75,7 +75,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/arguments.html",
-          "hash": "jDoJcD57IOdQzYOrs8f91A=="
+          "hash": "heTg/xHNXlBaZCvE6CgUBQ=="
         }
       },
       "is_incremental": false,
@@ -346,7 +346,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html",
-          "hash": "EYmyckVCSDGW2YJL+LpgwA=="
+          "hash": "AJDymqDBXmlGH5xTHwOqcA=="
         }
       },
       "is_incremental": false,
@@ -359,7 +359,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html",
-          "hash": "z4vefyk3v/F0JnPF7ryx0g=="
+          "hash": "du7bVt0bOm9b1sNISo+/Wg=="
         }
       },
       "is_incremental": false,
@@ -372,7 +372,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html",
-          "hash": "g94QvZMdrJvjfVjy9wUdmA=="
+          "hash": "b5L416tEURhT77Q9lHZW3g=="
         }
       },
       "is_incremental": false,
@@ -1174,6 +1174,19 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.yml",
+      "output": {
+        ".html": {
+          "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.html",
+          "hash": "Vu2y2UCVMAVWtVRqrSFdKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "unstable",
+      "group": "unstable"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.yml",
       "output": {
         ".html": {
@@ -1464,7 +1477,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/McMaster.Extensions.CommandLineUtils.html",
-          "hash": "LsC+5NQww/EuRFPm83eTqg=="
+          "hash": "KFAsh8RQM1SZRUb/vBwIHQ=="
         }
       },
       "is_incremental": false,
@@ -1529,7 +1542,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/toc.html",
-          "hash": "yG71hdKaX1ULAV9o7Z73Iw=="
+          "hash": "wPvOQjqtd8u315NfXc7Rew=="
         }
       },
       "is_incremental": false,
@@ -6842,7 +6855,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 104,
+          "total_file_count": 105,
           "skipped_file_count": 0
         }
       }
@@ -6950,17 +6963,17 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 1,
-          "skipped_file_count": 0
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 1,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {

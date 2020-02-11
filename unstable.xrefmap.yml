@@ -835,49 +835,49 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.ShowInHelpText
   nameWithType: CommandAttribute.ShowInHelpText
-- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.ThrowOnUnexpectedArgument
-  name: ThrowOnUnexpectedArgument
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ThrowOnUnexpectedArgument
-  commentId: P:McMaster.Extensions.CommandLineUtils.CommandAttribute.ThrowOnUnexpectedArgument
-  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.ThrowOnUnexpectedArgument
-  nameWithType: CommandAttribute.ThrowOnUnexpectedArgument
-- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.ThrowOnUnexpectedArgument*
-  name: ThrowOnUnexpectedArgument
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ThrowOnUnexpectedArgument_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandAttribute.ThrowOnUnexpectedArgument
+- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.UnrecognizedArgumentHandling
+  name: UnrecognizedArgumentHandling
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_UnrecognizedArgumentHandling
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandAttribute.UnrecognizedArgumentHandling
+  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.UnrecognizedArgumentHandling
+  nameWithType: CommandAttribute.UnrecognizedArgumentHandling
+- uid: McMaster.Extensions.CommandLineUtils.CommandAttribute.UnrecognizedArgumentHandling*
+  name: UnrecognizedArgumentHandling
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_UnrecognizedArgumentHandling_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandAttribute.UnrecognizedArgumentHandling
   isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.ThrowOnUnexpectedArgument
-  nameWithType: CommandAttribute.ThrowOnUnexpectedArgument
+  fullName: McMaster.Extensions.CommandLineUtils.CommandAttribute.UnrecognizedArgumentHandling
+  nameWithType: CommandAttribute.UnrecognizedArgumentHandling
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
   name: CommandLineApplication
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html
   commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
   nameWithType: CommandLineApplication
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator,McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Boolean)
-  name: CommandLineApplication(IHelpTextGenerator, IConsole, String, Boolean)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication__ctor_McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Boolean_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator,McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Boolean)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Boolean)
-  nameWithType: CommandLineApplication.CommandLineApplication(IHelpTextGenerator, IConsole, String, Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor
+  name: CommandLineApplication()
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication__ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication()
+  nameWithType: CommandLineApplication.CommandLineApplication()
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator,McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  name: CommandLineApplication(IHelpTextGenerator, IConsole, String)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication__ctor_McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_McMaster_Extensions_CommandLineUtils_IConsole_System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator,McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole, System.String)
+  nameWithType: CommandLineApplication.CommandLineApplication(IHelpTextGenerator, IConsole, String)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)
   name: CommandLineApplication(IConsole)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication__ctor_McMaster_Extensions_CommandLineUtils_IConsole_
   commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole)
   nameWithType: CommandLineApplication.CommandLineApplication(IConsole)
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Boolean)
-  name: CommandLineApplication(IConsole, String, Boolean)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication__ctor_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Boolean_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Boolean)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Boolean)
-  nameWithType: CommandLineApplication.CommandLineApplication(IConsole, String, Boolean)
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(System.Boolean)
-  name: CommandLineApplication(Boolean)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication__ctor_System_Boolean_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(System.Boolean)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(System.Boolean)
-  nameWithType: CommandLineApplication.CommandLineApplication(Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  name: CommandLineApplication(IConsole, String)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication__ctor_McMaster_Extensions_CommandLineUtils_IConsole_System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole, System.String)
+  nameWithType: CommandLineApplication.CommandLineApplication(IConsole, String)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.#ctor*
   name: CommandLineApplication
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication__ctor_
@@ -981,15 +981,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions
   nameWithType: CommandLineApplication.ClusterOptions
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Boolean)
-  name: Command(String, Action<CommandLineApplication>, Boolean)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command_System_String_System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Boolean_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Boolean)
-  name.vb: Command(String, Action(Of CommandLineApplication), Boolean)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String, System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication>, System.Boolean)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String, System.Action(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication), System.Boolean)
-  nameWithType: CommandLineApplication.Command(String, Action<CommandLineApplication>, Boolean)
-  nameWithType.vb: CommandLineApplication.Command(String, Action(Of CommandLineApplication), Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication})
+  name: Command(String, Action<CommandLineApplication>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command_System_String_System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication__
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication})
+  name.vb: Command(String, Action(Of CommandLineApplication))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String, System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(System.String, System.Action(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication))
+  nameWithType: CommandLineApplication.Command(String, Action<CommandLineApplication>)
+  nameWithType.vb: CommandLineApplication.Command(String, Action(Of CommandLineApplication))
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command*
   name: Command
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command_
@@ -997,15 +997,15 @@ references:
   isSpec: "True"
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command
   nameWithType: CommandLineApplication.Command
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command``1(System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication{``0}},System.Boolean)
-  name: Command<TModel>(String, Action<CommandLineApplication<TModel>>, Boolean)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command__1_System_String_System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication___0___System_Boolean_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command``1(System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication{``0}},System.Boolean)
-  name.vb: Command(Of TModel)(String, Action(Of CommandLineApplication(Of TModel)), Boolean)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command<TModel>(System.String, System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>>, System.Boolean)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(Of TModel)(System.String, System.Action(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel)), System.Boolean)
-  nameWithType: CommandLineApplication.Command<TModel>(String, Action<CommandLineApplication<TModel>>, Boolean)
-  nameWithType.vb: CommandLineApplication.Command(Of TModel)(String, Action(Of CommandLineApplication(Of TModel)), Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command``1(System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication{``0}})
+  name: Command<TModel>(String, Action<CommandLineApplication<TModel>>)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Command__1_System_String_System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication___0___
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command``1(System.String,System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication{``0}})
+  name.vb: Command(Of TModel)(String, Action(Of CommandLineApplication(Of TModel)))
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command<TModel>(System.String, System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>>)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(Of TModel)(System.String, System.Action(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel)))
+  nameWithType: CommandLineApplication.Command<TModel>(String, Action<CommandLineApplication<TModel>>)
+  nameWithType.vb: CommandLineApplication.Command(Of TModel)(String, Action(Of CommandLineApplication(Of TModel)))
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Commands
   name: Commands
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Commands
@@ -1695,19 +1695,19 @@ references:
   fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.System.IServiceProvider.GetService
   nameWithType: CommandLineApplication.IServiceProvider.GetService
   nameWithType.vb: CommandLineApplication.System.IServiceProvider.GetService
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument
-  name: ThrowOnUnexpectedArgument
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ThrowOnUnexpectedArgument
-  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument
-  nameWithType: CommandLineApplication.ThrowOnUnexpectedArgument
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument*
-  name: ThrowOnUnexpectedArgument
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ThrowOnUnexpectedArgument_
-  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UnrecognizedArgumentHandling
+  name: UnrecognizedArgumentHandling
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_UnrecognizedArgumentHandling
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.UnrecognizedArgumentHandling
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UnrecognizedArgumentHandling
+  nameWithType: CommandLineApplication.UnrecognizedArgumentHandling
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UnrecognizedArgumentHandling*
+  name: UnrecognizedArgumentHandling
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_UnrecognizedArgumentHandling_
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplication.UnrecognizedArgumentHandling
   isSpec: "True"
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument
-  nameWithType: CommandLineApplication.ThrowOnUnexpectedArgument
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UnrecognizedArgumentHandling
+  nameWithType: CommandLineApplication.UnrecognizedArgumentHandling
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText
   name: UsePagerForHelpText
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_UsePagerForHelpText
@@ -1804,14 +1804,22 @@ references:
   fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel)
   nameWithType: CommandLineApplication<TModel>
   nameWithType.vb: CommandLineApplication(Of TModel)
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator,McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Boolean)
-  name: CommandLineApplication(IHelpTextGenerator, IConsole, String, Boolean)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Boolean_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator,McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Boolean)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Boolean)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Boolean)
-  nameWithType: CommandLineApplication<TModel>.CommandLineApplication(IHelpTextGenerator, IConsole, String, Boolean)
-  nameWithType.vb: CommandLineApplication(Of TModel).CommandLineApplication(IHelpTextGenerator, IConsole, String, Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor
+  name: CommandLineApplication()
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication()
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).CommandLineApplication()
+  nameWithType: CommandLineApplication<TModel>.CommandLineApplication()
+  nameWithType.vb: CommandLineApplication(Of TModel).CommandLineApplication()
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator,McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  name: CommandLineApplication(IHelpTextGenerator, IConsole, String)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_McMaster_Extensions_CommandLineUtils_IConsole_System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator,McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole, System.String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole, System.String)
+  nameWithType: CommandLineApplication<TModel>.CommandLineApplication(IHelpTextGenerator, IConsole, String)
+  nameWithType.vb: CommandLineApplication(Of TModel).CommandLineApplication(IHelpTextGenerator, IConsole, String)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)
   name: CommandLineApplication(IConsole)
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_IConsole_
@@ -1820,22 +1828,14 @@ references:
   fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole)
   nameWithType: CommandLineApplication<TModel>.CommandLineApplication(IConsole)
   nameWithType.vb: CommandLineApplication(Of TModel).CommandLineApplication(IConsole)
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Boolean)
-  name: CommandLineApplication(IConsole, String, Boolean)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_IConsole_System_String_System_Boolean_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Boolean)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Boolean)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Boolean)
-  nameWithType: CommandLineApplication<TModel>.CommandLineApplication(IConsole, String, Boolean)
-  nameWithType.vb: CommandLineApplication(Of TModel).CommandLineApplication(IConsole, String, Boolean)
-- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(System.Boolean)
-  name: CommandLineApplication(Boolean)
-  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_System_Boolean_
-  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(System.Boolean)
-  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication(System.Boolean)
-  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).CommandLineApplication(System.Boolean)
-  nameWithType: CommandLineApplication<TModel>.CommandLineApplication(Boolean)
-  nameWithType.vb: CommandLineApplication(Of TModel).CommandLineApplication(Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  name: CommandLineApplication(IConsole, String)
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_McMaster_Extensions_CommandLineUtils_IConsole_System_String_
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole, System.String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel).CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole, System.String)
+  nameWithType: CommandLineApplication<TModel>.CommandLineApplication(IConsole, String)
+  nameWithType.vb: CommandLineApplication(Of TModel).CommandLineApplication(IConsole, String)
 - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1.#ctor*
   name: CommandLineApplication
   href: unstable/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_1__ctor_
@@ -5139,6 +5139,24 @@ references:
   commentId: T:McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
   fullName: McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
   nameWithType: SuppressDefaultHelpOptionAttribute
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  name: UnrecognizedArgumentHandling
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.html
+  commentId: T:McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  nameWithType: UnrecognizedArgumentHandling
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.StopParsingAndCollect
+  name: StopParsingAndCollect
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.html#McMaster_Extensions_CommandLineUtils_UnrecognizedArgumentHandling_StopParsingAndCollect
+  commentId: F:McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.StopParsingAndCollect
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.StopParsingAndCollect
+  nameWithType: UnrecognizedArgumentHandling.StopParsingAndCollect
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.Throw
+  name: Throw
+  href: unstable/api/McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.html#McMaster_Extensions_CommandLineUtils_UnrecognizedArgumentHandling_Throw
+  commentId: F:McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.Throw
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.Throw
+  nameWithType: UnrecognizedArgumentHandling.Throw
 - uid: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException
   name: UnrecognizedCommandParsingException
   href: unstable/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html

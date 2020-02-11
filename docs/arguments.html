@@ -205,8 +205,8 @@ or the Windows command <code>cmd</code> take some arguments, and pass the rest o
 </code></pre><p>In this example, <code>-l</code> is an option on <code>time</code>. This starts a timer which then invokes <code>ls</code> with additional arguments.
 <code>-l</code> is also an option on <code>ls</code>.</p>
 </div>
-<p>Normally, unrecognized arguments is an error. You must set ThrowOnUnexpectedArgument to <code>false</code> to allow the parser
-to allow unrecognized arguments and options.</p>
+<p>Normally, unrecognized arguments is an error. You must set <code>UnrecognizedArgumentHandling</code> to <code>StopParsingAndCollect</code> to allow the parser
+to collect unrecognized arguments and options.</p>
 <h3 id="the-double-dash-convention---">The double-dash convention <code>--</code></h3>
 <p>It is common for apps which pass-thru arguments to allow the caller to use <code>--</code> to distinguish between the
 options on the parent command and all remaining arguments.</p>
@@ -231,7 +231,9 @@ using System.Diagnostics;
 using System.Linq;
 using McMaster.Extensions.CommandLineUtils;
 
-[Command(ThrowOnUnexpectedArgument = false, AllowArgumentSeparator = true)]
+[Command(
+    UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
+    AllowArgumentSeparator = true)]
 public class Program
 {
     public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
@@ -272,7 +274,7 @@ public class Program
 }
 </code></pre></section>
 <section id="tabpanel_O1aAyLh+nY-2_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
-<p>When <code>throwOnUnexpctedArg</code> is set to false,</p>
+<p>When <code>UnrecognizedArgumentHandling</code> is set to <code>Stop</code>,</p>
 <pre><code class="lang-csharp" name="Program">using System;
 using System.Diagnostics;
 using System.Linq;
@@ -282,9 +284,10 @@ public class Program
 {
     public static int Main(string[] args)
     {
-        var app = new CommandLineApplication(throwOnUnexpectedArg: false)
+        var app = new CommandLineApplication
         {
-            AllowArgumentSeparator = true
+            AllowArgumentSeparator = true,
+            UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
         };
 
         var showMilliseconds = app.Option&lt;int&gt;(&quot;-m&quot;, &quot;Show time in milliseconds&quot;, CommandOptionType.NoValue);
