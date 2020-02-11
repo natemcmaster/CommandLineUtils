@@ -116,13 +116,6 @@ namespace McMaster.Extensions.CommandLineUtils
             set => _modelFactory = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <inheritdoc />
-        // TODO remove in 3.0. This doesn't do anything anymore.
-        protected override void HandleParseResult(ParseResult parseResult)
-        {
-            base.HandleParseResult(parseResult);
-        }
-
         private protected override ConventionContext CreateConventionContext() => new ConventionContext(this, typeof(TModel));
 
         /// <inheritdoc />

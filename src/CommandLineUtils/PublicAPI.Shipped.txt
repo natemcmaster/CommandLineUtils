@@ -462,7 +462,6 @@ McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.Template.s
 McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.VersionOptionFromMemberAttribute() -> void
 McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.VersionOptionFromMemberAttribute(string template) -> void
 override McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.Dispose() -> void
-override McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.HandleParseResult(McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult parseResult) -> void
 static McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type targetType, System.Func<string, string, System.Globalization.CultureInfo, object> parser) -> McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
 static McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<string, string, System.Globalization.CultureInfo, T> parser) -> McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
 static McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<string, System.Globalization.CultureInfo, (bool, T)> parser, System.Func<string, string, System.FormatException> errorSelector) -> McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
