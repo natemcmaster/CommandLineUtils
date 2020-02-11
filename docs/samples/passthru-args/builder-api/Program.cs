@@ -7,9 +7,10 @@ public class Program
 {
     public static int Main(string[] args)
     {
-        var app = new CommandLineApplication(throwOnUnexpectedArg: false)
+        var app = new CommandLineApplication
         {
-            AllowArgumentSeparator = true
+            AllowArgumentSeparator = true,
+            UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
         };
 
         var showMilliseconds = app.Option<int>("-m", "Show time in milliseconds", CommandOptionType.NoValue);

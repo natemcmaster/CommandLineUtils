@@ -50,7 +50,9 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             var valueHolder = new ValueHolder<string[]>();
             var convention = new Mock<IConvention>();
             convention.Setup(c => c.Apply(It.IsAny<ConventionContext>()))
-                .Callback((ConventionContext c) => c.Application.ThrowOnUnexpectedArgument = false).Verifiable();
+                .Callback((ConventionContext c) =>
+                    c.Application.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect)
+                .Verifiable();
             var args = new[] { "Capture", "some", "test", "arguments" };
             await new HostBuilder()
                 .ConfigureServices(collection => collection

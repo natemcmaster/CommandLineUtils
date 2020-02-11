@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private static T ParseArgsImpl<T>(IConsole console, string[] args) where T : class
         {
-            var app = new CommandLineApplication<T>(console, Directory.GetCurrentDirectory(), true);
+            var app = new CommandLineApplication<T>(console, Directory.GetCurrentDirectory());
             app.Conventions.UseDefaultConventions();
             app.Parse(args);
             return app.Model;

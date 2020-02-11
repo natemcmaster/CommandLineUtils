@@ -58,14 +58,11 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly ConventionContext _conventionContext;
         private readonly List<IConvention> _conventions = new List<IConvention>();
 
-#pragma warning disable RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
         /// </summary>
-        /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
-        public CommandLineApplication(bool throwOnUnexpectedArg = true)
-#pragma warning restore RS0027 // Public API with optional parameter(s) should have the most parameters amongst its public overloads.
-            : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(), throwOnUnexpectedArg)
+        public CommandLineApplication()
+            : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext())
         {
         }
 
@@ -74,7 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="console">The console implementation to use.</param>
         public CommandLineApplication(IConsole console)
-            : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(console), throwOnUnexpectedArg: true)
+            : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(console))
         { }
 
         /// <summary>
@@ -82,9 +79,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="console">The console implementation to use.</param>
         /// <param name="workingDirectory">The current working directory.</param>
-        /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
-        public CommandLineApplication(IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
-            : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(console, workingDirectory), throwOnUnexpectedArg)
+        public CommandLineApplication(IConsole console, string workingDirectory)
+            : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(console, workingDirectory))
         { }
 
         /// <summary>
@@ -93,14 +89,83 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="helpTextGenerator">The help text generator to use.</param>
         /// <param name="console">The console implementation to use.</param>
         /// <param name="workingDirectory">The current working directory.</param>
-        /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
-        public CommandLineApplication(IHelpTextGenerator helpTextGenerator, IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
-            : this(null, helpTextGenerator, new DefaultCommandLineContext(console, workingDirectory), throwOnUnexpectedArg)
+        public CommandLineApplication(IHelpTextGenerator helpTextGenerator, IConsole console, string workingDirectory)
+            : this(null, helpTextGenerator, new DefaultCommandLineContext(console, workingDirectory))
         {
         }
 
-        internal CommandLineApplication(CommandLineApplication parent, string name, bool throwOnUnexpectedArg)
-            : this(parent, parent._helpTextGenerator, parent._context, throwOnUnexpectedArg)
+        /// <summary>
+        /// <para>
+        /// This constructor is obsolete and will be removed in a future version.
+        /// The recommended replacement is the parameterless constructor <see cref="CommandLineApplication()" />
+        /// and <see cref="UnrecognizedArgumentHandling"/>.
+        /// See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.
+        /// </para>
+        /// <para>
+        /// Initializes a new instance of <see cref="CommandLineApplication"/>.
+        /// </para>
+        /// </summary>
+        /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
+        [Obsolete("This constructor is obsolete and will be removed in a future version. " +
+            "The recommended replacement is the parameterless constructor CommandLineApplication() and the property UnrecognizedArgumentHandling." +
+            "See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public CommandLineApplication(bool throwOnUnexpectedArg)
+            : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext())
+        {
+            ThrowOnUnexpectedArgument = throwOnUnexpectedArg;
+        }
+
+        /// <summary>
+        /// <para>
+        /// This constructor is obsolete and will be removed in a future version.
+        /// The recommended replacement is <see cref="CommandLineApplication(IConsole, string)" />
+        /// and <see cref="UnrecognizedArgumentHandling"/>.
+        /// See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.
+        /// </para>
+        /// <para>
+        /// Initializes a new instance of <see cref="CommandLineApplication"/>.
+        /// </para>
+        /// </summary>
+        /// <param name="console">The console implementation to use.</param>
+        /// <param name="workingDirectory">The current working directory.</param>
+        /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
+        [Obsolete("This constructor is obsolete and will be removed in a future version. " +
+            "The recommended replacement is the constructor CommandLineApplication(IConsole, string) and the property UnrecognizedArgumentHandling." +
+            "See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public CommandLineApplication(IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
+            : this(null, DefaultHelpTextGenerator.Singleton, new DefaultCommandLineContext(console, workingDirectory))
+        {
+            ThrowOnUnexpectedArgument = throwOnUnexpectedArg;
+        }
+
+        /// <summary>
+        /// <para>
+        /// This constructor is obsolete and will be removed in a future version.
+        /// The recommended replacement is <see cref="CommandLineApplication(IHelpTextGenerator, IConsole, string)" />
+        /// See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.
+        /// </para>
+        /// <para>
+        /// Initializes a new instance of <see cref="CommandLineApplication"/>.
+        /// </para>
+        /// </summary>
+        /// <param name="helpTextGenerator">The help text generator to use.</param>
+        /// <param name="console">The console implementation to use.</param>
+        /// <param name="workingDirectory">The current working directory.</param>
+        /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
+        [Obsolete("This constructor is obsolete and will be removed in a future version. " +
+            "The recommended replacement is the constructor CommandLineApplication(IHelpTextGenerator, IConsole, string) and the property UnrecognizedArgumentHandling." +
+            "See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public CommandLineApplication(IHelpTextGenerator helpTextGenerator, IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
+            : this(null, helpTextGenerator, new DefaultCommandLineContext(console, workingDirectory))
+        {
+            ThrowOnUnexpectedArgument = throwOnUnexpectedArg;
+        }
+
+        internal CommandLineApplication(CommandLineApplication parent, string name)
+            : this(parent, parent._helpTextGenerator, parent._context)
         {
             if (name != null)
             {
@@ -111,12 +176,10 @@ namespace McMaster.Extensions.CommandLineUtils
         internal CommandLineApplication(
             CommandLineApplication? parent,
             IHelpTextGenerator helpTextGenerator,
-            CommandLineContext context,
-            bool throwOnUnexpectedArg)
+            CommandLineContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             Parent = parent;
-            ThrowOnUnexpectedArgument = throwOnUnexpectedArg;
             Options = new List<CommandOption>();
             Arguments = new List<CommandArgument>();
             Commands = new List<CommandLineApplication>();
@@ -257,11 +320,35 @@ namespace McMaster.Extensions.CommandLineUtils
         public List<string> RemainingArguments { get; private set; }
 
         /// <summary>
+        /// <para>
+        /// This property is obsolete and will be removed in a future version.
+        /// The recommended replacement is <seealso cref="UnrecognizedArgumentHandling"/>.
+        /// </para>
+        /// <para>
         /// Indicates whether the parser should throw an exception when it runs into an unexpected argument.
         /// If this field is set to false, the parser will stop parsing when it sees an unexpected argument, and all
         /// remaining arguments, including the first unexpected argument, will be stored in RemainingArguments property.
+        /// </para>
         /// </summary>
-        public bool ThrowOnUnexpectedArgument { get; set; }
+        [Obsolete("This property is obsolete and will be removed in a future version. " +
+            "The recommended replacement is UnrecognizedArgumentHandling.")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ThrowOnUnexpectedArgument
+        {
+            get => UnrecognizedArgumentHandling == UnrecognizedArgumentHandling.Throw;
+            set => UnrecognizedArgumentHandling = value
+                ? UnrecognizedArgumentHandling.Throw
+                : UnrecognizedArgumentHandling.StopParsingAndCollect;
+        }
+
+        /// <summary>
+        /// Configures what the parser should do when it runs into an unexpected argument.
+        /// </summary>
+        public UnrecognizedArgumentHandling UnrecognizedArgumentHandling
+        {
+            get => _parserConfig.UnrecognizedArgumentHandling;
+            set => _parserConfig.UnrecognizedArgumentHandling = value;
+        }
 
         /// <summary>
         /// True when <see cref="OptionHelp"/> or <see cref="OptionVersion"/> was matched.
@@ -473,19 +560,15 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
         /// <summary>
         /// Adds a subcommand.
         /// </summary>
         /// <param name="name">The word used to invoke the subcommand.</param>
-        /// <param name="configuration"></param>
-        /// <param name="throwOnUnexpectedArg"></param>
+        /// <param name="configuration">A callback to configure the created subcommand.</param>
         /// <returns></returns>
-        public CommandLineApplication Command(string name, Action<CommandLineApplication> configuration,
-#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
-            bool throwOnUnexpectedArg = true)
+        public CommandLineApplication Command(string name, Action<CommandLineApplication> configuration)
         {
-            var command = new CommandLineApplication(this, name, throwOnUnexpectedArg);
+            var command = new CommandLineApplication(this, name);
 
             AddSubcommand(command);
 
@@ -494,21 +577,80 @@ namespace McMaster.Extensions.CommandLineUtils
             return command;
         }
 
-#pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
+        /// <summary>
+        /// <para>
+        /// This method is obsolete and will be removed in a future version.
+        /// The recommended replacement is to use<see cref="Command(string, Action{CommandLineApplication})" />
+        /// and set <see cref="UnrecognizedArgumentHandling" />.
+        /// </para>
+        /// <para>
+        /// Adds a subcommand.
+        /// </para>
+        /// </summary>
+        /// <param name="name">The word used to invoke the subcommand.</param>
+        /// <param name="configuration">A callback to configure the created subcommand.</param>
+        /// <param name="throwOnUnexpectedArg"></param>
+        /// <returns></returns>
+        [Obsolete("This constructor is obsolete and will be removed in a future version. " +
+            "The recommended replacement is Command(string, Action<CommandLineApplication>) and the property UnrecognizedArgumentHandling")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public CommandLineApplication Command(string name, Action<CommandLineApplication> configuration, bool throwOnUnexpectedArg)
+        {
+            var command = new CommandLineApplication(this, name);
+            command.ThrowOnUnexpectedArgument = throwOnUnexpectedArg;
+
+            AddSubcommand(command);
+
+            configuration?.Invoke(command);
+
+            return command;
+        }
+
         /// <summary>
         /// Adds a subcommand with model of type <typeparamref name="TModel" />.
         /// </summary>
         /// <param name="name">The word used to invoke the subcommand.</param>
-        /// <param name="configuration"></param>
+        /// <param name="configuration">A callback used to configure the subcommand object.</param>
+        /// <typeparam name="TModel">The model type of the subcommand.</typeparam>
+        /// <returns></returns>
+        public CommandLineApplication<TModel> Command<TModel>(string name, Action<CommandLineApplication<TModel>> configuration)
+            where TModel : class
+        {
+            var command = new CommandLineApplication<TModel>(this, name);
+
+            AddSubcommand(command);
+
+            configuration?.Invoke(command);
+
+            return command;
+        }
+
+        /// <summary>
+        /// <para>
+        /// This method is obsolete and will be removed in a future version.
+        /// The recommended replacement is to use<see cref="Command(string, Action{CommandLineApplication})" />
+        /// and set <see cref="UnrecognizedArgumentHandling" />.
+        /// </para>
+        /// <para>
+        /// Adds a subcommand with model of type <typeparamref name="TModel" />.
+        /// </para>
+        /// </summary>
+        /// <param name="name">The word used to invoke the subcommand.</param>
+        /// <param name="configuration">A callback used to configure the subcommand object.</param>
         /// <param name="throwOnUnexpectedArg"></param>
         /// <typeparam name="TModel">The model type of the subcommand.</typeparam>
         /// <returns></returns>
+        [Obsolete("This constructor is obsolete and will be removed in a future version. " +
+            "The recommended replacement is Command(string, Action<CommandLineApplication>) and the property UnrecognizedArgumentHandling")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public CommandLineApplication<TModel> Command<TModel>(string name, Action<CommandLineApplication<TModel>> configuration,
-#pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
-            bool throwOnUnexpectedArg = true)
+            bool throwOnUnexpectedArg)
             where TModel : class
         {
-            var command = new CommandLineApplication<TModel>(this, name, throwOnUnexpectedArg);
+            var command = new CommandLineApplication<TModel>(this, name)
+            {
+                ThrowOnUnexpectedArgument = throwOnUnexpectedArg
+            };
 
             AddSubcommand(command);
 

@@ -145,8 +145,8 @@ or the Windows command `cmd` take some arguments, and pass the rest on to the co
 > In this example, `-l` is an option on `time`. This starts a timer which then invokes `ls` with additional arguments.
 > `-l` is also an option on `ls`.
 
-Normally, unrecognized arguments is an error. You must set ThrowOnUnexpectedArgument to `false` to allow the parser
-to allow unrecognized arguments and options.
+Normally, unrecognized arguments is an error. You must set `UnrecognizedArgumentHandling` to `StopParsingAndCollect` to allow the parser
+to collect unrecognized arguments and options.
 
 ### The double-dash convention `--`
 
@@ -171,6 +171,6 @@ to include all values. See @McMaster.Extensions.CommandLineUtils.Conventions.Rem
 
 ### [Using Builder API](#tab/using-builder-api)
 
-When `throwOnUnexpctedArg` is set to false,
+When `UnrecognizedArgumentHandling` is set to `Stop`,
 
 [!code-csharp[Program](../samples/passthru-args/builder-api/Program.cs)]

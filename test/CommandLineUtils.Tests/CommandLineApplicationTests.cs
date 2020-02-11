@@ -338,6 +338,25 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        [Obsolete]
+        public void Compat_AllowNoThrowBehaviorOnUnexpectedArgument()
+        {
+            var unexpectedArg = "UnexpectedArg";
+            var app = new CommandLineApplication();
+
+            var testCmd = app.Command("test", c =>
+            {
+                c.ThrowOnUnexpectedArgument = false;
+                c.OnExecute(() => 0);
+            });
+
+            // (does not throw)
+            app.Execute("test", unexpectedArg);
+            var arg = Assert.Single(testCmd.RemainingArguments);
+            Assert.Equal(unexpectedArg, arg);
+        }
+
+        [Fact]
         public void AllowNoThrowBehaviorOnUnexpectedArgument()
         {
             var unexpectedArg = "UnexpectedArg";
@@ -345,9 +364,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             var testCmd = app.Command("test", c =>
             {
+                c.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect;
                 c.OnExecute(() => 0);
-            },
-            throwOnUnexpectedArg: false);
+            });
 
             // (does not throw)
             app.Execute("test", unexpectedArg);
@@ -378,9 +397,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             var testCmd = app.Command("test", c =>
             {
+                c.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect;
                 c.OnExecute(() => 0);
-            },
-            throwOnUnexpectedArg: false);
+            });
 
             // (does not throw)
             app.Execute("test", unexpectedOption);
@@ -411,9 +430,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             var testCmd = app.Command("test", c =>
             {
+                c.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect;
                 c.OnExecute(() => 0);
-            },
-            throwOnUnexpectedArg: false);
+            });
 
             // (does not throw)
             app.Execute("test", unexpectedOption);
@@ -444,9 +463,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             var testCmd = app.Command("test", c =>
             {
+                c.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect;
                 c.OnExecute(() => 0);
-            },
-            throwOnUnexpectedArg: false);
+            });
 
             // (does not throw)
             app.Execute("test", unexpectedOption);
@@ -480,7 +499,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             var testCmd = app.Command("k", c =>
             {
-                subCmd = c.Command("run", _ => { }, throwOnUnexpectedArg: false);
+                subCmd = c.Command("run", s =>
+                {
+                    s.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect;
+                });
                 c.OnExecute(() => 0);
             });
 
@@ -613,9 +635,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(new[] { "--", "--version" }, new[] { "--version" }, null)]
         public void ArgumentSeparator(string[] input, string[] expectedRemaining, string topLevelValue)
         {
-            var app = new CommandLineApplication(throwOnUnexpectedArg: false)
+            var app = new CommandLineApplication
             {
-                AllowArgumentSeparator = true
+                AllowArgumentSeparator = true,
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
             };
             var optHelp = app.HelpOption("--help");
             var optVersion = app.VersionOption("--version", "1", "1.0");
@@ -705,10 +728,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void HelpTextShowsArgSeparator()
         {
-            var app = new CommandLineApplication(throwOnUnexpectedArg: false)
+            var app = new CommandLineApplication
             {
                 Name = "proxy-command",
-                AllowArgumentSeparator = true
+                AllowArgumentSeparator = true,
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
             };
             app.HelpOption("-h|--help");
             Assert.Contains("Usage: proxy-command [options] [[--] <arg>...]", app.GetHelpText());
@@ -938,9 +962,9 @@ Examples:
         [Fact]
         public void PathCanBeRelativeOrAbsolute()
         {
-            new CommandLineApplication(NullConsole.Singleton, "/path", false);
-            new CommandLineApplication(NullConsole.Singleton, "C:/path", false);
-            new CommandLineApplication(NullConsole.Singleton, "../path", false);
+            new CommandLineApplication(NullConsole.Singleton, "/path");
+            new CommandLineApplication(NullConsole.Singleton, "C:/path");
+            new CommandLineApplication(NullConsole.Singleton, "../path");
         }
 
         [Fact]
@@ -1001,12 +1025,10 @@ Examples:
             Assert.True(optBig.HasValue(), "File should be set");
         }
 
-        // Assert compatibility with 2.0.0 and Microsoft.Extensions.CommandLineUtils.
-        // TODO: make subcommands case-sensitive
         [Fact]
         public void CommandNamesMatchingIsCaseInsensitive()
         {
-            var app = new CommandLineApplication(throwOnUnexpectedArg: false);
+            var app = new CommandLineApplication();
             var cmd = app.Command("CMD1", _ => { });
 
             Assert.Same(cmd, app.Parse("CMD1").SelectedCommand);

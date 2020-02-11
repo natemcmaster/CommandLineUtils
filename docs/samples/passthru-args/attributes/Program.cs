@@ -3,7 +3,9 @@ using System.Diagnostics;
 using System.Linq;
 using McMaster.Extensions.CommandLineUtils;
 
-[Command(ThrowOnUnexpectedArgument = false, AllowArgumentSeparator = true)]
+[Command(
+    UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
+    AllowArgumentSeparator = true)]
 public class Program
 {
     public static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
