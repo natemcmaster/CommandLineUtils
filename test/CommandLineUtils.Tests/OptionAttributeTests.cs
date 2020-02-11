@@ -306,13 +306,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var mb = assembly.DefineDynamicModule("Test");
             var tb = mb.DefineType("Program");
             var pb = tb.DefineProperty(propName, PropertyAttributes.None, propType, Array.Empty<Type>());
-            var fb = tb.DefineField($"<{propName}>k__BackingField", propType, FieldAttributes.Private);
+            tb.DefineField($"<{propName}>k__BackingField", propType, FieldAttributes.Private);
             var ctor = typeof(OptionAttribute).GetConstructor(Array.Empty<Type>());
             var ab = new CustomAttributeBuilder(ctor, Array.Empty<object>());
             pb.SetCustomAttribute(ab);
             var program = tb.CreateType();
             var appBuilder = typeof(CommandLineApplication<>).MakeGenericType(program);
-            var app = (CommandLineApplication)Activator.CreateInstance(appBuilder, new object[] { false });
+            var app = (CommandLineApplication)Activator.CreateInstance(appBuilder, Util.EmptyArray<object>());
             app.Conventions.UseOptionAttributes();
             return app.Options[0];
         }

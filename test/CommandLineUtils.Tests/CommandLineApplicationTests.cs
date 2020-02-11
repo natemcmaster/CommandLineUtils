@@ -338,25 +338,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
-        [Obsolete]
-        public void Compat_AllowNoThrowBehaviorOnUnexpectedArgument()
-        {
-            var unexpectedArg = "UnexpectedArg";
-            var app = new CommandLineApplication();
-
-            var testCmd = app.Command("test", c =>
-            {
-                c.ThrowOnUnexpectedArgument = false;
-                c.OnExecute(() => 0);
-            });
-
-            // (does not throw)
-            app.Execute("test", unexpectedArg);
-            var arg = Assert.Single(testCmd.RemainingArguments);
-            Assert.Equal(unexpectedArg, arg);
-        }
-
-        [Fact]
         public void AllowNoThrowBehaviorOnUnexpectedArgument()
         {
             var unexpectedArg = "UnexpectedArg";

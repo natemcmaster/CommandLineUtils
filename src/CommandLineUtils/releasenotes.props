@@ -1,5 +1,11 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.0.'))">
+Breaking changes:
+
+* Removed all API that was marked Obsolete in 2.x releases.
+* Dropped support for .NET Standard 1.6 in favor of .NET Standard 2.0
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('2.6.'))">
 The refactor-prep release.
 

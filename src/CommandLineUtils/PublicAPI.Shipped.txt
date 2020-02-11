@@ -92,8 +92,6 @@ McMaster.Extensions.CommandLineUtils.CommandAttribute.ResponseFileHandling.get -
 McMaster.Extensions.CommandLineUtils.CommandAttribute.ResponseFileHandling.set -> void
 McMaster.Extensions.CommandLineUtils.CommandAttribute.ShowInHelpText.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandAttribute.ShowInHelpText.set -> void
-McMaster.Extensions.CommandLineUtils.CommandAttribute.ThrowOnUnexpectedArgument.get -> bool
-McMaster.Extensions.CommandLineUtils.CommandAttribute.ThrowOnUnexpectedArgument.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName(string name) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddSubcommand(McMaster.Extensions.CommandLineUtils.CommandLineApplication subcommand) -> void
@@ -105,8 +103,6 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument<T>(string n
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Arguments.get -> System.Collections.Generic.List<McMaster.Extensions.CommandLineUtils.CommandArgument>
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions.set -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator helpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole console, string workingDirectory, bool throwOnUnexpectedArg) -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole console, string workingDirectory, bool throwOnUnexpectedArg) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole console) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Commands.get -> System.Collections.Generic.List<McMaster.Extensions.CommandLineUtils.CommandLineApplication>
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Conventions.get -> McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
@@ -166,8 +162,6 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowInHelpText.get -
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowInHelpText.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowRootCommandFullNameAndVersion() -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowVersion() -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument.get -> bool
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.ThrowOnUnexpectedArgument.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValidationErrorHandler.get -> System.Func<System.ComponentModel.DataAnnotations.ValidationResult, int>
@@ -178,8 +172,6 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(string
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(string template, System.Func<string> shortFormVersionGetter, System.Func<string> longFormVersionGetter = null) -> McMaster.Extensions.CommandLineUtils.CommandOption
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.WorkingDirectory.get -> string
 McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>
-McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator helpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole console, string workingDirectory, bool throwOnUnexpectedArg) -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole console, string workingDirectory, bool throwOnUnexpectedArg) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole console) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.Model.get -> TModel
 McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.ModelFactory.get -> System.Func<TModel>

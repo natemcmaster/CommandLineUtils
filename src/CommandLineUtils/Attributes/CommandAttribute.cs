@@ -91,27 +91,6 @@ namespace McMaster.Extensions.CommandLineUtils
         public string? ExtendedHelpText { get; set; }
 
         /// <summary>
-        /// <para>
-        /// This property is obsolete and will be removed in a future version.
-        /// The recommended replacement is <seealso cref="UnrecognizedArgumentHandling"/>.
-        /// </para>
-        /// <para>
-        /// Throw when unexpected arguments are encountered.
-        /// </para>
-        /// </summary>
-        /// <seealso cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>
-        [Obsolete("This property is obsolete and will be removed in a future version. " +
-            "The recommended replacement is UnrecognizedArgumentHandling.")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ThrowOnUnexpectedArgument
-        {
-            get => UnrecognizedArgumentHandling == UnrecognizedArgumentHandling.Throw;
-            set => UnrecognizedArgumentHandling = value
-                ? UnrecognizedArgumentHandling.Throw
-                : UnrecognizedArgumentHandling.StopParsingAndCollect;
-        }
-
-        /// <summary>
         /// Set the behavior for how to handle unrecognized arguments.
         /// </summary>
         public UnrecognizedArgumentHandling UnrecognizedArgumentHandling { get; set; } = UnrecognizedArgumentHandling.Throw;

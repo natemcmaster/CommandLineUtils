@@ -68,7 +68,7 @@ namespace SubcommandSample
                 public string Name { get; }
 
                 /// <summary>
-                /// When ThrowOnUnexpectedArgument is valids, any unrecognized arguments
+                /// When UnrecognizedArgumentHandling is StopParsingAndCollect, any unrecognized arguments
                 /// will be collected and set in this property, when set.
                 /// </summary>
                 public string[] RemainingArguments { get; }
