@@ -118,6 +118,11 @@ namespace McMaster.Extensions.CommandLineUtils
         public CultureInfo ParseCulture { get; set; } = CultureInfo.CurrentCulture;
 
         /// <summary>
+        /// Whether a Pager should be used to display help text.
+        /// </summary>
+        public bool UsePagerForHelpText { get; set; } = true;
+
+        /// <summary>
         /// <para>
         /// One or more options of <see cref="CommandOptionType.NoValue"/>, followed by at most one option that takes values, should be accepted when grouped behind one '-' delimiter.
         /// </para>
@@ -170,6 +175,7 @@ namespace McMaster.Extensions.CommandLineUtils
             app.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling;
             app.OptionsComparison = OptionsComparison;
             app.ValueParsers.ParseCulture = ParseCulture;
+            app.UsePagerForHelpText = UsePagerForHelpText;
 
             if (_clusterOptions.HasValue)
             {
