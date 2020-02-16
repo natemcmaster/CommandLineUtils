@@ -110,6 +110,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             [Option("--timespan")]
             public TimeSpan TimeSpan { get; }
+
+            [Option("--guid", CommandOptionType.SingleValue)]
+            public Guid Guid { get; }
+
+            [Option("--guid-opt", CommandOptionType.SingleValue)]
+            public Guid? GuidOpt { get; }
         }
 
         private sealed class InCulture : IDisposable
@@ -478,6 +484,35 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.NotNull(parsed.Flags);
             Assert.Equal(repeat, parsed.Flags?.Length);
             Assert.All(parsed.Flags, value => Assert.True(value));
+        }
+
+        [Theory]
+        [InlineData("ff23ef12-500a-48df-9a5d-151c2adc2a0a")]
+        [InlineData("ff23ef12500a48df9a5d151c2adc2a0a")]
+        [InlineData("{ff23ef12-500a-48df-9a5d-151c2adc2a0a}")]
+        [InlineData("(ff23ef12-500a-48df-9a5d-151c2adc2a0a)")]
+        [InlineData("{0xff23ef12,0x500a,0x48df,{0x9a,0x5d,0x15,0x1c,0x2a,0xdc,0x2a,0x0a}}")]
+        public void ParsesGuid(string arg)
+        {
+            var expected = Guid.Parse("ff23ef12-500a-48df-9a5d-151c2adc2a0a");
+            var parsed = CommandLineParser.ParseArgs<Program>("--guid", arg);
+            Assert.Equal(expected, parsed.Guid);
+        }
+
+        [Theory]
+        [InlineData("ff23ef12-500a-48df-9a5d-151c2adc2a0a")]
+        [InlineData("ff23ef12500a48df9a5d151c2adc2a0a")]
+        [InlineData("{ff23ef12-500a-48df-9a5d-151c2adc2a0a}")]
+        [InlineData("(ff23ef12-500a-48df-9a5d-151c2adc2a0a)")]
+        [InlineData("{0xff23ef12,0x500a,0x48df,{0x9a,0x5d,0x15,0x1c,0x2a,0xdc,0x2a,0x0a}}")]
+        [InlineData("")]
+        public void ParsesGuidNullable(string arg)
+        {
+            var expected = String.IsNullOrWhiteSpace(arg)
+                ? (Guid?)null
+                : Guid.Parse("ff23ef12-500a-48df-9a5d-151c2adc2a0a");
+            var parsed = CommandLineParser.ParseArgs<Program>("--guid-opt", arg);
+            Assert.Equal(expected, parsed.GuidOpt);
         }
 
         [Theory]
