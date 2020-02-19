@@ -3,11 +3,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    using System.Globalization;
-
     internal class ArrayParser : ICollectionParser
     {
         private readonly Type _elementType;

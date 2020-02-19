@@ -3,12 +3,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    using System.Globalization;
-
     internal class HashSetParser : ICollectionParser
     {
         private readonly IValueParser _elementParser;

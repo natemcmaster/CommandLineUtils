@@ -508,7 +508,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("")]
         public void ParsesGuidNullable(string arg)
         {
-            var expected = String.IsNullOrWhiteSpace(arg)
+            var expected = string.IsNullOrWhiteSpace(arg)
                 ? (Guid?)null
                 : Guid.Parse("ff23ef12-500a-48df-9a5d-151c2adc2a0a");
             var parsed = CommandLineParser.ParseArgs<Program>("--guid-opt", arg);

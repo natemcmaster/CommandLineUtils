@@ -15,7 +15,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     public class ValueParserProvider
     {
         private readonly Dictionary<Type, IValueParser> _parsers = new Dictionary<Type, IValueParser>(10);
-        private readonly DefaultValueParserFactory _defaultValueParserFactory = new DefaultValueParserFactory();
+        private readonly TypeDescriptorValueParserFactory _defaultValueParserFactory = new TypeDescriptorValueParserFactory();
 
         internal ValueParserProvider()
         {
@@ -102,7 +102,9 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             }
 
             if (_defaultValueParserFactory.TryGetParser<T>(out parser))
+            {
                 return parser;
+            }
 
             if (ReflectionHelper.IsNullableType(type, out var wrappedType) && wrappedType != null)
             {

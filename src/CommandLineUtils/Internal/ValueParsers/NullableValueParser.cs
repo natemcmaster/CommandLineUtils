@@ -1,11 +1,11 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Globalization;
+
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    using System;
-    using System.Globalization;
-
     internal class NullableValueParser : IValueParser
     {
         private readonly IValueParser _wrapped;
