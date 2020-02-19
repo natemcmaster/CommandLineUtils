@@ -2,9 +2,9 @@
 
 [Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.1...HEAD):
 
-## [v2.6.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.1...v2.6.0)
+### Changes
 
-* Refactor: obsolete throwOnUnexpectedArg in favor of UnrecognizedArgumentHandling. See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details
+* Disabled the pager for help text by default. To re-enable, set UsePagerForHelpText = true. ([#346])
 
 ### Breaking changes
 
@@ -18,6 +18,11 @@
 [#251]: https://github.com/natemcmaster/CommandLineUtils/issues/251
 [#294]: https://github.com/natemcmaster/CommandLineUtils/issues/294
 [#337]: https://github.com/natemcmaster/CommandLineUtils/issues/337
+[#346]: https://github.com/natemcmaster/CommandLineUtils/issues/346
+
+## [v2.6.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.1...v2.6.0)
+
+* Refactor: obsolete throwOnUnexpectedArg in favor of UnrecognizedArgumentHandling. See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details
 
 ## [v2.5.1](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.0...v2.5.1)
 
