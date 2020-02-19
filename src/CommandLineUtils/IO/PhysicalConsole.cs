@@ -3,6 +3,7 @@
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
+using System.ComponentModel;
 using System.IO;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -15,13 +16,19 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// A shared instance of <see cref="PhysicalConsole"/>.
         /// </summary>
+#pragma warning disable 0618
         public static IConsole Singleton { get; } = new PhysicalConsole();
+#pragma warning restore 0618
 
-        // TODO: in 3.0 make this type truly a singleton by adding a private ctor
-        // this is techinally a breaking change, so wait till 3.0
-        // private PhysicalConsole()
-        // {
-        // }
+        /// <summary>
+        /// This API is obsolete and will be removed in a future version.
+        /// The recommended replacement is <see cref="Singleton" />.
+        /// </summary>
+        [Obsolete("This API is obsolete and will be removed in a future version." +
+                  "The recommended replacement is PhysicalConsole.Singleton.")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public PhysicalConsole()
+        { }
 
         /// <summary>
         /// <see cref="Console.CancelKeyPress"/>.
