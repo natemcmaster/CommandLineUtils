@@ -522,6 +522,28 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(new[] { "apple", "banana" }, app.RemainingArguments.ToArray());
         }
 
+        [Theory]
+        [InlineData("-Xabc")]
+        [InlineData("-abcX")]
+        [InlineData("-abXc")]
+        public void CollectUnrecognizedClusteredOptions(string clusteredOptions)
+        {
+            var app = new CommandLineApplication
+            {
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue,
+            };
+            var optA = app.Option("-a", "Option a", CommandOptionType.NoValue);
+            var optB = app.Option("-b", "Option b", CommandOptionType.NoValue);
+            var optC = app.Option("-c", "Option c", CommandOptionType.NoValue);
+
+            app.Execute("apple", clusteredOptions, "banana");
+
+            Assert.Equal(new[] { "apple", clusteredOptions, "banana" }, app.RemainingArguments.ToArray());
+            Assert.False(optA.HasValue());
+            Assert.False(optB.HasValue());
+            Assert.False(optC.HasValue());
+        }
+
         [Fact]
         public void CollectUnrecognizedOption()
         {

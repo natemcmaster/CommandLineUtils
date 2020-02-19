@@ -147,6 +147,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 if (_currentCommand.ClusterOptions)
                 {
+                    var options = new List<CommandOption>();
                     for (var i = 0; i < arg.Name.Length; i++)
                     {
                         var ch = arg.Name.Substring(i, 1);
@@ -164,52 +165,48 @@ namespace McMaster.Extensions.CommandLineUtils
                             return ProcessUnexpectedArg("option", "-" + ch);
                         }
 
+                        options.Add(option);
+
+                        if (option.OptionType != CommandOptionType.NoValue &&
+                            option.OptionType != CommandOptionType.SingleOrNoValue)
+                        {
+                            break;
+                        }
+                    }
+
+                    for (var i = 0; i < options.Count - 1; i++)
+                    {
+                        option = options[i];
+                        option.TryParse(null);
+
                         // If we find a help/version option, show information and stop parsing
                         if (_currentCommand.OptionHelp == option)
                         {
                             _currentCommand.ShowHelp();
-                            option.TryParse(null);
                             return false;
                         }
 
                         if (_currentCommand.OptionVersion == option)
                         {
                             _currentCommand.ShowVersion();
-                            option.TryParse(null);
                             return false;
                         }
-
-                        name = ch;
-
-                        var isLastChar = i == arg.Name.Length - 1;
-                        if (option.OptionType == CommandOptionType.NoValue)
-                        {
-                            if (!isLastChar)
-                            {
-                                option.TryParse(null);
-                            }
-                        }
-                        else if (option.OptionType == CommandOptionType.SingleOrNoValue)
-                        {
-                            if (!isLastChar)
-                            {
-                                option.TryParse(null);
-                            }
-                        }
-                        else if (!isLastChar)
-                        {
-                            if (value != null)
-                            {
-                                // if an option was also specified using :value or =value at the end of the option
-                                _currentCommand.ShowHint();
-                                throw new CommandParsingException(_currentCommand, $"Option '{ch}', which requires a value, must be the last option in a cluster");
-                            }
-
-                            // supports specifying the value as the last bit of the flag. -Xignore-whitespace
-                            value = arg.Name.Substring(i + 1);
-                            break;
-                        }
                     }
+
+                    option = options.Last();
+                    // supports specifying the value as the last bit of the flag. -Xignore-whitespace
+                    var trailingName = options.Count != arg.Name.Length
+                        ? arg.Name.Substring(options.Count)
+                        : null;
+
+                    if (value != null && trailingName != null)
+                    {
+                        // if an option was also specified using :value or =value at the end of the option
+                        _currentCommand.ShowHint();
+                        throw new CommandParsingException(_currentCommand, $"Option '{option.ShortName}', which requires a value, must be the last option in a cluster");
+                    }
+
+                    value ??= trailingName;
                 }
                 else
                 {
