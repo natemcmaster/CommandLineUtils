@@ -124,7 +124,7 @@ namespace McMaster.Extensions.CommandLineUtils
             ValueParsers = parent?.ValueParsers ?? new ValueParserProvider();
             _parserConfig = parent?._parserConfig ?? new ParserConfig();
             _clusterOptions = parent?._clusterOptions;
-            UsePagerForHelpText = parent?.UsePagerForHelpText ?? true;
+            UsePagerForHelpText = parent?.UsePagerForHelpText ?? false;
 
             _conventionContext = CreateConventionContext();
 

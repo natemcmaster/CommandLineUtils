@@ -1,3 +1,5 @@
+McMaster.Extensions.CommandLineUtils.CommandAttribute.UsePagerForHelpText.get -> bool
+McMaster.Extensions.CommandLineUtils.CommandAttribute.UsePagerForHelpText.set -> void
 McMaster.Extensions.CommandLineUtils.CommandAttribute.UnrecognizedArgumentHandling.set -> void
 McMaster.Extensions.CommandLineUtils.CommandAttribute.UnrecognizedArgumentHandling.get -> McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator helpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole console, string workingDirectory) -> void

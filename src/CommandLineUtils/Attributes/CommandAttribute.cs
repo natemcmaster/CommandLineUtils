@@ -120,7 +120,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Whether a Pager should be used to display help text.
         /// </summary>
-        public bool UsePagerForHelpText { get; set; } = true;
+        public bool UsePagerForHelpText { get; set; } = false;
 
         /// <summary>
         /// <para>
