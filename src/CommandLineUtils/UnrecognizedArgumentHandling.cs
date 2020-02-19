@@ -18,5 +18,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// including the first unrecognized argument, in <see cref="CommandLineApplication.RemainingArguments"/>.
         /// </summary>
         StopParsingAndCollect,
+
+        /// <summary>
+        /// When an unrecognized argument is encountered, save it in a list that will be assigned
+        /// to <see cref="CommandLineApplication.RemainingArguments"/>.
+        /// </summary>
+        CollectAndContinue,
     }
 }

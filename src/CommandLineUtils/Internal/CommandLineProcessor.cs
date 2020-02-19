@@ -102,35 +102,13 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private bool ProcessNext()
         {
-            switch (_enumerator.Current)
+            return _enumerator.Current switch
             {
-                case ArgumentSeparatorArgument _:
-                    if (!ProcessArgumentSeparator())
-                    {
-                        return false;
-                    }
-
-                    break;
-                case OptionArgument arg:
-                    if (!ProcessOption(arg))
-                    {
-                        return false;
-                    }
-
-                    break;
-                case CommandOrParameterArgument arg:
-                    if (!ProcessCommandOrParameter(arg))
-                    {
-                        return false;
-                    }
-
-                    break;
-                default:
-                    HandleUnexpectedArg("command or argument");
-                    return false;
-            }
-
-            return true;
+                ArgumentSeparatorArgument _ => ProcessArgumentSeparator(),
+                OptionArgument arg => ProcessOption(arg),
+                CommandOrParameterArgument arg => ProcessCommandOrParameter(arg),
+                _ => ProcessUnexpectedArg("command or argument"),
+            };
         }
 
         private bool ProcessCommandOrParameter(CommandOrParameterArgument arg)
@@ -154,14 +132,10 @@ namespace McMaster.Extensions.CommandLineUtils
             if (_currentCommandArguments.MoveNext())
             {
                 _currentCommandArguments.Current.Values.Add(arg.Raw);
-            }
-            else
-            {
-                HandleUnexpectedArg("command or argument");
-                return false;
+                return true;
             }
 
-            return true;
+            return ProcessUnexpectedArg("command or argument");
         }
 
         private bool ProcessOption(OptionArgument arg)
@@ -187,8 +161,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                         if (option == null)
                         {
-                            HandleUnexpectedArg("option", "-" + ch);
-                            return false;
+                            return ProcessUnexpectedArg("option", "-" + ch);
                         }
 
                         // If we find a help/version option, show information and stop parsing
@@ -255,8 +228,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             if (option == null)
             {
-                HandleUnexpectedArg("option");
-                return false;
+                return ProcessUnexpectedArg("option");
             }
 
             // If we find a help/version option, show information and stop parsing
@@ -350,7 +322,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             if (!_currentCommand.AllowArgumentSeparator)
             {
-                HandleUnexpectedArg("option");
+                return ProcessUnexpectedArg("option");
             }
 
             _enumerator.DisableResponseFileLoading = true;
@@ -363,7 +335,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return false;
         }
 
-        private void HandleUnexpectedArg(string argTypeName, string? argValue = null)
+        private bool ProcessUnexpectedArg(string argTypeName, string? argValue = null)
         {
             switch (_config.UnrecognizedArgumentHandling)
             {
@@ -381,13 +353,18 @@ namespace McMaster.Extensions.CommandLineUtils
                     throw new UnrecognizedCommandParsingException(_currentCommand, suggestions,
                         $"Unrecognized {argTypeName} '{value}'");
 
-                case UnrecognizedArgumentHandling.StopParsingAndCollect:
-                default:
-                    break;
-            }
+                case UnrecognizedArgumentHandling.CollectAndContinue:
+                    var arg = _enumerator.Current;
+                    _currentCommand.RemainingArguments.Add(arg.Raw);
+                    return true;
 
-            // All remaining arguments are stored for further use
-            AddRemainingArgumentValues();
+                case UnrecognizedArgumentHandling.StopParsingAndCollect:
+                    // All remaining arguments are stored for further use
+                    AddRemainingArgumentValues();
+                    return false;
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         private void AddRemainingArgumentValues()

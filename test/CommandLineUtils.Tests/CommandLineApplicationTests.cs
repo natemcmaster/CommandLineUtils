@@ -495,6 +495,72 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void CollectUnrecognizedArguments()
+        {
+            var app = new CommandLineApplication
+            {
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue,
+            };
+            app.Argument("foo", "foo");
+
+            app.Execute("apple", "--foo", "bar", "banana");
+
+            Assert.Equal(new[] { "--foo", "bar", "banana" }, app.RemainingArguments.ToArray());
+        }
+
+        [Fact]
+        public void CollectUnrecognizedOptions()
+        {
+            var app = new CommandLineApplication
+            {
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue,
+            };
+            app.Option("--foo", "Foo", CommandOptionType.SingleValue);
+
+            app.Execute("apple", "--foo", "bar", "banana");
+
+            Assert.Equal(new[] { "apple", "banana" }, app.RemainingArguments.ToArray());
+        }
+
+        [Fact]
+        public void CollectUnrecognizedOption()
+        {
+            var app = new CommandLineApplication
+            {
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue,
+            };
+            app.Execute("apple", "--foo", "bar", "banana");
+
+            Assert.Equal(new[] { "apple", "--foo", "bar", "banana" }, app.RemainingArguments.ToArray());
+        }
+
+        [Fact]
+        public void CollectUnrecognizedArgSeparator()
+        {
+            var app = new CommandLineApplication
+            {
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue,
+            };
+            app.Execute("apple", "--", "banana");
+
+            Assert.Equal(new[] { "apple", "--", "banana" }, app.RemainingArguments.ToArray());
+        }
+
+        [Fact]
+        public void CollectBeforeAndAfterArgSeparator()
+        {
+            var app = new CommandLineApplication
+            {
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue,
+                AllowArgumentSeparator = true,
+            };
+            app.Option("--option", "abc", CommandOptionType.NoValue);
+            app.Execute("apple", "--option", "--", "banana", "--option");
+
+            Assert.Equal(new[] { "apple", "banana", "--option" }, app.RemainingArguments.ToArray());
+        }
+
+        [Fact]
         public void OptionsCanBeInherited()
         {
             var app = new CommandLineApplication();
