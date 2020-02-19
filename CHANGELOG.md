@@ -2,8 +2,9 @@
 
 [Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.1...HEAD):
 
-### Changes
+### Improvements
 
+* [@AlexeyEvlampiev] - implement support for GUID command line options ([#333]) and any other type that TypeConverter supports ([#62])
 * Disabled the pager for help text by default. To re-enable, set UsePagerForHelpText = true. ([#346])
 
 ### Breaking changes
@@ -12,12 +13,15 @@
 * Fix [#294] by [@natemcmaster] - change dependencies on McMaster.Extensions.Hosting.CommandLine to just use Microsoft.Extensions.Hosting.Abstractions
 * Fix [#337] by [@natemcmaster] - removed .NET Standard 1.6 target from library
 
+[@AlexeyEvlampiev]: https://github.com/AlexeyEvlampiev
 [@mattnischan]: https://github.com/mattnischan
 [@natemcmaster]: https://github.com/natemcmaster
 
+[#62]: https://github.com/natemcmaster/CommandLineUtils/issues/62
 [#251]: https://github.com/natemcmaster/CommandLineUtils/issues/251
 [#294]: https://github.com/natemcmaster/CommandLineUtils/issues/294
 [#337]: https://github.com/natemcmaster/CommandLineUtils/issues/337
+[#333]: https://github.com/natemcmaster/CommandLineUtils/issues/333
 [#346]: https://github.com/natemcmaster/CommandLineUtils/issues/346
 
 ## [v2.6.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.1...v2.6.0)
