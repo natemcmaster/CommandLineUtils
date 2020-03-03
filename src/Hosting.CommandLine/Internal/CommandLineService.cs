@@ -24,8 +24,9 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         /// <param name="logger">A logger</param>
         /// <param name="state">The command line state</param>
         /// <param name="serviceProvider">The DI service provider</param>
+        /// <param name="configure">An action which configures an instance of <see cref="CommandLineApplication" />&lt;<typeparamref name="T" />&gt;.</param>
         public CommandLineService(ILogger<CommandLineService<T>> logger, CommandLineState state,
-            IServiceProvider serviceProvider)
+            IServiceProvider serviceProvider, Action<CommandLineApplication<T>, IServiceProvider> configure = null)
         {
             _logger = logger;
             _state = state;
@@ -41,6 +42,9 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
             {
                 _application.Conventions.AddConvention(convention);
             }
+
+            // If an action was specified with .UseCommandLineApplication<T>(), then invoke it to configure the application
+            configure?.Invoke((CommandLineApplication<T>)_application, serviceProvider);
         }
 
         /// <inheritdoc />

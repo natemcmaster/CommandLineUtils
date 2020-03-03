@@ -1,6 +1,7 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Runtime.ExceptionServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -63,6 +64,27 @@ namespace Microsoft.Extensions.Hosting
             }
 
             return state.ExitCode;
+        }
+
+        /// <summary>
+        ///     Configures an instance of <see cref="CommandLineApplication" />&lt;<typeparamref name="TApp" />&gt; when it is created.
+        /// </summary>
+        /// <typeparam name="TApp">The type of the command line application implementation</typeparam>
+        /// <param name="hostBuilder">This instance</param>
+        /// <param name="configure">An action which configures an instance of <see cref="CommandLineApplication" />&lt;<typeparamref name="TApp" />&gt;.</param>
+        /// <returns>This instance</returns>
+        /// <seealso href="https://github.com/natemcmaster/CommandLineUtils/issues/271">Builder API support</seealso>
+        public static IHostBuilder UseCommandLineApplication<TApp>(this IHostBuilder hostBuilder, Action<CommandLineApplication<TApp>, IServiceProvider> configure)
+            where TApp : class
+        {
+            if (hostBuilder == null) throw new ArgumentNullException(nameof(hostBuilder));
+
+            hostBuilder.ConfigureServices((context, services) =>
+            {
+                services.AddSingleton(configure);
+            });
+
+            return hostBuilder;
         }
     }
 }

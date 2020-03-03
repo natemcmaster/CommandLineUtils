@@ -65,6 +65,23 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         }
 
         [Fact]
+        public void TestUseCommandLineApplication()
+        {
+            var configure = new Mock<Action<CommandLineApplication<Return42Command>, IServiceProvider>>();
+            configure.Setup(c => c.Invoke(It.IsAny<CommandLineApplication<Return42Command>>(), It.IsAny<IServiceProvider>()));
+
+            Assert.Equal(42,
+                new HostBuilder()
+                    .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
+                    .UseCommandLineApplication<Return42Command>(configure.Object)
+                    .RunCommandLineApplicationAsync<Return42Command>(new string[0])
+                    .GetAwaiter()
+                    .GetResult());
+
+            Mock.Verify(configure);
+        }
+
+        [Fact]
         public void ItThrowsOnUnknownSubCommand()
         {
             var ex = Assert.Throws<UnrecognizedCommandParsingException>(
