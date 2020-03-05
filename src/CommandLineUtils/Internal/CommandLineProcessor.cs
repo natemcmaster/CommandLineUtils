@@ -102,35 +102,13 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private bool ProcessNext()
         {
-            switch (_enumerator.Current)
+            return _enumerator.Current switch
             {
-                case ArgumentSeparatorArgument _:
-                    if (!ProcessArgumentSeparator())
-                    {
-                        return false;
-                    }
-
-                    break;
-                case OptionArgument arg:
-                    if (!ProcessOption(arg))
-                    {
-                        return false;
-                    }
-
-                    break;
-                case CommandOrParameterArgument arg:
-                    if (!ProcessCommandOrParameter(arg))
-                    {
-                        return false;
-                    }
-
-                    break;
-                default:
-                    HandleUnexpectedArg("command or argument");
-                    return false;
-            }
-
-            return true;
+                ArgumentSeparatorArgument _ => ProcessArgumentSeparator(),
+                OptionArgument arg => ProcessOption(arg),
+                CommandOrParameterArgument arg => ProcessCommandOrParameter(arg),
+                _ => ProcessUnexpectedArg("command or argument"),
+            };
         }
 
         private bool ProcessCommandOrParameter(CommandOrParameterArgument arg)
@@ -154,14 +132,10 @@ namespace McMaster.Extensions.CommandLineUtils
             if (_currentCommandArguments.MoveNext())
             {
                 _currentCommandArguments.Current.Values.Add(arg.Raw);
-            }
-            else
-            {
-                HandleUnexpectedArg("command or argument");
-                return false;
+                return true;
             }
 
-            return true;
+            return ProcessUnexpectedArg("command or argument");
         }
 
         private bool ProcessOption(OptionArgument arg)
@@ -173,6 +147,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 if (_currentCommand.ClusterOptions)
                 {
+                    var options = new List<CommandOption>();
                     for (var i = 0; i < arg.Name.Length; i++)
                     {
                         var ch = arg.Name.Substring(i, 1);
@@ -187,56 +162,51 @@ namespace McMaster.Extensions.CommandLineUtils
 
                         if (option == null)
                         {
-                            HandleUnexpectedArg("option", "-" + ch);
-                            return false;
+                            return ProcessUnexpectedArg("option", "-" + ch);
                         }
+
+                        options.Add(option);
+
+                        if (option.OptionType != CommandOptionType.NoValue &&
+                            option.OptionType != CommandOptionType.SingleOrNoValue)
+                        {
+                            break;
+                        }
+                    }
+
+                    for (var i = 0; i < options.Count - 1; i++)
+                    {
+                        option = options[i];
+                        option.TryParse(null);
 
                         // If we find a help/version option, show information and stop parsing
                         if (_currentCommand.OptionHelp == option)
                         {
                             _currentCommand.ShowHelp();
-                            option.TryParse(null);
                             return false;
                         }
 
                         if (_currentCommand.OptionVersion == option)
                         {
                             _currentCommand.ShowVersion();
-                            option.TryParse(null);
                             return false;
                         }
-
-                        name = ch;
-
-                        var isLastChar = i == arg.Name.Length - 1;
-                        if (option.OptionType == CommandOptionType.NoValue)
-                        {
-                            if (!isLastChar)
-                            {
-                                option.TryParse(null);
-                            }
-                        }
-                        else if (option.OptionType == CommandOptionType.SingleOrNoValue)
-                        {
-                            if (!isLastChar)
-                            {
-                                option.TryParse(null);
-                            }
-                        }
-                        else if (!isLastChar)
-                        {
-                            if (value != null)
-                            {
-                                // if an option was also specified using :value or =value at the end of the option
-                                _currentCommand.ShowHint();
-                                throw new CommandParsingException(_currentCommand, $"Option '{ch}', which requires a value, must be the last option in a cluster");
-                            }
-
-                            // supports specifying the value as the last bit of the flag. -Xignore-whitespace
-                            value = arg.Name.Substring(i + 1);
-                            break;
-                        }
                     }
+
+                    option = options.Last();
+                    // supports specifying the value as the last bit of the flag. -Xignore-whitespace
+                    var trailingName = options.Count != arg.Name.Length
+                        ? arg.Name.Substring(options.Count)
+                        : null;
+
+                    if (value != null && trailingName != null)
+                    {
+                        // if an option was also specified using :value or =value at the end of the option
+                        _currentCommand.ShowHint();
+                        throw new CommandParsingException(_currentCommand, $"Option '{option.ShortName}', which requires a value, must be the last option in a cluster");
+                    }
+
+                    value ??= trailingName;
                 }
                 else
                 {
@@ -255,8 +225,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             if (option == null)
             {
-                HandleUnexpectedArg("option");
-                return false;
+                return ProcessUnexpectedArg("option");
             }
 
             // If we find a help/version option, show information and stop parsing
@@ -350,7 +319,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             if (!_currentCommand.AllowArgumentSeparator)
             {
-                HandleUnexpectedArg("option");
+                return ProcessUnexpectedArg("option");
             }
 
             _enumerator.DisableResponseFileLoading = true;
@@ -363,7 +332,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return false;
         }
 
-        private void HandleUnexpectedArg(string argTypeName, string? argValue = null)
+        private bool ProcessUnexpectedArg(string argTypeName, string? argValue = null)
         {
             switch (_config.UnrecognizedArgumentHandling)
             {
@@ -381,13 +350,18 @@ namespace McMaster.Extensions.CommandLineUtils
                     throw new UnrecognizedCommandParsingException(_currentCommand, suggestions,
                         $"Unrecognized {argTypeName} '{value}'");
 
-                case UnrecognizedArgumentHandling.StopParsingAndCollect:
-                default:
-                    break;
-            }
+                case UnrecognizedArgumentHandling.CollectAndContinue:
+                    var arg = _enumerator.Current;
+                    _currentCommand.RemainingArguments.Add(arg.Raw);
+                    return true;
 
-            // All remaining arguments are stored for further use
-            AddRemainingArgumentValues();
+                case UnrecognizedArgumentHandling.StopParsingAndCollect:
+                    // All remaining arguments are stored for further use
+                    AddRemainingArgumentValues();
+                    return false;
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         private void AddRemainingArgumentValues()
