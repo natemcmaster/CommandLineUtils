@@ -101,7 +101,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <seealso cref="CommandLineApplication.ThrowOnUnexpectedArgument"/>
         [Obsolete("This property is obsolete and will be removed in a future version. " +
-            "The recommended replacement is UnrecognizedArgumentHandling.")]
+            "The recommended replacement is UnrecognizedArgumentHandling. " +
+            "See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ThrowOnUnexpectedArgument
         {

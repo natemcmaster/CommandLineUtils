@@ -107,7 +107,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         [Obsolete("This constructor is obsolete and will be removed in a future version. " +
-            "The recommended replacement is the parameterless constructor CommandLineApplication() and the property UnrecognizedArgumentHandling." +
+            "The recommended replacement is the parameterless constructor CommandLineApplication() and the property UnrecognizedArgumentHandling. " +
             "See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public CommandLineApplication(bool throwOnUnexpectedArg)
@@ -131,7 +131,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="workingDirectory">The current working directory.</param>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         [Obsolete("This constructor is obsolete and will be removed in a future version. " +
-            "The recommended replacement is the constructor CommandLineApplication(IConsole, string) and the property UnrecognizedArgumentHandling." +
+            "The recommended replacement is the constructor CommandLineApplication(IConsole, string) and the property UnrecognizedArgumentHandling. " +
             "See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public CommandLineApplication(IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
@@ -155,7 +155,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="workingDirectory">The current working directory.</param>
         /// <param name="throwOnUnexpectedArg">Initial value for <see cref="ThrowOnUnexpectedArgument"/>.</param>
         [Obsolete("This constructor is obsolete and will be removed in a future version. " +
-            "The recommended replacement is the constructor CommandLineApplication(IHelpTextGenerator, IConsole, string) and the property UnrecognizedArgumentHandling." +
+            "The recommended replacement is the constructor CommandLineApplication(IHelpTextGenerator, IConsole, string) and the property UnrecognizedArgumentHandling. " +
             "See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public CommandLineApplication(IHelpTextGenerator helpTextGenerator, IConsole console, string workingDirectory, bool throwOnUnexpectedArg)
@@ -331,7 +331,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </para>
         /// </summary>
         [Obsolete("This property is obsolete and will be removed in a future version. " +
-            "The recommended replacement is UnrecognizedArgumentHandling.")]
+            "The recommended replacement is UnrecognizedArgumentHandling. " +
+            "See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ThrowOnUnexpectedArgument
         {
@@ -614,7 +615,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="throwOnUnexpectedArg"></param>
         /// <returns></returns>
         [Obsolete("This constructor is obsolete and will be removed in a future version. " +
-            "The recommended replacement is Command(string, Action<CommandLineApplication>) and the property UnrecognizedArgumentHandling")]
+            "The recommended replacement is Command(string, Action<CommandLineApplication>) and the property UnrecognizedArgumentHandling. " +
+            "See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public CommandLineApplication Command(string name, Action<CommandLineApplication> configuration, bool throwOnUnexpectedArg)
         {
@@ -663,7 +665,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="TModel">The model type of the subcommand.</typeparam>
         /// <returns></returns>
         [Obsolete("This constructor is obsolete and will be removed in a future version. " +
-            "The recommended replacement is Command(string, Action<CommandLineApplication>) and the property UnrecognizedArgumentHandling")]
+            "The recommended replacement is Command(string, Action<CommandLineApplication>) and the property UnrecognizedArgumentHandling. " +
+            "See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public CommandLineApplication<TModel> Command<TModel>(string name, Action<CommandLineApplication<TModel>> configuration,
             bool throwOnUnexpectedArg)
