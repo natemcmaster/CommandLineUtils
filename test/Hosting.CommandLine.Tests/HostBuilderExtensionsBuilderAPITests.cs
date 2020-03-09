@@ -21,14 +21,12 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         }
 
         [Fact]
-        public void TestReturnCode()
+        public async Task TestReturnCode()
         {
-            Assert.Equal(42,
-                new HostBuilder()
+            var exitCode = await new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationFluentAsync(new string[0], (app, provider) => app.OnExecute(() => 42))
-                    .GetAwaiter()
-                    .GetResult());
+                    .RunCommandLineApplicationFluentAsync(new string[0], (app, provider) => app.OnExecute(() => 42)));
+            Assert.Equal(42, exitCode);
         }
 
         [Fact]
