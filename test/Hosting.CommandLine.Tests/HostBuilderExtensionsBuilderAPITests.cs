@@ -66,17 +66,15 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         }
 
         [Fact]
-        public void ItThrowsOnUnknownSubCommand()
+        public async Task ItThrowsOnUnknownSubCommand()
         {
-            var ex = Assert.Throws<UnrecognizedCommandParsingException>(
-                () => new HostBuilder()
+            var ex = await Assert.ThrowsAsync<UnrecognizedCommandParsingException>(
+                async () => await new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
                     .RunCommandLineApplicationFluentAsync(new string[] { "return41" }, (app, provider) =>
                     {
                         app.Command("return42", (cmd => cmd.OnExecute(() => 42)));
-                    })
-                    .GetAwaiter()
-                    .GetResult());
+                    }));
             Assert.Equal(new string[] { "return42" }, ex.NearestMatches);
         }
 
