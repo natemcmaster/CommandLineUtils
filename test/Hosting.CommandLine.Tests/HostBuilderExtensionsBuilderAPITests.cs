@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 using McMaster.Extensions.CommandLineUtils.Conventions;
 using McMaster.Extensions.Hosting.CommandLine.Tests.Utilities;
@@ -25,7 +26,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         {
             var exitCode = await new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationFluentAsync(new string[0], (app, provider) => app.OnExecute(() => 42)));
+                    .RunCommandLineApplicationFluentAsync(new string[0], (app, provider) => app.OnExecute(() => 42));
             Assert.Equal(42, exitCode);
         }
 
