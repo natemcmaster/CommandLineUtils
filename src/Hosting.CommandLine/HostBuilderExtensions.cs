@@ -78,7 +78,7 @@ namespace Microsoft.Extensions.Hosting
         public static async Task<int> RunCommandLineApplicationFluentAsync(
             this IHostBuilder hostBuilder,
             string[] args,
-            Action<CommandLineApplication, IServiceProvider> configure,
+            Action<CommandLineApplication> configure,
             CancellationToken cancellationToken = default)
         {
             var exceptionHandler = new StoreExceptionHandler();

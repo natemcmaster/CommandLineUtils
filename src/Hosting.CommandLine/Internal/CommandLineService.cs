@@ -25,7 +25,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         /// <param name="serviceProvider">The DI service provider</param>
         /// <param name="configure">The delegate to configure the app</param>
         public CommandLineService(ILogger<CommandLineService> logger, CommandLineState state,
-            IServiceProvider serviceProvider, Action<CommandLineApplication, IServiceProvider> configure)
+            IServiceProvider serviceProvider, Action<CommandLineApplication> configure)
         {
             _logger = logger;
             _state = state;
@@ -33,13 +33,16 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
             logger.LogDebug("Constructing CommandLineApplication with args [{args}]", string.Join(",", state.Arguments));
             _application = new CommandLineApplication(state.Console, state.WorkingDirectory);
 
-            _application.Conventions.UseDefaultConventions();
+            _application.Conventions
+                .UseDefaultConventions()
+                .UseConstructorInjection(serviceProvider);
             foreach (var convention in serviceProvider.GetServices<IConvention>())
             {
                 _application.Conventions.AddConvention(convention);
-            }
 
-            configure(_application, serviceProvider);
+            }
+          
+            configure(_application);
         }
 
         /// <inheritdoc />
