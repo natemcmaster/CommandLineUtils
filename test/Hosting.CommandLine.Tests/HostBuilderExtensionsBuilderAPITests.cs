@@ -43,7 +43,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         }
 
         [Fact]
-        public async void TestConventionInjection()
+        public async Task TestConventionInjection()
         {
             var convention = new Mock<IConvention>();
             convention.Setup(c => c.Apply(It.IsAny<ConventionContext>()))
