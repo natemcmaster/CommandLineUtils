@@ -30,7 +30,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         }
 
         [Fact]
-        public async void TestConsoleInjection()
+        public async Task TestConsoleInjection()
         {
             var console = new Mock<IConsole>();
             var textWriter = new Mock<TextWriter>();
