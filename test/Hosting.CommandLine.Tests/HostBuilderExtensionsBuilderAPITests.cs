@@ -79,30 +79,26 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         }
 
         [Fact]
-        public void ItRethrowsThrownExceptions()
+        public async Task ItRethrowsThrownExceptions()
         {
-            var ex = Assert.Throws<InvalidOperationException>(
+            var ex = await Assert.ThrowsAsync<InvalidOperationException>(
                 () => new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationFluentAsync(new string[0], (app, provider) => app.OnExecute(() => throw new InvalidOperationException("A test")))
-                    .GetAwaiter()
-                    .GetResult());
+                    .RunCommandLineApplicationFluentAsync(new string[0], (app, provider) => app.OnExecute(() => throw new InvalidOperationException("A test"))));
             Assert.Equal("A test", ex.Message);
         }
 
         [Fact]
-        public void TestUsingServiceProvider()
+        public async Task TestUsingServiceProvider()
         {
             IHostEnvironment env = null;
 
-            new HostBuilder()
+            await new HostBuilder()
                 .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
                 .RunCommandLineApplicationFluentAsync(new string[0], (app, provider) => app.OnExecute(() =>
                 {
                     env = provider.GetRequiredService<IHostEnvironment>();
-                }))
-                .GetAwaiter()
-                .GetResult();
+                }));
 
             Assert.NotNull(env);
         }
