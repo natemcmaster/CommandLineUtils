@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 using McMaster.Extensions.CommandLineUtils.Conventions;
 using McMaster.Extensions.Hosting.CommandLine.Tests.Utilities;
@@ -21,18 +22,16 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         }
 
         [Fact]
-        public void TestReturnCode()
+        public async Task TestReturnCode()
         {
-            Assert.Equal(42,
-                new HostBuilder()
+            var exitCode = await new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync<Return42Command>(new string[0])
-                    .GetAwaiter()
-                    .GetResult());
+                    .RunCommandLineApplicationAsync<Return42Command>(new string[0]);
+            Assert.Equal(42, exitCode);
         }
 
         [Fact]
-        public async void TestConsoleInjection()
+        public async Task TestConsoleInjection()
         {
             var console = new Mock<IConsole>();
             var textWriter = new Mock<TextWriter>();
@@ -45,7 +44,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         }
 
         [Fact]
-        public async void TestConventionInjection()
+        public async Task TestConventionInjection()
         {
             var valueHolder = new ValueHolder<string[]>();
             var convention = new Mock<IConvention>();
@@ -65,26 +64,22 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         }
 
         [Fact]
-        public void ItThrowsOnUnknownSubCommand()
+        public async Task ItThrowsOnUnknownSubCommand()
         {
-            var ex = Assert.Throws<UnrecognizedCommandParsingException>(
+            var ex = await Assert.ThrowsAsync<UnrecognizedCommandParsingException>(
                 () => new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync<ParentCommand>(new string[] { "return41" })
-                    .GetAwaiter()
-                    .GetResult());
+                    .RunCommandLineApplicationAsync<ParentCommand>(new string[] { "return41" }));
             Assert.Equal(new string[] { "return42" }, ex.NearestMatches);
         }
 
         [Fact]
-        public void ItRethrowsThrownExceptions()
+        public async Task ItRethrowsThrownExceptions()
         {
-            var ex = Assert.Throws<InvalidOperationException>(
+            var ex = await Assert.ThrowsAsync<InvalidOperationException>(
                 () => new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync<ThrowsExceptionCommand>(new string[0])
-                    .GetAwaiter()
-                    .GetResult());
+                    .RunCommandLineApplicationAsync<ThrowsExceptionCommand>(new string[0]));
             Assert.Equal("A test", ex.Message);
         }
 
