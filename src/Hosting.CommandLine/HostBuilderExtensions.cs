@@ -75,7 +75,9 @@ namespace Microsoft.Extensions.Hosting
         /// <param name="configure">The delegate to configure the application</param>
         /// <param name="cancellationToken">A cancellation token</param>
         /// <returns>A task whose result is the exit code of the application</returns>
-        public static async Task<int> RunCommandLineApplicationFluentAsync(
+#pragma warning disable RS0026 // disable warning about optional parameter for CancellationToken
+        public static async Task<int> RunCommandLineApplicationAsync(
+#pragma warning restore RS0026
             this IHostBuilder hostBuilder,
             string[] args,
             Action<CommandLineApplication> configure,

@@ -8,7 +8,7 @@ class Program
 {
     static Task<int> Main(string[] args)
         => new HostBuilder()
-        .RunCommandLineApplicationFluentAsync(args, (app) =>
+        .RunCommandLineApplicationAsync(args, (app) =>
         {
             var portOption = app.Option<int>("-p|--port <PORT>", "Port", CommandOptionType.SingleValue);
 
