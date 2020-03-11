@@ -1,11 +1,12 @@
 # Changelog
 
-[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.1...HEAD):
+[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.6.0...HEAD):
 
 ### Improvements
 
 * [@AlexeyEvlampiev] - implement support for GUID command line options ([#333]) and any other type that TypeConverter supports ([#62])
 * Disabled the pager for help text by default. To re-enable, set UsePagerForHelpText = true. ([#346])
+* [@vpkopylov] - Added support for using the 'builder API' with generic host ([#351])
 
 ### Breaking changes
 
@@ -23,6 +24,7 @@
 [#337]: https://github.com/natemcmaster/CommandLineUtils/issues/337
 [#333]: https://github.com/natemcmaster/CommandLineUtils/issues/333
 [#346]: https://github.com/natemcmaster/CommandLineUtils/issues/346
+[#351]: https://github.com/natemcmaster/CommandLineUtils/pull/351
 
 ## [v2.6.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.1...v2.6.0)
 

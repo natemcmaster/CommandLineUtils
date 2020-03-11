@@ -1,6 +1,10 @@
 <Project>
   <PropertyGroup>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.0.'))">
+Features:
+* @vpkopylov - Added support for using the 'builder API' by calling .RunCommandLineApplicationAsync(args, app => { })
+  See https://github.com/natemcmaster/CommandLineUtils/pull/351 for details.
+
 Changes:
 * Dependency on Microsoft.Extensions.Hosting lowered to Microsoft.Extensions.Hosting.Abstractions.
   You may need to add a direct reference to Microsoft.Extensions.Hosting if this is not already in your

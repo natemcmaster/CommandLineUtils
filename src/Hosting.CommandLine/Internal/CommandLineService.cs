@@ -44,7 +44,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
                 _application.Conventions.AddConvention(convention);
 
             }
-          
+
             configure(_application);
         }
 

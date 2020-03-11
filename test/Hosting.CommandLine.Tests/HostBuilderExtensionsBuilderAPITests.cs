@@ -26,7 +26,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         {
             var exitCode = await new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync(new string[0], (app) => app.OnExecute(() => 42));
+                    .RunCommandLineApplicationAsync(new string[0], app => app.OnExecute(() => 42));
             Assert.Equal(42, exitCode);
         }
 
@@ -39,7 +39,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             console.SetupGet(c => c.Out).Returns(textWriter.Object);
             await new HostBuilder()
                 .ConfigureServices(collection => collection.AddSingleton(console.Object))
-                .RunCommandLineApplicationAsync(new string[0], (app) => app.OnExecute(() => app.Out.WriteLine("42")));
+                .RunCommandLineApplicationAsync(new string[0], app => app.OnExecute(() => app.Out.WriteLine("42")));
             Mock.Verify(console, textWriter);
         }
 
@@ -57,7 +57,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
                 .ConfigureServices(collection => collection
                     .AddSingleton<IConsole>(new TestConsole(_output))
                     .AddSingleton(convention.Object))
-                .RunCommandLineApplicationAsync(args, (app) => app.OnExecute(() =>
+                .RunCommandLineApplicationAsync(args, app => app.OnExecute(() =>
                 {
                     remainingArgs = app.RemainingArguments.ToArray();
                 }));
@@ -71,7 +71,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             var ex = await Assert.ThrowsAsync<UnrecognizedCommandParsingException>(
                 async () => await new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync(new string[] { "return41" }, (app) =>
+                    .RunCommandLineApplicationAsync(new string[] { "return41" }, app =>
                     {
                         app.Command("return42", (cmd => cmd.OnExecute(() => 42)));
                     }));
@@ -84,7 +84,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             var ex = await Assert.ThrowsAsync<InvalidOperationException>(
                 () => new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync(new string[0], (app) => app.OnExecute(() => throw new InvalidOperationException("A test"))));
+                    .RunCommandLineApplicationAsync(new string[0], app => app.OnExecute(() => throw new InvalidOperationException("A test"))));
             Assert.Equal("A test", ex.Message);
         }
 
@@ -95,7 +95,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
 
             await new HostBuilder()
                 .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                .RunCommandLineApplicationAsync(new string[0], (app) => app.OnExecute(() =>
+                .RunCommandLineApplicationAsync(new string[0], app => app.OnExecute(() =>
                 {
                     env = app.GetRequiredService<IHostEnvironment>();
                 }));
