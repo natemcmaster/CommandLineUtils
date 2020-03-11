@@ -6152,6 +6152,15 @@ references:
   commentId: T:Microsoft.Extensions.Hosting.HostBuilderExtensions
   fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions
   nameWithType: HostBuilderExtensions
+- uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync(Microsoft.Extensions.Hosting.IHostBuilder,System.String[],System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Threading.CancellationToken)
+  name: RunCommandLineApplicationAsync(IHostBuilder, String[], Action<CommandLineApplication>, CancellationToken)
+  href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync_Microsoft_Extensions_Hosting_IHostBuilder_System_String___System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Threading_CancellationToken_
+  commentId: M:Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync(Microsoft.Extensions.Hosting.IHostBuilder,System.String[],System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Threading.CancellationToken)
+  name.vb: RunCommandLineApplicationAsync(IHostBuilder, String(), Action(Of CommandLineApplication), CancellationToken)
+  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync(Microsoft.Extensions.Hosting.IHostBuilder, System.String[], System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication>, System.Threading.CancellationToken)
+  fullName.vb: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync(Microsoft.Extensions.Hosting.IHostBuilder, System.String(), System.Action(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication), System.Threading.CancellationToken)
+  nameWithType: HostBuilderExtensions.RunCommandLineApplicationAsync(IHostBuilder, String[], Action<CommandLineApplication>, CancellationToken)
+  nameWithType.vb: HostBuilderExtensions.RunCommandLineApplicationAsync(IHostBuilder, String(), Action(Of CommandLineApplication), CancellationToken)
 - uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync*
   name: RunCommandLineApplicationAsync
   href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync_
