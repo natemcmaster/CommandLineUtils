@@ -2,3 +2,4 @@ McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler
 McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.HandleException(System.Exception e) -> void
 Microsoft.Extensions.Hosting.HostBuilderExtensions
 static Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync<TApp>(this Microsoft.Extensions.Hosting.IHostBuilder hostBuilder, string[] args, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<int>
+static Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync(this Microsoft.Extensions.Hosting.IHostBuilder hostBuilder, string[] args, System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication> configure, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<int>

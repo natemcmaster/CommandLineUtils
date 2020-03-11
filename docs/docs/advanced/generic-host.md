@@ -20,7 +20,7 @@ which will be bound to command line arguments and options using attributes and `
 This minimal sample shows how to take advantage of generic host features, such as `IHostingEnvironment`,
 as well as command line parsing options with this library.
 
-[!code-csharp[](../../samples/generic-host/Program.cs)]
+[!code-csharp[](../../samples/generic-host/AttributeApi/Program.cs)]
 
 ## Dependency injection
 

@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Hosting.CommandLine\McMaster.Extensions.Hosting.CommandLine.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Hosting.CommandLine\McMaster.Extensions.Hosting.CommandLine.csproj" />
   </ItemGroup>
 
 </Project>

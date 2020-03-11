@@ -1,4 +1,4 @@
-﻿// Copyright (c) Nate McMaster.
+// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
@@ -12,9 +12,9 @@ using Microsoft.Extensions.Logging;
 namespace McMaster.Extensions.Hosting.CommandLine.Internal
 {
     /// <summary>
-    /// A service to be run as part of the <see cref="CommandLineLifetime"/> when using builder API.
+    /// A service to be run as part of the <see cref="CommandLineLifetime"/> when using attribute API.
     /// </summary>
-    internal class CommandLineService : IDisposable, ICommandLineService
+    internal class CommandLineService<T> : IDisposable, ICommandLineService where T : class
     {
         private readonly CommandLineApplication _application;
         private readonly ILogger _logger;
@@ -26,26 +26,23 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         /// <param name="logger">A logger</param>
         /// <param name="state">The command line state</param>
         /// <param name="serviceProvider">The DI service provider</param>
-        /// <param name="configure">The delegate to configure the app</param>
-        public CommandLineService(ILogger<CommandLineService> logger, CommandLineState state,
-            IServiceProvider serviceProvider, Action<CommandLineApplication> configure)
+        public CommandLineService(ILogger<CommandLineService<T>> logger, CommandLineState state,
+            IServiceProvider serviceProvider)
         {
             _logger = logger;
             _state = state;
 
-            logger.LogDebug("Constructing CommandLineApplication with args [{args}]", string.Join(",", state.Arguments));
-            _application = new CommandLineApplication(state.Console, state.WorkingDirectory);
-
+            logger.LogDebug("Constructing CommandLineApplication<{type}> with args [{args}]",
+                typeof(T).FullName, string.Join(",", state.Arguments));
+            _application = new CommandLineApplication<T>(state.Console, state.WorkingDirectory);
             _application.Conventions
                 .UseDefaultConventions()
                 .UseConstructorInjection(serviceProvider);
+
             foreach (var convention in serviceProvider.GetServices<IConvention>())
             {
                 _application.Conventions.AddConvention(convention);
-
             }
-          
-            configure(_application);
         }
 
         /// <inheritdoc />
