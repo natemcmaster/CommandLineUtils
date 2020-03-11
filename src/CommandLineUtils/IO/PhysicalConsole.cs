@@ -27,7 +27,18 @@ namespace McMaster.Extensions.CommandLineUtils
         public event ConsoleCancelEventHandler? CancelKeyPress
         {
             add => Console.CancelKeyPress += value;
-            remove => Console.CancelKeyPress -= value;
+            remove
+            {
+                try
+                {
+                    Console.CancelKeyPress -= value;
+                }
+                catch (PlatformNotSupportedException)
+                {
+                    // https://github.com/natemcmaster/CommandLineUtils/issues/344
+                    // Suppress this error during unsubscription on some Xamarin platforms.
+                }
+            }
         }
 
         /// <summary>
