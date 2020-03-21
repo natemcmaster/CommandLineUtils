@@ -2,11 +2,14 @@
 
 [Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.6.0...HEAD):
 
+## [v3.0.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.6.0...v3.0.0)
+
 ### Improvements
 
 * [@AlexeyEvlampiev] - implement support for GUID command line options ([#333]) and any other type that TypeConverter supports ([#62])
-* Disabled the pager for help text by default. To re-enable, set UsePagerForHelpText = true. ([#346])
 * [@vpkopylov] - Added support for using the 'builder API' with generic host ([#351])
+* [@natemcmaster] - Disabled the pager for help text by default. To re-enable, set UsePagerForHelpText = true. ([#346])
+* [@natemcmaster] - Fix PlatformNotSupportedException on Xamarin of macOS ([#344])
 
 ### Breaking changes
 
@@ -23,6 +26,7 @@
 [#294]: https://github.com/natemcmaster/CommandLineUtils/issues/294
 [#337]: https://github.com/natemcmaster/CommandLineUtils/issues/337
 [#333]: https://github.com/natemcmaster/CommandLineUtils/issues/333
+[#344]: https://github.com/natemcmaster/CommandLineUtils/issues/344
 [#346]: https://github.com/natemcmaster/CommandLineUtils/issues/346
 [#351]: https://github.com/natemcmaster/CommandLineUtils/pull/351
 
