@@ -4,6 +4,7 @@
   "xrefmap": [
     "xrefmap.yml",
     "unstable.xrefmap.yml",
+    "v2.6.xrefmap.yml",
     "v2.5.xrefmap.yml",
     "v2.4.xrefmap.yml",
     "v2.3.xrefmap.yml",
@@ -31,17 +32,20 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "l0flJ/cAFoZUJR6+5XyS1A=="
+          "hash": "4Hqkkot0vLC6Hyd9y56XpQ=="
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Conceptual",
@@ -53,8 +57,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Conceptual",
@@ -66,8 +70,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Conceptual",
@@ -79,8 +83,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Conceptual",
@@ -92,8 +96,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Conceptual",
@@ -105,8 +109,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Conceptual",
@@ -118,8 +122,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Conceptual",
@@ -131,8 +135,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Toc",
@@ -144,8 +148,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Conceptual",
@@ -157,8 +161,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Resource",
@@ -1555,12 +1559,12 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "D4ifDZWQ/YOHsYB24DQZHA=="
+          "hash": "h7Fw0zFlDM43X+8gs1ZQmA=="
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5446,8 +5450,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5459,8 +5463,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5472,8 +5476,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5485,8 +5489,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5498,8 +5502,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5511,10 +5515,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.yml",
       "output": {
@@ -5524,23 +5531,29 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Abstractions.yml",
       "output": {
         ".html": {
           "relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Abstractions.html",
-          "hash": "0SaijVh4A2UT5yQ0VDBD6Q=="
+          "hash": "rMFYB+cMkAUHsAmkpji28w=="
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.AllowedValuesAttribute.yml",
       "output": {
@@ -5550,10 +5563,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.yml",
       "output": {
@@ -5563,10 +5579,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.ArgumentEscaper.yml",
       "output": {
@@ -5576,10 +5595,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.CommandArgument-1.yml",
       "output": {
@@ -5589,10 +5611,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.CommandArgument.yml",
       "output": {
@@ -5602,10 +5627,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.yml",
       "output": {
@@ -5615,8 +5643,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5628,8 +5656,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5641,8 +5669,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5654,8 +5682,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5667,10 +5695,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.CommandOption.yml",
       "output": {
@@ -5680,8 +5711,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5693,8 +5724,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5706,10 +5737,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.ConsoleExtensions.yml",
       "output": {
@@ -5719,10 +5753,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.yml",
       "output": {
@@ -5732,10 +5769,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.yml",
       "output": {
@@ -5745,10 +5785,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention.yml",
       "output": {
@@ -5758,10 +5801,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention.yml",
       "output": {
@@ -5771,10 +5817,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.yml",
       "output": {
@@ -5784,10 +5833,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.yml",
       "output": {
@@ -5797,10 +5849,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.yml",
       "output": {
@@ -5810,10 +5865,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.yml",
       "output": {
@@ -5823,10 +5881,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.yml",
       "output": {
@@ -5836,10 +5897,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.yml",
       "output": {
@@ -5849,10 +5913,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.yml",
       "output": {
@@ -5862,8 +5929,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5875,8 +5942,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -5888,10 +5955,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.yml",
       "output": {
@@ -5901,10 +5971,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.yml",
       "output": {
@@ -5914,10 +5987,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention.yml",
       "output": {
@@ -5927,10 +6003,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase-1.yml",
       "output": {
@@ -5940,10 +6019,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention.yml",
       "output": {
@@ -5953,10 +6035,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.yml",
       "output": {
@@ -5966,10 +6051,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.yml",
       "output": {
@@ -5979,10 +6067,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention.yml",
       "output": {
@@ -5992,10 +6083,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention.yml",
       "output": {
@@ -6005,10 +6099,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention.yml",
       "output": {
@@ -6018,10 +6115,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention.yml",
       "output": {
@@ -6031,23 +6131,29 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.yml",
       "output": {
         ".html": {
           "relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.html",
-          "hash": "B9iO28U9sDjNK05MsamRrQ=="
+          "hash": "cBQ/kMxYGHO3fHaSDhtcgg=="
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.DebugHelper.yml",
       "output": {
@@ -6057,10 +6163,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.DirectoryExistsAttribute.yml",
       "output": {
@@ -6070,10 +6179,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.yml",
       "output": {
@@ -6083,10 +6195,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.DotNetCliContext.yml",
       "output": {
@@ -6096,10 +6211,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.DotNetExe.yml",
       "output": {
@@ -6109,10 +6227,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.yml",
       "output": {
@@ -6122,23 +6243,29 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Errors.yml",
       "output": {
         ".html": {
           "relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Errors.html",
-          "hash": "Td04DcLs6V216VCmOkSRGw=="
+          "hash": "z0bXhzciJ4iZPH4o7HYKog=="
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.FileExistsAttribute.yml",
       "output": {
@@ -6148,10 +6275,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.yml",
       "output": {
@@ -6161,10 +6291,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.yml",
       "output": {
@@ -6174,10 +6307,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.yml",
       "output": {
@@ -6187,10 +6323,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.yml",
       "output": {
@@ -6200,10 +6339,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.yml",
       "output": {
@@ -6213,10 +6355,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.yml",
       "output": {
@@ -6226,10 +6371,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.yml",
       "output": {
@@ -6239,23 +6387,29 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.HelpText.yml",
       "output": {
         ".html": {
           "relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.HelpText.html",
-          "hash": "R+Vr36GzOuCslRbVhgXs1g=="
+          "hash": "lpbiicyJOoFfTYCJ9HZgvQ=="
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.IConsole.yml",
       "output": {
@@ -6265,10 +6419,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.IReporter.yml",
       "output": {
@@ -6278,10 +6435,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.yml",
       "output": {
@@ -6291,8 +6451,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -6304,10 +6464,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.NullConsole.yml",
       "output": {
@@ -6317,10 +6480,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.NullReporter.yml",
       "output": {
@@ -6330,10 +6496,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.yml",
       "output": {
@@ -6343,10 +6512,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.OptionAttributeBase.yml",
       "output": {
@@ -6356,10 +6528,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Pager.yml",
       "output": {
@@ -6369,10 +6544,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.yml",
       "output": {
@@ -6382,10 +6560,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Prompt.yml",
       "output": {
@@ -6395,10 +6576,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.yml",
       "output": {
@@ -6408,10 +6592,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.yml",
       "output": {
@@ -6421,10 +6608,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.yml",
       "output": {
@@ -6434,10 +6624,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.yml",
       "output": {
@@ -6447,10 +6640,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.yml",
       "output": {
@@ -6460,10 +6656,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.yml",
       "output": {
@@ -6473,10 +6672,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.yml",
       "output": {
@@ -6486,10 +6688,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.yml",
       "output": {
@@ -6499,10 +6704,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.yml",
       "output": {
@@ -6512,10 +6720,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.yml",
       "output": {
@@ -6525,10 +6736,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.yml",
       "output": {
@@ -6538,10 +6752,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.yml",
       "output": {
@@ -6551,10 +6768,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.yml",
       "output": {
@@ -6564,10 +6784,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.yml",
       "output": {
@@ -6577,10 +6800,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.yml",
       "output": {
@@ -6590,10 +6816,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.yml",
       "output": {
@@ -6603,10 +6832,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.yml",
       "output": {
@@ -6616,8 +6848,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -6629,8 +6861,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -6642,8 +6874,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -6655,8 +6887,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -6668,8 +6900,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -6677,12 +6909,12 @@
       "output": {
         ".html": {
           "relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.Validation.html",
-          "hash": "tdPu1MG8ueiM4IEw1LxnfA=="
+          "hash": "ulUSVgcNsa8K1sOpcPuIfw=="
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "ManagedReference",
@@ -6694,10 +6926,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.yml",
       "output": {
@@ -6707,10 +6942,13 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.yml",
       "output": {
@@ -6720,23 +6958,29 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.yml",
       "output": {
         ".html": {
           "relative_path": "v2.5/api/McMaster.Extensions.CommandLineUtils.html",
-          "hash": "VnVfNlgKZ3p+YWCU1+28uw=="
+          "hash": "Qgc3D4jna3BPrmrJHxVJfQ=="
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.yml",
       "output": {
@@ -6746,23 +6990,29 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/McMaster.Extensions.Hosting.CommandLine.yml",
       "output": {
         ".html": {
           "relative_path": "v2.5/api/McMaster.Extensions.Hosting.CommandLine.html",
-          "hash": "Ojm+cjyrurGW9JzPQ/l94g=="
+          "hash": "ovluk6+DUZ0kWRCCfMWJUQ=="
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.yml",
       "output": {
@@ -6772,21 +7022,37 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
+      "log_codes": [
+        "DuplicateUids"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "v2.5/api/Microsoft.Extensions.Hosting.yml",
       "output": {
         ".html": {
           "relative_path": "v2.5/api/Microsoft.Extensions.Hosting.html",
-          "hash": "7PPGFKc81hPrFXuLCYiTjQ=="
+          "hash": "2+s4lnaNxVKB6oUmytxKqA=="
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "v2.5/api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "v2.5/api/index.html",
+          "hash": "C9hD4wJjZkW2P3dzXM142Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Toc",
@@ -6798,8 +7064,1462 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "v2.5/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.5/toc.html",
+          "hash": "PxkfTGv+o/M1zKhAegy+xQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.html",
+          "hash": "hBWGhIToJRvwEIdHujMJMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.html",
+          "hash": "lVjxSx7G9Y0TEQ0pWVBdMQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html",
+          "hash": "dpbZNN3M4SSgrjGJGk2dOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.html",
+          "hash": "F371XxG6PUUsgy3EQJ9//w=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html",
+          "hash": "VxxfK6SdXqWXAbjmpQOBYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html",
+          "hash": "7qP+9Mgfj8JYq/P00skpGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.html",
+          "hash": "DOjx6vu1X1RhojahPJtt5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Abstractions.html",
+          "hash": "b+zCZItFRi5Yw0Eqe8QSpA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.AllowedValuesAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.AllowedValuesAttribute.html",
+          "hash": "07Dh4UpM4M0WaY8hX+hIjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html",
+          "hash": "LgAy/SFSO3pVIEluwO6fxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ArgumentEscaper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ArgumentEscaper.html",
+          "hash": "v2kXJX7ZtdVBcPQ/EvAF8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandArgument-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandArgument-1.html",
+          "hash": "da/fGh/epXwthmvhA/0PSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandArgument.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html",
+          "hash": "sR7smJB34mD/ZlUitXisLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html",
+          "hash": "Kg9SckX3/BviyqttS3pHoQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html",
+          "hash": "oOustBSq0JOIcFxIhJis+g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html",
+          "hash": "zTDYWXIYKYnTqY8YFW5vBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html",
+          "hash": "wIAcP2ra7mvwGqtDN2sUsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandOption-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandOption-1.html",
+          "hash": "SoifijuWusQ3uDafee4w7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandOption.html",
+          "hash": "b0VoN3kg9noLThEPm46Jvw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandOptionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandOptionType.html",
+          "hash": "NEqgwkeCPpLFpyw6p62hWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandParsingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.CommandParsingException.html",
+          "hash": "OEzbItIlhGl1ffuJ6wuqzg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ConsoleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html",
+          "hash": "jJWsDbDAbILzzmxUKK1SfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ConsoleReporter.html",
+          "hash": "uzICkgxpA2inBNbyBuPh5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.html",
+          "hash": "eFAMcPdVxqG/2G6b+y1pBA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention.html",
+          "hash": "jJ80Mxb5wjaoiRDMx69aOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention.html",
+          "hash": "ueNISWyEaWIAGQMbOHVIpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.html",
+          "hash": "0NwNf1EmwpFujgGFJJzs5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.html",
+          "hash": "WkUwy2RKthZIKgouXDu3Tw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.html",
+          "hash": "N19vTsjTxl02P/UjJ/3jWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.html",
+          "hash": "B+K/l/nVZkb8WgfVrstfrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html",
+          "hash": "vt8ruBXA1tv9OkNaEgyazg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html",
+          "hash": "bGFPtD18i9G94VZ0BD71sg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.html",
+          "hash": "KcWi8j9iL01lznVvQ66j9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.html",
+          "hash": "5IL+iuBoj8lOrIsD6S+trA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.IConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html",
+          "hash": "KPW8q344D5xYV6BZw+Fylw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.html",
+          "hash": "0EWJzUvKOJloHXyVXZU2zQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html",
+          "hash": "fRBoH8JdQSFoNhpSDNhMtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention.html",
+          "hash": "JfbvVtzOcC9z8LuQDAHEdA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase-1.html",
+          "hash": "LKxy4jvmILxiMrCkBE/sgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention.html",
+          "hash": "+fFj+gSpBFpIBSyvg+SYhQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html",
+          "hash": "c0ULfBmkpE5Hc8Y+HilqCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.html",
+          "hash": "6OyWQ99D/o9KW2tu4YhbfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention.html",
+          "hash": "9ua4IaFd51JDQ4fqcRhv3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention.html",
+          "hash": "3QMtpbzYfGNqUJ2fphC3wg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention.html",
+          "hash": "WvKPb3GmH5S9Y3XZZgrF0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention.html",
+          "hash": "TBYx0bX3z+8Iv0uUYIWR9A=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Conventions.html",
+          "hash": "rn0OAYIjx4uCnGo1gNe8wg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.DebugHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.DebugHelper.html",
+          "hash": "nTjStGk4pRCWsdu/AkC7bQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.DirectoryExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.DirectoryExistsAttribute.html",
+          "hash": "yK+IAFzHfaotDCv5sjLBeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.html",
+          "hash": "jyQGbVssv0y/q5863Ov0xQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.DotNetCliContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.DotNetCliContext.html",
+          "hash": "ByyBdvD1l78EX2H1rfK1VA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.DotNetExe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.DotNetExe.html",
+          "hash": "jEGzhxtLtwCgpR64PbFOgw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException.html",
+          "hash": "AHtmldYylJMU5ewUK9zSTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Errors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Errors.html",
+          "hash": "l9kKY/4+u8pu3oQ9y/l0UQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.FileExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.FileExistsAttribute.html",
+          "hash": "+asLvSvLIi+3D/TuSihbQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute.html",
+          "hash": "sfxmi1HO/Rv6qeiDAb58mA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.html",
+          "hash": "BS//7+5neOB/5Choxuz/EA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute.html",
+          "hash": "bCizmgHUL+3B0AsTdEzfNQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.html",
+          "hash": "N/XV5fycIeGua9CBIviwuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html",
+          "hash": "9quR06QY6s/1hboGiUy4lg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.html",
+          "hash": "ecfzwfPGxGsdLy92eQbvqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html",
+          "hash": "xmEBb6eA5z9VO3qTMqAaUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.HelpText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.HelpText.html",
+          "hash": "7NeXLyEUhvGwUiw/zgHjuw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.IConsole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.IConsole.html",
+          "hash": "OYinr+/5ExIheM1YhnXJ0Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.IReporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.IReporter.html",
+          "hash": "xDwKZ5qhci88Bs1pv9QaJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.html",
+          "hash": "qNiuvMO3yYN0CxPIcRxzlg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.html",
+          "hash": "eGJkrtrzfGmQvupP62TccQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.NullConsole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.NullConsole.html",
+          "hash": "d2CjN9jpVKk+e4gRckliUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.NullReporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.NullReporter.html",
+          "hash": "sq7sGKGIgQuaiCc2ENAp8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html",
+          "hash": "3TCRRUWln4RFA/9ZVCtKBA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.OptionAttributeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html",
+          "hash": "IaTmbm2rNsvdo160idjZKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Pager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Pager.html",
+          "hash": "RdeWYzxvhwJdONK4+VMTWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.PhysicalConsole.html",
+          "hash": "cXz2axj7SmeRtsBO1q3nAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Prompt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Prompt.html",
+          "hash": "wKZMGXN1fwkPRTS5+rKVFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html",
+          "hash": "oscleMIaQsNZ9TbUPlkQEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html",
+          "hash": "irNV0z6wpZflZlyu1ADo6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.html",
+          "hash": "kVKQJHKQ2NUJ0V7fchqeTg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.html",
+          "hash": "7unPJ4mW90HVO0bAMqz0JQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.html",
+          "hash": "vyNUWX0f5QIdFXBraQnajQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.html",
+          "hash": "KE0uNf4CkUTyp2Qt5gv4Qg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.html",
+          "hash": "Hhc6coWLonUet8djIHgKLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html",
+          "hash": "fGdSpjWiulL42lx8sX8tag=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.html",
+          "hash": "BLp5OLk+cnSTXnnMZ3QIVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.html",
+          "hash": "70jYRt9MiA+OkGG0HgUaSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.html",
+          "hash": "QPMLHexjok5yEUf2xs+oqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.html",
+          "hash": "nV4haep0XLTr5iSk/0st7A=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html",
+          "hash": "HyKkeLxlRrHUCR2VsXP2hA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.html",
+          "hash": "2lL13jr/Z7x0nXxU/VcP1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.html",
+          "hash": "ojU7PuK6moYBcQZFp7ROnw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.html",
+          "hash": "ydHxdEBplELK7lYY9+2gdA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html",
+          "hash": "oGw3tKBRWg0DRKO5sMeiIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html",
+          "hash": "XeqbhIQ6SxjUWDPP2ZYW2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html",
+          "hash": "XQenMx7LhU6Dxwh2WtsWWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.IValidator.html",
+          "hash": "Ebhpy+jksphlKik3cAKvCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder-1.html",
+          "hash": "+zg4XQC1hEJNODwY2+3BQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder.html",
+          "hash": "dzXUrw7eQxVoTtT/g01Uzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.Validation.html",
+          "hash": "KS2B8LbvfQMNlNs9oZN0DA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.ValidationExtensions.html",
+          "hash": "5+DJyFg9i/DGLYI6FDfhoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.html",
+          "hash": "kj0De9Bz5UNr8CDuzqXHrg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.html",
+          "hash": "kHGOCkvCwTog4+AQA1pctw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.CommandLineUtils.html",
+          "hash": "GmgFu1GkTzAdFy1qBF3ZUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.html",
+          "hash": "Nu89yixvgsBHvjsFfqfEtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/McMaster.Extensions.Hosting.CommandLine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/McMaster.Extensions.Hosting.CommandLine.html",
+          "hash": "90LGeGqRiwVLMH1lV3WAyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html",
+          "hash": "FTkPBGBGpJ3iCI4QkFaBLQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "v2.6/api/Microsoft.Extensions.Hosting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/Microsoft.Extensions.Hosting.html",
+          "hash": "i51tNBLBYMUNyJwjRK4glQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "v2.6/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "v2.6/api/toc.html",
+          "hash": "pfxdrr7SL/SLwj1g7shmQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": "v2.6",
+      "group": "v2.6"
     },
     {
       "type": "Conceptual",
@@ -6811,8 +8531,8 @@
         }
       },
       "is_incremental": false,
-      "version": "v2.5",
-      "group": "v2.5"
+      "version": "v2.6",
+      "group": "v2.6"
     }
   ],
   "incremental_info": [
@@ -6880,7 +8600,38 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 10,
+          "total_file_count": 11,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 209,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 1,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
@@ -6997,6 +8748,7 @@
   ],
   "version_info": {
     "unstable": {},
+    "v2.6": {},
     "v2.5": {},
     "v2.4": {},
     "v2.3": {},
@@ -7009,6 +8761,10 @@
     {
       "name": "unstable",
       "xrefmap": "unstable.xrefmap.yml"
+    },
+    {
+      "name": "v2.6",
+      "xrefmap": "v2.6.xrefmap.yml"
     },
     {
       "name": "v2.5",
