@@ -1,0 +1,4561 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole
+  commentId: T:McMaster.Extensions.CommandLineUtils.NullConsole
+  id: NullConsole
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.NullConsole.BackgroundColor
+  - McMaster.Extensions.CommandLineUtils.NullConsole.CancelKeyPress
+  - McMaster.Extensions.CommandLineUtils.NullConsole.Error
+  - McMaster.Extensions.CommandLineUtils.NullConsole.ForegroundColor
+  - McMaster.Extensions.CommandLineUtils.NullConsole.In
+  - McMaster.Extensions.CommandLineUtils.NullConsole.IsErrorRedirected
+  - McMaster.Extensions.CommandLineUtils.NullConsole.IsInputRedirected
+  - McMaster.Extensions.CommandLineUtils.NullConsole.IsOutputRedirected
+  - McMaster.Extensions.CommandLineUtils.NullConsole.Out
+  - McMaster.Extensions.CommandLineUtils.NullConsole.ResetColor
+  - McMaster.Extensions.CommandLineUtils.NullConsole.Singleton
+  langs:
+  - csharp
+  - vb
+  name: NullConsole
+  nameWithType: NullConsole
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: NullConsole
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 12
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nAn implementation of <xref href=\"McMaster.Extensions.CommandLineUtils.IConsole\" data-throw-if-not-resolved=\"false\"></xref> that does nothing.\n"
+  example: []
+  syntax:
+    content: 'public class NullConsole : IConsole'
+    content.vb: >-
+      Public Class NullConsole
+          Implements IConsole
+  inheritance:
+  - System.Object
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IConsole
+  extensionMethods:
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object[])
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object,System.Object)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object,System.Object,System.Object)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.UInt64)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Boolean)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char[])
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char[],System.Int32,System.Int32)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Decimal)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Double)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.UInt32)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Int32)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Object)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Single)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Int64)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object[])
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object,System.Object)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object,System.Object,System.Object)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.UInt32)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Decimal)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Int32)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.UInt64)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Boolean)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char[])
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char[],System.Int32,System.Int32)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Double)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Int64)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Object)
+  - McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Single)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.Singleton
+  commentId: P:McMaster.Extensions.CommandLineUtils.NullConsole.Singleton
+  id: Singleton
+  parent: McMaster.Extensions.CommandLineUtils.NullConsole
+  langs:
+  - csharp
+  - vb
+  name: Singleton
+  nameWithType: NullConsole.Singleton
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.Singleton
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Singleton
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 22
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nA shared instance of <xref href=\"McMaster.Extensions.CommandLineUtils.NullConsole\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public static NullConsole Singleton { get; }
+    parameters: []
+    return:
+      type: McMaster.Extensions.CommandLineUtils.NullConsole
+    content.vb: Public Shared ReadOnly Property Singleton As NullConsole
+  overload: McMaster.Extensions.CommandLineUtils.NullConsole.Singleton*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.Out
+  commentId: P:McMaster.Extensions.CommandLineUtils.NullConsole.Out
+  id: Out
+  parent: McMaster.Extensions.CommandLineUtils.NullConsole
+  langs:
+  - csharp
+  - vb
+  name: Out
+  nameWithType: NullConsole.Out
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.Out
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Out
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 27
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nA writer that does nothing. \n"
+  example: []
+  syntax:
+    content: public TextWriter Out { get; }
+    parameters: []
+    return:
+      type: System.IO.TextWriter
+    content.vb: Public ReadOnly Property Out As TextWriter
+  overload: McMaster.Extensions.CommandLineUtils.NullConsole.Out*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IConsole.Out
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.Error
+  commentId: P:McMaster.Extensions.CommandLineUtils.NullConsole.Error
+  id: Error
+  parent: McMaster.Extensions.CommandLineUtils.NullConsole
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: NullConsole.Error
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.Error
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Error
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 32
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nA writer that does nothing. \n"
+  example: []
+  syntax:
+    content: public TextWriter Error { get; }
+    parameters: []
+    return:
+      type: System.IO.TextWriter
+    content.vb: Public ReadOnly Property Error As TextWriter
+  overload: McMaster.Extensions.CommandLineUtils.NullConsole.Error*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IConsole.Error
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.In
+  commentId: P:McMaster.Extensions.CommandLineUtils.NullConsole.In
+  id: In
+  parent: McMaster.Extensions.CommandLineUtils.NullConsole
+  langs:
+  - csharp
+  - vb
+  name: In
+  nameWithType: NullConsole.In
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.In
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: In
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 37
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nAn empty reader.\n"
+  example: []
+  syntax:
+    content: public TextReader In { get; }
+    parameters: []
+    return:
+      type: System.IO.TextReader
+    content.vb: Public ReadOnly Property In As TextReader
+  overload: McMaster.Extensions.CommandLineUtils.NullConsole.In*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IConsole.In
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.IsInputRedirected
+  commentId: P:McMaster.Extensions.CommandLineUtils.NullConsole.IsInputRedirected
+  id: IsInputRedirected
+  parent: McMaster.Extensions.CommandLineUtils.NullConsole
+  langs:
+  - csharp
+  - vb
+  name: IsInputRedirected
+  nameWithType: NullConsole.IsInputRedirected
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.IsInputRedirected
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IsInputRedirected
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 42
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nAlways <code>false</code>.\n"
+  example: []
+  syntax:
+    content: public bool IsInputRedirected { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInputRedirected As Boolean
+  overload: McMaster.Extensions.CommandLineUtils.NullConsole.IsInputRedirected*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IConsole.IsInputRedirected
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.IsOutputRedirected
+  commentId: P:McMaster.Extensions.CommandLineUtils.NullConsole.IsOutputRedirected
+  id: IsOutputRedirected
+  parent: McMaster.Extensions.CommandLineUtils.NullConsole
+  langs:
+  - csharp
+  - vb
+  name: IsOutputRedirected
+  nameWithType: NullConsole.IsOutputRedirected
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.IsOutputRedirected
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IsOutputRedirected
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 47
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nAlways <code>false</code>.\n"
+  example: []
+  syntax:
+    content: public bool IsOutputRedirected { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsOutputRedirected As Boolean
+  overload: McMaster.Extensions.CommandLineUtils.NullConsole.IsOutputRedirected*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IConsole.IsOutputRedirected
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.IsErrorRedirected
+  commentId: P:McMaster.Extensions.CommandLineUtils.NullConsole.IsErrorRedirected
+  id: IsErrorRedirected
+  parent: McMaster.Extensions.CommandLineUtils.NullConsole
+  langs:
+  - csharp
+  - vb
+  name: IsErrorRedirected
+  nameWithType: NullConsole.IsErrorRedirected
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.IsErrorRedirected
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IsErrorRedirected
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 52
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nAlways <code>false</code>.\n"
+  example: []
+  syntax:
+    content: public bool IsErrorRedirected { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsErrorRedirected As Boolean
+  overload: McMaster.Extensions.CommandLineUtils.NullConsole.IsErrorRedirected*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IConsole.IsErrorRedirected
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.ForegroundColor
+  commentId: P:McMaster.Extensions.CommandLineUtils.NullConsole.ForegroundColor
+  id: ForegroundColor
+  parent: McMaster.Extensions.CommandLineUtils.NullConsole
+  langs:
+  - csharp
+  - vb
+  name: ForegroundColor
+  nameWithType: NullConsole.ForegroundColor
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.ForegroundColor
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ForegroundColor
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 55
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe foreground color of output.\n"
+  example: []
+  syntax:
+    content: public ConsoleColor ForegroundColor { get; set; }
+    parameters: []
+    return:
+      type: System.ConsoleColor
+    content.vb: Public Property ForegroundColor As ConsoleColor
+  overload: McMaster.Extensions.CommandLineUtils.NullConsole.ForegroundColor*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IConsole.ForegroundColor
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.BackgroundColor
+  commentId: P:McMaster.Extensions.CommandLineUtils.NullConsole.BackgroundColor
+  id: BackgroundColor
+  parent: McMaster.Extensions.CommandLineUtils.NullConsole
+  langs:
+  - csharp
+  - vb
+  name: BackgroundColor
+  nameWithType: NullConsole.BackgroundColor
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.BackgroundColor
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: BackgroundColor
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 58
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe background color of output.\n"
+  example: []
+  syntax:
+    content: public ConsoleColor BackgroundColor { get; set; }
+    parameters: []
+    return:
+      type: System.ConsoleColor
+    content.vb: Public Property BackgroundColor As ConsoleColor
+  overload: McMaster.Extensions.CommandLineUtils.NullConsole.BackgroundColor*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IConsole.BackgroundColor
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.CancelKeyPress
+  commentId: E:McMaster.Extensions.CommandLineUtils.NullConsole.CancelKeyPress
+  id: CancelKeyPress
+  parent: McMaster.Extensions.CommandLineUtils.NullConsole
+  langs:
+  - csharp
+  - vb
+  name: CancelKeyPress
+  nameWithType: NullConsole.CancelKeyPress
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.CancelKeyPress
+  type: Event
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: CancelKeyPress
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 63
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThis event never fires.\n"
+  example: []
+  syntax:
+    content: public event ConsoleCancelEventHandler CancelKeyPress
+    return:
+      type: System.ConsoleCancelEventHandler
+    content.vb: Public Event CancelKeyPress As ConsoleCancelEventHandler
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IConsole.CancelKeyPress
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.ResetColor
+  commentId: M:McMaster.Extensions.CommandLineUtils.NullConsole.ResetColor
+  id: ResetColor
+  parent: McMaster.Extensions.CommandLineUtils.NullConsole
+  langs:
+  - csharp
+  - vb
+  name: ResetColor()
+  nameWithType: NullConsole.ResetColor()
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.ResetColor()
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullConsole.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ResetColor
+    path: ../src/CommandLineUtils/IO/NullConsole.cs
+    startLine: 72
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nDoes nothing.\n"
+  example: []
+  syntax:
+    content: public void ResetColor()
+    content.vb: Public Sub ResetColor
+  overload: McMaster.Extensions.CommandLineUtils.NullConsole.ResetColor*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IConsole.ResetColor
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: McMaster.Extensions.CommandLineUtils.IConsole
+  commentId: T:McMaster.Extensions.CommandLineUtils.IConsole
+  parent: McMaster.Extensions.CommandLineUtils
+  name: IConsole
+  nameWithType: IConsole
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+  name: WriteLine()
+  nameWithType: ConsoleExtensions.WriteLine()
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  name: WriteLine(String)
+  nameWithType: ConsoleExtensions.WriteLine(String)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  name: WriteLine(String, Object[])
+  nameWithType: ConsoleExtensions.WriteLine(String, Object[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String, System.Object[])
+  nameWithType.vb: ConsoleExtensions.WriteLine(String, Object())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String, System.Object())
+  name.vb: WriteLine(String, Object())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object[])
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object[])
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  name: WriteLine(String, Object)
+  nameWithType: ConsoleExtensions.WriteLine(String, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  name: WriteLine(String, Object, Object)
+  nameWithType: ConsoleExtensions.WriteLine(String, Object, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String, System.Object, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  name: WriteLine(String, Object, Object, Object)
+  nameWithType: ConsoleExtensions.WriteLine(String, Object, Object, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String, System.Object, System.Object, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object,System.Object,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.String,System.Object,System.Object,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.UInt64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  name: WriteLine(UInt64)
+  nameWithType: ConsoleExtensions.WriteLine(UInt64)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.UInt64)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.UInt64)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.UInt64)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  name: WriteLine(Boolean)
+  nameWithType: ConsoleExtensions.WriteLine(Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Boolean)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Boolean)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Boolean)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  name: WriteLine(Char)
+  nameWithType: ConsoleExtensions.WriteLine(Char)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  name: WriteLine(Char[])
+  nameWithType: ConsoleExtensions.WriteLine(Char[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char[])
+  nameWithType.vb: ConsoleExtensions.WriteLine(Char())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char())
+  name.vb: WriteLine(Char())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char[])
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char[])
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char[],System.Int32,System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  name: WriteLine(Char[], Int32, Int32)
+  nameWithType: ConsoleExtensions.WriteLine(Char[], Int32, Int32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char[], System.Int32, System.Int32)
+  nameWithType.vb: ConsoleExtensions.WriteLine(Char(), Int32, Int32)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char(), System.Int32, System.Int32)
+  name.vb: WriteLine(Char(), Int32, Int32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char[],System.Int32,System.Int32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Char[],System.Int32,System.Int32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Decimal)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  name: WriteLine(Decimal)
+  nameWithType: ConsoleExtensions.WriteLine(Decimal)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Decimal)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Decimal)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Decimal
+    name: Decimal
+    nameWithType: Decimal
+    fullName: System.Decimal
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Decimal)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Decimal
+    name: Decimal
+    nameWithType: Decimal
+    fullName: System.Decimal
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Double)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  name: WriteLine(Double)
+  nameWithType: ConsoleExtensions.WriteLine(Double)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Double)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Double)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Double)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.UInt32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  name: WriteLine(UInt32)
+  nameWithType: ConsoleExtensions.WriteLine(UInt32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.UInt32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.UInt32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.UInt32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  name: WriteLine(Int32)
+  nameWithType: ConsoleExtensions.WriteLine(Int32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Int32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Int32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Int32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  name: WriteLine(Object)
+  nameWithType: ConsoleExtensions.WriteLine(Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Single)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  name: WriteLine(Single)
+  nameWithType: ConsoleExtensions.WriteLine(Single)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Single)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Single)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Single)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Int64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  name: WriteLine(Int64)
+  nameWithType: ConsoleExtensions.WriteLine(Int64)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Int64)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Int64)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(System.Int64)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  name: Write(String)
+  nameWithType: ConsoleExtensions.Write(String)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  name: Write(String, Object[])
+  nameWithType: ConsoleExtensions.Write(String, Object[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String, System.Object[])
+  nameWithType.vb: ConsoleExtensions.Write(String, Object())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String, System.Object())
+  name.vb: Write(String, Object())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object[])
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object[])
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  name: Write(String, Object)
+  nameWithType: ConsoleExtensions.Write(String, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  name: Write(String, Object, Object)
+  nameWithType: ConsoleExtensions.Write(String, Object, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String, System.Object, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  name: Write(String, Object, Object, Object)
+  nameWithType: ConsoleExtensions.Write(String, Object, Object, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String, System.Object, System.Object, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object,System.Object,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.String,System.Object,System.Object,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.UInt32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  name: Write(UInt32)
+  nameWithType: ConsoleExtensions.Write(UInt32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.UInt32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.UInt32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.UInt32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Decimal)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  name: Write(Decimal)
+  nameWithType: ConsoleExtensions.Write(Decimal)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Decimal)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Decimal)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Decimal
+    name: Decimal
+    nameWithType: Decimal
+    fullName: System.Decimal
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Decimal)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Decimal
+    name: Decimal
+    nameWithType: Decimal
+    fullName: System.Decimal
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  name: Write(Int32)
+  nameWithType: ConsoleExtensions.Write(Int32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Int32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Int32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Int32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.UInt64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  name: Write(UInt64)
+  nameWithType: ConsoleExtensions.Write(UInt64)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.UInt64)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.UInt64)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.UInt64)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  name: Write(Boolean)
+  nameWithType: ConsoleExtensions.Write(Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Boolean)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Boolean)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Boolean)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  name: Write(Char)
+  nameWithType: ConsoleExtensions.Write(Char)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  name: Write(Char[])
+  nameWithType: ConsoleExtensions.Write(Char[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char[])
+  nameWithType.vb: ConsoleExtensions.Write(Char())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char())
+  name.vb: Write(Char())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char[])
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char[])
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char[],System.Int32,System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  name: Write(Char[], Int32, Int32)
+  nameWithType: ConsoleExtensions.Write(Char[], Int32, Int32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char[], System.Int32, System.Int32)
+  nameWithType.vb: ConsoleExtensions.Write(Char(), Int32, Int32)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char(), System.Int32, System.Int32)
+  name.vb: Write(Char(), Int32, Int32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char[],System.Int32,System.Int32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Char[],System.Int32,System.Int32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Double)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  name: Write(Double)
+  nameWithType: ConsoleExtensions.Write(Double)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Double)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Double)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Double)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Int64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  name: Write(Int64)
+  nameWithType: ConsoleExtensions.Write(Int64)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Int64)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Int64)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Int64)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  name: Write(Object)
+  nameWithType: ConsoleExtensions.Write(Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Single)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  name: Write(Single)
+  nameWithType: ConsoleExtensions.Write(Single)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Single)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Single)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(System.Single)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+  name: WriteLine(IConsole)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  commentId: T:McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  parent: McMaster.Extensions.CommandLineUtils
+  name: ConsoleExtensions
+  nameWithType: ConsoleExtensions
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  isExternal: true
+  name: WriteLine(IConsole, String)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, String)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  isExternal: true
+  name: WriteLine(IConsole, String, Object[])
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, String, Object[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Object[])
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, String, Object())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Object())
+  name.vb: WriteLine(IConsole, String, Object())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  isExternal: true
+  name: WriteLine(IConsole, String, Object)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, String, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  isExternal: true
+  name: WriteLine(IConsole, String, Object, Object)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, String, Object, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Object, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  isExternal: true
+  name: WriteLine(IConsole, String, Object, Object, Object)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, String, Object, Object, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Object, System.Object, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  isExternal: true
+  name: WriteLine(IConsole, UInt64)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, UInt64)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.UInt64)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  isExternal: true
+  name: WriteLine(IConsole, Boolean)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Boolean)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  isExternal: true
+  name: WriteLine(IConsole, Char)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, Char)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Char)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  isExternal: true
+  name: WriteLine(IConsole, Char[])
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, Char[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Char[])
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Char())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Char())
+  name.vb: WriteLine(IConsole, Char())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  isExternal: true
+  name: WriteLine(IConsole, Char[], Int32, Int32)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, Char[], Int32, Int32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Char[], System.Int32, System.Int32)
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Char(), Int32, Int32)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Char(), System.Int32, System.Int32)
+  name.vb: WriteLine(IConsole, Char(), Int32, Int32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  isExternal: true
+  name: WriteLine(IConsole, Decimal)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, Decimal)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Decimal)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Decimal
+    name: Decimal
+    nameWithType: Decimal
+    fullName: System.Decimal
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Decimal
+    name: Decimal
+    nameWithType: Decimal
+    fullName: System.Decimal
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  isExternal: true
+  name: WriteLine(IConsole, Double)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, Double)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Double)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  isExternal: true
+  name: WriteLine(IConsole, UInt32)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, UInt32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.UInt32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  isExternal: true
+  name: WriteLine(IConsole, Int32)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, Int32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Int32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  isExternal: true
+  name: WriteLine(IConsole, Object)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  isExternal: true
+  name: WriteLine(IConsole, Single)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, Single)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Single)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  isExternal: true
+  name: WriteLine(IConsole, Int64)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, Int64)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, System.Int64)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+    name: WriteLine
+    nameWithType: ConsoleExtensions.WriteLine
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  isExternal: true
+  name: Write(IConsole, String)
+  nameWithType: ConsoleExtensions.Write(IConsole, String)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  isExternal: true
+  name: Write(IConsole, String, Object[])
+  nameWithType: ConsoleExtensions.Write(IConsole, String, Object[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Object[])
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, String, Object())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Object())
+  name.vb: Write(IConsole, String, Object())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  isExternal: true
+  name: Write(IConsole, String, Object)
+  nameWithType: ConsoleExtensions.Write(IConsole, String, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  isExternal: true
+  name: Write(IConsole, String, Object, Object)
+  nameWithType: ConsoleExtensions.Write(IConsole, String, Object, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Object, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  isExternal: true
+  name: Write(IConsole, String, Object, Object, Object)
+  nameWithType: ConsoleExtensions.Write(IConsole, String, Object, Object, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.String, System.Object, System.Object, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  isExternal: true
+  name: Write(IConsole, UInt32)
+  nameWithType: ConsoleExtensions.Write(IConsole, UInt32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.UInt32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt32
+    name: UInt32
+    nameWithType: UInt32
+    fullName: System.UInt32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  isExternal: true
+  name: Write(IConsole, Decimal)
+  nameWithType: ConsoleExtensions.Write(IConsole, Decimal)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Decimal)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Decimal
+    name: Decimal
+    nameWithType: Decimal
+    fullName: System.Decimal
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Decimal
+    name: Decimal
+    nameWithType: Decimal
+    fullName: System.Decimal
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  isExternal: true
+  name: Write(IConsole, Int32)
+  nameWithType: ConsoleExtensions.Write(IConsole, Int32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Int32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  isExternal: true
+  name: Write(IConsole, UInt64)
+  nameWithType: ConsoleExtensions.Write(IConsole, UInt64)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.UInt64)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  isExternal: true
+  name: Write(IConsole, Boolean)
+  nameWithType: ConsoleExtensions.Write(IConsole, Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Boolean)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  isExternal: true
+  name: Write(IConsole, Char)
+  nameWithType: ConsoleExtensions.Write(IConsole, Char)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Char)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  isExternal: true
+  name: Write(IConsole, Char[])
+  nameWithType: ConsoleExtensions.Write(IConsole, Char[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Char[])
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Char())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Char())
+  name.vb: Write(IConsole, Char())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  isExternal: true
+  name: Write(IConsole, Char[], Int32, Int32)
+  nameWithType: ConsoleExtensions.Write(IConsole, Char[], Int32, Int32)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Char[], System.Int32, System.Int32)
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Char(), Int32, Int32)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Char(), System.Int32, System.Int32)
+  name.vb: Write(IConsole, Char(), Int32, Int32)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Char
+    name: Char
+    nameWithType: Char
+    fullName: System.Char
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  isExternal: true
+  name: Write(IConsole, Double)
+  nameWithType: ConsoleExtensions.Write(IConsole, Double)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Double)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  isExternal: true
+  name: Write(IConsole, Int64)
+  nameWithType: ConsoleExtensions.Write(IConsole, Int64)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Int64)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  isExternal: true
+  name: Write(IConsole, Object)
+  nameWithType: ConsoleExtensions.Write(IConsole, Object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Object)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  isExternal: true
+  name: Write(IConsole, Single)
+  nameWithType: ConsoleExtensions.Write(IConsole, Single)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, System.Single)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+    name: Write
+    nameWithType: ConsoleExtensions.Write
+    fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    nameWithType: IConsole
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole
+  commentId: T:McMaster.Extensions.CommandLineUtils.NullConsole
+  parent: McMaster.Extensions.CommandLineUtils
+  name: NullConsole
+  nameWithType: NullConsole
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.Singleton*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullConsole.Singleton
+  name: Singleton
+  nameWithType: NullConsole.Singleton
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.Singleton
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.Out*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullConsole.Out
+  name: Out
+  nameWithType: NullConsole.Out
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.Out
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.Out
+  commentId: P:McMaster.Extensions.CommandLineUtils.IConsole.Out
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: Out
+  nameWithType: IConsole.Out
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.Out
+- uid: System.IO.TextWriter
+  commentId: T:System.IO.TextWriter
+  parent: System.IO
+  isExternal: true
+  name: TextWriter
+  nameWithType: TextWriter
+  fullName: System.IO.TextWriter
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.Error*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullConsole.Error
+  name: Error
+  nameWithType: NullConsole.Error
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.Error
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.Error
+  commentId: P:McMaster.Extensions.CommandLineUtils.IConsole.Error
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: Error
+  nameWithType: IConsole.Error
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.Error
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.In*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullConsole.In
+  name: In
+  nameWithType: NullConsole.In
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.In
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.In
+  commentId: P:McMaster.Extensions.CommandLineUtils.IConsole.In
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: In
+  nameWithType: IConsole.In
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.In
+- uid: System.IO.TextReader
+  commentId: T:System.IO.TextReader
+  parent: System.IO
+  isExternal: true
+  name: TextReader
+  nameWithType: TextReader
+  fullName: System.IO.TextReader
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.IsInputRedirected*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullConsole.IsInputRedirected
+  name: IsInputRedirected
+  nameWithType: NullConsole.IsInputRedirected
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.IsInputRedirected
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.IsInputRedirected
+  commentId: P:McMaster.Extensions.CommandLineUtils.IConsole.IsInputRedirected
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: IsInputRedirected
+  nameWithType: IConsole.IsInputRedirected
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.IsInputRedirected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.IsOutputRedirected*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullConsole.IsOutputRedirected
+  name: IsOutputRedirected
+  nameWithType: NullConsole.IsOutputRedirected
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.IsOutputRedirected
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.IsOutputRedirected
+  commentId: P:McMaster.Extensions.CommandLineUtils.IConsole.IsOutputRedirected
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: IsOutputRedirected
+  nameWithType: IConsole.IsOutputRedirected
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.IsOutputRedirected
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.IsErrorRedirected*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullConsole.IsErrorRedirected
+  name: IsErrorRedirected
+  nameWithType: NullConsole.IsErrorRedirected
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.IsErrorRedirected
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.IsErrorRedirected
+  commentId: P:McMaster.Extensions.CommandLineUtils.IConsole.IsErrorRedirected
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: IsErrorRedirected
+  nameWithType: IConsole.IsErrorRedirected
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.IsErrorRedirected
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.ForegroundColor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullConsole.ForegroundColor
+  name: ForegroundColor
+  nameWithType: NullConsole.ForegroundColor
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.ForegroundColor
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.ForegroundColor
+  commentId: P:McMaster.Extensions.CommandLineUtils.IConsole.ForegroundColor
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: ForegroundColor
+  nameWithType: IConsole.ForegroundColor
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.ForegroundColor
+- uid: System.ConsoleColor
+  commentId: T:System.ConsoleColor
+  parent: System
+  isExternal: true
+  name: ConsoleColor
+  nameWithType: ConsoleColor
+  fullName: System.ConsoleColor
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.BackgroundColor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullConsole.BackgroundColor
+  name: BackgroundColor
+  nameWithType: NullConsole.BackgroundColor
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.BackgroundColor
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.BackgroundColor
+  commentId: P:McMaster.Extensions.CommandLineUtils.IConsole.BackgroundColor
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: BackgroundColor
+  nameWithType: IConsole.BackgroundColor
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.BackgroundColor
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.CancelKeyPress
+  commentId: E:McMaster.Extensions.CommandLineUtils.IConsole.CancelKeyPress
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: CancelKeyPress
+  nameWithType: IConsole.CancelKeyPress
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.CancelKeyPress
+- uid: System.ConsoleCancelEventHandler
+  commentId: T:System.ConsoleCancelEventHandler
+  parent: System
+  isExternal: true
+  name: ConsoleCancelEventHandler
+  nameWithType: ConsoleCancelEventHandler
+  fullName: System.ConsoleCancelEventHandler
+- uid: McMaster.Extensions.CommandLineUtils.NullConsole.ResetColor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullConsole.ResetColor
+  name: ResetColor
+  nameWithType: NullConsole.ResetColor
+  fullName: McMaster.Extensions.CommandLineUtils.NullConsole.ResetColor
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.ResetColor
+  commentId: M:McMaster.Extensions.CommandLineUtils.IConsole.ResetColor
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: ResetColor()
+  nameWithType: IConsole.ResetColor()
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.ResetColor()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole.ResetColor
+    name: ResetColor
+    nameWithType: IConsole.ResetColor
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole.ResetColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole.ResetColor
+    name: ResetColor
+    nameWithType: IConsole.ResetColor
+    fullName: McMaster.Extensions.CommandLineUtils.IConsole.ResetColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )

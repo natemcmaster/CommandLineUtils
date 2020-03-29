@@ -4,7 +4,7 @@ uid: latest_api_ref
 API Reference
 =============
 
-**Version 2.5**
+**Version 2.6**
 
 McMaster.Extensions.CommandLineUtils supports three target frameworks.
 

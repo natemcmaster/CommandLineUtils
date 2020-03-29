@@ -1,0 +1,432 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException
+  commentId: T:McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException
+  id: MissingParameterlessConstructorException
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.#ctor(System.Type,System.Exception)
+  - McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.Type
+  langs:
+  - csharp
+  - vb
+  name: MissingParameterlessConstructorException
+  nameWithType: MissingParameterlessConstructorException
+  fullName: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: MissingParameterlessConstructorException
+    path: ../src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe exception that is thrown when trying to instantiate a model with no parameterless constructor.\n"
+  example: []
+  syntax:
+    content: 'public class MissingParameterlessConstructorException : TargetException, ISerializable'
+    content.vb: >-
+      Public Class MissingParameterlessConstructorException
+          Inherits TargetException
+          Implements ISerializable
+  inheritance:
+  - System.Object
+  - System.Exception
+  - System.ApplicationException
+  - System.Reflection.TargetException
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  inheritedMembers:
+  - System.Exception.GetBaseException
+  - System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - System.Exception.GetType
+  - System.Exception.ToString
+  - System.Exception.Data
+  - System.Exception.HelpLink
+  - System.Exception.HResult
+  - System.Exception.InnerException
+  - System.Exception.Message
+  - System.Exception.Source
+  - System.Exception.StackTrace
+  - System.Exception.TargetSite
+  - System.Exception.SerializeObjectState
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.Type
+  commentId: P:McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.Type
+  id: Type
+  parent: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: MissingParameterlessConstructorException.Type
+  fullName: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.Type
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Type
+    path: ../src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs
+    startLine: 16
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nGets the type that caused the exception.\n"
+  example: []
+  syntax:
+    content: public Type Type { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property Type As Type
+  overload: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.Type*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.#ctor(System.Type,System.Exception)
+  commentId: M:McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.#ctor(System.Type,System.Exception)
+  id: '#ctor(System.Type,System.Exception)'
+  parent: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException
+  langs:
+  - csharp
+  - vb
+  name: MissingParameterlessConstructorException(Type, Exception)
+  nameWithType: MissingParameterlessConstructorException.MissingParameterlessConstructorException(Type, Exception)
+  fullName: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.MissingParameterlessConstructorException(System.Type, System.Exception)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs
+    startLine: 23
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes an instance of <xref href=\"McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public MissingParameterlessConstructorException(Type type, Exception innerException)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type missing a parameterless constructor.
+    - id: innerException
+      type: System.Exception
+      description: The original exception.
+    content.vb: Public Sub New(type As Type, innerException As Exception)
+  overload: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: System.ApplicationException
+  commentId: T:System.ApplicationException
+  parent: System
+  isExternal: true
+  name: ApplicationException
+  nameWithType: ApplicationException
+  fullName: System.ApplicationException
+- uid: System.Reflection.TargetException
+  commentId: T:System.Reflection.TargetException
+  parent: System.Reflection
+  isExternal: true
+  name: TargetException
+  nameWithType: TargetException
+  fullName: System.Reflection.TargetException
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
+- uid: System.Exception.GetBaseException
+  commentId: M:System.Exception.GetBaseException
+  parent: System.Exception
+  isExternal: true
+  name: GetBaseException()
+  nameWithType: Exception.GetBaseException()
+  fullName: System.Exception.GetBaseException()
+  spec.csharp:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    nameWithType: Exception.GetBaseException
+    fullName: System.Exception.GetBaseException
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    nameWithType: Exception.GetBaseException
+    fullName: System.Exception.GetBaseException
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Exception
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: Exception.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: Exception.GetObjectData
+    fullName: System.Exception.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: Exception.GetObjectData
+    fullName: System.Exception.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Exception.GetType
+  commentId: M:System.Exception.GetType
+  parent: System.Exception
+  isExternal: true
+  name: GetType()
+  nameWithType: Exception.GetType()
+  fullName: System.Exception.GetType()
+  spec.csharp:
+  - uid: System.Exception.GetType
+    name: GetType
+    nameWithType: Exception.GetType
+    fullName: System.Exception.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Exception.GetType
+    name: GetType
+    nameWithType: Exception.GetType
+    fullName: System.Exception.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Exception.ToString
+  commentId: M:System.Exception.ToString
+  parent: System.Exception
+  isExternal: true
+  name: ToString()
+  nameWithType: Exception.ToString()
+  fullName: System.Exception.ToString()
+  spec.csharp:
+  - uid: System.Exception.ToString
+    name: ToString
+    nameWithType: Exception.ToString
+    fullName: System.Exception.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Exception.ToString
+    name: ToString
+    nameWithType: Exception.ToString
+    fullName: System.Exception.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Exception.Data
+  commentId: P:System.Exception.Data
+  parent: System.Exception
+  isExternal: true
+  name: Data
+  nameWithType: Exception.Data
+  fullName: System.Exception.Data
+- uid: System.Exception.HelpLink
+  commentId: P:System.Exception.HelpLink
+  parent: System.Exception
+  isExternal: true
+  name: HelpLink
+  nameWithType: Exception.HelpLink
+  fullName: System.Exception.HelpLink
+- uid: System.Exception.HResult
+  commentId: P:System.Exception.HResult
+  parent: System.Exception
+  isExternal: true
+  name: HResult
+  nameWithType: Exception.HResult
+  fullName: System.Exception.HResult
+- uid: System.Exception.InnerException
+  commentId: P:System.Exception.InnerException
+  parent: System.Exception
+  isExternal: true
+  name: InnerException
+  nameWithType: Exception.InnerException
+  fullName: System.Exception.InnerException
+- uid: System.Exception.Message
+  commentId: P:System.Exception.Message
+  parent: System.Exception
+  isExternal: true
+  name: Message
+  nameWithType: Exception.Message
+  fullName: System.Exception.Message
+- uid: System.Exception.Source
+  commentId: P:System.Exception.Source
+  parent: System.Exception
+  isExternal: true
+  name: Source
+  nameWithType: Exception.Source
+  fullName: System.Exception.Source
+- uid: System.Exception.StackTrace
+  commentId: P:System.Exception.StackTrace
+  parent: System.Exception
+  isExternal: true
+  name: StackTrace
+  nameWithType: Exception.StackTrace
+  fullName: System.Exception.StackTrace
+- uid: System.Exception.TargetSite
+  commentId: P:System.Exception.TargetSite
+  parent: System.Exception
+  isExternal: true
+  name: TargetSite
+  nameWithType: Exception.TargetSite
+  fullName: System.Exception.TargetSite
+- uid: System.Exception.SerializeObjectState
+  commentId: E:System.Exception.SerializeObjectState
+  parent: System.Exception
+  isExternal: true
+  name: SerializeObjectState
+  nameWithType: Exception.SerializeObjectState
+  fullName: System.Exception.SerializeObjectState
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Reflection
+  commentId: N:System.Reflection
+  isExternal: true
+  name: System.Reflection
+  nameWithType: System.Reflection
+  fullName: System.Reflection
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
+- uid: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.Type*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.Type
+  name: Type
+  nameWithType: MissingParameterlessConstructorException.Type
+  fullName: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.Type
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException
+  commentId: T:McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException
+  name: MissingParameterlessConstructorException
+  nameWithType: MissingParameterlessConstructorException
+  fullName: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException
+- uid: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.#ctor
+  name: MissingParameterlessConstructorException
+  nameWithType: MissingParameterlessConstructorException.MissingParameterlessConstructorException
+  fullName: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException.MissingParameterlessConstructorException

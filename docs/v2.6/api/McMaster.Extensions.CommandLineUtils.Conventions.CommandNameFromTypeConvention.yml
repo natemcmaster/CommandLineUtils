@@ -1,0 +1,153 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention
+  id: CommandNameFromTypeConvention
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  langs:
+  - csharp
+  - vb
+  name: CommandNameFromTypeConvention
+  nameWithType: CommandNameFromTypeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/CommandNameFromTypeConvention.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: CommandNameFromTypeConvention
+    path: ../src/CommandLineUtils/Conventions/CommandNameFromTypeConvention.cs
+    startLine: 16
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nSets the command name based on the model type, if is not otherwise set.\n<p>\nThis attempts to infer a command name using a few rules, such as using kebab-case\nand trimming &quot;Command&quot; from the name of the type.\n<example>AddCommand => &quot;add&quot;</example>\n<example>RemoveItemCommand => &quot;remove-item&quot;</example>\n</p>\n"
+  example: []
+  syntax:
+    content: 'public class CommandNameFromTypeConvention : IConvention'
+    content.vb: >-
+      Public Class CommandNameFromTypeConvention
+          Implements IConvention
+  inheritance:
+  - System.Object
+  implements:
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  id: Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention
+  langs:
+  - csharp
+  - vb
+  name: Apply(ConventionContext)
+  nameWithType: CommandNameFromTypeConvention.Apply(ConventionContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/CommandNameFromTypeConvention.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Apply
+    path: ../src/CommandLineUtils/Conventions/CommandNameFromTypeConvention.cs
+    startLine: 19
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nApply the convention.\n"
+  example: []
+  syntax:
+    content: public void Apply(ConventionContext context)
+    parameters:
+    - id: context
+      type: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+      description: The context in which the convention is applied.
+    content.vb: Public Sub Apply(context As ConventionContext)
+  overload: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Conventions
+  name: McMaster.Extensions.CommandLineUtils.Conventions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Conventions
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  name: IConvention
+  nameWithType: IConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply
+  name: Apply
+  nameWithType: CommandNameFromTypeConvention.Apply
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.Apply
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  name: Apply(ConventionContext)
+  nameWithType: IConvention.Apply(ConventionContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+    name: Apply
+    nameWithType: IConvention.Apply
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+    name: ConventionContext
+    nameWithType: ConventionContext
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+    name: Apply
+    nameWithType: IConvention.Apply
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+    name: ConventionContext
+    nameWithType: ConventionContext
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  name: ConventionContext
+  nameWithType: ConventionContext
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext

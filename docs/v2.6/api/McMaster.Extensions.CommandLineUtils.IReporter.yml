@@ -1,0 +1,207 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.IReporter
+  commentId: T:McMaster.Extensions.CommandLineUtils.IReporter
+  id: IReporter
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  - McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  - McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  - McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IReporter
+  nameWithType: IReporter
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/IReporter.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IReporter
+    path: ../src/CommandLineUtils/IO/IReporter.cs
+    startLine: 9
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nGathers messages with levels.\n"
+  example: []
+  syntax:
+    content: public interface IReporter
+    content.vb: Public Interface IReporter
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  id: Verbose(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  langs:
+  - csharp
+  - vb
+  name: Verbose(String)
+  nameWithType: IReporter.Verbose(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/IReporter.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Verbose
+    path: ../src/CommandLineUtils/IO/IReporter.cs
+    startLine: 15
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nReport a verbose message.\n"
+  example: []
+  syntax:
+    content: void Verbose(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Sub Verbose(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.IReporter.Verbose*
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  id: Output(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  langs:
+  - csharp
+  - vb
+  name: Output(String)
+  nameWithType: IReporter.Output(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/IReporter.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Output
+    path: ../src/CommandLineUtils/IO/IReporter.cs
+    startLine: 21
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nReport console output.\n"
+  example: []
+  syntax:
+    content: void Output(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Sub Output(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.IReporter.Output*
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  id: Warn(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  langs:
+  - csharp
+  - vb
+  name: Warn(String)
+  nameWithType: IReporter.Warn(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/IReporter.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Warn
+    path: ../src/CommandLineUtils/IO/IReporter.cs
+    startLine: 27
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nReport a warning.\n"
+  example: []
+  syntax:
+    content: void Warn(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Sub Warn(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.IReporter.Warn*
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  id: Error(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  langs:
+  - csharp
+  - vb
+  name: Error(String)
+  nameWithType: IReporter.Error(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/IReporter.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Error
+    path: ../src/CommandLineUtils/IO/IReporter.cs
+    startLine: 33
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nReport an error.\n"
+  example: []
+  syntax:
+    content: void Error(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Sub Error(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.IReporter.Error*
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Verbose*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.IReporter.Verbose
+  name: Verbose
+  nameWithType: IReporter.Verbose
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Verbose
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Output*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.IReporter.Output
+  name: Output
+  nameWithType: IReporter.Output
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Output
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Warn*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.IReporter.Warn
+  name: Warn
+  nameWithType: IReporter.Warn
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Warn
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Error*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.IReporter.Error
+  name: Error
+  nameWithType: IReporter.Error
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Error
