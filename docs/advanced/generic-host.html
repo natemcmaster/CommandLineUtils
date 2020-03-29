@@ -8,7 +8,7 @@
     <title>Integration with Generic Host </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Integration with Generic Host ">
-    <meta name="generator" content="docfx 2.48.0.0">
+    <meta name="generator" content="docfx 2.51.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -101,9 +101,9 @@ class Program
     [Option]
     public int Port { get; } = 8080;
 
-    private IHostingEnvironment _env;
+    private IHostEnvironment _env;
 
-    public Program(IHostingEnvironment env)
+    public Program(IHostEnvironment env)
     {
         _env = env;
     }

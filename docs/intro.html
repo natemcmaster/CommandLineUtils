@@ -8,7 +8,7 @@
     <title>Introduction </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Introduction ">
-    <meta name="generator" content="docfx 2.48.0.0">
+    <meta name="generator" content="docfx 2.51.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -80,22 +80,19 @@
 
 <p><strong>CommandLineUtils</strong> is a library which helps developers implement command line applications. The primary goal of the library is to assist with parsing command line arguments and executing the correct commands related to those arguments. However, the library also provides various other utilities such as input helpers.</p>
 <h2 id="installation">Installation</h2>
-<p><strong>CommandLineUtils</strong> can be added to your project using NuGet in any one of the following ways:</p>
+<p><strong>CommandLineUtils</strong> can be added to your project using NuGet.
+Follow instructions on <a href="https://nuget.org/packages/McMaster.Extensions.CommandLineUtils">https://nuget.org/packages/McMaster.Extensions.CommandLineUtils</a> that match your project type or editor.</p>
+<p>The two common ways to do this are:</p>
 <ol>
 <li><p>Using the <a href="https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio#package-manager-console">Package Manager Console</a>:</p>
-<pre><code>PM&gt; Install-Package McMaster.Extensions.CommandLineUtils
+<pre><code>Install-Package McMaster.Extensions.CommandLineUtils
 </code></pre></li>
 <li><p>Using the <a href="https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli">dotnet CLI</a>:</p>
-<pre><code>$ dotnet add package McMaster.Extensions.CommandLineUtils
-</code></pre></li>
-<li><p>Editing your <code>.csproj</code> file directly:</p>
-<pre><code class="lang-xml">&lt;ItemGroup&gt;
-    &lt;PackageReference Include=&quot;McMaster.Extensions.CommandLineUtils&quot; Version=&quot;2.4.0&quot; /&gt;
-&lt;/ItemGroup&gt;
+<pre><code>dotnet add package McMaster.Extensions.CommandLineUtils
 </code></pre></li>
 </ol>
 <h2 id="your-first-console-application">Your first console application</h2>
-<p><a href="xref:McMaster.Extensions.CommandLineUtils.CommandLineApplication">CommandLineApplication</a> is the main entry point for most console apps parsing. There are two primary ways to use this API, using attributes or the builder pattern.</p>
+<p><a class="xref" href="../v3.0/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a> is the main entry point for most console apps parsing. There are two primary ways to use this API, using attributes or the builder pattern.</p>
 <h3 id="using-attributes">Using Attributes</h3>
 <pre><code class="lang-csharp">using System;
 using McMaster.Extensions.CommandLineUtils;
