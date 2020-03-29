@@ -1,10 +1,17 @@
 <Project>
   <PropertyGroup>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.0.'))">
-Breaking changes:
+Improvements:
+* @AlexeyEvlampiev - implement support for GUID command line options (#333) and any other type that TypeConverter supports (#62)
+* @natemcmaster - Disabled the pager for help text by default. To re-enable, set UsePagerForHelpText = true. (#346)
+* @natemcmaster - Fix PlatformNotSupportedException on Xamarin of macOS (#344)
 
-* Removed all API that was marked Obsolete in 2.x releases.
-* Dropped support for .NET Standard 1.6 in favor of .NET Standard 2.0
+Breaking changes:
+* Fix #251 by @mattnischan - remove API that was marked as obsolete in 2.x releases
+* Fix #294 by @natemcmaster - change dependencies on McMaster.Extensions.Hosting.CommandLine to just use Microsoft.Extensions.Hosting.Abstractions
+* Fix #337 by @natemcmaster - removed .NET Standard 1.6 target from library
+
+See https://natemcmaster.github.io/CommandLineUtils/v3.0/upgrade-guide.html for more details.
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('2.6.'))">
 The refactor-prep release.

@@ -1,6 +1,6 @@
 # Changelog
 
-[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v2.6.0...HEAD):
+[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v3.0.0...HEAD):
 
 ## [v3.0.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.6.0...v3.0.0)
 
@@ -12,6 +12,8 @@
 * [@natemcmaster] - Fix PlatformNotSupportedException on Xamarin of macOS ([#344])
 
 ### Breaking changes
+
+See <https://natemcmaster.github.io/CommandLineUtils/v3.0/upgrade-guide.html> for more details.
 
 * Fix [#251] by [@mattnischan] - remove API that was marked as obsolete in 2.x releases
 * Fix [#294] by [@natemcmaster] - change dependencies on McMaster.Extensions.Hosting.CommandLine to just use Microsoft.Extensions.Hosting.Abstractions
