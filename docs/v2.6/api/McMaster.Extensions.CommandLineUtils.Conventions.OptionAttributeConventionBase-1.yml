@@ -1,0 +1,82 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+  id: OptionAttributeConventionBase`1
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: OptionAttributeConventionBase<TAttribute>
+  nameWithType: OptionAttributeConventionBase<TAttribute>
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase<TAttribute>
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/OptionAttributeConventionBase.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: OptionAttributeConventionBase
+    path: ../src/CommandLineUtils/Conventions/OptionAttributeConventionBase.cs
+    startLine: 15
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nShared implementation for adding conventions based on <xref href=\"McMaster.Extensions.CommandLineUtils.OptionAttributeBase\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: >-
+      public abstract class OptionAttributeConventionBase<TAttribute>
+          where TAttribute : OptionAttributeBase
+    typeParameters:
+    - id: TAttribute
+      description: ''
+    content.vb: Public MustInherit Class OptionAttributeConventionBase(Of TAttribute As OptionAttributeBase)
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention
+  nameWithType.vb: OptionAttributeConventionBase(Of TAttribute)
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase(Of TAttribute)
+  name.vb: OptionAttributeConventionBase(Of TAttribute)
+references:
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  commentId: T:McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  parent: McMaster.Extensions.CommandLineUtils
+  name: OptionAttributeBase
+  nameWithType: OptionAttributeBase
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+- uid: McMaster.Extensions.CommandLineUtils.Conventions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Conventions
+  name: McMaster.Extensions.CommandLineUtils.Conventions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Conventions
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System

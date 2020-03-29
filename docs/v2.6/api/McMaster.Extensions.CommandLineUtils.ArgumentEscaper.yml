@@ -1,0 +1,205 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.ArgumentEscaper
+  commentId: T:McMaster.Extensions.CommandLineUtils.ArgumentEscaper
+  id: ArgumentEscaper
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable{System.String})
+  langs:
+  - csharp
+  - vb
+  name: ArgumentEscaper
+  nameWithType: ArgumentEscaper
+  fullName: McMaster.Extensions.CommandLineUtils.ArgumentEscaper
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/ArgumentEscaper.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ArgumentEscaper
+    path: ../src/CommandLineUtils/Utilities/ArgumentEscaper.cs
+    startLine: 13
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nA utility for escaping arguments for new processes.\n"
+  example: []
+  syntax:
+    content: public static class ArgumentEscaper
+    content.vb: Public Module ArgumentEscaper
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable{System.String})
+  id: EscapeAndConcatenate(System.Collections.Generic.IEnumerable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ArgumentEscaper
+  langs:
+  - csharp
+  - vb
+  name: EscapeAndConcatenate(IEnumerable<String>)
+  nameWithType: ArgumentEscaper.EscapeAndConcatenate(IEnumerable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable<System.String>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/ArgumentEscaper.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: EscapeAndConcatenate
+    path: ../src/CommandLineUtils/Utilities/ArgumentEscaper.cs
+    startLine: 24
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nUndo the processing which took place to create string[] args in Main, so that the next process will\nreceive the same string[] args.\n"
+  remarks: "\nSee https://blogs.msdn.microsoft.com/twistylittlepassagesallalike/2011/04/23/everyone-quotes-command-line-arguments-the-wrong-way/\n"
+  example: []
+  syntax:
+    content: public static string EscapeAndConcatenate(IEnumerable<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The arguments
+    return:
+      type: System.String
+      description: A single string of escaped arguments
+    content.vb: Public Shared Function EscapeAndConcatenate(args As IEnumerable(Of String)) As String
+  overload: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate*
+  nameWithType.vb: ArgumentEscaper.EscapeAndConcatenate(IEnumerable(Of String))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable(Of System.String))
+  name.vb: EscapeAndConcatenate(IEnumerable(Of String))
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate
+  name: EscapeAndConcatenate
+  nameWithType: ArgumentEscaper.EscapeAndConcatenate
+  fullName: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<String>
+  nameWithType: IEnumerable<String>
+  fullName: System.Collections.Generic.IEnumerable<System.String>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

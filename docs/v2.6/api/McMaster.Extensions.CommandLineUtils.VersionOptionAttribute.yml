@@ -1,0 +1,332 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.VersionOptionAttribute
+  id: VersionOptionAttribute
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.#ctor(System.String)
+  - McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.#ctor(System.String,System.String)
+  - McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template
+  - McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Version
+  langs:
+  - csharp
+  - vb
+  name: VersionOptionAttribute
+  nameWithType: VersionOptionAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/VersionOptionAttribute.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: VersionOptionAttribute
+    path: ../src/CommandLineUtils/Attributes/VersionOptionAttribute.cs
+    startLine: 10
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe option used to determine if version text should be displayed.\n"
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property)]
+
+      public sealed class VersionOptionAttribute : OptionAttributeBase
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Class Or AttributeTargets.Property)>
+
+      Public NotInheritable Class VersionOptionAttribute
+          Inherits OptionAttributeBase
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  inheritedMembers:
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShortName
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.LongName
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.SymbolName
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ValueName
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Description
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShowInHelpText
+  - McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Inherited
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 132
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.#ctor(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: VersionOptionAttribute(String)
+  nameWithType: VersionOptionAttribute.VersionOptionAttribute(String)
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.VersionOptionAttribute(System.String)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/VersionOptionAttribute.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Attributes/VersionOptionAttribute.cs
+    startLine: 17
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes a new <xref href=\"McMaster.Extensions.CommandLineUtils.VersionOptionAttribute\" data-throw-if-not-resolved=\"false\"></xref> with the template <code>--version</code>.\n"
+  example: []
+  syntax:
+    content: public VersionOptionAttribute(string version)
+    parameters:
+    - id: version
+      type: System.String
+      description: The version
+    content.vb: Public Sub New(version As String)
+  overload: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.#ctor(System.String,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: VersionOptionAttribute(String, String)
+  nameWithType: VersionOptionAttribute.VersionOptionAttribute(String, String)
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.VersionOptionAttribute(System.String, System.String)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/VersionOptionAttribute.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Attributes/VersionOptionAttribute.cs
+    startLine: 27
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes a new <xref href=\"McMaster.Extensions.CommandLineUtils.VersionOptionAttribute\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public VersionOptionAttribute(string template, string version)
+    parameters:
+    - id: template
+      type: System.String
+      description: The string template that will be used for <xref href="McMaster.Extensions.CommandLineUtils.CommandOption.Template" data-throw-if-not-resolved="false"></xref>.
+    - id: version
+      type: System.String
+      description: The version
+    content.vb: Public Sub New(template As String, version As String)
+  overload: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Version
+  commentId: P:McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Version
+  id: Version
+  parent: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: VersionOptionAttribute.Version
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Version
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/VersionOptionAttribute.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Version
+    path: ../src/CommandLineUtils/Attributes/VersionOptionAttribute.cs
+    startLine: 37
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe version information to be shown. <xref href=\"McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShortVersionGetter\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public string Version { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Version As String
+  overload: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Version*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template
+  commentId: P:McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template
+  id: Template
+  parent: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: Template
+  nameWithType: VersionOptionAttribute.Template
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/VersionOptionAttribute.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Template
+    path: ../src/CommandLineUtils/Attributes/VersionOptionAttribute.cs
+    startLine: 42
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe option template. This is parsed into the short and long name.\n"
+  example: []
+  syntax:
+    content: public string Template { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Template As String
+  overload: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Attribute
+  commentId: T:System.Attribute
+  parent: System
+  isExternal: true
+  name: Attribute
+  nameWithType: Attribute
+  fullName: System.Attribute
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  commentId: T:McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  parent: McMaster.Extensions.CommandLineUtils
+  name: OptionAttributeBase
+  nameWithType: OptionAttributeBase
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShortName
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShortName
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: ShortName
+  nameWithType: OptionAttributeBase.ShortName
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShortName
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.LongName
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.LongName
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: LongName
+  nameWithType: OptionAttributeBase.LongName
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.LongName
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.SymbolName
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.SymbolName
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: SymbolName
+  nameWithType: OptionAttributeBase.SymbolName
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.SymbolName
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ValueName
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ValueName
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: ValueName
+  nameWithType: OptionAttributeBase.ValueName
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ValueName
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Description
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Description
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: Description
+  nameWithType: OptionAttributeBase.Description
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Description
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShowInHelpText
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShowInHelpText
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: ShowInHelpText
+  nameWithType: OptionAttributeBase.ShowInHelpText
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.ShowInHelpText
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Inherited
+  commentId: P:McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Inherited
+  parent: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  name: Inherited
+  nameWithType: OptionAttributeBase.Inherited
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.Inherited
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.VersionOptionAttribute
+  name: VersionOptionAttribute
+  nameWithType: VersionOptionAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.#ctor
+  name: VersionOptionAttribute
+  nameWithType: VersionOptionAttribute.VersionOptionAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.VersionOptionAttribute
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption.Template
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandOption.Template
+  isExternal: true
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShortVersionGetter
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShortVersionGetter
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  name: ShortVersionGetter
+  nameWithType: CommandLineApplication.ShortVersionGetter
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShortVersionGetter
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Version*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Version
+  name: Version
+  nameWithType: VersionOptionAttribute.Version
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Version
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+- uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template
+  name: Template
+  nameWithType: VersionOptionAttribute.Template
+  fullName: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.Template
