@@ -21,6 +21,7 @@ try {
     $targetDir = "$buildRoot/gh-pages"
     mkdir -p $buildRoot -ErrorAction Ignore | Out-Null
 
+    exec git worktree prune 2>&1 | out-null
     if (-not (git worktree list --porcelain | Select-String 'gh-pages')) {
         exec git fetch --quiet -u origin gh-pages:gh-pages
         exec git worktree add $targetDir gh-pages 2>&1 | out-null
