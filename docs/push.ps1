@@ -27,7 +27,7 @@ try {
         $SourceCommit = $(git rev-parse HEAD)
         Pop-Location
     }
-    exec git commit -m "Generate documentation from $SourceCommit"
+    exec git commit --allow-empty -m "Generate documentation from $SourceCommit"
     exec git push --quiet origin gh-pages
 }
 finally {
