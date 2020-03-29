@@ -12,9 +12,9 @@ class Program
     [Option]
     public int Port { get; } = 8080;
 
-    private IHostingEnvironment _env;
+    private IHostEnvironment _env;
 
-    public Program(IHostingEnvironment env)
+    public Program(IHostEnvironment env)
     {
         _env = env;
     }

@@ -15,7 +15,7 @@ class Program
             app.OnExecute(() =>
             {
                 var port = portOption.HasValue() ? portOption.ParsedValue : 8080;
-                var env = app.GetRequiredService<IHostingEnvironment>();
+                var env = app.GetRequiredService<IHostEnvironment>();
                 Console.WriteLine($"Starting on port {port}, env = {env.EnvironmentName}");
             });
         });
