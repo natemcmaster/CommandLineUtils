@@ -7,27 +7,23 @@ uid: doc-intro
 
 ## Installation
 
-**CommandLineUtils** can be added to your project using NuGet in any one of the following ways:
+**CommandLineUtils** can be added to your project using NuGet.
+Follow instructions on https://nuget.org/packages/McMaster.Extensions.CommandLineUtils that match your project type or editor.
+
+The two common ways to do this are:
 
 1. Using the [Package Manager Console](https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio#package-manager-console):
 
     ```
-    PM> Install-Package McMaster.Extensions.CommandLineUtils
+    Install-Package McMaster.Extensions.CommandLineUtils
     ```
 
 2. Using the [dotnet CLI](https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli):
 
     ```
-    $ dotnet add package McMaster.Extensions.CommandLineUtils
+    dotnet add package McMaster.Extensions.CommandLineUtils
     ```
 
-3. Editing your `.csproj` file directly:
-
-    ```xml
-    <ItemGroup>
-        <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.4.0" />
-    </ItemGroup>
-    ```
 
 ## Your first console application
 

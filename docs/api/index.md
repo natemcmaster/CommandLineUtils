@@ -4,12 +4,11 @@ uid: latest_api_ref
 API Reference
 =============
 
-**Version 2.6**
+**Version 3.0**
 
-McMaster.Extensions.CommandLineUtils supports three target frameworks.
+McMaster.Extensions.CommandLineUtils supports two target frameworks.
 
  - .NET Standard 2.0
- - .NET Standard 1.6
  - .NET Framework 4.5
 
 The API is almost identical between all of the frameworks.

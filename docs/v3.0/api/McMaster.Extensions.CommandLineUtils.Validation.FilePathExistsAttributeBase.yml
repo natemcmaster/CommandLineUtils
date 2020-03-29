@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+  id: FilePathExistsAttributeBase
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  children:
+  - McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  langs:
+  - csharp
+  - vb
+  name: FilePathExistsAttributeBase
+  nameWithType: FilePathExistsAttributeBase
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/FilePathExistsAttributeBase.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: FilePathExistsAttributeBase
+    path: ../src/CommandLineUtils/Attributes/FilePathExistsAttributeBase.cs
+    startLine: 13
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  summary: "\nBase type for attributes that check for existing files or directories.\n"
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Property)]
+
+      public abstract class FilePathExistsAttributeBase : ValidationAttribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Property)>
+
+      Public MustInherit Class FilePathExistsAttributeBase
+          Inherits ValidationAttribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - System.ComponentModel.DataAnnotations.ValidationAttribute
+  derivedClasses:
+  - McMaster.Extensions.CommandLineUtils.DirectoryExistsAttribute
+  - McMaster.Extensions.CommandLineUtils.FileExistsAttribute
+  - McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 128
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  id: IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+  langs:
+  - csharp
+  - vb
+  name: IsValid(Object, ValidationContext)
+  nameWithType: FilePathExistsAttributeBase.IsValid(Object, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.IsValid(System.Object, System.ComponentModel.DataAnnotations.ValidationContext)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/FilePathExistsAttributeBase.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IsValid
+    path: ../src/CommandLineUtils/Attributes/FilePathExistsAttributeBase.cs
+    startLine: 29
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  example: []
+  syntax:
+    content: protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+    parameters:
+    - id: value
+      type: System.Object
+    - id: validationContext
+      type: System.ComponentModel.DataAnnotations.ValidationContext
+    return:
+      type: System.ComponentModel.DataAnnotations.ValidationResult
+    content.vb: Protected Overrides Function IsValid(value As Object, validationContext As ValidationContext) As ValidationResult
+  overridden: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  overload: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.IsValid*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  commentId: N:McMaster.Extensions.CommandLineUtils.Validation
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  nameWithType: McMaster.Extensions.CommandLineUtils.Validation
+  fullName: McMaster.Extensions.CommandLineUtils.Validation
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Attribute
+  commentId: T:System.Attribute
+  parent: System
+  isExternal: true
+  name: Attribute
+  nameWithType: Attribute
+  fullName: System.Attribute
+- uid: System.ComponentModel.DataAnnotations.ValidationAttribute
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationAttribute
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: ValidationAttribute
+  nameWithType: ValidationAttribute
+  fullName: System.ComponentModel.DataAnnotations.ValidationAttribute
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ComponentModel.DataAnnotations
+  commentId: N:System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: System.ComponentModel.DataAnnotations
+  nameWithType: System.ComponentModel.DataAnnotations
+  fullName: System.ComponentModel.DataAnnotations
+- uid: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: System.ComponentModel.DataAnnotations.ValidationAttribute
+  isExternal: true
+  name: IsValid(Object, ValidationContext)
+  nameWithType: ValidationAttribute.IsValid(Object, ValidationContext)
+  fullName: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object, System.ComponentModel.DataAnnotations.ValidationContext)
+  spec.csharp:
+  - uid: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: IsValid
+    nameWithType: ValidationAttribute.IsValid
+    fullName: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: IsValid
+    nameWithType: ValidationAttribute.IsValid
+    fullName: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.IsValid*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.IsValid
+  name: IsValid
+  nameWithType: FilePathExistsAttributeBase.IsValid
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.IsValid
+- uid: System.ComponentModel.DataAnnotations.ValidationContext
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationContext
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: ValidationContext
+  nameWithType: ValidationContext
+  fullName: System.ComponentModel.DataAnnotations.ValidationContext
+- uid: System.ComponentModel.DataAnnotations.ValidationResult
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationResult
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: ValidationResult
+  nameWithType: ValidationResult
+  fullName: System.ComponentModel.DataAnnotations.ValidationResult

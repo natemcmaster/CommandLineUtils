@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Extensions.Hosting
+  commentId: N:Microsoft.Extensions.Hosting
+  id: Microsoft.Extensions.Hosting
+  children:
+  - Microsoft.Extensions.Hosting.HostBuilderExtensions
+  langs:
+  - csharp
+  - vb
+  name: Microsoft.Extensions.Hosting
+  nameWithType: Microsoft.Extensions.Hosting
+  fullName: Microsoft.Extensions.Hosting
+  type: Namespace
+  assemblies:
+  - McMaster.Extensions.Hosting.CommandLine
+references:
+- uid: Microsoft.Extensions.Hosting.HostBuilderExtensions
+  commentId: T:Microsoft.Extensions.Hosting.HostBuilderExtensions
+  name: HostBuilderExtensions
+  nameWithType: HostBuilderExtensions
+  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions
