@@ -118,7 +118,7 @@ but they can be made mandatory.</p>
 </tr>
 </tbody>
 </table>
-<p>Options are represented by the <a class="xref" href="../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a> type.
+<p>Options are represented by the @McMaster.Extensions.CommandLineUtils.CommandOption type.
 They have two defining characteristics.</p>
 <ul>
 <li>Names - options can be identified by multiple names, such as a long name (e.g. &quot;message&quot;) or a short name, which is usually a single character.
@@ -153,7 +153,7 @@ Unlike &quot;single value&quot;, these cannot be specified as <code>--name value
 </li>
 </ul>
 <section id="tabpanel_O36EgeKSIa_using-attributes" role="tabpanel" data-tab="using-attributes">
-<p><a class="xref" href="../v2.5/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a> can be used on properties to define options.
+<p>@McMaster.Extensions.CommandLineUtils.OptionAttribute can be used on properties to define options.
 When specified, name and type are inferred, but they can be listed explicitly.
 The inferred short name (with &quot;-&quot; prefix) is the first letter of property name in lowercase.
 The inferred long name (with &quot;--&quot; prefix) is the property name in <a href="https://en.wikipedia.org/wiki/Letter_case">kebab case</a> (e.g. &quot;--log-level&quot; for LogLevel).
@@ -209,7 +209,7 @@ Note that option names are case sensitive, and using different case is an error,
 <h2 id="flag-counting">Flag counting</h2>
 <p>A common scenario for options is to allow specifying a value-less option 
 multiple times without value. The library supports counting flags by using <code>bool[]</code>
-or by checking for the number of values in <a class="xref" href="../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_Values">Values</a>.</p>
+or by checking for the number of values in @McMaster.Extensions.CommandLineUtils.CommandOption.Values.</p>
 <div class="tabGroup" id="tabgroup_O36EgeKSIa-1">
 <ul role="tablist">
 <li role="presentation">

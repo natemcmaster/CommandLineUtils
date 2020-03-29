@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Arguments </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Arguments ">
+    <meta name="generator" content="docfx 2.48.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" height="55" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="arguments">
+<h1 id="arguments">Arguments</h1>
+
+<p>When a command executes, the raw <code>string[] args</code> value can be separated into two different categories: options and arguments.</p>
+<p>Arguments are positional and values are specified based by order.</p>
+<p>Options are named and must be specified using a name. Options are covered in <a class="xref" href="options.html">this document.</a></p>
+<p>Arguments are represented by the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a> type.
+They have one defining characteristic.</p>
+<ul>
+<li>Position - the order in which arguments appear on command line (after options have been parsed)</li>
+</ul>
+<div class="tabGroup" id="tabgroup_lwszSPfAql">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_lwszSPfAql_using-attributes" role="tab" aria-controls="tabpanel_lwszSPfAql_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_lwszSPfAql_using-builder-api" role="tab" aria-controls="tabpanel_lwszSPfAql_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+</li>
+</ul>
+<section id="tabpanel_lwszSPfAql_using-attributes" role="tabpanel" data-tab="using-attributes">
+<p><a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html">ArgumentAttribute</a> can be used on properties to define arguments.
+The argument order must be specified explicitly.</p>
+<pre><code class="lang-c#">public class Program
+{
+    [Argument(0)]
+    [Required]
+    public string FirstName { get; }
+
+    [Argument(1)]
+    public string LastName { get; }  // this one is optional because it doesn&#39;t have `[Required]`
+
+    private void OnExecute()
+    {
+        Console.WriteLine($&quot;Hello {FirstName} {LastName}&quot;);
+    }
+
+    public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
+}
+</code></pre></section>
+<section id="tabpanel_lwszSPfAql_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-c#">public class Program
+{
+    public static int Main(string[] args)
+    {
+        var app = new CommandLineApplication();
+
+        var firstNameArg = app.Argument(&quot;first name&quot;, &quot;the first name of the person&quot;)
+            .IsRequired();
+        var lastNameArg = app.Argument(&quot;last name&quot;, &quot;the last name of the person&quot;);
+
+        app.OnExecute(() =&gt;
+        {
+            Console.WriteLine($&quot;Hello {firstNameArg.Value} {lastNameArg.Value}&quot;);
+        });
+
+        return app.Execute(args);
+    }
+}
+</code></pre></section>
+</div>
+<h2 id="variable-numbers-of-arguments">Variable numbers of arguments</h2>
+<p>A common scenario is to allow a command line tool to take in a variable number of arguments.
+These arguments are collected into a <code>string[]</code> array after all other arguments and options are parsed.</p>
+<pre><code>cat -b 123 file1.txt file2.txt file3.txt
+</code></pre><div class="tabGroup" id="tabgroup_lwszSPfAql-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_lwszSPfAql-1_using-attributes" role="tab" aria-controls="tabpanel_lwszSPfAql-1_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_lwszSPfAql-1_using-builder-api" role="tab" aria-controls="tabpanel_lwszSPfAql-1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+</li>
+</ul>
+<section id="tabpanel_lwszSPfAql-1_using-attributes" role="tabpanel" data-tab="using-attributes">
+<p>By default, attribute binding will assume multiple values can be set for properties with the <code>[Argument]</code>
+attribute and settable to <code>string[]</code> or <code>IEnumerable&lt;string&gt;</code>.</p>
+<pre><code class="lang-c#">public class Program
+{
+    [Option(&quot;-b&quot;)]
+    public int BlankLines { get; }
+
+    [Argument(0)]
+    public string[] Files { get; } // = { &quot;file1.txt&quot;, &quot;file2.txt&quot;, &quot;file3.txt&quot; }
+
+    private void OnExecute()
+    {
+        if (Files != null)
+        {
+            foreach (var file in Files)
+            {
+                // do something
+            }
+        }
+    }
+
+    public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
+}
+</code></pre></section>
+<section id="tabpanel_lwszSPfAql-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<p>To enable this, <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandArgument.html#McMaster_Extensions_CommandLineUtils_CommandArgument_MultipleValues">MultipleValues</a> must be set to true,
+and the argument must be the last one specified.</p>
+<pre><code class="lang-c#">public class Program
+{
+    public static int Main(string[] args)
+    {
+        var app = new CommandLineApplication();
+        var blankLines = app.Option&lt;int&gt;(&quot;-b &lt;LINES&gt;&quot;, &quot;Blank lines&quot;, CommandOptionType.SingleValue);
+        var files = app.Argument(&quot;Files&quot;, &quot;Files to count&quot;, multipleValues: true);
+        app.OnExecute(() =&gt;
+        {
+            foreach (var file in files.Values)
+            {
+                // do something
+            }
+        });
+        return app.Execute(args);
+    }
+}
+</code></pre></section>
+</div>
+<h2 id="pass-thru-arguments">Pass-thru arguments</h2>
+<p>Another common scenario is to create a command line tool which wraps another tool. These kinds of command lines
+need to collect arguments which are passed to the to the tool they wrap. For example, the Unix command <code>time</code>
+or the Windows command <code>cmd</code> take some arguments, and pass the rest on to the command they invoke.</p>
+<div class="NOTE"><h5>Note</h5><p>Example:</p>
+<pre><code>time -l ls -a -l ./
+</code></pre><p>In this example, <code>-l</code> is an option on <code>time</code>. This starts a timer which then invokes <code>ls</code> with additional arguments.
+<code>-l</code> is also an option on <code>ls</code>.</p>
+</div>
+<p>Normally, unrecognized arguments is an error. You must set <code>UnrecognizedArgumentHandling</code> to <code>StopParsingAndCollect</code> to allow the parser
+to collect unrecognized arguments and options.</p>
+<h3 id="the-double-dash-convention---">The double-dash convention <code>--</code></h3>
+<p>It is common for apps which pass-thru arguments to allow the caller to use <code>--</code> to distinguish between the
+options on the parent command and all remaining arguments.</p>
+<pre><code>bash -c -- ls -a -l
+</code></pre><p>In this example, the presence of <code>--</code> forces bash to stop parsing and treat everything after <code>--</code> as an argument
+to be passed to the inner command.</p>
+<p>The double dash command is enabled by setting <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_AllowArgumentSeparator">AllowArgumentSeparator</a>.</p>
+<div class="tabGroup" id="tabgroup_lwszSPfAql-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_lwszSPfAql-2_using-attributes" role="tab" aria-controls="tabpanel_lwszSPfAql-2_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_lwszSPfAql-2_using-builder-api" role="tab" aria-controls="tabpanel_lwszSPfAql-2_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+</li>
+</ul>
+<section id="tabpanel_lwszSPfAql-2_using-attributes" role="tabpanel" data-tab="using-attributes">
+<p>By default, attribute binding will set a <code>string[]</code> or <code>IList&lt;string&gt;</code> property named <code>RemainingArguments</code> or <code>RemainingArgs</code>
+to include all values. See <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a> for more details.</p>
+<pre><code class="lang-csharp" name="Program">using System;
+using System.Diagnostics;
+using System.Linq;
+using McMaster.Extensions.CommandLineUtils;
+
+[Command(
+    UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
+    AllowArgumentSeparator = true)]
+public class Program
+{
+    public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
+
+    [Option(&quot;-m&quot;, Description = &quot;Show time in milliseconds&quot;)]
+    public bool Milliseconds { get; }
+
+    public string[] RemainingArguments { get; } // = { &quot;ls&quot;, &quot;-a&quot;, &quot;-l&quot; }
+
+    private void OnExecute()
+    {
+        var timer = Stopwatch.StartNew();
+        if (RemainingArguments != null &amp;&amp; RemainingArguments.Length &gt; 0)
+        {
+            var process = new Process
+            {
+                StartInfo =
+                {
+                    FileName = RemainingArguments[0],
+                    Arguments = ArgumentEscaper.EscapeAndConcatenate(RemainingArguments.Skip(1)),
+                }
+            };
+            process.Start();
+            process.WaitForExit();
+        }
+
+        timer.Stop();
+
+        if (Milliseconds)
+        {
+            Console.WriteLine($&quot;Time = {timer.Elapsed.TotalMilliseconds} ms&quot;);
+        }
+        else
+        {
+            Console.WriteLine($&quot;Time = {timer.Elapsed.TotalSeconds}s&quot;);
+        }
+    }
+}
+</code></pre></section>
+<section id="tabpanel_lwszSPfAql-2_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<p>When <code>UnrecognizedArgumentHandling</code> is set to <code>Stop</code>,</p>
+<pre><code class="lang-csharp" name="Program">using System;
+using System.Diagnostics;
+using System.Linq;
+using McMaster.Extensions.CommandLineUtils;
+
+public class Program
+{
+    public static int Main(string[] args)
+    {
+        var app = new CommandLineApplication
+        {
+            AllowArgumentSeparator = true,
+            UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
+        };
+
+        var showMilliseconds = app.Option&lt;int&gt;(&quot;-m&quot;, &quot;Show time in milliseconds&quot;, CommandOptionType.NoValue);
+
+        app.OnExecute(() =&gt;
+        {
+            var timer = Stopwatch.StartNew();
+            if (app.RemainingArguments != null &amp;&amp; app.RemainingArguments.Count &gt; 0)
+            {
+                var process = new Process
+                {
+                    StartInfo =
+                {
+                    FileName = app.RemainingArguments[0],
+                    Arguments = ArgumentEscaper.EscapeAndConcatenate(app.RemainingArguments.Skip(1)),
+                }
+                };
+                process.Start();
+                process.WaitForExit();
+            }
+
+            timer.Stop();
+
+            if (showMilliseconds.HasValue())
+            {
+                Console.WriteLine($&quot;Time = {timer.Elapsed.TotalMilliseconds} ms&quot;);
+            }
+            else
+            {
+                Console.WriteLine($&quot;Time = {timer.Elapsed.TotalSeconds}s&quot;);
+            }
+        });
+
+        return app.Execute(args);
+    }
+}
+</code></pre></section>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/docs/v2.6/docs/arguments.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+             
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-38984092-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-38984092-6');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CommandLineUtils 2.x </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="CommandLineUtils 2.x ">
+    <meta name="generator" content="docfx 2.48.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" height="55" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="commandlineutils-2x">CommandLineUtils 2.x</h1>
+
+<p><strong>CommandLineUtils</strong> is a library which helps developers implement command line applications in .NET.
+The primary goal of the library is to assist with parsing command line arguments and executing the correct
+commands related to those arguments. The library also provides various other utilities such as input helpers.</p>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="docs/intro.html">Documentation</a></strong></p>
+                <p>Tutorials to create your first .NET command line application, and docs on how to use the library.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong> <a class="xref" href="api/index.html">2.x API Reference</a> </strong></p>
+                <p>Read the API documentation for this library.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils/tree/master/docs/samples/">Samples</a></strong></p>
+                <p>View sample projects which use CommandLineUtils.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils">Source Code and Issue Tracker</a></strong></p>
+                <p>The project is open-source on GitHub.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://nuget.org/packages/McMaster.Extensions.CommandLineUtils">NuGet</a></strong></p>
+                <p>See the latest releases of this library as a NuGet package.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" style="min-height: 140px">
+            <div class="panel-body">
+                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils/tree/master/CHANGELOG.md">Version history</a></strong></p>
+                <p>Read notes about fixes and enhancements per release.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<p>Using this library, you can write a command line application without doing the heavy lifting to support automated help text generation,
+masking input for passwords, parsing argument syntax, validation, etc.</p>
+<pre><code class="lang-c#">class Program
+{
+    public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
+
+    [Option(&quot;-n&quot;)]
+    [Range(0, 10)]
+    [Required]
+    public int Count { get; }
+
+    public void OnExecute()
+    {
+        for (var i = 0; i &lt; Count; i ++)
+        {
+            Prompt.GetPassword(&quot;Enter your password: &quot;);
+        }
+    }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/docs/v2.6/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+             
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-38984092-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-38984092-6');
+    </script>
+  </body>
+</html>

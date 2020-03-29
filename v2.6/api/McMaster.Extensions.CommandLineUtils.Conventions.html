@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:navrel" content="">
     <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../../">
@@ -86,21 +86,21 @@
   <div class="markdown level0 remarks"></div>
     <h3 id="classes">Classes
   </h3>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention.html">AppNameFromEntryAssemblyConvention</a></h4>
-      <section><p>Sets <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Name">Name</a> using the name of the entry assembly
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention.html">AppNameFromEntryAssemblyConvention</a></h4>
+      <section><p>Sets <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_Name">Name</a> using the name of the entry assembly
 to the current application. It is only applied if the name is null.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention.html">ArgumentAttributeConvention</a></h4>
-      <section><p>Adds a <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a> for each <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html">ArgumentAttribute</a>
-on the model type for <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention.html">ArgumentAttributeConvention</a></h4>
+      <section><p>Adds a <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a> for each <a class="xref" href="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html">ArgumentAttribute</a>
+on the model type for <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.html">AttributeConvention</a></h4>
-      <section><p>Searches the model type and its members for attributes that implement <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html">IMemberConvention</a> or <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html">IConvention</a>.</p>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention.html">AttributeConvention</a></h4>
+      <section><p>Searches the model type and its members for attributes that implement <a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html">IMemberConvention</a> or <a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html">IConvention</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.html">CommandAttributeConvention</a></h4>
-      <section><p>Adds settings from <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a> and <span class="xref">System.ComponentModel.DataAnnotations.ValidationAttribute</span> set on the model type for <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention.html">CommandAttributeConvention</a></h4>
+      <section><p>Adds settings from <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a> and <span class="xref">System.ComponentModel.DataAnnotations.ValidationAttribute</span> set on the model type for <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.html">CommandNameFromTypeConvention</a></h4>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.html">CommandNameFromTypeConvention</a></h4>
       <section><p>Sets the command name based on the model type, if is not otherwise set.
 <p>
 This attempts to infer a command name using a few rules, such as using kebab-case
@@ -109,70 +109,70 @@ and trimming &quot;Command&quot; from the name of the type.
 <example>RemoveItemCommand =&gt; &quot;remove-item&quot;</example>
 </p></p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.html">ConstructorInjectionConvention</a></h4>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention.html">ConstructorInjectionConvention</a></h4>
       <section><p>Uses an instance of <span class="xref">System.IServiceProvider</span> to call constructors
 when creating models.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html">ConventionContext</a></h4>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html">ConventionContext</a></h4>
       <section><p>The context in which a convention is applied.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html">DefaultHelpOptionConvention</a></h4>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html">DefaultHelpOptionConvention</a></h4>
       <section><p>Adds a help option of --help if no other help option is specified.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.html">ExecuteMethodConvention</a></h4>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention.html">ExecuteMethodConvention</a></h4>
       <section><p>Sets <span class="xref">McMaster.Extensions.CommandLineUtils.CommandLineApplication.Invoke</span> to call a method named
 <code>OnExecute</code> or <code>OnExecuteAsync</code> on the model type
-of <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
+of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.html">HelpOptionAttributeConvention</a></h4>
-      <section><p>Sets <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OptionHelp">OptionHelp</a> based on the usage of
-<a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.html">HelpOptionAttribute</a>.</p>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.html">HelpOptionAttributeConvention</a></h4>
+      <section><p>Sets <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OptionHelp">OptionHelp</a> based on the usage of
+<a class="xref" href="McMaster.Extensions.CommandLineUtils.HelpOptionAttribute.html">HelpOptionAttribute</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention.html">OptionAttributeConvention</a></h4>
-      <section><p>Adds an <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a> to match each usage of <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a>
-on the model type of <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention.html">OptionAttributeConvention</a></h4>
+      <section><p>Adds an <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a> to match each usage of <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a>
+on the model type of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase-1.html">OptionAttributeConventionBase&lt;TAttribute&gt;</a></h4>
-      <section><p>Shared implementation for adding conventions based on <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html">OptionAttributeBase</a>.</p>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase-1.html">OptionAttributeConventionBase&lt;TAttribute&gt;</a></h4>
+      <section><p>Shared implementation for adding conventions based on <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html">OptionAttributeBase</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention.html">ParentPropertyConvention</a></h4>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention.html">ParentPropertyConvention</a></h4>
       <section><p>Sets a property named <code>Parent</code> on the model type to the value
 of the model of the parent command.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a></h4>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention.html">RemainingArgsPropertyConvention</a></h4>
       <section><p>Sets a property named <code>RemainingArguments</code> or <code>RemainingArgs</code>
-on the model type on <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>
-to the value of <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_RemainingArguments">RemainingArguments</a>.</p>
+on the model type on <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>
+to the value of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_RemainingArguments">RemainingArguments</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.html">SubcommandAttributeConvention</a></h4>
-      <section><p>Creates a subcommand for each <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html">SubcommandAttribute</a>
-on the model type of <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.html">SubcommandAttributeConvention</a></h4>
+      <section><p>Creates a subcommand for each <a class="xref" href="McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html">SubcommandAttribute</a>
+on the model type of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention.html">SubcommandPropertyConvention</a></h4>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention.html">SubcommandPropertyConvention</a></h4>
       <section><p>Sets a property named <code>Subcommand</code> to the value of the selected subcommand
-model type of <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
+model type of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention.html">ValidationErrorMethodConvention</a></h4>
-      <section><p>Invokes a method named <code>OnValidationError</code> on the model type of <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention.html">ValidationErrorMethodConvention</a></h4>
+      <section><p>Invokes a method named <code>OnValidationError</code> on the model type of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>
 to handle validation errors.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention.html">VersionOptionAttributeConvention</a></h4>
-      <section><p>Sets <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OptionVersion">OptionVersion</a> using settings from
-<a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.html">VersionOptionAttribute</a> on the model type of <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention.html">VersionOptionAttributeConvention</a></h4>
+      <section><p>Sets <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OptionVersion">OptionVersion</a> using settings from
+<a class="xref" href="McMaster.Extensions.CommandLineUtils.VersionOptionAttribute.html">VersionOptionAttribute</a> on the model type of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention.html">VersionOptionFromMemberAttributeConvention</a></h4>
-      <section><p>Sets <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OptionVersion">OptionVersion</a> using settings from
-<a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.html">VersionOptionFromMemberAttribute</a> on the model type of <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention.html">VersionOptionFromMemberAttributeConvention</a></h4>
+      <section><p>Sets <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OptionVersion">OptionVersion</a> using settings from
+<a class="xref" href="McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.html">VersionOptionFromMemberAttribute</a> on the model type of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </section>
     <h3 id="interfaces">Interfaces
   </h3>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html">IConvention</a></h4>
-      <section><p>Defines a convention for an instance of <a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html">IConvention</a></h4>
+      <section><p>Defines a convention for an instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.html">IConventionBuilder</a></h4>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.html">IConventionBuilder</a></h4>
       <section><p>Builds a collection of conventions.</p>
 </section>
-      <h4><a class="xref" href="../../v2.5/api/McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html">IMemberConvention</a></h4>
+      <h4><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.html">IMemberConvention</a></h4>
       <section><p>Defines a convention that is implemented as an attribute on a model type.</p>
 </section>
 </article>
