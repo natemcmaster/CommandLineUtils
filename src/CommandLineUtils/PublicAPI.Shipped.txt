@@ -92,6 +92,10 @@ McMaster.Extensions.CommandLineUtils.CommandAttribute.ResponseFileHandling.get -
 McMaster.Extensions.CommandLineUtils.CommandAttribute.ResponseFileHandling.set -> void
 McMaster.Extensions.CommandLineUtils.CommandAttribute.ShowInHelpText.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandAttribute.ShowInHelpText.set -> void
+McMaster.Extensions.CommandLineUtils.CommandAttribute.UnrecognizedArgumentHandling.get -> McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+McMaster.Extensions.CommandLineUtils.CommandAttribute.UnrecognizedArgumentHandling.set -> void
+McMaster.Extensions.CommandLineUtils.CommandAttribute.UsePagerForHelpText.get -> bool
+McMaster.Extensions.CommandLineUtils.CommandAttribute.UsePagerForHelpText.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName(string name) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddSubcommand(McMaster.Extensions.CommandLineUtils.CommandLineApplication subcommand) -> void
@@ -103,6 +107,11 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument<T>(string n
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Arguments.get -> System.Collections.Generic.List<McMaster.Extensions.CommandLineUtils.CommandArgument>
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions.set -> void
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(string name, System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication> configuration) -> McMaster.Extensions.CommandLineUtils.CommandLineApplication
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command<TModel>(string name, System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>> configuration) -> McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication() -> void
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator helpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole console, string workingDirectory) -> void
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole console, string workingDirectory) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole console) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Commands.get -> System.Collections.Generic.List<McMaster.Extensions.CommandLineUtils.CommandLineApplication>
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Conventions.get -> McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
@@ -140,11 +149,11 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(string templa
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option(string template, string description, McMaster.Extensions.CommandLineUtils.CommandOptionType optionType) -> McMaster.Extensions.CommandLineUtils.CommandOption
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option<T>(string template, string description, McMaster.Extensions.CommandLineUtils.CommandOptionType optionType, System.Action<McMaster.Extensions.CommandLineUtils.CommandOption> configuration, bool inherited) -> McMaster.Extensions.CommandLineUtils.CommandOption<T>
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionHelp.get -> McMaster.Extensions.CommandLineUtils.CommandOption
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionNameValueSeparators.get -> char[]
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionNameValueSeparators.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Options.get -> System.Collections.Generic.List<McMaster.Extensions.CommandLineUtils.CommandOption>
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionsComparison.get -> System.StringComparison
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionsComparison.set -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionNameValueSeparators.get -> char[]
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionNameValueSeparators.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionVersion.get -> McMaster.Extensions.CommandLineUtils.CommandOption
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Out.get -> System.IO.TextWriter
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Out.set -> void
@@ -162,6 +171,8 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowInHelpText.get -
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowInHelpText.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowRootCommandFullNameAndVersion() -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowVersion() -> void
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.UnrecognizedArgumentHandling.get -> McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.UnrecognizedArgumentHandling.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.UsePagerForHelpText.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ValidationErrorHandler.get -> System.Func<System.ComponentModel.DataAnnotations.ValidationResult, int>
@@ -172,6 +183,9 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(string
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.VersionOption(string template, System.Func<string> shortFormVersionGetter, System.Func<string> longFormVersionGetter = null) -> McMaster.Extensions.CommandLineUtils.CommandOption
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.WorkingDirectory.get -> string
 McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>
+McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication() -> void
+McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator helpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole console, string workingDirectory) -> void
+McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole console, string workingDirectory) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole console) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.Model.get -> TModel
 McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.ModelFactory.get -> System.Func<TModel>
@@ -408,6 +422,10 @@ McMaster.Extensions.CommandLineUtils.SubcommandAttribute.SubcommandAttribute(par
 McMaster.Extensions.CommandLineUtils.SubcommandAttribute.Types.get -> System.Type[]
 McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
 McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute.SuppressDefaultHelpOptionAttribute() -> void
+McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.CollectAndContinue = 2 -> McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.StopParsingAndCollect = 1 -> McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.Throw = 0 -> McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
 McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException
 McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.NearestMatches.get -> System.Collections.Generic.IEnumerable<string>
 McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException.UnrecognizedCommandParsingException(McMaster.Extensions.CommandLineUtils.CommandLineApplication command, System.Collections.Generic.IEnumerable<string> nearestMatches, string message) -> void
@@ -486,6 +504,7 @@ static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Opt
 static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option<T>(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app, string template, string description, McMaster.Extensions.CommandLineUtils.CommandOptionType optionType) -> McMaster.Extensions.CommandLineUtils.CommandOption<T>
 static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app, string template) -> McMaster.Extensions.CommandLineUtils.CommandOption
 static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app) -> McMaster.Extensions.CommandLineUtils.CommandOption
+static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app, string template, System.Reflection.Assembly assembly) -> McMaster.Extensions.CommandLineUtils.CommandOption
 static McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(this McMaster.Extensions.CommandLineUtils.CommandLineApplication app, System.Reflection.Assembly assembly) -> McMaster.Extensions.CommandLineUtils.CommandOption
 static McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(this McMaster.Extensions.CommandLineUtils.IConsole console, bool value) -> McMaster.Extensions.CommandLineUtils.IConsole
 static McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(this McMaster.Extensions.CommandLineUtils.IConsole console, char value) -> McMaster.Extensions.CommandLineUtils.IConsole
