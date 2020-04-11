@@ -26,8 +26,9 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         /// <param name="logger">A logger</param>
         /// <param name="state">The command line state</param>
         /// <param name="serviceProvider">The DI service provider</param>
+        /// <param name="configure">The delegate to configure the app</param>
         public CommandLineService(ILogger<CommandLineService<T>> logger, CommandLineState state,
-            IServiceProvider serviceProvider)
+            IServiceProvider serviceProvider, Action<CommandLineApplication> configure)
         {
             _logger = logger;
             _state = state;
@@ -43,6 +44,8 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
             {
                 _application.Conventions.AddConvention(convention);
             }
+
+            configure(_application);
         }
 
         /// <inheritdoc />
