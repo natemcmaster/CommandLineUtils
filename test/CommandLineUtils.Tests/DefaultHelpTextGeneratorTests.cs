@@ -107,26 +107,26 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication();
             app.HelpOption();
-            app.Option("--strOpt <E>", "str option desc", CommandOptionType.SingleValue);
-            app.Option<int>("--intOpt <E>", "int option desc", CommandOptionType.SingleValue);
-            app.Option<SomeEnum>("--enumOpt <E>", "enum option desc", CommandOptionType.SingleValue);
-            app.Argument("SomeStringArgument", "string arg desc");
-            app.Argument<SomeEnum>("SomeEnumArgument", "enum arg desc");
+            app.Option("--strOpt <E>", "str option desc.", CommandOptionType.SingleValue);
+            app.Option<int>("--intOpt <E>", "int option desc.", CommandOptionType.SingleValue);
+            app.Option<SomeEnum>("--enumOpt <E>", "enum option desc.", CommandOptionType.SingleValue);
+            app.Argument("SomeStringArgument", "string arg desc.");
+            app.Argument<SomeEnum>("SomeEnumArgument", "enum arg desc.");
             var helpText = GetHelpText(app);
 
             Assert.Equal(@"Usage:  [options] <SomeStringArgument> <SomeEnumArgument>
 
 Arguments:
-  SomeStringArgument  string arg desc
-  SomeEnumArgument    enum arg desc
-                      Allowed values are: None, Normal, Extreme
+  SomeStringArgument  string arg desc.
+  SomeEnumArgument    enum arg desc.
+                      Allowed values are: None, Normal, Extreme.
 
 Options:
-  -?|-h|--help        Show help information
-  --strOpt <E>        str option desc
-  --intOpt <E>        int option desc
-  --enumOpt <E>       enum option desc
-                      Allowed values are: None, Normal, Extreme
+  -?|-h|--help        Show help information.
+  --strOpt <E>        str option desc.
+  --intOpt <E>        int option desc.
+  --enumOpt <E>       enum option desc.
+                      Allowed values are: None, Normal, Extreme.
 
 ",
             helpText,
@@ -144,16 +144,16 @@ Options:
             Assert.Equal(@"Usage: test [options] <SomeStringArgument> <SomeEnumArgument>
 
 Arguments:
-  SomeStringArgument                string arg desc
-  SomeEnumArgument                  enum arg desc
-                                    Allowed values are: None, Normal, Extreme
+  SomeStringArgument                string arg desc.
+  SomeEnumArgument                  enum arg desc.
+                                    Allowed values are: None, Normal, Extreme.
 
 Options:
-  -strOpt|--str-opt <STR_OPT>       str option desc
-  -intOpt|--int-opt <INT_OPT>       int option desc
-  -enumOpt|--verbosity <VERBOSITY>  enum option desc
-                                    Allowed values are: None, Normal, Extreme
-  -?|-h|--help                      Show help information
+  -strOpt|--str-opt <STR_OPT>       str option desc.
+  -intOpt|--int-opt <INT_OPT>       int option desc.
+  -enumOpt|--verbosity <VERBOSITY>  enum option desc.
+                                    Allowed values are: None, Normal, Extreme.
+  -?|-h|--help                      Show help information.
 
 ",
                 helpText,
@@ -162,27 +162,27 @@ Options:
 
         public class MyApp
         {
-            [Option(ShortName = "strOpt", Description = "str option desc")]
+            [Option(ShortName = "strOpt", Description = "str option desc.")]
             public string strOpt { get; set; }
 
-            [Option(ShortName = "intOpt", Description = "int option desc")]
+            [Option(ShortName = "intOpt", Description = "int option desc.")]
             public int intOpt { get; set; }
 
-            [Option(ShortName = "enumOpt", Description = "enum option desc")]
+            [Option(ShortName = "enumOpt", Description = "enum option desc.")]
             public SomeEnum Verbosity { get; set; }
 
-            [Argument(0, Description = "string arg desc")]
+            [Argument(0, Description = "string arg desc.")]
             public string SomeStringArgument { get; set; }
 
-            [Argument(1, Description = "enum arg desc")]
+            [Argument(1, Description = "enum arg desc.")]
             public SomeEnum SomeEnumArgument { get; set; }
         }
 
         [Theory]
-        [InlineData("-h", "-h", "  -h          Show help information", "  Subcommand ")]
-        [InlineData("--help", "--help", "  --help      Show help information", "  Subcommand ")]
-        [InlineData("-?", "-?", "  -?          Show help information", "  Subcommand ")]
-        [InlineData(null, "-?|-h|--help", "  -?|-h|--help  Show help information", "  Subcommand   ")]
+        [InlineData("-h", "-h", "  -h          Show help information.", "  Subcommand ")]
+        [InlineData("--help", "--help", "  --help      Show help information.", "  Subcommand ")]
+        [InlineData("-?", "-?", "  -?          Show help information.", "  Subcommand ")]
+        [InlineData(null, "-?|-h|--help", "  -?|-h|--help  Show help information.", "  Subcommand   ")]
         public void ShowHelpWithSubcommands(string helpOption, string expectedHintText, string expectedOptionsText,
             string expectedCommandsText)
         {
