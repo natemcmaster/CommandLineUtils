@@ -193,7 +193,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 {
                     var enumNames = ExtractNamesFromEnum(arg.UnderlyingType);
                     var description = enumNames.Any()
-                        ? $"{arg.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
+                        ? $"{arg.Description}\nAllowed values are: {string.Join(", ", enumNames)}."
                         : arg.Description;
 
                     var wrappedDescription = IndentWriter?.Write(description);
@@ -228,7 +228,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 {
                     var enumNames = ExtractNamesFromEnum(opt.UnderlyingType);
                     var description = enumNames.Any()
-                        ? $"{opt.Description}\nAllowed values are: {string.Join(", ", enumNames)}"
+                        ? $"{opt.Description}\nAllowed values are: {string.Join(", ", enumNames)}."
                         : opt.Description;
 
                     var wrappedDescription = IndentWriter?.Write(description);
