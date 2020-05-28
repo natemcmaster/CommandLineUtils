@@ -36,6 +36,7 @@ namespace Microsoft.Extensions.Hosting
         {
             var exceptionHandler = new StoreExceptionHandler();
             var state = new CommandLineState(args);
+            hostBuilder.Properties[typeof(CommandLineState)] = state;
             hostBuilder.ConfigureServices(
                 (context, services)
                     =>
@@ -85,6 +86,7 @@ namespace Microsoft.Extensions.Hosting
         {
             var exceptionHandler = new StoreExceptionHandler();
             var state = new CommandLineState(args);
+            hostBuilder.Properties[typeof(CommandLineState)] = state;
             hostBuilder.ConfigureServices(
                 (context, services)
                     =>
