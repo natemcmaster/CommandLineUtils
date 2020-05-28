@@ -53,7 +53,7 @@ namespace Microsoft.Extensions.Hosting
         public static async Task<int> RunCommandLineApplicationAsync<TApp>(
             this IHostBuilder hostBuilder,
             string[] args,
-            Action<CommandLineApplication> configure = null,
+            Action<CommandLineApplication<TApp>> configure,
             CancellationToken cancellationToken = default)
             where TApp : class
         {
