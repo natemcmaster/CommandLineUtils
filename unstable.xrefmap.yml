@@ -6168,6 +6168,15 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync
   nameWithType: HostBuilderExtensions.RunCommandLineApplicationAsync
+- uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[],System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication{``0}},System.Threading.CancellationToken)
+  name: RunCommandLineApplicationAsync<TApp>(IHostBuilder, String[], Action<CommandLineApplication<TApp>>, CancellationToken)
+  href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication___0___System_Threading_CancellationToken_
+  commentId: M:Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[],System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication{``0}},System.Threading.CancellationToken)
+  name.vb: RunCommandLineApplicationAsync(Of TApp)(IHostBuilder, String(), Action(Of CommandLineApplication(Of TApp)), CancellationToken)
+  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync<TApp>(Microsoft.Extensions.Hosting.IHostBuilder, System.String[], System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication<TApp>>, System.Threading.CancellationToken)
+  fullName.vb: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync(Of TApp)(Microsoft.Extensions.Hosting.IHostBuilder, System.String(), System.Action(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TApp)), System.Threading.CancellationToken)
+  nameWithType: HostBuilderExtensions.RunCommandLineApplicationAsync<TApp>(IHostBuilder, String[], Action<CommandLineApplication<TApp>>, CancellationToken)
+  nameWithType.vb: HostBuilderExtensions.RunCommandLineApplicationAsync(Of TApp)(IHostBuilder, String(), Action(Of CommandLineApplication(Of TApp)), CancellationToken)
 - uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.RunCommandLineApplicationAsync``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[],System.Threading.CancellationToken)
   name: RunCommandLineApplicationAsync<TApp>(IHostBuilder, String[], CancellationToken)
   href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_RunCommandLineApplicationAsync__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___System_Threading_CancellationToken_
