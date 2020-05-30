@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Conventions;
 using McMaster.Extensions.Hosting.CommandLine.Tests.Utilities;
 using Microsoft.Extensions.DependencyInjection;
@@ -101,6 +102,29 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
                 }));
 
             Assert.NotNull(env);
+        }
+
+        [Fact]
+        public async Task TestCommandLineContextFromNonDIContexts()
+        {
+            CommandLineContext configureServicesContext = null;
+            CommandLineContext confgureAppContext = null;
+            await new HostBuilder()
+               .ConfigureServices((context, collection) =>
+               {
+                   configureServicesContext = context.GetCommandLineContext();
+                   collection.AddSingleton<IConsole>(new TestConsole(_output));
+               })
+               .ConfigureAppConfiguration((context, builder) =>
+               {
+                   confgureAppContext = context.GetCommandLineContext();
+               })
+               .RunCommandLineApplicationAsync(new string[0], app => app.OnExecute(() =>
+               {
+               }));
+
+            Assert.NotNull(configureServicesContext);
+            Assert.NotNull(confgureAppContext);
         }
     }
 }
