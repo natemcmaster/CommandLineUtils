@@ -1514,11 +1514,24 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/unstable/api/Microsoft.Extensions.Hosting.HostBuilderContextExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "unstable/api/Microsoft.Extensions.Hosting.HostBuilderContextExtensions.html",
+          "hash": "4WE/SDSG31cZu75oHJLG6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": "unstable",
+      "group": "unstable"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html",
-          "hash": "HG7QhOPbddBnyTx2aUznIQ=="
+          "hash": "dkIoYrtGSGLxKT0P4aNBEA=="
         }
       },
       "is_incremental": false,
@@ -1531,7 +1544,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/Microsoft.Extensions.Hosting.html",
-          "hash": "Xrx0DFi6O948Zr6oiW3LCw=="
+          "hash": "jijdrlExW/wfCr/OXOOz1Q=="
         }
       },
       "is_incremental": false,
@@ -1544,7 +1557,7 @@
       "output": {
         ".html": {
           "relative_path": "unstable/api/toc.html",
-          "hash": "wPvOQjqtd8u315NfXc7Rew=="
+          "hash": "q4EAaWXz4+YoIISizZQ+ug=="
         }
       },
       "is_incremental": false,
@@ -9788,7 +9801,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 105,
+          "total_file_count": 106,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

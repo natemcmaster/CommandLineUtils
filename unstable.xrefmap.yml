@@ -6146,6 +6146,25 @@ references:
   commentId: N:Microsoft.Extensions.Hosting
   fullName: Microsoft.Extensions.Hosting
   nameWithType: Microsoft.Extensions.Hosting
+- uid: Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+  name: HostBuilderContextExtensions
+  href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderContextExtensions.html
+  commentId: T:Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+  fullName: Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+  nameWithType: HostBuilderContextExtensions
+- uid: Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext(Microsoft.Extensions.Hosting.HostBuilderContext)
+  name: GetCommandLineContext(HostBuilderContext)
+  href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderContextExtensions.html#Microsoft_Extensions_Hosting_HostBuilderContextExtensions_GetCommandLineContext_Microsoft_Extensions_Hosting_HostBuilderContext_
+  commentId: M:Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext(Microsoft.Extensions.Hosting.HostBuilderContext)
+  fullName: Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext(Microsoft.Extensions.Hosting.HostBuilderContext)
+  nameWithType: HostBuilderContextExtensions.GetCommandLineContext(HostBuilderContext)
+- uid: Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext*
+  name: GetCommandLineContext
+  href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderContextExtensions.html#Microsoft_Extensions_Hosting_HostBuilderContextExtensions_GetCommandLineContext_
+  commentId: Overload:Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext
+  isSpec: "True"
+  fullName: Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext
+  nameWithType: HostBuilderContextExtensions.GetCommandLineContext
 - uid: Microsoft.Extensions.Hosting.HostBuilderExtensions
   name: HostBuilderExtensions
   href: unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html

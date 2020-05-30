@@ -559,6 +559,11 @@
     "title": "Interface IUnhandledExceptionHandler",
     "keywords": "Interface IUnhandledExceptionHandler Used by McMaster.Extensions.Hosting.CommandLine.Internal.CommandLineLifetime to handle exceptions that are emitted from the CommandLineApplication<TModel> e.g. during parsing or execution Namespace : McMaster.Extensions.Hosting.CommandLine Assembly : McMaster.Extensions.Hosting.CommandLine.dll Syntax public interface IUnhandledExceptionHandler Methods | Improve this Doc View Source HandleException(Exception) Handle otherwise uncaught exception. You are free to log, rethrow, … the exception Declaration void HandleException(Exception e) Parameters Type Name Description System.Exception e An otherwise uncaught exception"
   },
+  "unstable/api/Microsoft.Extensions.Hosting.HostBuilderContextExtensions.html": {
+    "href": "unstable/api/Microsoft.Extensions.Hosting.HostBuilderContextExtensions.html",
+    "title": "Class HostBuilderContextExtensions",
+    "keywords": "Class HostBuilderContextExtensions Extensions methods for the Microsoft.Extensions.Hosting.HostBuilderContext Inheritance System.Object HostBuilderContextExtensions Namespace : Microsoft.Extensions.Hosting Assembly : McMaster.Extensions.Hosting.CommandLine.dll Syntax public static class HostBuilderContextExtensions Methods | Improve this Doc View Source GetCommandLineContext(HostBuilderContext) Get the CommandLineContext used to run the app Declaration public static CommandLineContext GetCommandLineContext(this HostBuilderContext context) Parameters Type Name Description Microsoft.Extensions.Hosting.HostBuilderContext context This instance Returns Type Description CommandLineContext The CommandLineContext used to run the app"
+  },
   "unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html": {
     "href": "unstable/api/Microsoft.Extensions.Hosting.HostBuilderExtensions.html",
     "title": "Class HostBuilderExtensions",
@@ -567,7 +572,7 @@
   "unstable/api/Microsoft.Extensions.Hosting.html": {
     "href": "unstable/api/Microsoft.Extensions.Hosting.html",
     "title": "Namespace Microsoft.Extensions.Hosting",
-    "keywords": "Namespace Microsoft.Extensions.Hosting Classes HostBuilderExtensions Extension methods for Microsoft.Extensions.Hosting.IHostBuilder support."
+    "keywords": "Namespace Microsoft.Extensions.Hosting Classes HostBuilderContextExtensions Extensions methods for the Microsoft.Extensions.Hosting.HostBuilderContext HostBuilderExtensions Extension methods for Microsoft.Extensions.Hosting.IHostBuilder support."
   },
   "v2.2/api/index.html": {
     "href": "v2.2/api/index.html",
