@@ -31,9 +31,33 @@ namespace Microsoft.Extensions.Hosting
         /// <param name="cancellationToken">A cancellation token</param>
         /// <returns>A task whose result is the exit code of the application</returns>
         public static async Task<int> RunCommandLineApplicationAsync<TApp>(
-            this IHostBuilder hostBuilder, string[] args, CancellationToken cancellationToken = default)
+            this IHostBuilder hostBuilder,
+            string[] args,
+            CancellationToken cancellationToken = default)
             where TApp : class
         {
+            return await RunCommandLineApplicationAsync<TApp>(hostBuilder, args, null, cancellationToken);
+        }
+
+        /// <summary>
+        ///     Runs an instance of <typeparamref name="TApp" /> using <see cref="CommandLineApplication" /> to provide
+        ///     command line parsing on the given <paramref name="args" />.  This method should be the primary approach
+        ///     taken for command line applications.
+        /// </summary>
+        /// <typeparam name="TApp">The type of the command line application implementation</typeparam>
+        /// <param name="hostBuilder">This instance</param>
+        /// <param name="args">The command line arguments</param>
+        /// <param name="configure">The delegate to configure the application</param>
+        /// <param name="cancellationToken">A cancellation token</param>
+        /// <returns>A task whose result is the exit code of the application</returns>
+        public static async Task<int> RunCommandLineApplicationAsync<TApp>(
+            this IHostBuilder hostBuilder,
+            string[] args,
+            Action<CommandLineApplication<TApp>> configure,
+            CancellationToken cancellationToken = default)
+            where TApp : class
+        {
+            configure ??= app => { };
             var exceptionHandler = new StoreExceptionHandler();
             var state = new CommandLineState(args);
             hostBuilder.ConfigureServices(
@@ -53,6 +77,8 @@ namespace Microsoft.Extensions.Hosting
                         })
                         .AddSingleton<CommandLineContext>(state)
                         .AddSingleton<ICommandLineService, CommandLineService<TApp>>();
+                    services
+                        .AddSingleton(configure);
                 });
 
             using var host = hostBuilder.Build();
@@ -103,7 +129,7 @@ namespace Microsoft.Extensions.Hosting
                         .AddSingleton<CommandLineContext>(state)
                         .AddSingleton<ICommandLineService, CommandLineService>();
                     services
-                    .AddSingleton(configure);
+                        .AddSingleton(configure);
                 });
 
             using var host = hostBuilder.Build();
