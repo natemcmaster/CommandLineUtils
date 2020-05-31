@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -27,6 +28,8 @@ namespace McMaster.Extensions.CommandLineUtils
             : this(StringComparison.CurrentCulture, allowedValues)
         {
         }
+
+        internal ReadOnlyCollection<string> AllowedValues => Array.AsReadOnly(this._allowedValues);
 
         /// <summary>
         /// Initializes an instance of <see cref="AllowedValuesAttribute"/>.

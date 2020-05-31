@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils.HelpText
 {
@@ -196,6 +197,13 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                         ? $"{arg.Description}\nAllowed values are: {string.Join(", ", enumNames)}."
                         : arg.Description;
 
+                    var attributeValidator = arg.Validators.Cast<AttributeValidator>().FirstOrDefault();
+
+                    if (attributeValidator != null && attributeValidator.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
+                    {
+                        description += $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                    }
+
                     var wrappedDescription = IndentWriter?.Write(description);
                     var message = string.Format(outputFormat, arg.Name, wrappedDescription);
 
@@ -230,6 +238,13 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                     var description = enumNames.Any()
                         ? $"{opt.Description}\nAllowed values are: {string.Join(", ", enumNames)}."
                         : opt.Description;
+
+                    var attributeValidator = opt.Validators.Cast<AttributeValidator>().FirstOrDefault();
+
+                    if (attributeValidator != null && attributeValidator.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
+                    {
+                        description+= $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                    }
 
                     var wrappedDescription = IndentWriter?.Write(description);
                     var message = string.Format(outputFormat, Format(opt), wrappedDescription);

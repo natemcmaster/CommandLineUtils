@@ -108,25 +108,31 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             app.HelpOption();
             app.Option("--strOpt <E>", "str option desc.", CommandOptionType.SingleValue);
+            app.Option("--rStrOpt <E>", "restricted str option desc.", CommandOptionType.SingleValue, o => o.Accepts().Values("Foo", "Bar"));
             app.Option<int>("--intOpt <E>", "int option desc.", CommandOptionType.SingleValue);
             app.Option<SomeEnum>("--enumOpt <E>", "enum option desc.", CommandOptionType.SingleValue);
             app.Argument("SomeStringArgument", "string arg desc.");
+            app.Argument("RestrictedStringArgument", "restricted string arg desc.", a=>a.Accepts().Values("Foo", "Bar"));
             app.Argument<SomeEnum>("SomeEnumArgument", "enum arg desc.");
             var helpText = GetHelpText(app);
 
-            Assert.Equal(@"Usage:  [options] <SomeStringArgument> <SomeEnumArgument>
+            Assert.Equal(@"Usage:  [options] <SomeStringArgument> <RestrictedStringArgument> <SomeEnumArgument>
 
 Arguments:
-  SomeStringArgument  string arg desc.
-  SomeEnumArgument    enum arg desc.
-                      Allowed values are: None, Normal, Extreme.
+  SomeStringArgument        string arg desc.
+  RestrictedStringArgument  restricted string arg desc.
+                            Allowed values are: Foo, Bar.
+  SomeEnumArgument          enum arg desc.
+                            Allowed values are: None, Normal, Extreme.
 
 Options:
-  -?|-h|--help        Show help information.
-  --strOpt <E>        str option desc.
-  --intOpt <E>        int option desc.
-  --enumOpt <E>       enum option desc.
-                      Allowed values are: None, Normal, Extreme.
+  -?|-h|--help              Show help information.
+  --strOpt <E>              str option desc.
+  --rStrOpt <E>             restricted str option desc.
+                            Allowed values are: Foo, Bar.
+  --intOpt <E>              int option desc.
+  --enumOpt <E>             enum option desc.
+                            Allowed values are: None, Normal, Extreme.
 
 ",
             helpText,
@@ -141,15 +147,19 @@ Options:
             app.Conventions.UseDefaultConventions();
             var helpText = GetHelpText(app);
 
-            Assert.Equal(@"Usage: test [options] <SomeStringArgument> <SomeEnumArgument>
+            Assert.Equal(@"Usage: test [options] <SomeStringArgument> <RestrictedStringArgument> <SomeEnumArgument>
 
 Arguments:
   SomeStringArgument                string arg desc.
+  RestrictedStringArgument          restricted string arg desc.
+                                    Allowed values are: Foo, Bar.
   SomeEnumArgument                  enum arg desc.
                                     Allowed values are: None, Normal, Extreme.
 
 Options:
   -strOpt|--str-opt <STR_OPT>       str option desc.
+  -rStrOpt|--r-str-opt <R_STR_OPT>  restricted str option desc.
+                                    Allowed values are: Foo, Bar.
   -intOpt|--int-opt <INT_OPT>       int option desc.
   -enumOpt|--verbosity <VERBOSITY>  enum option desc.
                                     Allowed values are: None, Normal, Extreme.
@@ -165,6 +175,10 @@ Options:
             [Option(ShortName = "strOpt", Description = "str option desc.")]
             public string strOpt { get; set; }
 
+            [Option(ShortName = "rStrOpt", Description = "restricted str option desc.")]
+            [AllowedValues("Foo", "Bar")]
+            public string rStrOpt { get; set; }
+
             [Option(ShortName = "intOpt", Description = "int option desc.")]
             public int intOpt { get; set; }
 
@@ -174,7 +188,11 @@ Options:
             [Argument(0, Description = "string arg desc.")]
             public string SomeStringArgument { get; set; }
 
-            [Argument(1, Description = "enum arg desc.")]
+            [Argument(1, Description = "restricted string arg desc.")]
+            [AllowedValues("Foo", "Bar")]
+            public string RestrictedStringArgument { get; set; }
+
+            [Argument(2, Description = "enum arg desc.")]
             public SomeEnum SomeEnumArgument { get; set; }
         }
 

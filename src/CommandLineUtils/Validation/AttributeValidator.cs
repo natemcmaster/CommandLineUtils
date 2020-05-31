@@ -24,6 +24,8 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
             _attribute = attribute ?? throw new ArgumentNullException(nameof(attribute));
         }
 
+        internal ValidationAttribute ValidationAttribute => this._attribute;
+
         /// <summary>
         /// Gets the validation result for a command line option.
         /// </summary>
