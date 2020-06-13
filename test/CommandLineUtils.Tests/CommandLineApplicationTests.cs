@@ -495,6 +495,19 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void AllowNoThrowBehaviorOnUnexpectedOptionWhenHasSubcommand()
+        {
+            var app = new CommandLineApplication
+            {
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect
+            };
+            app.Command("k", null);
+
+            // should not throw
+            app.Execute("--unexpected");
+        }
+
+        [Fact]
         public void CollectUnrecognizedArguments()
         {
             var app = new CommandLineApplication
