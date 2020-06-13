@@ -102,10 +102,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Command(UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect)]
-        [Subcommand(typeof(SimpleCommand))]
+        [Subcommand(typeof(FooCommand))]
         class NotThrowOnUnrecognizedArgumentClass
         {
             public void OnExecute() { }
+        }
+
+        [Command]
+        class FooCommand
+        {
         }
 
         [Fact]
