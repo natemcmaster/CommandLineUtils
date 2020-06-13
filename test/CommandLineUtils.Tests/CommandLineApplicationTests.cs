@@ -501,7 +501,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect
             };
-            app.Command("k", null);
+            app.Command("k", c =>
+            {
+                c.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.Throw;
+            });
 
             // should not throw
             app.Execute("--unexpected");
