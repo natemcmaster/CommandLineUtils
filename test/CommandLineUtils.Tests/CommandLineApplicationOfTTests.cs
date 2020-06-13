@@ -112,7 +112,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void AllowNoThrowBehaviorOnUnexpectedOptionWhenHasSubcommand()
         {
-            var app = new CommandLineApplication<NotThrowOnUnrecognizedArgumentClass>();
+            using var app = new CommandLineApplication<NotThrowOnUnrecognizedArgumentClass>();
+            app.Conventions.UseDefaultConventions();
 
             // should not throw
             app.Execute("--unexpected");
