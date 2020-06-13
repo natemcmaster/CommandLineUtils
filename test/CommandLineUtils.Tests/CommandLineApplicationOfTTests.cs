@@ -106,7 +106,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         class NotThrowOnUnrecognizedArgumentClass
         {
             public void OnExecute() { }
-
         }
 
         [Fact]
