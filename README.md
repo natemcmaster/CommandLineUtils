@@ -1,7 +1,7 @@
 CommandLineUtils
 ================
 
-[![Build Status](https://dev.azure.com/natemcmaster/github/_apis/build/status/CommandLineUtils?branchName=master)](https://dev.azure.com/natemcmaster/github/_build/latest?definitionId=3&branchName=master)
+[![Build Status](https://dev.azure.com/natemcmaster/github/_apis/build/status/CommandLineUtils?branchName=main)](https://dev.azure.com/natemcmaster/github/_build/?definitionId=3)
 
 [![NuGet][nuget-badge] ![NuGet Downloads][nuget-download-badge]][nuget]
 
