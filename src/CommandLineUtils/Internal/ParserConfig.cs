@@ -44,7 +44,6 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Set the behavior for how to handle unrecognized arguments.
         /// </summary>
-        public UnrecognizedArgumentHandling UnrecognizedArgumentHandling { get; set; } =
-            UnrecognizedArgumentHandling.Throw;
+        public UnrecognizedArgumentHandling? UnrecognizedArgumentHandling { get; set; }
     }
 }

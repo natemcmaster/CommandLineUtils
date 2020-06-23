@@ -334,7 +334,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private bool ProcessUnexpectedArg(string argTypeName, string? argValue = null)
         {
-            switch (_config.UnrecognizedArgumentHandling)
+            switch (_currentCommand.UnrecognizedArgumentHandling)
             {
                 case UnrecognizedArgumentHandling.Throw:
                     _currentCommand.ShowHint();

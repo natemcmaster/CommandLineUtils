@@ -93,7 +93,13 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Set the behavior for how to handle unrecognized arguments.
         /// </summary>
-        public UnrecognizedArgumentHandling UnrecognizedArgumentHandling { get; set; } = UnrecognizedArgumentHandling.Throw;
+        public UnrecognizedArgumentHandling UnrecognizedArgumentHandling
+        {
+            get => _unrecognizedArgumentHandling ?? UnrecognizedArgumentHandling.Throw;
+            set => _unrecognizedArgumentHandling = value;
+        }
+
+        private UnrecognizedArgumentHandling? _unrecognizedArgumentHandling;
 
         /// <summary>
         /// Allow '--' to be used to stop parsing arguments.
@@ -172,7 +178,6 @@ namespace McMaster.Extensions.CommandLineUtils
             app.FullName = FullName;
             app.ResponseFileHandling = ResponseFileHandling;
             app.ShowInHelpText = ShowInHelpText;
-            app.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling;
             app.OptionsComparison = OptionsComparison;
             app.ValueParsers.ParseCulture = ParseCulture;
             app.UsePagerForHelpText = UsePagerForHelpText;
@@ -180,6 +185,11 @@ namespace McMaster.Extensions.CommandLineUtils
             if (_clusterOptions.HasValue)
             {
                 app.ClusterOptions = _clusterOptions.Value;
+            }
+
+            if (_unrecognizedArgumentHandling.HasValue)
+            {
+                app.UnrecognizedArgumentHandling = _unrecognizedArgumentHandling.Value;
             }
         }
     }

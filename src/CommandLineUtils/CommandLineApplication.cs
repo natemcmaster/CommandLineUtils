@@ -122,7 +122,7 @@ namespace McMaster.Extensions.CommandLineUtils
             SetContext(context);
             _services = new Lazy<IServiceProvider>(() => new ServiceProvider(this));
             ValueParsers = parent?.ValueParsers ?? new ValueParserProvider();
-            _parserConfig = parent?._parserConfig ?? new ParserConfig();
+            _parserConfig = new ParserConfig();
             _clusterOptions = parent?._clusterOptions;
             UsePagerForHelpText = parent?.UsePagerForHelpText ?? false;
 
@@ -255,7 +255,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public UnrecognizedArgumentHandling UnrecognizedArgumentHandling
         {
-            get => _parserConfig.UnrecognizedArgumentHandling;
+            get => _parserConfig.UnrecognizedArgumentHandling ?? Parent?.UnrecognizedArgumentHandling ?? UnrecognizedArgumentHandling.Throw;
             set => _parserConfig.UnrecognizedArgumentHandling = value;
         }
 
