@@ -25,7 +25,7 @@ commands related to those arguments. The library also provides various other uti
     <div class="col-md-4">
         <div class="panel panel-default" style="min-height: 140px">
             <div class="panel-body">
-                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils/tree/master/docs/samples/">Samples</a></strong></p>
+                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils/tree/main/docs/samples/">Samples</a></strong></p>
                 <p>View sample projects which use CommandLineUtils.</p>
             </div>
         </div>
@@ -49,7 +49,7 @@ commands related to those arguments. The library also provides various other uti
     <div class="col-md-4">
         <div class="panel panel-default" style="min-height: 140px">
             <div class="panel-body">
-                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils/tree/master/CHANGELOG.md">Version history</a></strong></p>
+                <p><strong><a href="https://github.com/natemcmaster/CommandLineUtils/tree/main/CHANGELOG.md">Version history</a></strong></p>
                 <p>Read notes about fixes and enhancements per release.</p>
             </div>
         </div>
