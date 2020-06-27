@@ -356,9 +356,22 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </example>
         public char[] OptionNameValueSeparators
         {
-            get => _parserConfig.OptionNameValueSeparators;
-            set => _parserConfig.OptionNameValueSeparators = value;
+            get => _parserConfig.OptionNameValueSeparators ?? Parent?.OptionNameValueSeparators ?? new[] { ' ', ':', '=' };
+            set
+            {
+                if (value is null)
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
+                else if (value.Length == 0)
+                {
+                    throw new ArgumentException(Strings.IsEmptyArray, nameof(value));
+                }
+                _parserConfig.OptionNameValueSeparators = value;
+            }
         }
+
+        internal bool OptionNameAndValueCanBeSpaceSeparated => Array.IndexOf(this.OptionNameValueSeparators, ' ') >= 0;
 
         /// <summary>
         /// Gets the default value parser provider.
@@ -728,7 +741,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             args ??= Util.EmptyArray<string>();
 
-            var processor = new CommandLineProcessor(this, _parserConfig, args);
+            var processor = new CommandLineProcessor(this, args);
             var result = processor.Process();
             result.SelectedCommand.HandleParseResult(result);
             return result;

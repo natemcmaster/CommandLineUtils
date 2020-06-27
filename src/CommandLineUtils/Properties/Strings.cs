@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public const string DefaultVersionTemplate = "--version";
         public const string DefaultVersionOptionDescription = "Show version information.";
 
-        public const string IsNullOrEmpty = "Value is null or empty.";
+        public const string IsEmptyArray = "value is an empty array.";
 
         public const string PathMustNotBeRelative = "File path must not be relative.";
 

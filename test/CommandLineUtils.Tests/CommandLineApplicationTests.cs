@@ -771,6 +771,20 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void AllowSettingOptionNameValueSeparatorsPerCommand()
+        {
+            var app = new CommandLineApplication();
+
+            app.Command("k", c =>
+            {
+                c.Option("-o", "option desc.", CommandOptionType.SingleValue);
+                c.OptionNameValueSeparators = new[] { '=' };
+            });
+
+            Assert.ThrowsAny<CommandParsingException>(() => app.Parse("k", "-o", "foo"));
+        }
+
+        [Fact]
         public void HelpTextIgnoresHiddenItems()
         {
             var app = new CommandLineApplication()
