@@ -10,7 +10,6 @@ pr:
 - '*'
 
 variables:
-- group: AzureKeyVault
 - name: BUILD_NUMBER
   value: $[counter('buildnumber', 1)]
 
@@ -39,8 +38,6 @@ jobs:
       packageType: runtime
   - powershell: ./build.ps1 -ci
     displayName: Invoke build.ps1
-    env:
-      KEYVAULT_CLIENT_SECRET: $(kv-access-token)
   - task: PublishTestResults@2
     displayName: Publish test results
     condition: always()

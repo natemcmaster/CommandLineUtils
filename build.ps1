@@ -5,8 +5,6 @@ param(
     $Configuration = $null,
     [switch]
     $ci,
-    [switch]
-    $sign,
     [Parameter(ValueFromRemainingArguments = $true)]
     [string[]]$MSBuildArgs
 )
@@ -37,12 +35,6 @@ if ($ci) {
 
 if (-not (Test-Path variable:\IsCoreCLR)) {
     $IsWindows = $true
-}
-
-$CodeSign = $sign -or ($ci -and -not $isPr -and $IsWindows)
-
-if ($CodeSign) {
-    $MSBuildArgs += '-p:CodeSign=true'
 }
 
 $artifacts = "$PSScriptRoot/artifacts/"
