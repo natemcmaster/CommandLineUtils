@@ -1,0 +1,443 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe
+  commentId: T:McMaster.Extensions.CommandLineUtils.DotNetExe
+  id: DotNetExe
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+  - McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  langs:
+  - csharp
+  - vb
+  name: DotNetExe
+  nameWithType: DotNetExe
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetExe
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DotNetExe.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: DotNetExe
+    path: ../src/CommandLineUtils/Utilities/DotNetExe.cs
+    startLine: 14
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nUtilities for finding the &quot;dotnet.exe&quot; file from the currently running .NET Core application.\n"
+  example: []
+  syntax:
+    content: public static class DotNetExe
+    content.vb: Public Module DotNetExe
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+  commentId: P:McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+  id: FullPath
+  parent: McMaster.Extensions.CommandLineUtils.DotNetExe
+  langs:
+  - csharp
+  - vb
+  name: FullPath
+  nameWithType: DotNetExe.FullPath
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DotNetExe.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: FullPath
+    path: ../src/CommandLineUtils/Utilities/DotNetExe.cs
+    startLine: 30
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe full filepath to the .NET Core CLI executable.\n<p>\nMay be <code>null</code> if the CLI cannot be found. <xref href=\"McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault\" data-throw-if-not-resolved=\"false\"></xref>\n</p>\n"
+  example: []
+  syntax:
+    content: public static string FullPath { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: The path or null
+    content.vb: Public Shared ReadOnly Property FullPath As String
+  overload: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  commentId: M:McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  id: FullPathOrDefault
+  parent: McMaster.Extensions.CommandLineUtils.DotNetExe
+  langs:
+  - csharp
+  - vb
+  name: FullPathOrDefault()
+  nameWithType: DotNetExe.FullPathOrDefault()
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault()
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DotNetExe.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: FullPathOrDefault
+    path: ../src/CommandLineUtils/Utilities/DotNetExe.cs
+    startLine: 37
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nFinds the full filepath to the .NET Core CLI executable,\nor returns a string containing the default name of the .NET Core muxer (&apos;dotnet&apos;).\n<returns>The path or a string named &apos;dotnet&apos;</returns>\n"
+  example: []
+  syntax:
+    content: public static string FullPathOrDefault()
+    return:
+      type: System.String
+    content.vb: Public Shared Function FullPathOrDefault As String
+  overload: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  commentId: M:McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  isExternal: true
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+  name: FullPath
+  nameWithType: DotNetExe.FullPath
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  name: FullPathOrDefault
+  nameWithType: DotNetExe.FullPathOrDefault
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault

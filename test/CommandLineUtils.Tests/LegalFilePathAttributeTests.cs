@@ -18,7 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class App
         {
             [Argument(0), LegalFilePath]
-            public string FilePath { get; set; }
+            public string? FilePath { get; set; }
             private void OnExecute() { }
         }
 
@@ -46,7 +46,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(null)]
         [InlineData("")]
         [InlineData("\0")]
-        [InlineData("/////")]
         public void FailsInvalidLegalFilePaths(string filePath)
         {
             var console = new TestConsole(_output);

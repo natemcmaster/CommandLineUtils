@@ -19,16 +19,8 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         /// <summary>
         /// Initializes an instance of <see cref="FilePathExistsAttributeBase"/>.
         /// </summary>
-        public FilePathExistsAttributeBase()
-            : this(FilePathType.Any)
-        {
-        }
-
-        /// <summary>
-        /// Initializes an instance of <see cref="FilePathExistsAttributeBase"/>.
-        /// </summary>
         /// <param name="filePathType">Acceptable file path types</param>
-        public FilePathExistsAttributeBase(FilePathType filePathType)
+        internal FilePathExistsAttributeBase(FilePathType filePathType)
             : base(GetDefaultErrorMessage(filePathType))
         {
             _filePathType = filePathType;

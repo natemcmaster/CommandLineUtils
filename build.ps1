@@ -3,8 +3,8 @@
 param(
     [ValidateSet('Debug', 'Release')]
     $Configuration = $null,
-	[switch]
-	$IsOfficialBuild,
+    [switch]
+    $ci,
     [Parameter(ValueFromRemainingArguments = $true)]
     [string[]]$MSBuildArgs
 )
@@ -12,37 +12,58 @@ param(
 Set-StrictMode -Version 1
 $ErrorActionPreference = 'Stop'
 
-function exec([string]$_cmd) {
-    write-host -ForegroundColor DarkGray ">>> $_cmd $args"
-    $ErrorActionPreference = 'Continue'
-    & $_cmd @args
-    $ErrorActionPreference = 'Stop'
-    if ($LASTEXITCODE -ne 0) {
-        write-error "Failed with exit code $LASTEXITCODE"
-        exit 1
-    }
-}
+Import-Module -Force -Scope Local "$PSScriptRoot/src/common.psm1"
 
 #
 # Main
 #
 
-if (!$Configuration) {
-    $Configuration = if ($env:CI -or $IsOfficialBuild) { 'Release' } else { 'Debug' }
+$isPr = $env:BUILD_REASON -eq 'PullRequest'
+
+if ($env:CI -eq 'true') {
+    $ci = $true
+    & dotnet --info
 }
 
-if ($IsOfficialBuild) {
-	$MSBuildArgs += '-p:CI=true'
+if (!$Configuration) {
+    $Configuration = if ($ci) { 'Release' } else { 'Debug' }
+}
+
+if ($ci) {
+    $MSBuildArgs += '-p:CI=true'
+}
+
+if (-not (Test-Path variable:\IsCoreCLR)) {
+    $IsWindows = $true
 }
 
 $artifacts = "$PSScriptRoot/artifacts/"
 
 Remove-Item -Recurse $artifacts -ErrorAction Ignore
 
+exec dotnet tool restore
 exec dotnet build --configuration $Configuration '-warnaserror:CS1591' @MSBuildArgs
 exec dotnet pack --no-restore --no-build --configuration $Configuration -o $artifacts @MSBuildArgs
-exec dotnet test --no-restore --no-build --configuration $Configuration '-clp:Summary' `
-    "$PSScriptRoot/test/CommandLineUtils.Tests/McMaster.Extensions.CommandLineUtils.Tests.csproj" `
+exec dotnet build --configuration $Configuration "$PSScriptRoot/docs/samples/samples.sln"
+
+[string[]] $testArgs=@()
+if (-not $IsWindows) {
+    $testArgs += '-p:TestFullFramework=false'
+}
+if ($env:TF_BUILD) {
+    $testArgs += '--logger', 'trx'
+}
+
+exec dotnet test --no-restore --no-build --configuration $Configuration `
+    --collect:"XPlat Code Coverage" `
+    @testArgs `
     @MSBuildArgs
+
+if ($ci) {
+    exec dotnet tool run reportgenerator `
+        "-reports:$PSScriptRoot/**/coverage.cobertura.xml" `
+        "-targetdir:$PSScriptRoot/coverlet/reports" `
+        "-reporttypes:Cobertura"
+}
 
 write-host -f magenta 'Done'

@@ -1,0 +1,302 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  id: ConventionContext
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Type)
+  - McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.Application
+  - McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelAccessor
+  - McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelType
+  langs:
+  - csharp
+  - vb
+  name: ConventionContext
+  nameWithType: ConventionContext
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/ConventionContext.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ConventionContext
+    path: ../src/CommandLineUtils/Conventions/ConventionContext.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nThe context in which a convention is applied.\n"
+  example: []
+  syntax:
+    content: public class ConventionContext
+    content.vb: Public Class ConventionContext
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Type)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Type)
+  id: '#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Type)'
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  langs:
+  - csharp
+  - vb
+  name: ConventionContext(CommandLineApplication, Type)
+  nameWithType: ConventionContext.ConventionContext(CommandLineApplication, Type)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ConventionContext(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Type)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/ConventionContext.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Conventions/ConventionContext.cs
+    startLine: 18
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nInitializes an instance of <xref href=\"McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public ConventionContext(CommandLineApplication application, Type modelType)
+    parameters:
+    - id: application
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: The application
+    - id: modelType
+      type: System.Type
+      description: The type of the model.
+    content.vb: Public Sub New(application As CommandLineApplication, modelType As Type)
+  overload: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.Application
+  commentId: P:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.Application
+  id: Application
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  langs:
+  - csharp
+  - vb
+  name: Application
+  nameWithType: ConventionContext.Application
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.Application
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/ConventionContext.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Application
+    path: ../src/CommandLineUtils/Conventions/ConventionContext.cs
+    startLine: 27
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nThe application to which the convention is applied.\n"
+  example: []
+  syntax:
+    content: public CommandLineApplication Application { get; }
+    parameters: []
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+    content.vb: Public ReadOnly Property Application As CommandLineApplication
+  overload: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.Application*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelType
+  commentId: P:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelType
+  id: ModelType
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  langs:
+  - csharp
+  - vb
+  name: ModelType
+  nameWithType: ConventionContext.ModelType
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelType
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/ConventionContext.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ModelType
+    path: ../src/CommandLineUtils/Conventions/ConventionContext.cs
+    startLine: 33
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nThe type of the application model. Can be null when applied to <xref href=\"McMaster.Extensions.CommandLineUtils.CommandLineApplication\" data-throw-if-not-resolved=\"false\"></xref>\ninstead of <xref href=\"McMaster.Extensions.CommandLineUtils.CommandLineApplication%601\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public Type ModelType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property ModelType As Type
+  overload: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelType*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelAccessor
+  commentId: P:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelAccessor
+  id: ModelAccessor
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  langs:
+  - csharp
+  - vb
+  name: ModelAccessor
+  nameWithType: ConventionContext.ModelAccessor
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelAccessor
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/ConventionContext.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ModelAccessor
+    path: ../src/CommandLineUtils/Conventions/ConventionContext.cs
+    startLine: 40
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nA convenience accessor for getting the application model object.\nCan be null when applied to <xref href=\"McMaster.Extensions.CommandLineUtils.CommandLineApplication\" data-throw-if-not-resolved=\"false\"></xref> instead of\n<xref href=\"McMaster.Extensions.CommandLineUtils.CommandLineApplication%601\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public IModelAccessor ModelAccessor { get; }
+    parameters: []
+    return:
+      type: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+    content.vb: Public ReadOnly Property ModelAccessor As IModelAccessor
+  overload: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelAccessor*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Conventions
+  name: McMaster.Extensions.CommandLineUtils.Conventions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Conventions
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  name: ConventionContext
+  nameWithType: ConventionContext
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor
+  name: ConventionContext
+  nameWithType: ConventionContext.ConventionContext
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ConventionContext
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.Application*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.Application
+  name: Application
+  nameWithType: ConventionContext.Application
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.Application
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1
+  name: CommandLineApplication<TModel>
+  nameWithType: CommandLineApplication<TModel>
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>
+  nameWithType.vb: CommandLineApplication(Of TModel)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel)
+  name.vb: CommandLineApplication(Of TModel)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1
+    name: CommandLineApplication
+    nameWithType: CommandLineApplication
+    fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TModel
+    nameWithType: TModel
+    fullName: TModel
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1
+    name: CommandLineApplication
+    nameWithType: CommandLineApplication
+    fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TModel
+    nameWithType: TModel
+    fullName: TModel
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelType*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelType
+  name: ModelType
+  nameWithType: ConventionContext.ModelType
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelType
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelAccessor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelAccessor
+  name: ModelAccessor
+  nameWithType: ConventionContext.ModelAccessor
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelAccessor
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  name: IModelAccessor
+  nameWithType: IModelAccessor
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions

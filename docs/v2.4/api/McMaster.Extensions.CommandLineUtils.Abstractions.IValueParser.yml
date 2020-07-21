@@ -1,0 +1,286 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  id: IValueParser
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo)
+  - McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  langs:
+  - csharp
+  - vb
+  name: IValueParser
+  nameWithType: IValueParser
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/IValueParser.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IValueParser
+    path: ../src/CommandLineUtils/Abstractions/IValueParser.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nA parser that can convert string into an object.\n"
+  example: []
+  syntax:
+    content: public interface IValueParser
+    content.vb: Public Interface IValueParser
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  id: TargetType
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  langs:
+  - csharp
+  - vb
+  name: TargetType
+  nameWithType: IValueParser.TargetType
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/IValueParser.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: TargetType
+    path: ../src/CommandLineUtils/Abstractions/IValueParser.cs
+    startLine: 16
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nGets the Type that this value parser is defined for.\n"
+  example: []
+  syntax:
+    content: Type TargetType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: ReadOnly Property TargetType As Type
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo)
+  id: Parse(System.Nullable{System.String},System.Nullable{System.String},System.Globalization.CultureInfo)
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  langs:
+  - csharp
+  - vb
+  name: Parse(Nullable<String>, Nullable<String>, CultureInfo)
+  nameWithType: IValueParser.Parse(Nullable<String>, Nullable<String>, CultureInfo)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.Nullable<System.String>, System.Nullable<System.String>, System.Globalization.CultureInfo)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/IValueParser.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Parse
+    path: ../src/CommandLineUtils/Abstractions/IValueParser.cs
+    startLine: 26
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nParses the raw string value.\n"
+  example: []
+  syntax:
+    content: object? Parse(string? argName, string? value, CultureInfo culture)
+    parameters:
+    - id: argName
+      type: System.Nullable{System.String}
+      description: The name of the argument this value will be bound to.
+    - id: value
+      type: System.Nullable{System.String}
+      description: The raw string value to parse.
+    - id: culture
+      type: System.Globalization.CultureInfo
+      description: The culture that should be used to parse values.
+    return:
+      type: System.Nullable{System.Object}
+      description: The parsed value object.
+    content.vb: Function Parse(argName As String?, value As String?, culture As CultureInfo) As Object?
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse*
+  nameWithType.vb: IValueParser.Parse(Nullable(Of String), Nullable(Of String), CultureInfo)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(System.Nullable(Of System.String), System.Nullable(Of System.String), System.Globalization.CultureInfo)
+  name.vb: Parse(Nullable(Of String), Nullable(Of String), CultureInfo)
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  name: TargetType
+  nameWithType: IValueParser.TargetType
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse
+  name: Parse
+  nameWithType: IValueParser.Parse
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse
+- uid: System.Nullable{System.String}
+  commentId: T:System.Nullable{System.String}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<String>
+  nameWithType: Nullable<String>
+  fullName: System.Nullable<System.String>
+  nameWithType.vb: Nullable(Of String)
+  fullName.vb: System.Nullable(Of System.String)
+  name.vb: Nullable(Of String)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Globalization.CultureInfo
+  commentId: T:System.Globalization.CultureInfo
+  parent: System.Globalization
+  isExternal: true
+  name: CultureInfo
+  nameWithType: CultureInfo
+  fullName: System.Globalization.CultureInfo
+- uid: System.Nullable{System.Object}
+  commentId: T:System.Nullable{System.Object}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Object>
+  nameWithType: Nullable<Object>
+  fullName: System.Nullable<System.Object>
+  nameWithType.vb: Nullable(Of Object)
+  fullName.vb: System.Nullable(Of System.Object)
+  name.vb: Nullable(Of Object)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Globalization
+  commentId: N:System.Globalization
+  isExternal: true
+  name: System.Globalization
+  nameWithType: System.Globalization
+  fullName: System.Globalization

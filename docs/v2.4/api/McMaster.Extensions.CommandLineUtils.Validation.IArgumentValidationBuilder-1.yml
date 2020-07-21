@@ -1,0 +1,2521 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+  id: IArgumentValidationBuilder`1
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IArgumentValidationBuilder<T>
+  nameWithType: IArgumentValidationBuilder<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder<T>
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/IArgumentValidationBuilder{T}.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IArgumentValidationBuilder
+    path: ../src/CommandLineUtils/Validation/IArgumentValidationBuilder{T}.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  summary: "\nCreates a collection of validators for <xref href=\"McMaster.Extensions.CommandLineUtils.CommandArgument%601\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  remarks: "\nCustom validation extension methods that only apply to <xref href=\"McMaster.Extensions.CommandLineUtils.CommandArgument%601\" data-throw-if-not-resolved=\"false\"></xref> should hang off this type.\n"
+  example: []
+  syntax:
+    content: 'public interface IArgumentValidationBuilder<T> : IArgumentValidationBuilder, IValidationBuilder<T>, IValidationBuilder'
+    typeParameters:
+    - id: T
+    content.vb: >-
+      Public Interface IArgumentValidationBuilder(Of T)
+          Inherits IArgumentValidationBuilder, IValidationBuilder(Of T)
+  inheritedMembers:
+  - McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+  extensionMethods:
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(System.Boolean)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.String[])
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.Boolean,System.String[])
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.StringComparison,System.String[])
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(System.Nullable{System.String})
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(System.Nullable{System.String})
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(System.Nullable{System.String})
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(System.Nullable{System.String})
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(System.Nullable{System.String})
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(System.Nullable{System.String})
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(System.Nullable{System.String})
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(System.Nullable{System.String})
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(System.Int32,System.Nullable{System.String})
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(System.Int32,System.Nullable{System.String})
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(System.String,System.Nullable{System.String})
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(System.Nullable{System.String},System.Object[])
+  nameWithType.vb: IArgumentValidationBuilder(Of T)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder(Of T)
+  name.vb: IArgumentValidationBuilder(Of T)
+references:
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  name: CommandArgument<T>
+  nameWithType: CommandArgument<T>
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument<T>
+  nameWithType.vb: CommandArgument(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandArgument(Of T)
+  name.vb: CommandArgument(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  commentId: N:McMaster.Extensions.CommandLineUtils.Validation
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  nameWithType: McMaster.Extensions.CommandLineUtils.Validation
+  fullName: McMaster.Extensions.CommandLineUtils.Validation
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  name: Use(IArgumentValidator)
+  nameWithType: IArgumentValidationBuilder.Use(IArgumentValidator)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator)
+    name: Use
+    nameWithType: IArgumentValidationBuilder.Use
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.Use
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+    name: IArgumentValidator
+    nameWithType: IArgumentValidator
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator)
+    name: Use
+    nameWithType: IArgumentValidationBuilder.Use
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.Use
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+    name: IArgumentValidator
+    nameWithType: IArgumentValidator
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  name: Use(IValidator)
+  nameWithType: IValidationBuilder.Use(IValidator)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+    name: Use
+    nameWithType: IValidationBuilder.Use
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidator
+    name: IValidator
+    nameWithType: IValidator
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidator
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+    name: Use
+    nameWithType: IValidationBuilder.Use
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidator
+    name: IValidator
+    nameWithType: IValidator
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidator
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+  name: Enum<TEnum>(Boolean)
+  nameWithType: ValidationExtensions.Enum<TEnum>(Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum<TEnum>(System.Boolean)
+  nameWithType.vb: ValidationExtensions.Enum(Of TEnum)(Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum(Of TEnum)(System.Boolean)
+  name.vb: Enum(Of TEnum)(Boolean)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(System.Boolean)
+    name: Enum<TEnum>
+    nameWithType: ValidationExtensions.Enum<TEnum>
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum<TEnum>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(System.Boolean)
+    name: Enum(Of TEnum)
+    nameWithType: ValidationExtensions.Enum(Of TEnum)
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum(Of TEnum)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+  name: Values(String[])
+  nameWithType: ValidationExtensions.Values(String[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.String[])
+  nameWithType.vb: ValidationExtensions.Values(String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.String())
+  name.vb: Values(String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.Boolean,System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+  name: Values(Boolean, String[])
+  nameWithType: ValidationExtensions.Values(Boolean, String[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.Boolean, System.String[])
+  nameWithType.vb: ValidationExtensions.Values(Boolean, String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.Boolean, System.String())
+  name.vb: Values(Boolean, String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.Boolean,System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.Boolean,System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.StringComparison,System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+  name: Values(StringComparison, String[])
+  nameWithType: ValidationExtensions.Values(StringComparison, String[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.StringComparison, System.String[])
+  nameWithType.vb: ValidationExtensions.Values(StringComparison, String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.StringComparison, System.String())
+  name.vb: Values(StringComparison, String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.StringComparison,System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.StringComparison
+    name: StringComparison
+    nameWithType: StringComparison
+    fullName: System.StringComparison
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.StringComparison,System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.StringComparison
+    name: StringComparison
+    nameWithType: StringComparison
+    fullName: System.StringComparison
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: EmailAddress(Nullable<String>)
+  nameWithType: ValidationExtensions.EmailAddress(Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.EmailAddress(Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(System.Nullable(Of System.String))
+  name.vb: EmailAddress(Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(System.Nullable{System.String})
+    name: EmailAddress
+    nameWithType: ValidationExtensions.EmailAddress
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(System.Nullable{System.String})
+    name: EmailAddress
+    nameWithType: ValidationExtensions.EmailAddress
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: ExistingFile(Nullable<String>)
+  nameWithType: ValidationExtensions.ExistingFile(Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.ExistingFile(Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(System.Nullable(Of System.String))
+  name.vb: ExistingFile(Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(System.Nullable{System.String})
+    name: ExistingFile
+    nameWithType: ValidationExtensions.ExistingFile
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(System.Nullable{System.String})
+    name: ExistingFile
+    nameWithType: ValidationExtensions.ExistingFile
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: NonExistingFile(Nullable<String>)
+  nameWithType: ValidationExtensions.NonExistingFile(Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.NonExistingFile(Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(System.Nullable(Of System.String))
+  name.vb: NonExistingFile(Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(System.Nullable{System.String})
+    name: NonExistingFile
+    nameWithType: ValidationExtensions.NonExistingFile
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(System.Nullable{System.String})
+    name: NonExistingFile
+    nameWithType: ValidationExtensions.NonExistingFile
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: ExistingDirectory(Nullable<String>)
+  nameWithType: ValidationExtensions.ExistingDirectory(Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.ExistingDirectory(Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(System.Nullable(Of System.String))
+  name.vb: ExistingDirectory(Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(System.Nullable{System.String})
+    name: ExistingDirectory
+    nameWithType: ValidationExtensions.ExistingDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(System.Nullable{System.String})
+    name: ExistingDirectory
+    nameWithType: ValidationExtensions.ExistingDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: NonExistingDirectory(Nullable<String>)
+  nameWithType: ValidationExtensions.NonExistingDirectory(Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.NonExistingDirectory(Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(System.Nullable(Of System.String))
+  name.vb: NonExistingDirectory(Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(System.Nullable{System.String})
+    name: NonExistingDirectory
+    nameWithType: ValidationExtensions.NonExistingDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(System.Nullable{System.String})
+    name: NonExistingDirectory
+    nameWithType: ValidationExtensions.NonExistingDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: ExistingFileOrDirectory(Nullable<String>)
+  nameWithType: ValidationExtensions.ExistingFileOrDirectory(Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.ExistingFileOrDirectory(Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(System.Nullable(Of System.String))
+  name.vb: ExistingFileOrDirectory(Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(System.Nullable{System.String})
+    name: ExistingFileOrDirectory
+    nameWithType: ValidationExtensions.ExistingFileOrDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(System.Nullable{System.String})
+    name: ExistingFileOrDirectory
+    nameWithType: ValidationExtensions.ExistingFileOrDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: NonExistingFileOrDirectory(Nullable<String>)
+  nameWithType: ValidationExtensions.NonExistingFileOrDirectory(Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.NonExistingFileOrDirectory(Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(System.Nullable(Of System.String))
+  name.vb: NonExistingFileOrDirectory(Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(System.Nullable{System.String})
+    name: NonExistingFileOrDirectory
+    nameWithType: ValidationExtensions.NonExistingFileOrDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(System.Nullable{System.String})
+    name: NonExistingFileOrDirectory
+    nameWithType: ValidationExtensions.NonExistingFileOrDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  name: LegalFilePath(Nullable<String>)
+  nameWithType: ValidationExtensions.LegalFilePath(Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.LegalFilePath(Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(System.Nullable(Of System.String))
+  name.vb: LegalFilePath(Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(System.Nullable{System.String})
+    name: LegalFilePath
+    nameWithType: ValidationExtensions.LegalFilePath
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(System.Nullable{System.String})
+    name: LegalFilePath
+    nameWithType: ValidationExtensions.LegalFilePath
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(System.Int32,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  name: MinLength(Int32, Nullable<String>)
+  nameWithType: ValidationExtensions.MinLength(Int32, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(System.Int32, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.MinLength(Int32, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(System.Int32, System.Nullable(Of System.String))
+  name.vb: MinLength(Int32, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(System.Int32,System.Nullable{System.String})
+    name: MinLength
+    nameWithType: ValidationExtensions.MinLength
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(System.Int32,System.Nullable{System.String})
+    name: MinLength
+    nameWithType: ValidationExtensions.MinLength
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(System.Int32,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  name: MaxLength(Int32, Nullable<String>)
+  nameWithType: ValidationExtensions.MaxLength(Int32, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(System.Int32, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.MaxLength(Int32, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(System.Int32, System.Nullable(Of System.String))
+  name.vb: MaxLength(Int32, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(System.Int32,System.Nullable{System.String})
+    name: MaxLength
+    nameWithType: ValidationExtensions.MaxLength
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(System.Int32,System.Nullable{System.String})
+    name: MaxLength
+    nameWithType: ValidationExtensions.MaxLength
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(System.String,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Nullable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Nullable{System.String})
+  name: RegularExpression(String, Nullable<String>)
+  nameWithType: ValidationExtensions.RegularExpression(String, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(System.String, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.RegularExpression(String, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(System.String, System.Nullable(Of System.String))
+  name.vb: RegularExpression(String, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(System.String,System.Nullable{System.String})
+    name: RegularExpression
+    nameWithType: ValidationExtensions.RegularExpression
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(System.String,System.Nullable{System.String})
+    name: RegularExpression
+    nameWithType: ValidationExtensions.RegularExpression
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(System.Nullable{System.String},System.Object[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String},System.Object[])
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String},System.Object[])
+  name: Satisfies<TAttribute>(Nullable<String>, Object[])
+  nameWithType: ValidationExtensions.Satisfies<TAttribute>(Nullable<String>, Object[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies<TAttribute>(System.Nullable<System.String>, System.Object[])
+  nameWithType.vb: ValidationExtensions.Satisfies(Of TAttribute)(Nullable(Of String), Object())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies(Of TAttribute)(System.Nullable(Of System.String), System.Object())
+  name.vb: Satisfies(Of TAttribute)(Nullable(Of String), Object())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(System.Nullable{System.String},System.Object[])
+    name: Satisfies<TAttribute>
+    nameWithType: ValidationExtensions.Satisfies<TAttribute>
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies<TAttribute>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(System.Nullable{System.String},System.Object[])
+    name: Satisfies(Of TAttribute)
+    nameWithType: ValidationExtensions.Satisfies(Of TAttribute)
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies(Of TAttribute)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  name: IArgumentValidationBuilder
+  nameWithType: IArgumentValidationBuilder
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  name: IValidationBuilder
+  nameWithType: IValidationBuilder
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+  isExternal: true
+  name: Enum<TEnum>(IValidationBuilder, Boolean)
+  nameWithType: ValidationExtensions.Enum<TEnum>(IValidationBuilder, Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum<TEnum>(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Boolean)
+  nameWithType.vb: ValidationExtensions.Enum(Of TEnum)(IValidationBuilder, Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum(Of TEnum)(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Boolean)
+  name.vb: Enum(Of TEnum)(IValidationBuilder, Boolean)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+    name: Enum<TEnum>
+    nameWithType: ValidationExtensions.Enum<TEnum>
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum<TEnum>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+    name: Enum(Of TEnum)
+    nameWithType: ValidationExtensions.Enum(Of TEnum)
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum(Of TEnum)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  commentId: T:McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  parent: McMaster.Extensions.CommandLineUtils
+  name: ValidationExtensions
+  nameWithType: ValidationExtensions
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+  isExternal: true
+  name: Values(IValidationBuilder, String[])
+  nameWithType: ValidationExtensions.Values(IValidationBuilder, String[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String[])
+  nameWithType.vb: ValidationExtensions.Values(IValidationBuilder, String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String())
+  name.vb: Values(IValidationBuilder, String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+  isExternal: true
+  name: Values(IValidationBuilder, Boolean, String[])
+  nameWithType: ValidationExtensions.Values(IValidationBuilder, Boolean, String[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Boolean, System.String[])
+  nameWithType.vb: ValidationExtensions.Values(IValidationBuilder, Boolean, String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Boolean, System.String())
+  name.vb: Values(IValidationBuilder, Boolean, String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+  isExternal: true
+  name: Values(IValidationBuilder, StringComparison, String[])
+  nameWithType: ValidationExtensions.Values(IValidationBuilder, StringComparison, String[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.StringComparison, System.String[])
+  nameWithType.vb: ValidationExtensions.Values(IValidationBuilder, StringComparison, String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.StringComparison, System.String())
+  name.vb: Values(IValidationBuilder, StringComparison, String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.StringComparison
+    name: StringComparison
+    nameWithType: StringComparison
+    fullName: System.StringComparison
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+    name: Values
+    nameWithType: ValidationExtensions.Values
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.StringComparison
+    name: StringComparison
+    nameWithType: StringComparison
+    fullName: System.StringComparison
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  isExternal: true
+  name: EmailAddress(IValidationBuilder, Nullable<String>)
+  nameWithType: ValidationExtensions.EmailAddress(IValidationBuilder, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.EmailAddress(IValidationBuilder, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  name.vb: EmailAddress(IValidationBuilder, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: EmailAddress
+    nameWithType: ValidationExtensions.EmailAddress
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: EmailAddress
+    nameWithType: ValidationExtensions.EmailAddress
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  isExternal: true
+  name: ExistingFile(IValidationBuilder, Nullable<String>)
+  nameWithType: ValidationExtensions.ExistingFile(IValidationBuilder, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.ExistingFile(IValidationBuilder, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  name.vb: ExistingFile(IValidationBuilder, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: ExistingFile
+    nameWithType: ValidationExtensions.ExistingFile
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: ExistingFile
+    nameWithType: ValidationExtensions.ExistingFile
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  isExternal: true
+  name: NonExistingFile(IValidationBuilder, Nullable<String>)
+  nameWithType: ValidationExtensions.NonExistingFile(IValidationBuilder, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.NonExistingFile(IValidationBuilder, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  name.vb: NonExistingFile(IValidationBuilder, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: NonExistingFile
+    nameWithType: ValidationExtensions.NonExistingFile
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: NonExistingFile
+    nameWithType: ValidationExtensions.NonExistingFile
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  isExternal: true
+  name: ExistingDirectory(IValidationBuilder, Nullable<String>)
+  nameWithType: ValidationExtensions.ExistingDirectory(IValidationBuilder, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.ExistingDirectory(IValidationBuilder, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  name.vb: ExistingDirectory(IValidationBuilder, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: ExistingDirectory
+    nameWithType: ValidationExtensions.ExistingDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: ExistingDirectory
+    nameWithType: ValidationExtensions.ExistingDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  isExternal: true
+  name: NonExistingDirectory(IValidationBuilder, Nullable<String>)
+  nameWithType: ValidationExtensions.NonExistingDirectory(IValidationBuilder, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.NonExistingDirectory(IValidationBuilder, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  name.vb: NonExistingDirectory(IValidationBuilder, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: NonExistingDirectory
+    nameWithType: ValidationExtensions.NonExistingDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: NonExistingDirectory
+    nameWithType: ValidationExtensions.NonExistingDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  isExternal: true
+  name: ExistingFileOrDirectory(IValidationBuilder, Nullable<String>)
+  nameWithType: ValidationExtensions.ExistingFileOrDirectory(IValidationBuilder, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.ExistingFileOrDirectory(IValidationBuilder, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  name.vb: ExistingFileOrDirectory(IValidationBuilder, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: ExistingFileOrDirectory
+    nameWithType: ValidationExtensions.ExistingFileOrDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: ExistingFileOrDirectory
+    nameWithType: ValidationExtensions.ExistingFileOrDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  isExternal: true
+  name: NonExistingFileOrDirectory(IValidationBuilder, Nullable<String>)
+  nameWithType: ValidationExtensions.NonExistingFileOrDirectory(IValidationBuilder, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.NonExistingFileOrDirectory(IValidationBuilder, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  name.vb: NonExistingFileOrDirectory(IValidationBuilder, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: NonExistingFileOrDirectory
+    nameWithType: ValidationExtensions.NonExistingFileOrDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: NonExistingFileOrDirectory
+    nameWithType: ValidationExtensions.NonExistingFileOrDirectory
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+  isExternal: true
+  name: LegalFilePath(IValidationBuilder, Nullable<String>)
+  nameWithType: ValidationExtensions.LegalFilePath(IValidationBuilder, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.LegalFilePath(IValidationBuilder, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String))
+  name.vb: LegalFilePath(IValidationBuilder, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: LegalFilePath
+    nameWithType: ValidationExtensions.LegalFilePath
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String})
+    name: LegalFilePath
+    nameWithType: ValidationExtensions.LegalFilePath
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  isExternal: true
+  name: MinLength(IValidationBuilder, Int32, Nullable<String>)
+  nameWithType: ValidationExtensions.MinLength(IValidationBuilder, Int32, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Int32, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.MinLength(IValidationBuilder, Int32, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Int32, System.Nullable(Of System.String))
+  name.vb: MinLength(IValidationBuilder, Int32, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+    name: MinLength
+    nameWithType: ValidationExtensions.MinLength
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+    name: MinLength
+    nameWithType: ValidationExtensions.MinLength
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+  isExternal: true
+  name: MaxLength(IValidationBuilder, Int32, Nullable<String>)
+  nameWithType: ValidationExtensions.MaxLength(IValidationBuilder, Int32, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Int32, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.MaxLength(IValidationBuilder, Int32, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Int32, System.Nullable(Of System.String))
+  name.vb: MaxLength(IValidationBuilder, Int32, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+    name: MaxLength
+    nameWithType: ValidationExtensions.MaxLength
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.Nullable{System.String})
+    name: MaxLength
+    nameWithType: ValidationExtensions.MaxLength
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Nullable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Nullable{System.String})
+  isExternal: true
+  name: RegularExpression(IValidationBuilder, String, Nullable<String>)
+  nameWithType: ValidationExtensions.RegularExpression(IValidationBuilder, String, Nullable<String>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String, System.Nullable<System.String>)
+  nameWithType.vb: ValidationExtensions.RegularExpression(IValidationBuilder, String, Nullable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.String, System.Nullable(Of System.String))
+  name.vb: RegularExpression(IValidationBuilder, String, Nullable(Of String))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Nullable{System.String})
+    name: RegularExpression
+    nameWithType: ValidationExtensions.RegularExpression
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Nullable{System.String})
+    name: RegularExpression
+    nameWithType: ValidationExtensions.RegularExpression
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String},System.Object[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String},System.Object[])
+  isExternal: true
+  name: Satisfies<TAttribute>(IValidationBuilder, Nullable<String>, Object[])
+  nameWithType: ValidationExtensions.Satisfies<TAttribute>(IValidationBuilder, Nullable<String>, Object[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies<TAttribute>(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable<System.String>, System.Object[])
+  nameWithType.vb: ValidationExtensions.Satisfies(Of TAttribute)(IValidationBuilder, Nullable(Of String), Object())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies(Of TAttribute)(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.Nullable(Of System.String), System.Object())
+  name.vb: Satisfies(Of TAttribute)(IValidationBuilder, Nullable(Of String), Object())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String},System.Object[])
+    name: Satisfies<TAttribute>
+    nameWithType: ValidationExtensions.Satisfies<TAttribute>
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies<TAttribute>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Nullable{System.String},System.Object[])
+    name: Satisfies(Of TAttribute)
+    nameWithType: ValidationExtensions.Satisfies(Of TAttribute)
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies(Of TAttribute)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    nameWithType: IValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils

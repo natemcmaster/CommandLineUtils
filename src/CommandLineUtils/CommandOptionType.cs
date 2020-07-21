@@ -11,16 +11,46 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         /// <summary>
         /// The option can be specified multiple times.
+        /// <para>
+        /// Example input: <c>--letter A --letter B --letter C</c>
+        /// </para>
         /// </summary>
         MultipleValue,
 
         /// <summary>
         /// The option can only be specified once.
+        /// <para>
+        /// Example input: <c>--letter A</c>
+        /// </para>
+        /// <para>
+        /// Example input: <c>--letter=A</c>
+        /// </para>
+        /// <para>
+        /// Example input: <c>--letter:A</c>
+        /// </para>
         /// </summary>
         SingleValue,
 
         /// <summary>
+        /// The option can only be specified once, and may or may not have a value.
+        /// <para>
+        /// To disambiguate this from <see cref="NoValue"/>, values provided cannot be space-separated from the option name,
+        /// but must use '=' or ':'
+        /// </para>
+        /// <para>
+        /// Example input: <c>--log</c>
+        /// </para>
+        /// <para>
+        /// Example input: <c>--log:verbose</c>
+        /// </para>
+        /// </summary>
+        SingleOrNoValue,
+
+        /// <summary>
         /// The option can only be specified once, and does not have a value.
+        /// <para>
+        /// Example input: <c>--no-commit</c>
+        /// </para>
         /// </summary>
         NoValue
     }

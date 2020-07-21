@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Errors
+  commentId: N:McMaster.Extensions.CommandLineUtils.Errors
+  id: McMaster.Extensions.CommandLineUtils.Errors
+  children:
+  - McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException
+  langs:
+  - csharp
+  - vb
+  name: McMaster.Extensions.CommandLineUtils.Errors
+  nameWithType: McMaster.Extensions.CommandLineUtils.Errors
+  fullName: McMaster.Extensions.CommandLineUtils.Errors
+  type: Namespace
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException
+  commentId: T:McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException
+  name: SubcommandCycleException
+  nameWithType: SubcommandCycleException
+  fullName: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException

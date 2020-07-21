@@ -1,0 +1,17 @@
+<Project InitialTargets="UpdateCiSettings">
+
+  <ItemGroup Condition=" '$(CI)' == 'true' ">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(DisablePublicApiAnalyzer)' != 'true'">
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.0.0" PrivateAssets="All" />
+    <AdditionalFiles Include="PublicAPI.Shipped.txt" />
+    <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
+  </ItemGroup>
+
+  <Target Name="UpdateCiSettings" Condition="'$(CI)' == 'true' AND '$(IsPackable)' == 'true'">
+    <Message Importance="High" Text="##vso[build.updatebuildnumber]$(PackageVersion)" />
+  </Target>
+
+</Project>

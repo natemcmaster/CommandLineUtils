@@ -1,0 +1,93 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  id: McMaster.Extensions.CommandLineUtils.Abstractions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  - McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+  - McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  langs:
+  - csharp
+  - vb
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+  type: Namespace
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  name: CommandLineContext
+  nameWithType: CommandLineContext
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  name: IModelAccessor
+  nameWithType: IModelAccessor
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  name: IValueParser
+  nameWithType: IValueParser
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  name: IValueParser<T>
+  nameWithType: IValueParser<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
+  nameWithType.vb: IValueParser(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T)
+  name.vb: IValueParser(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  name: ParseResult
+  nameWithType: ParseResult
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  name: ValueParserProvider
+  nameWithType: ValueParserProvider
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions

@@ -1,0 +1,582 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  id: DelegateValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  children:
+  - McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.#ctor(System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  - McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IArgumentValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  - McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#ICommandValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  - McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IOptionValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  langs:
+  - csharp
+  - vb
+  name: DelegateValidator
+  nameWithType: DelegateValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/DelegateValidator.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: DelegateValidator
+    path: ../src/CommandLineUtils/Validation/DelegateValidator.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  summary: "\nImplements a validator with an anonymous function\n"
+  example: []
+  syntax:
+    content: 'public class DelegateValidator : ICommandValidator, IArgumentValidator, IOptionValidator'
+    content.vb: >-
+      Public Class DelegateValidator
+          Implements ICommandValidator, IArgumentValidator, IOptionValidator
+  inheritance:
+  - System.Object
+  implements:
+  - McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  - McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  - McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.#ctor(System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.#ctor(System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  id: '#ctor(System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})'
+  parent: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  langs:
+  - csharp
+  - vb
+  name: DelegateValidator(Func<ValidationContext, ValidationResult>)
+  nameWithType: DelegateValidator.DelegateValidator(Func<ValidationContext, ValidationResult>)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.DelegateValidator(System.Func<System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult>)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/DelegateValidator.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Validation/DelegateValidator.cs
+    startLine: 19
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  summary: "\nInitializes an instance of <xref href=\"McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public DelegateValidator(Func<ValidationContext, ValidationResult> validator)
+    parameters:
+    - id: validator
+      type: System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult}
+      description: ''
+    content.vb: Public Sub New(validator As Func(Of ValidationContext, ValidationResult))
+  overload: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.#ctor*
+  nameWithType.vb: DelegateValidator.DelegateValidator(Func(Of ValidationContext, ValidationResult))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.DelegateValidator(System.Func(Of System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult))
+  name.vb: DelegateValidator(Func(Of ValidationContext, ValidationResult))
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#ICommandValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#ICommandValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  id: McMaster#Extensions#CommandLineUtils#Validation#ICommandValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  isEii: true
+  parent: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  langs:
+  - csharp
+  - vb
+  name: ICommandValidator.GetValidationResult(CommandLineApplication, ValidationContext)
+  nameWithType: DelegateValidator.ICommandValidator.GetValidationResult(CommandLineApplication, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.ComponentModel.DataAnnotations.ValidationContext)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/DelegateValidator.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+    path: ../src/CommandLineUtils/Validation/DelegateValidator.cs
+    startLine: 24
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  syntax:
+    content: ValidationResult ICommandValidator.GetValidationResult(CommandLineApplication command, ValidationContext context)
+    parameters:
+    - id: command
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+    - id: context
+      type: System.ComponentModel.DataAnnotations.ValidationContext
+    return:
+      type: System.ComponentModel.DataAnnotations.ValidationResult
+    content.vb: Function McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(command As CommandLineApplication, context As ValidationContext) As ValidationResult Implements ICommandValidator.GetValidationResult
+  overload: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#ICommandValidator#GetValidationResult*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(CommandLineApplication, ValidationContext)
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(CommandLineApplication, ValidationContext)
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IArgumentValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IArgumentValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  id: McMaster#Extensions#CommandLineUtils#Validation#IArgumentValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  isEii: true
+  parent: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  langs:
+  - csharp
+  - vb
+  name: IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
+  nameWithType: DelegateValidator.IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument, System.ComponentModel.DataAnnotations.ValidationContext)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/DelegateValidator.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
+    path: ../src/CommandLineUtils/Validation/DelegateValidator.cs
+    startLine: 27
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  syntax:
+    content: ValidationResult IArgumentValidator.GetValidationResult(CommandArgument argument, ValidationContext context)
+    parameters:
+    - id: argument
+      type: McMaster.Extensions.CommandLineUtils.CommandArgument
+    - id: context
+      type: System.ComponentModel.DataAnnotations.ValidationContext
+    return:
+      type: System.ComponentModel.DataAnnotations.ValidationResult
+    content.vb: Function McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(argument As CommandArgument, context As ValidationContext) As ValidationResult Implements IArgumentValidator.GetValidationResult
+  overload: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IArgumentValidator#GetValidationResult*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IOptionValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IOptionValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  id: McMaster#Extensions#CommandLineUtils#Validation#IOptionValidator#GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  isEii: true
+  parent: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  langs:
+  - csharp
+  - vb
+  name: IOptionValidator.GetValidationResult(CommandOption, ValidationContext)
+  nameWithType: DelegateValidator.IOptionValidator.GetValidationResult(CommandOption, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption, System.ComponentModel.DataAnnotations.ValidationContext)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/DelegateValidator.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult
+    path: ../src/CommandLineUtils/Validation/DelegateValidator.cs
+    startLine: 30
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  syntax:
+    content: ValidationResult IOptionValidator.GetValidationResult(CommandOption option, ValidationContext context)
+    parameters:
+    - id: option
+      type: McMaster.Extensions.CommandLineUtils.CommandOption
+    - id: context
+      type: System.ComponentModel.DataAnnotations.ValidationContext
+    return:
+      type: System.ComponentModel.DataAnnotations.ValidationResult
+    content.vb: Function McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(option As CommandOption, context As ValidationContext) As ValidationResult Implements IOptionValidator.GetValidationResult
+  overload: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IOptionValidator#GetValidationResult*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(CommandOption, ValidationContext)
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(CommandOption, ValidationContext)
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  commentId: N:McMaster.Extensions.CommandLineUtils.Validation
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  nameWithType: McMaster.Extensions.CommandLineUtils.Validation
+  fullName: McMaster.Extensions.CommandLineUtils.Validation
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  name: ICommandValidator
+  nameWithType: ICommandValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  name: IArgumentValidator
+  nameWithType: IArgumentValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  name: IOptionValidator
+  nameWithType: IOptionValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  name: DelegateValidator
+  nameWithType: DelegateValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.#ctor
+  name: DelegateValidator
+  nameWithType: DelegateValidator.DelegateValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.DelegateValidator
+- uid: System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult}
+  commentId: T:System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult}
+  parent: System
+  definition: System.Func`2
+  name: Func<ValidationContext, ValidationResult>
+  nameWithType: Func<ValidationContext, ValidationResult>
+  fullName: System.Func<System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult>
+  nameWithType.vb: Func(Of ValidationContext, ValidationResult)
+  fullName.vb: System.Func(Of System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult)
+  name.vb: Func(Of ValidationContext, ValidationResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationResult
+    name: ValidationResult
+    nameWithType: ValidationResult
+    fullName: System.ComponentModel.DataAnnotations.ValidationResult
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationResult
+    name: ValidationResult
+    nameWithType: ValidationResult
+    fullName: System.ComponentModel.DataAnnotations.ValidationResult
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#ICommandValidator#GetValidationResult*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#ICommandValidator#GetValidationResult
+  name: ICommandValidator.GetValidationResult
+  nameWithType: DelegateValidator.ICommandValidator.GetValidationResult
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+- uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  isExternal: true
+  name: GetValidationResult(CommandLineApplication, ValidationContext)
+  nameWithType: ICommandValidator.GetValidationResult(CommandLineApplication, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.ComponentModel.DataAnnotations.ValidationContext)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: GetValidationResult
+    nameWithType: ICommandValidator.GetValidationResult
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+    name: CommandLineApplication
+    nameWithType: CommandLineApplication
+    fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: GetValidationResult
+    nameWithType: ICommandValidator.GetValidationResult
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+    name: CommandLineApplication
+    nameWithType: CommandLineApplication
+    fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+- uid: System.ComponentModel.DataAnnotations.ValidationContext
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationContext
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: ValidationContext
+  nameWithType: ValidationContext
+  fullName: System.ComponentModel.DataAnnotations.ValidationContext
+- uid: System.ComponentModel.DataAnnotations.ValidationResult
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationResult
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: ValidationResult
+  nameWithType: ValidationResult
+  fullName: System.ComponentModel.DataAnnotations.ValidationResult
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.ComponentModel.DataAnnotations
+  commentId: N:System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: System.ComponentModel.DataAnnotations
+  nameWithType: System.ComponentModel.DataAnnotations
+  fullName: System.ComponentModel.DataAnnotations
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IArgumentValidator#GetValidationResult*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IArgumentValidator#GetValidationResult
+  name: IArgumentValidator.GetValidationResult
+  nameWithType: DelegateValidator.IArgumentValidator.GetValidationResult
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  isExternal: true
+  name: GetValidationResult(CommandArgument, ValidationContext)
+  nameWithType: IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument, System.ComponentModel.DataAnnotations.ValidationContext)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: GetValidationResult
+    nameWithType: IArgumentValidator.GetValidationResult
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: GetValidationResult
+    nameWithType: IArgumentValidator.GetValidationResult
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandArgument
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandArgument
+  nameWithType: CommandArgument
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IOptionValidator#GetValidationResult*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster#Extensions#CommandLineUtils#Validation#IOptionValidator#GetValidationResult
+  name: IOptionValidator.GetValidationResult
+  nameWithType: DelegateValidator.IOptionValidator.GetValidationResult
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult
+  nameWithType.vb: DelegateValidator.McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult
+  name.vb: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  isExternal: true
+  name: GetValidationResult(CommandOption, ValidationContext)
+  nameWithType: IOptionValidator.GetValidationResult(CommandOption, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption, System.ComponentModel.DataAnnotations.ValidationContext)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: GetValidationResult
+    nameWithType: IOptionValidator.GetValidationResult
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption
+    name: CommandOption
+    nameWithType: CommandOption
+    fullName: McMaster.Extensions.CommandLineUtils.CommandOption
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: GetValidationResult
+    nameWithType: IOptionValidator.GetValidationResult
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption
+    name: CommandOption
+    nameWithType: CommandOption
+    fullName: McMaster.Extensions.CommandLineUtils.CommandOption
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOption
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandOption
+  nameWithType: CommandOption
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption

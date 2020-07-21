@@ -12,11 +12,11 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         private class OptionsManager
         {
-            private readonly ObservableCollection<OptionsOption> boxes =
+            private readonly ObservableCollection<OptionsOption> _boxes =
                 new ObservableCollection<OptionsOption>();
 
-            private object model;
-            private int selectorPosition;
+            private object _model;
+            private int _selectorPosition;
 
             /// <summary>
             /// Initializes a new instance of the <see cref="OptionsManager"/> class.
@@ -33,7 +33,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 if (boxes.Any())
                 {
-                    this.boxes =
+                    this._boxes =
                         new ObservableCollection<OptionsOption>(boxes.Select(i => new OptionsOption(i)));
                 }
 
@@ -123,10 +123,10 @@ namespace McMaster.Extensions.CommandLineUtils
             /// </value>
             public object Model
             {
-                get => model;
+                get => _model;
                 private set
                 {
-                    model = value;
+                    _model = value;
                     FillBoxes(value.GetType());
                 }
             }
@@ -143,8 +143,8 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 get
                 {
-                    boxes.CollectionChanged += BoxesOnCollectionChanged;
-                    return boxes;
+                    _boxes.CollectionChanged += BoxesOnCollectionChanged;
+                    return _boxes;
                 }
             }
 
@@ -157,15 +157,15 @@ namespace McMaster.Extensions.CommandLineUtils
             /// </value>
             private int SelectorPosition
             {
-                get => selectorPosition;
+                get => _selectorPosition;
                 set
                 {
-                    if (selectorPosition == value)
+                    if (_selectorPosition == value)
                     {
                         return;
                     }
 
-                    selectorPosition = value;
+                    _selectorPosition = value;
                     Redraw();
                 }
             }

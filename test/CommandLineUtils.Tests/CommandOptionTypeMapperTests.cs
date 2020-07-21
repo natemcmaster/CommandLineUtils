@@ -19,6 +19,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(typeof(uint), CommandOptionType.SingleValue)]
         [InlineData(typeof(ulong), CommandOptionType.SingleValue)]
         [InlineData(typeof(ushort), CommandOptionType.SingleValue)]
+        [InlineData(typeof(float), CommandOptionType.SingleValue)]
+        [InlineData(typeof(double), CommandOptionType.SingleValue)]
         [InlineData(typeof(byte?), CommandOptionType.SingleValue)]
         [InlineData(typeof(short?), CommandOptionType.SingleValue)]
         [InlineData(typeof(int?), CommandOptionType.SingleValue)]
@@ -26,7 +28,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(typeof(ushort?), CommandOptionType.SingleValue)]
         [InlineData(typeof(uint?), CommandOptionType.SingleValue)]
         [InlineData(typeof(ulong?), CommandOptionType.SingleValue)]
+        [InlineData(typeof(float?), CommandOptionType.SingleValue)]
+        [InlineData(typeof(double?), CommandOptionType.SingleValue)]
         [InlineData(typeof(string), CommandOptionType.SingleValue)]
+        [InlineData(typeof(Tuple<bool, string>), CommandOptionType.SingleOrNoValue)]
+        [InlineData(typeof(Tuple<bool, int>), CommandOptionType.SingleOrNoValue)]
+        [InlineData(typeof(Tuple<bool, double>), CommandOptionType.SingleOrNoValue)]
+        [InlineData(typeof(ValueTuple<bool, string>), CommandOptionType.SingleOrNoValue)]
+        [InlineData(typeof(ValueTuple<bool, int>), CommandOptionType.SingleOrNoValue)]
+        [InlineData(typeof(ValueTuple<bool, double>), CommandOptionType.SingleOrNoValue)]
         [InlineData(typeof(byte[]), CommandOptionType.MultipleValue)]
         [InlineData(typeof(short[]), CommandOptionType.MultipleValue)]
         [InlineData(typeof(int[]), CommandOptionType.MultipleValue)]
@@ -42,6 +52,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(typeof(IEnumerable<string>), CommandOptionType.MultipleValue)]
         [InlineData(typeof(List<string>), CommandOptionType.MultipleValue)]
         [InlineData(typeof(HashSet<string>), CommandOptionType.MultipleValue)]
+        [InlineData(typeof(StringComparison), CommandOptionType.SingleValue)]
+        [InlineData(typeof(StringComparison[]), CommandOptionType.MultipleValue)]
         public void ItInfersOptionType(Type propType, CommandOptionType optionType)
         {
             Assert.Equal(optionType, CommandOptionTypeMapper.Default.GetOptionType(propType));

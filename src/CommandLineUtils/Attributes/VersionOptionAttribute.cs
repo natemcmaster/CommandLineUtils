@@ -6,7 +6,7 @@ using System;
 namespace McMaster.Extensions.CommandLineUtils
 {
     /// <summary>
-    /// The option used to determine if help text should be displayed. This should only be used once per command line app.
+    /// The option used to determine if version text should be displayed.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class)]
     public sealed class VersionOptionAttribute : OptionAttributeBase
@@ -23,7 +23,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Initializes a new <see cref="VersionOptionAttribute"/>.
         /// </summary>
-        /// <param name="template">The string template. <see cref="CommandOption.Template"/>.</param>
+        /// <param name="template">The string template that will be parsed into <see cref="CommandOption.ShortName"/> and <see cref="CommandOption.LongName"/>.</param>
         /// <param name="version">The version</param>
         public VersionOptionAttribute(string template, string version)
         {
@@ -31,11 +31,16 @@ namespace McMaster.Extensions.CommandLineUtils
             Template = template;
             Description = Strings.DefaultVersionOptionDescription;
         }
-        
+
         /// <summary>
         /// The version information to be shown. <see cref="CommandLineApplication.ShortVersionGetter"/>.
         /// </summary>
         public string Version { get; set; }
+
+        /// <summary>
+        /// The option template. This is parsed into the short and long name.
+        /// </summary>
+        public new string Template { get; set; }
 
         internal CommandOption Configure(CommandLineApplication app)
         {

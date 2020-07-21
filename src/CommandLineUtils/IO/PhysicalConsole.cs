@@ -17,13 +17,28 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public static IConsole Singleton { get; } = new PhysicalConsole();
 
+        private PhysicalConsole()
+        {
+        }
+
         /// <summary>
         /// <see cref="Console.CancelKeyPress"/>.
         /// </summary>
-        public event ConsoleCancelEventHandler CancelKeyPress
+        public event ConsoleCancelEventHandler? CancelKeyPress
         {
             add => Console.CancelKeyPress += value;
-            remove => Console.CancelKeyPress -= value;
+            remove
+            {
+                try
+                {
+                    Console.CancelKeyPress -= value;
+                }
+                catch (PlatformNotSupportedException)
+                {
+                    // https://github.com/natemcmaster/CommandLineUtils/issues/344
+                    // Suppress this error during unsubscription on some Xamarin platforms.
+                }
+            }
         }
 
         /// <summary>

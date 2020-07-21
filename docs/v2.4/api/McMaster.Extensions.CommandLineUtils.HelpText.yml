@@ -1,0 +1,41 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.HelpText
+  commentId: N:McMaster.Extensions.CommandLineUtils.HelpText
+  id: McMaster.Extensions.CommandLineUtils.HelpText
+  children:
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  - McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  - McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: McMaster.Extensions.CommandLineUtils.HelpText
+  nameWithType: McMaster.Extensions.CommandLineUtils.HelpText
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText
+  type: Namespace
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+references:
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  parent: McMaster.Extensions.CommandLineUtils.HelpText
+  name: DefaultHelpTextGenerator
+  nameWithType: DefaultHelpTextGenerator
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  name: HangingIndentWriter
+  nameWithType: HangingIndentWriter
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+  commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+  parent: McMaster.Extensions.CommandLineUtils.HelpText
+  name: IHelpTextGenerator
+  nameWithType: IHelpTextGenerator
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+- uid: McMaster.Extensions.CommandLineUtils.HelpText
+  commentId: N:McMaster.Extensions.CommandLineUtils.HelpText
+  name: McMaster.Extensions.CommandLineUtils.HelpText
+  nameWithType: McMaster.Extensions.CommandLineUtils.HelpText
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText

@@ -61,7 +61,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// This event never fires.
         /// </summary>
-        public event ConsoleCancelEventHandler CancelKeyPress
+        public event ConsoleCancelEventHandler? CancelKeyPress
         {
             add { }
             remove { }

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using McMaster.Extensions.CommandLineUtils.ValueParsers;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -16,26 +16,25 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static CollectionParserProvider Default { get; } = new CollectionParserProvider();
 
-        public ICollectionParser GetParser(Type type)
+        public ICollectionParser? GetParser(Type type, ValueParserProvider valueParsers)
         {
             if (type.IsArray)
             {
                 var elementType = type.GetElementType();
-                var elementParser = ValueParserProvider.Default.GetParser(elementType);
+                var elementParser = valueParsers.GetParser(elementType);
                 if (elementParser == null)
                 {
                     return null;
                 }
 
-                return new ArrayParser(elementType, elementParser);
+                return new ArrayParser(elementType, elementParser, valueParsers.ParseCulture);
             }
 
-            var typeInfo = type.GetTypeInfo();
-            if (typeInfo.IsGenericType)
+            if (type.IsGenericType)
             {
                 var typeDef = type.GetGenericTypeDefinition();
-                var elementType = typeInfo.GetGenericArguments().First();
-                var elementParser = ValueParserProvider.Default.GetParser(elementType);
+                var elementType = type.GetGenericArguments().First();
+                var elementParser = valueParsers.GetParser(elementType);
 
                 if (typeof(IList<>) == typeDef
                     || typeof(IEnumerable<>) == typeDef
@@ -44,13 +43,13 @@ namespace McMaster.Extensions.CommandLineUtils
                     || typeof(IReadOnlyList<>) == typeDef
                     || typeof(List<>) == typeDef)
                 {
-                    return new ListParser(elementType, elementParser);
+                    return new ListParser(elementType, elementParser, valueParsers.ParseCulture);
                 }
 
                 if (typeof(ISet<>) == typeDef
                   || typeof(HashSet<>) == typeDef)
                 {
-                    return new HashSetParser(elementType, elementParser);
+                    return new HashSetParser(elementType, elementParser, valueParsers.ParseCulture);
                 }
             }
 

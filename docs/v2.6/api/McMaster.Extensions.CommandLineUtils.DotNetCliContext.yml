@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.DotNetCliContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.DotNetCliContext
+  id: DotNetCliContext
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose
+  langs:
+  - csharp
+  - vb
+  name: DotNetCliContext
+  nameWithType: DotNetCliContext
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetCliContext
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DotNetCliContext.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: DotNetCliContext
+    path: ../src/CommandLineUtils/Utilities/DotNetCliContext.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nAPIs related to .NET Core CLI.\n"
+  example: []
+  syntax:
+    content: public static class DotNetCliContext
+    content.vb: Public Module DotNetCliContext
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose
+  commentId: M:McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose
+  id: IsGlobalVerbose
+  parent: McMaster.Extensions.CommandLineUtils.DotNetCliContext
+  langs:
+  - csharp
+  - vb
+  name: IsGlobalVerbose()
+  nameWithType: DotNetCliContext.IsGlobalVerbose()
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose()
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DotNetCliContext.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IsGlobalVerbose
+    path: ../src/CommandLineUtils/Utilities/DotNetCliContext.cs
+    startLine: 16
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\n`dotnet --diagnostics` was specified.\n"
+  example: []
+  syntax:
+    content: public static bool IsGlobalVerbose()
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsGlobalVerbose As Boolean
+  overload: McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose
+  name: IsGlobalVerbose
+  nameWithType: DotNetCliContext.IsGlobalVerbose
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

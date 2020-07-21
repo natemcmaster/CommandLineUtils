@@ -12,7 +12,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public class ConsoleReporter : IReporter
     {
-        private object _writeLock = new object();
+        private readonly object _writeLock = new object();
 
         /// <summary>
         /// Initializes an instance of <see cref="ConsoleReporter"/>.
@@ -57,7 +57,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="message"></param>
         /// <param name="foregroundColor"></param>
         /// <param name="backgroundColor"></param>
-        protected virtual void WriteLine(TextWriter writer, string message, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = default(ConsoleColor?))
+        protected virtual void WriteLine(TextWriter writer, string message, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = default)
         {
             lock (_writeLock)
             {

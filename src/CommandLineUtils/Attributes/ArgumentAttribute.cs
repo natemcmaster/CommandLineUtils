@@ -9,8 +9,8 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <summary>
     /// Represents one or many positional command line arguments.
     /// Arguments are parsed based the <see cref="Order"/> given.
-    /// Compare to <seealso cref="OptionAttribute"/>.
     /// </summary>
+    /// <seealso cref="OptionAttribute"/>
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class ArgumentAttribute : Attribute
     {
@@ -27,7 +27,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="order">The order</param>
         /// <param name="name">The name</param>
-        public ArgumentAttribute(int order, string name)
+        public ArgumentAttribute(int order, string? name)
             : this(order, name, null)
         { }
 
@@ -37,7 +37,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="order">The order</param>
         /// <param name="name">The name</param>
         /// <param name="description">The description</param>
-        public ArgumentAttribute(int order, string name, string description)
+        public ArgumentAttribute(int order, string? name, string? description)
         {
             Order = order;
             Name = name;
@@ -50,19 +50,22 @@ namespace McMaster.Extensions.CommandLineUtils
         public int Order { get; set; }
 
         /// <summary>
-        /// The name of the argument. <seealso cref="CommandArgument.Name"/>.
+        /// The name of the argument.
         /// </summary>
-        public string Name { get; set; }
+        /// <seealso cref="CommandArgument.Name"/>
+        public string? Name { get; set; }
 
         /// <summary>
-        /// Determines if the argument appears in the generated help-text.  <seealso cref="CommandArgument.ShowInHelpText"/>.
+        /// Determines if the argument appears in the generated help-text.
         /// </summary>
+        /// <seealso cref="CommandArgument.ShowInHelpText"/>
         public bool ShowInHelpText { get; set; } = true;
 
         /// <summary>
-        /// A description of the argument.  <seealso cref="CommandArgument.Description"/>.
+        /// A description of the argument.
         /// </summary>
-        public string Description { get; set; }
+        /// <seealso cref="CommandArgument.Description"/>
+        public string? Description { get; set; }
 
         internal CommandArgument Configure(PropertyInfo prop)
         {
@@ -71,6 +74,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 Name = Name ?? prop.Name,
                 Description = Description,
                 ShowInHelpText = ShowInHelpText,
+                UnderlyingType = prop.PropertyType,
             };
         }
     }

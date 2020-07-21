@@ -1,0 +1,255 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention
+  id: HelpOptionAttributeConvention
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  langs:
+  - csharp
+  - vb
+  name: HelpOptionAttributeConvention
+  nameWithType: HelpOptionAttributeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/HelpOptionAttributeConvention.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: HelpOptionAttributeConvention
+    path: ../src/CommandLineUtils/Conventions/HelpOptionAttributeConvention.cs
+    startLine: 12
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nSets <xref href=\"McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionHelp\" data-throw-if-not-resolved=\"false\"></xref> based on the usage of\n<xref href=\"McMaster.Extensions.CommandLineUtils.HelpOptionAttribute\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: 'public class HelpOptionAttributeConvention : OptionAttributeConventionBase<HelpOptionAttribute>, IConvention'
+    content.vb: >-
+      Public Class HelpOptionAttributeConvention
+          Inherits OptionAttributeConventionBase(Of HelpOptionAttribute)
+          Implements IConvention
+  inheritance:
+  - System.Object
+  - McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase{McMaster.Extensions.CommandLineUtils.HelpOptionAttribute}
+  implements:
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  id: Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention
+  langs:
+  - csharp
+  - vb
+  name: Apply(ConventionContext)
+  nameWithType: HelpOptionAttributeConvention.Apply(ConventionContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/HelpOptionAttributeConvention.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Apply
+    path: ../src/CommandLineUtils/Conventions/HelpOptionAttributeConvention.cs
+    startLine: 15
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nApply the convention.\n"
+  example: []
+  syntax:
+    content: public virtual void Apply(ConventionContext context)
+    parameters:
+    - id: context
+      type: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+      description: The context in which the convention is applied.
+    content.vb: Public Overridable Sub Apply(context As ConventionContext)
+  overload: McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.Apply*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+references:
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionHelp
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionHelp
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  name: OptionHelp
+  nameWithType: CommandLineApplication.OptionHelp
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionHelp
+- uid: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.HelpOptionAttribute
+  name: HelpOptionAttribute
+  nameWithType: HelpOptionAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute
+- uid: McMaster.Extensions.CommandLineUtils.Conventions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Conventions
+  name: McMaster.Extensions.CommandLineUtils.Conventions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Conventions
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase{McMaster.Extensions.CommandLineUtils.HelpOptionAttribute}
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase{McMaster.Extensions.CommandLineUtils.HelpOptionAttribute}
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  definition: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+  name: OptionAttributeConventionBase<HelpOptionAttribute>
+  nameWithType: OptionAttributeConventionBase<HelpOptionAttribute>
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase<McMaster.Extensions.CommandLineUtils.HelpOptionAttribute>
+  nameWithType.vb: OptionAttributeConventionBase(Of HelpOptionAttribute)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase(Of McMaster.Extensions.CommandLineUtils.HelpOptionAttribute)
+  name.vb: OptionAttributeConventionBase(Of HelpOptionAttribute)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+    name: OptionAttributeConventionBase
+    nameWithType: OptionAttributeConventionBase
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute
+    name: HelpOptionAttribute
+    nameWithType: HelpOptionAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+    name: OptionAttributeConventionBase
+    nameWithType: OptionAttributeConventionBase
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute
+    name: HelpOptionAttribute
+    nameWithType: HelpOptionAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  name: IConvention
+  nameWithType: IConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+  name: OptionAttributeConventionBase<TAttribute>
+  nameWithType: OptionAttributeConventionBase<TAttribute>
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase<TAttribute>
+  nameWithType.vb: OptionAttributeConventionBase(Of TAttribute)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase(Of TAttribute)
+  name.vb: OptionAttributeConventionBase(Of TAttribute)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+    name: OptionAttributeConventionBase
+    nameWithType: OptionAttributeConventionBase
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TAttribute
+    nameWithType: TAttribute
+    fullName: TAttribute
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+    name: OptionAttributeConventionBase
+    nameWithType: OptionAttributeConventionBase
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TAttribute
+    nameWithType: TAttribute
+    fullName: TAttribute
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.Apply*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.Apply
+  name: Apply
+  nameWithType: HelpOptionAttributeConvention.Apply
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention.Apply
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  name: Apply(ConventionContext)
+  nameWithType: IConvention.Apply(ConventionContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+    name: Apply
+    nameWithType: IConvention.Apply
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+    name: ConventionContext
+    nameWithType: ConventionContext
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+    name: Apply
+    nameWithType: IConvention.Apply
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+    name: ConventionContext
+    nameWithType: ConventionContext
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  name: ConventionContext
+  nameWithType: ConventionContext
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext

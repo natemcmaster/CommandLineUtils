@@ -1,0 +1,58 @@
+#nullable enable
+McMaster.Extensions.CommandLineUtils.OptionsKeys
+McMaster.Extensions.CommandLineUtils.OptionsKeys.Finalize.get -> System.ConsoleKey[]!
+McMaster.Extensions.CommandLineUtils.OptionsKeys.Finalize.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsKeys.Movedown.get -> System.ConsoleKey[]!
+McMaster.Extensions.CommandLineUtils.OptionsKeys.Movedown.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsKeys.Moveup.get -> System.ConsoleKey[]!
+McMaster.Extensions.CommandLineUtils.OptionsKeys.Moveup.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsKeys.OptionsKeys() -> void
+McMaster.Extensions.CommandLineUtils.OptionsKeys.Select.get -> System.ConsoleKey[]!
+McMaster.Extensions.CommandLineUtils.OptionsKeys.Select.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.DisplayHelpText.get -> bool
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.DisplayHelpText.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.HelpText.get -> string!
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.HelpText.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.IsRadio.get -> bool
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.IsRadio.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.IsSelectionRequired.get -> bool
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.IsSelectionRequired.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.IsUnicode.get -> bool
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.IsUnicode.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.Keys.get -> McMaster.Extensions.CommandLineUtils.OptionsKeys!
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.Keys.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.OnlyUseMarked.get -> bool
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.OnlyUseMarked.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.OptionsManagerOptions() -> void
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.Style.get -> McMaster.Extensions.CommandLineUtils.OptionsStyle!
+McMaster.Extensions.CommandLineUtils.OptionsManagerOptions.Style.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsStyle
+McMaster.Extensions.CommandLineUtils.OptionsStyle.CheckedNonRadio.get -> string!
+McMaster.Extensions.CommandLineUtils.OptionsStyle.CheckedNonRadio.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsStyle.CheckedNonRadioUnicode.get -> string!
+McMaster.Extensions.CommandLineUtils.OptionsStyle.CheckedNonRadioUnicode.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsStyle.CheckedRadio.get -> string!
+McMaster.Extensions.CommandLineUtils.OptionsStyle.CheckedRadio.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsStyle.CheckedRadioUnicode.get -> string!
+McMaster.Extensions.CommandLineUtils.OptionsStyle.CheckedRadioUnicode.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsStyle.GetCheckedChar(bool isRadio, bool isUnicode) -> string!
+McMaster.Extensions.CommandLineUtils.OptionsStyle.GetUncheckedChar(bool isRadio, bool isUnicode) -> string!
+McMaster.Extensions.CommandLineUtils.OptionsStyle.OptionsStyle() -> void
+McMaster.Extensions.CommandLineUtils.OptionsStyle.UncheckedNonRadio.get -> string!
+McMaster.Extensions.CommandLineUtils.OptionsStyle.UncheckedNonRadio.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsStyle.UncheckedNonRadioUnicode.get -> string!
+McMaster.Extensions.CommandLineUtils.OptionsStyle.UncheckedNonRadioUnicode.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsStyle.UncheckedRadio.get -> string!
+McMaster.Extensions.CommandLineUtils.OptionsStyle.UncheckedRadio.set -> void
+McMaster.Extensions.CommandLineUtils.OptionsStyle.UncheckedRadioUnicode.get -> string!
+McMaster.Extensions.CommandLineUtils.OptionsStyle.UncheckedRadioUnicode.set -> void
+McMaster.Extensions.CommandLineUtils.UseOnOptionsAttribute
+McMaster.Extensions.CommandLineUtils.UseOnOptionsAttribute.UseOnOptionsAttribute() -> void
+static McMaster.Extensions.CommandLineUtils.Prompt.GetOption(string! prompt, McMaster.Extensions.CommandLineUtils.OptionsManagerOptions! option, params string![]! options) -> string!
+static McMaster.Extensions.CommandLineUtils.Prompt.GetOption(string! prompt, bool isUnicode, params string![]! options) -> string!
+static McMaster.Extensions.CommandLineUtils.Prompt.GetOption(string! prompt, params string![]! options) -> string!
+static McMaster.Extensions.CommandLineUtils.Prompt.GetOptions(string! prompt, McMaster.Extensions.CommandLineUtils.OptionsManagerOptions! options, params string![]! possibleSelections) -> string![]!
+static McMaster.Extensions.CommandLineUtils.Prompt.GetOptions(string! prompt, params string![]! possibleSelections) -> string![]!
+static McMaster.Extensions.CommandLineUtils.Prompt.GetOptions<T>(string! prompt, T model) -> T
+static McMaster.Extensions.CommandLineUtils.Prompt.GetOptions<T>(string! prompt, T model, McMaster.Extensions.CommandLineUtils.OptionsManagerOptions! options) -> T

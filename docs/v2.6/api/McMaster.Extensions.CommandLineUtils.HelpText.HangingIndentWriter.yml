@@ -1,0 +1,299 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  id: HangingIndentWriter
+  parent: McMaster.Extensions.CommandLineUtils.HelpText
+  children:
+  - McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.#ctor(System.Int32,System.Nullable{System.Int32},System.Boolean)
+  - McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.DefaultConsoleWidth
+  - McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write(System.String)
+  langs:
+  - csharp
+  - vb
+  name: HangingIndentWriter
+  nameWithType: HangingIndentWriter
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/HangingIndentWriter.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: HangingIndentWriter
+    path: ../src/CommandLineUtils/HelpText/HangingIndentWriter.cs
+    startLine: 13
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: "\nA formatter for creating nicely wrapped descriptions for display on the command line in the second column\nof generated help text.\n"
+  example: []
+  syntax:
+    content: public class HangingIndentWriter
+    content.vb: Public Class HangingIndentWriter
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.DefaultConsoleWidth
+  commentId: F:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.DefaultConsoleWidth
+  id: DefaultConsoleWidth
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  langs:
+  - csharp
+  - vb
+  name: DefaultConsoleWidth
+  nameWithType: HangingIndentWriter.DefaultConsoleWidth
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.DefaultConsoleWidth
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/HangingIndentWriter.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: DefaultConsoleWidth
+    path: ../src/CommandLineUtils/HelpText/HangingIndentWriter.cs
+    startLine: 18
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: "\nThe default console width used for wrapping if the width cannot be gotten from the Console.\n"
+  example: []
+  syntax:
+    content: public const int DefaultConsoleWidth = 80
+    return:
+      type: System.Int32
+    content.vb: Public Const DefaultConsoleWidth As Integer = 80
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.#ctor(System.Int32,System.Nullable{System.Int32},System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.#ctor(System.Int32,System.Nullable{System.Int32},System.Boolean)
+  id: '#ctor(System.Int32,System.Nullable{System.Int32},System.Boolean)'
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  langs:
+  - csharp
+  - vb
+  name: HangingIndentWriter(Int32, Nullable<Int32>, Boolean)
+  nameWithType: HangingIndentWriter.HangingIndentWriter(Int32, Nullable<Int32>, Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.HangingIndentWriter(System.Int32, System.Nullable<System.Int32>, System.Boolean)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/HangingIndentWriter.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/HelpText/HangingIndentWriter.cs
+    startLine: 33
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: "\nA description formatter for dynamically wrapping the description to print in a CLI usage.\n"
+  example: []
+  syntax:
+    content: public HangingIndentWriter(int indentSize, int? maxLineLength = default(int? ), bool indentFirstLine = false)
+    parameters:
+    - id: indentSize
+      type: System.Int32
+      description: The indent size in spaces to use.
+    - id: maxLineLength
+      type: System.Nullable{System.Int32}
+      description: >
+        The max length an indented line can be.
+
+        Defaults to <xref href="McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.DefaultConsoleWidth" data-throw-if-not-resolved="false"></xref>.
+    - id: indentFirstLine
+      type: System.Boolean
+      description: If true, the first line of text will also be indented.
+    content.vb: Public Sub New(indentSize As Integer, maxLineLength As Integer? = Nothing, indentFirstLine As Boolean = False)
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.#ctor*
+  nameWithType.vb: HangingIndentWriter.HangingIndentWriter(Int32, Nullable(Of Int32), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.HangingIndentWriter(System.Int32, System.Nullable(Of System.Int32), System.Boolean)
+  name.vb: HangingIndentWriter(Int32, Nullable(Of Int32), Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write(System.String)
+  id: Write(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  langs:
+  - csharp
+  - vb
+  name: Write(String)
+  nameWithType: HangingIndentWriter.Write(String)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/HangingIndentWriter.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/HelpText/HangingIndentWriter.cs
+    startLine: 46
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: "\nDynamically wrap text between.\n"
+  example: []
+  syntax:
+    content: public string Write(string input)
+    parameters:
+    - id: input
+      type: System.String
+      description: The original description text.
+    return:
+      type: System.String
+      description: Dynamically wrapped description with explicit newlines preserved.
+    content.vb: Public Function Write(input As String) As String
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: McMaster.Extensions.CommandLineUtils.HelpText
+  commentId: N:McMaster.Extensions.CommandLineUtils.HelpText
+  name: McMaster.Extensions.CommandLineUtils.HelpText
+  nameWithType: McMaster.Extensions.CommandLineUtils.HelpText
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.DefaultConsoleWidth
+  commentId: F:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.DefaultConsoleWidth
+  isExternal: true
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.#ctor
+  name: HangingIndentWriter
+  nameWithType: HangingIndentWriter.HangingIndentWriter
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.HangingIndentWriter
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write
+  name: Write
+  nameWithType: HangingIndentWriter.Write
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.Write
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String

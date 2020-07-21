@@ -23,35 +23,36 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             [Argument(0)]
             [FileOrDirectoryExists]
-            public string File { get; }
+            public string? File { get; }
 
             private void OnExecute() { }
         }
 
         [Theory]
         [MemberData(nameof(BadFilePaths))]
-        public void ValidatesFilesMustExist(string filePath)
+        public void ValidatesFilesMustExist(string? filePath)
         {
             var app = new CommandLineApplication(
                 new TestConsole(_output),
-                AppContext.BaseDirectory, false);
+                AppContext.BaseDirectory);
 
             app.Argument("Files", "Files")
                 .Accepts().ExistingFileOrDirectory();
 
-            var result = new CommandLineProcessor(app, new[] { filePath })
-                .Process()
+            var result = app
+                .Parse(filePath!)
+                .SelectedCommand
                 .GetValidationResult();
 
             Assert.NotEqual(ValidationResult.Success, result);
             Assert.Equal($"The file path '{filePath}' does not exist.", result.ErrorMessage);
 
             var console = new TestConsole(_output);
-            Assert.NotEqual(0, CommandLineApplication.Execute<App>(console, filePath));
+            Assert.NotEqual(0, CommandLineApplication.Execute<App>(console, filePath!));
         }
 
-        public static TheoryData<string> BadFilePaths
-            => new TheoryData<string>
+        public static TheoryData<string?> BadFilePaths
+            => new TheoryData<string?>
             {
                 "notfound.txt",
                 "\0",
@@ -70,25 +71,25 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             var appInBaseDir = new CommandLineApplication(
                 new TestConsole(_output),
-                AppContext.BaseDirectory,
-                false);
+                AppContext.BaseDirectory);
             var notFoundDir = Path.Combine(AppContext.BaseDirectory, "notfound");
             var appNotInBaseDir = new CommandLineApplication(
                new TestConsole(_output),
-               notFoundDir,
-               false);
+               notFoundDir);
 
             appInBaseDir.Argument("Files", "Files")
                 .Accepts(v => v.ExistingFileOrDirectory());
             appNotInBaseDir.Argument("Files", "Files")
                 .Accepts(v => v.ExistingFileOrDirectory());
 
-            var success = new CommandLineProcessor(appInBaseDir, new[] { "exists.txt" })
-                .Process()
+            var success = appInBaseDir
+                .Parse("exists.txt")
+                .SelectedCommand
                 .GetValidationResult();
 
-            var fails = new CommandLineProcessor(appNotInBaseDir, new[] { "exists.txt" })
-                .Process()
+            var fails = appNotInBaseDir
+                .Parse("exists.txt")
+                .SelectedCommand
                 .GetValidationResult();
 
             Assert.Equal(ValidationResult.Success, success);
@@ -124,7 +125,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             [Argument(0)]
             [DirectoryExists]
-            public string Dir { get; }
+            public string? Dir { get; }
 
             private void OnExecute() { }
         }
@@ -133,7 +134,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             [Argument(0)]
             [FileExists]
-            public string Path { get; }
+            public string? Path { get; }
 
             private void OnExecute() { }
         }

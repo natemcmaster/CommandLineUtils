@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute
+  id: DirectoryNotExistsAttribute
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: DirectoryNotExistsAttribute
+  nameWithType: DirectoryNotExistsAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/DirectoryNotExistsAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: DirectoryNotExistsAttribute
+    path: ../src/CommandLineUtils/Attributes/DirectoryNotExistsAttribute.cs
+    startLine: 12
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nSpecifies that the data must not be an already existing directory, not a file.\n"
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Property)]
+
+      public sealed class DirectoryNotExistsAttribute : FilePathNotExistsAttributeBase
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Property)>
+
+      Public NotInheritable Class DirectoryNotExistsAttribute
+          Inherits FilePathNotExistsAttributeBase
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - System.ComponentModel.DataAnnotations.ValidationAttribute
+  - McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+  inheritedMembers:
+  - McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 128
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.#ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.#ctor
+  id: '#ctor'
+  parent: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute
+  langs:
+  - csharp
+  - vb
+  name: DirectoryNotExistsAttribute()
+  nameWithType: DirectoryNotExistsAttribute.DirectoryNotExistsAttribute()
+  fullName: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.DirectoryNotExistsAttribute()
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/DirectoryNotExistsAttribute.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Attributes/DirectoryNotExistsAttribute.cs
+    startLine: 18
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes an instance of <xref href=\"McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public DirectoryNotExistsAttribute()
+    content.vb: Public Sub New
+  overload: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Attribute
+  commentId: T:System.Attribute
+  parent: System
+  isExternal: true
+  name: Attribute
+  nameWithType: Attribute
+  fullName: System.Attribute
+- uid: System.ComponentModel.DataAnnotations.ValidationAttribute
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationAttribute
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: ValidationAttribute
+  nameWithType: ValidationAttribute
+  fullName: System.ComponentModel.DataAnnotations.ValidationAttribute
+- uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  name: FilePathNotExistsAttributeBase
+  nameWithType: FilePathNotExistsAttributeBase
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+- uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+  isExternal: true
+  name: IsValid(Object, ValidationContext)
+  nameWithType: FilePathNotExistsAttributeBase.IsValid(Object, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid(System.Object, System.ComponentModel.DataAnnotations.ValidationContext)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: IsValid
+    nameWithType: FilePathNotExistsAttributeBase.IsValid
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: IsValid
+    nameWithType: FilePathNotExistsAttributeBase.IsValid
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.IsValid
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ComponentModel.DataAnnotations
+  commentId: N:System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: System.ComponentModel.DataAnnotations
+  nameWithType: System.ComponentModel.DataAnnotations
+  fullName: System.ComponentModel.DataAnnotations
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  commentId: N:McMaster.Extensions.CommandLineUtils.Validation
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  nameWithType: McMaster.Extensions.CommandLineUtils.Validation
+  fullName: McMaster.Extensions.CommandLineUtils.Validation
+- uid: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute
+  name: DirectoryNotExistsAttribute
+  nameWithType: DirectoryNotExistsAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute
+- uid: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.#ctor
+  name: DirectoryNotExistsAttribute
+  nameWithType: DirectoryNotExistsAttribute.DirectoryNotExistsAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute.DirectoryNotExistsAttribute

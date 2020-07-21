@@ -1,0 +1,181 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Conventions
+  id: McMaster.Extensions.CommandLineUtils.Conventions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  - McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+  - McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention
+  langs:
+  - csharp
+  - vb
+  name: McMaster.Extensions.CommandLineUtils.Conventions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Conventions
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions
+  type: Namespace
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention
+  name: AppNameFromEntryAssemblyConvention
+  nameWithType: AppNameFromEntryAssemblyConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention
+  name: ArgumentAttributeConvention
+  nameWithType: ArgumentAttributeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention
+  name: AttributeConvention
+  nameWithType: AttributeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention
+  name: CommandAttributeConvention
+  nameWithType: CommandAttributeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention
+  name: ConstructorInjectionConvention
+  nameWithType: ConstructorInjectionConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  name: ConventionContext
+  nameWithType: ConventionContext
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  name: DefaultHelpOptionConvention
+  nameWithType: DefaultHelpOptionConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention
+  name: ExecuteMethodConvention
+  nameWithType: ExecuteMethodConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention
+  name: HelpOptionAttributeConvention
+  nameWithType: HelpOptionAttributeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  name: IConvention
+  nameWithType: IConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  name: IConventionBuilder
+  nameWithType: IConventionBuilder
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+  name: IMemberConvention
+  nameWithType: IMemberConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention
+  name: OptionAttributeConvention
+  nameWithType: OptionAttributeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+  name: OptionAttributeConventionBase<TAttribute>
+  nameWithType: OptionAttributeConventionBase<TAttribute>
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase<TAttribute>
+  nameWithType.vb: OptionAttributeConventionBase(Of TAttribute)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase(Of TAttribute)
+  name.vb: OptionAttributeConventionBase(Of TAttribute)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+    name: OptionAttributeConventionBase
+    nameWithType: OptionAttributeConventionBase
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TAttribute
+    nameWithType: TAttribute
+    fullName: TAttribute
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+    name: OptionAttributeConventionBase
+    nameWithType: OptionAttributeConventionBase
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TAttribute
+    nameWithType: TAttribute
+    fullName: TAttribute
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention
+  name: ParentPropertyConvention
+  nameWithType: ParentPropertyConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention
+  name: RemainingArgsPropertyConvention
+  nameWithType: RemainingArgsPropertyConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention
+  name: SubcommandAttributeConvention
+  nameWithType: SubcommandAttributeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention
+  name: SubcommandPropertyConvention
+  nameWithType: SubcommandPropertyConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention
+  name: ValidationErrorMethodConvention
+  nameWithType: ValidationErrorMethodConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention
+  name: VersionOptionAttributeConvention
+  nameWithType: VersionOptionAttributeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention
+  name: VersionOptionFromMemberAttributeConvention
+  nameWithType: VersionOptionFromMemberAttributeConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Conventions
+  name: McMaster.Extensions.CommandLineUtils.Conventions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Conventions
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions

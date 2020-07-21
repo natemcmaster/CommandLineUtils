@@ -21,7 +21,7 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         private int _boldRecursion;
-        private bool _useConsoleColor;
+        private readonly bool _useConsoleColor;
 
         public static AnsiConsole GetOutput(bool useConsoleColor)
         {
@@ -62,7 +62,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             var escapeScan = 0;
-            for (; ;)
+            for (; ; )
             {
                 var escapeIndex = message.IndexOf("\x1b[", escapeScan);
                 if (escapeIndex == -1)

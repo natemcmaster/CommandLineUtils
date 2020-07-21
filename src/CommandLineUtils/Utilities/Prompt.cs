@@ -3,8 +3,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Security;
 using System.Text;
+using System.Linq;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -35,7 +36,11 @@ namespace McMaster.Extensions.CommandLineUtils
                 Write($"{prompt} {answerHint}", promptColor, promptBgColor);
                 Console.Write(' ');
 
-                var resp = Console.ReadLine()?.ToLower()?.Trim();
+                string? resp;
+                using (ShowCursor())
+                {
+                    resp = Console.ReadLine()?.ToLower()?.Trim();
+                }
 
                 if (string.IsNullOrEmpty(resp))
                 {
@@ -64,8 +69,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="promptColor">The console color to use for the prompt</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
         /// <returns>The response the user gave. Can be null or empty</returns>
-        public static string GetString(string prompt, string defaultValue = null, ConsoleColor? promptColor = null,
-            ConsoleColor? promptBgColor = null)
+        public static string? GetString(string prompt, string? defaultValue = null, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
         {
             if (defaultValue != null)
             {
@@ -75,7 +79,11 @@ namespace McMaster.Extensions.CommandLineUtils
             Write(prompt, promptColor, promptBgColor);
             Console.Write(' ');
 
-            var resp = Console.ReadLine();
+            string resp;
+            using (ShowCursor())
+            {
+                resp = Console.ReadLine();
+            }
 
             if (!string.IsNullOrEmpty(resp))
             {
@@ -113,7 +121,6 @@ namespace McMaster.Extensions.CommandLineUtils
             return resp.ToString();
         }
 
-#if NET45 || NETSTANDARD2_0
         /// <summary>
         /// Gets a response as a SecureString object. Input is masked with an asterisk.
         /// </summary>
@@ -121,10 +128,9 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="promptColor">The console color to use for the prompt</param>
         /// <param name="promptBgColor">The console background color for the prompt</param>
         /// <returns>A finalized SecureString object, may be empty.</returns>
-        public static System.Security.SecureString GetPasswordAsSecureString(string prompt,
-            ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+        public static SecureString GetPasswordAsSecureString(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
         {
-            var secureString = new System.Security.SecureString();
+            var secureString = new SecureString();
 
             foreach (var key in ReadObfuscatedLine(prompt, promptColor, promptBgColor))
             {
@@ -142,10 +148,6 @@ namespace McMaster.Extensions.CommandLineUtils
             secureString.MakeReadOnly();
             return secureString;
         }
-#elif NETSTANDARD1_6
-#else
-#error Target frameworks should be updated
-#endif
 
         /// <summary>
         /// Base implementation of GetPassword and GetPasswordAsString. Prompts the user for
@@ -159,7 +161,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private static IEnumerable<char> ReadObfuscatedLine(string prompt, ConsoleColor? promptColor = null,
             ConsoleColor? promptBgColor = null)
         {
-            const string whiteOut = "\b \b";
+            const string WhiteOut = "\b \b";
             Write(prompt, promptColor, promptBgColor);
             Console.Write(' ');
             const ConsoleModifiers IgnoredModifiersMask = ConsoleModifiers.Alt | ConsoleModifiers.Control;
@@ -167,7 +169,10 @@ namespace McMaster.Extensions.CommandLineUtils
             ConsoleKeyInfo key;
             do
             {
-                key = Console.ReadKey(intercept: true);
+                using (ShowCursor())
+                {
+                    key = Console.ReadKey(intercept: true);
+                }
 
                 if ((key.Modifiers & IgnoredModifiersMask) != 0)
                 {
@@ -182,7 +187,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     case ConsoleKey.Backspace:
                         if (readChars > 0)
                         {
-                            Console.Write(whiteOut);
+                            Console.Write(WhiteOut);
                             --readChars;
                             yield return Backspace;
                         }
@@ -191,7 +196,7 @@ namespace McMaster.Extensions.CommandLineUtils
                         // Reset the password
                         while (readChars > 0)
                         {
-                            Console.Write(whiteOut);
+                            Console.Write(WhiteOut);
                             yield return Backspace;
                             --readChars;
                         }
@@ -326,7 +331,11 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 Console.Write(' ');
 
-                var resp = Console.ReadLine()?.ToLower()?.Trim();
+                string? resp;
+                using (ShowCursor())
+                {
+                    resp = Console.ReadLine()?.ToLower()?.Trim();
+                }
 
                 if (string.IsNullOrEmpty(resp))
                 {
@@ -367,6 +376,46 @@ namespace McMaster.Extensions.CommandLineUtils
             if (foreground.HasValue || background.HasValue)
             {
                 Console.ResetColor();
+            }
+        }
+
+        private static IDisposable ShowCursor() => new CursorState();
+
+        private class CursorState : IDisposable
+        {
+            private readonly bool _original;
+
+            public CursorState()
+            {
+                try
+                {
+                    _original = Console.CursorVisible;
+                }
+                catch
+                {
+                    // some platforms throw System.PlatformNotSupportedException
+                    // Assume the cursor should be shown
+                    _original = true;
+                }
+
+                TrySetVisible(true);
+            }
+
+            private void TrySetVisible(bool visible)
+            {
+                try
+                {
+                    Console.CursorVisible = visible;
+                }
+                catch
+                {
+                    // setting cursor may fail if output is piped or permission is denied.
+                }
+            }
+
+            public void Dispose()
+            {
+                TrySetVisible(_original);
             }
         }
     }

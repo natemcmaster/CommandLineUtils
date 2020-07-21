@@ -1,0 +1,150 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  id: IValueParser`1
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse(System.String,System.String,System.Globalization.CultureInfo)
+  langs:
+  - csharp
+  - vb
+  name: IValueParser<T>
+  nameWithType: IValueParser<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/IValueParser{T}.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IValueParser
+    path: ../src/CommandLineUtils/Abstractions/IValueParser{T}.cs
+    startLine: 10
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nA parser that can convert string into <code data-dev-comment-type=\"typeparamref\" class=\"typeparamref\">T</code>.\n"
+  example: []
+  syntax:
+    content: 'public interface IValueParser<T> : IValueParser'
+    typeParameters:
+    - id: T
+    content.vb: >-
+      Public Interface IValueParser(Of T)
+          Inherits IValueParser
+  inheritedMembers:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  nameWithType.vb: IValueParser(Of T)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T)
+  name.vb: IValueParser(Of T)
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse(System.String,System.String,System.Globalization.CultureInfo)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse(System.String,System.String,System.Globalization.CultureInfo)
+  id: Parse(System.String,System.String,System.Globalization.CultureInfo)
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  langs:
+  - csharp
+  - vb
+  name: Parse(String, String, CultureInfo)
+  nameWithType: IValueParser<T>.Parse(String, String, CultureInfo)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>.Parse(System.String, System.String, System.Globalization.CultureInfo)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/IValueParser{T}.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Parse
+    path: ../src/CommandLineUtils/Abstractions/IValueParser{T}.cs
+    startLine: 20
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: "\nParses the raw string value.\n"
+  example: []
+  syntax:
+    content: T Parse(string argName, string value, CultureInfo culture)
+    parameters:
+    - id: argName
+      type: System.String
+      description: The name of the argument this value will be bound to.
+    - id: value
+      type: System.String
+      description: The raw string value to parse.
+    - id: culture
+      type: System.Globalization.CultureInfo
+      description: The culture that should be used to parse values.
+    return:
+      type: '{T}'
+      description: The parsed value object.
+    content.vb: Function Parse(argName As String, value As String, culture As CultureInfo) As T
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse*
+  nameWithType.vb: IValueParser(Of T).Parse(String, String, CultureInfo)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T).Parse(System.String, System.String, System.Globalization.CultureInfo)
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  name: TargetType
+  nameWithType: IValueParser.TargetType
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  name: IValueParser
+  nameWithType: IValueParser
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse
+  name: Parse
+  nameWithType: IValueParser<T>.Parse
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>.Parse
+  nameWithType.vb: IValueParser(Of T).Parse
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T).Parse
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Globalization.CultureInfo
+  commentId: T:System.Globalization.CultureInfo
+  parent: System.Globalization
+  isExternal: true
+  name: CultureInfo
+  nameWithType: CultureInfo
+  fullName: System.Globalization.CultureInfo
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Globalization
+  commentId: N:System.Globalization
+  isExternal: true
+  name: System.Globalization
+  nameWithType: System.Globalization
+  fullName: System.Globalization
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T

@@ -1,0 +1,839 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Prompt
+  commentId: T:McMaster.Extensions.CommandLineUtils.Prompt
+  id: Prompt
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  - McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  - McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  - McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.Nullable{System.String},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  - McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  langs:
+  - csharp
+  - vb
+  name: Prompt
+  nameWithType: Prompt
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Prompt
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 12
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nUtilities for getting input from an interactive console.\n"
+  example: []
+  syntax:
+    content: public static class Prompt
+    content.vb: Public Module Prompt
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: GetYesNo(System.String,System.Boolean,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  parent: McMaster.Extensions.CommandLineUtils.Prompt
+  langs:
+  - csharp
+  - vb
+  name: GetYesNo(String, Boolean, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  nameWithType: Prompt.GetYesNo(String, Boolean, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String, System.Boolean, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetYesNo
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 27
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nGets a yes/no response from the console after displaying a <code data-dev-comment-type=\"paramref\" class=\"paramref\">prompt</code>.\n<p>\nThe parsing is case insensitive. Valid responses include: yes, no, y, n.\n</p>\n"
+  example: []
+  syntax:
+    content: public static bool GetYesNo(string prompt, bool defaultAnswer, ConsoleColor? promptColor = default(ConsoleColor? ), ConsoleColor? promptBgColor = default(ConsoleColor? ))
+    parameters:
+    - id: prompt
+      type: System.String
+      description: The question to display on the command line
+    - id: defaultAnswer
+      type: System.Boolean
+      description: If the user provides an empty response, which value should be returned
+    - id: promptColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console color to display
+    - id: promptBgColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console background color for the prompt
+    return:
+      type: System.Boolean
+      description: True is &apos;yes&apos;
+    content.vb: Public Shared Function GetYesNo(prompt As String, defaultAnswer As Boolean, promptColor As ConsoleColor? = Nothing, promptBgColor As ConsoleColor? = Nothing) As Boolean
+  overload: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo*
+  nameWithType.vb: Prompt.GetYesNo(String, Boolean, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String, System.Boolean, System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
+  name.vb: GetYesNo(String, Boolean, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.Nullable{System.String},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.Nullable{System.String},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: GetString(System.String,System.Nullable{System.String},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  parent: McMaster.Extensions.CommandLineUtils.Prompt
+  langs:
+  - csharp
+  - vb
+  name: GetString(String, Nullable<String>, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  nameWithType: Prompt.GetString(String, Nullable<String>, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String, System.Nullable<System.String>, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetString
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 69
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nGets a console response from the console after displaying a <code data-dev-comment-type=\"paramref\" class=\"paramref\">prompt</code>.\n"
+  example: []
+  syntax:
+    content: public static string? GetString(string prompt, string? defaultValue = default(string? ), ConsoleColor? promptColor = default(ConsoleColor? ), ConsoleColor? promptBgColor = default(ConsoleColor? ))
+    parameters:
+    - id: prompt
+      type: System.String
+      description: The question to display on command line
+    - id: defaultValue
+      type: System.Nullable{System.String}
+      description: If the user enters a blank response, return this value instead.
+    - id: promptColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console color to use for the prompt
+    - id: promptBgColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console background color for the prompt
+    return:
+      type: System.Nullable{System.String}
+      description: The response the user gave. Can be null or empty
+    content.vb: Public Shared Function GetString(prompt As String, defaultValue As String? = Nothing, promptColor As ConsoleColor? = Nothing, promptBgColor As ConsoleColor? = Nothing) As String?
+  overload: McMaster.Extensions.CommandLineUtils.Prompt.GetString*
+  nameWithType.vb: Prompt.GetString(String, Nullable(Of String), Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String, System.Nullable(Of System.String), System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
+  name.vb: GetString(String, Nullable(Of String), Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: GetPassword(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  parent: McMaster.Extensions.CommandLineUtils.Prompt
+  langs:
+  - csharp
+  - vb
+  name: GetPassword(String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  nameWithType: Prompt.GetPassword(String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetPassword
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 100
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nGets a response that contains a password. Input is masked with an asterisk.\n"
+  example: []
+  syntax:
+    content: public static string GetPassword(string prompt, ConsoleColor? promptColor = default(ConsoleColor? ), ConsoleColor? promptBgColor = default(ConsoleColor? ))
+    parameters:
+    - id: prompt
+      type: System.String
+      description: The question to display on command line
+    - id: promptColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console color to use for the prompt
+    - id: promptBgColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console background color for the prompt
+    return:
+      type: System.String
+      description: The password as plaintext. Can be null or empty.
+    content.vb: Public Shared Function GetPassword(prompt As String, promptColor As ConsoleColor? = Nothing, promptBgColor As ConsoleColor? = Nothing) As String
+  overload: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword*
+  nameWithType.vb: Prompt.GetPassword(String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String, System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
+  name.vb: GetPassword(String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: GetPasswordAsSecureString(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  parent: McMaster.Extensions.CommandLineUtils.Prompt
+  langs:
+  - csharp
+  - vb
+  name: GetPasswordAsSecureString(String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  nameWithType: Prompt.GetPasswordAsSecureString(String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetPasswordAsSecureString
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 128
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nGets a response as a SecureString object. Input is masked with an asterisk.\n"
+  example: []
+  syntax:
+    content: public static SecureString GetPasswordAsSecureString(string prompt, ConsoleColor? promptColor = default(ConsoleColor? ), ConsoleColor? promptBgColor = default(ConsoleColor? ))
+    parameters:
+    - id: prompt
+      type: System.String
+      description: The question to display on the command line
+    - id: promptColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console color to use for the prompt
+    - id: promptBgColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console background color for the prompt
+    return:
+      type: System.Security.SecureString
+      description: A finalized SecureString object, may be empty.
+    content.vb: Public Shared Function GetPasswordAsSecureString(prompt As String, promptColor As ConsoleColor? = Nothing, promptBgColor As ConsoleColor? = Nothing) As SecureString
+  overload: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString*
+  nameWithType.vb: Prompt.GetPasswordAsSecureString(String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String, System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
+  name.vb: GetPasswordAsSecureString(String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: GetInt(System.String,System.Nullable{System.Int32},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  parent: McMaster.Extensions.CommandLineUtils.Prompt
+  langs:
+  - csharp
+  - vb
+  name: GetInt(String, Nullable<Int32>, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  nameWithType: Prompt.GetInt(String, Nullable<Int32>, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String, System.Nullable<System.Int32>, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetInt
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 222
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nGets an integer response from the console after displaying a <code data-dev-comment-type=\"paramref\" class=\"paramref\">prompt</code>.\n"
+  example: []
+  syntax:
+    content: public static int GetInt(string prompt, int? defaultAnswer = default(int? ), ConsoleColor? promptColor = default(ConsoleColor? ), ConsoleColor? promptBgColor = default(ConsoleColor? ))
+    parameters:
+    - id: prompt
+      type: System.String
+      description: The question to display on the command line
+    - id: defaultAnswer
+      type: System.Nullable{System.Int32}
+      description: If the user provides an empty response, which value should be returned
+    - id: promptColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console color to display
+    - id: promptBgColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console background color for the prompt
+    return:
+      type: System.Int32
+      description: The response as a number
+    content.vb: Public Shared Function GetInt(prompt As String, defaultAnswer As Integer? = Nothing, promptColor As ConsoleColor? = Nothing, promptBgColor As ConsoleColor? = Nothing) As Integer
+  overload: McMaster.Extensions.CommandLineUtils.Prompt.GetInt*
+  nameWithType.vb: Prompt.GetInt(String, Nullable(Of Int32), Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String, System.Nullable(Of System.Int32), System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
+  name.vb: GetInt(String, Nullable(Of Int32), Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo
+  name: GetYesNo
+  nameWithType: Prompt.GetYesNo
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Nullable{System.ConsoleColor}
+  commentId: T:System.Nullable{System.ConsoleColor}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<ConsoleColor>
+  nameWithType: Nullable<ConsoleColor>
+  fullName: System.Nullable<System.ConsoleColor>
+  nameWithType.vb: Nullable(Of ConsoleColor)
+  fullName.vb: System.Nullable(Of System.ConsoleColor)
+  name.vb: Nullable(Of ConsoleColor)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.ConsoleColor
+    name: ConsoleColor
+    nameWithType: ConsoleColor
+    fullName: System.ConsoleColor
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.ConsoleColor
+    name: ConsoleColor
+    nameWithType: ConsoleColor
+    fullName: System.ConsoleColor
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetString*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetString
+  name: GetString
+  nameWithType: Prompt.GetString
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetString
+- uid: System.Nullable{System.String}
+  commentId: T:System.Nullable{System.String}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<String>
+  nameWithType: Nullable<String>
+  fullName: System.Nullable<System.String>
+  nameWithType.vb: Nullable(Of String)
+  fullName.vb: System.Nullable(Of System.String)
+  name.vb: Nullable(Of String)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetPassword
+  name: GetPassword
+  nameWithType: Prompt.GetPassword
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString
+  name: GetPasswordAsSecureString
+  nameWithType: Prompt.GetPasswordAsSecureString
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString
+- uid: System.Security.SecureString
+  commentId: T:System.Security.SecureString
+  parent: System.Security
+  isExternal: true
+  name: SecureString
+  nameWithType: SecureString
+  fullName: System.Security.SecureString
+- uid: System.Security
+  commentId: N:System.Security
+  isExternal: true
+  name: System.Security
+  nameWithType: System.Security
+  fullName: System.Security
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetInt*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetInt
+  name: GetInt
+  nameWithType: Prompt.GetInt
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetInt
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
