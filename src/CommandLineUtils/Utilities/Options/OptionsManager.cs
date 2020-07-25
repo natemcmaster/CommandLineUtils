@@ -11,6 +11,8 @@ namespace McMaster.Extensions.CommandLineUtils
 {
     internal class OptionsManager
     {
+        private readonly string _prompt;
+
         private readonly ObservableCollection<OptionsOption> _boxes =
             new ObservableCollection<OptionsOption>();
 
@@ -30,6 +32,8 @@ namespace McMaster.Extensions.CommandLineUtils
                 throw new ArgumentNullException(nameof(boxes));
             }
 
+            _prompt = prompt;
+
             if (boxes.Any())
             {
                 this._boxes =
@@ -38,18 +42,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             Options = options ?? new OptionsManagerOptions();
 
-            if (!string.IsNullOrEmpty(prompt))
-            {
-                Console.WriteLine(prompt);
-            }
 
-            if (Options.DisplayHelpText)
-            {
-                Console.WriteLine(Options.HelpText);
-            }
-            
-            StartPosition = Console.CursorTop;
-            Redraw();
         }
 
         /// <summary>
@@ -130,7 +123,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        private int StartPosition { get; }
+        private int StartPosition { get; set; }
 
         /// <summary>
         /// Gets the check boxes.
@@ -240,9 +233,9 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private static void ClearConsoleLine(int line, string emptyLine)
         {
+            Console.SetCursorPosition(0, Console.CursorTop);
             WriteTemporarly(() =>
             {
-                Console.SetCursorPosition(0, Console.CursorTop);
                 Console.Write(emptyLine);
             }, 0, line);
         }
@@ -252,6 +245,23 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public void Show()
         {
+            if (!string.IsNullOrEmpty(_prompt))
+            {
+                Console.WriteLine(_prompt);
+            }
+
+            if (Options.DisplayHelpText)
+            {
+                Console.WriteLine(Options.HelpText);
+            }
+
+            WriteBuffer();
+            StartPosition = Console.CursorTop;
+
+            
+
+            Redraw();
+
             Console.CursorVisible = false;
             try
             {
@@ -290,6 +300,15 @@ namespace McMaster.Extensions.CommandLineUtils
                 Console.CursorVisible = true;
             }
 
+        }
+
+        private void WriteBuffer()
+        {
+            for (int i = 0; i < _boxes.Count; i++)
+            {
+                Console.WriteLine();
+            }
+            Console.SetCursorPosition(0, Console.CursorTop - _boxes.Count);
         }
 
         private bool End()
