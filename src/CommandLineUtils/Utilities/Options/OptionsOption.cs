@@ -11,7 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
     internal class OptionsOption : INotifyPropertyChanged
     {
-        private bool isSelected;
+        private bool _isSelected;
 
         public OptionsOption(string title)
         {
@@ -34,10 +34,10 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </value>
         public bool IsSelected
         {
-            get => isSelected;
+            get => _isSelected;
             set
             {
-                isSelected = value;
+                _isSelected = value;
                 OnPropertyChanged();
             }
         }

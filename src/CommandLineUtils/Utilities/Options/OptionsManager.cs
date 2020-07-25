@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -45,9 +47,9 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 Console.WriteLine(Options.HelpText);
             }
-
+            
             StartPosition = Console.CursorTop;
-            Draw();
+            Redraw();
         }
 
         /// <summary>
@@ -229,18 +231,19 @@ namespace McMaster.Extensions.CommandLineUtils
                 x = Console.WindowWidth;
             }
 
+            var emptyLine = new String(' ', x);
             for (var i = startY; i < endY; i++)
             {
-                ClearConsoleLine(i, x);
+                ClearConsoleLine(i, emptyLine);
             }
         }
 
-        private static void ClearConsoleLine(int line, int length)
+        private static void ClearConsoleLine(int line, string emptyLine)
         {
             WriteTemporarly(() =>
             {
                 Console.SetCursorPosition(0, Console.CursorTop);
-                Console.Write(new string(' ', length));
+                Console.Write(emptyLine);
             }, 0, line);
         }
 
@@ -250,36 +253,43 @@ namespace McMaster.Extensions.CommandLineUtils
         public void Show()
         {
             Console.CursorVisible = false;
-
-            while (true)
+            try
             {
-                var key = Console.ReadKey(true);
-
-                if (key.Modifiers != 0)
-                    continue;
-
-                if (Options.Keys.Finalize.Contains(key.Key))
+                while (true)
                 {
-                    if (End())
+                    var key = Console.ReadKey(true);
+
+                    if (key.Modifiers != 0)
+                        continue;
+
+                    if (Options.Keys.Finalize.Contains(key.Key))
                     {
-                        break;
+                        if (End())
+                        {
+                            break;
+                        }
                     }
-                }
-                else if (Options.Keys.Movedown.Contains(key.Key))
-                {
-                    GoDown();
-                }
-                else if (Options.Keys.Moveup.Contains(key.Key))
-                {
-                    GoUp();
-                }
-                else if (Options.Keys.Select.Contains(key.Key))
-                {
-                    Checked();
-                }
+                    else if (Options.Keys.Movedown.Contains(key.Key))
+                    {
+                        GoDown();
+                    }
+                    else if (Options.Keys.Moveup.Contains(key.Key))
+                    {
+                        GoUp();
+                    }
+                    else if (Options.Keys.Select.Contains(key.Key))
+                    {
+                        Checked();
+                    }
 
-                Redraw();
+                    Redraw();
+                }
             }
+            finally
+            {
+                Console.CursorVisible = true;
+            }
+
         }
 
         private bool End()
@@ -341,7 +351,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
 
-            Draw();
+            Redraw();
         }
 
         private void DrawSelector()
