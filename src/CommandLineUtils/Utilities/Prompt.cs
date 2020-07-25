@@ -12,7 +12,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <summary>
     /// Utilities for getting input from an interactive console.
     /// </summary>
-    public static partial class Prompt
+    public static class Prompt
     {
         private const char Backspace = '\b';
 
