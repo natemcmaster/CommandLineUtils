@@ -202,8 +202,8 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                         if (attributeValidator?.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
                         {
                             description += $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                            break;
                         }
-                        break;
                     }
 
                     var wrappedDescription = IndentWriter?.Write(description);
@@ -246,8 +246,8 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                         if (attributeValidator?.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
                         {
                             description += $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                            break;
                         }
-                        break;
                     }
 
                     var wrappedDescription = IndentWriter?.Write(description);

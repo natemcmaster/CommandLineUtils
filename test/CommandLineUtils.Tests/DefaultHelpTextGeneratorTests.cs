@@ -4,6 +4,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Text;
 using McMaster.Extensions.CommandLineUtils.HelpText;
@@ -108,11 +109,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             app.HelpOption();
             app.Option("--strOpt <E>", "str option desc.", CommandOptionType.SingleValue);
-            app.Option("--rStrOpt <E>", "restricted str option desc.", CommandOptionType.SingleValue, o => o.Accepts().Values("Foo", "Bar"));
+            app.Option("--rStrOpt <E>", "restricted str option desc.", CommandOptionType.SingleValue, o => o.IsRequired().Accepts().Values("Foo", "Bar"));
             app.Option<int>("--intOpt <E>", "int option desc.", CommandOptionType.SingleValue);
             app.Option<SomeEnum>("--enumOpt <E>", "enum option desc.", CommandOptionType.SingleValue);
             app.Argument("SomeStringArgument", "string arg desc.");
-            app.Argument("RestrictedStringArgument", "restricted string arg desc.", a=>a.Accepts().Values("Foo", "Bar"));
+            app.Argument("RestrictedStringArgument", "restricted string arg desc.", a => a.IsRequired().Accepts().Values("Foo", "Bar"));
             app.Argument<SomeEnum>("SomeEnumArgument", "enum arg desc.");
             var helpText = GetHelpText(app);
 
@@ -176,6 +177,7 @@ Options:
             public string strOpt { get; set; }
 
             [Option(ShortName = "rStrOpt", Description = "restricted str option desc.")]
+            [Required]
             [AllowedValues("Foo", "Bar")]
             public string rStrOpt { get; set; }
 
@@ -189,6 +191,7 @@ Options:
             public string SomeStringArgument { get; set; }
 
             [Argument(1, Description = "restricted string arg desc.")]
+            [Required]
             [AllowedValues("Foo", "Bar")]
             public string RestrictedStringArgument { get; set; }
 
