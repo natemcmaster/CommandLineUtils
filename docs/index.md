@@ -61,6 +61,10 @@ Using this library, you can write a command line application without doing the h
 masking input for passwords, parsing argument syntax, validation, etc.
 
 ```c#
+using McMaster.Extensions.CommandLineUtils;
+using System;
+using System.ComponentModel.DataAnnotations;
+
 class Program
 {
     public static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
