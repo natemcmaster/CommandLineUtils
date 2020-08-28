@@ -1,8 +1,6 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-
 namespace McMaster.Extensions.CommandLineUtils
 {
     /// <summary>
@@ -10,8 +8,6 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     internal class ParserConfig
     {
-        private char[] _optionNameValueSeparators = { ' ', ':', '=' };
-
         /// <summary>
         /// Characters used to separate the option name from the value.
         /// <para>
@@ -25,26 +21,11 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <example>
         /// Given --name=value, = is the separator.
         /// </example>
-        public char[] OptionNameValueSeparators
-        {
-            get => _optionNameValueSeparators;
-            set
-            {
-                _optionNameValueSeparators = value ?? throw new ArgumentNullException(nameof(value));
-                if (value.Length == 0)
-                {
-                    throw new ArgumentException(Strings.IsNullOrEmpty, nameof(value));
-                }
-                OptionNameAndValueCanBeSpaceSeparated = Array.IndexOf(OptionNameValueSeparators, ' ') >= 0;
-            }
-        }
-
-        internal bool OptionNameAndValueCanBeSpaceSeparated { get; private set; } = true;
+        public char[]? OptionNameValueSeparators { get; set; }
 
         /// <summary>
         /// Set the behavior for how to handle unrecognized arguments.
         /// </summary>
-        public UnrecognizedArgumentHandling UnrecognizedArgumentHandling { get; set; } =
-            UnrecognizedArgumentHandling.Throw;
+        public UnrecognizedArgumentHandling? UnrecognizedArgumentHandling { get; set; }
     }
 }

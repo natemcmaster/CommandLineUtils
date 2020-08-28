@@ -101,6 +101,28 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public void OnExecute() { }
         }
 
+        [Command(UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect)]
+        [Subcommand(typeof(FooCommand))]
+        class NotThrowOnUnrecognizedArgumentClass
+        {
+            public void OnExecute() { }
+        }
+
+        [Command]
+        class FooCommand
+        {
+        }
+
+        [Fact]
+        public void AllowNoThrowBehaviorOnUnexpectedOptionWhenHasSubcommand()
+        {
+            using var app = new CommandLineApplication<NotThrowOnUnrecognizedArgumentClass>();
+            app.Conventions.UseDefaultConventions();
+
+            // should not throw
+            app.Execute("--unexpected");
+        }
+
         [Fact]
         public void ItDoesNotInitalizeClassUnlessNecessary()
         {
