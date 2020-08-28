@@ -197,11 +197,13 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                         ? $"{arg.Description}\nAllowed values are: {string.Join(", ", enumNames)}."
                         : arg.Description;
 
-                    var attributeValidator = arg.Validators.Cast<AttributeValidator>().FirstOrDefault();
-
-                    if (attributeValidator != null && attributeValidator.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
+                    foreach (var attributeValidator in arg.Validators.Cast<AttributeValidator>())
                     {
-                        description += $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                        if (attributeValidator?.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
+                        {
+                            description += $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                            break;
+                        }
                     }
 
                     var wrappedDescription = IndentWriter?.Write(description);
@@ -239,11 +241,13 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                         ? $"{opt.Description}\nAllowed values are: {string.Join(", ", enumNames)}."
                         : opt.Description;
 
-                    var attributeValidator = opt.Validators.Cast<AttributeValidator>().FirstOrDefault();
-
-                    if (attributeValidator != null && attributeValidator.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
+                    foreach (var attributeValidator in opt.Validators.Cast<AttributeValidator>())
                     {
-                        description+= $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                        if (attributeValidator?.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
+                        {
+                            description += $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                            break;
+                        }
                     }
 
                     var wrappedDescription = IndentWriter?.Write(description);
