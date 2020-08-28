@@ -495,6 +495,22 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void AllowNoThrowBehaviorOnUnexpectedOptionWhenHasSubcommand()
+        {
+            var app = new CommandLineApplication
+            {
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect
+            };
+            app.Command("k", c =>
+            {
+                c.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.Throw;
+            });
+
+            // should not throw
+            app.Execute("--unexpected");
+        }
+
+        [Fact]
         public void CollectUnrecognizedArguments()
         {
             var app = new CommandLineApplication
@@ -752,6 +768,20 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             option.Values.Clear();
             app.Parse("--debug:hive=abc");
             Assert.Equal("abc", option.Value());
+        }
+
+        [Fact]
+        public void AllowSettingOptionNameValueSeparatorsPerCommand()
+        {
+            var app = new CommandLineApplication();
+
+            app.Command("k", c =>
+            {
+                c.Option("-o", "option desc.", CommandOptionType.SingleValue);
+                c.OptionNameValueSeparators = new[] { '=' };
+            });
+
+            Assert.ThrowsAny<CommandParsingException>(() => app.Parse("k", "-o", "foo"));
         }
 
         [Fact]

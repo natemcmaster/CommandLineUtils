@@ -14,7 +14,6 @@ namespace McMaster.Extensions.CommandLineUtils
     internal sealed class CommandLineProcessor
     {
         private readonly CommandLineApplication _initialCommand;
-        private readonly ParserConfig _config;
         private readonly ArgumentEnumerator _enumerator;
 
         private CommandLineApplication _currentCommand
@@ -31,12 +30,10 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public CommandLineProcessor(
             CommandLineApplication command,
-            ParserConfig config,
             IReadOnlyList<string> arguments)
         {
             _initialCommand = command;
-            _config = config ?? throw new ArgumentNullException(nameof(config));
-            _enumerator = new ArgumentEnumerator(command, _config, arguments ?? new string[0]);
+            _enumerator = new ArgumentEnumerator(command, arguments ?? new string[0]);
             CheckForShortOptionClustering(command);
         }
 
@@ -260,7 +257,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             else
             {
-                if (_config.OptionNameAndValueCanBeSpaceSeparated)
+                if (_currentCommand.OptionNameAndValueCanBeSpaceSeparated)
                 {
                     if (_enumerator.MoveNext())
                     {
@@ -334,7 +331,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private bool ProcessUnexpectedArg(string argTypeName, string? argValue = null)
         {
-            switch (_config.UnrecognizedArgumentHandling)
+            switch (_currentCommand.UnrecognizedArgumentHandling)
             {
                 case UnrecognizedArgumentHandling.Throw:
                     _currentCommand.ShowHint();
@@ -429,11 +426,9 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             private readonly IEnumerator<string> _rawArgEnumerator;
             private IEnumerator<string>? _rspEnumerator;
-            private readonly ParserConfig _config;
 
-            public ArgumentEnumerator(CommandLineApplication command, ParserConfig config, IReadOnlyList<string> rawArguments)
+            public ArgumentEnumerator(CommandLineApplication command, IReadOnlyList<string> rawArguments)
             {
-                _config = config;
                 CurrentCommand = command;
                 _rawArgEnumerator = rawArguments.GetEnumerator();
             }
@@ -489,7 +484,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 if (raw[1] != '-')
                 {
-                    return new OptionArgument(raw, _config.OptionNameValueSeparators, isShortOption: true);
+                    return new OptionArgument(raw, CurrentCommand.OptionNameValueSeparators, isShortOption: true);
                 }
 
                 if (raw.Length == 2)
@@ -497,7 +492,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     return ArgumentSeparatorArgument.Instance;
                 }
 
-                return new OptionArgument(raw, _config.OptionNameValueSeparators, isShortOption: false);
+                return new OptionArgument(raw, CurrentCommand.OptionNameValueSeparators, isShortOption: false);
             }
 
             private IEnumerator<string> CreateRspParser(string path)

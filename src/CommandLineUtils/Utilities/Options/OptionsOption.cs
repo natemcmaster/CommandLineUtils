@@ -11,6 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
     internal class OptionsOption : INotifyPropertyChanged
     {
+
         private bool _isSelected;
 
         public OptionsOption(string title)
