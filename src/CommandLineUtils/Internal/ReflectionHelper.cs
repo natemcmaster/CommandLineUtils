@@ -37,10 +37,10 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static GetPropertyDelegate GetPropertyGetter(PropertyInfo prop)
         {
-            var setter = prop.GetSetMethod(nonPublic: true);
-            if (setter != null)
+            var getter = prop.GetGetMethod(nonPublic: true);
+            if (getter != null)
             {
-                return obj => setter.Invoke(obj, new object[] { });
+                return obj => getter.Invoke(obj, new object[] { });
             }
             else
             {

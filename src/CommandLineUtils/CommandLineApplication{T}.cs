@@ -25,7 +25,6 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandLineApplication()
             : base()
         {
-            Initialize();
         }
 
         /// <summary>
@@ -35,7 +34,6 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandLineApplication(IConsole console)
             : base(console)
         {
-            Initialize();
         }
 
         /// <summary>
@@ -46,7 +44,6 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandLineApplication(IConsole console, string workingDirectory)
             : base(console, workingDirectory)
         {
-            Initialize();
         }
 
         /// <summary>
@@ -64,18 +61,17 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandLineApplication(IHelpTextGenerator helpTextGenerator, IConsole console, string workingDirectory)
             : base(helpTextGenerator, console, workingDirectory)
         {
-            Initialize();
         }
 
         internal CommandLineApplication(CommandLineApplication parent, string name)
             : base(parent, name)
         {
-            Initialize();
         }
 
-        private void Initialize()
+        internal override void Initialize()
         {
             _lazy = new Lazy<TModel>(CreateModel);
+            base.Initialize();
         }
 
         private static TModel DefaultModelFactory()

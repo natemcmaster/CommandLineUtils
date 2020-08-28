@@ -59,8 +59,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             var getter = ReflectionHelper.GetPropertyGetter(prop);
 
-            var value = getter.Invoke(modelAccessor.GetModel());
-
             option.DefaultValue = getter.Invoke(modelAccessor.GetModel())?.ToString();
 
             var setter = ReflectionHelper.GetPropertySetter(prop);
