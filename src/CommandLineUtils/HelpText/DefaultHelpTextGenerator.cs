@@ -250,6 +250,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                         }
                     }
 
+                    if (!string.IsNullOrEmpty(opt.DefaultValue))
+                    {
+                        description += $"\nDefault value is: {opt.DefaultValue}.";
+                    }
+
                     var wrappedDescription = IndentWriter?.Write(description);
                     var message = string.Format(outputFormat, Format(opt), wrappedDescription);
 

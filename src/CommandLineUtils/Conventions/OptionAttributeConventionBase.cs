@@ -57,6 +57,12 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 context.Application._longOptions.Add(option.LongName, prop);
             }
 
+            var getter = ReflectionHelper.GetPropertyGetter(prop);
+
+            var value = getter.Invoke(modelAccessor.GetModel());
+
+            option.DefaultValue = getter.Invoke(modelAccessor.GetModel())?.ToString();
+
             var setter = ReflectionHelper.GetPropertySetter(prop);
 
             switch (option.OptionType)

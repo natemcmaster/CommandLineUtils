@@ -102,6 +102,11 @@ namespace McMaster.Extensions.CommandLineUtils
         public List<string?> Values { get; } = new List<string?>();
 
         /// <summary>
+        /// The default value of the option.
+        /// </summary>
+        public string? DefaultValue { get; set; }
+
+        /// <summary>
         /// Defines the type of the option.
         /// </summary>
         public CommandOptionType OptionType { get; private set; }

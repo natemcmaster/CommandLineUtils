@@ -35,6 +35,26 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
+        public static GetPropertyDelegate GetPropertyGetter(PropertyInfo prop)
+        {
+            var setter = prop.GetSetMethod(nonPublic: true);
+            if (setter != null)
+            {
+                return obj => setter.Invoke(obj, new object[] { });
+            }
+            else
+            {
+                var backingField = prop.DeclaringType.GetField($"<{prop.Name}>k__BackingField", DeclaredOnlyLookup);
+                if (backingField == null)
+                {
+                    throw new InvalidOperationException(
+                        $"Could not find a way to get {prop.DeclaringType.FullName}.{prop.Name}. Try adding a getter.");
+                }
+
+                return obj => backingField.GetValue(obj);
+            }
+        }
+
         public static MethodInfo[] GetPropertyOrMethod(Type type, string name)
         {
             var members = GetAllMembers(type).ToList();

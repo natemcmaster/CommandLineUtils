@@ -110,6 +110,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.HelpOption();
             app.Option("--strOpt <E>", "str option desc.", CommandOptionType.SingleValue);
             app.Option("--rStrOpt <E>", "restricted str option desc.", CommandOptionType.SingleValue, o => o.IsRequired().Accepts().Values("Foo", "Bar"));
+            app.Option("--dStrOpt <E>", "str option with default value desc.", CommandOptionType.SingleValue, o => o.DefaultValue = "Foo");
             app.Option<int>("--intOpt <E>", "int option desc.", CommandOptionType.SingleValue);
             app.Option<SomeEnum>("--enumOpt <E>", "enum option desc.", CommandOptionType.SingleValue);
             app.Argument("SomeStringArgument", "string arg desc.");
@@ -131,9 +132,13 @@ Options:
   --strOpt <E>              str option desc.
   --rStrOpt <E>             restricted str option desc.
                             Allowed values are: Foo, Bar.
+  --dStrOpt <E>             str option with default value desc.
+                            Default value is: Foo.
   --intOpt <E>              int option desc.
+                            Default value is: 0.
   --enumOpt <E>             enum option desc.
                             Allowed values are: None, Normal, Extreme.
+                            Default value is: None.
 
 ",
             helpText,
@@ -161,9 +166,13 @@ Options:
   -strOpt|--str-opt <STR_OPT>       str option desc.
   -rStrOpt|--r-str-opt <R_STR_OPT>  restricted str option desc.
                                     Allowed values are: Foo, Bar.
+  -dStrOpt|--d-str-opt <D_STR_OPT>  str option with default value desc.
+                                    Default value is: Foo.
   -intOpt|--int-opt <INT_OPT>       int option desc.
+                                    Default value is: 0.
   -enumOpt|--verbosity <VERBOSITY>  enum option desc.
                                     Allowed values are: None, Normal, Extreme.
+                                    Default value is: None.
   -?|-h|--help                      Show help information.
 
 ",
@@ -180,6 +189,9 @@ Options:
             [Required]
             [AllowedValues("Foo", "Bar")]
             public string rStrOpt { get; set; }
+
+            [Option(ShortName = "dStrOpt", Description = "str option with default value desc.")]
+            public string dStrOpt { get; set; } = "Foo";
 
             [Option(ShortName = "intOpt", Description = "int option desc.")]
             public int intOpt { get; set; }

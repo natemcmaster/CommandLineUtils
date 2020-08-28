@@ -4,4 +4,6 @@
 namespace McMaster.Extensions.CommandLineUtils
 {
     internal delegate void SetPropertyDelegate(object obj, object? value);
+
+    internal delegate object GetPropertyDelegate(object obj);
 }
