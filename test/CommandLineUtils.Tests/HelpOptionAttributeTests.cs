@@ -2,7 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Reflection;
+using System.IO;
+using System.Text;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -26,9 +27,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void DoesNotAddHelpOptionByDefault()
         {
-            var builder = new ReflectionAppBuilder<NoHelpOptionClass>();
-            builder.Initialize();
-            Assert.Null(builder.App.OptionHelp);
+            var app = new CommandLineApplication<NoHelpOptionClass>();
+            app.Conventions.UseHelpOptionAttribute();
+            Assert.Null(app.OptionHelp);
         }
 
         private class MultipleHelpOptions
@@ -44,7 +45,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenMultipleHelpOptionsInType()
         {
             var ex = Assert.Throws<InvalidOperationException>(() =>
-                new ReflectionAppBuilder<MultipleHelpOptions>().Initialize());
+                new CommandLineApplication<MultipleHelpOptions>().Conventions.UseHelpOptionAttribute());
             Assert.Equal(Strings.MultipleHelpOptionPropertiesFound, ex.Message);
         }
 
@@ -59,21 +60,21 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ThrowsWhenMultipleHelpOptionUsedOnTypeAndProperti()
         {
             var ex = Assert.Throws<InvalidOperationException>(() =>
-                new ReflectionAppBuilder<HelpOptionOnTypeAndProp>().Initialize());
+                new CommandLineApplication<HelpOptionOnTypeAndProp>().Conventions.UseHelpOptionAttribute());
             Assert.Equal(Strings.HelpOptionOnTypeAndProperty, ex.Message);
         }
 
         private class HelpOptionOnNonBoolean
         {
             [HelpOption]
-            public string IsHelpOption { get; set; }
+            public string? IsHelpOption { get; set; }
         }
 
         [Fact]
         public void ThrowsIfHelpOptionPropIsNotBool()
         {
             var ex = Assert.Throws<InvalidOperationException>(() =>
-                new ReflectionAppBuilder<HelpOptionOnNonBoolean>().Initialize());
+                new CommandLineApplication<HelpOptionOnNonBoolean>().Conventions.UseHelpOptionAttribute());
             Assert.Equal(Strings.NoValueTypesMustBeBoolean, ex.Message);
         }
 
@@ -81,14 +82,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             [HelpOption]
             [Option]
-            public string IsHelpOption { get; set; }
+            public string? IsHelpOption { get; set; }
         }
 
         [Fact]
         public void ThrowsIfMultipleAttributesApplied()
         {
             var ex = Assert.Throws<InvalidOperationException>(() =>
-                new ReflectionAppBuilder<DuplicateOptionAttributes>().Initialize());
+                new CommandLineApplication<DuplicateOptionAttributes>().Conventions.UseHelpOptionAttribute());
             var prop = typeof(DuplicateOptionAttributes).GetProperty(nameof(DuplicateOptionAttributes.IsHelpOption));
             Assert.Equal(Strings.BothOptionAndHelpOptionAttributesCannotBeSpecified(prop), ex.Message);
         }
@@ -101,14 +102,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void SetsHelpOptionOnType()
         {
-            var builder = new ReflectionAppBuilder<WithTypeHelpOption>();
-            builder.Initialize();
-            Assert.NotNull(builder.App.OptionHelp);
-            Assert.Equal(CommandOptionType.NoValue, builder.App.OptionHelp.OptionType);
-            Assert.Null(builder.App.OptionHelp.SymbolName);
-            Assert.Equal("h", builder.App.OptionHelp.ShortName);
-            Assert.Equal("help", builder.App.OptionHelp.LongName);
-            Assert.Equal("My help info", builder.App.OptionHelp.Description);
+            var app = new CommandLineApplication<WithTypeHelpOption>();
+            app.Conventions.UseHelpOptionAttribute();
+            Assert.NotNull(app.OptionHelp);
+            Assert.Equal(CommandOptionType.NoValue, app.OptionHelp?.OptionType);
+            Assert.Null(app.OptionHelp?.SymbolName);
+            Assert.Equal("h", app.OptionHelp?.ShortName);
+            Assert.Equal("help", app.OptionHelp?.LongName);
+            Assert.Equal("My help info", app.OptionHelp?.Description);
         }
 
         private class WithPropHelpOption
@@ -120,14 +121,14 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void SetsHelpOptionOnProp()
         {
-            var builder = new ReflectionAppBuilder<WithPropHelpOption>();
-            builder.Initialize();
-            Assert.NotNull(builder.App.OptionHelp);
-            Assert.Equal(CommandOptionType.NoValue, builder.App.OptionHelp.OptionType);
-            Assert.Null(builder.App.OptionHelp.SymbolName);
-            Assert.Equal("h", builder.App.OptionHelp.ShortName);
-            Assert.Equal("help", builder.App.OptionHelp.LongName);
-            Assert.Equal("My help info", builder.App.OptionHelp.Description);
+            var app = new CommandLineApplication<WithPropHelpOption>();
+            app.Conventions.UseHelpOptionAttribute();
+            Assert.NotNull(app.OptionHelp);
+            Assert.Equal(CommandOptionType.NoValue, app.OptionHelp?.OptionType);
+            Assert.Null(app.OptionHelp?.SymbolName);
+            Assert.Equal("h", app.OptionHelp?.ShortName);
+            Assert.Equal("help", app.OptionHelp?.LongName);
+            Assert.Equal("My help info", app.OptionHelp?.Description);
         }
 
         [HelpOption]
@@ -146,6 +147,75 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void OnExecuteIsNotInvokedWhenHelpOptionSpecified(string arg)
         {
             Assert.Equal(0, CommandLineApplication.Execute<SimpleHelpApp>(new TestConsole(_output), arg));
+        }
+
+        [Command(Name = "lvl1")]
+        [HelpOption(Inherited = true)]
+        [Subcommand(typeof(Sub))]
+        private class Parent
+        {
+            [Command("lvl2")]
+            private class Sub
+            {
+                [Argument(0, Name = "lvl-arg", Description = "subcommand argument")]
+                public string? Arg { get; }
+            }
+        }
+
+        [Fact]
+        public void HelpOptionIsInherited()
+        {
+            var sb = new StringBuilder();
+            var outWriter = new StringWriter(sb);
+            var app = new CommandLineApplication<Parent> { Out = outWriter };
+            app.Conventions.UseDefaultConventions();
+            app.Commands.ForEach(f => f.Out = outWriter);
+            app.Execute("lvl2", "--help");
+            var outData = sb.ToString();
+
+            Assert.True(app.OptionHelp?.HasValue());
+            Assert.Contains("Usage: lvl1 lvl2 [options] <lvl-arg>", outData);
+        }
+
+        [Theory]
+        [InlineData(new[] { "get", "--help" }, "Usage: updater get [options]")]
+        [InlineData(new[] { "get", "-h" }, "Usage: updater get [options]")]
+        [InlineData(new[] { "get", "-?" }, "Usage: updater get [options]")]
+        [InlineData(new[] { "--help" }, "Usage: updater [command] [options]")]
+        [InlineData(new[] { "-h" }, "Usage: updater [command] [options]")]
+        [InlineData(new[] { "-?" }, "Usage: updater [command] [options]")]
+        public void NestedHelpOptionsChoosesHelpOptionNearestSelectedCommand(string[] args, string helpNeedle)
+        {
+            var sb = new StringBuilder();
+            var outWriter = new StringWriter(sb);
+
+            var app = new CommandLineApplication { Name = "updater", Out = outWriter };
+            app.HelpOption(true);
+
+            app.Command("get", getCommand =>
+            {
+                getCommand.Description = "Gets a list of things.";
+                getCommand.HelpOption();
+
+                getCommand.OnExecute(() =>
+                {
+                    getCommand.ShowHelp();
+                    return 1;
+                });
+            });
+
+            app.OnExecute(() =>
+            {
+                app.ShowHelp();
+                return 1;
+            });
+
+            app.Commands.ForEach(f => f.Out = outWriter);
+
+            app.Execute(args);
+            var outData = sb.ToString();
+
+            Assert.Contains(helpNeedle, outData);
         }
     }
 }

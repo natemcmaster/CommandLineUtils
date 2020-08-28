@@ -1,0 +1,8 @@
+<Project>
+
+  <ItemGroup>
+    <PackageReference Remove="McMaster.Extensions.CommandLineUtils" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\src\CommandLineUtils\*.csproj" />
+  </ItemGroup>
+
+</Project>

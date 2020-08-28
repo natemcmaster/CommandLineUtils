@@ -1,23 +1,22 @@
 CommandLineUtils
 ================
 
-[![AppVeyor build status][appveyor-badge]](https://ci.appveyor.com/project/natemcmaster/CommandLineUtils/branch/master)
+[![Build Status](https://dev.azure.com/natemcmaster/github/_apis/build/status/CommandLineUtils?branchName=main)](https://dev.azure.com/natemcmaster/github/_build/?definitionId=3)
 
-[appveyor-badge]: https://img.shields.io/appveyor/ci/natemcmaster/CommandLineUtils/master.svg?label=appveyor&style=flat-square
+[![NuGet][nuget-badge] ![NuGet Downloads][nuget-download-badge]][nuget]
 
-[![NuGet][main-nuget-badge]][main-nuget] [![MyGet][main-myget-badge]][main-myget]
-
-[main-nuget]: https://www.nuget.org/packages/McMaster.Extensions.CommandLineUtils/
-[main-nuget-badge]: https://img.shields.io/nuget/v/McMaster.Extensions.CommandLineUtils.svg?style=flat-square&label=nuget
-[main-myget]: https://www.myget.org/feed/natemcmaster/package/nuget/McMaster.Extensions.CommandLineUtils
-[main-myget-badge]: https://img.shields.io/www.myget/natemcmaster/vpre/McMaster.Extensions.CommandLineUtils.svg?style=flat-square&label=myget
+[nuget]: https://www.nuget.org/packages/McMaster.Extensions.CommandLineUtils/
+[nuget-badge]: https://img.shields.io/nuget/v/McMaster.Extensions.CommandLineUtils.svg?style=flat-square
+[nuget-download-badge]: https://img.shields.io/nuget/dt/McMaster.Extensions.CommandLineUtils?style=flat-square
 
 
-This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This fork, on the other hand, will continue release updates and take contributions.
+This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This fork, on the other hand, will continue to make improvements, release updates, and accept contributions.
+
+The roadmap for this project is [pinned to the top of the issue list](https://github.com/natemcmaster/CommandLineUtils/issues/).
 
 ## Install
 
-Install the NuGet package into your project.
+Install the [NuGet package][nuget] into your project.
 
 ```
 PM> Install-Package McMaster.Extensions.CommandLineUtils
@@ -25,23 +24,17 @@ PM> Install-Package McMaster.Extensions.CommandLineUtils
 ```
 $ dotnet add package McMaster.Extensions.CommandLineUtils
 ```
-```xml
-<ItemGroup>
-  <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.1.1" />
-</ItemGroup>
-```
-
-Pre-release builds and symbols: https://www.myget.org/gallery/natemcmaster/
 
 ## Usage
 
-See [samples/](./samples/) for more examples, such as:
+See [documentation](https://natemcmaster.github.io/CommandLineUtils/) for API reference, samples, and tutorials.
+See [docs/samples/](./docs/samples/) for more examples, such as:
 
- - [Async console apps](./samples/AsyncWithAttributes/Program.cs)
- - [Structing an app with subcommands](./samples/Subcommands/Program.cs)
- - [Defining options with attributes](./samples/HelloWorld.Attributes/Program.cs)
- - [Interactive console prompts](./samples/Prompt/Program.cs)
- - [Required options and arguments](./samples/Validation/)
+ - [Async console apps](./docs/samples/helloworld-async/)
+ - [Structuring an app with subcommands](./docs/samples/subcommands/)
+ - [Defining options with attributes](./docs/samples/attributes/)
+ - [Interactive console prompts](./docs/samples/interactive-prompts/)
+ - [Required options and arguments](./docs/samples/validation/)
 
 `CommandLineApplication` is the main entry point for most console apps parsing. There are two primary ways to use this API, using the builder pattern and attributes.
 
@@ -51,7 +44,6 @@ See [samples/](./samples/) for more examples, such as:
 using System;
 using McMaster.Extensions.CommandLineUtils;
 
-[HelpOption]
 public class Program
 {
     public static int Main(string[] args)
@@ -60,10 +52,16 @@ public class Program
     [Option(Description = "The subject")]
     public string Subject { get; }
 
+    [Option(ShortName = "n")]
+    public int Count { get; }
+
     private void OnExecute()
     {
         var subject = Subject ?? "world";
-        Console.WriteLine($"Hello {subject}!");
+        for (var i = 0; i < Count; i++)
+        {
+            Console.WriteLine($"Hello {subject}!");
+        }
     }
 }
 ```
@@ -83,6 +81,7 @@ public class Program
 
         app.HelpOption();
         var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
+        var optionRepeat = app.Option<int>("-n|--count <N>", "Repeat", CommandOptionType.SingleValue);
 
         app.OnExecute(() =>
         {
@@ -90,7 +89,11 @@ public class Program
                 ? optionSubject.Value()
                 : "world";
 
-            Console.WriteLine($"Hello {subject}!");
+            var count = optionRepeat.HasValue() ? optionRepeat.ParsedValue : 1;
+            for (var i = 0; i < count; i++)
+            {
+                Console.WriteLine($"Hello {subject}!");
+            }
             return 0;
         });
 
@@ -106,7 +109,7 @@ The library also includes other utilities for interaction with the console. Thes
 
 - `ArgumentEscaper` - use to escape arguments when starting a new command line process.
     ```c#
-     var args = new [] { "Arg1", "arg with space", "args ' with \"" quotes" };
+     var args = new [] { "Arg1", "arg with space", "args ' with \" quotes" };
      Process.Start("echo", ArgumentEscaper.EscapeAndConcatenate(args));
     ```
  - `Prompt` - for getting feedback from users. A few examples:
@@ -122,4 +125,4 @@ The library also includes other utilities for interaction with the console. Thes
     Process.Start(DotNetExe.FullPathOrDefault(), "run");
     ```
 
-And more! See the docs for more API, such as `IConsole`, `IReporter`, and others.
+And more! See the [documentation](https://natemcmaster.github.io/CommandLineUtils/) for more API, such as `IConsole`, `IReporter`, and others.

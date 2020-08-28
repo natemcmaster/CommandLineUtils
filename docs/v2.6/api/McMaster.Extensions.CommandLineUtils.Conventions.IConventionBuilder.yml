@@ -1,0 +1,1460 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  id: IConventionBuilder
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.AddConvention(McMaster.Extensions.CommandLineUtils.Conventions.IConvention)
+  langs:
+  - csharp
+  - vb
+  name: IConventionBuilder
+  nameWithType: IConventionBuilder
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/IConventionBuilder.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IConventionBuilder
+    path: ../src/CommandLineUtils/Conventions/IConventionBuilder.cs
+    startLine: 8
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nBuilds a collection of conventions.\n"
+  example: []
+  syntax:
+    content: public interface IConventionBuilder
+    content.vb: Public Interface IConventionBuilder
+  extensionMethods:
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(System.String)
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(System.IServiceProvider)
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.AddConvention(McMaster.Extensions.CommandLineUtils.Conventions.IConvention)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.AddConvention(McMaster.Extensions.CommandLineUtils.Conventions.IConvention)
+  id: AddConvention(McMaster.Extensions.CommandLineUtils.Conventions.IConvention)
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  langs:
+  - csharp
+  - vb
+  name: AddConvention(IConvention)
+  nameWithType: IConventionBuilder.AddConvention(IConvention)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.AddConvention(McMaster.Extensions.CommandLineUtils.Conventions.IConvention)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/IConventionBuilder.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: AddConvention
+    path: ../src/CommandLineUtils/Conventions/IConventionBuilder.cs
+    startLine: 14
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nAdd a convention that will be applied later.\n"
+  example: []
+  syntax:
+    content: IConventionBuilder AddConvention(IConvention convention)
+    parameters:
+    - id: convention
+      type: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+      description: The convention
+    return:
+      type: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    content.vb: Function AddConvention(convention As IConvention) As IConventionBuilder
+  overload: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.AddConvention*
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Conventions
+  name: McMaster.Extensions.CommandLineUtils.Conventions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Conventions
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseDefaultConventions()
+  nameWithType: ConventionBuilderExtensions.UseDefaultConventions()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions
+    name: UseDefaultConventions
+    nameWithType: ConventionBuilderExtensions.UseDefaultConventions
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions
+    name: UseDefaultConventions
+    nameWithType: ConventionBuilderExtensions.UseDefaultConventions
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.String)
+  name: UseDefaultHelpOption(String)
+  nameWithType: ConventionBuilderExtensions.UseDefaultHelpOption(String)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(System.String)
+    name: UseDefaultHelpOption
+    nameWithType: ConventionBuilderExtensions.UseDefaultHelpOption
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(System.String)
+    name: UseDefaultHelpOption
+    nameWithType: ConventionBuilderExtensions.UseDefaultHelpOption
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseAttributes()
+  nameWithType: ConventionBuilderExtensions.UseAttributes()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes
+    name: UseAttributes
+    nameWithType: ConventionBuilderExtensions.UseAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes
+    name: UseAttributes
+    nameWithType: ConventionBuilderExtensions.UseAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: SetRemainingArgsPropertyOnModel()
+  nameWithType: ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+    name: SetRemainingArgsPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+    name: SetRemainingArgsPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: SetSubcommandPropertyOnModel()
+  nameWithType: ConventionBuilderExtensions.SetSubcommandPropertyOnModel()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+    name: SetSubcommandPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+    name: SetSubcommandPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: SetParentPropertyOnModel()
+  nameWithType: ConventionBuilderExtensions.SetParentPropertyOnModel()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel
+    name: SetParentPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetParentPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel
+    name: SetParentPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetParentPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: SetAppNameFromEntryAssembly()
+  nameWithType: ConventionBuilderExtensions.SetAppNameFromEntryAssembly()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+    name: SetAppNameFromEntryAssembly
+    nameWithType: ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+    name: SetAppNameFromEntryAssembly
+    nameWithType: ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseCommandAttribute()
+  nameWithType: ConventionBuilderExtensions.UseCommandAttribute()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute
+    name: UseCommandAttribute
+    nameWithType: ConventionBuilderExtensions.UseCommandAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute
+    name: UseCommandAttribute
+    nameWithType: ConventionBuilderExtensions.UseCommandAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseVersionOptionFromMemberAttribute()
+  nameWithType: ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+    name: UseVersionOptionFromMemberAttribute
+    nameWithType: ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+    name: UseVersionOptionFromMemberAttribute
+    nameWithType: ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseVersionOptionAttribute()
+  nameWithType: ConventionBuilderExtensions.UseVersionOptionAttribute()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute
+    name: UseVersionOptionAttribute
+    nameWithType: ConventionBuilderExtensions.UseVersionOptionAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute
+    name: UseVersionOptionAttribute
+    nameWithType: ConventionBuilderExtensions.UseVersionOptionAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseHelpOptionAttribute()
+  nameWithType: ConventionBuilderExtensions.UseHelpOptionAttribute()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute
+    name: UseHelpOptionAttribute
+    nameWithType: ConventionBuilderExtensions.UseHelpOptionAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute
+    name: UseHelpOptionAttribute
+    nameWithType: ConventionBuilderExtensions.UseHelpOptionAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseOptionAttributes()
+  nameWithType: ConventionBuilderExtensions.UseOptionAttributes()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes
+    name: UseOptionAttributes
+    nameWithType: ConventionBuilderExtensions.UseOptionAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes
+    name: UseOptionAttributes
+    nameWithType: ConventionBuilderExtensions.UseOptionAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseArgumentAttributes()
+  nameWithType: ConventionBuilderExtensions.UseArgumentAttributes()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes
+    name: UseArgumentAttributes
+    nameWithType: ConventionBuilderExtensions.UseArgumentAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes
+    name: UseArgumentAttributes
+    nameWithType: ConventionBuilderExtensions.UseArgumentAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseSubcommandAttributes()
+  nameWithType: ConventionBuilderExtensions.UseSubcommandAttributes()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes
+    name: UseSubcommandAttributes
+    nameWithType: ConventionBuilderExtensions.UseSubcommandAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes
+    name: UseSubcommandAttributes
+    nameWithType: ConventionBuilderExtensions.UseSubcommandAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseOnValidateMethodFromModel()
+  nameWithType: ConventionBuilderExtensions.UseOnValidateMethodFromModel()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel
+    name: UseOnValidateMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnValidateMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel
+    name: UseOnValidateMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnValidateMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseOnValidationErrorMethodFromModel()
+  nameWithType: ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+    name: UseOnValidationErrorMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+    name: UseOnValidationErrorMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseOnExecuteMethodFromModel()
+  nameWithType: ConventionBuilderExtensions.UseOnExecuteMethodFromModel()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+    name: UseOnExecuteMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+    name: UseOnExecuteMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseConstructorInjection()
+  nameWithType: ConventionBuilderExtensions.UseConstructorInjection()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+    name: UseConstructorInjection
+    nameWithType: ConventionBuilderExtensions.UseConstructorInjection
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+    name: UseConstructorInjection
+    nameWithType: ConventionBuilderExtensions.UseConstructorInjection
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(System.IServiceProvider)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.IServiceProvider)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.IServiceProvider)
+  name: UseConstructorInjection(IServiceProvider)
+  nameWithType: ConventionBuilderExtensions.UseConstructorInjection(IServiceProvider)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(System.IServiceProvider)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(System.IServiceProvider)
+    name: UseConstructorInjection
+    nameWithType: ConventionBuilderExtensions.UseConstructorInjection
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.IServiceProvider
+    name: IServiceProvider
+    nameWithType: IServiceProvider
+    fullName: System.IServiceProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(System.IServiceProvider)
+    name: UseConstructorInjection
+    nameWithType: ConventionBuilderExtensions.UseConstructorInjection
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.IServiceProvider
+    name: IServiceProvider
+    nameWithType: IServiceProvider
+    fullName: System.IServiceProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  parent: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseCommandNameFromModelType()
+  nameWithType: ConventionBuilderExtensions.UseCommandNameFromModelType()
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType
+    name: UseCommandNameFromModelType
+    nameWithType: ConventionBuilderExtensions.UseCommandNameFromModelType
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType
+    name: UseCommandNameFromModelType
+    nameWithType: ConventionBuilderExtensions.UseCommandNameFromModelType
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseDefaultConventions(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseDefaultConventions(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseDefaultConventions
+    nameWithType: ConventionBuilderExtensions.UseDefaultConventions
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseDefaultConventions
+    nameWithType: ConventionBuilderExtensions.UseDefaultConventions
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultConventions
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  commentId: T:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+  parent: McMaster.Extensions.CommandLineUtils
+  name: ConventionBuilderExtensions
+  nameWithType: ConventionBuilderExtensions
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.String)
+  isExternal: true
+  name: UseDefaultHelpOption(IConventionBuilder, String)
+  nameWithType: ConventionBuilderExtensions.UseDefaultHelpOption(IConventionBuilder, String)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder, System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.String)
+    name: UseDefaultHelpOption
+    nameWithType: ConventionBuilderExtensions.UseDefaultHelpOption
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.String)
+    name: UseDefaultHelpOption
+    nameWithType: ConventionBuilderExtensions.UseDefaultHelpOption
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseDefaultHelpOption
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseAttributes(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseAttributes(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseAttributes
+    nameWithType: ConventionBuilderExtensions.UseAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseAttributes
+    nameWithType: ConventionBuilderExtensions.UseAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: SetRemainingArgsPropertyOnModel(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: SetRemainingArgsPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: SetRemainingArgsPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetRemainingArgsPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: SetSubcommandPropertyOnModel(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.SetSubcommandPropertyOnModel(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: SetSubcommandPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: SetSubcommandPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetSubcommandPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: SetParentPropertyOnModel(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.SetParentPropertyOnModel(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: SetParentPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetParentPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: SetParentPropertyOnModel
+    nameWithType: ConventionBuilderExtensions.SetParentPropertyOnModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetParentPropertyOnModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: SetAppNameFromEntryAssembly(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.SetAppNameFromEntryAssembly(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: SetAppNameFromEntryAssembly
+    nameWithType: ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: SetAppNameFromEntryAssembly
+    nameWithType: ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.SetAppNameFromEntryAssembly
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseCommandAttribute(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseCommandAttribute(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseCommandAttribute
+    nameWithType: ConventionBuilderExtensions.UseCommandAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseCommandAttribute
+    nameWithType: ConventionBuilderExtensions.UseCommandAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseVersionOptionFromMemberAttribute(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseVersionOptionFromMemberAttribute
+    nameWithType: ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseVersionOptionFromMemberAttribute
+    nameWithType: ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionFromMemberAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseVersionOptionAttribute(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseVersionOptionAttribute(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseVersionOptionAttribute
+    nameWithType: ConventionBuilderExtensions.UseVersionOptionAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseVersionOptionAttribute
+    nameWithType: ConventionBuilderExtensions.UseVersionOptionAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseVersionOptionAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseHelpOptionAttribute(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseHelpOptionAttribute(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseHelpOptionAttribute
+    nameWithType: ConventionBuilderExtensions.UseHelpOptionAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseHelpOptionAttribute
+    nameWithType: ConventionBuilderExtensions.UseHelpOptionAttribute
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseHelpOptionAttribute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseOptionAttributes(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseOptionAttributes(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseOptionAttributes
+    nameWithType: ConventionBuilderExtensions.UseOptionAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseOptionAttributes
+    nameWithType: ConventionBuilderExtensions.UseOptionAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOptionAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseArgumentAttributes(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseArgumentAttributes(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseArgumentAttributes
+    nameWithType: ConventionBuilderExtensions.UseArgumentAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseArgumentAttributes
+    nameWithType: ConventionBuilderExtensions.UseArgumentAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseArgumentAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseSubcommandAttributes(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseSubcommandAttributes(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseSubcommandAttributes
+    nameWithType: ConventionBuilderExtensions.UseSubcommandAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseSubcommandAttributes
+    nameWithType: ConventionBuilderExtensions.UseSubcommandAttributes
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseSubcommandAttributes
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseOnValidateMethodFromModel(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseOnValidateMethodFromModel(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseOnValidateMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnValidateMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseOnValidateMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnValidateMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidateMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseOnValidationErrorMethodFromModel(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseOnValidationErrorMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseOnValidationErrorMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnValidationErrorMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseOnExecuteMethodFromModel(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseOnExecuteMethodFromModel(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseOnExecuteMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseOnExecuteMethodFromModel
+    nameWithType: ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseOnExecuteMethodFromModel
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseConstructorInjection(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseConstructorInjection(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseConstructorInjection
+    nameWithType: ConventionBuilderExtensions.UseConstructorInjection
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseConstructorInjection
+    nameWithType: ConventionBuilderExtensions.UseConstructorInjection
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.IServiceProvider)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.IServiceProvider)
+  isExternal: true
+  name: UseConstructorInjection(IConventionBuilder, IServiceProvider)
+  nameWithType: ConventionBuilderExtensions.UseConstructorInjection(IConventionBuilder, IServiceProvider)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder, System.IServiceProvider)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.IServiceProvider)
+    name: UseConstructorInjection
+    nameWithType: ConventionBuilderExtensions.UseConstructorInjection
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.IServiceProvider
+    name: IServiceProvider
+    nameWithType: IServiceProvider
+    fullName: System.IServiceProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder,System.IServiceProvider)
+    name: UseConstructorInjection
+    nameWithType: ConventionBuilderExtensions.UseConstructorInjection
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseConstructorInjection
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.IServiceProvider
+    name: IServiceProvider
+    nameWithType: IServiceProvider
+    fullName: System.IServiceProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  name: UseCommandNameFromModelType(IConventionBuilder)
+  nameWithType: ConventionBuilderExtensions.UseCommandNameFromModelType(IConventionBuilder)
+  fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseCommandNameFromModelType
+    nameWithType: ConventionBuilderExtensions.UseCommandNameFromModelType
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType(McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder)
+    name: UseCommandNameFromModelType
+    nameWithType: ConventionBuilderExtensions.UseCommandNameFromModelType
+    fullName: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions.UseCommandNameFromModelType
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    nameWithType: IConventionBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.AddConvention*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.AddConvention
+  name: AddConvention
+  nameWithType: IConventionBuilder.AddConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder.AddConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  name: IConvention
+  nameWithType: IConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  name: IConventionBuilder
+  nameWithType: IConventionBuilder
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder

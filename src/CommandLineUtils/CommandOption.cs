@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using McMaster.Extensions.CommandLineUtils.Validation;
@@ -23,10 +24,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="optionType">The option type.</param>
         public CommandOption(string template, CommandOptionType optionType)
         {
-            Template = template;
             OptionType = optionType;
 
-            foreach (var part in Template.Split(new[] { ' ', '|' }, StringSplitOptions.RemoveEmptyEntries))
+            var separators = (optionType == CommandOptionType.SingleOrNoValue)
+                ? new[] { ' ', '|', ':', '=', '[', ']' }
+                : new[] { ' ', '|', ':', '=' };
+            foreach (var part in template.Split(separators, StringSplitOptions.RemoveEmptyEntries))
             {
                 if (part.StartsWith("--"))
                 {
@@ -68,40 +71,35 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// The argument template.
-        /// </summary>
-        public string Template { get; set; }
-
-        /// <summary>
         /// The short command line flag used to identify this option. On command line, this is preceeded by a single '-{ShortName}'.
         /// </summary>
-        public string ShortName { get; set; }
+        public string? ShortName { get; set; }
 
         /// <summary>
         /// The long command line flag used to identify this option. On command line, this is preceeded by a double dash: '--{LongName}'.
         /// </summary>
-        public string LongName { get; set; }
+        public string? LongName { get; set; }
 
         /// <summary>
         /// Can be used in addition to <see cref="ShortName"/> to add a single, non-English character.
         /// Example "-?".
         /// </summary>
-        public string SymbolName { get; set; }
+        public string? SymbolName { get; set; }
 
         /// <summary>
         /// The name of value(s) shown in help text when <see cref="OptionType"/> is not <see cref="CommandOptionType.NoValue"/>.
         /// </summary>
-        public string ValueName { get; set; }
+        public string? ValueName { get; set; }
 
         /// <summary>
         /// A description of this option to show in generated help text.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Any values found during parsing, if any.
         /// </summary>
-        public List<string> Values { get; } = new List<string>();
+        public List<string?> Values { get; } = new List<string?>();
 
         /// <summary>
         /// Defines the type of the option.
@@ -120,6 +118,11 @@ namespace McMaster.Extensions.CommandLineUtils
         public bool Inherited { get; set; }
 
         /// <summary>
+        /// Defines the underlying type of the option for the help-text-generator
+        /// </summary>
+        internal Type UnderlyingType { get; set; }
+
+        /// <summary>
         /// A collection of validators that execute before invoking <see cref="CommandLineApplication.OnExecute(Func{int})"/>.
         /// When validation fails, <see cref="CommandLineApplication.ValidationErrorHandler"/> is invoked.
         /// </summary>
@@ -130,13 +133,14 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public bool TryParse(string value)
+        public bool TryParse(string? value)
         {
             switch (OptionType)
             {
                 case CommandOptionType.MultipleValue:
                     Values.Add(value);
                     break;
+                case CommandOptionType.SingleOrNoValue:
                 case CommandOptionType.SingleValue:
                     if (Values.Any())
                     {
@@ -149,11 +153,13 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         return false;
                     }
-                    // Add a value to indicate that this option was specified
-                    Values.Add("on");
+
+                    // Add a value so .HasValue() == true
+                    // Also, the count can be used to determine how many times a flag was specified
+                    Values.Add(null);
                     break;
                 default:
-                    break;
+                    throw new NotImplementedException();
             }
             return true;
         }
@@ -171,7 +177,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Returns the first element of <see cref="Values"/>, if any.
         /// </summary>
         /// <returns></returns>
-        public string Value()
+        public string? Value()
         {
             return HasValue() ? Values[0] : null;
         }
@@ -183,36 +189,55 @@ namespace McMaster.Extensions.CommandLineUtils
         internal string ToTemplateString()
         {
             var sb = new StringBuilder();
-            if (SymbolName != null)
+            if (!string.IsNullOrEmpty(SymbolName))
             {
                 sb.Append('-').Append(SymbolName);
             }
 
-            if (ShortName != null)
+            if (!string.IsNullOrEmpty(ShortName))
             {
-                if (sb.Length > 0) sb.Append('|');
+                if (sb.Length > 0)
+                {
+                    sb.Append('|');
+                }
 
                 sb.Append('-').Append(ShortName);
             }
 
-            if (LongName != null)
+            if (!string.IsNullOrEmpty(LongName))
             {
-                if (sb.Length > 0) sb.Append('|');
+                if (sb.Length > 0)
+                {
+                    sb.Append('|');
+                }
 
                 sb.Append("--").Append(LongName);
             }
 
-            if (ValueName != null && OptionType != CommandOptionType.NoValue)
+            if (!string.IsNullOrEmpty(ValueName) && OptionType != CommandOptionType.NoValue)
             {
-                sb.Append(" <").Append(ValueName).Append('>');
+                if (OptionType == CommandOptionType.SingleOrNoValue)
+                {
+                    sb.Append("[:<").Append(ValueName).Append(">]");
+                }
+                else
+                {
+                    sb.Append(" <").Append(ValueName).Append('>');
+                }
             }
 
             return sb.ToString();
         }
 
+
         private bool IsEnglishLetter(char c)
         {
             return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+        }
+
+        internal void Reset()
+        {
+            Values.Clear();
         }
     }
 }

@@ -10,8 +10,8 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
     /// </summary>
     public class ValidationBuilder : IOptionValidationBuilder, IArgumentValidationBuilder
     {
-        private readonly CommandArgument _argument;
-        private readonly CommandOption _option;
+        private readonly CommandArgument? _argument;
+        private readonly CommandOption? _option;
 
         /// <summary>
         /// Creates a new instance of <see cref="ValidationBuilder"/> for a given <see cref="CommandArgument"/>.

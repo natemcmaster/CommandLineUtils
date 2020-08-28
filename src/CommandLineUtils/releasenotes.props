@@ -1,0 +1,133 @@
+<Project>
+  <PropertyGroup>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.0.'))">
+Improvements:
+* @AlexeyEvlampiev - implement support for GUID command line options (#333) and any other type that TypeConverter supports (#62)
+* @natemcmaster - Disabled the pager for help text by default. To re-enable, set UsePagerForHelpText = true. (#346)
+* @natemcmaster - Fix PlatformNotSupportedException on Xamarin of macOS (#344)
+
+Breaking changes:
+* Fix #251 by @mattnischan - remove API that was marked as obsolete in 2.x releases
+* Fix #294 by @natemcmaster - change dependencies on McMaster.Extensions.Hosting.CommandLine to just use Microsoft.Extensions.Hosting.Abstractions
+* Fix #337 by @natemcmaster - removed .NET Standard 1.6 target from library
+
+See https://natemcmaster.github.io/CommandLineUtils/v3.0/upgrade-guide.html for more details.
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('2.6.'))">
+The refactor-prep release.
+
+The purpose of this release is to introduce new API and obsolete existing API. Obsolete API still works as expected,
+but you will get compiler warnings about what is going to change in 3.0.
+
+Changes:
+* throwOnUnexpectedArg deprecated in favor of UnrecognizedArgumentHandling
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('2.5.'))">
+Features and bug fixes:
+
+* @kbilsted: Show enum names in help text for Options and Arguments stored as enum
+* @Alxandr: Add support for private base type options
+* @AndreGleichner: Update generated help to display [command] first then [options]
+* @daveMueller: Fix generated help to display the help options correctly
+
+Patch 2.5.1:
+* Lazy load command object types to reduce unnecessary allocations
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('2.4.'))">
+Features and bug fixes by some awesome contributors:
+
+* @IanG: Attributes for files and directories that must not exist
+* @ejball: ArgumentEscaper should escape empty string
+* @vpkopylov: Use Pager for help text option only works on top-level help
+* @vpkopylov: Add check for subcommand cycle
+* @kyle-rader: Multi-line option descriptions do not indent correctly
+
+Other things I fixed:
+* Support C# 8.0 and nullable reference types
+* Add async methods to CommandLineApplication
+* Make `CommandLineApplication.ExecuteAsync` actually asynchronous
+* Add async methods that accept cancellation tokens
+* Handle CTRL+C by default
+* Support calling CommandLineApplication.Execute multiple times
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.4'">
+$(PackageReleaseNotes)
+
+2.4.4 patch:
+* Fix regression introduced in 2.4.2 which caused Ctrl+C handling not to terminate the process quickly
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.3'">
+$(PackageReleaseNotes)
+
+2.4.3 patch:
+* Fix deadlock when calling Environment.Exit()
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.2'">
+$(PackageReleaseNotes)
+
+2.4.2 hot fix:
+* Fix deadlock in CTRL+C handling on Windows
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.1'">
+$(PackageReleaseNotes)
+
+2.4.1 hot fix:
+* Workaround a bizarre NuGet bug which causes problems for users in Europe and Asia
+  (see https://github.com/NuGet/Home/issues/8603)
+    </PackageReleaseNotes>
+
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.4'">
+Bugs fixed:
+* Handle options with multiple characters in the short option name when only specified in a subcommand
+* Rearrange the order that commands are listed in the USAGE block and list all the commands on the line
+    </PackageReleaseNotes>
+
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.3'">
+Enhancement:
+* @mpipo: add an API to disable the pager for help text (CommandLineApplication.UsePagerForHelpText)
+    </PackageReleaseNotes>
+
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.2'">
+Enhancement:
+* @rlvandaveer: honor attributes on classes which implement ValidationAttribute
+
+Bugs fixed:
+* @jcaillon: Option for the case sensitivity of command names.
+    </PackageReleaseNotes>
+
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.1'">
+Bugs fixed:
+* Fix for InvalidOperationException thrown during help text generation on Mono
+    </PackageReleaseNotes>
+
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.3.0'">
+      <![CDATA[
+
+## Enhancements:
+
+* Support the POSIX convention for cluster multiple options. For example, `-ixd` is treated the same as `-i -x -d`.
+* @bjorg: support SingleOrNoValue notation. `--option[:value]`
+* New type: `Pager`. Provides a simple interaction model for displaying console output in a pager.
+* Display help text using the `less` pager on macOS/Linux.
+* Make suggestions when invalid options or commands are used, but there is a valid one that is similar. (Thanks to @MadbHatter for doing the initial work on this.)
+* Add support for subcommand aliases. Commands can be given multiple names.
+* Obsolete the constructor of `[Subcommand]` which takes a string.
+* Infer subcommand names from the type name
+* @lvermeulen: Sort subcommands by name in help text. This can be disabled with `DefaultHelpTextGenerator.SortCommandsByName`.
+* @jcaillon: Add API for `UnrecognizedCommandParsingException` which includes suggestions for similar options or commands.
+* @TheConstructor: add CommandLineApplication.GetValidationResult()
+
+## Bugs fixed:
+
+* Duplicate subcommand names used to cause undefined behavior. Now, attempting to add a duplicate subcommand name or aliases will cause the library to throw before the app can execute.
+* Fix bug in subcommand name inference. When not specified, the subcommand always matched the entry assembly name. In this update, this convention only applies to the parent command.
+* Add generic overloads of `.IsRequired()` for `CommandOption<T>` and `CommandArgument<T>`.
+* @handcraftedsource: handled nested HelpOptions (fixes #86 - InvalidOperationException when multiple help options were defined)
+]]>
+    </PackageReleaseNotes>
+    <PackageReleaseNotes>$(PackageReleaseNotes)
+
+See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
+    </PackageReleaseNotes>
+  </PropertyGroup>
+</Project>

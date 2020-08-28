@@ -1,0 +1,120 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  id: ICommandValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  children:
+  - McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  langs:
+  - csharp
+  - vb
+  name: ICommandValidator
+  nameWithType: ICommandValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/ICommandValidator.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ICommandValidator
+    path: ../src/CommandLineUtils/Validation/ICommandValidator.cs
+    startLine: 10
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  summary: "\nProvides validation on a command\n"
+  example: []
+  syntax:
+    content: public interface ICommandValidator
+    content.vb: Public Interface ICommandValidator
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  id: GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  langs:
+  - csharp
+  - vb
+  name: GetValidationResult(CommandLineApplication, ValidationContext)
+  nameWithType: ICommandValidator.GetValidationResult(CommandLineApplication, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.ComponentModel.DataAnnotations.ValidationContext)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/ICommandValidator.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetValidationResult
+    path: ../src/CommandLineUtils/Validation/ICommandValidator.cs
+    startLine: 18
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  summary: "\nValidates a command\n"
+  example: []
+  syntax:
+    content: ValidationResult GetValidationResult(CommandLineApplication command, ValidationContext context)
+    parameters:
+    - id: command
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: The command.
+    - id: context
+      type: System.ComponentModel.DataAnnotations.ValidationContext
+      description: The validation context.
+    return:
+      type: System.ComponentModel.DataAnnotations.ValidationResult
+      description: The validation result. Returns <xref href="System.ComponentModel.DataAnnotations.ValidationResult.Success" data-throw-if-not-resolved="false"></xref> if the values pass validation.
+    content.vb: Function GetValidationResult(command As CommandLineApplication, context As ValidationContext) As ValidationResult
+  overload: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult*
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  commentId: N:McMaster.Extensions.CommandLineUtils.Validation
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  nameWithType: McMaster.Extensions.CommandLineUtils.Validation
+  fullName: McMaster.Extensions.CommandLineUtils.Validation
+- uid: System.ComponentModel.DataAnnotations.ValidationResult.Success
+  commentId: F:System.ComponentModel.DataAnnotations.ValidationResult.Success
+  isExternal: true
+- uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+  name: GetValidationResult
+  nameWithType: ICommandValidator.GetValidationResult
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+- uid: System.ComponentModel.DataAnnotations.ValidationContext
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationContext
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: ValidationContext
+  nameWithType: ValidationContext
+  fullName: System.ComponentModel.DataAnnotations.ValidationContext
+- uid: System.ComponentModel.DataAnnotations.ValidationResult
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationResult
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: ValidationResult
+  nameWithType: ValidationResult
+  fullName: System.ComponentModel.DataAnnotations.ValidationResult
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.ComponentModel.DataAnnotations
+  commentId: N:System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: System.ComponentModel.DataAnnotations
+  nameWithType: System.ComponentModel.DataAnnotations
+  fullName: System.ComponentModel.DataAnnotations

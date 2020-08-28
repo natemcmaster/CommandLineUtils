@@ -1,0 +1,1431 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  id: CommandArgument`1
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.CommandArgument`1.#ctor(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{`0})
+  - McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValue
+  - McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValues
+  langs:
+  - csharp
+  - vb
+  name: CommandArgument<T>
+  nameWithType: CommandArgument<T>
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument<T>
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandArgument{T}.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: CommandArgument
+    path: ../src/CommandLineUtils/CommandArgument{T}.cs
+    startLine: 18
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nRepresents one or many positional command line arguments.\nArguments are parsed in the order in which <xref href=\"McMaster.Extensions.CommandLineUtils.CommandLineApplication.Arguments\" data-throw-if-not-resolved=\"false\"></xref> lists them.\nThe raw value must be parsable into type <code data-dev-comment-type=\"typeparamref\" class=\"typeparamref\">T</code>.\n"
+  example: []
+  syntax:
+    content: 'public class CommandArgument<T> : CommandArgument, IInternalCommandParamOfT'
+    typeParameters:
+    - id: T
+    content.vb: >-
+      Public Class CommandArgument(Of T)
+          Inherits CommandArgument
+          Implements IInternalCommandParamOfT
+  seealso:
+  - linkId: McMaster.Extensions.CommandLineUtils.CommandOption
+    commentId: T:McMaster.Extensions.CommandLineUtils.CommandOption
+  inheritance:
+  - System.Object
+  - McMaster.Extensions.CommandLineUtils.CommandArgument
+  inheritedMembers:
+  - McMaster.Extensions.CommandLineUtils.CommandArgument.Name
+  - McMaster.Extensions.CommandLineUtils.CommandArgument.ShowInHelpText
+  - McMaster.Extensions.CommandLineUtils.CommandArgument.Description
+  - McMaster.Extensions.CommandLineUtils.CommandArgument.Values
+  - McMaster.Extensions.CommandLineUtils.CommandArgument.MultipleValues
+  - McMaster.Extensions.CommandLineUtils.CommandArgument.Value
+  - McMaster.Extensions.CommandLineUtils.CommandArgument.Validators
+  extensionMethods:
+  - McMaster.Extensions.CommandLineUtils.CommandArgument.McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(System.Boolean,System.String)
+  - McMaster.Extensions.CommandLineUtils.CommandArgument`1.McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(System.Boolean,System.String)
+  - McMaster.Extensions.CommandLineUtils.CommandArgument.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder})
+  - McMaster.Extensions.CommandLineUtils.CommandArgument.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+  - McMaster.Extensions.CommandLineUtils.CommandArgument`1.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder{{T}}})
+  - McMaster.Extensions.CommandLineUtils.CommandArgument`1.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1
+  - McMaster.Extensions.CommandLineUtils.CommandArgument.McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  nameWithType.vb: CommandArgument(Of T)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandArgument(Of T)
+  name.vb: CommandArgument(Of T)
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1.#ctor(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{`0})
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandArgument`1.#ctor(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{`0})
+  id: '#ctor(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{`0})'
+  parent: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  langs:
+  - csharp
+  - vb
+  name: CommandArgument(IValueParser<T>)
+  nameWithType: CommandArgument<T>.CommandArgument(IValueParser<T>)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument<T>.CommandArgument(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandArgument{T}.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/CommandArgument{T}.cs
+    startLine: 27
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes a new instance of <xref href=\"McMaster.Extensions.CommandLineUtils.CommandArgument%601\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public CommandArgument(IValueParser<T> valueParser)
+    parameters:
+    - id: valueParser
+      type: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{{T}}
+      description: The value parser.
+    content.vb: Public Sub New(valueParser As IValueParser(Of T))
+  overload: McMaster.Extensions.CommandLineUtils.CommandArgument`1.#ctor*
+  nameWithType.vb: CommandArgument(Of T).CommandArgument(IValueParser(Of T))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandArgument(Of T).CommandArgument(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T))
+  name.vb: CommandArgument(IValueParser(Of T))
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValue
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValue
+  id: ParsedValue
+  parent: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  langs:
+  - csharp
+  - vb
+  name: ParsedValue
+  nameWithType: CommandArgument<T>.ParsedValue
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument<T>.ParsedValue
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandArgument{T}.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ParsedValue
+    path: ../src/CommandLineUtils/CommandArgument{T}.cs
+    startLine: 36
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe parsed value.\n"
+  example: []
+  syntax:
+    content: public T ParsedValue { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public ReadOnly Property ParsedValue As T
+  overload: McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValue*
+  nameWithType.vb: CommandArgument(Of T).ParsedValue
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandArgument(Of T).ParsedValue
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValues
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValues
+  id: ParsedValues
+  parent: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  langs:
+  - csharp
+  - vb
+  name: ParsedValues
+  nameWithType: CommandArgument<T>.ParsedValues
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument<T>.ParsedValues
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandArgument{T}.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ParsedValues
+    path: ../src/CommandLineUtils/CommandArgument{T}.cs
+    startLine: 41
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nAll parsed values;\n"
+  example: []
+  syntax:
+    content: public IReadOnlyList<T> ParsedValues { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{{T}}
+    content.vb: Public ReadOnly Property ParsedValues As IReadOnlyList(Of T)
+  overload: McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValues*
+  nameWithType.vb: CommandArgument(Of T).ParsedValues
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandArgument(Of T).ParsedValues
+references:
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Arguments
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.Arguments
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  name: Arguments
+  nameWithType: CommandLineApplication.Arguments
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.Arguments
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOption
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandOption
+  nameWithType: CommandOption
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandArgument
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandArgument
+  nameWithType: CommandArgument
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.Name
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandArgument.Name
+  parent: McMaster.Extensions.CommandLineUtils.CommandArgument
+  name: Name
+  nameWithType: CommandArgument.Name
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument.Name
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.ShowInHelpText
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandArgument.ShowInHelpText
+  parent: McMaster.Extensions.CommandLineUtils.CommandArgument
+  name: ShowInHelpText
+  nameWithType: CommandArgument.ShowInHelpText
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument.ShowInHelpText
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.Description
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandArgument.Description
+  parent: McMaster.Extensions.CommandLineUtils.CommandArgument
+  name: Description
+  nameWithType: CommandArgument.Description
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument.Description
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.Values
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandArgument.Values
+  parent: McMaster.Extensions.CommandLineUtils.CommandArgument
+  name: Values
+  nameWithType: CommandArgument.Values
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument.Values
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.MultipleValues
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandArgument.MultipleValues
+  parent: McMaster.Extensions.CommandLineUtils.CommandArgument
+  name: MultipleValues
+  nameWithType: CommandArgument.MultipleValues
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument.MultipleValues
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.Value
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandArgument.Value
+  parent: McMaster.Extensions.CommandLineUtils.CommandArgument
+  name: Value
+  nameWithType: CommandArgument.Value
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument.Value
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.Validators
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandArgument.Validators
+  parent: McMaster.Extensions.CommandLineUtils.CommandArgument
+  name: Validators
+  nameWithType: CommandArgument.Validators
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument.Validators
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(System.Boolean,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Boolean,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Boolean,System.String)
+  name: IsRequired(Boolean, String)
+  nameWithType: ValidationExtensions.IsRequired(Boolean, String)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(System.Boolean, System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(System.Boolean,System.String)
+    name: IsRequired
+    nameWithType: ValidationExtensions.IsRequired
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(System.Boolean,System.String)
+    name: IsRequired
+    nameWithType: ValidationExtensions.IsRequired
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1.McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(System.Boolean,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.String)
+  name: IsRequired<T>(Boolean, String)
+  nameWithType: ValidationExtensions.IsRequired<T>(Boolean, String)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired<T>(System.Boolean, System.String)
+  nameWithType.vb: ValidationExtensions.IsRequired(Of T)(Boolean, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(Of T)(System.Boolean, System.String)
+  name.vb: IsRequired(Of T)(Boolean, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(System.Boolean,System.String)
+    name: IsRequired<T>
+    nameWithType: ValidationExtensions.IsRequired<T>
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(System.Boolean,System.String)
+    name: IsRequired(Of T)
+    nameWithType: ValidationExtensions.IsRequired(Of T)
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder})
+  name: Accepts(Action<IArgumentValidationBuilder>)
+  nameWithType: ValidationExtensions.Accepts(Action<IArgumentValidationBuilder>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(System.Action<McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder>)
+  nameWithType.vb: ValidationExtensions.Accepts(Action(Of IArgumentValidationBuilder))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(System.Action(Of McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder))
+  name.vb: Accepts(Action(Of IArgumentValidationBuilder))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder})
+    name: Accepts
+    nameWithType: ValidationExtensions.Accepts
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+    name: IArgumentValidationBuilder
+    nameWithType: IArgumentValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder})
+    name: Accepts
+    nameWithType: ValidationExtensions.Accepts
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+    name: IArgumentValidationBuilder
+    nameWithType: IArgumentValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument)
+  name: Accepts()
+  nameWithType: ValidationExtensions.Accepts()
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+    name: Accepts
+    nameWithType: ValidationExtensions.Accepts
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+    name: Accepts
+    nameWithType: ValidationExtensions.Accepts
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder{{T}}})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder{``0}})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder{``0}})
+  name: Accepts<T>(Action<IArgumentValidationBuilder<T>>)
+  nameWithType: ValidationExtensions.Accepts<T>(Action<IArgumentValidationBuilder<T>>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts<T>(System.Action<McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder<T>>)
+  nameWithType.vb: ValidationExtensions.Accepts(Of T)(Action(Of IArgumentValidationBuilder(Of T)))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(Of T)(System.Action(Of McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder(Of T)))
+  name.vb: Accepts(Of T)(Action(Of IArgumentValidationBuilder(Of T)))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder{``0}})
+    name: Accepts<T>
+    nameWithType: ValidationExtensions.Accepts<T>
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+    name: IArgumentValidationBuilder
+    nameWithType: IArgumentValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder{``0}})
+    name: Accepts(Of T)
+    nameWithType: ValidationExtensions.Accepts(Of T)
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+    name: IArgumentValidationBuilder
+    nameWithType: IArgumentValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0})
+  name: Accepts<T>()
+  nameWithType: ValidationExtensions.Accepts<T>()
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts<T>()
+  nameWithType.vb: ValidationExtensions.Accepts(Of T)()
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(Of T)()
+  name.vb: Accepts(Of T)()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1
+    name: Accepts<T>
+    nameWithType: ValidationExtensions.Accepts<T>
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1
+    name: Accepts(Of T)
+    nameWithType: ValidationExtensions.Accepts(Of T)
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  name: OnValidate(Func<ValidationContext, ValidationResult>)
+  nameWithType: ValidationExtensions.OnValidate(Func<ValidationContext, ValidationResult>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(System.Func<System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult>)
+  nameWithType.vb: ValidationExtensions.OnValidate(Func(Of ValidationContext, ValidationResult))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(System.Func(Of System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult))
+  name.vb: OnValidate(Func(Of ValidationContext, ValidationResult))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+    name: OnValidate
+    nameWithType: ValidationExtensions.OnValidate
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationResult
+    name: ValidationResult
+    nameWithType: ValidationResult
+    fullName: System.ComponentModel.DataAnnotations.ValidationResult
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+    name: OnValidate
+    nameWithType: ValidationExtensions.OnValidate
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationResult
+    name: ValidationResult
+    nameWithType: ValidationResult
+    fullName: System.ComponentModel.DataAnnotations.ValidationResult
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Boolean,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Boolean,System.String)
+  isExternal: true
+  name: IsRequired(CommandArgument, Boolean, String)
+  nameWithType: ValidationExtensions.IsRequired(CommandArgument, Boolean, String)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument, System.Boolean, System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Boolean,System.String)
+    name: IsRequired
+    nameWithType: ValidationExtensions.IsRequired
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Boolean,System.String)
+    name: IsRequired
+    nameWithType: ValidationExtensions.IsRequired
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  commentId: T:McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  parent: McMaster.Extensions.CommandLineUtils
+  name: ValidationExtensions
+  nameWithType: ValidationExtensions
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.String)
+  isExternal: true
+  name: IsRequired<T>(CommandArgument<T>, Boolean, String)
+  nameWithType: ValidationExtensions.IsRequired<T>(CommandArgument<T>, Boolean, String)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired<T>(McMaster.Extensions.CommandLineUtils.CommandArgument<T>, System.Boolean, System.String)
+  nameWithType.vb: ValidationExtensions.IsRequired(Of T)(CommandArgument(Of T), Boolean, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(Of T)(McMaster.Extensions.CommandLineUtils.CommandArgument(Of T), System.Boolean, System.String)
+  name.vb: IsRequired(Of T)(CommandArgument(Of T), Boolean, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.String)
+    name: IsRequired<T>
+    nameWithType: ValidationExtensions.IsRequired<T>
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.String)
+    name: IsRequired(Of T)
+    nameWithType: ValidationExtensions.IsRequired(Of T)
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder})
+  isExternal: true
+  name: Accepts(CommandArgument, Action<IArgumentValidationBuilder>)
+  nameWithType: ValidationExtensions.Accepts(CommandArgument, Action<IArgumentValidationBuilder>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument, System.Action<McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder>)
+  nameWithType.vb: ValidationExtensions.Accepts(CommandArgument, Action(Of IArgumentValidationBuilder))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument, System.Action(Of McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder))
+  name.vb: Accepts(CommandArgument, Action(Of IArgumentValidationBuilder))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder})
+    name: Accepts
+    nameWithType: ValidationExtensions.Accepts
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+    name: IArgumentValidationBuilder
+    nameWithType: IArgumentValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder})
+    name: Accepts
+    nameWithType: ValidationExtensions.Accepts
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+    name: IArgumentValidationBuilder
+    nameWithType: IArgumentValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument)
+  name: Accepts(CommandArgument)
+  nameWithType: ValidationExtensions.Accepts(CommandArgument)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument)
+    name: Accepts
+    nameWithType: ValidationExtensions.Accepts
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument)
+    name: Accepts
+    nameWithType: ValidationExtensions.Accepts
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder{``0}})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder{``0}})
+  isExternal: true
+  name: Accepts<T>(CommandArgument<T>, Action<IArgumentValidationBuilder<T>>)
+  nameWithType: ValidationExtensions.Accepts<T>(CommandArgument<T>, Action<IArgumentValidationBuilder<T>>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts<T>(McMaster.Extensions.CommandLineUtils.CommandArgument<T>, System.Action<McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder<T>>)
+  nameWithType.vb: ValidationExtensions.Accepts(Of T)(CommandArgument(Of T), Action(Of IArgumentValidationBuilder(Of T)))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(Of T)(McMaster.Extensions.CommandLineUtils.CommandArgument(Of T), System.Action(Of McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder(Of T)))
+  name.vb: Accepts(Of T)(CommandArgument(Of T), Action(Of IArgumentValidationBuilder(Of T)))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder{``0}})
+    name: Accepts<T>
+    nameWithType: ValidationExtensions.Accepts<T>
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+    name: IArgumentValidationBuilder
+    nameWithType: IArgumentValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder{``0}})
+    name: Accepts(Of T)
+    nameWithType: ValidationExtensions.Accepts(Of T)
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+    name: IArgumentValidationBuilder
+    nameWithType: IArgumentValidationBuilder
+    fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0})
+  name: Accepts<T>(CommandArgument<T>)
+  nameWithType: ValidationExtensions.Accepts<T>(CommandArgument<T>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts<T>(McMaster.Extensions.CommandLineUtils.CommandArgument<T>)
+  nameWithType.vb: ValidationExtensions.Accepts(Of T)(CommandArgument(Of T))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(Of T)(McMaster.Extensions.CommandLineUtils.CommandArgument(Of T))
+  name.vb: Accepts(Of T)(CommandArgument(Of T))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0})
+    name: Accepts<T>
+    nameWithType: ValidationExtensions.Accepts<T>
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0})
+    name: Accepts(Of T)
+    nameWithType: ValidationExtensions.Accepts(Of T)
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+  isExternal: true
+  name: OnValidate(CommandArgument, Func<ValidationContext, ValidationResult>)
+  nameWithType: ValidationExtensions.OnValidate(CommandArgument, Func<ValidationContext, ValidationResult>)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument, System.Func<System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult>)
+  nameWithType.vb: ValidationExtensions.OnValidate(CommandArgument, Func(Of ValidationContext, ValidationResult))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument, System.Func(Of System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.DataAnnotations.ValidationResult))
+  name.vb: OnValidate(CommandArgument, Func(Of ValidationContext, ValidationResult))
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+    name: OnValidate
+    nameWithType: ValidationExtensions.OnValidate
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationResult
+    name: ValidationResult
+    nameWithType: ValidationResult
+    fullName: System.ComponentModel.DataAnnotations.ValidationResult
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})
+    name: OnValidate
+    nameWithType: ValidationExtensions.OnValidate
+    fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    nameWithType: ValidationContext
+    fullName: System.ComponentModel.DataAnnotations.ValidationContext
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.ComponentModel.DataAnnotations.ValidationResult
+    name: ValidationResult
+    nameWithType: ValidationResult
+    fullName: System.ComponentModel.DataAnnotations.ValidationResult
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  name: CommandArgument<T>
+  nameWithType: CommandArgument<T>
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument<T>
+  nameWithType.vb: CommandArgument(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandArgument(Of T)
+  name.vb: CommandArgument(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    nameWithType: CommandArgument
+    fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandArgument`1.#ctor
+  name: CommandArgument
+  nameWithType: CommandArgument<T>.CommandArgument
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument<T>.CommandArgument
+  nameWithType.vb: CommandArgument(Of T).CommandArgument
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandArgument(Of T).CommandArgument
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{{T}}
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{`0}
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  definition: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  name: IValueParser<T>
+  nameWithType: IValueParser<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
+  nameWithType.vb: IValueParser(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T)
+  name.vb: IValueParser(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  name: IValueParser<T>
+  nameWithType: IValueParser<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
+  nameWithType.vb: IValueParser(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T)
+  name.vb: IValueParser(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    nameWithType: IValueParser
+    fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValue*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValue
+  name: ParsedValue
+  nameWithType: CommandArgument<T>.ParsedValue
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument<T>.ParsedValue
+  nameWithType.vb: CommandArgument(Of T).ParsedValue
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandArgument(Of T).ParsedValue
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValues*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandArgument`1.ParsedValues
+  name: ParsedValues
+  nameWithType: CommandArgument<T>.ParsedValues
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument<T>.ParsedValues
+  nameWithType.vb: CommandArgument(Of T).ParsedValues
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandArgument(Of T).ParsedValues
+- uid: System.Collections.Generic.IReadOnlyList{{T}}
+  commentId: T:System.Collections.Generic.IReadOnlyList{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    nameWithType: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    nameWithType: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    nameWithType: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    nameWithType: IReadOnlyList
+    fullName: System.Collections.Generic.IReadOnlyList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

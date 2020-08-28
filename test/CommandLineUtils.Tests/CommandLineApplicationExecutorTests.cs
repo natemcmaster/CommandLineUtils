@@ -22,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class VoidExecuteMethodWithNoArgs
         {
             [Option]
-            public string Message { get; set; }
+            public string? Message { get; set; }
 
             private void OnExecute()
             {
@@ -104,7 +104,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private class BadReturnType
         {
-            private string OnExecute() => null;
+            private string? OnExecute() => null;
         }
 
         [Fact]
@@ -118,7 +118,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private class BadAsyncReturnType
         {
-            private Task<string> OnExecute() => null;
+            private Task<string>? OnExecute() => null;
         }
 
         [Fact]
@@ -157,7 +157,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<ExecuteWithUnknownTypes>());
-            var method = typeof(ExecuteWithUnknownTypes).GetTypeInfo().GetMethod("OnExecute", BindingFlags.Instance | BindingFlags.NonPublic);
+            var method = typeof(ExecuteWithUnknownTypes).GetMethod("OnExecute", BindingFlags.Instance | BindingFlags.NonPublic);
             var param = Assert.Single(method.GetParameters());
             Assert.Equal(Strings.UnsupportedParameterTypeOnMethod(method.Name, param), ex.Message);
         }
@@ -232,7 +232,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(200, await CommandLineApplication.ExecuteAsync<TaskReturnType>());
         }
 
-        [Command(ThrowOnUnexpectedArgument = false)]
+        [Command(UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect)]
         private class ContextApp
         {
             public int OnExecute(CommandLineContext context)
@@ -282,7 +282,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal("Hello", ex.Message);
         }
 
-        [Subcommand("sub", typeof(DisposableCommand))]
+        [Subcommand(typeof(DisposableCommand))]
         private class ParentCommand
         {
             public void OnExecute()
@@ -293,11 +293,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void DisposesSubCommands()
         {
             var ex = Assert.Throws<InvalidOperationException>(
-                () => CommandLineApplication.Execute<ParentCommand>("sub"));
+                () => CommandLineApplication.Execute<ParentCommand>(NullConsole.Singleton, "disposable"));
             Assert.Equal("Hello", ex.Message);
         }
 
-        [Subcommand("sub", typeof(Subcommand))]
+        [Subcommand(typeof(Subcommand))]
         private class DisposableParentCommand : IDisposable
         {
             public void OnExecute()
@@ -309,10 +309,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             }
         }
 
+        [Command("sub")]
         private class Subcommand
         {
+            public DisposableParentCommand Parent { get; }
+
             public void OnExecute()
-            { }
+            {
+                Assert.NotNull(Parent);
+            }
         }
 
         [Fact]

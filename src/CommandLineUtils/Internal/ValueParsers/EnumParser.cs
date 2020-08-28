@@ -3,27 +3,24 @@
 
 using System;
 
-namespace McMaster.Extensions.CommandLineUtils.ValueParsers
+namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    internal class EnumParser : IValueParser
+    internal static class EnumParser
     {
-        private readonly Type _enumType;
-
-        public EnumParser(Type enumType)
-        {
-            _enumType = enumType;
-        }
-
-        public object Parse(string argName, string value)
-        {
-            try
+        public static IValueParser Create(Type enumType) =>
+            ValueParser.Create(enumType, (argName, value, culture) =>
             {
-                return Enum.Parse(_enumType, value, ignoreCase: true);
-            }
-            catch
-            {
-                throw new CommandParsingException(null, $"Invalid value specified for {argName}. Allowed values are: {string.Join(", ", Enum.GetNames(_enumType))}.");
-            }
-        }
+                if (value == null) return Enum.ToObject(enumType, 0);
+
+                try
+                {
+                    return Enum.Parse(enumType, value, ignoreCase: true);
+                }
+                catch
+                {
+                    throw new FormatException(
+                        $"Invalid value specified for {argName}. Allowed values are: {string.Join(", ", Enum.GetNames(enumType))}.");
+                }
+            });
     }
 }

@@ -1,0 +1,24 @@
+- name: Home
+  href: index.md
+- name: Documentation
+  href: docs/
+- name: API Reference
+  href: api/index.md
+  dropdown: true
+  items:
+  - name: Latest (v3.0)
+    href: api/index.md
+  - name: v2.6
+    topicHref: /CommandLineUtils/v2.6/api/index.html
+  - name: v2.5
+    topicHref: /CommandLineUtils/v2.5/api/index.html
+  - name: v2.4
+    topicHref: /CommandLineUtils/v2.4/api/index.html
+  - name: v2.3
+    topicHref: /CommandLineUtils/v2.3/api/index.html
+  - name: v2.2
+    topicHref: /CommandLineUtils/v2.2/api/index.html
+  - name: Unstable
+    topicHref: /CommandLineUtils/unstable/api/McMaster.Extensions.CommandLineUtils.html
+- name: GitHub
+  href: https://github.com/natemcmaster/CommandLineUtils

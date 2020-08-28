@@ -2,9 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.ComponentModel.DataAnnotations;
-using System.IO;
-using McMaster.Extensions.CommandLineUtils.Abstractions;
-using McMaster.Extensions.CommandLineUtils.Internal;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
@@ -17,13 +14,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("-c", "blue")]
         public void CustomValidationAttributePasses(params string[] args)
         {
-            var builder = new ReflectionAppBuilder<RedBlueProgram>();
-            var result = builder.Bind(CreateContext(args ?? new string[0]));
-            Assert.Equal(ValidationResult.Success, result.ValidationResult);
-            var program = Assert.IsType<RedBlueProgram>(result.Target);
+            var app = new CommandLineApplication<RedBlueProgram>();
+            app.Conventions.UseDefaultConventions();
+            var result = app.Parse(args ?? new string[0]);
+            Assert.Equal(ValidationResult.Success, result.SelectedCommand.GetValidationResult());
+            var program = Assert.IsType<CommandLineApplication<RedBlueProgram>>(result.SelectedCommand);
+            Assert.Same(app, program);
             if (args != null)
             {
-                Assert.Equal(args[1], program.Color);
+                Assert.Equal(args[1], app.Model.Color);
             }
         }
 
@@ -33,21 +32,24 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("-c", "green")]
         public void CustomValidationAttributeFails(params string[] args)
         {
-            var builder = new ReflectionAppBuilder<RedBlueProgram>();
-            var result = builder.Bind(CreateContext(args));
-            Assert.NotEqual(ValidationResult.Success, result.ValidationResult);
-            var program = Assert.IsType<RedBlueProgram>(result.Target);
+            var app = new CommandLineApplication<RedBlueProgram>();
+            app.Conventions.UseAttributes();
+            var result = app.Parse(args);
+            var validationResult = result.SelectedCommand.GetValidationResult();
+            Assert.NotEqual(ValidationResult.Success, validationResult);
+            var program = Assert.IsType<CommandLineApplication<RedBlueProgram>>(result.SelectedCommand);
+            Assert.Same(app, program);
             if (args != null)
             {
-                Assert.Equal(args[1], program.Color);
+                Assert.Equal(args[1], app.Model.Color);
             }
-            Assert.Equal("The value for --color must be 'red' or 'blue'", result.ValidationResult.ErrorMessage);
+            Assert.Equal("The value for --color must be 'red' or 'blue'", validationResult.ErrorMessage);
         }
 
         private class RedBlueProgram
         {
             [Option, RedOrBlue]
-            public string Color { get; }
+            public string? Color { get; }
         }
 
         class RedOrBlueAttribute : ValidationAttribute
@@ -67,8 +69,5 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 return ValidationResult.Success;
             }
         }
-
-        private CommandLineContext CreateContext(string[] args)
-            => new DefaultCommandLineContext(NullConsole.Singleton, Directory.GetCurrentDirectory(), args);
     }
 }

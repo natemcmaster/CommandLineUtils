@@ -1,0 +1,66 @@
+{
+  "$schema": "https://dotnet.github.io/docfx/schemas/v1.0/schema.json",
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "src/**.csproj"
+          ],
+          "src": "../",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
+        }
+      ],
+      "dest": "obj/unstable/api/",
+      "filter": "filterConfig.yml",
+      "properties": {
+        "TargetFramework": "netstandard2.0"
+      }
+    }
+  ],
+  "build": {
+    "content": [
+      { "version": "unstable", "files": ["**/*.yml", "**/*.md"], "src": "obj/unstable", "dest": "unstable" },
+      { "version": "v3.0", "files": ["**/*.yml", "**/*.md"], "exclude": [ "v2.*/", "obj/", "**.meta", "README.md", "filterConfig.yml" ] },
+      { "version": "v2.6", "files": ["**/*.yml", "**/*.md"], "src": "v2.6", "dest": "v2.6" },
+      { "version": "v2.5", "files": ["**/*.yml", "**/*.md"], "src": "v2.5", "dest": "v2.5" },
+      { "version": "v2.4", "files": ["**/*.yml", "**/*.md"], "src": "v2.4", "dest": "v2.4" },
+      { "version": "v2.3", "files": ["**/*.yml", "**/*.md"], "src": "v2.3", "dest": "v2.3" },
+      { "version": "v2.2", "files": ["**/*.yml", "**/*.md"], "src": "v2.2", "dest": "v2.2" }
+    ],
+    "resource": [
+      {
+        "files": [
+          ".nojekyll",
+          ".gitattributes",
+          "images/**",
+          "*.png"
+        ],
+        "exclude": [
+          "obj/",
+          "**.meta"
+        ]
+      }
+    ],
+    "overwrite": "apispec/*.md",
+    "dest": "../.build/docs/gh-pages",
+    "template": [
+      "default",
+      "./theme"
+    ],
+    "postProcessors": [
+      "ExtractSearchIndex"
+    ],
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false,
+    "globalMetadata": {
+      "_appFooter": " ",
+      "_appLogoPath": "logo.png"
+    }
+  }
+}

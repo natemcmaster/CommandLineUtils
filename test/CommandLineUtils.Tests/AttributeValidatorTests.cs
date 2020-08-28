@@ -3,6 +3,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using McMaster.Extensions.CommandLineUtils.Validation;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -56,10 +57,33 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.NotEmpty(result.ErrorMessage);
         }
 
+        [Theory]
+        [InlineData(typeof(ClassLevelValidationAttribute), "good", "also good", "bad", "also bad")]
+        public void ItExecutesClassLevelValidationAttribute(Type attributeType, string validProp1Value, string validProp2Value, string invalidProp1Value, string invalidProp2Value)
+        {
+            var attr = (ValidationAttribute)Activator.CreateInstance(attributeType);
+            var app = new CommandLineApplication<ClassLevelValidationApp>();
+            var validator = new AttributeValidator(attr);
+            var factory = new CommandLineValidationContextFactory(app);
+            var context = factory.Create(app);
+
+            app.Model.Arg1 = validProp1Value;
+            app.Model.Arg2 = validProp2Value;
+
+            Assert.Equal(ValidationResult.Success, validator.GetValidationResult(app, context));
+
+            app.Model.Arg1 = invalidProp1Value;
+            app.Model.Arg2 = invalidProp2Value;
+
+            var result = validator.GetValidationResult(app, context);
+            Assert.NotNull(result);
+            Assert.NotEmpty(result.ErrorMessage);
+        }
+
         private class EmailArgumentApp
         {
             [Argument(0), EmailAddress]
-            public string Email { get; }
+            public string? Email { get; }
             private void OnExecute() { }
         }
 
@@ -72,7 +96,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("email@example.com", 0)]
         public void ValidatesEmailArgument(string email, int exitCode)
         {
-            Assert.Equal(exitCode, CommandLineApplication.Execute<EmailArgumentApp>(email));
+            Assert.Equal(exitCode, CommandLineApplication.Execute<EmailArgumentApp>(new TestConsole(_output), email));
         }
 
         private class OptionBuilderApp : CommandLineApplication
@@ -97,16 +121,16 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class OptionApp
         {
             [Option, EmailAddress]
-            public string Email { get; }
+            public string? Email { get; }
 
             [Option, MinLength(1)]
-            public string Name { get; }
+            public string? Name { get; }
 
             [Option, MaxLength(10)]
-            public string Address { get; }
+            public string? Address { get; }
 
             [Option, RegularExpression("^abc.*")]
-            public string Regex { get; }
+            public string? Regex { get; }
 
             private void OnExecute() { }
         }
@@ -137,6 +161,23 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 throw new InvalidOperationException();
             }
+        }
+
+        private sealed class ClassLevelValidationApp
+        {
+            [Option]
+            public string? Arg1 { get; set; }
+            [Option]
+            public string? Arg2 { get; set; }
+        }
+
+        [AttributeUsage(AttributeTargets.Class)]
+        private sealed class ClassLevelValidationAttribute : ValidationAttribute
+        {
+            public override bool IsValid(object value)
+                => value is ClassLevelValidationApp app
+                    && app.Arg1 != null && app.Arg1.Contains("good")
+                    && app.Arg2 != null && app.Arg2.Contains("good");
         }
     }
 }

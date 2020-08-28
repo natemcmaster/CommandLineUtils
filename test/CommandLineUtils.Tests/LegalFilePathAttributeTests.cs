@@ -18,7 +18,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class App
         {
             [Argument(0), LegalFilePath]
-            public string FilePath { get; set; }
+            public string? FilePath { get; set; }
             private void OnExecute() { }
         }
 

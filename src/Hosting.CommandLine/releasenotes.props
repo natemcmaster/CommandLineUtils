@@ -1,0 +1,35 @@
+<Project>
+  <PropertyGroup>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.0.'))">
+Features:
+* @vpkopylov - Added support for using the 'builder API' by calling .RunCommandLineApplicationAsync(args, app => { })
+  See https://github.com/natemcmaster/CommandLineUtils/pull/351 for details.
+
+Changes:
+* Dependency on Microsoft.Extensions.Hosting lowered to Microsoft.Extensions.Hosting.Abstractions.
+  You may need to add a direct reference to Microsoft.Extensions.Hosting if this is not already in your
+  project's dependencies.
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('2.4.'))">
+Changes:
+* Support C# 8.0 and nullable reference types
+* RunCommandLineApplicationAsync is actually async now, not just sync disguised as an async API
+* Better CTRL+C support
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.3'">
+$(PackageReleaseNotes)
+
+2.4.3 patch:
+* Fix deadlock when calling Environment.Exit()
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="'$(VersionPrefix)' == '2.4.1'">
+2.4.1 hot fix:
+* Workaround a bizarre NuGet bug which causes problems for users in Europe and Asia
+  (see https://github.com/NuGet/Home/issues/8603)
+    </PackageReleaseNotes>
+    <PackageReleaseNotes>$(PackageReleaseNotes)
+
+See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
+    </PackageReleaseNotes>
+  </PropertyGroup>
+</Project>

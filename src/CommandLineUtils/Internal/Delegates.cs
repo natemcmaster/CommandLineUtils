@@ -3,5 +3,5 @@
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    internal delegate void SetPropertyDelegate(object obj, object value);
+    internal delegate void SetPropertyDelegate(object obj, object? value);
 }

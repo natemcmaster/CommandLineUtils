@@ -1,0 +1,1106 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  commentId: T:McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  id: ConsoleReporter
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.ConsoleReporter.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)
+  - McMaster.Extensions.CommandLineUtils.ConsoleReporter.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean,System.Boolean)
+  - McMaster.Extensions.CommandLineUtils.ConsoleReporter.Console
+  - McMaster.Extensions.CommandLineUtils.ConsoleReporter.Error(System.String)
+  - McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsQuiet
+  - McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsVerbose
+  - McMaster.Extensions.CommandLineUtils.ConsoleReporter.Output(System.String)
+  - McMaster.Extensions.CommandLineUtils.ConsoleReporter.Verbose(System.String)
+  - McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn(System.String)
+  - McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(System.IO.TextWriter,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  langs:
+  - csharp
+  - vb
+  name: ConsoleReporter
+  nameWithType: ConsoleReporter
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: ConsoleReporter
+    path: ../src/CommandLineUtils/IO/ConsoleReporter.cs
+    startLine: 12
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nA thread-safe reporter that forwards to console output.\n"
+  example: []
+  syntax:
+    content: 'public class ConsoleReporter : IReporter'
+    content.vb: >-
+      Public Class ConsoleReporter
+          Implements IReporter
+  inheritance:
+  - System.Object
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleReporter.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)
+  id: '#ctor(McMaster.Extensions.CommandLineUtils.IConsole)'
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  langs:
+  - csharp
+  - vb
+  name: ConsoleReporter(IConsole)
+  nameWithType: ConsoleReporter.ConsoleReporter(IConsole)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.ConsoleReporter(McMaster.Extensions.CommandLineUtils.IConsole)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: .ctor
+    path: ../src/CommandLineUtils/IO/ConsoleReporter.cs
+    startLine: 20
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes an instance of <xref href=\"McMaster.Extensions.CommandLineUtils.ConsoleReporter\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public ConsoleReporter(IConsole console)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: ''
+    content.vb: Public Sub New(console As IConsole)
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleReporter.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean,System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleReporter.#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean,System.Boolean)
+  id: '#ctor(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean,System.Boolean)'
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  langs:
+  - csharp
+  - vb
+  name: ConsoleReporter(IConsole, Boolean, Boolean)
+  nameWithType: ConsoleReporter.ConsoleReporter(IConsole, Boolean, Boolean)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.ConsoleReporter(McMaster.Extensions.CommandLineUtils.IConsole, System.Boolean, System.Boolean)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: .ctor
+    path: ../src/CommandLineUtils/IO/ConsoleReporter.cs
+    startLine: 30
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes an instance of <xref href=\"McMaster.Extensions.CommandLineUtils.ConsoleReporter\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public ConsoleReporter(IConsole console, bool verbose, bool quiet)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: ''
+    - id: verbose
+      type: System.Boolean
+      description: When false, Verbose does not display output.
+    - id: quiet
+      type: System.Boolean
+      description: When true, only Warn and Error display output
+    content.vb: Public Sub New(console As IConsole, verbose As Boolean, quiet As Boolean)
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleReporter.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Console
+  commentId: P:McMaster.Extensions.CommandLineUtils.ConsoleReporter.Console
+  id: Console
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  langs:
+  - csharp
+  - vb
+  name: Console
+  nameWithType: ConsoleReporter.Console
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Console
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: Console
+    path: ../src/CommandLineUtils/IO/ConsoleReporter.cs
+    startLine: 40
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe console to write to.\n"
+  example: []
+  syntax:
+    content: protected IConsole Console { get; }
+    parameters: []
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+    content.vb: Protected ReadOnly Property Console As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Console*
+  modifiers.csharp:
+  - protected
+  - get
+  modifiers.vb:
+  - Protected
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsVerbose
+  commentId: P:McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsVerbose
+  id: IsVerbose
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  langs:
+  - csharp
+  - vb
+  name: IsVerbose
+  nameWithType: ConsoleReporter.IsVerbose
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsVerbose
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: IsVerbose
+    path: ../src/CommandLineUtils/IO/ConsoleReporter.cs
+    startLine: 45
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nIs verbose output displayed.\n"
+  example: []
+  syntax:
+    content: public bool IsVerbose { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsVerbose As Boolean
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsVerbose*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsQuiet
+  commentId: P:McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsQuiet
+  id: IsQuiet
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  langs:
+  - csharp
+  - vb
+  name: IsQuiet
+  nameWithType: ConsoleReporter.IsQuiet
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsQuiet
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: IsQuiet
+    path: ../src/CommandLineUtils/IO/ConsoleReporter.cs
+    startLine: 50
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nIs verbose output and regular output hidden.\n"
+  example: []
+  syntax:
+    content: public bool IsQuiet { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsQuiet As Boolean
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsQuiet*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(System.IO.TextWriter,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(System.IO.TextWriter,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: WriteLine(System.IO.TextWriter,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(TextWriter, String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  nameWithType: ConsoleReporter.WriteLine(TextWriter, String, Nullable<ConsoleColor>, Nullable<ConsoleColor>)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(System.IO.TextWriter, System.String, System.Nullable<System.ConsoleColor>, System.Nullable<System.ConsoleColor>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleReporter.cs
+    startLine: 59
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nWrite a line with color.\n"
+  example: []
+  syntax:
+    content: protected virtual void WriteLine(TextWriter writer, string message, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = default(ConsoleColor? ))
+    parameters:
+    - id: writer
+      type: System.IO.TextWriter
+      description: ''
+    - id: message
+      type: System.String
+      description: ''
+    - id: foregroundColor
+      type: System.Nullable{System.ConsoleColor}
+      description: ''
+    - id: backgroundColor
+      type: System.Nullable{System.ConsoleColor}
+      description: ''
+    content.vb: Protected Overridable Sub WriteLine(writer As TextWriter, message As String, foregroundColor As ConsoleColor?, backgroundColor As ConsoleColor? = Nothing)
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine*
+  nameWithType.vb: ConsoleReporter.WriteLine(TextWriter, String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine(System.IO.TextWriter, System.String, System.Nullable(Of System.ConsoleColor), System.Nullable(Of System.ConsoleColor))
+  name.vb: WriteLine(TextWriter, String, Nullable(Of ConsoleColor), Nullable(Of ConsoleColor))
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Error(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleReporter.Error(System.String)
+  id: Error(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  langs:
+  - csharp
+  - vb
+  name: Error(String)
+  nameWithType: ConsoleReporter.Error(String)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Error(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: Error
+    path: ../src/CommandLineUtils/IO/ConsoleReporter.cs
+    startLine: 86
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nWrites a message in <xref href=\"System.ConsoleColor.Red\" data-throw-if-not-resolved=\"false\"></xref> to <xref href=\"McMaster.Extensions.CommandLineUtils.IConsole.Error\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public virtual void Error(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Overridable Sub Error(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Error*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn(System.String)
+  id: Warn(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  langs:
+  - csharp
+  - vb
+  name: Warn(String)
+  nameWithType: ConsoleReporter.Warn(String)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: Warn
+    path: ../src/CommandLineUtils/IO/ConsoleReporter.cs
+    startLine: 93
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nWrites a message in <xref href=\"System.ConsoleColor.Yellow\" data-throw-if-not-resolved=\"false\"></xref> to <xref href=\"McMaster.Extensions.CommandLineUtils.IConsole.Out\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public virtual void Warn(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Overridable Sub Warn(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Output(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleReporter.Output(System.String)
+  id: Output(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  langs:
+  - csharp
+  - vb
+  name: Output(String)
+  nameWithType: ConsoleReporter.Output(String)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Output(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: Output
+    path: ../src/CommandLineUtils/IO/ConsoleReporter.cs
+    startLine: 100
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nWrites a message to <xref href=\"McMaster.Extensions.CommandLineUtils.IConsole.Out\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public virtual void Output(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Overridable Sub Output(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Output*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Verbose(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleReporter.Verbose(System.String)
+  id: Verbose(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  langs:
+  - csharp
+  - vb
+  name: Verbose(String)
+  nameWithType: ConsoleReporter.Verbose(String)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Verbose(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleReporter.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: Verbose
+    path: ../src/CommandLineUtils/IO/ConsoleReporter.cs
+    startLine: 113
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nWrites a message in <xref href=\"System.ConsoleColor.DarkGray\" data-throw-if-not-resolved=\"false\"></xref> to <xref href=\"McMaster.Extensions.CommandLineUtils.IConsole.Out\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public virtual void Verbose(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Overridable Sub Verbose(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Verbose*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: McMaster.Extensions.CommandLineUtils.IReporter
+  commentId: T:McMaster.Extensions.CommandLineUtils.IReporter
+  parent: McMaster.Extensions.CommandLineUtils
+  name: IReporter
+  nameWithType: IReporter
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  commentId: T:McMaster.Extensions.CommandLineUtils.ConsoleReporter
+  name: ConsoleReporter
+  nameWithType: ConsoleReporter
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleReporter.#ctor
+  name: ConsoleReporter
+  nameWithType: ConsoleReporter.ConsoleReporter
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.ConsoleReporter
+- uid: McMaster.Extensions.CommandLineUtils.IConsole
+  commentId: T:McMaster.Extensions.CommandLineUtils.IConsole
+  parent: McMaster.Extensions.CommandLineUtils
+  name: IConsole
+  nameWithType: IConsole
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Console*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleReporter.Console
+  name: Console
+  nameWithType: ConsoleReporter.Console
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Console
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsVerbose*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsVerbose
+  name: IsVerbose
+  nameWithType: ConsoleReporter.IsVerbose
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsVerbose
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsQuiet*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsQuiet
+  name: IsQuiet
+  nameWithType: ConsoleReporter.IsQuiet
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.IsQuiet
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine
+  name: WriteLine
+  nameWithType: ConsoleReporter.WriteLine
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.WriteLine
+- uid: System.IO.TextWriter
+  commentId: T:System.IO.TextWriter
+  parent: System.IO
+  isExternal: true
+  name: TextWriter
+  nameWithType: TextWriter
+  fullName: System.IO.TextWriter
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Nullable{System.ConsoleColor}
+  commentId: T:System.Nullable{System.ConsoleColor}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<ConsoleColor>
+  nameWithType: Nullable<ConsoleColor>
+  fullName: System.Nullable<System.ConsoleColor>
+  nameWithType.vb: Nullable(Of ConsoleColor)
+  fullName.vb: System.Nullable(Of System.ConsoleColor)
+  name.vb: Nullable(Of ConsoleColor)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.ConsoleColor
+    name: ConsoleColor
+    nameWithType: ConsoleColor
+    fullName: System.ConsoleColor
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.ConsoleColor
+    name: ConsoleColor
+    nameWithType: ConsoleColor
+    fullName: System.ConsoleColor
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ConsoleColor.Red
+  commentId: F:System.ConsoleColor.Red
+  isExternal: true
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.Error
+  commentId: P:McMaster.Extensions.CommandLineUtils.IConsole.Error
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: Error
+  nameWithType: IConsole.Error
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.Error
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Error*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleReporter.Error
+  name: Error
+  nameWithType: ConsoleReporter.Error
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Error
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  name: Error(String)
+  nameWithType: IReporter.Error(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+    name: Error
+    nameWithType: IReporter.Error
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Error
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+    name: Error
+    nameWithType: IReporter.Error
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Error
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ConsoleColor.Yellow
+  commentId: F:System.ConsoleColor.Yellow
+  isExternal: true
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.Out
+  commentId: P:McMaster.Extensions.CommandLineUtils.IConsole.Out
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: Out
+  nameWithType: IConsole.Out
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.Out
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn
+  name: Warn
+  nameWithType: ConsoleReporter.Warn
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Warn
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  name: Warn(String)
+  nameWithType: IReporter.Warn(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+    name: Warn
+    nameWithType: IReporter.Warn
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Warn
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+    name: Warn
+    nameWithType: IReporter.Warn
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Warn
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Output*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleReporter.Output
+  name: Output
+  nameWithType: ConsoleReporter.Output
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Output
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  name: Output(String)
+  nameWithType: IReporter.Output(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+    name: Output
+    nameWithType: IReporter.Output
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Output
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+    name: Output
+    nameWithType: IReporter.Output
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Output
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ConsoleColor.DarkGray
+  commentId: F:System.ConsoleColor.DarkGray
+  isExternal: true
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Verbose*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleReporter.Verbose
+  name: Verbose
+  nameWithType: ConsoleReporter.Verbose
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleReporter.Verbose
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  name: Verbose(String)
+  nameWithType: IReporter.Verbose(String)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+    name: Verbose
+    nameWithType: IReporter.Verbose
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Verbose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+    name: Verbose
+    nameWithType: IReporter.Verbose
+    fullName: McMaster.Extensions.CommandLineUtils.IReporter.Verbose
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )

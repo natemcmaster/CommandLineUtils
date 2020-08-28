@@ -1,0 +1,102 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+  id: IMemberConvention
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext,System.Reflection.MemberInfo)
+  langs:
+  - csharp
+  - vb
+  name: IMemberConvention
+  nameWithType: IMemberConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/IMemberConvention.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: IMemberConvention
+    path: ../src/CommandLineUtils/Conventions/IMemberConvention.cs
+    startLine: 10
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nDefines a convention that is implemented as an attribute on a model type.\n"
+  example: []
+  syntax:
+    content: public interface IMemberConvention
+    content.vb: Public Interface IMemberConvention
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext,System.Reflection.MemberInfo)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext,System.Reflection.MemberInfo)
+  id: Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext,System.Reflection.MemberInfo)
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+  langs:
+  - csharp
+  - vb
+  name: Apply(ConventionContext, MemberInfo)
+  nameWithType: IMemberConvention.Apply(ConventionContext, MemberInfo)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext, System.Reflection.MemberInfo)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/IMemberConvention.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineutils
+    id: Apply
+    path: ../src/CommandLineUtils/Conventions/IMemberConvention.cs
+    startLine: 17
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: "\nApply the convention given a property or method.\n"
+  example: []
+  syntax:
+    content: void Apply(ConventionContext context, MemberInfo member)
+    parameters:
+    - id: context
+      type: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+      description: The convention context.
+    - id: member
+      type: System.Reflection.MemberInfo
+      description: A member of the model type to which the attribute is applied.
+    content.vb: Sub Apply(context As ConventionContext, member As MemberInfo)
+  overload: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply*
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Conventions
+  name: McMaster.Extensions.CommandLineUtils.Conventions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Conventions
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply
+  name: Apply
+  nameWithType: IMemberConvention.Apply
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention.Apply
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  name: ConventionContext
+  nameWithType: ConventionContext
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+- uid: System.Reflection.MemberInfo
+  commentId: T:System.Reflection.MemberInfo
+  parent: System.Reflection
+  isExternal: true
+  name: MemberInfo
+  nameWithType: MemberInfo
+  fullName: System.Reflection.MemberInfo
+- uid: System.Reflection
+  commentId: N:System.Reflection
+  isExternal: true
+  name: System.Reflection
+  nameWithType: System.Reflection
+  fullName: System.Reflection

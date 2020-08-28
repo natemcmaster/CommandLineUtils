@@ -21,13 +21,15 @@ namespace McMaster.Extensions.CommandLineUtils
             for (; i < str.Length; i++)
             {
                 var ch = str[i];
-                if (char.IsLetterOrDigit(ch))
+                if (!char.IsLetterOrDigit(ch))
                 {
-                    addDash = !char.IsUpper(ch);
-                    sb.Append(char.ToLowerInvariant(ch));
-                    i++;
-                    break;
+                    continue;
                 }
+
+                addDash = !char.IsUpper(ch);
+                sb.Append(char.ToLowerInvariant(ch));
+                i++;
+                break;
             }
 
             for (; i < str.Length; i++)
@@ -54,6 +56,13 @@ namespace McMaster.Extensions.CommandLineUtils
                     sb.Append('-');
                 }
             }
+
+            // trim trailing slashes
+            while (sb.Length > 0 && sb[sb.Length - 1] == '-')
+            {
+                sb.Remove(sb.Length - 1, 1);
+            }
+
             return sb.ToString();
         }
 
@@ -71,13 +80,15 @@ namespace McMaster.Extensions.CommandLineUtils
             for (; i < str.Length; i++)
             {
                 var ch = str[i];
-                if (char.IsLetterOrDigit(ch))
+                if (!char.IsLetterOrDigit(ch))
                 {
-                    addUnderscore = !char.IsUpper(ch);
-                    sb.Append(char.ToUpperInvariant(ch));
-                    i++;
-                    break;
+                    continue;
                 }
+
+                addUnderscore = !char.IsUpper(ch);
+                sb.Append(char.ToUpperInvariant(ch));
+                i++;
+                break;
             }
 
             for (; i < str.Length; i++)
@@ -104,6 +115,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     sb.Append('_');
                 }
             }
+
             return sb.ToString();
         }
     }

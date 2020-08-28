@@ -1,0 +1,89 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
+  id: SuppressDefaultHelpOptionAttribute
+  parent: McMaster.Extensions.CommandLineUtils
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: SuppressDefaultHelpOptionAttribute
+  nameWithType: SuppressDefaultHelpOptionAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/SuppressDefaultHelpOptionAttribute.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: SuppressDefaultHelpOptionAttribute
+    path: ../src/CommandLineUtils/Attributes/SuppressDefaultHelpOptionAttribute.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nSuppress <xref href=\"McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Class, Inherited = true)]
+
+      public sealed class SuppressDefaultHelpOptionAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Assembly Or AttributeTargets.Class, Inherited:=True)>
+
+      Public NotInheritable Class SuppressDefaultHelpOptionAttribute
+          Inherits Attribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 5
+    namedArguments:
+    - name: Inherited
+      type: System.Boolean
+      value: true
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  name: DefaultHelpOptionConvention
+  nameWithType: DefaultHelpOptionConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Attribute
+  commentId: T:System.Attribute
+  parent: System
+  isExternal: true
+  name: Attribute
+  nameWithType: Attribute
+  fullName: System.Attribute
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System

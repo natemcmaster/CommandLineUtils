@@ -1,6 +1,358 @@
 # Changelog
 
-## [Unreleased]
+[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v3.0.0...HEAD):
+
+## [v3.0.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.6.0...v3.0.0)
+
+### Improvements
+
+* [@AlexeyEvlampiev] - implement support for GUID command line options ([#333]) and any other type that TypeConverter supports ([#62])
+* [@vpkopylov] - Added support for using the 'builder API' with generic host ([#351])
+* [@natemcmaster] - Disabled the pager for help text by default. To re-enable, set UsePagerForHelpText = true. ([#346])
+* [@natemcmaster] - Fix PlatformNotSupportedException on Xamarin of macOS ([#344])
+
+### Breaking changes
+
+See <https://natemcmaster.github.io/CommandLineUtils/v3.0/upgrade-guide.html> for more details.
+
+* Fix [#251] by [@mattnischan] - remove API that was marked as obsolete in 2.x releases
+* Fix [#294] by [@natemcmaster] - change dependencies on McMaster.Extensions.Hosting.CommandLine to just use Microsoft.Extensions.Hosting.Abstractions
+* Fix [#337] by [@natemcmaster] - removed .NET Standard 1.6 target from library
+
+[@AlexeyEvlampiev]: https://github.com/AlexeyEvlampiev
+[@mattnischan]: https://github.com/mattnischan
+[@natemcmaster]: https://github.com/natemcmaster
+
+[#62]: https://github.com/natemcmaster/CommandLineUtils/issues/62
+[#251]: https://github.com/natemcmaster/CommandLineUtils/issues/251
+[#294]: https://github.com/natemcmaster/CommandLineUtils/issues/294
+[#337]: https://github.com/natemcmaster/CommandLineUtils/issues/337
+[#333]: https://github.com/natemcmaster/CommandLineUtils/issues/333
+[#344]: https://github.com/natemcmaster/CommandLineUtils/issues/344
+[#346]: https://github.com/natemcmaster/CommandLineUtils/issues/346
+[#351]: https://github.com/natemcmaster/CommandLineUtils/pull/351
+
+## [v2.6.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.1...v2.6.0)
+
+* Refactor: obsolete throwOnUnexpectedArg in favor of UnrecognizedArgumentHandling. See https://github.com/natemcmaster/CommandLineUtils/issues/339 for details
+
+## [v2.5.1](https://github.com/natemcmaster/CommandLineUtils/compare/v2.5.0...v2.5.1)
+
+* Fix [#320] - lazy load command object types to reduce unnecessary allocations
+
+[#320]: https://github.com/natemcmaster/CommandLineUtils/issues/320
+
+## [v2.5.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.4...v2.5.0)
+
+* Fix [#92] by [@kbilsted] - Show enum names in help text for Options and Arguments stored as enum
+* Fix [#287] by [@Alxandr] - Add support for private base type options
+* Fix [#303] by [@AndreGleichner] - Update generated help to display [command] first then [options]
+* Fix [#307] by [@daveMueller] - Update help text generator to display HelpOption correctly
+
+[@kbilsted]: https://github.com/kbilsted
+[@Alxandr]: https://github.com/Alxandr
+[@AndreGleichner]: https://github.com/AndreGleichner
+[@daveMueller]: https://github.com/daveMueller
+[#92]: https://github.com/natemcmaster/CommandLineUtils/issues/92
+[#287]: https://github.com/natemcmaster/CommandLineUtils/issues/287
+[#303]: https://github.com/natemcmaster/CommandLineUtils/issues/303
+[#307]: https://github.com/natemcmaster/CommandLineUtils/issues/307
+
+## [v2.4.4](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.3...v2.4.4)
+
+* Fix [#302] - fix regression introduced in 2.4.2 which caused Ctrl+C handling not to terminate the process quickly
+
+[#302]: https://github.com/natemcmaster/CommandLineUtils/issues/302
+
+## [v2.4.3](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.2...v2.4.3)
+
+* Fix [#292] by [@thomaslevesque] - fix deadlock when `Environment.Exit` is called
+
+[#292]: https://github.com/natemcmaster/CommandLineUtils/issues/292
+[@thomaslevesque]: https://github.com/thomaslevesque
+
+## [v2.4.2](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.1...v2.4.2)
+
+* Fix [#286] - fix deadlock in CTRL+C handling on Windows
+
+[#286]: https://github.com/natemcmaster/CommandLineUtils/issues/286
+
+## [v2.4.1](https://github.com/natemcmaster/CommandLineUtils/compare/v2.4.0...v2.4.1)
+
+* Fix [#277] - workaround a bug in NuGet's 'deterministic packaging' feature which causes issues based on your timezone
+
+[#277]: https://github.com/natemcmaster/CommandLineUtils/issues/277
+
+## [v2.4.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.4...v2.4.0)
+
+* Fix [#227] by [@ejball] - ArgumentEscaper should escape empty string
+* PR [#230] by [@IanG] - Attributes for files and directories that must not exist
+* Fix [#221] by [@vpkopylov] - Use Pager for help text option only works on top-level help
+* PR [#239] by [@vpkopylov] - Add check for subcommand cycle
+* Support C# 8.0 and nullable reference types - [#245]
+* Add async methods to CommandLineApplication
+* Fix [#208] - make `CommandLineApplication.ExecuteAsync` actually asynchronous
+* Fix [#153] - add async methods that accept cancellation tokens
+* Fix [#111] - Handle CTRL+C by default
+* Fix [#246] by [@kyle-rader] - Multi-line option descriptions do not indent correctly
+* Fix [#253] - support calling CommandLineApplication.Execute multiple times
+
+[#246]: https://github.com/natemcmaster/CommandLineUtils/issues/246
+[#111]: https://github.com/natemcmaster/CommandLineUtils/issues/111
+[#153]: https://github.com/natemcmaster/CommandLineUtils/issues/153
+[#208]: https://github.com/natemcmaster/CommandLineUtils/issues/208
+[#221]: https://github.com/natemcmaster/CommandLineUtils/issues/221
+[#227]: https://github.com/natemcmaster/CommandLineUtils/issues/227
+[#253]: https://github.com/natemcmaster/CommandLineUtils/issues/253
+[#230]: https://github.com/natemcmaster/CommandLineUtils/pull/230
+[#239]: https://github.com/natemcmaster/CommandLineUtils/pull/239
+[#245]: https://github.com/natemcmaster/CommandLineUtils/pull/245
+
+## [v2.3.4]
+
+Bugs fixed:
+
+* Fix [#218]: Handle options with multiple characters in the short option name when only specified in a subcommand
+* PR [#224] by [@SteveBenz]: Rearrange the order that commands are listed in the USAGE block and list all the commands on the line
+
+[#218]: https://github.com/natemcmaster/CommandLineUtils/issues/218
+[#224]: https://github.com/natemcmaster/CommandLineUtils/pull/224
+
+## [v2.3.3]
+
+Enhancements:
+* [@mpipo]: add an API to disable the pager for help text (CommandLineApplication.UsePagerForHelpText) ([#216])
+
+[#216]: https://github.com/natemcmaster/CommandLineUtils/pull/216
+
+## [v2.3.2]
+
+Enhancements:
+* Fix [#211] by [@rlvandaveer]: honor attributes on classes which implement ValidationAttribute
+
+Bugs fixed:
+* Fix [#207] by [@jcaillon]: Option for the case sensitivity of command names
+
+[#207]: https://github.com/natemcmaster/CommandLineUtils/issues/207
+[#211]: https://github.com/natemcmaster/CommandLineUtils/issues/211
+
+## [v2.3.1]
+
+Bugs fixed:
+* Fix [#203] - fix InvalidOperationException thrown during help text generation on Mono
+
+[#203]: https://github.com/natemcmaster/CommandLineUtils/issues/203
+
+## [v2.3.0]
+
+**Dec. 31, 2018**
+
+Enhancements:
+* PR [#192] by [@TheConstructor]: Add IUnhandledExceptionHandler
+
+Bugs fixed:
+* Fix [#195]: don't use Task.Run in generic host
+
+[#192]: https://github.com/natemcmaster/CommandLineUtils/pull/192
+[#195]: https://github.com/natemcmaster/CommandLineUtils/issues/195
+
+## [v2.3.0-rc]
+
+Bugs fixed:
+* Fix [#189] by [@TheConstructor]: fix inference about clustering options for sub-sub-commands
+
+Enhancements:
+* Fix [#166] by [@TheConstructor]: make CommandLineApplication.GetValidationResult() public
+* PR [#192] by [@TheConstructor]: improve error handling in generic host, and unwrap TargetInvocationException
+
+[#189]: https://github.com/natemcmaster/CommandLineUtils/pull/189
+[#166]: https://github.com/natemcmaster/CommandLineUtils/pull/166
+[#192]: https://github.com/natemcmaster/CommandLineUtils/pull/192
+
+## [v2.3.0-beta]
+
+Bugs fixed:
+
+* Fix [#86] by [@handcraftedsource]: handled nested HelpOptions. Fixes InvalidOperationException when multiple help options were defined.([#158])
+* Fix [#163] - Obsolete CommandOption.Template and fix help text generation to accurately list available options
+* [@TheConstructor]: fixed a bug in ConstructorInjectionConvention ([#181])
+
+[#86]: https://github.com/natemcmaster/CommandLineUtils/pull/86
+[#158]: https://github.com/natemcmaster/CommandLineUtils/pull/158
+[#163]: https://github.com/natemcmaster/CommandLineUtils/pull/163
+[#181]: https://github.com/natemcmaster/CommandLineUtils/pull/181
+
+Enhancements:
+
+* [@jcaillon]: Add a new API `UnrecognizedCommandParsingException` which includes suggestions for similar options or
+  commands. ([#164])
+* Add support counting of bool/flag variables using `bool[]`. ([#143])
+* [@EricStG]: Add a new API `MissingParameterlessConstructorException` that includes the type causing the exception in the message. ([#148])
+* [@atifaziz]: Add a new API `ValueParser.Create` which makes it easier to create implementations of `IValueParser`
+    ([#169])
+* [@TheConstructor]: Support injection of IConsole and IConvention in generic host ([#178])
+
+
+[#143]: https://github.com/natemcmaster/CommandLineUtils/pull/143
+[#164]: https://github.com/natemcmaster/CommandLineUtils/pull/164
+[#168]: https://github.com/natemcmaster/CommandLineUtils/pull/168
+[#169]: https://github.com/natemcmaster/CommandLineUtils/pull/169
+[#178]: https://github.com/natemcmaster/CommandLineUtils/pull/178
+
+Other notes:
+* I adjusted some API released in the alpha - primarily, I removed ParserSettings.
+
+### New package: McMaster.Extensions.Hosting.CommandLine
+
+Thanks to [@lucastheisen] for writing a new package, McMaster.Extensions.Hosting.CommandLine ([#167]). This new package provides
+integration with ASP.NET Core's ["Generic Host" feature.](https://docs.microsoft.com/aspnet/core/fundamentals/host/generic-host).
+
+[#167]: https://github.com/natemcmaster/CommandLineUtils/pull/167
+
+## [v2.3.0-alpha]
+
+Enhancements:
+
+* Support the POSIX convention for cluster multiple options. For example, `-ixd` is treated the same as `-i -x -d`.
+  Resolved [#93].
+* [@bjorg]: support SingleOrNoValue notation. `--option[:value]`
+* New type: `Pager`. Provides a simple interaction model for displaying console output in a pager.
+* Display help text using the `less` pager on macOS/Linux.
+* Make suggestions when invalid options or commands are used, but there is a valid one that is similar.
+  (Thanks to [@MadbHatter] for doing the initial work on this.)
+* Add support for subcommand aliases. Commands can be given multiple names.
+
+  ```c#
+  [Command("organization", "org", "o")]
+  public class OrgCommand { }
+  ```
+* Obsolete the constructor of `[Subcommand]` which takes a string.
+* Infer subcommand names from the type name
+  ```c#
+  [Subcommand(typeof(AddCommand))]
+  public class Git { }
+
+  public class AddCommand { } // subcommand name = "add"
+  ```
+* [@lvermeulen]: Sort subcommands by name in help text. This can be disabled with `DefaultHelpTextGenerator.SortCommandsByName`.
+
+[#93]: https://github.com/natemcmaster/CommandLineUtils/issues/93
+
+Bugs fixed:
+
+* Duplicate subcommand names used to cause undefined behavior. Now, attempting to add a duplicate subcommand name or aliases will
+  cause the library to throw before the app can execute.
+* Fix bug in subcommand name inference. When not specified, the subcommand always matched the entry assembly name.
+  In this update, this convention only applies to the parent command.
+* Fix [#131](https://github.com/natemcmaster/CommandLineUtils/issues/131) - Add generic overloads of `.IsRequired()` for
+ `CommandOption<T>` and `CommandArgument<T>`.
+
+Details:
+
+* **Clustering options:** I've added this behavior as the new default, but only if I think it won't interfere with existing apps.
+  If it causes issues or you don't like clustering, you can disable this by setting
+  `CommandLineApplication.ClusterOptions = false`.
+  To preserve compatibility with existing apps, this behavior is off if you have configured options with short names with
+  multiple characters. In a future version, this will cause an error unless you set `ClusterOptions = false`.
+
+* **Pager:** this is the new default for showing help text. The pager should have graceful fallback to regular stdout
+  when there are issues launching `less`, or when stdout is redirected into a pipe.
+
+## [v2.2.5]
+
+**July 1, 2018**
+
+Bug fixes:
+ * [@bording] and [@SeanFeldman]: Unable to create new instance of `CommandOption<T>` for type that is already registered
+
+Minor improvements:
+ * Started code signing the NuGet package and binaries
+ * [@jerriep]: added documentation for response file parsing
+
+## [v2.2.4]
+
+**May 24, 2018**
+
+Bug fixes:
+
+* [@liamdawson]: support parsing `System.Uri`
+* Fix #101 - Update `DotNetExe.FullPath` to honor the `DOTNET_ROOT` environment variable as a fallback
+
+## [v2.2.3]
+
+**May 10, 2018**
+
+Minor improvements:
+
+* Make it easier to override the version text shown when `--version` is specified.
+* Make DefaultHelpTextGenerator's constructor protected
+* Fix DebugHelper.HandleDebugSwitch
+
+## [v2.2.2]
+
+**April 28, 2018**
+
+Minor improvement:
+
+ - Add conventions from attributes that implement IConvention and IMemberConvention
+ - Add a help option by default as long as it doesn't conflict with existing options
+
+## [v2.2.1]
+
+**April 10, 2018**
+
+Bug fixes:
+
+ - Don't assign option and argument options if no value was provided, preserving the default CLR value unless there is user-input.
+ - Fix ShowHint() to use ShortName or SymbolName if OptionHelp.LongName is not set
+ - Fix [#85](https://github.com/natemcmaster/CommandLineUtils/issues/85) - lower priority of resolving AdditionalServices after most built-in services
+ - Fix [#79](https://github.com/natemcmaster/CommandLineUtils/issues/79) - OnValidate callbacks invoked before property values were assigned
+
+Minor improvements:
+
+ - Improve help text generation. Align columns, show top-level command description, and add `protected virtual` API to `DefaultHelpTextGenerator` to make it easier to customize help text
+
+## [v2.2.0]
+
+**March 30, 2018**
+
+ - Added support for command validators using `CommandLineApplication.Validators` and added a new OnValidate convention
+ - Fix minor bug in `ArgumentEscaper` where some strings were not properly escaped
+ - Update to System.ComponentModel.Annotations 4.4.1 (netstandard2.0 only)
+ - [@atruskie]: Ensure ValueParsers are inherited in subcommands
+
+## [v2.2.0-rc]
+
+**March 23, 2018**
+
+New API:
+ - [@atruskie]: Added support for user-defined value parsers using `IValueParser` and `CommandLineApplication.ValueParsers`.
+ - Added support for `Option<T>` and `Argument<T>`
+ - Added `IValidationBuilder<T>`
+ - Added `.Accepts().Range(min, max)` for int and double type arguments and options
+
+Enhancements:
+ - Parse these values to boolean: T, t, F, f, 0, 1
+
+Removed:
+ - Removed support for mapping `Tuple<bool,T>` to `CommandOptionType.SingleOrNoValue`.
+   `ValueTuple<bool,T>` is still present.
+
+## [v2.2.0-beta]
+
+**March 7, 2018**
+
+New features:
+  - Add `CommandOptionType.SingleOrNoValue`. Options of this type can be a switch, or have a value but only in the form `--param:value` or `--param=value`.
+  - Support mapping `Tuple<bool,T>` and `ValueTuple<bool,T>` to `CommandOptionType.SingleOrNoValue`
+  - Added `CommandLineApplication<TModel>`. This allows associating an application with a specific .NET type
+  - Convention API. Adds support for writing your own conventions to convert command line arguments into a .NET type
+  - [@sebastienros] - Support for case-insensitive options
+  - Add support for constructor injection and dependency injection by providing a custom service provider
+
+## [v2.2.0-alpha]
+
+**Feb. 15, 2018**
 
 New features:
   - Added more validation attributes.
@@ -79,15 +431,51 @@ Other:
  - Updated TFM to support .NET Standard 2.0
 
 
+[@atifaziz]: https://github.com/atifaziz
 [@atruskie]: https://github.com/atruskie
+[@bording]: https://github.com/bording
+[@bjorg]: https://github.com/bjorg
 [@couven92]: https://github.com/couven92
 [@demosdemon]: https://github.com/demosdemon
+[@EricStG]: https://github.com/EricStG
+[@ejball]: https://github.com/ejball
+[@handcraftedsource]: https://github.com/handcraftedsource
+[@IanG]: https://github.com/IanG
+[@jcaillon]: https://github.com/jcaillon
+[@jerriep]: https://github.com/jerriep
 [@kant2002]: https://github.com/kant2002
+[@kyle-rader]: https://github.com/kyle-rader
+[@lucastheisen]: https://github.com/lucastheisen
+[@liamdawson]: https://github.com/liamdawson
+[@lvermeulen]: https://github.com/lvermeulen
+[@MadbHatter]: https://github.com/MadbHatter
+[@mpipo]: https://github.com/mpipo
+[@rlvandaveer]: https://github.com/rlvandaveer
 [@rmcc13]: https://github.com/rmcc13
+[@SeanFeldman]: https://github.com/SeanFeldman
+[@sebastienros]: https://github.com/sebastienros
+[@SteveBenz]: https://github.com/SteveBenz
+[@TheConstructor]: https://github.com/TheConstructor
+[@vpkopylov]: https://github.com/vpkopylov
 
-[Unreleased]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.1...HEAD
+[v2.3.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.3...v2.3.4
+[v2.3.3]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.2...v2.3.3
+[v2.3.2]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.1...v2.3.2
+[v2.3.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.0...v2.3.1
+[v2.3.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0
+[v2.3.0-rc]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-rc
+[v2.3.0-beta]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-beta
+[v2.3.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.5...v2.3.0-alpha
+[v2.2.5]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.4...v2.2.5
+[v2.2.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.3...v2.2.4
+[v2.2.3]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.3...v2.2.3
+[v2.2.2]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.1...v2.2.2
+[v2.2.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0...v2.2.1
+[v2.2.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-rc...v2.2.0
+[v2.2.0-rc]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-beta...v2.2.0-rc
+[v2.2.0-beta]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.2.0-alpha...v2.2.0-beta
+[v2.2.0-alpha]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.1...v2.2.0-alpha
 [v2.1.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.1.0...v2.1.1
 [v2.1.0]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.1...v2.1.0
 [v2.0.1]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.0.0...v2.0.1
 [v2.0.0]: https://github.com/natemcmaster/CommandLineUtils/compare/b0c662d331c35ccf3145875cdef850df7e896c0f...v2.0.0
-

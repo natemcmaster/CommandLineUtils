@@ -30,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             return rsp;
         }
 
-        private List<string> ParseResponseFile(ResponseFileHandling options, params string[] responseFileLines)
+        private List<string?> ParseResponseFile(ResponseFileHandling options, params string[] responseFileLines)
         {
             var rsp = CreateResponseFile(responseFileLines);
             var app = new CommandLineApplication
@@ -189,8 +189,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("a \"\" b", new[] { "a", "", "b" })]
         [InlineData("\"double quoted arg with 'single quotes'\"", new[] { "double quoted arg with 'single quotes'" })]
         [InlineData("'single quoted arg with \"double quotes\"'", new[] { "single quoted arg with \"double quotes\"" })]
-        [InlineData("\"double quoted arg with escaped \\\" double quote\"", new[] { "double quoted arg with escaped \" double quote" })]
-        [InlineData("'single quoted arg with escaped \\' single quote'", new[] { "single quoted arg with escaped ' single quote" })]
+        [InlineData("\"double quoted arg with escaped \\\" double quote\"",
+            new[] { "double quoted arg with escaped \" double quote" })]
+        [InlineData("'single quoted arg with escaped \\' single quote'",
+            new[] { "single quoted arg with escaped ' single quote" })]
         [InlineData(@"\", new[] { @"\" })]
         [InlineData(@"\\", new[] { @"\\" })]
         [InlineData("\\\"", new[] { "\"" })]
@@ -230,7 +232,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication
             {
-                ThrowOnUnexpectedArgument = false,
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
                 ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated,
                 AllowArgumentSeparator = true,
             };
@@ -241,10 +243,25 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void ItHandlesArgumentSeparatorInResponseFile()
+        {
+            var app = new CommandLineApplication
+            {
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
+                ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated,
+                AllowArgumentSeparator = true,
+            };
+            var rspFile = CreateResponseFile("-- --hello");
+            app.Execute("@" + rspFile, "--world");
+
+            Assert.Equal(new[] { "--hello", "--world" }, app.RemainingArguments);
+        }
+
+        [Fact]
         public void SubcommandsCanResponseFileOptions()
         {
             var app = new CommandLineApplication();
-            CommandArgument wordArgs = null;
+            CommandArgument? wordArgs = null;
             app.Command("save", c =>
             {
                 c.ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated;
@@ -252,20 +269,22 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             });
             var rspFile = CreateResponseFile(" 'lorem ipsum' ", "dolor sit amet");
             app.Execute("save", "@" + rspFile);
-            Assert.Collection(wordArgs.Values,
-               a => Assert.Equal("lorem ipsum", a),
-               a => Assert.Equal("dolor", a),
-               a => Assert.Equal("sit", a),
-               a => Assert.Equal("amet", a));
+            Assert.Collection(wordArgs?.Values,
+                a => Assert.Equal("lorem ipsum", a),
+                a => Assert.Equal("dolor", a),
+                a => Assert.Equal("sit", a),
+                a => Assert.Equal("amet", a));
         }
 
         [Fact]
         public void HandlesResponseFilesWhenGivenAsOptionArg()
         {
-            var app = new CommandLineApplication(throwOnUnexpectedArg: false)
+            var app = new CommandLineApplication
             {
                 ResponseFileHandling = ResponseFileHandling.ParseArgsAsSpaceSeparated,
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect,
             };
+
             var opt = app.Option("--message <MESSAGE>", "Message", CommandOptionType.SingleValue);
             var rspFile = CreateResponseFile(" 'lorem ipsum' ", "dolor sit amet");
             app.Execute("--message", "@" + rspFile);
@@ -273,9 +292,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal("lorem ipsum", opt.Value());
 
             Assert.Collection(app.RemainingArguments,
-               a => Assert.Equal("dolor", a),
-               a => Assert.Equal("sit", a),
-               a => Assert.Equal("amet", a));
+                a => Assert.Equal("dolor", a),
+                a => Assert.Equal("sit", a),
+                a => Assert.Equal("amet", a));
         }
     }
 }

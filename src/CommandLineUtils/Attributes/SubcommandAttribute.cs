@@ -2,6 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.ComponentModel;
+
+#pragma warning disable 618
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -12,34 +15,27 @@ namespace McMaster.Extensions.CommandLineUtils
     public sealed class SubcommandAttribute : Attribute
     {
         /// <summary>
-        /// Initializes a new instance of <see cref="SubcommandAttribute" />.
+        /// Initializes a new instance of <see cref="McMaster.Extensions.CommandLineUtils.SubcommandAttribute" />.
         /// </summary>
-        /// <param name="name">The name of the subcommand</param>
-        /// <param name="commandType">The type of the subcommand.</param>
-        public SubcommandAttribute(string name, Type commandType)
+        /// <param name="subcommands">The subcommand types.</param>
+        public SubcommandAttribute(params Type[] subcommands)
         {
-            CommandType = commandType;
-            Name = name;
-        }
-
-        /// <summary>
-        /// The name of the subcommand.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// The type of the subcommand.
-        /// </summary>
-        public Type CommandType { get; set; }
-
-        internal void Configure(CommandLineApplication app)
-        {
-            if (string.IsNullOrEmpty(Name))
+            if (subcommands == null)
             {
-                throw new ArgumentException(Strings.IsNullOrEmpty, nameof(Name));
+                throw new ArgumentNullException(nameof(subcommands));
             }
 
-            app.Name = Name;
+            if (subcommands.Length == 0)
+            {
+                throw new ArgumentException("Value cannot be an empty collection.", nameof(subcommands));
+            }
+
+            Types = subcommands;
         }
+
+        /// <summary>
+        /// The types of the subcommands.
+        /// </summary>
+        public Type[] Types { get; private set; }
     }
 }

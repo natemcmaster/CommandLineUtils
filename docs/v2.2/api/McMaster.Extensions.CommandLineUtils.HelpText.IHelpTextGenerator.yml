@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+  commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+  id: IHelpTextGenerator
+  parent: McMaster.Extensions.CommandLineUtils.HelpText
+  children:
+  - McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  langs:
+  - csharp
+  - vb
+  name: IHelpTextGenerator
+  nameWithType: IHelpTextGenerator
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/IHelpTextGenerator.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IHelpTextGenerator
+    path: ../src/CommandLineUtils/HelpText/IHelpTextGenerator.cs
+    startLine: 10
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: "\nGenerates help text for a command line application.\n"
+  example: []
+  syntax:
+    content: public interface IHelpTextGenerator
+    content.vb: Public Interface IHelpTextGenerator
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  id: Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: Generate(CommandLineApplication, TextWriter)
+  nameWithType: IHelpTextGenerator.Generate(CommandLineApplication, TextWriter)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/IHelpTextGenerator.cs
+      branch: b4ae98e77f9f5a5fd2e7994180c7e722b82fe717
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Generate
+    path: ../src/CommandLineUtils/HelpText/IHelpTextGenerator.cs
+    startLine: 17
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: "\nGenerate help text for the application.\n"
+  example: []
+  syntax:
+    content: void Generate(CommandLineApplication application, TextWriter output)
+    parameters:
+    - id: application
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: output
+      type: System.IO.TextWriter
+      description: ''
+    content.vb: Sub Generate(application As CommandLineApplication, output As TextWriter)
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate*
+references:
+- uid: McMaster.Extensions.CommandLineUtils.HelpText
+  commentId: N:McMaster.Extensions.CommandLineUtils.HelpText
+  name: McMaster.Extensions.CommandLineUtils.HelpText
+  nameWithType: McMaster.Extensions.CommandLineUtils.HelpText
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate
+  name: Generate
+  nameWithType: IHelpTextGenerator.Generate
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+- uid: System.IO.TextWriter
+  commentId: T:System.IO.TextWriter
+  parent: System.IO
+  isExternal: true
+  name: TextWriter
+  nameWithType: TextWriter
+  fullName: System.IO.TextWriter
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO

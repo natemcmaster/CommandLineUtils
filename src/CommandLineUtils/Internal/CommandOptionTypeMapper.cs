@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Reflection;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -15,11 +16,14 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static CommandOptionTypeMapper Default { get; } = new CommandOptionTypeMapper();
 
-        public bool TryGetOptionType(Type clrType, out CommandOptionType optionType)
+        public bool TryGetOptionType(
+            Type clrType,
+            ValueParserProvider valueParsers,
+            out CommandOptionType optionType)
         {
             try
             {
-                optionType = GetOptionType(clrType);
+                optionType = GetOptionType(clrType, valueParsers);
                 return true;
             }
             catch
@@ -29,9 +33,9 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        public CommandOptionType GetOptionType(Type clrType)
+        public CommandOptionType GetOptionType(Type clrType, ValueParserProvider? valueParsers = null)
         {
-            if (clrType == typeof(bool))
+            if (clrType == typeof(bool) || clrType == typeof(bool[]))
             {
                 return CommandOptionType.NoValue;
             }
@@ -41,19 +45,39 @@ namespace McMaster.Extensions.CommandLineUtils
                 return CommandOptionType.SingleValue;
             }
 
-            if (clrType.IsArray || typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(clrType))
+            if (clrType.IsArray || typeof(IEnumerable).IsAssignableFrom(clrType))
             {
                 return CommandOptionType.MultipleValue;
             }
 
-            var typeInfo = clrType.GetTypeInfo();
-            if (typeInfo.IsEnum)
+            if (clrType.IsEnum)
             {
                 return CommandOptionType.SingleValue;
             }
-            if (typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>))
+
+            if (clrType.IsGenericType)
             {
-                return GetOptionType(typeInfo.GetGenericArguments().First());
+                var typeDef = clrType.GetGenericTypeDefinition();
+                if (typeDef == typeof(Nullable<>))
+                {
+                    return GetOptionType(clrType.GetGenericArguments().First(), valueParsers);
+                }
+
+                if (typeDef == typeof(Tuple<,>) && clrType.GenericTypeArguments[0] == typeof(bool))
+                {
+                    if (GetOptionType(clrType.GenericTypeArguments[1], valueParsers) == CommandOptionType.SingleValue)
+                    {
+                        return CommandOptionType.SingleOrNoValue;
+                    }
+                }
+
+                if (typeDef == typeof(ValueTuple<,>) && clrType.GenericTypeArguments[0] == typeof(bool))
+                {
+                    if (GetOptionType(clrType.GenericTypeArguments[1], valueParsers) == CommandOptionType.SingleValue)
+                    {
+                        return CommandOptionType.SingleOrNoValue;
+                    }
+                }
             }
 
             if (typeof(byte) == clrType
@@ -69,7 +93,12 @@ namespace McMaster.Extensions.CommandLineUtils
                 return CommandOptionType.SingleValue;
             }
 
-            throw new ArgumentException("Could not determine CommandOptionType", nameof(clrType));
+            if (valueParsers?.GetParser(clrType) != null)
+            {
+                return CommandOptionType.SingleValue;
+            }
+
+            throw new ArgumentException("Could not determine CommandOptionType", clrType.Name);
         }
     }
 }

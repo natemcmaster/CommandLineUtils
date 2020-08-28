@@ -15,20 +15,45 @@ namespace McMaster.Extensions.CommandLineUtils
     public static class DebugHelper
     {
         /// <summary>
-        /// Pauses the application for the debugger when '--debug' is passed in.
+        /// Pauses the application until the debugger is attached when '--debug' is passed in as the first argument.
+        /// <para>
+        /// The pause times out at 30 seconds and continues execution.
+        /// </para>
         /// </summary>
         /// <param name="args">The command line arguments</param>
         public static void HandleDebugSwitch(ref string[] args)
+            => HandleDebugSwitch(ref args, 30);
+
+        /// <summary>
+        /// Pauses the application until the debugger is attached when '--debug' is passed in as the first argument,
+        /// with a maximum wait time in seconds.
+        /// </summary>
+        /// <param name="args">The command line arguments</param>
+        /// <param name="maxWaitSeconds">Maximum number of seconds to wait. Set to 0 or less for infinite waiting.</param>
+        public static void HandleDebugSwitch(ref string[] args, int maxWaitSeconds)
         {
             if (args.Length > 0 && string.Equals("--debug", args[0], StringComparison.OrdinalIgnoreCase))
             {
                 args = args.Skip(1).ToArray();
+                if (Debugger.IsAttached)
+                {
+                    return;
+                }
+
                 Console.WriteLine("Waiting for debugger to attach.");
                 Console.WriteLine($"Process ID: {Process.GetCurrentProcess().Id}");
-                Debugger.Launch();
-                while (Debugger.IsAttached)
+
+                const int interval = 250;
+                var maxWait = maxWaitSeconds * 1000 / interval;
+                while (!Debugger.IsAttached && (maxWait > 0 || maxWaitSeconds <= 0))
                 {
-                    Thread.Sleep(TimeSpan.MaxValue);
+                    maxWait--;
+                    Thread.Sleep(TimeSpan.FromMilliseconds(interval));
+                }
+
+                if (!Debugger.IsAttached)
+                {
+                    Console.WriteLine($"Timed out waiting for {maxWaitSeconds} seconds for debugger to attach. Continuing execution.");
                 }
             }
         }

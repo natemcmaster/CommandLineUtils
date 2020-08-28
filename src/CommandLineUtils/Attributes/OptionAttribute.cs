@@ -3,7 +3,7 @@
 
 using System;
 using System.Reflection;
-using McMaster.Extensions.CommandLineUtils.Validation;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -24,7 +24,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Initializes a new <see cref="OptionAttribute"/>.
         /// </summary>
-        /// <param name="template">The string template. <see cref="CommandOption.Template"/>.</param>
+        /// <param name="template">The string template. This is parsed into <see cref="CommandOption.ShortName"/> and <see cref="CommandOption.LongName"/>.</param>
         public OptionAttribute(string template)
         {
             Template = template;
@@ -53,7 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="template">The template</param>
         /// <param name="description">The option description</param>
         /// <param name="optionType">The option type</param>
-        public OptionAttribute(string template, string description, CommandOptionType optionType)
+        public OptionAttribute(string? template, string? description, CommandOptionType optionType)
         {
             Template = template;
             Description = description;
@@ -61,13 +61,14 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Defines the type of the option. When not set, this will be inferred from the CLR type of the property. <seealso cref="CommandOption.OptionType"/>
+        /// Defines the type of the option. When not set, this will be inferred from the CLR type of the property.
         /// </summary>
+        /// <seealso cref="CommandOption.OptionType"/>
         public CommandOptionType? OptionType { get; set; }
 
         internal CommandOption Configure(CommandLineApplication app, PropertyInfo prop)
         {
-            var optionType = GetOptionType(prop);
+            var optionType = GetOptionType(prop, app.ValueParsers);
             CommandOption option;
             if (Template != null)
             {
@@ -81,6 +82,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     LongName = longName,
                     ShortName = longName.Substring(0, 1),
                     ValueName = prop.Name.ToConstantCase(),
+                    UnderlyingType = prop.PropertyType,
                 };
             }
 
@@ -95,14 +97,14 @@ namespace McMaster.Extensions.CommandLineUtils
             return option;
         }
 
-        private CommandOptionType GetOptionType(PropertyInfo prop)
+        private CommandOptionType GetOptionType(PropertyInfo prop, ValueParserProvider valueParsers)
         {
             CommandOptionType optionType;
             if (OptionType.HasValue)
             {
                 optionType = OptionType.Value;
             }
-            else if (!CommandOptionTypeMapper.Default.TryGetOptionType(prop.PropertyType, out optionType))
+            else if (!CommandOptionTypeMapper.Default.TryGetOptionType(prop.PropertyType, valueParsers, out optionType))
             {
                 throw new InvalidOperationException(Strings.CannotDetermineOptionType(prop));
             }

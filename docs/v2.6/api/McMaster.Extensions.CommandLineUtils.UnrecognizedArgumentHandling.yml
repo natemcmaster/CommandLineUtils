@@ -1,0 +1,136 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  commentId: T:McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  id: UnrecognizedArgumentHandling
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.StopParsingAndCollect
+  - McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.Throw
+  langs:
+  - csharp
+  - vb
+  name: UnrecognizedArgumentHandling
+  nameWithType: UnrecognizedArgumentHandling
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  type: Enum
+  source:
+    remote:
+      path: src/CommandLineUtils/UnrecognizedArgumentHandling.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: UnrecognizedArgumentHandling
+    path: ../src/CommandLineUtils/UnrecognizedArgumentHandling.cs
+    startLine: 8
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nDefines behaviors for for how unrecognized arguments should be handled.\n"
+  example: []
+  syntax:
+    content: public enum UnrecognizedArgumentHandling
+    content.vb: Public Enum UnrecognizedArgumentHandling
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.Throw
+  commentId: F:McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.Throw
+  id: Throw
+  parent: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  langs:
+  - csharp
+  - vb
+  name: Throw
+  nameWithType: UnrecognizedArgumentHandling.Throw
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.Throw
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/UnrecognizedArgumentHandling.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Throw
+    path: ../src/CommandLineUtils/UnrecognizedArgumentHandling.cs
+    startLine: 13
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nWhen an unrecognized argument is encountered, throw <xref href=\"McMaster.Extensions.CommandLineUtils.CommandParsingException\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: Throw = 0
+    return:
+      type: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.StopParsingAndCollect
+  commentId: F:McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.StopParsingAndCollect
+  id: StopParsingAndCollect
+  parent: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  langs:
+  - csharp
+  - vb
+  name: StopParsingAndCollect
+  nameWithType: UnrecognizedArgumentHandling.StopParsingAndCollect
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.StopParsingAndCollect
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/UnrecognizedArgumentHandling.cs
+      branch: release/2.x
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: StopParsingAndCollect
+    path: ../src/CommandLineUtils/UnrecognizedArgumentHandling.cs
+    startLine: 19
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nWhen an unrecognized argument is encountered, stop parsing arguments and put all remaining arguments,\nincluding the first unrecognized argument, in <xref href=\"McMaster.Extensions.CommandLineUtils.CommandLineApplication.RemainingArguments\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: StopParsingAndCollect = 1
+    return:
+      type: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: McMaster.Extensions.CommandLineUtils.CommandParsingException
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandParsingException
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandParsingException
+  nameWithType: CommandParsingException
+  fullName: McMaster.Extensions.CommandLineUtils.CommandParsingException
+- uid: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  commentId: T:McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+  parent: McMaster.Extensions.CommandLineUtils
+  name: UnrecognizedArgumentHandling
+  nameWithType: UnrecognizedArgumentHandling
+  fullName: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.RemainingArguments
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.RemainingArguments
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  name: RemainingArguments
+  nameWithType: CommandLineApplication.RemainingArguments
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.RemainingArguments
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication

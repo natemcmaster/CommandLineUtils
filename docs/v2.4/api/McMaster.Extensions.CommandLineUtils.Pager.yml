@@ -1,0 +1,700 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Pager
+  commentId: T:McMaster.Extensions.CommandLineUtils.Pager
+  id: Pager
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.Pager.#ctor
+  - McMaster.Extensions.CommandLineUtils.Pager.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)
+  - McMaster.Extensions.CommandLineUtils.Pager.Dispose
+  - McMaster.Extensions.CommandLineUtils.Pager.Kill
+  - McMaster.Extensions.CommandLineUtils.Pager.Prompt
+  - McMaster.Extensions.CommandLineUtils.Pager.WaitForExit
+  - McMaster.Extensions.CommandLineUtils.Pager.Writer
+  langs:
+  - csharp
+  - vb
+  name: Pager
+  nameWithType: Pager
+  fullName: McMaster.Extensions.CommandLineUtils.Pager
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/Pager.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Pager
+    path: ../src/CommandLineUtils/IO/Pager.cs
+    startLine: 19
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nProcess access to a console pager, which supports scrolling and search.\n<p>\nThis is done by piping into `less` command (Linux/macOS only.)\nWindows is currently not supported.\n</p>\n"
+  example: []
+  syntax:
+    content: 'public class Pager : IDisposable'
+    content.vb: >-
+      Public Class Pager
+          Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: McMaster.Extensions.CommandLineUtils.Pager.#ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.Pager.#ctor
+  id: '#ctor'
+  parent: McMaster.Extensions.CommandLineUtils.Pager
+  langs:
+  - csharp
+  - vb
+  name: Pager()
+  nameWithType: Pager.Pager()
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Pager()
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/Pager.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/IO/Pager.cs
+    startLine: 30
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes a new instance of <xref href=\"McMaster.Extensions.CommandLineUtils.Pager\" data-throw-if-not-resolved=\"false\"></xref> which displays output in a console pager.\n"
+  example: []
+  syntax:
+    content: public Pager()
+    content.vb: Public Sub New
+  overload: McMaster.Extensions.CommandLineUtils.Pager.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.Pager.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Pager.#ctor(McMaster.Extensions.CommandLineUtils.IConsole)
+  id: '#ctor(McMaster.Extensions.CommandLineUtils.IConsole)'
+  parent: McMaster.Extensions.CommandLineUtils.Pager
+  langs:
+  - csharp
+  - vb
+  name: Pager(IConsole)
+  nameWithType: Pager.Pager(IConsole)
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Pager(McMaster.Extensions.CommandLineUtils.IConsole)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/Pager.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/IO/Pager.cs
+    startLine: 38
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nInitializes a new instance of <xref href=\"McMaster.Extensions.CommandLineUtils.Pager\" data-throw-if-not-resolved=\"false\"></xref> which displays output in a console pager.\n"
+  example: []
+  syntax:
+    content: public Pager(IConsole console)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console to write to.
+    content.vb: Public Sub New(console As IConsole)
+  overload: McMaster.Extensions.CommandLineUtils.Pager.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Prompt
+  commentId: P:McMaster.Extensions.CommandLineUtils.Pager.Prompt
+  id: Prompt
+  parent: McMaster.Extensions.CommandLineUtils.Pager
+  langs:
+  - csharp
+  - vb
+  name: Prompt
+  nameWithType: Pager.Prompt
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Prompt
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/Pager.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Prompt
+    path: ../src/CommandLineUtils/IO/Pager.cs
+    startLine: 62
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThe prompt to display at the bottom of the pager.\n<a href=\"https://www.computerhope.com/unix/uless.htm#Prompts\">https://www.computerhope.com/unix/uless.htm#Prompts</a> for details.\n"
+  example: []
+  syntax:
+    content: public string Prompt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Prompt As String
+  overload: McMaster.Extensions.CommandLineUtils.Pager.Prompt*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Writer
+  commentId: P:McMaster.Extensions.CommandLineUtils.Pager.Writer
+  id: Writer
+  parent: McMaster.Extensions.CommandLineUtils.Pager
+  langs:
+  - csharp
+  - vb
+  name: Writer
+  nameWithType: Pager.Writer
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Writer
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/Pager.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Writer
+    path: ../src/CommandLineUtils/IO/Pager.cs
+    startLine: 84
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\n<p>\nGets an object which can be used to write text into the pager.\n</p>\n<p>\nThis fallsback to <xref href=\"McMaster.Extensions.CommandLineUtils.IConsole.Out\" data-throw-if-not-resolved=\"false\"></xref> if the pager is not available.\n</p>\n"
+  example: []
+  syntax:
+    content: public TextWriter Writer { get; }
+    parameters: []
+    return:
+      type: System.IO.TextWriter
+    content.vb: Public ReadOnly Property Writer As TextWriter
+  overload: McMaster.Extensions.CommandLineUtils.Pager.Writer*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: McMaster.Extensions.CommandLineUtils.Pager.WaitForExit
+  commentId: M:McMaster.Extensions.CommandLineUtils.Pager.WaitForExit
+  id: WaitForExit
+  parent: McMaster.Extensions.CommandLineUtils.Pager
+  langs:
+  - csharp
+  - vb
+  name: WaitForExit()
+  nameWithType: Pager.WaitForExit()
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.WaitForExit()
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/Pager.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WaitForExit
+    path: ../src/CommandLineUtils/IO/Pager.cs
+    startLine: 100
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThis will wait until the user exits the pager.\n"
+  example: []
+  syntax:
+    content: public void WaitForExit()
+    content.vb: Public Sub WaitForExit
+  overload: McMaster.Extensions.CommandLineUtils.Pager.WaitForExit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Kill
+  commentId: M:McMaster.Extensions.CommandLineUtils.Pager.Kill
+  id: Kill
+  parent: McMaster.Extensions.CommandLineUtils.Pager
+  langs:
+  - csharp
+  - vb
+  name: Kill()
+  nameWithType: Pager.Kill()
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Kill()
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/Pager.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Kill
+    path: ../src/CommandLineUtils/IO/Pager.cs
+    startLine: 105
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nForce close the pager.\n"
+  example: []
+  syntax:
+    content: public void Kill()
+    content.vb: Public Sub Kill
+  overload: McMaster.Extensions.CommandLineUtils.Pager.Kill*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Dispose
+  commentId: M:McMaster.Extensions.CommandLineUtils.Pager.Dispose
+  id: Dispose
+  parent: McMaster.Extensions.CommandLineUtils.Pager
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: Pager.Dispose()
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Dispose()
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/Pager.cs
+      branch: master
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Dispose
+    path: ../src/CommandLineUtils/IO/Pager.cs
+    startLine: 158
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: "\nThis will wait until the user exits the pager.\n"
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose
+  overload: McMaster.Extensions.CommandLineUtils.Pager.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Pager
+  commentId: T:McMaster.Extensions.CommandLineUtils.Pager
+  name: Pager
+  nameWithType: Pager
+  fullName: McMaster.Extensions.CommandLineUtils.Pager
+- uid: McMaster.Extensions.CommandLineUtils.Pager.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.#ctor
+  name: Pager
+  nameWithType: Pager.Pager
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Pager
+- uid: McMaster.Extensions.CommandLineUtils.IConsole
+  commentId: T:McMaster.Extensions.CommandLineUtils.IConsole
+  parent: McMaster.Extensions.CommandLineUtils
+  name: IConsole
+  nameWithType: IConsole
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Prompt*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.Prompt
+  name: Prompt
+  nameWithType: Pager.Prompt
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Prompt
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: McMaster.Extensions.CommandLineUtils.IConsole.Out
+  commentId: P:McMaster.Extensions.CommandLineUtils.IConsole.Out
+  parent: McMaster.Extensions.CommandLineUtils.IConsole
+  name: Out
+  nameWithType: IConsole.Out
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole.Out
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Writer*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.Writer
+  name: Writer
+  nameWithType: Pager.Writer
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Writer
+- uid: System.IO.TextWriter
+  commentId: T:System.IO.TextWriter
+  parent: System.IO
+  isExternal: true
+  name: TextWriter
+  nameWithType: TextWriter
+  fullName: System.IO.TextWriter
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+- uid: McMaster.Extensions.CommandLineUtils.Pager.WaitForExit*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.WaitForExit
+  name: WaitForExit
+  nameWithType: Pager.WaitForExit
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.WaitForExit
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Kill*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.Kill
+  name: Kill
+  nameWithType: Pager.Kill
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Kill
+- uid: McMaster.Extensions.CommandLineUtils.Pager.Dispose*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Pager.Dispose
+  name: Dispose
+  nameWithType: Pager.Dispose
+  fullName: McMaster.Extensions.CommandLineUtils.Pager.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    nameWithType: IDisposable.Dispose
+    fullName: System.IDisposable.Dispose
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    nameWithType: IDisposable.Dispose
+    fullName: System.IDisposable.Dispose
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
