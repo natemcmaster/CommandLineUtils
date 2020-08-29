@@ -95,6 +95,10 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             argPropOrder.Add(argumentAttr.Order, prop);
             argOrder.Add(argumentAttr.Order, argument);
 
+            var getter = ReflectionHelper.GetPropertyGetter(prop);
+
+            argument.DefaultValue = getter.Invoke(convention.ModelAccessor.GetModel())?.ToString();
+
             var setter = ReflectionHelper.GetPropertySetter(prop);
 
             if (argument.MultipleValues)

@@ -46,9 +46,8 @@ namespace McMaster.Extensions.CommandLineUtils
         public IReadOnlyList<T> ParsedValues => _parsedValues;
 
         /// <summary>
-        /// The default value of the option
+        /// The default value of the option.
         /// </summary>
-
         public new T DefaultValue
         {
             get => _defaultValue;

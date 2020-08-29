@@ -20,6 +20,7 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         private readonly List<T> _parsedValues = new List<T>();
         private readonly IValueParser<T> _valueParser;
+        private T _defaultValue;
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandArgument{T}" />
@@ -29,6 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             _valueParser = valueParser ?? throw new ArgumentNullException(nameof(valueParser));
             UnderlyingType = typeof(T);
+            base.DefaultValue = default(T)?.ToString();
         }
 
         /// <summary>
@@ -40,6 +42,19 @@ namespace McMaster.Extensions.CommandLineUtils
         /// All parsed values;
         /// </summary>
         public IReadOnlyList<T> ParsedValues => _parsedValues;
+
+        /// <summary>
+        /// The default value of the argument.
+        /// </summary>
+        public new T DefaultValue
+        {
+            get => _defaultValue;
+            set
+            {
+                _defaultValue = value;
+                base.DefaultValue = value?.ToString();
+            }
+        }
 
         void IInternalCommandParamOfT.Parse(CultureInfo culture)
         {

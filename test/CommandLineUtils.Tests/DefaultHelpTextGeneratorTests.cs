@@ -115,17 +115,21 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Option<SomeEnum>("--enumOpt <E>", "enum option desc.", CommandOptionType.SingleValue);
             app.Argument("SomeStringArgument", "string arg desc.");
             app.Argument("RestrictedStringArgument", "restricted string arg desc.", a => a.IsRequired().Accepts().Values("Foo", "Bar"));
+            app.Argument("DefaultValStringArgument", "string arg with default value desc.", a => a.DefaultValue = "Foo");
             app.Argument<SomeEnum>("SomeEnumArgument", "enum arg desc.");
             var helpText = GetHelpText(app);
 
-            Assert.Equal(@"Usage:  [options] <SomeStringArgument> <RestrictedStringArgument> <SomeEnumArgument>
+            Assert.Equal(@"Usage:  [options] <SomeStringArgument> <RestrictedStringArgument> <DefaultValStringArgument> <SomeEnumArgument>
 
 Arguments:
   SomeStringArgument        string arg desc.
   RestrictedStringArgument  restricted string arg desc.
                             Allowed values are: Foo, Bar.
+  DefaultValStringArgument  string arg with default value desc.
+                            Default value is: Foo.
   SomeEnumArgument          enum arg desc.
                             Allowed values are: None, Normal, Extreme.
+                            Default value is: None.
 
 Options:
   -?|-h|--help              Show help information.
@@ -153,14 +157,17 @@ Options:
             app.Conventions.UseDefaultConventions();
             var helpText = GetHelpText(app);
 
-            Assert.Equal(@"Usage: test [options] <SomeStringArgument> <RestrictedStringArgument> <SomeEnumArgument>
+            Assert.Equal(@"Usage: test [options] <SomeStringArgument> <RestrictedStringArgument> <DefaultValStringArgument> <SomeEnumArgument>
 
 Arguments:
   SomeStringArgument                string arg desc.
   RestrictedStringArgument          restricted string arg desc.
                                     Allowed values are: Foo, Bar.
+  DefaultValStringArgument          string arg with default value desc.
+                                    Default value is: Foo.
   SomeEnumArgument                  enum arg desc.
                                     Allowed values are: None, Normal, Extreme.
+                                    Default value is: None.
 
 Options:
   -strOpt|--str-opt <STR_OPT>       str option desc.
@@ -207,7 +214,10 @@ Options:
             [AllowedValues("Foo", "Bar")]
             public string RestrictedStringArgument { get; set; }
 
-            [Argument(2, Description = "enum arg desc.")]
+            [Argument(2, Description = "string arg with default value desc.")]
+            public string DefaultValStringArgument { get; set; } = "Foo";
+
+            [Argument(3, Description = "enum arg desc.")]
             public SomeEnum SomeEnumArgument { get; set; }
         }
 
