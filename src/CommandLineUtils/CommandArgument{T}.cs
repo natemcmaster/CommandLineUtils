@@ -30,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             _valueParser = valueParser ?? throw new ArgumentNullException(nameof(valueParser));
             UnderlyingType = typeof(T);
-            base.DefaultValue = default(T)?.ToString();
+            SetBaseDefaultValue(default);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace McMaster.Extensions.CommandLineUtils
             set
             {
                 _defaultValue = value;
-                base.DefaultValue = value?.ToString();
+                SetBaseDefaultValue(value);
             }
         }
 
@@ -62,6 +62,14 @@ namespace McMaster.Extensions.CommandLineUtils
             for (int i = 0; i < Values.Count; i++)
             {
                 _parsedValues.Add(_valueParser.Parse(Name, Values[i], culture));
+            }
+        }
+
+        void SetBaseDefaultValue(T value)
+        {
+            if (!ReflectionHelper.IsSpecialValueTupleType(typeof(T), out _))
+            {
+                base.DefaultValue = value?.ToString();
             }
         }
     }

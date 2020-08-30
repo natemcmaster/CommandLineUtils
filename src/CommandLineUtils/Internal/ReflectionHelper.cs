@@ -125,6 +125,26 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
+        public static bool IsSpecialValueTupleType(Type type, out FieldInfo fieldInfo)
+        {
+            var result = type.IsGenericType &&
+                         type.GetGenericTypeDefinition() == typeof(ValueTuple<,>) &&
+                         type.GenericTypeArguments[0] == typeof(bool);
+            fieldInfo = result ? type.GetFields()[1] : null;
+
+            return result;
+        }
+
+        public static bool IsSpecialTupleType(Type type, out PropertyInfo propertyInfo)
+        {
+            var result = type.IsGenericType &&
+                         type.GetGenericTypeDefinition() == typeof(Tuple<,>) &&
+                         type.GenericTypeArguments[0] == typeof(bool);
+            propertyInfo = result ? type.GetProperties()[1] : null;
+
+            return result;
+        }
+
         private static IEnumerable<MemberInfo> GetAllMembers(Type type)
         {
             while (type != null)

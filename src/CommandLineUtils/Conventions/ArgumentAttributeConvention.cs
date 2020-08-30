@@ -97,7 +97,10 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             var getter = ReflectionHelper.GetPropertyGetter(prop);
 
-            argument.DefaultValue = getter.Invoke(convention.ModelAccessor.GetModel())?.ToString();
+            if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
+            {
+                argument.DefaultValue = getter.Invoke(convention.ModelAccessor.GetModel())?.ToString();
+            }
 
             var setter = ReflectionHelper.GetPropertySetter(prop);
 

@@ -59,7 +59,12 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             var getter = ReflectionHelper.GetPropertyGetter(prop);
 
-            option.DefaultValue = getter.Invoke(modelAccessor.GetModel())?.ToString();
+            var value = getter.Invoke(modelAccessor.GetModel());
+
+            if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
+            {
+                option.DefaultValue = value?.ToString();
+            }
 
             var setter = ReflectionHelper.GetPropertySetter(prop);
 
