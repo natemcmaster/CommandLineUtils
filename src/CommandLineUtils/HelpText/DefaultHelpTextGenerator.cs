@@ -192,17 +192,25 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var arg in visibleArguments)
                 {
-                    var enumNames = ExtractNamesFromEnum(arg.UnderlyingType);
-                    var description = enumNames.Any()
-                        ? $"{arg.Description}\nAllowed values are: {string.Join(", ", enumNames)}."
-                        : arg.Description;
+                    var description = arg.Description;
+                    var allowedValuesBeenSet = false;
 
                     foreach (var attributeValidator in arg.Validators.Cast<AttributeValidator>())
                     {
                         if (attributeValidator?.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
                         {
                             description += $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                            allowedValuesBeenSet = true;
                             break;
+                        }
+                    }
+
+                    if (!allowedValuesBeenSet)
+                    {
+                        var enumNames = ExtractNamesFromEnum(arg.UnderlyingType);
+                        if (enumNames.Any())
+                        {
+                            description += $"\nAllowed values are: {string.Join(", ", enumNames)}.";
                         }
                     }
 
@@ -236,17 +244,25 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
                 foreach (var opt in visibleOptions)
                 {
-                    var enumNames = ExtractNamesFromEnum(opt.UnderlyingType);
-                    var description = enumNames.Any()
-                        ? $"{opt.Description}\nAllowed values are: {string.Join(", ", enumNames)}."
-                        : opt.Description;
+                    var description = opt.Description;
+                    var allowedValuesBeenSet = false;
 
                     foreach (var attributeValidator in opt.Validators.Cast<AttributeValidator>())
                     {
                         if (attributeValidator?.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
                         {
                             description += $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                            allowedValuesBeenSet = true;
                             break;
+                        }
+                    }
+
+                    if (!allowedValuesBeenSet)
+                    {
+                        var enumNames = ExtractNamesFromEnum(opt.UnderlyingType);
+                        if (enumNames.Any())
+                        {
+                            description += $"\nAllowed values are: {string.Join(", ", enumNames)}.";
                         }
                     }
 
