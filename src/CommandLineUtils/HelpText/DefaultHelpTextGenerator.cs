@@ -402,12 +402,27 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
         private string[] ExtractNamesFromEnum(Type type)
         {
-            if (type == null || !type.IsEnum)
+            if (type == null)
             {
                 return Util.EmptyArray<string>();
             }
 
-            return Enum.GetNames(type);
+            if (ReflectionHelper.IsNullableType(type, out Type wrappedType))
+            {
+                return ExtractNamesFromEnum(wrappedType);
+            }
+
+            if (ReflectionHelper.IsSpecialValueTupleType(type, out var fieldInfo))
+            {
+                return ExtractNamesFromEnum(fieldInfo.FieldType);
+            }
+
+            if (type.IsEnum)
+            {
+                return Enum.GetNames(type);
+            }
+
+            return Util.EmptyArray<string>();
         }
     }
 }

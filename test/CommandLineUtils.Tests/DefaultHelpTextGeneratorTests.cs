@@ -112,14 +112,17 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Option("--rStrOpt <E>", "restricted str option desc.", CommandOptionType.SingleValue, o => o.IsRequired().Accepts().Values("Foo", "Bar"));
             app.Option<int>("--intOpt <E>", "int option desc.", CommandOptionType.SingleValue);
             app.Option<SomeEnum>("--enumOpt <E>", "enum option desc.", CommandOptionType.SingleValue);
-            app.Option<SomeEnum>("--rEnumOpt <E>", "restricted enum option desc.", CommandOptionType.SingleValue, o => o.Accepts().Values("None", "Normal"));
+            app.Option<SomeEnum>("--enumOpt2 <E>", "restricted enum option desc.", CommandOptionType.SingleValue, o => o.Accepts().Values("None", "Normal"));
+            app.Option<(bool, SomeEnum)>("--enumOpt3 <E>", "nullable enum option desc.", CommandOptionType.SingleOrNoValue);
+            app.Option<SomeEnum?>("--enumOpt4 <E>", "nullable enum option desc.", CommandOptionType.SingleOrNoValue);
             app.Argument("SomeStringArgument", "string arg desc.");
             app.Argument("RestrictedStringArgument", "restricted string arg desc.", a => a.IsRequired().Accepts().Values("Foo", "Bar"));
             app.Argument<SomeEnum>("SomeEnumArgument", "enum arg desc.");
             app.Argument<SomeEnum>("RestrictedEnumArgument", "restricted enum arg desc.", a => a.Accepts().Values("None", "Normal"));
+            app.Argument<(bool, SomeEnum)>("SomeNullableEnumArgument", "nullable enum arg desc.");
             var helpText = GetHelpText(app);
 
-            Assert.Equal(@"Usage:  [options] <SomeStringArgument> <RestrictedStringArgument> <SomeEnumArgument> <RestrictedEnumArgument>
+            Assert.Equal(@"Usage:  [options] <SomeStringArgument> <RestrictedStringArgument> <SomeEnumArgument> <RestrictedEnumArgument> <SomeNullableEnumArgument>
 
 Arguments:
   SomeStringArgument        string arg desc.
@@ -129,6 +132,8 @@ Arguments:
                             Allowed values are: None, Normal, Extreme.
   RestrictedEnumArgument    restricted enum arg desc.
                             Allowed values are: None, Normal.
+  SomeNullableEnumArgument  nullable enum arg desc.
+                            Allowed values are: None, Normal, Extreme.
 
 Options:
   -?|-h|--help              Show help information.
@@ -138,8 +143,12 @@ Options:
   --intOpt <E>              int option desc.
   --enumOpt <E>             enum option desc.
                             Allowed values are: None, Normal, Extreme.
-  --rEnumOpt <E>            restricted enum option desc.
+  --enumOpt2 <E>            restricted enum option desc.
                             Allowed values are: None, Normal.
+  --enumOpt3[:<E>]          nullable enum option desc.
+                            Allowed values are: None, Normal, Extreme.
+  --enumOpt4[:<E>]          nullable enum option desc.
+                            Allowed values are: None, Normal, Extreme.
 
 ",
             helpText,
@@ -154,7 +163,7 @@ Options:
             app.Conventions.UseDefaultConventions();
             var helpText = GetHelpText(app);
 
-            Assert.Equal(@"Usage: test [options] <SomeStringArgument> <RestrictedStringArgument> <SomeEnumArgument> <RestrictedEnumArgument>
+            Assert.Equal(@"Usage: test [options] <SomeStringArgument> <RestrictedStringArgument> <SomeEnumArgument> <RestrictedEnumArgument> <SomeNullableEnumArgument>
 
 Arguments:
   SomeStringArgument                string arg desc.
@@ -164,6 +173,8 @@ Arguments:
                                     Allowed values are: None, Normal, Extreme.
   RestrictedEnumArgument            restricted enum arg desc.
                                     Allowed values are: None, Normal.
+  SomeNullableEnumArgument          nullable enum arg desc.
+                                    Allowed values are: None, Normal, Extreme.
 
 Options:
   -strOpt|--str-opt <STR_OPT>       str option desc.
@@ -172,8 +183,12 @@ Options:
   -intOpt|--int-opt <INT_OPT>       int option desc.
   -enumOpt|--verbosity <VERBOSITY>  enum option desc.
                                     Allowed values are: None, Normal, Extreme.
-  -rEnumOpt|--verb2 <VERB2>         restricted enum option desc.
+  -enumOpt2|--verb2 <VERB2>         restricted enum option desc.
                                     Allowed values are: None, Normal.
+  -enumOpt3|--verb3[:<VERB3>]       nullable enum option desc.
+                                    Allowed values are: None, Normal, Extreme.
+  -enumOpt4|--verb4[:<VERB4>]       nullable enum option desc.
+                                    Allowed values are: None, Normal, Extreme.
   -?|-h|--help                      Show help information.
 
 ",
@@ -197,9 +212,15 @@ Options:
             [Option(ShortName = "enumOpt", Description = "enum option desc.")]
             public SomeEnum Verbosity { get; set; }
 
-            [Option(ShortName = "rEnumOpt", Description = "restricted enum option desc.")]
+            [Option(ShortName = "enumOpt2", Description = "restricted enum option desc.")]
             [AllowedValues("None", "Normal")]
             public SomeEnum Verb2 { get; set; }
+
+            [Option(ShortName = "enumOpt3", Description = "nullable enum option desc.")]
+            public (bool HasValue, SomeEnum Value) Verb3 { get; set; }
+
+            [Option(CommandOptionType.SingleOrNoValue, ShortName = "enumOpt4", Description = "nullable enum option desc.")]
+            public SomeEnum? Verb4 { get; set; }
 
             [Argument(0, Description = "string arg desc.")]
             public string SomeStringArgument { get; set; }
@@ -215,6 +236,9 @@ Options:
             [Argument(3, Description = "restricted enum arg desc.")]
             [AllowedValues("None", "Normal")]
             public SomeEnum RestrictedEnumArgument { get; set; }
+
+            [Argument(4, Description = "nullable enum arg desc.")]
+            public (bool HasValue, SomeEnum Value) SomeNullableEnumArgument { get; set; }
         }
 
         [Theory]
