@@ -9,7 +9,7 @@ namespace StandardServices
     class Program
     {
         private readonly IConsole _console;
-        
+
         static Task<int> Main(string[] args) => CommandLineApplication.ExecuteAsync<Program>(args);
 
         public Program(IConsole console)
