@@ -9,7 +9,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <summary>
     /// Suppress <see cref="DefaultHelpOptionConvention"/>.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Assembly, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Assembly)]
     public sealed class SuppressDefaultHelpOptionAttribute : Attribute
     {
     }

@@ -8,7 +8,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     /// <summary>
     /// A parser that can convert string into <typeparamref name="T" />.
     /// </summary>
-    public interface IValueParser<T> : IValueParser
+    public interface IValueParser<out T> : IValueParser
     {
         /// <summary>
         /// Parses the raw string value.

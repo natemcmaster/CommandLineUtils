@@ -30,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             var setter = ReflectionHelper.GetPropertySetter(parentProp);
             context.Application.OnParsingComplete(r =>
             {
-                CommandLineApplication? subcommand = r.SelectedCommand;
+                var subcommand = r.SelectedCommand;
                 while (subcommand != null)
                 {
                     if (ReferenceEquals(context.Application, subcommand))

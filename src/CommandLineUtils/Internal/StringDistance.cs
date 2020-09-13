@@ -14,7 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         /// <param name="s"></param>
         /// <param name="t"></param>
-        /// <param name="damareu">Determites if the Damerau deviant is used</param>
+        /// <param name="damareu">Determines if the Damerau deviant is used</param>
         /// <returns></returns>
         private static int LevenshteinDistance(string s, string t, bool damareu)
         {

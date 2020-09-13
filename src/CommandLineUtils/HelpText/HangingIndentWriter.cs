@@ -65,7 +65,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <returns>Description text wrapped with padded newlines.</returns>
         private string WrapSingle(string original)
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             var lineLength = _indentSize;
             foreach (var token in original.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
             {

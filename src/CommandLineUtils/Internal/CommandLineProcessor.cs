@@ -33,7 +33,7 @@ namespace McMaster.Extensions.CommandLineUtils
             IReadOnlyList<string> arguments)
         {
             _initialCommand = command;
-            _enumerator = new ArgumentEnumerator(command, arguments ?? new string[0]);
+            _enumerator = new ArgumentEnumerator(command, arguments);
             CheckForShortOptionClustering(command);
         }
 
@@ -121,10 +121,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
 
-            if (_currentCommandArguments == null)
-            {
-                _currentCommandArguments = new CommandArgumentEnumerator(_currentCommand.Arguments.GetEnumerator());
-            }
+            _currentCommandArguments ??= new CommandArgumentEnumerator(_currentCommand.Arguments.GetEnumerator());
 
             if (_currentCommandArguments.MoveNext())
             {
@@ -149,13 +146,8 @@ namespace McMaster.Extensions.CommandLineUtils
                     {
                         var ch = arg.Name.Substring(i, 1);
 
-                        option = FindOption(ch, o => o.ShortName);
-
-                        if (option == null)
-                        {
-                            // quirk for compatibility with symbol options
-                            option = FindOption(ch, o => o.SymbolName);
-                        }
+                        option = FindOption(ch, o => o.ShortName)
+                                 ?? FindOption(ch, o => o.SymbolName);
 
                         if (option == null)
                         {
@@ -207,12 +199,8 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 else
                 {
-                    option = FindOption(name, o => o.ShortName);
-
-                    if (option == null)
-                    {
-                        option = FindOption(name, o => o.SymbolName);
-                    }
+                    option = FindOption(name, o => o.ShortName)
+                             ?? FindOption(name, o => o.SymbolName);
                 }
             }
             else
@@ -293,14 +281,12 @@ namespace McMaster.Extensions.CommandLineUtils
                 .Where(o => string.Equals(name, by(o), _currentCommand.OptionsComparison))
                 .ToList();
 
-            if (options.Count == 0)
+            switch (options.Count)
             {
-                return null;
-            }
-
-            if (options.Count == 1)
-            {
-                return options.First();
+                case 0:
+                    return null;
+                case 1:
+                    return options.First();
             }
 
             var helpOption = options.SingleOrDefault(o => o == _currentCommand.OptionHelp);
@@ -414,7 +400,7 @@ namespace McMaster.Extensions.CommandLineUtils
         [DebuggerDisplay("{Raw} ({Type})")]
         private abstract class Argument
         {
-            public Argument(string raw)
+            protected Argument(string raw)
             {
                 Raw = raw;
             }

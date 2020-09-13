@@ -37,7 +37,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 sb.Append('"');
             }
 
-            for (int i = 0; i < arg.Length; ++i)
+            for (var i = 0; i < arg.Length; ++i)
             {
                 var backslashes = 0;
 

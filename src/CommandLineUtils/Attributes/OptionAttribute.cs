@@ -11,7 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Represents one or many command line option that is identified by flag proceeded by '-' or '--'.
     /// Options are not positional. Compare to <see cref="ArgumentAttribute"/>.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Property)]
     public sealed class OptionAttribute : OptionAttributeBase
     {
         /// <summary>
@@ -88,10 +88,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             Configure(option);
 
-            if (option.Description == null)
-            {
-                option.Description = prop.Name;
-            }
+            option.Description ??= prop.Name;
 
             app.Options.Add(option);
             return option;

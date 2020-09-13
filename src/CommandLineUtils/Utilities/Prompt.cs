@@ -45,17 +45,18 @@ namespace McMaster.Extensions.CommandLineUtils
                     return defaultAnswer;
                 }
 
-                if (resp == "n" || resp == "no")
+                switch (resp)
                 {
-                    return false;
+                    case "n":
+                    case "no":
+                        return false;
+                    case "y":
+                    case "yes":
+                        return true;
+                    default:
+                        Console.WriteLine($"Invalid response '{resp}'. Please answer 'y' or 'n' or CTRL+C to exit.");
+                        break;
                 }
-
-                if (resp == "y" || resp == "yes")
-                {
-                    return true;
-                }
-
-                Console.WriteLine($"Invalid response '{resp}'. Please answer 'y' or 'n' or CTRL+C to exit.");
             }
             while (true);
         }
@@ -84,12 +85,9 @@ namespace McMaster.Extensions.CommandLineUtils
                 resp = Console.ReadLine();
             }
 
-            if (!string.IsNullOrEmpty(resp))
-            {
-                return resp;
-            }
-
-            return defaultValue;
+            return !string.IsNullOrEmpty(resp)
+                ? resp
+                : defaultValue;
         }
 
         /// <summary>

@@ -22,10 +22,6 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 var elementType = type.GetElementType();
                 var elementParser = valueParsers.GetParser(elementType);
-                if (elementParser == null)
-                {
-                    return null;
-                }
 
                 return new ArrayParser(elementType, elementParser, valueParsers.ParseCulture);
             }

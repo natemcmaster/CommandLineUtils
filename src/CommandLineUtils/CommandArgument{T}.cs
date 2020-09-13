@@ -44,9 +44,9 @@ namespace McMaster.Extensions.CommandLineUtils
         void IInternalCommandParamOfT.Parse(CultureInfo culture)
         {
             _parsedValues.Clear();
-            for (int i = 0; i < Values.Count; i++)
+            foreach (var t in Values)
             {
-                _parsedValues.Add(_valueParser.Parse(Name, Values[i], culture));
+                _parsedValues.Add(_valueParser.Parse(Name, t, culture));
             }
         }
     }

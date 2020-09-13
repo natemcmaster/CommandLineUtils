@@ -9,7 +9,7 @@ using System.Text;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    internal class ResponseFileParser
+    internal static class ResponseFileParser
     {
         public static IList<string> Parse(string filePath, ResponseFileHandling handling)
         {
@@ -97,20 +97,20 @@ namespace McMaster.Extensions.CommandLineUtils
                             sb.Clear();
                         }
                     }
-                    else if (ch == '"')
-                    {
-                        // the loop will search for the next unescaped "
-                        breakOn = '"';
-                    }
-                    else if (ch == '\'')
-                    {
-                        // the loop will search for the next unescaped '
-                        breakOn = '\'';
-                    }
-                    else
-                    {
-                        sb.Append(ch);
-                    }
+                    else switch (ch)
+                        {
+                            case '"':
+                                // the loop will search for the next unescaped "
+                                breakOn = '"';
+                                break;
+                            case '\'':
+                                // the loop will search for the next unescaped '
+                                breakOn = '\'';
+                                break;
+                            default:
+                                sb.Append(ch);
+                                break;
+                        }
                 }
 
                 if (sb.Length > 0 || breakOn.HasValue || shouldCreateNewArg)

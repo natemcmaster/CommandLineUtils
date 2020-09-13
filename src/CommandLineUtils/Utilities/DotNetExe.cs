@@ -60,12 +60,9 @@ namespace McMaster.Extensions.CommandLineUtils
 #error Update target frameworks
 #endif
             var dotnetRoot = Environment.GetEnvironmentVariable("DOTNET_ROOT");
-            if (!string.IsNullOrEmpty(dotnetRoot))
-            {
-                return Path.Combine(dotnetRoot, fileName);
-            }
-
-            return null;
+            return !string.IsNullOrEmpty(dotnetRoot)
+                ? Path.Combine(dotnetRoot, fileName)
+                : null;
         }
     }
 }

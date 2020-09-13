@@ -135,7 +135,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         {
             output.Write("Usage:");
             var stack = new Stack<string?>();
-            for (CommandLineApplication? cmd = application; cmd != null; cmd = cmd.Parent)
+            for (var cmd = application; cmd != null; cmd = cmd.Parent)
             {
                 stack.Push(cmd.Name);
             }
@@ -188,7 +188,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             {
                 output.WriteLine();
                 output.WriteLine("Arguments:");
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+                var outputFormat = $"  {{0, -{firstColumnWidth}}}{{1}}";
 
                 foreach (var arg in visibleArguments)
                 {
@@ -240,7 +240,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             {
                 output.WriteLine();
                 output.WriteLine("Options:");
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+                var outputFormat = $"  {{0, -{firstColumnWidth}}}{{1}}";
 
                 foreach (var opt in visibleOptions)
                 {
@@ -293,7 +293,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             {
                 output.WriteLine();
                 output.WriteLine("Commands:");
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+                var outputFormat = $"  {{0, -{firstColumnWidth}}}{{1}}";
 
                 var orderedCommands = SortCommandsByName
                     ? visibleCommands.OrderBy(c => c.Name).ToList()
@@ -407,7 +407,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 return Util.EmptyArray<string>();
             }
 
-            if (ReflectionHelper.IsNullableType(type, out Type wrappedType))
+            if (ReflectionHelper.IsNullableType(type, out var wrappedType))
             {
                 return ExtractNamesFromEnum(wrappedType);
             }

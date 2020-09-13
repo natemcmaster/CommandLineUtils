@@ -71,7 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         {
             if (constructors.Length == 0)
             {
-                return () => throw new InvalidOperationException(Strings.NoAnyPublicConstuctorFound(typeof(TModel)));
+                return () => throw new InvalidOperationException(Strings.NoAnyPublicConstructorFound(typeof(TModel)));
             }
 
             foreach (var ctorCandidate in constructors.OrderByDescending(c => c.GetParameters().Length))

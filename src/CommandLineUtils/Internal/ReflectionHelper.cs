@@ -11,7 +11,7 @@ using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    internal class ReflectionHelper
+    internal static class ReflectionHelper
     {
         private const BindingFlags DeclaredOnlyLookup = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
 
@@ -89,7 +89,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 else
                 {
-                    object? service = command.AdditionalServices?.GetService(methodParam.ParameterType);
+                    var service = command.AdditionalServices?.GetService(methodParam.ParameterType);
                     arguments[i] = service ?? throw new InvalidOperationException(Strings.UnsupportedParameterTypeOnMethod(method.Name, methodParam));
                 }
             }

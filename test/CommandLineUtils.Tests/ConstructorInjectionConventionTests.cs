@@ -132,7 +132,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication<TestAppWithoutPublicConstructor>();
             app.Conventions.UseConstructorInjection();
             var ex = Assert.Throws<InvalidOperationException>(() => app.Model);
-            Assert.Equal(Strings.NoAnyPublicConstuctorFound(typeof(TestAppWithoutPublicConstructor)), ex.Message);
+            Assert.Equal(Strings.NoAnyPublicConstructorFound(typeof(TestAppWithoutPublicConstructor)), ex.Message);
         }
 
         private class TestAppWithoutMatchedConstructor

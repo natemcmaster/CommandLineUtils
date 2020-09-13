@@ -75,9 +75,6 @@ namespace McMaster.Extensions.CommandLineUtils
         public static string CannotDetermineParserType(PropertyInfo prop)
             => $"Could not automatically determine how to convert string values into {prop.PropertyType.FullName} on property {prop.DeclaringType.Name}.{prop.Name}.";
 
-        public static string MultipleValuesArgumentShouldBeCollection
-            = "ArgumentAttribute.MultipleValues should be true if the property type is an array or collection.";
-
         public const string HelpOptionOnTypeAndProperty
             = "Multiple HelpOptionAttributes found. HelpOptionAttribute should only be used one per type, either on one property or on the type.";
 
@@ -99,7 +96,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static string NoParameterTypeRegistered(Type modelType, Type paramType)
             => $"The constructor of type '{modelType}' contains the parameter of type '{paramType}' is not registered, Ensure the type '{paramType}' are registered in additional services with CommandLineApplication.Conventions.UseConstructorInjection(IServiceProvider additionalServices).";
 
-        public static string NoAnyPublicConstuctorFound(Type modelType)
+        public static string NoAnyPublicConstructorFound(Type modelType)
             => $"Could not find any public constructors of type '{modelType}'.";
 
         public static string NoMatchedConstructorFound(Type modelType)
