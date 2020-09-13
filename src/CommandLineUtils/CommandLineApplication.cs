@@ -458,6 +458,8 @@ namespace McMaster.Extensions.CommandLineUtils
                 AssertCommandNameIsUnique(name, null);
             }
 
+            subcommand.Parent = this;
+
             Commands.Add(subcommand);
         }
 
