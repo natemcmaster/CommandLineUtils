@@ -160,6 +160,21 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void ItInfersClusterOptionsCannotBeUsed_MultiCharShortNameViaAddedSubcommand()
+        {
+            var app = new CommandLineApplication();
+            var subcmd = new CommandLineApplication
+            {
+                Name = "sub"
+            };
+            subcmd.Option("-au|--auth", "Verbose output", CommandOptionType.NoValue);
+            app.AddSubcommand(subcmd);
+            Assert.False(app.ClusterOptionsWasSetExplicitly);
+            app.Parse("sub", "-au");
+            Assert.False(app.ClusterOptions);
+        }
+
+        [Fact]
         public void ItInfersClusterOptionsCannotBeUsed_MultiCharShortNameAttribute()
         {
             var app = new CommandLineApplication<ShortNameType>();
