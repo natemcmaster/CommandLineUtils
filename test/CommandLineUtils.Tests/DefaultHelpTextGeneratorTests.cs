@@ -185,9 +185,9 @@ Options:
                                     Allowed values are: None, Normal, Extreme.
   -enumOpt2|--verb2 <VERB2>         restricted enum option desc.
                                     Allowed values are: None, Normal.
-  -enumOpt3|--verb2[:<VERB3>]       nullable enum option desc.
+  -enumOpt3|--verb3[:<VERB3>]       nullable enum option desc.
                                     Allowed values are: None, Normal, Extreme.
-  -enumOpt4|--verb3[:<VERB4>]       nullable enum option desc.
+  -enumOpt4|--verb4[:<VERB4>]       nullable enum option desc.
                                     Allowed values are: None, Normal, Extreme.
   -?|-h|--help                      Show help information.
 
