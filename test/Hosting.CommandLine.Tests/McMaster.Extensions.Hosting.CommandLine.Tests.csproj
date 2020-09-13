@@ -24,14 +24,6 @@
 
   <ItemGroup>
     <None Update="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
-    <None Remove="TestResults\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="TestResults\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="TestResults\**" />
-  </ItemGroup>
 </Project>
