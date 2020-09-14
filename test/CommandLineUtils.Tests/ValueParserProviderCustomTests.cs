@@ -1,10 +1,10 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using McMaster.Extensions.CommandLineUtils.Abstractions;
 using System;
 using System.Globalization;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests

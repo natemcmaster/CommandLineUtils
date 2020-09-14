@@ -71,12 +71,12 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// The short command line flag used to identify this option. On command line, this is preceeded by a single '-{ShortName}'.
+        /// The short command line flag used to identify this option. On command line, this is preceded by a single '-{ShortName}'.
         /// </summary>
         public string? ShortName { get; set; }
 
         /// <summary>
-        /// The long command line flag used to identify this option. On command line, this is preceeded by a double dash: '--{LongName}'.
+        /// The long command line flag used to identify this option. On command line, this is preceded by a double dash: '--{LongName}'.
         /// </summary>
         public string? LongName { get; set; }
 

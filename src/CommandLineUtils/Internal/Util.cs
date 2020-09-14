@@ -5,7 +5,7 @@ using System;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
-    internal class Util
+    internal static class Util
     {
         public static T[] EmptyArray<T>()
 #if NET45

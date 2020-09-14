@@ -11,10 +11,17 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         public static readonly IValueParser<bool> Boolean = ValueParser.Create(
             (argName, value, culture) =>
             {
-                if (value == null) return default;
-
-                if (value == "T" || value == "t") return true;
-                if (value == "F" || value == "f") return false;
+                switch (value)
+                {
+                    case null:
+                        return default;
+                    case "T":
+                    case "t":
+                        return true;
+                    case "F":
+                    case "f":
+                        return false;
+                }
 
                 if (!bool.TryParse(value, out var result))
                 {

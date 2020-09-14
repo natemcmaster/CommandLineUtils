@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public static bool IsGlobalVerbose()
         {
-            bool.TryParse(Environment.GetEnvironmentVariable("DOTNET_CLI_CONTEXT_VERBOSE"), out bool globalVerbose);
+            bool.TryParse(Environment.GetEnvironmentVariable("DOTNET_CLI_CONTEXT_VERBOSE"), out var globalVerbose);
             return globalVerbose;
         }
     }

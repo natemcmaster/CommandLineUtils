@@ -26,12 +26,9 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         public object? Parse(string? argName, string? value, CultureInfo culture)
         {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                return null;
-            }
-
-            return _wrapped.Parse(argName, value, culture);
+            return !string.IsNullOrWhiteSpace(value)
+                ? _wrapped.Parse(argName, value, culture)
+                : null;
         }
     }
 }

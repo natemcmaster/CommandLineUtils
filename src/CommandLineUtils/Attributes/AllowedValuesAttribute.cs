@@ -4,6 +4,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -29,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
         }
 
-        internal ReadOnlyCollection<string> AllowedValues => Array.AsReadOnly(this._allowedValues);
+        internal ReadOnlyCollection<string> AllowedValues => Array.AsReadOnly(_allowedValues);
 
         /// <summary>
         /// Initializes an instance of <see cref="AllowedValuesAttribute"/>.
@@ -73,15 +74,9 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <inheritdoc />
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (value is string str)
+            if (value is string str && _allowedValues.Any(t => str.Equals(t, Comparer)))
             {
-                for (var i = 0; i < _allowedValues.Length; i++)
-                {
-                    if (str.Equals(_allowedValues[i], Comparer))
-                    {
-                        return ValidationResult.Success;
-                    }
-                }
+                return ValidationResult.Success;
             }
 
             return new ValidationResult(FormatErrorMessage(value as string));

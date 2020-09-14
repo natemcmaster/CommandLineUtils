@@ -23,11 +23,11 @@ namespace McMaster.Extensions.CommandLineUtils
         private T _defaultValue;
 
         /// <summary>
-        /// Intializes a new instance of <see cref="CommandOption{T}" />
+        /// Initializes a new instance of <see cref="CommandOption{T}" />
         /// </summary>
         /// <param name="valueParser">The parser use to convert values into type of T.</param>
-        /// <param name="template">The option tempalte.</param>
-        /// <param name="optionType">The optiont type</param>
+        /// <param name="template">The option template.</param>
+        /// <param name="optionType">The option type</param>
         public CommandOption(IValueParser<T> valueParser, string template, CommandOptionType optionType)
             : base(template, optionType)
         {
@@ -62,9 +62,9 @@ namespace McMaster.Extensions.CommandLineUtils
         void IInternalCommandParamOfT.Parse(CultureInfo culture)
         {
             _parsedValues.Clear();
-            for (int i = 0; i < Values.Count; i++)
+            foreach (var t in Values)
             {
-                _parsedValues.Add(_valueParser.Parse(LongName ?? ShortName ?? SymbolName, Values[i], culture));
+                _parsedValues.Add(_valueParser.Parse(LongName ?? ShortName ?? SymbolName, t, culture));
             }
         }
 

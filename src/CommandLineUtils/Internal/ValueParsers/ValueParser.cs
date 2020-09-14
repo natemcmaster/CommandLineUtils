@@ -69,7 +69,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         private sealed class DelegatingValueParser<T> : IValueParser<T>
         {
-            readonly Func<string?, string?, CultureInfo, T> _parser;
+            private readonly Func<string?, string?, CultureInfo, T> _parser;
 
             public DelegatingValueParser(Func<string?, string?, CultureInfo, T> parser)
             {

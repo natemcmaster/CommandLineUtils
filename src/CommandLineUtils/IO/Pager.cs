@@ -79,7 +79,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// Gets an object which can be used to write text into the pager.
         /// </para>
         /// <para>
-        /// This fallsback to <see cref="IConsole.Out" /> if the pager is not available.
+        /// This falls back to <see cref="IConsole.Out" /> if the pager is not available.
         /// </para>
         /// </summary>
         public TextWriter Writer
@@ -105,9 +105,9 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public void Kill()
         {
-            if (_less.IsValueCreated && _less.Value != null)
+            if (_less.IsValueCreated)
             {
-                _less.Value.Kill();
+                _less.Value?.Kill();
             }
         }
 

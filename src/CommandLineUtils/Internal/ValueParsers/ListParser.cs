@@ -25,9 +25,9 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         public object Parse(string? argName, IReadOnlyList<string?> values)
         {
             var list = (IList)Activator.CreateInstance(_listType, new object[] { values.Count });
-            for (var i = 0; i < values.Count; i++)
+            foreach (var t in values)
             {
-                list.Add(_elementParser.Parse(argName, values[i], _parserCulture));
+                list.Add(_elementParser.Parse(argName, t, _parserCulture));
             }
             return list;
         }

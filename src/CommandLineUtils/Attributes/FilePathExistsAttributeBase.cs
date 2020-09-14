@@ -55,17 +55,12 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
 
         private static string GetDefaultErrorMessage(FilePathType filePathType)
         {
-            if (filePathType == FilePathType.File)
+            return filePathType switch
             {
-                return "The file '{0}' does not exist.";
-            }
-
-            if (filePathType == FilePathType.Directory)
-            {
-                return "The directory '{0}' does not exist.";
-            }
-
-            return "The file path '{0}' does not exist.";
+                FilePathType.File => "The file '{0}' does not exist.",
+                FilePathType.Directory => "The directory '{0}' does not exist.",
+                _ => "The file path '{0}' does not exist."
+            };
         }
     }
 }

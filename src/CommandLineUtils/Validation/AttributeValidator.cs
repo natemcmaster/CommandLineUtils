@@ -13,18 +13,16 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
     /// </summary>
     public class AttributeValidator : IValidator, ICommandValidator
     {
-        private readonly ValidationAttribute _attribute;
-
         /// <summary>
         /// Initializes an instance of <see cref="AttributeValidator"/>.
         /// </summary>
         /// <param name="attribute"></param>
         public AttributeValidator(ValidationAttribute attribute)
         {
-            _attribute = attribute ?? throw new ArgumentNullException(nameof(attribute));
+            ValidationAttribute = attribute ?? throw new ArgumentNullException(nameof(attribute));
         }
 
-        internal ValidationAttribute ValidationAttribute => this._attribute;
+        internal ValidationAttribute ValidationAttribute { get; }
 
         /// <summary>
         /// Gets the validation result for a command line option.
@@ -34,7 +32,7 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         /// <returns></returns>
         public ValidationResult GetValidationResult(CommandOption option, ValidationContext context)
         {
-            if (_attribute is RequiredAttribute && option.OptionType == CommandOptionType.NoValue)
+            if (ValidationAttribute is RequiredAttribute && option.OptionType == CommandOptionType.NoValue)
             {
                 if (option.HasValue())
                 {
@@ -61,14 +59,14 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
                 throw new ArgumentNullException(nameof(values));
             }
 
-            if (_attribute is RequiredAttribute && values.Count == 0)
+            if (ValidationAttribute is RequiredAttribute && values.Count == 0)
             {
-                return _attribute.GetValidationResult(null, context);
+                return ValidationAttribute.GetValidationResult(null, context);
             }
 
             foreach (var value in values)
             {
-                var result = _attribute.GetValidationResult(value, context);
+                var result = ValidationAttribute.GetValidationResult(value, context);
                 if (result != ValidationResult.Success)
                 {
                     return result;
@@ -85,8 +83,8 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         {
             var model = (command as IModelAccessor)?.GetModel();
             return model != null
-                ? _attribute.GetValidationResult(model, context)
-                : _attribute.GetValidationResult(command, context);
+                ? ValidationAttribute.GetValidationResult(model, context)
+                : ValidationAttribute.GetValidationResult(command, context);
         }
     }
 }

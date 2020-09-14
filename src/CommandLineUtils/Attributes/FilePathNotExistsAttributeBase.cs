@@ -60,17 +60,12 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
 
         private static string GetDefaultErrorMessage(FilePathType filePathType)
         {
-            if (filePathType == FilePathType.File)
+            return filePathType switch
             {
-                return "The file '{0}' already exists.";
-            }
-
-            if (filePathType == FilePathType.Directory)
-            {
-                return "The directory '{0}' already exists.";
-            }
-
-            return "The file path '{0}' already exists.";
+                FilePathType.File => "The file '{0}' already exists.",
+                FilePathType.Directory => "The directory '{0}' already exists.",
+                _ => "The file path '{0}' already exists."
+            };
         }
     }
 }

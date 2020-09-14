@@ -64,7 +64,7 @@ namespace McMaster.Extensions.CommandLineUtils
             var escapeScan = 0;
             for (; ; )
             {
-                var escapeIndex = message.IndexOf("\x1b[", escapeScan);
+                var escapeIndex = message.IndexOf("\x1b[", escapeScan, StringComparison.Ordinal);
                 if (escapeIndex == -1)
                 {
                     var text = message.Substring(escapeScan);
@@ -92,8 +92,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     switch (message[endIndex])
                     {
                         case 'm':
-                            int value;
-                            if (int.TryParse(message.Substring(startIndex, endIndex - startIndex), out value))
+                            if (int.TryParse(message.Substring(startIndex, endIndex - startIndex), out var value))
                             {
                                 switch (value)
                                 {

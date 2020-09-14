@@ -11,7 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <summary>
     /// Represents a subcommand.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public sealed class SubcommandAttribute : Attribute
     {
         /// <summary>

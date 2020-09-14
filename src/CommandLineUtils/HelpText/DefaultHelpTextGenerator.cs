@@ -135,7 +135,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         {
             output.Write("Usage:");
             var stack = new Stack<string?>();
-            for (CommandLineApplication? cmd = application; cmd != null; cmd = cmd.Parent)
+            for (var cmd = application; cmd != null; cmd = cmd.Parent)
             {
                 stack.Push(cmd.Name);
             }
@@ -188,21 +188,29 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             {
                 output.WriteLine();
                 output.WriteLine("Arguments:");
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+                var outputFormat = $"  {{0, -{firstColumnWidth}}}{{1}}";
 
                 foreach (var arg in visibleArguments)
                 {
-                    var enumNames = ExtractNamesFromEnum(arg.UnderlyingType);
-                    var description = enumNames.Any()
-                        ? $"{arg.Description}\nAllowed values are: {string.Join(", ", enumNames)}."
-                        : arg.Description;
+                    var description = arg.Description;
+                    var allowedValuesBeenSet = false;
 
                     foreach (var attributeValidator in arg.Validators.Cast<AttributeValidator>())
                     {
                         if (attributeValidator?.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
                         {
                             description += $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                            allowedValuesBeenSet = true;
                             break;
+                        }
+                    }
+
+                    if (!allowedValuesBeenSet)
+                    {
+                        var enumNames = ExtractNamesFromEnum(arg.UnderlyingType);
+                        if (enumNames.Any())
+                        {
+                            description += $"\nAllowed values are: {string.Join(", ", enumNames)}.";
                         }
                     }
 
@@ -237,21 +245,29 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             {
                 output.WriteLine();
                 output.WriteLine("Options:");
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+                var outputFormat = $"  {{0, -{firstColumnWidth}}}{{1}}";
 
                 foreach (var opt in visibleOptions)
                 {
-                    var enumNames = ExtractNamesFromEnum(opt.UnderlyingType);
-                    var description = enumNames.Any()
-                        ? $"{opt.Description}\nAllowed values are: {string.Join(", ", enumNames)}."
-                        : opt.Description;
+                    var description = opt.Description;
+                    var allowedValuesBeenSet = false;
 
                     foreach (var attributeValidator in opt.Validators.Cast<AttributeValidator>())
                     {
                         if (attributeValidator?.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
                         {
                             description += $"\nAllowed values are: {string.Join(", ", allowedValuesAttribute.AllowedValues)}.";
+                            allowedValuesBeenSet = true;
                             break;
+                        }
+                    }
+
+                    if (!allowedValuesBeenSet)
+                    {
+                        var enumNames = ExtractNamesFromEnum(opt.UnderlyingType);
+                        if (enumNames.Any())
+                        {
+                            description += $"\nAllowed values are: {string.Join(", ", enumNames)}.";
                         }
                     }
 
@@ -287,7 +303,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             {
                 output.WriteLine();
                 output.WriteLine("Commands:");
-                var outputFormat = string.Format("  {{0, -{0}}}{{1}}", firstColumnWidth);
+                var outputFormat = $"  {{0, -{firstColumnWidth}}}{{1}}";
 
                 var orderedCommands = SortCommandsByName
                     ? visibleCommands.OrderBy(c => c.Name).ToList()
@@ -396,12 +412,27 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
         private string[] ExtractNamesFromEnum(Type type)
         {
-            if (type == null || !type.IsEnum)
+            if (type == null)
             {
                 return Util.EmptyArray<string>();
             }
 
-            return Enum.GetNames(type);
+            if (ReflectionHelper.IsNullableType(type, out var wrappedType))
+            {
+                return ExtractNamesFromEnum(wrappedType);
+            }
+
+            if (ReflectionHelper.IsSpecialValueTupleType(type, out var fieldInfo))
+            {
+                return ExtractNamesFromEnum(fieldInfo.FieldType);
+            }
+
+            if (type.IsEnum)
+            {
+                return Enum.GetNames(type);
+            }
+
+            return Util.EmptyArray<string>();
         }
     }
 }

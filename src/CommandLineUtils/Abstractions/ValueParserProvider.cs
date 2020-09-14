@@ -75,17 +75,12 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         public IValueParser<T>? GetParser<T>()
         {
             var parser = GetParserImpl<T>();
-            if (parser == null)
+            return parser switch
             {
-                return null;
-            }
-
-            if (parser is IValueParser<T> retVal)
-            {
-                return retVal;
-            }
-
-            return new GenericParserAdapter<T>(parser);
+                null => null,
+                IValueParser<T> retVal => retVal,
+                _ => new GenericParserAdapter<T>(parser)
+            };
         }
 
         internal IValueParser? GetParserImpl<T>()
@@ -191,7 +186,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 throw new ArgumentNullException(nameof(parser));
             }
 
-            Type targetType = parser.TargetType;
+            var targetType = parser.TargetType;
 
             if (targetType == null)
             {

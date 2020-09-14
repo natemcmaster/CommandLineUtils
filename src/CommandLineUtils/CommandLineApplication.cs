@@ -51,7 +51,7 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly HashSet<string> _names = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         private string? _primaryCommandName;
         internal CommandLineContext _context;
-        private ParserConfig _parserConfig;
+        private readonly ParserConfig _parserConfig;
         private IHelpTextGenerator _helpTextGenerator;
         private CommandOption? _optionHelp;
         private readonly Lazy<IServiceProvider> _services;
@@ -229,11 +229,9 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     return _optionHelp;
                 }
-                if (Parent?.OptionHelp?.Inherited == true)
-                {
-                    return Parent.OptionHelp;
-                }
-                return null;
+                return Parent?.OptionHelp?.Inherited == true
+                    ? Parent.OptionHelp
+                    : null;
             }
             internal set => _optionHelp = value;
         }
@@ -250,7 +248,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public List<CommandArgument> Arguments { get; private set; }
 
         /// <summary>
-        /// When initialized when <see cref="UnrecognizedArgumentHandling"/> is <see cref="UnrecognizedArgumentHandling.StopParsingAndCollect" />,
+        /// When initialized when <see cref="UnrecognizedArgumentHandling"/> is <see cref="McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.StopParsingAndCollect" />,
         /// this will contain any unrecognized arguments.
         /// </summary>
         public List<string> RemainingArguments { get; private set; }
@@ -295,7 +293,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// A response file contains additional arguments that will be treated as if they were passed in on the command line.
         /// </para>
         /// <para>
-        /// Defaults to <see cref="ResponseFileHandling.Disabled" />.
+        /// Defaults to <see cref="McMaster.Extensions.CommandLineUtils.ResponseFileHandling.Disabled" />.
         /// </para>
         /// <para>
         /// Nested response false are not supported.
@@ -364,19 +362,16 @@ namespace McMaster.Extensions.CommandLineUtils
             get => _parserConfig.OptionNameValueSeparators ?? Parent?.OptionNameValueSeparators ?? new[] { ' ', ':', '=' };
             set
             {
-                if (value is null)
-                {
-                    throw new ArgumentNullException(nameof(value));
-                }
-                else if (value.Length == 0)
+                if (value.Length == 0)
                 {
                     throw new ArgumentException(Strings.IsEmptyArray, nameof(value));
                 }
+
                 _parserConfig.OptionNameValueSeparators = value;
             }
         }
 
-        internal bool OptionNameAndValueCanBeSpaceSeparated => Array.IndexOf(this.OptionNameValueSeparators, ' ') >= 0;
+        internal bool OptionNameAndValueCanBeSpaceSeparated => Array.IndexOf(OptionNameValueSeparators, ' ') >= 0;
 
         /// <summary>
         /// Gets the default value parser provider.
@@ -462,6 +457,8 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 AssertCommandNameIsUnique(name, null);
             }
+
+            subcommand.Parent = this;
 
             Commands.Add(subcommand);
         }
@@ -923,14 +920,9 @@ namespace McMaster.Extensions.CommandLineUtils
             string? shortFormVersion,
             string? longFormVersion = null)
         {
-            if (longFormVersion == null)
-            {
-                return VersionOption(template, () => shortFormVersion);
-            }
-            else
-            {
-                return VersionOption(template, () => shortFormVersion, () => longFormVersion);
-            }
+            return longFormVersion == null
+                ? VersionOption(template, () => shortFormVersion)
+                : VersionOption(template, () => shortFormVersion, () => longFormVersion);
         }
 
 #pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters
@@ -983,7 +975,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="usePager">Use a console pager to display help text, if possible.</param>
         public void ShowHelp(bool usePager)
         {
-            CommandLineApplication? cmd = this;
+            var cmd = this;
             while (cmd != null)
             {
                 cmd.IsShowingInformation = true;
@@ -1018,7 +1010,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public void ShowVersion()
         {
-            CommandLineApplication? cmd = this;
+            var cmd = this;
             while (cmd != null)
             {
                 cmd.IsShowingInformation = true;
@@ -1080,12 +1072,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         internal bool MatchesName(string name)
         {
-            if (string.Equals(name, Name, StringComparison.OrdinalIgnoreCase))
-            {
-                return true;
-            }
-
-            return _names.Contains(name);
+            return string.Equals(name, Name, StringComparison.OrdinalIgnoreCase) || _names.Contains(name);
         }
 
         private sealed class Builder : IConventionBuilder
@@ -1116,17 +1103,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Gets a builder that can be used to apply conventions to
         /// </summary>
-        public IConventionBuilder Conventions
-        {
-            get
-            {
-                if (_builder == null)
-                {
-                    _builder = new Builder(this);
-                }
-                return _builder;
-            }
-        }
+        public IConventionBuilder Conventions => _builder ??= new Builder(this);
 
         private protected virtual ConventionContext CreateConventionContext() => new ConventionContext(this, null);
 
@@ -1195,7 +1172,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     return _parent;
                 }
 
-                // prefer this type before AdditionalServces because it is common for service containers to automatically
+                // prefer this type before AdditionalServices because it is common for service containers to automatically
                 // create IEnumerable<T> to allow registration of multiple services
                 if (serviceType == typeof(IEnumerable<CommandOption>))
                 {
@@ -1222,13 +1199,10 @@ namespace McMaster.Extensions.CommandLineUtils
                     return accessor.GetModel();
                 }
 
-                if (_parent.AdditionalServices != null)
+                var retVal = _parent.AdditionalServices?.GetService(serviceType);
+                if (retVal != null)
                 {
-                    var retVal = _parent.AdditionalServices.GetService(serviceType);
-                    if (retVal != null)
-                    {
-                        return retVal;
-                    }
+                    return retVal;
                 }
 
                 // Resolve this after AdditionalServices to support overriding IConsole from a custom service container
