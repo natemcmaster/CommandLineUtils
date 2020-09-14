@@ -422,9 +422,9 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 return ExtractNamesFromEnum(wrappedType);
             }
 
-            if (ReflectionHelper.IsSpecialValueTupleType(type, out var fieldInfo))
+            if (ReflectionHelper.IsSpecialValueTupleType(type, out var wrappedType2))
             {
-                return ExtractNamesFromEnum(fieldInfo.FieldType);
+                return ExtractNamesFromEnum(wrappedType2);
             }
 
             if (type.IsEnum)

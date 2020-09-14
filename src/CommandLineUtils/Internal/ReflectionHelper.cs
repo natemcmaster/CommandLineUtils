@@ -125,22 +125,22 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
-        public static bool IsSpecialValueTupleType(Type type, out FieldInfo fieldInfo)
+        public static bool IsSpecialValueTupleType(Type type, out Type? wrappedType)
         {
             var result = type.IsGenericType &&
                          type.GetGenericTypeDefinition() == typeof(ValueTuple<,>) &&
                          type.GenericTypeArguments[0] == typeof(bool);
-            fieldInfo = result ? type.GetFields()[1] : null;
+            wrappedType = result ? type.GenericTypeArguments[1] : null;
 
             return result;
         }
 
-        public static bool IsSpecialTupleType(Type type, out PropertyInfo propertyInfo)
+        public static bool IsSpecialTupleType(Type type, out Type? wrappedType)
         {
             var result = type.IsGenericType &&
                          type.GetGenericTypeDefinition() == typeof(Tuple<,>) &&
                          type.GenericTypeArguments[0] == typeof(bool);
-            propertyInfo = result ? type.GetProperties()[1] : null;
+            wrappedType = result ? type.GenericTypeArguments[1] : null;
 
             return result;
         }

@@ -101,7 +101,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 return parser;
             }
 
-            if (ReflectionHelper.IsNullableType(type, out var wrappedType) && wrappedType != null)
+            if (ReflectionHelper.IsNullableType(type, out var wrappedType))
             {
                 if (wrappedType.IsEnum)
                 {
@@ -114,21 +114,16 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 }
             }
 
-            if (!type.IsGenericType)
+            if (ReflectionHelper.IsSpecialValueTupleType(type, out var wrappedType2))
             {
-                return null;
-            }
-
-            var typeDef = type.GetGenericTypeDefinition();
-            if (typeDef == typeof(ValueTuple<,>) && type.GenericTypeArguments[0] == typeof(bool))
-            {
-                var innerParser = GetParser(type.GenericTypeArguments[1]);
+                var innerParser = GetParser(wrappedType2);
                 if (innerParser == null)
                 {
                     return null;
                 }
                 var method = typeof(ValueTupleValueParser).GetMethod(nameof(ValueTupleValueParser.Create)).MakeGenericMethod(type.GenericTypeArguments[1]);
                 return (IValueParser)method.Invoke(null, new object[] { innerParser });
+
             }
 
             return null;

@@ -57,13 +57,16 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 context.Application._longOptions.Add(option.LongName, prop);
             }
 
-            var getter = ReflectionHelper.GetPropertyGetter(prop);
-
-            var value = getter.Invoke(modelAccessor.GetModel());
-
-            if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
+            if (option.OptionType != CommandOptionType.NoValue)
             {
-                option.DefaultValue = value?.ToString();
+                var getter = ReflectionHelper.GetPropertyGetter(prop);
+
+                var value = getter.Invoke(modelAccessor.GetModel());
+
+                if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
+                {
+                    option.DefaultValue = value?.ToString();
+                }
             }
 
             var setter = ReflectionHelper.GetPropertySetter(prop);

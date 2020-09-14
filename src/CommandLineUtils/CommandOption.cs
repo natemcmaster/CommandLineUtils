@@ -17,6 +17,8 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public class CommandOption
     {
+        private string? _defaultValue;
+
         /// <summary>
         /// Initializes a new <see cref="CommandOption"/>.
         /// </summary>
@@ -104,7 +106,18 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The default value of the option.
         /// </summary>
-        public string? DefaultValue { get; set; }
+        public string? DefaultValue
+        {
+            get => _defaultValue;
+            set
+            {
+                _defaultValue = value;
+                if (value != null)
+                {
+                    Values.Add(value);
+                }
+            }
+        }
 
         /// <summary>
         /// Defines the type of the option.
