@@ -128,11 +128,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
             _conventionContext = CreateConventionContext();
 
-            this.Initialize();
-        }
-
-        internal virtual void Initialize()
-        {
             if (Parent != null)
             {
                 foreach (var convention in Parent._conventions)
