@@ -32,6 +32,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ItFormatsOptions()
         {
             var app = new CommandLineApplication();
+            app.Conventions.UseDefaultHelpOption();
             var option = app.Option("-a|--all <ALL>", "All", CommandOptionType.SingleValue);
             option.ShortName = "b";
             var helpText = GetHelpText(app);

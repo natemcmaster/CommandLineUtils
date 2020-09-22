@@ -123,7 +123,6 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 }
                 var method = typeof(ValueTupleValueParser).GetMethod(nameof(ValueTupleValueParser.Create)).MakeGenericMethod(type.GenericTypeArguments[1]);
                 return (IValueParser)method.Invoke(null, new object[] { innerParser });
-
             }
 
             return null;
