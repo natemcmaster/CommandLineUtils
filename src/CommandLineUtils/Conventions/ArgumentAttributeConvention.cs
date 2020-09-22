@@ -95,11 +95,14 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             argPropOrder.Add(argumentAttr.Order, prop);
             argOrder.Add(argumentAttr.Order, argument);
 
-            var getter = ReflectionHelper.GetPropertyGetter(prop);
-
             if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
             {
-                argument.DefaultValue = getter.Invoke(convention.ModelAccessor.GetModel())?.ToString();
+                convention.Application.OnParsingComplete(r =>
+                {
+                    var getter = ReflectionHelper.GetPropertyGetter(prop);
+                    var value = getter.Invoke(convention.ModelAccessor.GetModel());
+                    argument.DefaultValue = value?.ToString();
+                });
             }
 
             var setter = ReflectionHelper.GetPropertySetter(prop);

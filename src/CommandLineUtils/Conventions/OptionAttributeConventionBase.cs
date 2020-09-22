@@ -59,13 +59,14 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             if (option.OptionType != CommandOptionType.NoValue)
             {
-                var getter = ReflectionHelper.GetPropertyGetter(prop);
-
-                var value = getter.Invoke(modelAccessor.GetModel());
-
-                if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
+                if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out var type))
                 {
-                    option.DefaultValue = value?.ToString();
+                    context.Application.OnParsingComplete(_ =>
+                    {
+                        var getter = ReflectionHelper.GetPropertyGetter(prop);
+                        var value = getter.Invoke(modelAccessor.GetModel());
+                        option.DefaultValue = value?.ToString();
+                    });
                 }
             }
 

@@ -79,7 +79,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<OptionsCtorCommand>();
             var services = new ServiceCollection().BuildServiceProvider();
-            app.Conventions.UseConstructorInjection(services).UseDefaultConventions();
+            app.Conventions.UseDefaultConventions().UseConstructorInjection(services);
             app.Parse();
             Assert.Empty(services.GetServices<IEnumerable<CommandOption>>());
             Assert.Empty(services.GetServices<IEnumerable<CommandArgument>>());

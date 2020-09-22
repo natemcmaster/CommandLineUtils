@@ -216,7 +216,7 @@ namespace McMaster.Extensions.CommandLineUtils
             // If we find a help/version option, show information and stop parsing
             if (_currentCommand.OptionHelp == option)
             {
-                _currentCommand.ShowHelp();
+                _currentCommand.OnParsingComplete(_ => _currentCommand.ShowHelp());
                 option.TryParse(null);
                 return false;
             }

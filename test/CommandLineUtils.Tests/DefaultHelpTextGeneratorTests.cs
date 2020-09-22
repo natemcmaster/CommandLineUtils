@@ -80,25 +80,25 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.True(indexOfA > indexOfB);
         }
 
-        private string GetHelpText(CommandLineApplication app, DefaultHelpTextGenerator generator)
+        private string GetHelpText(CommandLineApplication app, DefaultHelpTextGenerator generator, string helpOption = null)
         {
             var sb = new StringBuilder();
-            generator.Generate(app, new StringWriter(sb));
+            app.Out = new StringWriter(sb);
+            app.HelpTextGenerator = generator;
+            app.Parse(helpOption ?? "-h");
             var helpText = sb.ToString();
-
-            _output.WriteLine(helpText);
 
             return helpText;
         }
 
-        private string GetHelpText(CommandLineApplication app)
+        private string GetHelpText(CommandLineApplication app, string helpOption = null)
         {
             var generator = new DefaultHelpTextGenerator
             {
                 MaxLineLength = 80
             };
 
-            return GetHelpText(app, generator);
+            return GetHelpText(app, generator, helpOption);
         }
 
         public enum SomeEnum { None, Normal, Extreme }
@@ -279,7 +279,7 @@ Options:
             if (helpOption != null) app.HelpOption(helpOption);
             app.Command("Subcommand", _ => { });
             app.Conventions.UseDefaultConventions();
-            var helpText = GetHelpText(app);
+            var helpText = GetHelpText(app, helpOption);
 
             Assert.Equal($@"Usage: test [command] [options]
 
