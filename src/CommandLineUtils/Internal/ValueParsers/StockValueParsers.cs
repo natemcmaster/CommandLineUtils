@@ -14,7 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 switch (value)
                 {
                     case null:
-                        return default;
+                        return true;
                     case "T":
                     case "t":
                         return true;
