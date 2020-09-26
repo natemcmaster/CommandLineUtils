@@ -194,10 +194,12 @@ Arguments:
 
 Options:
   -strOpt|--str-opt <STR_OPT>       str option desc.
-  -rStrOpt|--r-str-opt <R_STR_OPT>  restricted str option desc.
+  -rStrOpt|--r-str-opt <STR_OPT>    restricted str option desc.
                                     Allowed values are: Foo, Bar.
-  -dStrOpt|--d-str-opt <D_STR_OPT>  str option with default value desc.
+  -dStrOpt|--d-str-opt <STR_OPT>    str option with default value desc.
                                     Default value is: Foo.
+  -dStrOpt2|--d-str-opt2 <STR_OPT>  str array option with default value desc.
+                                    Default value is: Foo, Bar.
   -intOpt|--int-opt <INT_OPT>       int option desc.
                                     Default value is: 0.
   -enumOpt|--verbosity <VERBOSITY>  enum option desc.
@@ -219,16 +221,19 @@ Options:
 
         public class MyApp
         {
-            [Option(ShortName = "strOpt", Description = "str option desc.")]
+            [Option(ShortName = "strOpt", ValueName = "STR_OPT", Description = "str option desc.")]
             public string strOpt { get; set; }
 
-            [Option(ShortName = "rStrOpt", Description = "restricted str option desc.")]
+            [Option(ShortName = "rStrOpt", ValueName = "STR_OPT", Description = "restricted str option desc.")]
             [Required]
             [AllowedValues("Foo", "Bar")]
             public string rStrOpt { get; set; }
 
-            [Option(ShortName = "dStrOpt", Description = "str option with default value desc.")]
+            [Option(ShortName = "dStrOpt", ValueName = "STR_OPT", Description = "str option with default value desc.")]
             public string dStrOpt { get; set; } = "Foo";
+
+            [Option(ShortName = "dStrOpt2", ValueName = "STR_OPT", Description = "str array option with default value desc.")]
+            public string[] dStrOpt2 { get; set; } = new[] { "Foo", "Bar" };
 
             [Option(ShortName = "intOpt", Description = "int option desc.")]
             public int intOpt { get; set; }

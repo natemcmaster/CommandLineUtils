@@ -72,7 +72,14 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             if (!ReflectionHelper.IsSpecialValueTupleType(typeof(T), out _))
             {
-                base.DefaultValue = value?.ToString();
+                if (OptionType == CommandOptionType.MultipleValue && value is IEnumerable<object> enumerable)
+                {
+                    base.DefaultValue = string.Join(", ", enumerable.Select(x => x?.ToString()));
+                }
+                else
+                {
+                    base.DefaultValue = value?.ToString();
+                }
             }
         }
     }

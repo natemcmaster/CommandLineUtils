@@ -16,8 +16,6 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <seealso cref="CommandOption"/>
     public class CommandArgument
     {
-        private string? _defaultValue;
-
         /// <summary>
         /// Initializes a new instance of <see cref="CommandArgument"/>.
         /// </summary>
@@ -59,18 +57,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The default value of the argument.
         /// </summary>
-        public string? DefaultValue
-        {
-            get => _defaultValue;
-            set
-            {
-                _defaultValue = value;
-                if (value != null)
-                {
-                    Values.Add(value);
-                }
-            }
-        }
+        public string? DefaultValue { get; set; }
 
         /// <summary>
         /// A collection of validators that execute before invoking <see cref="CommandLineApplication.OnExecute(Func{int})"/>.
