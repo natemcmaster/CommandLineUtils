@@ -70,7 +70,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             if (help.LongName != null || help.ShortName != null || help.SymbolName != null)
             {
                 context.Application.OptionHelp = help;
-                context.Application.Options.Add(help);
+                context.Application.AddOption(help);
             }
         }
     }

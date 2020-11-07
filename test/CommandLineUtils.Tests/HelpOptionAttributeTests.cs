@@ -169,7 +169,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var outWriter = new StringWriter(sb);
             var app = new CommandLineApplication<Parent> { Out = outWriter };
             app.Conventions.UseDefaultConventions();
-            app.Commands.ForEach(f => f.Out = outWriter);
+            foreach (var subcmd in app.Commands)
+            {
+                subcmd.Out = outWriter;
+            }
             app.Execute("lvl2", "--help");
             var outData = sb.ToString();
 
@@ -210,7 +213,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 return 1;
             });
 
-            app.Commands.ForEach(f => f.Out = outWriter);
+            foreach (var subcmd in app.Commands)
+            {
+                subcmd.Out = outWriter;
+            }
 
             app.Execute(args);
             var outData = sb.ToString();

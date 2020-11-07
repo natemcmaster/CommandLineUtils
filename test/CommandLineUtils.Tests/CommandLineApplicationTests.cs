@@ -745,7 +745,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 LongName = "debug:hive"
             };
-            app.Options.Add(option);
+            app.AddOption(option);
             app.Parse("--debug:hive", "abc");
             Assert.Equal("abc", option.Value());
         }
@@ -759,7 +759,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 LongName = "debug:hive"
             };
-            app.Options.Add(option);
+            app.AddOption(option);
 
             var ex = Assert.ThrowsAny<CommandParsingException>(() =>
                 app.Parse("--debug:hive", "abc"));

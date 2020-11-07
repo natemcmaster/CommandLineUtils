@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using McMaster.Extensions.CommandLineUtils.Conventions;
@@ -314,7 +315,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var appBuilder = typeof(CommandLineApplication<>).MakeGenericType(program);
             var app = (CommandLineApplication)Activator.CreateInstance(appBuilder, Util.EmptyArray<object>());
             app.Conventions.UseOptionAttributes();
-            return app.Options[0];
+            return app.Options.First();
         }
     }
 }
