@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -19,6 +20,7 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         private readonly List<T> _parsedValues = new List<T>();
         private readonly IValueParser<T> _valueParser;
+        private T _defaultValue;
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandOption{T}" />
@@ -31,6 +33,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             _valueParser = valueParser ?? throw new ArgumentNullException(nameof(valueParser));
             UnderlyingType = typeof(T);
+            SetBaseDefaultValue(default);
         }
 
         /// <summary>
@@ -43,12 +46,40 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public IReadOnlyList<T> ParsedValues => _parsedValues;
 
+        /// <summary>
+        /// The default value of the option.
+        /// </summary>
+        public new T DefaultValue
+        {
+            get => _defaultValue;
+            set
+            {
+                _defaultValue = value;
+                SetBaseDefaultValue(value);
+            }
+        }
+
         void IInternalCommandParamOfT.Parse(CultureInfo culture)
         {
             _parsedValues.Clear();
             foreach (var t in Values)
             {
                 _parsedValues.Add(_valueParser.Parse(LongName ?? ShortName ?? SymbolName, t, culture));
+            }
+        }
+
+        void SetBaseDefaultValue(T value)
+        {
+            if (!ReflectionHelper.IsSpecialValueTupleType(typeof(T), out _))
+            {
+                if (OptionType == CommandOptionType.MultipleValue && value is IEnumerable<object> enumerable)
+                {
+                    base.DefaultValue = string.Join(", ", enumerable.Select(x => x?.ToString()));
+                }
+                else
+                {
+                    base.DefaultValue = value?.ToString();
+                }
             }
         }
     }

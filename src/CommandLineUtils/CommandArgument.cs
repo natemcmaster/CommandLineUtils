@@ -55,6 +55,11 @@ namespace McMaster.Extensions.CommandLineUtils
         public string? Value => Values.FirstOrDefault();
 
         /// <summary>
+        /// The default value of the argument.
+        /// </summary>
+        public string? DefaultValue { get; set; }
+
+        /// <summary>
         /// A collection of validators that execute before invoking <see cref="CommandLineApplication.OnExecute(Func{int})"/>.
         /// When validation fails, <see cref="CommandLineApplication.ValidationErrorHandler"/> is invoked.
         /// </summary>

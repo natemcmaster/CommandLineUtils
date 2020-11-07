@@ -53,6 +53,8 @@ McMaster.Extensions.CommandLineUtils.ArgumentAttribute.ShowInHelpText.set -> voi
 McMaster.Extensions.CommandLineUtils.ArgumentEscaper
 McMaster.Extensions.CommandLineUtils.CommandArgument
 McMaster.Extensions.CommandLineUtils.CommandArgument.CommandArgument() -> void
+McMaster.Extensions.CommandLineUtils.CommandArgument.DefaultValue.get -> string?
+McMaster.Extensions.CommandLineUtils.CommandArgument.DefaultValue.set -> void
 McMaster.Extensions.CommandLineUtils.CommandArgument.Description.get -> string?
 McMaster.Extensions.CommandLineUtils.CommandArgument.Description.set -> void
 McMaster.Extensions.CommandLineUtils.CommandArgument.MultipleValues.get -> bool
@@ -66,6 +68,8 @@ McMaster.Extensions.CommandLineUtils.CommandArgument.Value.get -> string?
 McMaster.Extensions.CommandLineUtils.CommandArgument.Values.get -> System.Collections.Generic.List<string?>!
 McMaster.Extensions.CommandLineUtils.CommandArgument<T>
 McMaster.Extensions.CommandLineUtils.CommandArgument<T>.CommandArgument(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>! valueParser) -> void
+McMaster.Extensions.CommandLineUtils.CommandArgument<T>.DefaultValue.get -> T
+McMaster.Extensions.CommandLineUtils.CommandArgument<T>.DefaultValue.set -> void
 McMaster.Extensions.CommandLineUtils.CommandArgument<T>.ParsedValue.get -> T
 McMaster.Extensions.CommandLineUtils.CommandArgument<T>.ParsedValues.get -> System.Collections.Generic.IReadOnlyList<T>!
 McMaster.Extensions.CommandLineUtils.CommandAttribute
@@ -194,6 +198,8 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.ModelFactory
 McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
 McMaster.Extensions.CommandLineUtils.CommandOption
 McMaster.Extensions.CommandLineUtils.CommandOption.CommandOption(string! template, McMaster.Extensions.CommandLineUtils.CommandOptionType optionType) -> void
+McMaster.Extensions.CommandLineUtils.CommandOption.DefaultValue.get -> string?
+McMaster.Extensions.CommandLineUtils.CommandOption.DefaultValue.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption.Description.get -> string?
 McMaster.Extensions.CommandLineUtils.CommandOption.Description.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption.HasValue() -> bool
@@ -216,6 +222,8 @@ McMaster.Extensions.CommandLineUtils.CommandOption.ValueName.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption.Values.get -> System.Collections.Generic.List<string?>!
 McMaster.Extensions.CommandLineUtils.CommandOption<T>
 McMaster.Extensions.CommandLineUtils.CommandOption<T>.CommandOption(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>! valueParser, string! template, McMaster.Extensions.CommandLineUtils.CommandOptionType optionType) -> void
+McMaster.Extensions.CommandLineUtils.CommandOption<T>.DefaultValue.get -> T
+McMaster.Extensions.CommandLineUtils.CommandOption<T>.DefaultValue.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption<T>.ParsedValue.get -> T
 McMaster.Extensions.CommandLineUtils.CommandOption<T>.ParsedValues.get -> System.Collections.Generic.IReadOnlyList<T>!
 McMaster.Extensions.CommandLineUtils.CommandOptionType

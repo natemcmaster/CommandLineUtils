@@ -2,6 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
@@ -57,6 +59,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 context.Application._longOptions.Add(option.LongName, prop);
             }
 
+            var getter = ReflectionHelper.GetPropertyGetter(prop);
             var setter = ReflectionHelper.GetPropertySetter(prop);
 
             switch (option.OptionType)
@@ -71,9 +74,19 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     {
                         if (!option.HasValue())
                         {
-                            return;
+                            if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out var type))
+                            {
+                                if (getter.Invoke(modelAccessor.GetModel()) is IEnumerable<object> value)
+                                {
+                                    option.Values.AddRange(value.Select(x => x?.ToString()));
+                                    option.DefaultValue = string.Join(", ", value.Select(x => x?.ToString()));
+                                }
+                            }
                         }
-                        setter.Invoke(modelAccessor.GetModel(), collectionParser.Parse(option.LongName, option.Values));
+                        else
+                        {
+                            setter.Invoke(modelAccessor.GetModel(), collectionParser.Parse(option.LongName, option.Values));
+                        }
                     });
                     break;
                 case CommandOptionType.SingleOrNoValue:
@@ -87,9 +100,21 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     {
                         if (!option.HasValue())
                         {
-                            return;
+                            if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out var type))
+                            {
+                                var value = getter.Invoke(modelAccessor.GetModel());
+
+                                if (value != null)
+                                {
+                                    option.Values.Add(value.ToString());
+                                    option.DefaultValue = value.ToString();
+                                }
+                            }
                         }
-                        setter.Invoke(modelAccessor.GetModel(), parser.Parse(option.LongName, option.Value(), context.Application.ValueParsers.ParseCulture));
+                        else
+                        {
+                            setter.Invoke(modelAccessor.GetModel(), parser.Parse(option.LongName, option.Value(), context.Application.ValueParsers.ParseCulture));
+                        }
                     });
                     break;
                 case CommandOptionType.NoValue:
