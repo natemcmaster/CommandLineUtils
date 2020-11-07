@@ -578,7 +578,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="inherited"></param>
         /// <typeparam name="T">The type of the values on the option</typeparam>
         /// <returns>The option</returns>
-        public CommandOption<T> Option<T>(string template, string description, CommandOptionType optionType, Action<CommandOption> configuration, bool inherited)
+        public CommandOption<T> Option<T>(string template, string description, CommandOptionType optionType, Action<CommandOption<T>> configuration, bool inherited)
         {
             var parser = ValueParsers.GetParser<T>();
 
@@ -642,7 +642,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="multipleValues"></param>
         /// <typeparam name="T">The type of the values on the option</typeparam>
         /// <returns></returns>
-        public CommandArgument<T> Argument<T>(string name, string description, Action<CommandArgument> configuration, bool multipleValues = false)
+        public CommandArgument<T> Argument<T>(string name, string description, Action<CommandArgument<T>> configuration, bool multipleValues = false)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
             var parser = ValueParsers.GetParser<T>();
