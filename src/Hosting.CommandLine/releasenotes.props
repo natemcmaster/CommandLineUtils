@@ -1,5 +1,10 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.1.'))">
+Improvements:
+* @scott-xu: feature: add overload of RunCommandLineApplicationAsync to support configuring of CommandLineApplication (#363)
+* @danielmeza: feature: implement API on host builder to fetch CommandLineContext from non DI contexts (#368)
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.0.'))">
 Features:
 * @vpkopylov - Added support for using the 'builder API' by calling .RunCommandLineApplicationAsync(args, app => { })

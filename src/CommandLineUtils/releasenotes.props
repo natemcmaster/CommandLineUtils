@@ -1,5 +1,27 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.1.'))">
+Improvements:
+* @scott-xu: Show allowed values in help text (#369)
+
+Bug fixes:
+* @natemcmaster: ensure clustering options is detected correctly when subcommands added via AddSubcommand (#393)
+* @scott-xu: make UnrecognizedArgumentHandling per command scope (#371)
+* @scott-xu: show allowed values in help text correctly when multiple AllowedValuesAttribute are used (#375)
+* @scott-xu: show allowed values in help text for Nullable/ValueTuple&lt;bool,T&gt; option/argument (#390)
+* @scott-xu: update help text to show allowed values from AllowedValues attribute instead of Enum values (#391)
+
+Docs:
+* @chaami: Fix Readme.md on Prompt.GetYesNo (#402)
+* @cuperman007 docs: added using statements to code sample in index.md (#384)
+* @scott-xu: Fix broken links in docs (#377)
+* @scott-xu: cleanup: add a period to end sentences for built-in descriptions (#364)
+
+Other:
+* @natemcmaster: Stop code signing binaries and packages (#379)
+* @natemcmaster: Change default project branch to 'main' (#373)
+* @natemcmaster: add dotnet-format to CI, and other code/project file cleanups
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.0.'))">
 Improvements:
 * @AlexeyEvlampiev - implement support for GUID command line options (#333) and any other type that TypeConverter supports (#62)
