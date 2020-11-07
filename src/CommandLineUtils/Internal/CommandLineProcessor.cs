@@ -125,7 +125,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             if (_currentCommandArguments.MoveNext())
             {
-                _currentCommandArguments.Current.Values.Add(arg.Raw);
+                _currentCommandArguments.Current.TryParse(arg.Raw);
                 return true;
             }
 

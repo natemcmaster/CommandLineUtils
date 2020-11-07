@@ -4,7 +4,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using McMaster.Extensions.CommandLineUtils.Validation;
@@ -17,6 +16,8 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public class CommandOption
     {
+        private protected readonly List<string?> _values = new List<string?>();
+
         /// <summary>
         /// Initializes a new <see cref="CommandOption"/>.
         /// </summary>
@@ -99,7 +100,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Any values found during parsing, if any.
         /// </summary>
-        public List<string?> Values { get; } = new List<string?>();
+        public IReadOnlyList<string?> Values => _values;
 
         /// <summary>
         /// Defines the type of the option.
@@ -138,15 +139,15 @@ namespace McMaster.Extensions.CommandLineUtils
             switch (OptionType)
             {
                 case CommandOptionType.MultipleValue:
-                    Values.Add(value);
+                    _values.Add(value);
                     break;
                 case CommandOptionType.SingleOrNoValue:
                 case CommandOptionType.SingleValue:
-                    if (Values.Any())
+                    if (_values.Any())
                     {
                         return false;
                     }
-                    Values.Add(value);
+                    _values.Add(value);
                     break;
                 case CommandOptionType.NoValue:
                     if (value != null)
@@ -156,7 +157,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                     // Add a value so .HasValue() == true
                     // Also, the count can be used to determine how many times a flag was specified
-                    Values.Add(null);
+                    _values.Add(null);
                     break;
                 default:
                     throw new NotImplementedException();
@@ -235,9 +236,12 @@ namespace McMaster.Extensions.CommandLineUtils
             return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
         }
 
-        internal void Reset()
+        /// <summary>
+        /// Clear any parsed values from this argument.
+        /// </summary>
+        public virtual void Reset()
         {
-            Values.Clear();
+            _values.Clear();
         }
     }
 }
