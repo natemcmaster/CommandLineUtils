@@ -112,10 +112,13 @@ The library also includes other utilities for interaction with the console. Thes
      var args = new [] { "Arg1", "arg with space", "args ' with \" quotes" };
      Process.Start("echo", ArgumentEscaper.EscapeAndConcatenate(args));
     ```
- - `Prompt` - for getting feedback from users. A few examples:
+ - `Prompt` - for getting feedback from users with a default answer.  
+   A few examples:
     ```c#
-    // allows y/n responses
-    Prompt.GetYesNo("Do you want to proceed?");
+    // allows y/n responses, will return false by default in this case.
+    // You may optionally change the prompt foreground and background color for
+    // the message.
+    Prompt.GetYesNo("Do you want to proceed?", false);
 
     // masks input as '*'
     Prompt.GetPassword("Password: ");
