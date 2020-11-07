@@ -59,7 +59,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="optionType"></param>
         /// <param name="configuration"></param>
         /// <returns></returns>
-        public static CommandOption<T> Option<T>(this CommandLineApplication app, string template, string description, CommandOptionType optionType, Action<CommandOption> configuration)
+        public static CommandOption<T> Option<T>(this CommandLineApplication app, string template, string description, CommandOptionType optionType, Action<CommandOption<T>> configuration)
             => app.Option<T>(template, description, optionType, configuration, inherited: false);
 
         /// <summary>
