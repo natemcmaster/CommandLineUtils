@@ -4,12 +4,11 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Reflection;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
-    using System.Reflection;
-
     public class ValueParserProviderTests
     {
         public enum Color
@@ -44,6 +43,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             [Option("--bool-opt", CommandOptionType.SingleValue)]
             public bool? BoolOpt { get; }
+
+            [Option("--bool-with-optional-value", CommandOptionType.SingleOrNoValue)]
+            public bool BoolWithOptionalValue { get; }
+
+            [Option("--bool-opt-with-optional-value", CommandOptionType.SingleOrNoValue)]
+            public (bool, bool?) BoolOptWithOptionalValue { get; }
 
             [Option("--int32-opt")]
             public int? Int32Opt { get; }
@@ -298,6 +303,45 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var parsed = CommandLineParser.ParseArgs<Program>("--bool-opt", arg);
             Assert.Equal(result, parsed.BoolOpt);
+        }
+
+        [Theory]
+        [InlineData("true", true)]
+        [InlineData("True", true)]
+        [InlineData("False", false)]
+        [InlineData("false", false)]
+        public void ParsesBoolWithOptionalValue(string arg, bool result)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>($"--bool-with-optional-value:{arg}");
+            Assert.Equal(result, parsed.BoolWithOptionalValue);
+        }
+
+        [Fact]
+        public void ParsesBoolWithoutOptionalValue()
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>("--bool-with-optional-value");
+            Assert.True(parsed.BoolWithOptionalValue);
+        }
+
+        [Theory]
+        [InlineData("", null)]
+        [InlineData("true", true)]
+        [InlineData("True", true)]
+        [InlineData("False", false)]
+        [InlineData("false", false)]
+        public void ParsesNullableBoolWithOptionalValue(string arg, bool? result)
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>($"--bool-opt-with-optional-value:{arg}");
+            Assert.True(parsed.BoolOptWithOptionalValue.Item1);
+            Assert.Equal(result, parsed.BoolOptWithOptionalValue.Item2);
+        }
+
+        [Fact]
+        public void ParsesNullableBoolWithoutOptionalValue()
+        {
+            var parsed = CommandLineParser.ParseArgs<Program>("--bool-opt-with-optional-value");
+            Assert.True(parsed.BoolOptWithOptionalValue.Item1);
+            Assert.Null(parsed.BoolOptWithOptionalValue.Item2);
         }
 
         [Theory]
