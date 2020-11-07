@@ -52,7 +52,7 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         public ValidationResult GetValidationResult(CommandArgument argument, ValidationContext context)
             => GetValidationResult(argument.Values, context);
 
-        private ValidationResult GetValidationResult(List<string?>? values, ValidationContext context)
+        private ValidationResult GetValidationResult(IReadOnlyList<string?>? values, ValidationContext context)
         {
             if (values == null)
             {

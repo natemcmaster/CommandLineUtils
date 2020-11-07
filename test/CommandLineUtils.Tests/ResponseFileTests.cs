@@ -30,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             return rsp;
         }
 
-        private List<string?> ParseResponseFile(ResponseFileHandling options, params string[] responseFileLines)
+        private IReadOnlyList<string?> ParseResponseFile(ResponseFileHandling options, params string[] responseFileLines)
         {
             var rsp = CreateResponseFile(responseFileLines);
             var app = new CommandLineApplication
