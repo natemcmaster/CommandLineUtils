@@ -62,34 +62,42 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             switch (option.OptionType)
             {
                 case CommandOptionType.MultipleValue:
-                    var collectionParser = CollectionParserProvider.Default.GetParser(prop.PropertyType, context.Application.ValueParsers);
-                    if (collectionParser == null)
-                    {
-                        throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
-                    }
                     context.Application.OnParsingComplete(_ =>
                     {
+                        var collectionParser =
+                            CollectionParserProvider.Default.GetParser(prop.PropertyType,
+                                context.Application.ValueParsers);
+                        if (collectionParser == null)
+                        {
+                            throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
+                        }
+
                         if (!option.HasValue())
                         {
                             return;
                         }
+
                         setter.Invoke(modelAccessor.GetModel(), collectionParser.Parse(option.LongName, option.Values));
                     });
                     break;
                 case CommandOptionType.SingleOrNoValue:
                 case CommandOptionType.SingleValue:
-                    var parser = context.Application.ValueParsers.GetParser(prop.PropertyType);
-                    if (parser == null)
-                    {
-                        throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
-                    }
                     context.Application.OnParsingComplete(_ =>
                     {
+                        var parser = context.Application.ValueParsers.GetParser(prop.PropertyType);
+                        if (parser == null)
+                        {
+                            throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
+                        }
+
                         if (!option.HasValue())
                         {
                             return;
                         }
-                        setter.Invoke(modelAccessor.GetModel(), parser.Parse(option.LongName, option.Value(), context.Application.ValueParsers.ParseCulture));
+
+                        setter.Invoke(modelAccessor.GetModel(),
+                            parser.Parse(option.LongName, option.Value(),
+                                context.Application.ValueParsers.ParseCulture));
                     });
                     break;
                 case CommandOptionType.NoValue:
