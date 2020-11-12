@@ -145,5 +145,49 @@ namespace Microsoft.Extensions.Hosting
 
             return state.ExitCode;
         }
+
+        /// <summary>
+        ///     Configures an instance of <typeparamref name="TApp" /> using <see cref="CommandLineApplication" /> to provide
+        ///     command line parsing on the given <paramref name="args" />.
+        /// </summary>
+        /// <typeparam name="TApp">The type of the command line application implementation</typeparam>
+        /// <param name="hostBuilder">This instance</param>
+        /// <param name="args">The command line arguments</param>
+        /// <param name="configure">The delegate to configure the application</param>
+        /// <returns><see cref="IHostBuilder"/></returns>
+        public static IHostBuilder UseCommandLineApplication<TApp>(
+            this IHostBuilder hostBuilder,
+            string[] args,
+            Action<CommandLineApplication<TApp>> configure = null)
+            where TApp : class
+        {
+            configure ??= app => { };
+            var state = new CommandLineState(args);
+            hostBuilder.Properties[typeof(CommandLineState)] = state;
+            hostBuilder.ConfigureServices(
+                (context, services)
+                    =>
+                {
+                    services
+                        .TryAddSingleton<StoreExceptionHandler>();
+                    services
+                        .TryAddSingleton<IUnhandledExceptionHandler>(provider => provider.GetRequiredService<StoreExceptionHandler>());
+                    services
+                        .AddSingleton<IHostLifetime, CommandLineLifetime>()
+                        .TryAddSingleton(PhysicalConsole.Singleton);
+                    services
+                        .AddSingleton(provider =>
+                        {
+                            state.SetConsole(provider.GetService<IConsole>());
+                            return state;
+                        })
+                        .AddSingleton<CommandLineContext>(state)
+                        .AddSingleton<ICommandLineService, CommandLineService<TApp>>();
+                    services
+                        .AddSingleton(configure);
+                });
+
+            return hostBuilder;
+        }
     }
 }
