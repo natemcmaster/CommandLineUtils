@@ -335,7 +335,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 case UnrecognizedArgumentHandling.CollectAndContinue:
                     var arg = _enumerator.Current;
-                    _currentCommand.RemainingArguments.Add(arg.Raw);
+                    _currentCommand._remainingArguments.Add(arg.Raw);
                     return true;
 
                 case UnrecognizedArgumentHandling.StopParsingAndCollect:
@@ -354,7 +354,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 var arg = _enumerator.Current;
                 if (arg != null)
                 {
-                    _currentCommand.RemainingArguments.Add(arg.Raw);
+                    _currentCommand._remainingArguments.Add(arg.Raw);
                 }
             } while (_enumerator.MoveNext());
         }

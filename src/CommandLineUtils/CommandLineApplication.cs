@@ -56,6 +56,10 @@ namespace McMaster.Extensions.CommandLineUtils
         private readonly Lazy<IServiceProvider> _services;
         private readonly ConventionContext _conventionContext;
         private readonly List<IConvention> _conventions = new List<IConvention>();
+        private readonly List<CommandArgument> _arguments = new List<CommandArgument>();
+        private readonly List<CommandOption> _options = new List<CommandOption>();
+        private readonly List<CommandLineApplication> _subcommands = new List<CommandLineApplication>();
+        internal readonly List<string> _remainingArguments = new List<string>();
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -109,10 +113,6 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             Parent = parent;
-            Options = new List<CommandOption>();
-            Arguments = new List<CommandArgument>();
-            Commands = new List<CommandLineApplication>();
-            RemainingArguments = new List<string>();
             _helpTextGenerator = helpTextGenerator ?? throw new ArgumentNullException(nameof(helpTextGenerator));
             _handler = DefaultAction;
             _validationErrorHandler = DefaultValidationErrorHandler;
@@ -186,7 +186,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Available command-line options on this command. Use <see cref="GetOptions"/> to get all available options, which may include inherited options.
         /// </summary>
-        public List<CommandOption> Options { get; private set; }
+        public IReadOnlyCollection<CommandOption> Options => _options;
 
         /// <summary>
         /// Whether a Pager should be used to display help text.
@@ -239,13 +239,13 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Required command-line arguments.
         /// </summary>
-        public List<CommandArgument> Arguments { get; private set; }
+        public IReadOnlyList<CommandArgument> Arguments => _arguments;
 
         /// <summary>
         /// When initialized when <see cref="UnrecognizedArgumentHandling"/> is <see cref="McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling.StopParsingAndCollect" />,
         /// this will contain any unrecognized arguments.
         /// </summary>
-        public List<string> RemainingArguments { get; private set; }
+        public IReadOnlyList<string> RemainingArguments => _remainingArguments;
 
         /// <summary>
         /// Configures what the parser should do when it runs into an unexpected argument.
@@ -274,7 +274,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Subcommands.
         /// </summary>
-        public List<CommandLineApplication> Commands { get; private set; }
+        public IReadOnlyCollection<CommandLineApplication> Commands => _subcommands;
 
         /// <summary>
         /// Determines if '--' can be used to separate known arguments and options from additional content passed to <see cref="RemainingArguments"/>.
@@ -454,7 +454,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             subcommand.Parent = this;
 
-            Commands.Add(subcommand);
+            _subcommands.Add(subcommand);
         }
 
         private void AssertCommandNameIsUnique(string? name, CommandLineApplication? commandToIgnore)
@@ -562,9 +562,18 @@ namespace McMaster.Extensions.CommandLineUtils
                 Description = description,
                 Inherited = inherited
             };
-            Options.Add(option);
+            AddOption(option);
             configuration(option);
             return option;
+        }
+
+        /// <summary>
+        /// Add an option to the definition of this command
+        /// </summary>
+        /// <param name="option"></param>
+        public void AddOption(CommandOption option)
+        {
+            _options.Add(option);
         }
 
         /// <summary>
@@ -591,7 +600,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 Description = description,
                 Inherited = inherited
             };
-            Options.Add(option);
+            AddOption(option);
             configuration(option);
             return option;
         }
@@ -662,14 +671,18 @@ namespace McMaster.Extensions.CommandLineUtils
             return argument;
         }
 
-        private void AddArgument(CommandArgument argument)
+        /// <summary>
+        /// Add an argument to the definition of this command.
+        /// </summary>
+        /// <param name="argument"></param>
+        public void AddArgument(CommandArgument argument)
         {
             var lastArg = Arguments.LastOrDefault();
             if (lastArg != null && lastArg.MultipleValues)
             {
                 throw new InvalidOperationException(Strings.OnlyLastArgumentCanAllowMultipleValues(lastArg.Name));
             }
-            Arguments.Add(argument);
+            _arguments.Add(argument);
         }
 
         /// <summary>
@@ -708,7 +721,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             IsShowingInformation = default;
-            RemainingArguments.Clear();
+            _remainingArguments.Clear();
         }
 
         /// <summary>

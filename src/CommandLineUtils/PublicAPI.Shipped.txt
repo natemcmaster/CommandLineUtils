@@ -105,7 +105,7 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.AllowArgumentSeparat
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument(string! name, string! description, bool multipleValues = false) -> McMaster.Extensions.CommandLineUtils.CommandArgument!
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument(string! name, string! description, System.Action<McMaster.Extensions.CommandLineUtils.CommandArgument!>! configuration, bool multipleValues = false) -> McMaster.Extensions.CommandLineUtils.CommandArgument!
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Argument<T>(string! name, string! description, System.Action<McMaster.Extensions.CommandLineUtils.CommandArgument<T>!>! configuration, bool multipleValues = false) -> McMaster.Extensions.CommandLineUtils.CommandArgument<T>!
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.Arguments.get -> System.Collections.Generic.List<McMaster.Extensions.CommandLineUtils.CommandArgument!>!
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.Arguments.get -> System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandArgument!>!
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ClusterOptions.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Command(string! name, System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication!>! configuration) -> McMaster.Extensions.CommandLineUtils.CommandLineApplication!
@@ -114,7 +114,7 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplicati
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator! helpTextGenerator, McMaster.Extensions.CommandLineUtils.IConsole! console, string! workingDirectory) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole! console, string! workingDirectory) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.CommandLineApplication(McMaster.Extensions.CommandLineUtils.IConsole! console) -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.Commands.get -> System.Collections.Generic.List<McMaster.Extensions.CommandLineUtils.CommandLineApplication!>!
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.Commands.get -> System.Collections.Generic.IReadOnlyCollection<McMaster.Extensions.CommandLineUtils.CommandLineApplication!>!
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Conventions.get -> McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder!
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Description.get -> string?
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Description.set -> void
@@ -152,7 +152,7 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.Option<T>(string! te
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionHelp.get -> McMaster.Extensions.CommandLineUtils.CommandOption?
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionNameValueSeparators.get -> char[]!
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionNameValueSeparators.set -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.Options.get -> System.Collections.Generic.List<McMaster.Extensions.CommandLineUtils.CommandOption!>!
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.Options.get -> System.Collections.Generic.IReadOnlyCollection<McMaster.Extensions.CommandLineUtils.CommandOption!>!
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionsComparison.get -> System.StringComparison
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionsComparison.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionVersion.get -> McMaster.Extensions.CommandLineUtils.CommandOption?
@@ -161,7 +161,7 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.Out.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Parent.get -> McMaster.Extensions.CommandLineUtils.CommandLineApplication?
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Parent.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.Parse(params string![]! args) -> McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult!
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.RemainingArguments.get -> System.Collections.Generic.List<string!>!
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.RemainingArguments.get -> System.Collections.Generic.IReadOnlyList<string!>!
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ResponseFileHandling.get -> McMaster.Extensions.CommandLineUtils.ResponseFileHandling
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ResponseFileHandling.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShortVersionGetter.get -> System.Func<string?>?

@@ -90,7 +90,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
             option.Description ??= prop.Name;
 
-            app.Options.Add(option);
+            app.AddOption(option);
             return option;
         }
 

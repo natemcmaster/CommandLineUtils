@@ -3,6 +3,7 @@
 
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using Xunit;
@@ -227,7 +228,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Equal(1, result);
             Assert.Equal(expectedDate, app.Model.MainDate);
-            Assert.Equal(expectedDate.AddSeconds(123456), ((CommandLineApplication<CustomParserProgramAttributesSubCommand>)app.Commands[0]).Model.SubDate);
+            Assert.Equal(expectedDate.AddSeconds(123456), app.Commands.OfType<CommandLineApplication<CustomParserProgramAttributesSubCommand>>().Single().Model.SubDate);
         }
 
         [Fact]
