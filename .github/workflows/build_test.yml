@@ -1,0 +1,36 @@
+name: Build and test
+
+on:
+  push:
+    branches:
+    - main
+    - 'release/*'
+  pull_request:
+    branches:
+    - main
+    - 'release/*'
+
+env:
+  BUILD_NUMBER: ${{ github.run_number }}
+
+jobs:
+  build:
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET 2.1
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.x'
+    - name: Setup .NET 3.1
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.x'
+    - name: Run build script
+      run: ./build.ps1 -ci
