@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/DotNetExe.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: DotNetExe
     path: ../src/CommandLineUtils/Utilities/DotNetExe.cs
@@ -53,7 +53,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/DotNetExe.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: FullPath
     path: ../src/CommandLineUtils/Utilities/DotNetExe.cs
@@ -96,7 +96,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/DotNetExe.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: FullPathOrDefault
     path: ../src/CommandLineUtils/Utilities/DotNetExe.cs

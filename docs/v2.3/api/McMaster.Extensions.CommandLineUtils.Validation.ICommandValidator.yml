@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Validation/ICommandValidator.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: ICommandValidator
     path: ../src/CommandLineUtils/Validation/ICommandValidator.cs
@@ -49,7 +49,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Validation/ICommandValidator.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: GetValidationResult
     path: ../src/CommandLineUtils/Validation/ICommandValidator.cs

@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandParsingException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: CommandParsingException
     path: ../src/CommandLineUtils/CommandParsingException.cs
@@ -80,7 +80,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandParsingException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/CommandParsingException.cs
@@ -119,7 +119,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandParsingException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/CommandParsingException.cs
@@ -161,7 +161,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandParsingException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Command
     path: ../src/CommandLineUtils/CommandParsingException.cs

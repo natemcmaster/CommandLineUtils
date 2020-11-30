@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/DebugHelper.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: DebugHelper
     path: ../src/CommandLineUtils/Utilities/DebugHelper.cs
@@ -53,7 +53,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/DebugHelper.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: HandleDebugSwitch
     path: ../src/CommandLineUtils/Utilities/DebugHelper.cs
@@ -94,7 +94,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/DebugHelper.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: HandleDebugSwitch
     path: ../src/CommandLineUtils/Utilities/DebugHelper.cs

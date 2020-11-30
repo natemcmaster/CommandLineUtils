@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Validation/DelegateValidator.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: DelegateValidator
     path: ../src/CommandLineUtils/Validation/DelegateValidator.cs
@@ -68,7 +68,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Validation/DelegateValidator.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/Validation/DelegateValidator.cs
@@ -108,7 +108,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Validation/DelegateValidator.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult
     path: ../src/CommandLineUtils/Validation/DelegateValidator.cs
@@ -146,7 +146,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Validation/DelegateValidator.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
     path: ../src/CommandLineUtils/Validation/DelegateValidator.cs
@@ -184,7 +184,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Validation/DelegateValidator.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult
     path: ../src/CommandLineUtils/Validation/DelegateValidator.cs

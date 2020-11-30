@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/OptionAttributeConvention.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: OptionAttributeConvention
     path: ../src/CommandLineUtils/Conventions/OptionAttributeConvention.cs
@@ -57,7 +57,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/OptionAttributeConvention.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Apply
     path: ../src/CommandLineUtils/Conventions/OptionAttributeConvention.cs

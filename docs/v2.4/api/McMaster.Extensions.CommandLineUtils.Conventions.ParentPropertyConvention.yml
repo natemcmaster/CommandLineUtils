@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ParentPropertyConvention.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ParentPropertyConvention
     path: ../src/CommandLineUtils/Conventions/ParentPropertyConvention.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ParentPropertyConvention.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Apply
     path: ../src/CommandLineUtils/Conventions/ParentPropertyConvention.cs

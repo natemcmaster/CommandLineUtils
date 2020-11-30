@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: CommandLineContext
     path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs
@@ -55,7 +55,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Arguments
     path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs
@@ -95,7 +95,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: WorkingDirectory
     path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs
@@ -135,7 +135,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Console
     path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs

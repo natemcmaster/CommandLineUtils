@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/HelpText/IHelpTextGenerator.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: IHelpTextGenerator
     path: ../src/CommandLineUtils/HelpText/IHelpTextGenerator.cs
@@ -49,7 +49,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/HelpText/IHelpTextGenerator.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Generate
     path: ../src/CommandLineUtils/HelpText/IHelpTextGenerator.cs
