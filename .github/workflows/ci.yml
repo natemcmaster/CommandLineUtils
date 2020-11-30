@@ -39,7 +39,7 @@ jobs:
     - name: Run build script
       run: ./build.ps1 -ci
     - uses: actions/upload-artifact@v2
-      if: ${{ always() && matrix.os == 'windows-latest' }}
+      if: ${{ matrix.os == 'windows-latest' }}
       with:
         name: packages
         path: artifacts/
