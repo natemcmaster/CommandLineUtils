@@ -34,7 +34,7 @@ $(PackageReleaseNotes)
     </PackageReleaseNotes>
     <PackageReleaseNotes>$(PackageReleaseNotes)
 
-See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
+See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/main/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
     </PackageReleaseNotes>
   </PropertyGroup>
 </Project>

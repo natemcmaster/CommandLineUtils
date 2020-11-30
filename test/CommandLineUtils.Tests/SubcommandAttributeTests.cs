@@ -48,9 +48,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 rm => { Assert.Equal("rm", rm.Name); });
         }
 
-        [Command(Name = "master")]
+        [Command(Name = "top")]
         [Subcommand(typeof(Level1Command))]
-        private class MasterApp : CommandBase
+        private class TopApp : CommandBase
         {
             [Option(Inherited = true)]
             public bool Verbose { get; set; }
@@ -66,7 +66,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             protected override int OnExecute(CommandLineApplication app) => 101;
 
-            public MasterApp? Parent { get; }
+            public TopApp? Parent { get; }
         }
 
         private class Level2Command : CommandBase
@@ -93,25 +93,25 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItInvokesExecuteOnSubcommand_Bottom()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "level2", "--value",
+            var rc = CommandLineApplication.Execute<TopApp>(new TestConsole(_output), "level1", "level2", "--value",
                 "6");
             Assert.Equal(6, rc);
 
-            rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1", "level2");
+            rc = CommandLineApplication.Execute<TopApp>(new TestConsole(_output), "level1", "level2");
             Assert.Equal(102, rc);
         }
 
         [Fact]
         public void ItInvokesExecuteOnSubcommand_Middle()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output), "level1");
+            var rc = CommandLineApplication.Execute<TopApp>(new TestConsole(_output), "level1");
             Assert.Equal(101, rc);
         }
 
         [Fact]
         public void ItInvokesExecuteOnSubcommand_Top()
         {
-            var rc = CommandLineApplication.Execute<MasterApp>(new TestConsole(_output));
+            var rc = CommandLineApplication.Execute<TopApp>(new TestConsole(_output));
             Assert.Equal(100, rc);
         }
 
@@ -124,9 +124,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 Out = output,
             };
-            var rc = CommandLineApplication.Execute<MasterApp>(console, "level1", "level2", "--help");
+            var rc = CommandLineApplication.Execute<TopApp>(console, "level1", "level2", "--help");
             Assert.Equal(0, rc);
-            Assert.Contains("Usage: master level1 level2 [options]", sb.ToString());
+            Assert.Contains("Usage: top level1 level2 [options]", sb.ToString());
         }
 
         [Fact]
@@ -138,9 +138,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 Out = output,
             };
-            var rc = CommandLineApplication.Execute<MasterApp>(console, "level1", "--help");
+            var rc = CommandLineApplication.Execute<TopApp>(console, "level1", "--help");
             Assert.Equal(0, rc);
-            Assert.Contains("Usage: master level1 [command] [options]", sb.ToString());
+            Assert.Contains("Usage: top level1 [command] [options]", sb.ToString());
         }
 
         [Fact]
@@ -152,15 +152,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 Out = output,
             };
-            var rc = CommandLineApplication.Execute<MasterApp>(console, "--help");
+            var rc = CommandLineApplication.Execute<TopApp>(console, "--help");
             Assert.Equal(0, rc);
-            Assert.Contains("Usage: master [command] [options]", sb.ToString());
+            Assert.Contains("Usage: top [command] [options]", sb.ToString());
         }
 
         [Fact]
         public void ItCreatesNestedSubCommands()
         {
-            var app = new CommandLineApplication<MasterApp>();
+            var app = new CommandLineApplication<TopApp>();
             app.Conventions.UseSubcommandAttributes().UseCommandAttribute().UseCommandNameFromModelType();
             var lvl1 = Assert.Single(app.Commands);
             Assert.Equal("level1", lvl1.Name);
@@ -171,7 +171,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void ItBindsOptionsOnParentItems()
         {
-            var app = CommandLineParser.ParseArgs<MasterApp>("level1", "--mid", "level2", "--verbose", "--value", "6");
+            var app = CommandLineParser.ParseArgs<TopApp>("level1", "--mid", "level2", "--verbose", "--value", "6");
             Assert.IsType<Level1Command>(app.Subcommand);
             var sub = Assert.IsType<Level2Command>(app.Subcommand?.Subcommand);
             Assert.NotNull(sub.Parent);
