@@ -22,15 +22,20 @@ jobs:
       MacOS:
         vmImage: macOS-latest
       Windows:
-        vmImage: windows-2019
+        vmImage: windows-latest
   pool:
     vmImage: $(vmImage)
   steps:
   - task: UseDotNet@2
-    displayName: Install .NET Core 3.1 SDK
+    displayName: Install .NET 5 SDK
+    inputs:
+      version: '5.x'
+      packageType: sdk
+  - task: UseDotNet@2
+    displayName: Install .NET Core 3.1 runtime
     inputs:
       version: '3.1.x'
-      packageType: sdk
+      packageType: runtime
   - task: UseDotNet@2
     displayName: Install .NET Core 2.1 runtime
     inputs:
@@ -54,15 +59,15 @@ jobs:
   - publish: artifacts/
     artifact: Packages
     displayName: Publish artifacts
-    condition: and(succeeded(), eq('windows-2019', variables['vmImage']))
+    condition: and(succeeded(), eq('windows-latest', variables['vmImage']))
   - powershell: ./docs/generate.ps1 -NoBuild
     displayName: Generate docs
-    condition: and(succeeded(), eq('windows-2019', variables['vmImage']))
+    condition: and(succeeded(), eq('windows-latest', variables['vmImage']))
   - powershell: ./docs/push.ps1 -a $(github-api-token-repo-write)
     displayName: Publish docs to GitHub Pages
     condition: |
       and(
         succeeded(),
-        eq('windows-2019', variables['vmImage']),
+        eq('windows-latest', variables['vmImage']),
         not(eq(variables['Build.Reason'], 'PullRequest')),
         eq(variables['Build.SourceBranch'], 'refs/heads/master'))
