@@ -21,6 +21,7 @@ indent_size                                                            = 4
 csharp_style_expression_bodied_constructors                            = false
 csharp_prefer_braces                                                   = true
 dotnet_sort_system_directives_first                                    = true
+csharp_using_directive_placement                                       = outside_namespace
 
 # Stuff that is usually best
 csharp_style_inlined_variable_declaration                              = true
@@ -38,6 +39,8 @@ csharp_new_line_before_open_brace                                      = all
 csharp_indent_switch_labels                                            = true
 csharp_indent_labels                                                   = one_less_than_current
 csharp_prefer_simple_default_expression                                = true
+csharp_preserve_single_line_blocks                                     = true
+csharp_preserve_single_line_statements                                 = true
 
 # Good defaults, but not always
 dotnet_style_object_initializer                                        = true
@@ -79,3 +82,6 @@ dotnet_naming_symbols.private_fields.applicable_accessibilities        = private
 dotnet_naming_rule.private_fields_should_be_underscore.symbols         = private_fields
 dotnet_naming_rule.private_fields_should_be_underscore.style           = underscore_camel_case
 dotnet_naming_rule.private_fields_should_be_underscore.severity        = error
+
+# File header
+file_header_template = Copyright (c) Nate McMaster.\nLicensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
