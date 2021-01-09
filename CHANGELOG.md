@@ -13,6 +13,7 @@
 * [@scott-xu]: Show allowed values in help text ([#369])
 * [@scott-xu]: Generic Hosting: add overload of RunCommandLineApplicationAsync to support configuring of CommandLineApplication<T> ([#363])
 * [@danielmeza]: implement API on host builder to fetch CommandLineContext from non DI contexts ([#368])
+* [@hellfirehd] and [@cbcrouse]: feature: add API to allow calling UseCommandLineApplication&lt;TApp&gt; prior to Run*Async() ([#409] and [#415])
 
 ### Bug fixes
 * [@natemcmaster]: ensure clustering options is detected correctly when subcommands added via AddSubcommand ([#393])
@@ -49,6 +50,8 @@
 [#391]: https://github.com/natemcmaster/CommandLineUtils/pull/391
 [#393]: https://github.com/natemcmaster/CommandLineUtils/pull/393
 [#402]: https://github.com/natemcmaster/CommandLineUtils/pull/402
+[#409]: https://github.com/natemcmaster/CommandLineUtils/pull/409
+[#415]: https://github.com/natemcmaster/CommandLineUtils/pull/415
 
 ## [v3.0.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.6.0...v3.0.0)
 
@@ -483,6 +486,7 @@ Other:
 [@atruskie]: https://github.com/atruskie
 [@bjorg]: https://github.com/bjorg
 [@bording]: https://github.com/bording
+[@cbcrouse]: https://github.com/cbcrouse
 [@chaami]: https://github.com/chaami
 [@couven92]: https://github.com/couven92
 [@cuperman007]: https://github.com/cuperman007
@@ -491,6 +495,7 @@ Other:
 [@ejball]: https://github.com/ejball
 [@EricStG]: https://github.com/EricStG
 [@handcraftedsource]: https://github.com/handcraftedsource
+[@hellfirehd]: https://github.com/hellfirehd
 [@IanG]: https://github.com/IanG
 [@jcaillon]: https://github.com/jcaillon
 [@jerriep]: https://github.com/jerriep
