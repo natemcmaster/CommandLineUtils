@@ -1,16 +1,16 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Runtime.ExceptionServices;
+using System.Threading;
+using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils;
+using McMaster.Extensions.Hosting.CommandLine.Internal;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Microsoft.Extensions.Hosting
 {
-    using System;
-    using System.Runtime.ExceptionServices;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using McMaster.Extensions.CommandLineUtils;
-    using McMaster.Extensions.Hosting.CommandLine.Internal;
-    using Microsoft.Extensions.DependencyInjection;
-
     /// <summary>
     /// Extension methods for <see cref="IHost" /> support.
     /// </summary>
