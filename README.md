@@ -129,3 +129,5 @@ The library also includes other utilities for interaction with the console. Thes
     ```
 
 And more! See the [documentation](https://natemcmaster.github.io/CommandLineUtils/) for more API, such as `IConsole`, `IReporter`, and others.
+
+
