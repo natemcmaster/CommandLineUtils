@@ -112,7 +112,7 @@ The library also includes other utilities for interaction with the console. Thes
      var args = new [] { "Arg1", "arg with space", "args ' with \" quotes" };
      Process.Start("echo", ArgumentEscaper.EscapeAndConcatenate(args));
     ```
- - `Prompt` - for getting feedback from users with a default answer.  
+ - `Prompt` - for getting feedback from users with a default answer.
    A few examples:
     ```c#
     // allows y/n responses, will return false by default in this case.
@@ -129,5 +129,3 @@ The library also includes other utilities for interaction with the console. Thes
     ```
 
 And more! See the [documentation](https://natemcmaster.github.io/CommandLineUtils/) for more API, such as `IConsole`, `IReporter`, and others.
-
-

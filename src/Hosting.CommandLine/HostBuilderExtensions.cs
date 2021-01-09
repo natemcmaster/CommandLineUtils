@@ -35,7 +35,7 @@ namespace Microsoft.Extensions.Hosting
             CancellationToken cancellationToken = default)
             where TApp : class
         {
-            return await RunCommandLineApplicationAsync<TApp>(hostBuilder, args, null, cancellationToken);
+            return await RunCommandLineApplicationAsync<TApp>(hostBuilder, args, app => { }, cancellationToken);
         }
 
         /// <summary>
@@ -59,7 +59,8 @@ namespace Microsoft.Extensions.Hosting
             var state = new CommandLineState(args);
             hostBuilder.Properties[typeof(CommandLineState)] = state;
             hostBuilder.ConfigureServices(
-                (context, services) =>
+                (context, services)
+                    =>
                 {
                     services.AddCommonServices(state);
                     services.AddSingleton<ICommandLineService, CommandLineService<TApp>>();
@@ -90,7 +91,8 @@ namespace Microsoft.Extensions.Hosting
             var state = new CommandLineState(args);
             hostBuilder.Properties[typeof(CommandLineState)] = state;
             hostBuilder.ConfigureServices(
-                (context, services) =>
+                (context, services)
+                    =>
                 {
                     services.AddCommonServices(state);
                     services.AddSingleton<ICommandLineService, CommandLineService>();
@@ -108,45 +110,11 @@ namespace Microsoft.Extensions.Hosting
         /// <typeparam name="TApp">The type of the command line application implementation</typeparam>
         /// <param name="hostBuilder">This instance</param>
         /// <param name="args">The command line arguments</param>
-        /// <param name="configure">The delegate to configure the application</param>
         /// <returns><see cref="IHostBuilder"/></returns>
-        public static IHostBuilder UseCommandLineApplication<TApp>(
-            this IHostBuilder hostBuilder,
-            string[] args,
-            Action<CommandLineApplication<TApp>> configure)
+        public static IHostBuilder UseCommandLineApplication<TApp>(this IHostBuilder hostBuilder, string[] args)
             where TApp : class
-        {
-            var state = new CommandLineState(args);
-            hostBuilder.Properties[typeof(CommandLineState)] = state;
-            hostBuilder.ConfigureServices(
-                (context, services)
-                    =>
-                {
-                    services.AddCommonServices(state);
-                    services.AddSingleton<ICommandLineService, CommandLineService<TApp>>();
-                    services.AddSingleton(configure);
-                });
+            => UseCommandLineApplication<TApp>(hostBuilder, args, _ => { });
 
-            return hostBuilder;
-        }
-
-        private static void AddCommonServices(this IServiceCollection services, CommandLineState state)
-        {
-            services
-                .TryAddSingleton<StoreExceptionHandler>();
-            services
-                .TryAddSingleton<IUnhandledExceptionHandler>(provider => provider.GetRequiredService<StoreExceptionHandler>());
-            services
-                .AddSingleton<IHostLifetime, CommandLineLifetime>()
-                .TryAddSingleton(PhysicalConsole.Singleton);
-            services
-                .AddSingleton(provider =>
-                {
-                    state.SetConsole(provider.GetService<IConsole>());
-                    return state;
-                })
-                .AddSingleton<CommandLineContext>(state);
-        }
 
         /// <summary>
         ///     Configures an instance of <typeparamref name="TApp" /> using <see cref="CommandLineApplication" /> to provide
@@ -160,15 +128,14 @@ namespace Microsoft.Extensions.Hosting
         public static IHostBuilder UseCommandLineApplication<TApp>(
             this IHostBuilder hostBuilder,
             string[] args,
-            Action<CommandLineApplication<TApp>> configure = null)
+            Action<CommandLineApplication<TApp>> configure)
             where TApp : class
         {
             configure ??= app => { };
             var state = new CommandLineState(args);
             hostBuilder.Properties[typeof(CommandLineState)] = state;
             hostBuilder.ConfigureServices(
-                (context, services)
-                    =>
+                (context, services) =>
                 {
                     services
                         .TryAddSingleton<StoreExceptionHandler>();
@@ -190,6 +157,24 @@ namespace Microsoft.Extensions.Hosting
                 });
 
             return hostBuilder;
+        }
+
+        private static void AddCommonServices(this IServiceCollection services, CommandLineState state)
+        {
+            services
+                .TryAddSingleton<StoreExceptionHandler>();
+            services
+                .TryAddSingleton<IUnhandledExceptionHandler>(provider => provider.GetRequiredService<StoreExceptionHandler>());
+            services
+                .AddSingleton<IHostLifetime, CommandLineLifetime>()
+                .TryAddSingleton(PhysicalConsole.Singleton);
+            services
+                .AddSingleton(provider =>
+                {
+                    state.SetConsole(provider.GetService<IConsole>());
+                    return state;
+                })
+                .AddSingleton<CommandLineContext>(state);
         }
     }
 }

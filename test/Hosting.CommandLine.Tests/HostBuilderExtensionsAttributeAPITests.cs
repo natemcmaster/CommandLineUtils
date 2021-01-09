@@ -26,7 +26,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         {
             var exitCode = await new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync<Return42Command>(new string[0], app => { });
+                    .RunCommandLineApplicationAsync<Return42Command>(new string[0]);
             Assert.Equal(42, exitCode);
         }
 
@@ -39,7 +39,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             console.SetupGet(c => c.Out).Returns(textWriter.Object);
             await new HostBuilder()
                 .ConfigureServices(collection => collection.AddSingleton<IConsole>(console.Object))
-                .RunCommandLineApplicationAsync<Write42Command>(new string[0], app => { });
+                .RunCommandLineApplicationAsync<Write42Command>(new string[0]);
             Mock.Verify(console, textWriter);
         }
 
@@ -58,7 +58,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
                     .AddSingleton<IConsole>(new TestConsole(_output))
                     .AddSingleton(valueHolder)
                     .AddSingleton(convention.Object))
-                .RunCommandLineApplicationAsync<CaptureRemainingArgsCommand>(args, app => { });
+                .RunCommandLineApplicationAsync<CaptureRemainingArgsCommand>(args);
             Assert.Equal(args, valueHolder.Value);
             Mock.Verify(convention);
         }
@@ -91,7 +91,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             var ex = await Assert.ThrowsAsync<InvalidOperationException>(
                 () => new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .UseCommandLineApplication<ThrowsExceptionCommand>(new string[0], app => { })
+                    .UseCommandLineApplication<ThrowsExceptionCommand>(new string[0])
                     .Build()
                     .RunCommandLineApplicationAsync());
             Assert.Equal("A test", ex.Message);
@@ -103,7 +103,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             var ex = await Assert.ThrowsAsync<UnrecognizedCommandParsingException>(
                 () => new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync<ParentCommand>(new string[] { "return41" }, app => { }));
+                    .RunCommandLineApplicationAsync<ParentCommand>(new string[] { "return41" }));
             Assert.Equal(new string[] { "return42" }, ex.NearestMatches);
         }
 
@@ -113,7 +113,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             var ex = await Assert.ThrowsAsync<InvalidOperationException>(
                 () => new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync<ThrowsExceptionCommand>(new string[0], app => { }));
+                    .RunCommandLineApplicationAsync<ThrowsExceptionCommand>(new string[0]));
             Assert.Equal("A test", ex.Message);
         }
 
