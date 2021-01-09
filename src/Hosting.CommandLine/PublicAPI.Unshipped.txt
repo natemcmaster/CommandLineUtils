@@ -1,5 +1,1 @@
 #nullable enable
-Microsoft.Extensions.Hosting.HostExtensions
-static Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCommandLineApplication<TApp>(this Microsoft.Extensions.Hosting.IHostBuilder! hostBuilder, string![]! args) -> Microsoft.Extensions.Hosting.IHostBuilder!
-static Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCommandLineApplication<TApp>(this Microsoft.Extensions.Hosting.IHostBuilder! hostBuilder, string![]! args, System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication<TApp!>!>! configure) -> Microsoft.Extensions.Hosting.IHostBuilder!
-static Microsoft.Extensions.Hosting.HostExtensions.RunCommandLineApplicationAsync(this Microsoft.Extensions.Hosting.IHost! host, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<int>!
