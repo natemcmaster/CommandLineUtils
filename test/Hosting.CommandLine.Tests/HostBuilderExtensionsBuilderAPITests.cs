@@ -108,7 +108,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         public async Task TestCommandLineContextFromNonDIContexts()
         {
             CommandLineContext configureServicesContext = null;
-            CommandLineContext confgureAppContext = null;
+            CommandLineContext configureAppContext = null;
             await new HostBuilder()
                .ConfigureServices((context, collection) =>
                {
@@ -117,14 +117,14 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
                })
                .ConfigureAppConfiguration((context, builder) =>
                {
-                   confgureAppContext = context.GetCommandLineContext();
+                   configureAppContext = context.GetCommandLineContext();
                })
                .RunCommandLineApplicationAsync(new string[0], app => app.OnExecute(() =>
                {
                }));
 
             Assert.NotNull(configureServicesContext);
-            Assert.NotNull(confgureAppContext);
+            Assert.NotNull(configureAppContext);
         }
     }
 }

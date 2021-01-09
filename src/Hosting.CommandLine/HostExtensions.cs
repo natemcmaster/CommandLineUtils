@@ -17,16 +17,12 @@ namespace Microsoft.Extensions.Hosting
     public static class HostExtensions
     {
         /// <summary>
-        /// Runs an instance of <typeparamref name="TApp" /> using the <see cref="CommandLineApplication" /> previously configured in
+        /// Runs the app using the <see cref="CommandLineApplication" /> previously configured in
         /// <see cref="HostBuilderExtensions.UseCommandLineApplication{TApp}(IHostBuilder, string[], Action{CommandLineApplication{TApp}})"/>.
         /// </summary>
-        /// <typeparam name="TApp">The type of the command line application implementation</typeparam>
-        /// <param name="host">This instance</param>
-        /// <param name="cancellationToken">A cancellation token</param>
-        public static async Task<int> RunCommandLineApplicationAsync<TApp>(
-            this IHost host,
-            CancellationToken cancellationToken = default)
-            where TApp : class
+        /// <param name="host">A program abstraction.</param>
+        /// <param name="cancellationToken">Propagates notification that operations should be canceled.</param>
+        public static async Task<int> RunCommandLineApplicationAsync(this IHost host, CancellationToken cancellationToken = default)
         {
             var exceptionHandler = host.Services.GetService<StoreExceptionHandler>();
             var state = host.Services.GetRequiredService<CommandLineState>();
