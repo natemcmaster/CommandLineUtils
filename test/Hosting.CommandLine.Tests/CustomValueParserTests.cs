@@ -31,8 +31,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
                 .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
                 .RunCommandLineApplicationAsync<CustomOptionTypeCommand>(
                     new[] { "--custom-type", DemoOptionValue },
-                    app => app.ValueParsers.AddOrReplace(
-                        new CustomValueParser()));
+                    app => app.ValueParsers.AddOrReplace(new CustomValueParser()));
             Assert.Equal(0, exitCode);
         }
 
@@ -46,7 +45,8 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
                     collection.AddSingleton<IConvention, CustomValueParserConvention>();
                 })
                 .RunCommandLineApplicationAsync<CustomOptionTypeCommand>(
-                    new[] { "--custom-type", DemoOptionValue });
+                    new[] { "--custom-type", DemoOptionValue },
+                    app => { });
             Assert.Equal(0, exitCode);
         }
 
@@ -56,7 +56,8 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             var exitCode = await new HostBuilder()
                 .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
                 .RunCommandLineApplicationAsync<CustomOptionTypeCommandWithAttribute>(
-                    new[] { "--custom-type", DemoOptionValue });
+                    new[] { "--custom-type", DemoOptionValue },
+                    app => { });
             Assert.Equal(0, exitCode);
         }
 
