@@ -45,4 +45,5 @@ jobs:
         path: artifacts/
     - uses: codecov/codecov-action@v1
       with:
+        name: unittests-${{ matrix.os }}
         fail_ci_if_error: true
