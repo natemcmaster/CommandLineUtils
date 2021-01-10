@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/Hosting.CommandLine/HostBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: HostBuilderExtensions
     path: ../src/Hosting.CommandLine/HostBuilderExtensions.cs
@@ -57,7 +57,7 @@ items:
   source:
     remote:
       path: src/Hosting.CommandLine/HostBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: RunCommandLineApplicationAsync
     path: ../src/Hosting.CommandLine/HostBuilderExtensions.cs

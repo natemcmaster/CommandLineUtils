@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using McMaster.Extensions.Xunit;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -55,6 +56,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Theory]
         [InlineData("red")]
         [InlineData("RED")]
+        [UseCulture("en-US")]
         public void ValidatesValueInSetIgnoreCase(string value)
         {
             var console = new TestConsole(_output);

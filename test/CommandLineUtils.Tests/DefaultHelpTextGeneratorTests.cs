@@ -274,10 +274,10 @@ Options:
         }
 
         [Theory]
-        [InlineData("-h", "-h", "  -h          Show help information.", "  Subcommand ")]
-        [InlineData("--help", "--help", "  --help      Show help information.", "  Subcommand ")]
-        [InlineData("-?", "-?", "  -?          Show help information.", "  Subcommand ")]
-        [InlineData(null, "-?|-h|--help", "  -?|-h|--help  Show help information.", "  Subcommand   ")]
+        [InlineData("-h", "-h", "  -h          Show help information.", "  Subcommand  ")]
+        [InlineData("--help", "--help", "  --help      Show help information.", "  Subcommand  ")]
+        [InlineData("-?", "-?", "  -?          Show help information.", "  Subcommand  ")]
+        [InlineData(null, "-?|-h|--help", "  -?|-h|--help  Show help information.", "  Subcommand    ")]
         public void ShowHelpWithSubcommands(string helpOption, string expectedHintText, string expectedOptionsText,
             string expectedCommandsText)
         {
@@ -293,7 +293,7 @@ Options:
 {expectedOptionsText}
 
 Commands:
-{expectedCommandsText} 
+{expectedCommandsText}
 
 Run 'test [command] {expectedHintText}' for more information about a command.
 

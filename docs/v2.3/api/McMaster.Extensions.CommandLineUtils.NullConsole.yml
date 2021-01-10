@@ -26,7 +26,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: NullConsole
     path: ../src/CommandLineUtils/IO/NullConsole.cs
@@ -109,7 +109,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: Singleton
     path: ../src/CommandLineUtils/IO/NullConsole.cs
@@ -148,7 +148,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: Out
     path: ../src/CommandLineUtils/IO/NullConsole.cs
@@ -187,7 +187,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: Error
     path: ../src/CommandLineUtils/IO/NullConsole.cs
@@ -226,7 +226,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: In
     path: ../src/CommandLineUtils/IO/NullConsole.cs
@@ -265,7 +265,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: IsInputRedirected
     path: ../src/CommandLineUtils/IO/NullConsole.cs
@@ -304,7 +304,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: IsOutputRedirected
     path: ../src/CommandLineUtils/IO/NullConsole.cs
@@ -343,7 +343,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: IsErrorRedirected
     path: ../src/CommandLineUtils/IO/NullConsole.cs
@@ -382,7 +382,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: ForegroundColor
     path: ../src/CommandLineUtils/IO/NullConsole.cs
@@ -421,7 +421,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: BackgroundColor
     path: ../src/CommandLineUtils/IO/NullConsole.cs
@@ -460,7 +460,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: CancelKeyPress
     path: ../src/CommandLineUtils/IO/NullConsole.cs
@@ -495,7 +495,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullConsole.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: ResetColor
     path: ../src/CommandLineUtils/IO/NullConsole.cs

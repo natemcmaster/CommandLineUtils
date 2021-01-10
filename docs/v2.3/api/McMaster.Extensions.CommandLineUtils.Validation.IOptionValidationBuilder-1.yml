@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Validation/IOptionValidationBuilder{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: IOptionValidationBuilder
     path: ../src/CommandLineUtils/Validation/IOptionValidationBuilder{T}.cs

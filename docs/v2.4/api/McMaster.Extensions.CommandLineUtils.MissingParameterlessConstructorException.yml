@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: MissingParameterlessConstructorException
     path: ../src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs
@@ -79,7 +79,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Type
     path: ../src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs
@@ -116,7 +116,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/Errors/MissingParameterlessConstructorException.cs

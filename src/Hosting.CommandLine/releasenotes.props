@@ -1,5 +1,11 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.1.'))">
+Improvements:
+* @scott-xu: feature: add overload of RunCommandLineApplicationAsync to support configuring of CommandLineApplication (#363)
+* @danielmeza: feature: implement API on host builder to fetch CommandLineContext from non DI contexts (#368)
+* @hellfirehd and @cbcrouse: feature: add API to allow calling UseCommandLineApplication&lt;TApp&gt; prior to Run*Async() (#409 and #415)
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.0.'))">
 Features:
 * @vpkopylov - Added support for using the 'builder API' by calling .RunCommandLineApplicationAsync(args, app => { })
@@ -29,7 +35,7 @@ $(PackageReleaseNotes)
     </PackageReleaseNotes>
     <PackageReleaseNotes>$(PackageReleaseNotes)
 
-See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/master/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
+See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/main/CHANGELOG.md#v$(VersionPrefix.Replace('.',''))
     </PackageReleaseNotes>
   </PropertyGroup>
 </Project>

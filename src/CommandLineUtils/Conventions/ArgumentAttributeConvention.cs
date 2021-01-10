@@ -64,7 +64,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     }
                 }
 
-                context.Application.Arguments.Add(arg.Value);
+                context.Application.AddArgument(arg.Value);
             }
         }
 
@@ -100,16 +100,21 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
             if (argument.MultipleValues)
             {
-                var collectionParser = CollectionParserProvider.Default.GetParser(
-                    prop.PropertyType,
-                    convention.Application.ValueParsers);
-                if (collectionParser == null)
-                {
-                    throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
-                }
-
                 convention.Application.OnParsingComplete(r =>
                 {
+                    var collectionParser = CollectionParserProvider.Default.GetParser(
+                        prop.PropertyType,
+                        convention.Application.ValueParsers);
+                    if (collectionParser == null)
+                    {
+                        throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
+                    }
+
+                    if (argument.Values.Count == 0)
+                    {
+                        return;
+                    }
+
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
                         if (argument.Values.Count == 0)
@@ -132,14 +137,19 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
             else
             {
-                var parser = convention.Application.ValueParsers.GetParser(prop.PropertyType);
-                if (parser == null)
-                {
-                    throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
-                }
-
                 convention.Application.OnParsingComplete(r =>
                 {
+                    var parser = convention.Application.ValueParsers.GetParser(prop.PropertyType);
+                    if (parser == null)
+                    {
+                        throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
+                    }
+
+                    if (argument.Values.Count == 0)
+                    {
+                        return;
+                    }
+
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
                         if (argument.Values.Count == 0)

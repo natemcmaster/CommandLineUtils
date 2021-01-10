@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Abstractions/IValueParser{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: IValueParser
     path: ../src/CommandLineUtils/Abstractions/IValueParser{T}.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Abstractions/IValueParser{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Parse
     path: ../src/CommandLineUtils/Abstractions/IValueParser{T}.cs

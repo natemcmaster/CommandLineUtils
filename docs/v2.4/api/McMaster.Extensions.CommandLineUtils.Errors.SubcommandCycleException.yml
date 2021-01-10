@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Errors/SubcommandCycleException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: SubcommandCycleException
     path: ../src/CommandLineUtils/Errors/SubcommandCycleException.cs
@@ -77,7 +77,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Errors/SubcommandCycleException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/Errors/SubcommandCycleException.cs
@@ -113,7 +113,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Errors/SubcommandCycleException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ModelType
     path: ../src/CommandLineUtils/Errors/SubcommandCycleException.cs

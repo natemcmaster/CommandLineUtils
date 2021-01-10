@@ -42,7 +42,7 @@
   </PropertyGroup>
 
    <PropertyGroup>
-    <VersionPrefix>3.1.0</VersionPrefix>
+    <VersionPrefix>4.0.0</VersionPrefix>
     <VersionSuffix>beta</VersionSuffix>
     <IncludePreReleaseLabelInPackageVersion Condition="'$(IsStableBuild)' != 'true'">true</IncludePreReleaseLabelInPackageVersion>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(BUILD_NUMBER)</BuildNumber>

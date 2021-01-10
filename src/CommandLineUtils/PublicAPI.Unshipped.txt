@@ -1,1 +1,7 @@
 #nullable enable
+McMaster.Extensions.CommandLineUtils.CommandArgument.HasValue.get -> bool
+McMaster.Extensions.CommandLineUtils.CommandArgument.TryParse(string? value) -> bool
+virtual McMaster.Extensions.CommandLineUtils.CommandArgument.Reset() -> void
+virtual McMaster.Extensions.CommandLineUtils.CommandOption.Reset() -> void
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddArgument(McMaster.Extensions.CommandLineUtils.CommandArgument! argument) -> void
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddOption(McMaster.Extensions.CommandLineUtils.CommandOption! option) -> void

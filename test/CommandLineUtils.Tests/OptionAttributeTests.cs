@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using McMaster.Extensions.CommandLineUtils.Conventions;
@@ -241,7 +242,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(1, PrivateSetterProgram.StaticNumber);
         }
 
-#if !NETCOREAPP3_1
+#if !NETCOREAPP3_1 && !NET5_0
         // .NET Core 3.0 made an intentional breaking change
         // see https://github.com/dotnet/coreclr/issues/21268
         [Fact]
@@ -314,7 +315,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var appBuilder = typeof(CommandLineApplication<>).MakeGenericType(program);
             var app = (CommandLineApplication)Activator.CreateInstance(appBuilder, Util.EmptyArray<object>());
             app.Conventions.UseOptionAttributes();
-            return app.Options[0];
+            return app.Options.First();
         }
     }
 }

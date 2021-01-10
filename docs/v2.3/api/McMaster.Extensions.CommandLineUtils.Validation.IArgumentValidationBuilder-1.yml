@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Validation/IArgumentValidationBuilder{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: IArgumentValidationBuilder
     path: ../src/CommandLineUtils/Validation/IArgumentValidationBuilder{T}.cs

@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.Validation.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: CommandLineApplication
     path: ../src/CommandLineUtils/CommandLineApplication.Validation.cs
@@ -157,7 +157,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -193,7 +193,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -229,7 +229,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -271,7 +271,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -316,7 +316,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Parent
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -353,7 +353,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: HelpTextGenerator
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -390,7 +390,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Name
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -427,7 +427,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: FullName
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -464,7 +464,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Description
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -501,7 +501,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ShowInHelpText
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -538,7 +538,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ExtendedHelpText
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -575,7 +575,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Options
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -612,7 +612,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: UsePagerForHelpText
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -649,7 +649,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Names
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -686,7 +686,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: OptionHelp
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -723,7 +723,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: OptionVersion
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -760,7 +760,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Arguments
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -797,7 +797,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: RemainingArguments
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -834,7 +834,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ThrowOnUnexpectedArgument
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -871,7 +871,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: IsShowingInformation
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -910,7 +910,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: LongVersionGetter
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -947,7 +947,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ShortVersionGetter
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -984,7 +984,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Commands
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1021,7 +1021,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: AllowArgumentSeparator
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1058,7 +1058,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ResponseFileHandling
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1095,7 +1095,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: OptionsComparison
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1132,7 +1132,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ClusterOptions
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1170,7 +1170,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ValueParsers
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1207,7 +1207,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: WorkingDirectory
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1244,7 +1244,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Out
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1281,7 +1281,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Error
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1318,7 +1318,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetOptions
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1353,7 +1353,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: AddName
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1389,7 +1389,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: AddSubcommand
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1425,7 +1425,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Command
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1473,7 +1473,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Command
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1526,7 +1526,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Option
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1571,7 +1571,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Option
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1619,7 +1619,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Option
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1670,7 +1670,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Option
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1724,7 +1724,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Option
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1781,7 +1781,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Argument
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1826,7 +1826,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Argument
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1877,7 +1877,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Argument
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1931,7 +1931,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: OnExecute
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -1970,7 +1970,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: OnExecuteAsync
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2009,7 +2009,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: OnParsingComplete
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2048,7 +2048,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Parse
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2090,7 +2090,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: MakeSuggestionsInErrorMessage
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2127,7 +2127,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: HandleParseResult
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2165,7 +2165,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Execute
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2207,7 +2207,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ExecuteAsync
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2252,7 +2252,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: HelpOption
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2291,7 +2291,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: HelpOption
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2333,7 +2333,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: VersionOption
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2381,7 +2381,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: VersionOption
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2429,7 +2429,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ShowHint
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2463,7 +2463,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ShowHelp
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2495,7 +2495,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ShowHelp
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2531,7 +2531,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetHelpText
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2568,7 +2568,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ShowVersion
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2600,7 +2600,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetVersionText
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2637,7 +2637,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetFullNameAndVersion
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2674,7 +2674,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ShowRootCommandFullNameAndVersion
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2706,7 +2706,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Conventions
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2743,7 +2743,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Dispose
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2779,7 +2779,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: System.IServiceProvider.GetService
     path: ../src/CommandLineUtils/CommandLineApplication.cs
@@ -2814,7 +2814,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.Execute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Execute
     path: ../src/CommandLineUtils/CommandLineApplication.Execute.cs
@@ -2867,7 +2867,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.Execute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ExecuteAsync
     path: ../src/CommandLineUtils/CommandLineApplication.Execute.cs
@@ -2923,7 +2923,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.Execute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Execute
     path: ../src/CommandLineUtils/CommandLineApplication.Execute.cs
@@ -2976,7 +2976,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.Execute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Execute
     path: ../src/CommandLineUtils/CommandLineApplication.Execute.cs
@@ -3032,7 +3032,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.Execute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ExecuteAsync
     path: ../src/CommandLineUtils/CommandLineApplication.Execute.cs
@@ -3085,7 +3085,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.Execute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ExecuteAsync
     path: ../src/CommandLineUtils/CommandLineApplication.Execute.cs
@@ -3141,7 +3141,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.Execute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ExecuteAsync
     path: ../src/CommandLineUtils/CommandLineApplication.Execute.cs
@@ -3197,7 +3197,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.Validation.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ValidationErrorHandler
     path: ../src/CommandLineUtils/CommandLineApplication.Validation.cs
@@ -3234,7 +3234,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.Validation.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Validators
     path: ../src/CommandLineUtils/CommandLineApplication.Validation.cs
@@ -3271,7 +3271,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication.Validation.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetValidationResult
     path: ../src/CommandLineUtils/CommandLineApplication.Validation.cs

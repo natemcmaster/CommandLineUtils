@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/ArgumentEscaper.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ArgumentEscaper
     path: ../src/CommandLineUtils/Utilities/ArgumentEscaper.cs
@@ -60,7 +60,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/ArgumentEscaper.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: EscapeAndConcatenate
     path: ../src/CommandLineUtils/Utilities/ArgumentEscaper.cs

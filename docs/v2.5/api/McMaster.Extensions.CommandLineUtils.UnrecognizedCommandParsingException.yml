@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Errors/UnrecognizedCommandParsingException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: UnrecognizedCommandParsingException
     path: ../src/CommandLineUtils/Errors/UnrecognizedCommandParsingException.cs
@@ -74,7 +74,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Errors/UnrecognizedCommandParsingException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/Errors/UnrecognizedCommandParsingException.cs
@@ -119,7 +119,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Errors/UnrecognizedCommandParsingException.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: NearestMatches
     path: ../src/CommandLineUtils/Errors/UnrecognizedCommandParsingException.cs

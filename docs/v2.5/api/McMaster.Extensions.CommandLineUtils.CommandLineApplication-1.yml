@@ -26,7 +26,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: CommandLineApplication
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs
@@ -162,7 +162,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs
@@ -200,7 +200,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs
@@ -238,7 +238,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs
@@ -282,7 +282,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs
@@ -329,7 +329,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Model
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs
@@ -369,7 +369,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModelType
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs
@@ -403,7 +403,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor.GetModel
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs
@@ -436,7 +436,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: CreateModel
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs
@@ -475,7 +475,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ModelFactory
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs
@@ -514,7 +514,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: HandleParseResult
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs
@@ -555,7 +555,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandLineApplication{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Dispose
     path: ../src/CommandLineUtils/CommandLineApplication{T}.cs

@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/VersionOptionFromMemberAttributeConvention.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: VersionOptionFromMemberAttributeConvention
     path: ../src/CommandLineUtils/Conventions/VersionOptionFromMemberAttributeConvention.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/VersionOptionFromMemberAttributeConvention.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: Apply
     path: ../src/CommandLineUtils/Conventions/VersionOptionFromMemberAttributeConvention.cs

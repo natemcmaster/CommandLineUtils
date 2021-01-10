@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandOptionType.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: CommandOptionType
     path: ../src/CommandLineUtils/CommandOptionType.cs
@@ -52,7 +52,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandOptionType.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: MultipleValue
     path: ../src/CommandLineUtils/CommandOptionType.cs
@@ -86,7 +86,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandOptionType.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: SingleValue
     path: ../src/CommandLineUtils/CommandOptionType.cs
@@ -120,7 +120,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandOptionType.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: SingleOrNoValue
     path: ../src/CommandLineUtils/CommandOptionType.cs
@@ -154,7 +154,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandOptionType.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: NoValue
     path: ../src/CommandLineUtils/CommandOptionType.cs

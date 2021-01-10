@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/Hosting.CommandLine/IUnhandledExceptionHandler.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: IUnhandledExceptionHandler
     path: ../src/Hosting.CommandLine/IUnhandledExceptionHandler.cs
@@ -49,7 +49,7 @@ items:
   source:
     remote:
       path: src/Hosting.CommandLine/IUnhandledExceptionHandler.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: HandleException
     path: ../src/Hosting.CommandLine/IUnhandledExceptionHandler.cs

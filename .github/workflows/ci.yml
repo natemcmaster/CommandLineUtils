@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - main
+    - 'release/*'
+  pull_request:
+    branches:
+    - main
+    - 'release/*'
+
+env:
+  BUILD_NUMBER: ${{ github.run_number }}
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core 2.1
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '2.1.x'
+    - name: Setup .NET Core 3.1
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.x'
+    - name: Setup .NET 5
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
+    - name: Run build script
+      run: ./build.ps1 -ci
+    - uses: actions/upload-artifact@v2
+      if: ${{ matrix.os == 'windows-latest' }}
+      with:
+        name: packages
+        path: artifacts/
+    - uses: codecov/codecov-action@v1
+      with:
+        name: unittests-${{ matrix.os }}
+        fail_ci_if_error: true

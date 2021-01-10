@@ -2,6 +2,57 @@
 
 [Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v3.0.0...HEAD):
 
+* [@scott-xu]: feature: add API for setting default value on options and arguments, and display them in help text ([#389])
+
+[#389]: https://github.com/natemcmaster/CommandLineUtils/pull/389
+
+## [v3.1.0](https://github.com/natemcmaster/CommandLineUtils/compare/v3.0.0...v3.1.0)
+
+### Improvements
+
+* [@scott-xu]: Show allowed values in help text ([#369])
+* [@scott-xu]: Generic Hosting: add overload of RunCommandLineApplicationAsync to support configuring of CommandLineApplication<T> ([#363])
+* [@danielmeza]: implement API on host builder to fetch CommandLineContext from non DI contexts ([#368])
+* [@hellfirehd] and [@cbcrouse]: feature: add API to allow calling UseCommandLineApplication&lt;TApp&gt; prior to Run*Async() ([#409] and [#415])
+
+### Bug fixes
+* [@natemcmaster]: ensure clustering options is detected correctly when subcommands added via AddSubcommand ([#393])
+* [@scott-xu]: make UnrecognizedArgumentHandling per command scope ([#371])
+* [@scott-xu]: show allowed values in help text correctly when multiple `AllowedValuesAttribute` are used ([#375])
+* [@scott-xu]: show allowed values in help text for Nullable/ValueTuple<bool,T> option/argument ([#390])
+* [@scott-xu]: update help text to show allowed values from `AllowedValues` attribute instead of Enum values ([#391])
+
+### Docs
+* [@chaami]: Fix Readme.md on Prompt.GetYesNo ([#402])
+* [@cuperman007] docs: added using statements to code sample in index.md ([#384])
+* [@scott-xu]: Fix broken links in docs ([#377])
+* [@scott-xu]: cleanup: add a period to end sentences for built-in descriptions ([#364])
+
+### Other
+
+* [@natemcmaster]: Change default branch to 'main' ([#373])
+* [@natemcmaster]: Stop code signing binaries and packages ([#379])
+* [@natemcmaster]: add dotnet-format to CI, and other code/project file cleanups
+
+
+[#363]: https://github.com/natemcmaster/CommandLineUtils/pull/363
+[#364]: https://github.com/natemcmaster/CommandLineUtils/pull/364
+[#367]: https://github.com/natemcmaster/CommandLineUtils/pull/367
+[#368]: https://github.com/natemcmaster/CommandLineUtils/pull/368
+[#369]: https://github.com/natemcmaster/CommandLineUtils/pull/369
+[#371]: https://github.com/natemcmaster/CommandLineUtils/pull/371
+[#373]: https://github.com/natemcmaster/CommandLineUtils/pull/373
+[#375]: https://github.com/natemcmaster/CommandLineUtils/pull/375
+[#377]: https://github.com/natemcmaster/CommandLineUtils/pull/377
+[#379]: https://github.com/natemcmaster/CommandLineUtils/pull/379
+[#384]: https://github.com/natemcmaster/CommandLineUtils/pull/384
+[#390]: https://github.com/natemcmaster/CommandLineUtils/pull/390
+[#391]: https://github.com/natemcmaster/CommandLineUtils/pull/391
+[#393]: https://github.com/natemcmaster/CommandLineUtils/pull/393
+[#402]: https://github.com/natemcmaster/CommandLineUtils/pull/402
+[#409]: https://github.com/natemcmaster/CommandLineUtils/pull/409
+[#415]: https://github.com/natemcmaster/CommandLineUtils/pull/415
+
 ## [v3.0.0](https://github.com/natemcmaster/CommandLineUtils/compare/v2.6.0...v3.0.0)
 
 ### Improvements
@@ -433,25 +484,31 @@ Other:
 
 [@atifaziz]: https://github.com/atifaziz
 [@atruskie]: https://github.com/atruskie
-[@bording]: https://github.com/bording
 [@bjorg]: https://github.com/bjorg
+[@bording]: https://github.com/bording
+[@cbcrouse]: https://github.com/cbcrouse
+[@chaami]: https://github.com/chaami
 [@couven92]: https://github.com/couven92
+[@cuperman007]: https://github.com/cuperman007
+[@danielmeza]: https://github.com/danielmeza
 [@demosdemon]: https://github.com/demosdemon
-[@EricStG]: https://github.com/EricStG
 [@ejball]: https://github.com/ejball
+[@EricStG]: https://github.com/EricStG
 [@handcraftedsource]: https://github.com/handcraftedsource
+[@hellfirehd]: https://github.com/hellfirehd
 [@IanG]: https://github.com/IanG
 [@jcaillon]: https://github.com/jcaillon
 [@jerriep]: https://github.com/jerriep
 [@kant2002]: https://github.com/kant2002
 [@kyle-rader]: https://github.com/kyle-rader
-[@lucastheisen]: https://github.com/lucastheisen
 [@liamdawson]: https://github.com/liamdawson
+[@lucastheisen]: https://github.com/lucastheisen
 [@lvermeulen]: https://github.com/lvermeulen
 [@MadbHatter]: https://github.com/MadbHatter
 [@mpipo]: https://github.com/mpipo
 [@rlvandaveer]: https://github.com/rlvandaveer
 [@rmcc13]: https://github.com/rmcc13
+[@scott-xu]: https://github.com/scott-xu
 [@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros
 [@SteveBenz]: https://github.com/SteveBenz

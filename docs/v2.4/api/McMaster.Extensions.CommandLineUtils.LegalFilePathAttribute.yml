@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: LegalFilePathAttribute
     path: ../src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
@@ -122,7 +122,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
@@ -154,7 +154,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: IsValid
     path: ../src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
