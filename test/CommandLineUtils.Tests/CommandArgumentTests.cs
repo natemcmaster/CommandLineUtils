@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             var argument = app.Argument<int>("abc", "xyz");
             Assert.Equal(default, argument.DefaultValue);
-            Assert.True(argument.HasValue());
+            Assert.True(argument.HasValue);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             var argument = app.Argument<int?>("abc", "xyz");
             Assert.Null(argument.DefaultValue);
-            Assert.False(argument.HasValue());
+            Assert.False(argument.HasValue);
         }
 
         [Fact]
