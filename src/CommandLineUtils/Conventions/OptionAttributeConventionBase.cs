@@ -70,6 +70,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         var collectionParser =
                             CollectionParserProvider.Default.GetParser(prop.PropertyType,
                                 context.Application.ValueParsers);
+
                         if (collectionParser == null)
                         {
                             throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
@@ -79,10 +80,13 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         {
                             if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out var type))
                             {
-                                if (getter.Invoke(modelAccessor.GetModel()) is IEnumerable<object> value)
+                                if (getter.Invoke(modelAccessor.GetModel()) is IEnumerable<object> values)
                                 {
-                                    option.Values.AddRange(value.Select(x => x?.ToString()));
-                                    option.DefaultValue = string.Join(", ", value.Select(x => x?.ToString()));
+                                    foreach (var value in values)
+                                    {
+                                        option.TryParse(value?.ToString());
+                                    }
+                                    option.DefaultValue = string.Join(", ", values.Select(x => x?.ToString()));
                                 }
                             }
                         }
@@ -110,7 +114,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
                                 if (value != null)
                                 {
-                                    option.Values.Add(value.ToString());
+                                    option.TryParse(value.ToString());
                                     option.DefaultValue = value.ToString();
                                 }
                             }

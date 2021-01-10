@@ -174,6 +174,7 @@ Options:
             var app = new CommandLineApplication<MyApp>() { Name = "test" };
             app.Conventions.UseDefaultConventions();
             var helpText = GetHelpText(app);
+            _output.WriteLine(helpText);
 
             Assert.Equal(@"Usage: test [options] <SomeStringArgument> <RestrictedStringArgument> <DefaultValStringArgument> <SomeEnumArgument> <RestrictedEnumArgument> <SomeNullableEnumArgument>
 

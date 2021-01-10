@@ -121,10 +121,13 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         {
                             if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
                             {
-                                if (getter.Invoke(cmd.GetModel()) is IEnumerable<object> value)
+                                if (getter.Invoke(cmd.GetModel()) is IEnumerable<object> values)
                                 {
-                                    argument.Values.AddRange(value.Select(x => x?.ToString()));
-                                    argument.DefaultValue = string.Join(", ", value.Select(x => x?.ToString()));
+                                    foreach (var value in values)
+                                    {
+                                        argument.TryParse(value?.ToString());
+                                    }
+                                    argument.DefaultValue = string.Join(", ", values.Select(x => x?.ToString()));
                                 }
                             }
                         }
@@ -145,11 +148,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
 
-                    if (argument.Values.Count == 0)
-                    {
-                        return;
-                    }
-
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
                         if (argument.Values.Count == 0)
@@ -159,7 +157,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                                 var value = getter.Invoke(cmd.GetModel());
                                 if (value != null)
                                 {
-                                    argument.Values.Add(value.ToString());
+                                    argument.TryParse(value.ToString());
                                     argument.DefaultValue = value.ToString();
                                 }
                             }
