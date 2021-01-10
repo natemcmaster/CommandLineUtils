@@ -61,6 +61,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttributeApi", "generic-hos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuilderApi", "generic-host\BuilderApi\BuilderApi.csproj", "{B38FF032-9AFB-481F-A432-DFA7A5100C3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "helloworld\HelloWorld.csproj", "{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -347,6 +349,18 @@ Global
 		{B38FF032-9AFB-481F-A432-DFA7A5100C3A}.Release|x64.Build.0 = Release|Any CPU
 		{B38FF032-9AFB-481F-A432-DFA7A5100C3A}.Release|x86.ActiveCfg = Release|Any CPU
 		{B38FF032-9AFB-481F-A432-DFA7A5100C3A}.Release|x86.Build.0 = Release|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Debug|x64.Build.0 = Debug|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Debug|x86.Build.0 = Debug|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Release|x64.ActiveCfg = Release|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Release|x64.Build.0 = Release|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Release|x86.ActiveCfg = Release|Any CPU
+		{D444D44D-76BB-4FDB-9C06-1D8D30729F4A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+using System;
 using McMaster.Extensions.CommandLineUtils;
 
 var app = new CommandLineApplication();
@@ -8,7 +7,7 @@ app.HelpOption();
 var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
 var optionRepeat = app.Option<int>("-n|--count <N>", "Repeat", CommandOptionType.SingleValue);
 
-app.OnExecuteAsync(async cancellationToken =>
+app.OnExecute(() =>
 {
     var subject = optionSubject.HasValue()
         ? optionSubject.Value()
@@ -17,13 +16,9 @@ app.OnExecuteAsync(async cancellationToken =>
     var count = optionRepeat.HasValue() ? optionRepeat.ParsedValue : 1;
     for (var i = 0; i < count; i++)
     {
-        Console.Write($"Hello");
-
-        // Pause for dramatic effect
-        await Task.Delay(2000, cancellationToken);
-
-        Console.WriteLine($" {subject}!");
+        Console.WriteLine($"Hello {subject}!");
     }
+    return 0;
 });
 
 return app.Execute(args);
