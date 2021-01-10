@@ -100,7 +100,17 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Any values found during parsing, if any.
         /// </summary>
-        public IReadOnlyList<string?> Values => _values;
+        public IReadOnlyList<string?> Values
+        {
+            get
+            {
+                if (_values.Count == 0 && DefaultValue != null)
+                {
+                    return new List<string?> { DefaultValue };
+                }
+                return _values;
+            }
+        }
 
         /// <summary>
         /// The default value of the option.
@@ -171,12 +181,12 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// True when <see cref="Values"/> is not empty.
+        /// True when <see cref="Values"/> is not empty or when a <see cref="DefaultValue" /> is given.
         /// </summary>
         /// <returns></returns>
         public bool HasValue()
         {
-            return Values.Any();
+            return _values.Any() || DefaultValue != null;
         }
 
         /// <summary>

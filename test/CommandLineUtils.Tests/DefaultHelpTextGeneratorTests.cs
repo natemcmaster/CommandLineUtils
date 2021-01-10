@@ -121,9 +121,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Argument("RestrictedStringArgument", "restricted string arg desc.", a => a.IsRequired().Accepts().Values("Foo", "Bar"));
             app.Argument("DefaultValStringArgument", "string arg with default value desc.", a => a.DefaultValue = "Foo");
             app.Argument<SomeEnum>("SomeEnumArgument", "enum arg desc.");
-            app.Argument<SomeEnum>("RestrictedEnumArgument", "restricted enum arg desc.", a => a.Accepts().Values("None", "Normal"));
+            var a = app.Argument<SomeEnum>("RestrictedEnumArgument", "restricted enum arg desc.", a => a.Accepts().Values("None", "Normal"));
+            a.DefaultValue = SomeEnum.Normal;
             app.Argument<(bool, SomeEnum)>("SomeNullableEnumArgument", "nullable enum arg desc.");
             var helpText = GetHelpText(app);
+            _output.WriteLine(helpText);
 
             Assert.Equal(@"Usage:  [options] <SomeStringArgument> <RestrictedStringArgument> <DefaultValStringArgument> <SomeEnumArgument> <RestrictedEnumArgument> <SomeNullableEnumArgument>
 
@@ -138,7 +140,7 @@ Arguments:
                             Default value is: None.
   RestrictedEnumArgument    restricted enum arg desc.
                             Allowed values are: None, Normal.
-                            Default value is: None.
+                            Default value is: Normal.
   SomeNullableEnumArgument  nullable enum arg desc.
                             Allowed values are: None, Normal, Extreme.
 

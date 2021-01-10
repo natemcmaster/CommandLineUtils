@@ -36,7 +36,17 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// All values specified, if any.
         /// </summary>
-        public IReadOnlyList<string?> Values => _values;
+        public IReadOnlyList<string?> Values
+        {
+            get
+            {
+                if (_values.Count == 0 && DefaultValue != null)
+                {
+                    return new List<string?> { DefaultValue };
+                }
+                return _values;
+            }
+        }
 
         /// <summary>
         /// Allow multiple values.
@@ -54,9 +64,9 @@ namespace McMaster.Extensions.CommandLineUtils
         public string? DefaultValue { get; set; }
 
         /// <summary>
-        /// True if this argument has been assigned values.
+        /// True when <see cref="Values"/> is not empty or when a <see cref="DefaultValue" /> is given.
         /// </summary>
-        public bool HasValue => Values.Any();
+        public bool HasValue => _values.Count != 0 || DefaultValue != null;
 
         /// <summary>
         /// A collection of validators that execute before invoking <see cref="CommandLineApplication.OnExecute(Func{int})"/>.
