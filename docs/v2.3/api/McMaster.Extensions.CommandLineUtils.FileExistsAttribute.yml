@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Attributes/FileExistsAttribute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: FileExistsAttribute
     path: ../src/CommandLineUtils/Attributes/FileExistsAttribute.cs
@@ -123,7 +123,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Attributes/FileExistsAttribute.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: .ctor
     path: ../src/CommandLineUtils/Attributes/FileExistsAttribute.cs

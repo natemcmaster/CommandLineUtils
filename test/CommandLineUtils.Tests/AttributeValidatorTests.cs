@@ -29,7 +29,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Equal(ValidationResult.Success, validator.GetValidationResult(arg, context));
 
-            arg.Values.Add(null);
+            arg.TryParse(null);
 
             Assert.Throws<InvalidOperationException>(() => validator.GetValidationResult(arg, context));
         }
@@ -46,12 +46,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var factory = new CommandLineValidationContextFactory(app);
             var context = factory.Create(arg);
 
-            arg.Values.Add(validValue);
+            arg.TryParse(validValue);
 
             Assert.Equal(ValidationResult.Success, validator.GetValidationResult(arg, context));
 
-            arg.Values.Clear();
-            arg.Values.Add(invalidValue);
+            arg.Reset();
+            arg.TryParse(invalidValue);
             var result = validator.GetValidationResult(arg, context);
             Assert.NotNull(result);
             Assert.NotEmpty(result.ErrorMessage);

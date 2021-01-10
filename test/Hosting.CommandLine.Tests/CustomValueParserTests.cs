@@ -31,8 +31,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
                 .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
                 .RunCommandLineApplicationAsync<CustomOptionTypeCommand>(
                     new[] { "--custom-type", DemoOptionValue },
-                    app => app.ValueParsers.AddOrReplace(
-                        new CustomValueParser()));
+                    app => app.ValueParsers.AddOrReplace(new CustomValueParser()));
             Assert.Equal(0, exitCode);
         }
 

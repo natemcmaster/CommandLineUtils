@@ -5,7 +5,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(DisablePublicApiAnalyzer)' != 'true'">
-    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.2" PrivateAssets="All" />
     <AdditionalFiles Include="PublicAPI.Shipped.txt" />
     <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
   </ItemGroup>

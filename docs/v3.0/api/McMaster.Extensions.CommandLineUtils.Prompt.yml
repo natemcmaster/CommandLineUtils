@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/Prompt.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Prompt
     path: ../src/CommandLineUtils/Utilities/Prompt.cs
@@ -56,7 +56,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/Prompt.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetYesNo
     path: ../src/CommandLineUtils/Utilities/Prompt.cs
@@ -109,7 +109,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/Prompt.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetString
     path: ../src/CommandLineUtils/Utilities/Prompt.cs
@@ -162,7 +162,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/Prompt.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetPassword
     path: ../src/CommandLineUtils/Utilities/Prompt.cs
@@ -212,7 +212,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/Prompt.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetPasswordAsSecureString
     path: ../src/CommandLineUtils/Utilities/Prompt.cs
@@ -262,7 +262,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Utilities/Prompt.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetInt
     path: ../src/CommandLineUtils/Utilities/Prompt.cs

@@ -655,7 +655,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal("top", top.Value());
             Assert.Null(nested?.Value());
 
-            top.Values.Clear();
+            top.Reset();
 
             app.Execute("subcmd", "-a", "nested");
             Assert.Null(top.Value());
@@ -745,7 +745,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 LongName = "debug:hive"
             };
-            app.Options.Add(option);
+            app.AddOption(option);
             app.Parse("--debug:hive", "abc");
             Assert.Equal("abc", option.Value());
         }
@@ -759,13 +759,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 LongName = "debug:hive"
             };
-            app.Options.Add(option);
+            app.AddOption(option);
 
             var ex = Assert.ThrowsAny<CommandParsingException>(() =>
                 app.Parse("--debug:hive", "abc"));
             Assert.Equal("Missing value for option 'debug:hive'", ex.Message);
 
-            option.Values.Clear();
+            option.Reset();
             app.Parse("--debug:hive=abc");
             Assert.Equal("abc", option.Value());
         }

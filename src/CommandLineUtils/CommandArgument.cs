@@ -16,13 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <seealso cref="CommandOption"/>
     public class CommandArgument
     {
-        /// <summary>
-        /// Initializes a new instance of <see cref="CommandArgument"/>.
-        /// </summary>
-        public CommandArgument()
-        {
-            Values = new List<string?>();
-        }
+        private protected List<string?> _values = new List<string?>();
 
         /// <summary>
         /// The name of the argument.
@@ -42,7 +36,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// All values specified, if any.
         /// </summary>
-        public List<string?> Values { get; private set; }
+        public IReadOnlyList<string?> Values => _values;
 
         /// <summary>
         /// Allow multiple values.
@@ -55,6 +49,11 @@ namespace McMaster.Extensions.CommandLineUtils
         public string? Value => Values.FirstOrDefault();
 
         /// <summary>
+        /// True if this argument has been assigned values.
+        /// </summary>
+        public bool HasValue => Values.Any();
+
+        /// <summary>
         /// A collection of validators that execute before invoking <see cref="CommandLineApplication.OnExecute(Func{int})"/>.
         /// When validation fails, <see cref="CommandLineApplication.ValidationErrorHandler"/> is invoked.
         /// </summary>
@@ -65,9 +64,28 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         internal Type UnderlyingType { get; set; }
 
-        internal void Reset()
+        /// <summary>
+        /// Try to add a value to this argument.
+        /// </summary>
+        /// <param name="value">The argument value to be added.</param>
+        /// <returns>True if the value was accepted, false if the value cannot be added.</returns>
+        public bool TryParse(string? value)
         {
-            Values.Clear();
+            if (_values.Count == 1 && !MultipleValues)
+            {
+                return false;
+            }
+
+            _values.Add(value);
+            return true;
+        }
+
+        /// <summary>
+        /// Clear any parsed values from this argument.
+        /// </summary>
+        public virtual void Reset()
+        {
+            _values.Clear();
         }
     }
 }

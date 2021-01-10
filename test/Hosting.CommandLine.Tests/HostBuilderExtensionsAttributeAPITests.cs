@@ -75,6 +75,29 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         }
 
         [Fact]
+        public async Task TestUseCommandLineApplication()
+        {
+            CommandLineApplication<Return42Command> commandLineApp = default;
+            var hostBuilder = new HostBuilder();
+            hostBuilder.UseCommandLineApplication<Return42Command>(new string[0], app => commandLineApp = app);
+            var host = hostBuilder.Build();
+            await host.RunCommandLineApplicationAsync();
+            Assert.NotNull(commandLineApp);
+        }
+
+        [Fact]
+        public async Task UseCommandLineApplicationReThrowsExceptions()
+        {
+            var ex = await Assert.ThrowsAsync<InvalidOperationException>(
+                () => new HostBuilder()
+                    .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
+                    .UseCommandLineApplication<ThrowsExceptionCommand>(new string[0])
+                    .Build()
+                    .RunCommandLineApplicationAsync());
+            Assert.Equal("A test", ex.Message);
+        }
+
+        [Fact]
         public async Task ItThrowsOnUnknownSubCommand()
         {
             var ex = await Assert.ThrowsAsync<UnrecognizedCommandParsingException>(

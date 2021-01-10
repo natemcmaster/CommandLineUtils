@@ -35,7 +35,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: ConventionBuilderExtensions
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -80,7 +80,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseDefaultConventions
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -124,7 +124,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseDefaultHelpOption
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -172,7 +172,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseAttributes
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -216,7 +216,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: SetRemainingArgsPropertyOnModel
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -261,7 +261,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: SetSubcommandPropertyOnModel
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -306,7 +306,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: SetParentPropertyOnModel
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -351,7 +351,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: SetAppNameFromEntryAssembly
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -396,7 +396,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseCommandAttribute
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -441,7 +441,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseVersionOptionFromMemberAttribute
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -486,7 +486,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseVersionOptionAttribute
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -531,7 +531,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseHelpOptionAttribute
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -576,7 +576,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseOptionAttributes
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -621,7 +621,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseArgumentAttributes
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -666,7 +666,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseSubcommandAttributes
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -711,7 +711,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseOnValidateMethodFromModel
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -756,7 +756,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseOnValidationErrorMethodFromModel
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -801,7 +801,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseOnExecuteMethodFromModel
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -846,7 +846,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseConstructorInjection
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -890,7 +890,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseConstructorInjection
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
@@ -937,7 +937,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: UseCommandNameFromModelType
     path: ../src/CommandLineUtils/Conventions/ConventionBuilderExtensions.cs

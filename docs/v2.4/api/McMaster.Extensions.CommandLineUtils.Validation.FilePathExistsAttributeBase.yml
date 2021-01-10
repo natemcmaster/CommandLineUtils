@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Attributes/FilePathExistsAttributeBase.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: FilePathExistsAttributeBase
     path: ../src/CommandLineUtils/Attributes/FilePathExistsAttributeBase.cs
@@ -125,7 +125,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Attributes/FilePathExistsAttributeBase.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: IsValid
     path: ../src/CommandLineUtils/Attributes/FilePathExistsAttributeBase.cs

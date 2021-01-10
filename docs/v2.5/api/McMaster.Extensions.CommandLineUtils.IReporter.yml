@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/IReporter.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: IReporter
     path: ../src/CommandLineUtils/IO/IReporter.cs
@@ -52,7 +52,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/IReporter.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Verbose
     path: ../src/CommandLineUtils/IO/IReporter.cs
@@ -84,7 +84,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/IReporter.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Output
     path: ../src/CommandLineUtils/IO/IReporter.cs
@@ -116,7 +116,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/IReporter.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Warn
     path: ../src/CommandLineUtils/IO/IReporter.cs
@@ -148,7 +148,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/IReporter.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Error
     path: ../src/CommandLineUtils/IO/IReporter.cs

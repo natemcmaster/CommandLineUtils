@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandOption{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: CommandOption
     path: ../src/CommandLineUtils/CommandOption{T}.cs
@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandOption{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: .ctor
     path: ../src/CommandLineUtils/CommandOption{T}.cs
@@ -137,7 +137,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandOption{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: ParsedValue
     path: ../src/CommandLineUtils/CommandOption{T}.cs
@@ -176,7 +176,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandOption{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: ParsedValues
     path: ../src/CommandLineUtils/CommandOption{T}.cs

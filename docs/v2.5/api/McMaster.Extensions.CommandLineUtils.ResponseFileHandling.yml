@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/ResponseFileHandling.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ResponseFileHandling
     path: ../src/CommandLineUtils/ResponseFileHandling.cs
@@ -51,7 +51,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/ResponseFileHandling.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Disabled
     path: ../src/CommandLineUtils/ResponseFileHandling.cs
@@ -85,7 +85,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/ResponseFileHandling.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ParseArgsAsSpaceSeparated
     path: ../src/CommandLineUtils/ResponseFileHandling.cs
@@ -119,7 +119,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/ResponseFileHandling.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ParseArgsAsLineSeparated
     path: ../src/CommandLineUtils/ResponseFileHandling.cs

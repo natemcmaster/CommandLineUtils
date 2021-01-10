@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionContext.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: ConventionContext
     path: ../src/CommandLineUtils/Conventions/ConventionContext.cs
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionContext.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: .ctor
     path: ../src/CommandLineUtils/Conventions/ConventionContext.cs
@@ -101,7 +101,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionContext.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: Application
     path: ../src/CommandLineUtils/Conventions/ConventionContext.cs
@@ -138,7 +138,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionContext.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: ModelType
     path: ../src/CommandLineUtils/Conventions/ConventionContext.cs
@@ -175,7 +175,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Conventions/ConventionContext.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineutils
     id: ModelAccessor
     path: ../src/CommandLineUtils/Conventions/ConventionContext.cs

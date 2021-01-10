@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Abstractions/IModelAccessor.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: IModelAccessor
     path: ../src/CommandLineUtils/Abstractions/IModelAccessor.cs
@@ -50,7 +50,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Abstractions/IModelAccessor.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetModelType
     path: ../src/CommandLineUtils/Abstractions/IModelAccessor.cs
@@ -81,7 +81,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/Abstractions/IModelAccessor.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: GetModel
     path: ../src/CommandLineUtils/Abstractions/IModelAccessor.cs

@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandArgument{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: CommandArgument
     path: ../src/CommandLineUtils/CommandArgument{T}.cs
@@ -81,7 +81,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandArgument{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: .ctor
     path: ../src/CommandLineUtils/CommandArgument{T}.cs
@@ -120,7 +120,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandArgument{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ParsedValue
     path: ../src/CommandLineUtils/CommandArgument{T}.cs
@@ -159,7 +159,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/CommandArgument{T}.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: ParsedValues
     path: ../src/CommandLineUtils/CommandArgument{T}.cs

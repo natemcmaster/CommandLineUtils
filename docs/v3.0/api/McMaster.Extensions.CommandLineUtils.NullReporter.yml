@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullReporter.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: NullReporter
     path: ../src/CommandLineUtils/IO/NullReporter.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullReporter.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Singleton
     path: ../src/CommandLineUtils/IO/NullReporter.cs
@@ -98,7 +98,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullReporter.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Verbose
     path: ../src/CommandLineUtils/IO/NullReporter.cs
@@ -136,7 +136,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullReporter.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Output
     path: ../src/CommandLineUtils/IO/NullReporter.cs
@@ -174,7 +174,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullReporter.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Warn
     path: ../src/CommandLineUtils/IO/NullReporter.cs
@@ -212,7 +212,7 @@ items:
   source:
     remote:
       path: src/CommandLineUtils/IO/NullReporter.cs
-      branch: master
+      branch: main
       repo: https://github.com/natemcmaster/CommandLineUtils.git
     id: Error
     path: ../src/CommandLineUtils/IO/NullReporter.cs

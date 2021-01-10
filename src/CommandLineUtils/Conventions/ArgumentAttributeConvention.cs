@@ -64,7 +64,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     }
                 }
 
-                context.Application.Arguments.Add(arg.Value);
+                context.Application.AddArgument(arg.Value);
             }
         }
 
