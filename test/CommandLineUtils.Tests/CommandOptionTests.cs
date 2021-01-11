@@ -50,6 +50,23 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
+        public void DoesNotHaveDefaultForValueTypes()
+        {
+            var app = new CommandLineApplication();
+            var option = app.Option<int>("--value <ABC>", "abc", CommandOptionType.SingleValue);
+            Assert.False(option.HasValue());
+        }
+
+        [Fact]
+        public void DoesNotHaveDefaultForReferenceTypes()
+        {
+            var app = new CommandLineApplication();
+            var option = app.Option<int?>("--value <ABC>", "abc", CommandOptionType.SingleValue);
+            Assert.Null(option.DefaultValue);
+            Assert.False(option.HasValue());
+        }
+
+        [Fact]
         public void DefaultValueReturnedIfUnset()
         {
             var option = new CommandOption("--value <ABC>", CommandOptionType.SingleValue)
@@ -78,24 +95,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
-        public void AlwaysHasDefaultValueForValueTypes()
-        {
-            var app = new CommandLineApplication();
-            var option = app.Option<int>("--value <ABC>", "abc", CommandOptionType.SingleValue);
-            Assert.Equal(default, option.DefaultValue);
-            Assert.True(option.HasValue());
-        }
-
-        [Fact]
-        public void DoesNotHaveDefaultForReferenceTypes()
-        {
-            var app = new CommandLineApplication();
-            var option = app.Option<int?>("--value <ABC>", "abc", CommandOptionType.SingleValue);
-            Assert.Null(option.DefaultValue);
-            Assert.False(option.HasValue());
-        }
-
-        [Fact]
         public void DefaultOverriddenBySettingValue()
         {
             var option = new CommandOption("--value <ABC>", CommandOptionType.SingleValue)
@@ -118,6 +117,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             option.TryParse("999");
 
+            Assert.True(option.HasValue());
             Assert.Equal("999", option.Value());
             Assert.Equal(new List<string> { "999" }, option.Values);
             Assert.Equal(999, option.ParsedValue);

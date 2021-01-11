@@ -186,17 +186,14 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <returns></returns>
         public bool HasValue()
         {
-            return _values.Any() || DefaultValue != null;
+            return Values.Any();
         }
 
         /// <summary>
-        /// Returns the first element of <see cref="Values"/>, if any.
+        /// Returns the first element of <see cref="Values"/>, if any, or <see cref="DefaultValue" />.
         /// </summary>
         /// <returns></returns>
-        public string? Value()
-        {
-            return HasValue() ? Values[0] : null;
-        }
+        public string? Value() => Values.FirstOrDefault();
 
         /// <summary>
         /// Generates the template string in the format "-{Symbol}|-{Short}|--{Long} &lt;{Value}&gt;" for display in help text.

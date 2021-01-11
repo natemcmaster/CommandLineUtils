@@ -11,76 +11,78 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
     {
 
         [Fact]
-        public void AlwaysHasDefaultValueForValueTypes()
+        public void DoesNotHaveDefaultForValueTypes()
         {
             var app = new CommandLineApplication();
-            var argument = app.Argument<int>("abc", "xyz");
-            Assert.Equal(default, argument.DefaultValue);
-            Assert.True(argument.HasValue);
+            var arg = app.Argument<int>("abc", "xyz");
+            Assert.False(arg.HasValue);
         }
 
         [Fact]
         public void DoesNotHaveDefaultForReferenceTypes()
         {
             var app = new CommandLineApplication();
-            var argument = app.Argument<int?>("abc", "xyz");
-            Assert.Null(argument.DefaultValue);
-            Assert.False(argument.HasValue);
+            var arg = app.Argument<int?>("abc", "xyz");
+            Assert.Null(arg.DefaultValue);
+            Assert.False(arg.HasValue);
         }
 
         [Fact]
         public void DefaultValueReturnedIfUnset()
         {
-            var option = new CommandArgument
+            var arg = new CommandArgument
             {
                 DefaultValue = "ABC"
             };
 
-            Assert.Equal("ABC", option.Value);
-            Assert.Equal(new List<string> { "ABC" }, option.Values);
+            Assert.Equal("ABC", arg.Value);
+            Assert.True(arg.HasValue);
+            Assert.Equal(new List<string> { "ABC" }, arg.Values);
         }
 
         [Fact]
         public void DefaultValueOfTReturnedIfUnset()
         {
-            var option = new CommandArgument<int>(StockValueParsers.Int32)
+            var arg = new CommandArgument<int>(StockValueParsers.Int32)
             {
                 DefaultValue = 42
             };
 
-            Assert.Equal("42", option.Value);
-            Assert.Equal(new List<string> { "42" }, option.Values);
-            Assert.Equal(42, option.ParsedValue);
-            Assert.Equal(new List<int> { 42 }, option.ParsedValues);
+            Assert.Equal("42", arg.Value);
+            Assert.True(arg.HasValue);
+            Assert.Equal(new List<string> { "42" }, arg.Values);
+            Assert.Equal(42, arg.ParsedValue);
+            Assert.Equal(new List<int> { 42 }, arg.ParsedValues);
         }
 
         [Fact]
         public void DefaultOverriddenBySettingValue()
         {
-            var option = new CommandArgument
+            var arg = new CommandArgument
             {
                 DefaultValue = "ABC"
             };
 
-            option.TryParse("xyz");
+            arg.TryParse("xyz");
 
-            Assert.Equal("xyz", option.Value);
+            Assert.Equal("xyz", arg.Value);
         }
 
         [Fact]
         public void DefaultOfTOverriddenBySettingValue()
         {
-            var option = new CommandArgument<int>(StockValueParsers.Int32)
+            var arg = new CommandArgument<int>(StockValueParsers.Int32)
             {
                 DefaultValue = 42
             };
 
-            option.TryParse("999");
+            arg.TryParse("999");
 
-            Assert.Equal("999", option.Value);
-            Assert.Equal(new List<string> { "999" }, option.Values);
-            Assert.Equal(999, option.ParsedValue);
-            Assert.Equal(new List<int> { 999 }, option.ParsedValues);
+            Assert.Equal("999", arg.Value);
+            Assert.True(arg.HasValue);
+            Assert.Equal(new List<string> { "999" }, arg.Values);
+            Assert.Equal(999, arg.ParsedValue);
+            Assert.Equal(new List<int> { 999 }, arg.ParsedValues);
         }
 
         [Fact]

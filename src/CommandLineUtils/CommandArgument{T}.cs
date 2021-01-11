@@ -17,12 +17,13 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     /// <seealso cref="CommandOption"/>
     public class CommandArgument<T> : CommandArgument, IInternalCommandParamOfT
+        where T : notnull
     {
         private readonly List<T> _parsedValues = new List<T>();
         private readonly IValueParser<T> _valueParser;
         private bool _hasBeenParsed;
         private bool _hasDefaultValue;
-        private T _defaultValue;
+        private T? _defaultValue;
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandArgument{T}" />
@@ -31,7 +32,6 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandArgument(IValueParser<T> valueParser)
         {
             _valueParser = valueParser ?? throw new ArgumentNullException(nameof(valueParser));
-            DefaultValue = default;
             UnderlyingType = typeof(T);
         }
 
@@ -64,7 +64,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The default value of the argument.
         /// </summary>
-        public new T DefaultValue
+        public new T? DefaultValue
         {
             get => _defaultValue;
             set

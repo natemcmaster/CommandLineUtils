@@ -54,7 +54,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public bool MultipleValues { get; set; }
 
         /// <summary>
-        /// The first value from <see cref="Values"/>, if any.
+        /// The first value from <see cref="Values"/>, if any, or <see cref="DefaultValue" />.
         /// </summary>
         public string? Value => Values.FirstOrDefault();
 
@@ -66,7 +66,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// True when <see cref="Values"/> is not empty or when a <see cref="DefaultValue" /> is given.
         /// </summary>
-        public bool HasValue => _values.Count != 0 || DefaultValue != null;
+        public bool HasValue => Values.Any();
 
         /// <summary>
         /// A collection of validators that execute before invoking <see cref="CommandLineApplication.OnExecute(Func{int})"/>.

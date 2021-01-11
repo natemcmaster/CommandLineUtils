@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -17,10 +16,11 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     /// <typeparam name="T">The type of the option value(s)</typeparam>
     public class CommandOption<T> : CommandOption, IInternalCommandParamOfT
+        where T : notnull
     {
         private readonly List<T> _parsedValues = new List<T>();
         private readonly IValueParser<T> _valueParser;
-        private T _defaultValue;
+        private T? _defaultValue;
         private bool _hasDefaultValue;
         private bool _hasBeenParsed;
 
@@ -34,9 +34,7 @@ namespace McMaster.Extensions.CommandLineUtils
             : base(template, optionType)
         {
             _valueParser = valueParser ?? throw new ArgumentNullException(nameof(valueParser));
-            DefaultValue = default;
             UnderlyingType = typeof(T);
-            SetBaseDefaultValue(default);
         }
 
         /// <summary>
@@ -56,7 +54,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     ((IInternalCommandParamOfT)this).Parse(CultureInfo.CurrentCulture);
                 }
 
-                if (_values.Count == 0 && _hasDefaultValue)
+                if (_parsedValues.Count == 0 && _hasDefaultValue)
                 {
                     return new[] { DefaultValue };
                 }
@@ -68,7 +66,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The default value of the option.
         /// </summary>
-        public new T DefaultValue
+        public new T? DefaultValue
         {
             get => _defaultValue;
             set
