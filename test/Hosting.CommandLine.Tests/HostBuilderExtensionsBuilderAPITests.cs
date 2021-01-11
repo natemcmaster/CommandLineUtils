@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,7 +31,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         {
             var exitCode = await new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync(new string[0], app => app.OnExecute(() => 42));
+                    .RunCommandLineApplicationAsync(Array.Empty<string>(), app => app.OnExecute(() => 42));
             Assert.Equal(42, exitCode);
         }
 
@@ -41,7 +44,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             console.SetupGet(c => c.Out).Returns(textWriter.Object);
             await new HostBuilder()
                 .ConfigureServices(collection => collection.AddSingleton(console.Object))
-                .RunCommandLineApplicationAsync(new string[0], app => app.OnExecute(() => app.Out.WriteLine("42")));
+                .RunCommandLineApplicationAsync(Array.Empty<string>(), app => app.OnExecute(() => app.Out.WriteLine("42")));
             Mock.Verify(console, textWriter);
         }
 
@@ -75,7 +78,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
                     .RunCommandLineApplicationAsync(new string[] { "return41" }, app =>
                     {
-                        app.Command("return42", (cmd => cmd.OnExecute(() => 42)));
+                        app.Command("return42", cmd => cmd.OnExecute(() => 42));
                     }));
             Assert.Equal(new string[] { "return42" }, ex.NearestMatches);
         }
@@ -86,7 +89,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             var ex = await Assert.ThrowsAsync<InvalidOperationException>(
                 () => new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync(new string[0], app => app.OnExecute(() => throw new InvalidOperationException("A test"))));
+                    .RunCommandLineApplicationAsync(Array.Empty<string>(), app => app.OnExecute(() => throw new InvalidOperationException("A test"))));
             Assert.Equal("A test", ex.Message);
         }
 
@@ -97,7 +100,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
 
             await new HostBuilder()
                 .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                .RunCommandLineApplicationAsync(new string[0], app => app.OnExecute(() =>
+                .RunCommandLineApplicationAsync(Array.Empty<string>(), app => app.OnExecute(() =>
                 {
                     env = app.GetRequiredService<IHostEnvironment>();
                 }));
@@ -120,7 +123,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
                {
                    configureAppContext = context.GetCommandLineContext();
                })
-               .RunCommandLineApplicationAsync(new string[0], app => app.OnExecute(() =>
+               .RunCommandLineApplicationAsync(Array.Empty<string>(), app => app.OnExecute(() =>
                {
                }));
 

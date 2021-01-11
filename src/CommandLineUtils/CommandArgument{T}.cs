@@ -1,5 +1,6 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
@@ -18,7 +19,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <seealso cref="CommandOption"/>
     public class CommandArgument<T> : CommandArgument, IInternalCommandParamOfT
     {
-        private readonly List<T> _parsedValues = new List<T>();
+        private readonly List<T> _parsedValues = new();
         private readonly IValueParser<T> _valueParser;
         private bool _hasBeenParsed;
         private bool _hasDefaultValue;

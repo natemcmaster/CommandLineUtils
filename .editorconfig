@@ -48,15 +48,34 @@ csharp_style_expression_bodied_indexers                                = true
 csharp_style_expression_bodied_accessors                               = true
 csharp_style_throw_expression                                          = true
 
+# Default severity for analyzer diagnostics with category 'Style' (escalated to build warnings)
+# dotnet_analyzer_diagnostic.category-Style.severity                     = suggestion
+
+# Required naming sylte
+dotnet_diagnostic.IDE0006.severity = error
+
+# suppress warning aboud unused methods
+dotnet_diagnostic.IDE0051.severity = none
+
+# Missing required header
+dotnet_diagnostic.IDE0073.severity = error
+
+# Remove unnecessary parenthesis
+dotnet_diagnostic.IDE0047.severity = warning
+
+# Parenthesis added for clarity
+dotnet_diagnostic.IDE0048.severity = warning
+
 # Naming styles
 
 ## Constants are PascalCase
 dotnet_naming_style.pascal_case.capitalization                         = pascal_case
 
-dotnet_naming_symbols.constants.applicable_kinds                       = *
-dotnet_naming_symbols.constants.required_modifiers                     = const
+dotnet_naming_symbols.const.applicable_kinds                       = field, property
+dotnet_naming_symbols.const.applicable_accessibilities             = *
+dotnet_naming_symbols.const.required_modifiers                     = const
 
-dotnet_naming_rule.constants_should_be_pascale_case.symbols            = constants
+dotnet_naming_rule.constants_should_be_pascale_case.symbols            = const
 dotnet_naming_rule.constants_should_be_pascale_case.style              = pascal_case
 dotnet_naming_rule.constants_should_be_pascale_case.severity           = error
 

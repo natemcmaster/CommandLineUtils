@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.ComponentModel;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Conventions;
 using McMaster.Extensions.CommandLineUtils.HelpText;
@@ -114,7 +113,7 @@ namespace McMaster.Extensions.CommandLineUtils
             set => _modelFactory = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        private protected override ConventionContext CreateConventionContext() => new ConventionContext(this, typeof(TModel));
+        private protected override ConventionContext CreateConventionContext() => new(this, typeof(TModel));
 
         /// <inheritdoc />
         public override void Dispose()

@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.ComponentModel;
 
 #pragma warning disable 618
 
@@ -15,7 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils
     public sealed class SubcommandAttribute : Attribute
     {
         /// <summary>
-        /// Initializes a new instance of <see cref="McMaster.Extensions.CommandLineUtils.SubcommandAttribute" />.
+        /// Initializes a new instance of <see cref="SubcommandAttribute" />.
         /// </summary>
         /// <param name="subcommands">The subcommand types.</param>
         public SubcommandAttribute(params Type[] subcommands)

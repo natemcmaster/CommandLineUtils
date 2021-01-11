@@ -75,7 +75,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public int? Value { get; set; }
 
             protected override int OnExecute(CommandLineApplication app)
-                => Value.HasValue ? Value.Value : 102;
+                => Value ?? 102;
 
             public Level1Command? Parent { get; }
         }

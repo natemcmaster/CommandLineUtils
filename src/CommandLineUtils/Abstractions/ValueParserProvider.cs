@@ -14,8 +14,8 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     /// </summary>
     public class ValueParserProvider
     {
-        private readonly Dictionary<Type, IValueParser> _parsers = new Dictionary<Type, IValueParser>(10);
-        private readonly TypeDescriptorValueParserFactory _defaultValueParserFactory = new TypeDescriptorValueParserFactory();
+        private readonly Dictionary<Type, IValueParser> _parsers = new(10);
+        private readonly TypeDescriptorValueParserFactory _defaultValueParserFactory = new();
 
         internal ValueParserProvider()
         {
@@ -48,7 +48,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// </remarks>
         public CultureInfo ParseCulture { get; set; } = CultureInfo.CurrentCulture;
 
-        private static readonly MethodInfo s_GetParserGeneric
+        private static readonly MethodInfo s_getParserGeneric
             = typeof(ValueParserProvider)
                 .GetMethods(BindingFlags.Instance | BindingFlags.Public)
                 .Single(m => m.Name == nameof(GetParser) && m.IsGenericMethod);
@@ -60,7 +60,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// <returns></returns>
         public IValueParser GetParser(Type type)
         {
-            var method = s_GetParserGeneric.MakeGenericMethod(type);
+            var method = s_getParserGeneric.MakeGenericMethod(type);
             return (IValueParser)method.Invoke(this, Util.EmptyArray<object>());
         }
 
@@ -221,9 +221,11 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
             public Type TargetType => _inner.TargetType;
 
-            public T Parse(string? argName, string? value, CultureInfo culture) => (T)_inner.Parse(argName, value, culture)!;
+            public T Parse(string? argName, string? value, CultureInfo culture)
+                => (T)_inner.Parse(argName, value, culture)!;
 
-            object? IValueParser.Parse(string? argName, string? value, CultureInfo culture) => _inner.Parse(argName, value, culture);
+            object? IValueParser.Parse(string? argName, string? value, CultureInfo culture)
+                => _inner.Parse(argName, value, culture);
         }
     }
 }

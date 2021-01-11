@@ -52,13 +52,13 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         public static TheoryData<string?> BadFilePaths
-            => new TheoryData<string?>
-            {
-                "notfound.txt",
-                "\0",
-                null,
-                string.Empty,
-            };
+            => new()
+        {
+            "notfound.txt",
+            "\0",
+            null,
+            string.Empty,
+        };
 
         [Fact]
         public void ValidatesFilesRelativeToAppContext()

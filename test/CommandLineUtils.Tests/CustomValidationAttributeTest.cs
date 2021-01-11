@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<RedBlueProgram>();
             app.Conventions.UseDefaultConventions();
-            var result = app.Parse(args ?? new string[0]);
+            var result = app.Parse(args ?? System.Array.Empty<string>());
             Assert.Equal(ValidationResult.Success, result.SelectedCommand.GetValidationResult());
             var program = Assert.IsType<CommandLineApplication<RedBlueProgram>>(result.SelectedCommand);
             Assert.Same(app, program);

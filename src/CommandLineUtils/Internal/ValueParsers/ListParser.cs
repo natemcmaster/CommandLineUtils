@@ -4,10 +4,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
 {
-    using System.Globalization;
 
     internal class ListParser : ICollectionParser
     {

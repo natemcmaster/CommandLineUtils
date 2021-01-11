@@ -1,5 +1,6 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
@@ -862,20 +863,18 @@ Examples:
         [InlineData(new[] { "-h", "-f" }, "some_flag")]
         public void HelpAndVersionOptionStopProcessing(string[] input, string expectedOutData)
         {
-            using (var outWriter = new StringWriter())
-            {
-                var app = new CommandLineApplication { Out = outWriter };
-                app.HelpOption("-h --help");
-                app.VersionOption("-V --version", "1", "1.0");
-                var optFlag = app.Option("-f |--flag", "some_flag", CommandOptionType.NoValue);
+            using var outWriter = new StringWriter();
+            var app = new CommandLineApplication { Out = outWriter };
+            app.HelpOption("-h --help");
+            app.VersionOption("-V --version", "1", "1.0");
+            var optFlag = app.Option("-f |--flag", "some_flag", CommandOptionType.NoValue);
 
-                app.Execute(input);
+            app.Execute(input);
 
-                outWriter.Flush();
-                var outData = outWriter.ToString();
-                Assert.Contains(expectedOutData, outData);
-                Assert.False(optFlag.HasValue());
-            }
+            outWriter.Flush();
+            var outData = outWriter.ToString();
+            Assert.Contains(expectedOutData, outData);
+            Assert.False(optFlag.HasValue());
         }
 
         [Fact]
@@ -895,37 +894,35 @@ Examples:
         [InlineData("--help")]
         public void HelpOptionIsInherited(string helpOptionString)
         {
-            using (var outWriter = new StringWriter())
+            using var outWriter = new StringWriter();
+            var app = new CommandLineApplication { Out = outWriter };
+            app.Name = "lvl1";
+            var helpOption = app.HelpOption(true);
+
+            var subCommand = app.Command("lvl2", subCmd =>
             {
-                var app = new CommandLineApplication { Out = outWriter };
-                app.Name = "lvl1";
-                var helpOption = app.HelpOption(true);
+                subCmd.Out = outWriter;
+                // add an argument to help make help text different
+                subCmd.Argument("lvl-arg", "subcommand argument");
+            });
 
-                var subCommand = app.Command("lvl2", subCmd =>
-                {
-                    subCmd.Out = outWriter;
-                    // add an argument to help make help text different
-                    subCmd.Argument("lvl-arg", "subcommand argument");
-                });
+            var inputs = new[] { "lvl2", helpOptionString };
+            app.Execute(inputs);
 
-                var inputs = new[] { "lvl2", helpOptionString };
-                app.Execute(inputs);
+            outWriter.Flush();
+            var outData = outWriter.ToString();
 
-                outWriter.Flush();
-                var outData = outWriter.ToString();
+            Assert.True(helpOption.HasValue());
+            Assert.Contains("Usage: lvl1 lvl2 [options] <lvl-arg>", outData);
 
-                Assert.True(helpOption.HasValue());
-                Assert.Contains("Usage: lvl1 lvl2 [options] <lvl-arg>", outData);
+            inputs = new[] { helpOptionString };
+            app.Execute(inputs);
 
-                inputs = new[] { helpOptionString };
-                app.Execute(inputs);
+            outWriter.Flush();
+            outData = outWriter.ToString();
 
-                outWriter.Flush();
-                outData = outWriter.ToString();
-
-                Assert.True(helpOption.HasValue());
-                Assert.Contains("Usage: lvl1 [command] [options]", outData);
-            }
+            Assert.True(helpOption.HasValue());
+            Assert.Contains("Usage: lvl1 [command] [options]", outData);
         }
 
         [Theory]

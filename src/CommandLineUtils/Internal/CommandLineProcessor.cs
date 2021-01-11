@@ -156,8 +156,8 @@ namespace McMaster.Extensions.CommandLineUtils
 
                         options.Add(option);
 
-                        if (option.OptionType != CommandOptionType.NoValue &&
-                            option.OptionType != CommandOptionType.SingleOrNoValue)
+                        if (option.OptionType is not CommandOptionType.NoValue and
+                            not CommandOptionType.SingleOrNoValue)
                         {
                             break;
                         }
@@ -237,8 +237,8 @@ namespace McMaster.Extensions.CommandLineUtils
                         $"Unexpected value '{value}' for option '{name}'");
                 }
             }
-            else if (option.OptionType == CommandOptionType.NoValue
-                     || option.OptionType == CommandOptionType.SingleOrNoValue)
+            else if (option.OptionType is CommandOptionType.NoValue
+                     or CommandOptionType.SingleOrNoValue)
             {
                 // No value is needed for this option
                 option.TryParse(null);

@@ -635,19 +635,19 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             using (new InCulture(CultureInfo.InvariantCulture))
             {
-                s_ItParsesOptionOfTImpl.MakeGenericMethod(type).Invoke(this, new[] { input, expected });
-                s_ItParsesArgumentOfTImpl.MakeGenericMethod(type).Invoke(this, new[] { input, expected });
+                s_itParsesOptionOfTImpl.MakeGenericMethod(type).Invoke(this, new[] { input, expected });
+                s_itParsesArgumentOfTImpl.MakeGenericMethod(type).Invoke(this, new[] { input, expected });
             }
         }
 
         public static TheoryData<Type, string, object> TupleData
-            => new TheoryData<Type, string, object>
-                {
-                    {typeof((bool, int?)), "", (true, default(int?))},
-                    {typeof((bool, int)), "123", (true, 123)},
-                };
+            => new()
+        {
+            { typeof((bool, int?)), "", (true, default(int?)) },
+            { typeof((bool, int)), "123", (true, 123) },
+        };
 
-        private static readonly MethodInfo s_ItParsesOptionOfTImpl
+        private static readonly MethodInfo s_itParsesOptionOfTImpl
                   = typeof(ValueParserProviderTests).GetMethod(nameof(ItParsesOptionOfTImpl), BindingFlags.NonPublic | BindingFlags.Instance)!;
 
         private void ItParsesOptionOfTImpl<T>(string input, T expected)
@@ -659,7 +659,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(expected, option.ParsedValue);
         }
 
-        private static readonly MethodInfo s_ItParsesArgumentOfTImpl
+        private static readonly MethodInfo s_itParsesArgumentOfTImpl
                   = typeof(ValueParserProviderTests).GetMethod(nameof(ItParsesArgumentOfTImpl), BindingFlags.NonPublic | BindingFlags.Instance)!;
 
         private void ItParsesArgumentOfTImpl<T>(string input, T expected)

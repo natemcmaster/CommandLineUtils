@@ -57,18 +57,12 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public bool IgnoreCase
         {
-            get
-            {
-                return Comparer == StringComparison.CurrentCultureIgnoreCase
-                    || Comparer == StringComparison.InvariantCultureIgnoreCase
-                    || Comparer == StringComparison.OrdinalIgnoreCase;
-            }
-            set
-            {
-                Comparer = value
+            get => Comparer is StringComparison.CurrentCultureIgnoreCase
+                    or StringComparison.InvariantCultureIgnoreCase
+                    or StringComparison.OrdinalIgnoreCase;
+            set => Comparer = value
                     ? StringComparison.CurrentCultureIgnoreCase
                     : StringComparison.CurrentCulture;
-            }
         }
 
         /// <inheritdoc />

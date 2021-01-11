@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
@@ -26,7 +29,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         {
             var exitCode = await new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync<Return42Command>(new string[0]);
+                    .RunCommandLineApplicationAsync<Return42Command>(Array.Empty<string>());
             Assert.Equal(42, exitCode);
         }
 
@@ -39,7 +42,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             console.SetupGet(c => c.Out).Returns(textWriter.Object);
             await new HostBuilder()
                 .ConfigureServices(collection => collection.AddSingleton<IConsole>(console.Object))
-                .RunCommandLineApplicationAsync<Write42Command>(new string[0]);
+                .RunCommandLineApplicationAsync<Write42Command>(Array.Empty<string>());
             Mock.Verify(console, textWriter);
         }
 
@@ -69,7 +72,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             CommandLineApplication<Return42Command> commandLineApp = default;
             await new HostBuilder()
                 .RunCommandLineApplicationAsync<Return42Command>(
-                new string[0],
+                Array.Empty<string>(),
                 app => commandLineApp = app);
             Assert.NotNull(commandLineApp);
         }
@@ -79,7 +82,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         {
             CommandLineApplication<Return42Command> commandLineApp = default;
             var hostBuilder = new HostBuilder();
-            hostBuilder.UseCommandLineApplication<Return42Command>(new string[0], app => commandLineApp = app);
+            hostBuilder.UseCommandLineApplication<Return42Command>(Array.Empty<string>(), app => commandLineApp = app);
             var host = hostBuilder.Build();
             await host.RunCommandLineApplicationAsync();
             Assert.NotNull(commandLineApp);
@@ -91,7 +94,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             var ex = await Assert.ThrowsAsync<InvalidOperationException>(
                 () => new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .UseCommandLineApplication<ThrowsExceptionCommand>(new string[0])
+                    .UseCommandLineApplication<ThrowsExceptionCommand>(Array.Empty<string>())
                     .Build()
                     .RunCommandLineApplicationAsync());
             Assert.Equal("A test", ex.Message);
@@ -113,7 +116,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             var ex = await Assert.ThrowsAsync<InvalidOperationException>(
                 () => new HostBuilder()
                     .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
-                    .RunCommandLineApplicationAsync<ThrowsExceptionCommand>(new string[0]));
+                    .RunCommandLineApplicationAsync<ThrowsExceptionCommand>(Array.Empty<string>()));
             Assert.Equal("A test", ex.Message);
         }
 
