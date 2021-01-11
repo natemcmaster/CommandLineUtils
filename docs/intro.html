@@ -8,7 +8,7 @@
     <title>Introduction </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Introduction ">
-    <meta name="generator" content="docfx 2.51.0.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -58,11 +58,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -122,15 +122,12 @@ public class Program
         var app = new CommandLineApplication();
 
         app.HelpOption();
-        var optionSubject = app.Option(&quot;-s|--subject &lt;SUBJECT&gt;&quot;, &quot;The subject&quot;, CommandOptionType.SingleValue);
+        var subject = app.Option(&quot;-s|--subject &lt;SUBJECT&gt;&quot;, &quot;The subject&quot;, CommandOptionType.SingleValue);
+        subject.DefaultValue = &quot;world&quot;;
 
         app.OnExecute(() =&gt;
         {
-            var subject = optionSubject.HasValue()
-                ? optionSubject.Value()
-                : &quot;world&quot;;
-
-            Console.WriteLine($&quot;Hello {subject}!&quot;);
+            Console.WriteLine($&quot;Hello {subject.Value()}!&quot;);
             return 0;
         });
 
@@ -149,12 +146,13 @@ public class Program
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/docs/docs/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/docs-test/docs/docs/intro.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

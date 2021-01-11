@@ -8,7 +8,7 @@
     <title>Integration with Generic Host </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Integration with Generic Host ">
-    <meta name="generator" content="docfx 2.51.0.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -58,11 +58,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -121,20 +121,20 @@ class Program
 {
     builder.AddConsole();
 })
-.ConfigureServices((context, services) =&gt; {
+.ConfigureServices((context, services) =&gt;
+{
     services.AddSingleton&lt;IGreeter, Greeter&gt;()
         .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton);
-})
 </code></pre><p>And finally, run your program:</p>
-<pre><code class="lang-csharp" name="Program">.RunCommandLineApplicationAsync&lt;Program&gt;(args);
+<pre><code class="lang-csharp" name="Program">})
 </code></pre><p>Below is the full source code for the generic host services example. Notice that instance of <code>IGreeter</code> will be injected into the <code>Program</code> constructor thanks to the dependency injection.</p>
 <pre><code class="lang-csharp" name="Program" highlight-lines="32">using System;
-using Microsoft.Extensions.DependencyInjection;
 using McMaster.Extensions.CommandLineUtils;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CustomServices
 {
-#region Program
+    #region Program
     [Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
     [HelpOption]
     class Program
@@ -165,16 +165,16 @@ namespace CustomServices
             _myService.Invoke();
         }
     }
-#endregion
+    #endregion
 
-#region IMyService
+    #region IMyService
     interface IMyService
     {
         void Invoke();
     }
-#endregion
+    #endregion
 
-#region MyServiceImplementation
+    #region MyServiceImplementation
     class MyServiceImplementation : IMyService
     {
         private readonly IConsole _console;
@@ -189,7 +189,7 @@ namespace CustomServices
             _console.WriteLine(&quot;Hello dependency injection!&quot;);
         }
     }
-#endregion
+    #endregion
 }
 </code></pre></article>
           </div>
@@ -199,12 +199,13 @@ namespace CustomServices
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/master/docs/docs/advanced/generic-host.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/docs-test/docs/docs/advanced/generic-host.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
