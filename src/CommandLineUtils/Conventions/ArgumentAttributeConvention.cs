@@ -95,6 +95,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             argPropOrder.Add(argumentAttr.Order, prop);
             argOrder.Add(argumentAttr.Order, argument);
 
+            var getter = ReflectionHelper.GetPropertyGetter(prop);
             var setter = ReflectionHelper.GetPropertySetter(prop);
 
             if (argument.MultipleValues)
@@ -116,7 +117,24 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
-                        setter.Invoke(cmd.GetModel(), collectionParser.Parse(argument.Name, argument.Values));
+                        if (argument.Values.Count == 0)
+                        {
+                            if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
+                            {
+                                if (getter.Invoke(cmd.GetModel()) is IEnumerable<object> values)
+                                {
+                                    foreach (var value in values)
+                                    {
+                                        argument.TryParse(value?.ToString());
+                                    }
+                                    argument.DefaultValue = string.Join(", ", values.Select(x => x?.ToString()));
+                                }
+                            }
+                        }
+                        else
+                        {
+                            setter.Invoke(cmd.GetModel(), collectionParser.Parse(argument.Name, argument.Values));
+                        }
                     }
                 });
             }
@@ -130,19 +148,29 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
                     }
 
-                    if (argument.Values.Count == 0)
-                    {
-                        return;
-                    }
-
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
-                        setter.Invoke(
-                            cmd.GetModel(),
-                            parser.Parse(
-                                argument.Name,
-                                argument.Value,
-                                convention.Application.ValueParsers.ParseCulture));
+                        if (argument.Values.Count == 0)
+                        {
+                            if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
+                            {
+                                var value = getter.Invoke(cmd.GetModel());
+                                if (value != null)
+                                {
+                                    argument.TryParse(value.ToString());
+                                    argument.DefaultValue = value.ToString();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            setter.Invoke(
+                                cmd.GetModel(),
+                                parser.Parse(
+                                    argument.Name,
+                                    argument.Value,
+                                    convention.Application.ValueParsers.ParseCulture));
+                        }
                     }
                 });
             }

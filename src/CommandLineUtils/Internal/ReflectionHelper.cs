@@ -35,6 +35,26 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
+        public static GetPropertyDelegate GetPropertyGetter(PropertyInfo prop)
+        {
+            var getter = prop.GetGetMethod(nonPublic: true);
+            if (getter != null)
+            {
+                return obj => getter.Invoke(obj, new object[] { });
+            }
+            else
+            {
+                var backingField = prop.DeclaringType.GetField($"<{prop.Name}>k__BackingField", DeclaredOnlyLookup);
+                if (backingField == null)
+                {
+                    throw new InvalidOperationException(
+                        $"Could not find a way to get {prop.DeclaringType.FullName}.{prop.Name}. Try adding a getter.");
+                }
+
+                return obj => backingField.GetValue(obj);
+            }
+        }
+
         public static MethodInfo[] GetPropertyOrMethod(Type type, string name)
         {
             var members = GetAllMembers(type).ToList();
@@ -105,12 +125,22 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
-        public static bool IsSpecialValueTupleType(Type type, out FieldInfo fieldInfo)
+        public static bool IsSpecialValueTupleType(Type type, out Type? wrappedType)
         {
             var result = type.IsGenericType &&
                          type.GetGenericTypeDefinition() == typeof(ValueTuple<,>) &&
                          type.GenericTypeArguments[0] == typeof(bool);
-            fieldInfo = result ? type.GetFields()[1] : null;
+            wrappedType = result ? type.GenericTypeArguments[1] : null;
+
+            return result;
+        }
+
+        public static bool IsSpecialTupleType(Type type, out Type? wrappedType)
+        {
+            var result = type.IsGenericType &&
+                         type.GetGenericTypeDefinition() == typeof(Tuple<,>) &&
+                         type.GenericTypeArguments[0] == typeof(bool);
+            wrappedType = result ? type.GenericTypeArguments[1] : null;
 
             return result;
         }

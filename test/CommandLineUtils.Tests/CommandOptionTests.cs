@@ -1,6 +1,8 @@
 ﻿// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Collections.Generic;
+using McMaster.Extensions.CommandLineUtils.Abstractions;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
@@ -45,6 +47,97 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(symbolName, opt.SymbolName);
             Assert.Equal(longName, opt.LongName);
             Assert.Equal(valueName, opt.ValueName);
+        }
+
+        [Fact]
+        public void DoesNotHaveDefaultForValueTypes()
+        {
+            var app = new CommandLineApplication();
+            var option = app.Option<int>("--value <ABC>", "abc", CommandOptionType.SingleValue);
+            Assert.False(option.HasValue());
+            Assert.Null(option.Value());
+        }
+
+        [Fact]
+        public void DoesNotHaveDefaultForReferenceTypes()
+        {
+            var app = new CommandLineApplication();
+            var option = app.Option<int?>("--value <ABC>", "abc", CommandOptionType.SingleValue);
+            Assert.Null(option.DefaultValue);
+            Assert.False(option.HasValue());
+        }
+
+        [Fact]
+        public void DefaultValueReturnedIfUnset()
+        {
+            var option = new CommandOption("--value <ABC>", CommandOptionType.SingleValue)
+            {
+                DefaultValue = "ABC"
+            };
+
+            Assert.True(option.HasValue());
+            Assert.Equal("ABC", option.Value());
+            Assert.Equal(new List<string> { "ABC" }, option.Values);
+        }
+
+        [Fact]
+        public void DefaultValueOfTReturnedIfUnset()
+        {
+            var option = new CommandOption<int>(StockValueParsers.Int32, "--value <ABC>", CommandOptionType.SingleValue)
+            {
+                DefaultValue = 42
+            };
+
+            Assert.True(option.HasValue());
+            Assert.Equal("42", option.Value());
+            Assert.Equal(new List<string> { "42" }, option.Values);
+            Assert.Equal(42, option.ParsedValue);
+            Assert.Equal(new List<int> { 42 }, option.ParsedValues);
+        }
+
+        [Fact]
+        public void DefaultOverriddenBySettingValue()
+        {
+            var option = new CommandOption("--value <ABC>", CommandOptionType.SingleValue)
+            {
+                DefaultValue = "ABC"
+            };
+
+            option.TryParse("xyz");
+
+            Assert.Equal("xyz", option.Value());
+        }
+
+        [Fact]
+        public void DefaultOfTOverriddenBySettingValue()
+        {
+            var option = new CommandOption<int>(StockValueParsers.Int32, "--value <ABC>", CommandOptionType.SingleValue)
+            {
+                DefaultValue = 42
+            };
+
+            option.TryParse("999");
+
+            Assert.True(option.HasValue());
+            Assert.Equal("999", option.Value());
+            Assert.Equal(new List<string> { "999" }, option.Values);
+            Assert.Equal(999, option.ParsedValue);
+            Assert.Equal(new List<int> { 999 }, option.ParsedValues);
+        }
+
+        [Fact]
+        public void DefaultOverriddenAndResetReturnsDefault()
+        {
+            var option = new CommandOption("--value <ABC>", CommandOptionType.SingleValue)
+            {
+                DefaultValue = "ABC"
+            };
+
+            option.TryParse("xyz");
+
+            option.Reset();
+
+            Assert.Equal("ABC", option.Value());
         }
     }
 }

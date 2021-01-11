@@ -36,7 +36,17 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// All values specified, if any.
         /// </summary>
-        public IReadOnlyList<string?> Values => _values;
+        public IReadOnlyList<string?> Values
+        {
+            get
+            {
+                if (_values.Count == 0 && DefaultValue != null)
+                {
+                    return new List<string?> { DefaultValue };
+                }
+                return _values;
+            }
+        }
 
         /// <summary>
         /// Allow multiple values.
@@ -44,12 +54,17 @@ namespace McMaster.Extensions.CommandLineUtils
         public bool MultipleValues { get; set; }
 
         /// <summary>
-        /// The first value from <see cref="Values"/>, if any.
+        /// The first value from <see cref="Values"/>, if any, or <see cref="DefaultValue" />.
         /// </summary>
         public string? Value => Values.FirstOrDefault();
 
         /// <summary>
-        /// True if this argument has been assigned values.
+        /// The default value of the argument.
+        /// </summary>
+        public string? DefaultValue { get; set; }
+
+        /// <summary>
+        /// True when <see cref="Values"/> is not empty or when a <see cref="DefaultValue" /> is given.
         /// </summary>
         public bool HasValue => Values.Any();
 

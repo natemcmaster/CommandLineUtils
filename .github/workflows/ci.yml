@@ -1,14 +1,6 @@
 name: CI
 
-on:
-  push:
-    branches:
-    - main
-    - 'release/*'
-  pull_request:
-    branches:
-    - main
-    - 'release/*'
+on: [push, pull_request]
 
 env:
   BUILD_NUMBER: ${{ github.run_number }}

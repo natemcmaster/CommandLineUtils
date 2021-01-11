@@ -81,21 +81,19 @@ using McMaster.Extensions.CommandLineUtils;
 var app = new CommandLineApplication();
 
 app.HelpOption();
-var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
-var optionRepeat = app.Option<int>("-n|--count <N>", "Repeat", CommandOptionType.SingleValue);
+
+var subject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
+subject.DefaultValue = "world";
+
+var repeat = app.Option<int>("-n|--count <N>", "Repeat", CommandOptionType.SingleValue);
+repeat.DefaultValue = 1;
 
 app.OnExecute(() =>
 {
-    var subject = optionSubject.HasValue()
-        ? optionSubject.Value()
-        : "world";
-
-    var count = optionRepeat.HasValue() ? optionRepeat.ParsedValue : 1;
-    for (var i = 0; i < count; i++)
+    for (var i = 0; i < repeat.ParsedValue; i++)
     {
-        Console.WriteLine($"Hello {subject}!");
+        Console.WriteLine($"Hello {subject.Value()}!");
     }
-    return 0;
 });
 
 return app.Execute(args);

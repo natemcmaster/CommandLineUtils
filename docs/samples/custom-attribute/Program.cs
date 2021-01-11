@@ -44,12 +44,10 @@ internal class MyFieldConventionAttribute : Attribute, IMemberConvention
         if (member is FieldInfo field)
         {
             var opt = context.Application.Option("--working-dir", "The working directory", CommandOptionType.SingleOrNoValue);
+            opt.DefaultValue = context.Application.WorkingDirectory;
             context.Application.OnParsingComplete(_ =>
             {
-                var cwd = opt.HasValue()
-                    ? opt.Value()
-                    : context.Application.WorkingDirectory;
-                field.SetValue(context.ModelAccessor.GetModel(), cwd);
+                field.SetValue(context.ModelAccessor.GetModel(), opt.Value());
             });
         }
     }

@@ -55,28 +55,24 @@ namespace McMaster.Extensions.CommandLineUtils
                 return CommandOptionType.SingleValue;
             }
 
-            if (clrType.IsGenericType)
+            if (ReflectionHelper.IsNullableType(clrType, out var wrappedType))
             {
-                var typeDef = clrType.GetGenericTypeDefinition();
-                if (typeDef == typeof(Nullable<>))
-                {
-                    return GetOptionType(clrType.GetGenericArguments().First(), valueParsers);
-                }
+                return GetOptionType(wrappedType, valueParsers);
+            }
 
-                if (typeDef == typeof(Tuple<,>) && clrType.GenericTypeArguments[0] == typeof(bool))
+            if (ReflectionHelper.IsSpecialValueTupleType(clrType, out var wrappedType2))
+            {
+                if (GetOptionType(wrappedType2, valueParsers) == CommandOptionType.SingleValue)
                 {
-                    if (GetOptionType(clrType.GenericTypeArguments[1], valueParsers) == CommandOptionType.SingleValue)
-                    {
-                        return CommandOptionType.SingleOrNoValue;
-                    }
+                    return CommandOptionType.SingleOrNoValue;
                 }
+            }
 
-                if (typeDef == typeof(ValueTuple<,>) && clrType.GenericTypeArguments[0] == typeof(bool))
+            if (ReflectionHelper.IsSpecialTupleType(clrType, out var wrappedType3))
+            {
+                if (GetOptionType(wrappedType3, valueParsers) == CommandOptionType.SingleValue)
                 {
-                    if (GetOptionType(clrType.GenericTypeArguments[1], valueParsers) == CommandOptionType.SingleValue)
-                    {
-                        return CommandOptionType.SingleOrNoValue;
-                    }
+                    return CommandOptionType.SingleOrNoValue;
                 }
             }
 

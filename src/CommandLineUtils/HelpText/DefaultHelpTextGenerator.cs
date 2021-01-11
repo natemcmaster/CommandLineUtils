@@ -214,6 +214,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                         }
                     }
 
+                    if (!string.IsNullOrEmpty(arg.DefaultValue))
+                    {
+                        description += $"\nDefault value is: {arg.DefaultValue}.";
+                    }
+
                     var wrappedDescription = IndentWriter?.Write(description);
                     var message = string.Format(outputFormat, arg.Name, wrappedDescription);
 
@@ -264,6 +269,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                         {
                             description += $"\nAllowed values are: {string.Join(", ", enumNames)}.";
                         }
+                    }
+
+                    if (!string.IsNullOrEmpty(opt.DefaultValue))
+                    {
+                        description += $"\nDefault value is: {opt.DefaultValue}.";
                     }
 
                     var wrappedDescription = IndentWriter?.Write(description);
@@ -412,9 +422,9 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 return ExtractNamesFromEnum(wrappedType);
             }
 
-            if (ReflectionHelper.IsSpecialValueTupleType(type, out var fieldInfo))
+            if (ReflectionHelper.IsSpecialValueTupleType(type, out var wrappedType2))
             {
-                return ExtractNamesFromEnum(fieldInfo.FieldType);
+                return ExtractNamesFromEnum(wrappedType2);
             }
 
             if (type.IsEnum)
