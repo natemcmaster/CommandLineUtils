@@ -14,12 +14,12 @@ $workdir = "$PSScriptRoot/../.build/docs/gh-pages"
 Push-Location $workdir
 try {
 
-    if ($env:TF_BUILD) {
+    if ($env:CI) {
         exec git config --global credential.helper store
-        Add-Content "$HOME\.git-credentials" "https://$($ApiToken):x-oauth-basic@github.com`n"
-        exec git config --global user.email 'azuredevops@microsoft.com'
-        exec git config --global user.name 'Azure Pipelines'
-        $SourceCommit = $env:BUILD_SOURCEVERSION
+        Add-Content "$HOME\.git-credentials" "https://x-access-token:${ApiToken}@github.com`n"
+        exec git config --global user.email 'actions@users.noreply.github.com'
+        exec git config --global user.name "GitHub Workflow (${env:GITHUB_ACTOR})"
+        $SourceCommit = $env:GITHUB_SHA
     }
 
     if (-not $SourceCommit) {
