@@ -16,6 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             var arg = app.Argument<int>("abc", "xyz");
             Assert.False(arg.HasValue);
+            Assert.Null(arg.Value);
         }
 
         [Fact]

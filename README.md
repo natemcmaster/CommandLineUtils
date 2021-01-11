@@ -94,7 +94,6 @@ app.OnExecute(() =>
     {
         Console.WriteLine($"Hello {subject.Value()}!");
     }
-    return 0;
 });
 
 return app.Execute(args);

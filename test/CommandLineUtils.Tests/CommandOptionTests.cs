@@ -55,6 +55,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             var option = app.Option<int>("--value <ABC>", "abc", CommandOptionType.SingleValue);
             Assert.False(option.HasValue());
+            Assert.Null(option.Value());
         }
 
         [Fact]
