@@ -1,0 +1,33 @@
+name: Docs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+      - 'src/*/PublicAPI.*.txt'
+      - '.github/workflows/docs.yml'
+
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'src/*/PublicAPI.*.txt'
+      - '.github/workflows/docs.yml'
+
+jobs:
+  generate_docs:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET 5
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
+    - name: Run docs generation
+      run: ./docs/generate.ps1
+
+    - name: Publish docs to GH Pages
+      if: github.event_name == 'push'
+      run: ./docs/push.ps1 -a ${{ github.token }}

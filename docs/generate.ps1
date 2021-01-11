@@ -1,4 +1,4 @@
-#requires -version 5
+#!/usr/bin/env pwsh
 param(
     [switch]$Serve,
     [switch]$Install,
@@ -6,6 +6,10 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version 2
+
+if (-not (Test-Path variable:\IsCoreCLR)) {
+    $IsWindows = $true
+}
 
 Import-Module -Force -Scope Local "$PSScriptRoot/../src/common.psm1"
 
@@ -27,7 +31,7 @@ try {
         exec git worktree add $targetDir gh-pages 2>&1 | out-null
     }
 
-    $docfxVersion = '2.51.0'
+    $docfxVersion = '2.56.6'
     $docfxRoot = "$buildRoot/packages/docfx.console/$docfxVersion"
     $docfx = "$docfxRoot/tools/docfx.exe"
     if (-not (Test-Path $docfx)) {
@@ -42,6 +46,7 @@ try {
     }
 
     Push-Location $targetDir
+    exec git reset --hard
     exec git rm --quiet --force -r .
     Pop-Location
 
@@ -54,7 +59,13 @@ try {
         if ($Serve) {
             $arguments += '--serve'
         }
-        exec $docfx docs/docfx.json @arguments
+
+        if ($IsWindows) {
+            exec $docfx docs/docfx.json @arguments
+        }
+        else {
+            exec mono $docfx docs/docfx.json @arguments
+        }
     }
     finally {
         Push-Location $targetDir
