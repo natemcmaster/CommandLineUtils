@@ -64,8 +64,8 @@ public class Program
         var app = new CommandLineApplication();
 
         app.HelpOption();
-        var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
-        optionSubject.DefaultValue = "world";
+        var subject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
+        subject.DefaultValue = "world";
 
         app.OnExecute(() =>
         {
