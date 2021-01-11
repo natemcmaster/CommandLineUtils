@@ -1,10 +1,11 @@
 # Changelog
 
-[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v3.0.0...HEAD):
+[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v3.1.0...HEAD):
 
-* [@scott-xu]: feature: add API for setting default value on options and arguments, and display them in help text ([#389])
+* [@scott-xu] and [@natemcmaster]: feature: add API for setting default value on options and arguments, and display them in help text ([#389] and [#420])
 
 [#389]: https://github.com/natemcmaster/CommandLineUtils/pull/389
+[#420]: https://github.com/natemcmaster/CommandLineUtils/pull/420
 
 ## [v3.1.0](https://github.com/natemcmaster/CommandLineUtils/compare/v3.0.0...v3.1.0)
 
