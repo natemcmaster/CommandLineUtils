@@ -17,7 +17,6 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     /// <seealso cref="CommandOption"/>
     public class CommandArgument<T> : CommandArgument, IInternalCommandParamOfT
-        where T : notnull
     {
         private readonly List<T> _parsedValues = new List<T>();
         private readonly IValueParser<T> _valueParser;

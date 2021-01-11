@@ -16,7 +16,6 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     /// <typeparam name="T">The type of the option value(s)</typeparam>
     public class CommandOption<T> : CommandOption, IInternalCommandParamOfT
-        where T : notnull
     {
         private readonly List<T> _parsedValues = new List<T>();
         private readonly IValueParser<T> _valueParser;

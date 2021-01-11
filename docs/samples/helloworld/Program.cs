@@ -5,18 +5,15 @@ var app = new CommandLineApplication();
 
 app.HelpOption();
 var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
-var optionRepeat = app.Option<int>("-n|--count <N>", "Repeat", CommandOptionType.SingleValue);
+optionSubject.DefaultValue = "world";
+var optionRepeat = app.Option<int?>("-n|--count <N>", "Repeat", CommandOptionType.SingleValue);
+optionRepeat.DefaultValue = 1;
 
 app.OnExecute(() =>
 {
-    var subject = optionSubject.HasValue()
-        ? optionSubject.Value()
-        : "world";
-
-    var count = optionRepeat.HasValue() ? optionRepeat.ParsedValue : 1;
-    for (var i = 0; i < count; i++)
+    for (var i = 0; i < optionRepeat.ParsedValue; i++)
     {
-        Console.WriteLine($"Hello {subject}!");
+        Console.WriteLine($"Hello {optionSubject.Value()}!");
     }
     return 0;
 });
