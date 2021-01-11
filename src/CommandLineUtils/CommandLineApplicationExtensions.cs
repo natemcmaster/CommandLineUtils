@@ -1,9 +1,9 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Threading;

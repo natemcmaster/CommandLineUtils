@@ -1,3 +1,6 @@
+// Copyright (c) Nate McMaster.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 using System;
 using McMaster.Extensions.CommandLineUtils;
 using McMaster.Extensions.Hosting.CommandLine.Internal;
@@ -11,7 +14,7 @@ namespace McMaster.Extensions.Hosting.CommandLine
     public interface IUnhandledExceptionHandler
     {
         /// <summary>
-        /// Handle otherwise uncaught exception. You are free to log, rethrow, … the exception 
+        /// Handle otherwise uncaught exception. You are free to log, rethrow, … the exception
         /// </summary>
         /// <param name="e">An otherwise uncaught exception</param>
         void HandleException(Exception e);

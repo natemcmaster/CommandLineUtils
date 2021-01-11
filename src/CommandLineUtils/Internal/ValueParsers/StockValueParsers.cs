@@ -43,7 +43,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             (_, value, culture) => new Uri(value, UriKind.RelativeOrAbsolute));
 
         private static FormatException InvalidValueException(string? argName, string specifics) =>
-            new FormatException($"Invalid value specified for {argName}. {specifics}");
+            new($"Invalid value specified for {argName}. {specifics}");
 
         private delegate bool NumberParser<T>(string s, NumberStyles styles, IFormatProvider provider, out T result);
 

@@ -1,5 +1,6 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
@@ -16,7 +17,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// <seealso cref="CommandOption"/>
     public class CommandArgument
     {
-        private protected List<string?> _values = new List<string?>();
+        private protected List<string?> _values = new();
 
         /// <summary>
         /// The name of the argument.

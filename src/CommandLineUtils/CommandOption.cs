@@ -1,5 +1,6 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
 using System;
@@ -16,7 +17,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     public class CommandOption
     {
-        private protected readonly List<string?> _values = new List<string?>();
+        private protected readonly List<string?> _values = new();
 
         /// <summary>
         /// Initializes a new <see cref="CommandOption"/>.
@@ -245,7 +246,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private bool IsEnglishLetter(char c)
         {
-            return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+            return c is (>= 'a' and <= 'z') or (>= 'A' and <= 'Z');
         }
 
         /// <summary>

@@ -65,7 +65,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                         ch = line[j];
 
-                        if (ch != '"' && ch != '\'')
+                        if (ch is not '"' and not '\'')
                         {
                             // not a recognized special character, so add the backlash
                             sb.Append('\\');

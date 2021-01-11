@@ -1,21 +1,12 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
     public class CommandLineProcessorTests
     {
-        private readonly ITestOutputHelper _output;
-
-        public CommandLineProcessorTests(ITestOutputHelper output)
-        {
-            _output = output;
-        }
-
         [Theory]
         [InlineData(new[] { "-a" }, true, false, false, null)]
         [InlineData(new[] { "-aa" }, true, false, false, null)]

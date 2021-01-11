@@ -15,13 +15,10 @@ namespace McMaster.Extensions.CommandLineUtils
             _app = app ?? throw new ArgumentNullException(nameof(app));
         }
 
-        public ValidationContext Create(CommandLineApplication app)
-            => new ValidationContext(app, _app, null);
+        public ValidationContext Create(CommandLineApplication app) => new(app, _app, null);
 
-        public ValidationContext Create(CommandArgument argument)
-            => new ValidationContext(argument, _app, null);
+        public ValidationContext Create(CommandArgument argument) => new(argument, _app, null);
 
-        public ValidationContext Create(CommandOption option)
-            => new ValidationContext(option, _app, null);
+        public ValidationContext Create(CommandOption option) => new(option, _app, null);
     }
 }

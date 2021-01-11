@@ -26,28 +26,28 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         private const int HelpExitCode = 0;
         internal const int ValidationErrorExitCode = 1;
-        private static readonly int ExitCodeOperationCanceled;
+        private static readonly int s_exitCodeOperationCanceled;
 
         static CommandLineApplication()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 // values from https://www.febooti.com/products/automation-workshop/online-help/events/run-dos-cmd-command/exit-codes/
-                ExitCodeOperationCanceled = unchecked((int)0xC000013A);
+                s_exitCodeOperationCanceled = unchecked((int)0xC000013A);
             }
             else
             {
                 // Match Process.ExitCode which uses 128 + signo.
-                ExitCodeOperationCanceled = 130; // SIGINT
+                s_exitCodeOperationCanceled = 130; // SIGINT
             }
         }
 
         private static Task<int> DefaultAction(CancellationToken ct) => Task.FromResult(0);
         private Func<CancellationToken, Task<int>> _handler;
         private List<Action<ParseResult>>? _onParsingComplete;
-        internal readonly Dictionary<string, PropertyInfo> _shortOptions = new Dictionary<string, PropertyInfo>();
-        internal readonly Dictionary<string, PropertyInfo> _longOptions = new Dictionary<string, PropertyInfo>();
-        private readonly HashSet<string> _names = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        internal readonly Dictionary<string, PropertyInfo> _shortOptions = new();
+        internal readonly Dictionary<string, PropertyInfo> _longOptions = new();
+        private readonly HashSet<string> _names = new(StringComparer.OrdinalIgnoreCase);
         private string? _primaryCommandName;
         internal CommandLineContext _context;
         private readonly ParserConfig _parserConfig;
@@ -55,11 +55,11 @@ namespace McMaster.Extensions.CommandLineUtils
         private CommandOption? _optionHelp;
         private readonly Lazy<IServiceProvider> _services;
         private readonly ConventionContext _conventionContext;
-        private readonly List<IConvention> _conventions = new List<IConvention>();
-        private readonly List<CommandArgument> _arguments = new List<CommandArgument>();
-        private readonly List<CommandOption> _options = new List<CommandOption>();
-        private readonly List<CommandLineApplication> _subcommands = new List<CommandLineApplication>();
-        internal readonly List<string> _remainingArguments = new List<string>();
+        private readonly List<IConvention> _conventions = new();
+        private readonly List<CommandArgument> _arguments = new();
+        private readonly List<CommandOption> _options = new();
+        private readonly List<CommandLineApplication> _subcommands = new();
+        internal readonly List<string> _remainingArguments = new();
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandLineApplication"/>.
@@ -330,7 +330,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             // unless explicitly set, use the value of cluster options from the parent command
             // or default to true if this is the root command
-            get => _clusterOptions ?? Parent == null || Parent.ClusterOptions;
+            get => _clusterOptions ?? (Parent == null || Parent.ClusterOptions);
             set => _clusterOptions = value;
         }
 
@@ -883,7 +883,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             catch (OperationCanceledException)
             {
-                return ExitCodeOperationCanceled;
+                return s_exitCodeOperationCanceled;
             }
             finally
             {
@@ -1112,7 +1112,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public IConventionBuilder Conventions => _builder ??= new Builder(this);
 
-        private protected virtual ConventionContext CreateConventionContext() => new ConventionContext(this, null);
+        private protected virtual ConventionContext CreateConventionContext() => new(this, null);
 
         private bool _settingContext;
         internal void SetContext(CommandLineContext context)

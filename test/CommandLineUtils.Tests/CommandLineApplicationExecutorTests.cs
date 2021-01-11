@@ -142,7 +142,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public void PassesInKnownParameterTypes()
         {
-            Assert.Equal(0, CommandLineApplication.Execute<ExecuteWithTypes>(new string[0]));
+            Assert.Equal(0, CommandLineApplication.Execute<ExecuteWithTypes>(Array.Empty<string>()));
         }
 
         private class ExecuteWithUnknownTypes
@@ -174,7 +174,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public async Task ExecutesAsyncWithInt()
         {
-            Assert.Equal(1, await CommandLineApplication.ExecuteAsync<ExecuteAsyncWithInt>(new string[0]));
+            Assert.Equal(1, await CommandLineApplication.ExecuteAsync<ExecuteAsyncWithInt>(Array.Empty<string>()));
         }
 
         private class ExecuteAsync
@@ -188,7 +188,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Fact]
         public async Task ExecutesAsync()
         {
-            Assert.Equal(0, await CommandLineApplication.ExecuteAsync<ExecuteAsync>(new string[0]));
+            Assert.Equal(0, await CommandLineApplication.ExecuteAsync<ExecuteAsync>(Array.Empty<string>()));
         }
 
         [HelpOption]

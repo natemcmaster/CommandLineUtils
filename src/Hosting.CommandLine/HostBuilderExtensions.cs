@@ -56,7 +56,7 @@ namespace Microsoft.Extensions.Hosting
             CancellationToken cancellationToken = default)
             where TApp : class
         {
-            using var host = hostBuilder.UseCommandLineApplication<TApp>(args, configure).Build();
+            using var host = hostBuilder.UseCommandLineApplication(args, configure).Build();
             return await host.RunCommandLineApplicationAsync(cancellationToken);
         }
 

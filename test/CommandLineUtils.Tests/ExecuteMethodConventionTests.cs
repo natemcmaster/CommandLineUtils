@@ -113,7 +113,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             public CancellationToken Token { get; private set; }
 
-            public static TaskCompletionSource<object?> ExecuteStarted = new TaskCompletionSource<object?>();
+            public static TaskCompletionSource<object?> ExecuteStarted = new();
 
             public async Task<int> OnExecuteAsync(CancellationToken ct)
             {

@@ -29,7 +29,7 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         /// <inheritdoc />
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (!(value is string path) || path.Length == 0 || path.IndexOfAny(Path.GetInvalidPathChars()) >= 0)
+            if (value is not string path || path.Length == 0 || path.IndexOfAny(Path.GetInvalidPathChars()) >= 0)
             {
                 return new ValidationResult(FormatErrorMessage(value as string));
             }
