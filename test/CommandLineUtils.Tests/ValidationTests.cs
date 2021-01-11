@@ -37,7 +37,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var sub = app.Command("sub", c => { });
             var called = false;
             sub.OnValidationError(_ => called = true);
-            CommandArgument<int> arg = sub.Argument<int>("t", "test").IsRequired();
+            var arg = sub.Argument<int>("t", "test").IsRequired();
             Assert.NotEqual(0, app.Execute("sub"));
             Assert.True(called, "Validation on subcommand should be called");
         }

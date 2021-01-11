@@ -100,7 +100,17 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Any values found during parsing, if any.
         /// </summary>
-        public IReadOnlyList<string?> Values => _values;
+        public IReadOnlyList<string?> Values
+        {
+            get
+            {
+                if (_values.Count == 0 && DefaultValue != null)
+                {
+                    return new List<string?> { DefaultValue };
+                }
+                return _values;
+            }
+        }
 
         /// <summary>
         /// The default value of the option.
@@ -171,7 +181,7 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// True when <see cref="Values"/> is not empty.
+        /// True when <see cref="Values"/> is not empty or when a <see cref="DefaultValue" /> is given.
         /// </summary>
         /// <returns></returns>
         public bool HasValue()
@@ -180,13 +190,10 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <summary>
-        /// Returns the first element of <see cref="Values"/>, if any.
+        /// Returns the first element of <see cref="Values"/>, if any, or <see cref="DefaultValue" />.
         /// </summary>
         /// <returns></returns>
-        public string? Value()
-        {
-            return HasValue() ? Values[0] : null;
-        }
+        public string? Value() => Values.FirstOrDefault();
 
         /// <summary>
         /// Generates the template string in the format "-{Symbol}|-{Short}|--{Long} &lt;{Value}&gt;" for display in help text.

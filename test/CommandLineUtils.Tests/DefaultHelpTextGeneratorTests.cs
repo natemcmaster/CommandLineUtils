@@ -113,17 +113,23 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Option("--rStrOpt <E>", "restricted str option desc.", CommandOptionType.SingleValue, o => o.IsRequired().Accepts().Values("Foo", "Bar"));
             app.Option("--dStrOpt <E>", "str option with default value desc.", CommandOptionType.SingleValue, o => o.DefaultValue = "Foo");
             app.Option<int>("--intOpt <E>", "int option desc.", CommandOptionType.SingleValue);
-            app.Option<SomeEnum>("--enumOpt <E>", "enum option desc.", CommandOptionType.SingleValue);
-            app.Option<SomeEnum>("--enumOpt2 <E>", "restricted enum option desc.", CommandOptionType.SingleValue, o => o.Accepts().Values("None", "Normal"));
+            app.Option<SomeEnum>("--enumOpt <E>", "enum option desc.", CommandOptionType.SingleValue, o => o.DefaultValue = default);
+            app.Option<SomeEnum>("--enumOpt2 <E>", "restricted enum option desc.", CommandOptionType.SingleValue, o =>
+            {
+                o.DefaultValue = default;
+                o.Accepts().Values("None", "Normal");
+            });
             app.Option<(bool, SomeEnum)>("--enumOpt3 <E>", "nullable enum option desc.", CommandOptionType.SingleOrNoValue);
             app.Option<SomeEnum?>("--enumOpt4 <E>", "nullable enum option desc.", CommandOptionType.SingleOrNoValue);
             app.Argument("SomeStringArgument", "string arg desc.");
             app.Argument("RestrictedStringArgument", "restricted string arg desc.", a => a.IsRequired().Accepts().Values("Foo", "Bar"));
             app.Argument("DefaultValStringArgument", "string arg with default value desc.", a => a.DefaultValue = "Foo");
-            app.Argument<SomeEnum>("SomeEnumArgument", "enum arg desc.");
-            app.Argument<SomeEnum>("RestrictedEnumArgument", "restricted enum arg desc.", a => a.Accepts().Values("None", "Normal"));
+            app.Argument<SomeEnum>("SomeEnumArgument", "enum arg desc.", a => a.DefaultValue = default);
+            var a = app.Argument<SomeEnum>("RestrictedEnumArgument", "restricted enum arg desc.", a => a.Accepts().Values("None", "Normal"));
+            a.DefaultValue = SomeEnum.Normal;
             app.Argument<(bool, SomeEnum)>("SomeNullableEnumArgument", "nullable enum arg desc.");
             var helpText = GetHelpText(app);
+            _output.WriteLine(helpText);
 
             Assert.Equal(@"Usage:  [options] <SomeStringArgument> <RestrictedStringArgument> <DefaultValStringArgument> <SomeEnumArgument> <RestrictedEnumArgument> <SomeNullableEnumArgument>
 
@@ -138,7 +144,7 @@ Arguments:
                             Default value is: None.
   RestrictedEnumArgument    restricted enum arg desc.
                             Allowed values are: None, Normal.
-                            Default value is: None.
+                            Default value is: Normal.
   SomeNullableEnumArgument  nullable enum arg desc.
                             Allowed values are: None, Normal, Extreme.
 
@@ -150,7 +156,6 @@ Options:
   --dStrOpt <E>             str option with default value desc.
                             Default value is: Foo.
   --intOpt <E>              int option desc.
-                            Default value is: 0.
   --enumOpt <E>             enum option desc.
                             Allowed values are: None, Normal, Extreme.
                             Default value is: None.

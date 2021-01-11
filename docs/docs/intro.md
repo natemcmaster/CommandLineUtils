@@ -64,15 +64,12 @@ public class Program
         var app = new CommandLineApplication();
 
         app.HelpOption();
-        var optionSubject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
+        var subject = app.Option("-s|--subject <SUBJECT>", "The subject", CommandOptionType.SingleValue);
+        subject.DefaultValue = "world";
 
         app.OnExecute(() =>
         {
-            var subject = optionSubject.HasValue()
-                ? optionSubject.Value()
-                : "world";
-
-            Console.WriteLine($"Hello {subject}!");
+            Console.WriteLine($"Hello {subject.Value()}!");
             return 0;
         });
 

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -20,7 +19,9 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         private readonly List<T> _parsedValues = new List<T>();
         private readonly IValueParser<T> _valueParser;
-        private T _defaultValue;
+        private T? _defaultValue;
+        private bool _hasDefaultValue;
+        private bool _hasBeenParsed;
 
         /// <summary>
         /// Initializes a new instance of <see cref="CommandOption{T}" />
@@ -33,27 +34,43 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             _valueParser = valueParser ?? throw new ArgumentNullException(nameof(valueParser));
             UnderlyingType = typeof(T);
-            SetBaseDefaultValue(default);
         }
 
         /// <summary>
         /// The parsed value.
         /// </summary>
-        public T ParsedValue => _parsedValues.FirstOrDefault();
+        public T ParsedValue => ParsedValues.FirstOrDefault();
 
         /// <summary>
         /// All parsed values;
         /// </summary>
-        public IReadOnlyList<T> ParsedValues => _parsedValues;
+        public IReadOnlyList<T> ParsedValues
+        {
+            get
+            {
+                if (!_hasBeenParsed)
+                {
+                    ((IInternalCommandParamOfT)this).Parse(CultureInfo.CurrentCulture);
+                }
+
+                if (_parsedValues.Count == 0 && _hasDefaultValue)
+                {
+                    return new[] { DefaultValue };
+                }
+
+                return _parsedValues;
+            }
+        }
 
         /// <summary>
         /// The default value of the option.
         /// </summary>
-        public new T DefaultValue
+        public new T? DefaultValue
         {
             get => _defaultValue;
             set
             {
+                _hasDefaultValue = value != null;
                 _defaultValue = value;
                 SetBaseDefaultValue(value);
             }
@@ -61,14 +78,15 @@ namespace McMaster.Extensions.CommandLineUtils
 
         void IInternalCommandParamOfT.Parse(CultureInfo culture)
         {
+            _hasBeenParsed = true;
             _parsedValues.Clear();
-            foreach (var t in Values)
+            foreach (var t in base._values)
             {
                 _parsedValues.Add(_valueParser.Parse(LongName ?? ShortName ?? SymbolName, t, culture));
             }
         }
 
-        void SetBaseDefaultValue(T value)
+        private void SetBaseDefaultValue(T value)
         {
             if (!ReflectionHelper.IsSpecialValueTupleType(typeof(T), out _))
             {
@@ -81,6 +99,14 @@ namespace McMaster.Extensions.CommandLineUtils
                     base.DefaultValue = value?.ToString();
                 }
             }
+        }
+
+        /// <inheritdoc />
+        public override void Reset()
+        {
+            _hasBeenParsed = false;
+            _parsedValues.Clear();
+            base.Reset();
         }
     }
 }
