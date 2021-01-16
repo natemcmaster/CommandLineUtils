@@ -73,7 +73,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 return ValidationResult.Success;
             }
 
-            return new ValidationResult(FormatErrorMessage(value as string ?? string.Empty));
+            return new ValidationResult(FormatErrorMessage(value?.ToString() ?? string.Empty));
         }
     }
 }

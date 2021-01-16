@@ -37,7 +37,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
 
-            return new ValidationResult(FormatErrorMessage(value as string ?? string.Empty));
+            return new ValidationResult(FormatErrorMessage(value?.ToString() ?? string.Empty));
         }
     }
 }
