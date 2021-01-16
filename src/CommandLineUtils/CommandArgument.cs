@@ -78,7 +78,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Defines the underlying type of the argument for the help-text-generator
         /// </summary>
-        internal Type UnderlyingType { get; set; }
+        internal Type? UnderlyingType { get; set; }
 
         /// <summary>
         /// Try to add a value to this argument.

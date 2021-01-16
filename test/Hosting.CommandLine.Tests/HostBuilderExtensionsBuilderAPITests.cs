@@ -57,7 +57,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
                     c.Application.UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.StopParsingAndCollect)
                 .Verifiable();
             var args = new[] { "Capture", "some", "test", "arguments" };
-            string[] remainingArgs = null;
+            string[]? remainingArgs = null;
             await new HostBuilder()
                 .ConfigureServices(collection => collection
                     .AddSingleton<IConsole>(new TestConsole(_output))
@@ -96,7 +96,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         [Fact]
         public async Task TestUsingServiceProvider()
         {
-            IHostEnvironment env = null;
+            IHostEnvironment? env = null;
 
             await new HostBuilder()
                 .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
@@ -111,8 +111,8 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         [Fact]
         public async Task TestCommandLineContextFromNonDIContexts()
         {
-            CommandLineContext configureServicesContext = null;
-            CommandLineContext configureAppContext = null;
+            CommandLineContext? configureServicesContext = null;
+            CommandLineContext? configureAppContext = null;
             await new HostBuilder()
                .ConfigureServices((context, collection) =>
                {

@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -78,10 +79,10 @@ namespace McMaster.Extensions.CommandLineUtils
             return GetAllMembers(type).ToArray();
         }
 
-        public static object[] BindParameters(MethodInfo method, CommandLineApplication command, CancellationToken cancellationToken)
+        public static object?[] BindParameters(MethodInfo method, CommandLineApplication command, CancellationToken cancellationToken)
         {
             var methodParams = method.GetParameters();
-            var arguments = new object[methodParams.Length];
+            var arguments = new object?[methodParams.Length];
 
             for (var i = 0; i < methodParams.Length; i++)
             {
@@ -117,7 +118,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return arguments;
         }
 
-        public static bool IsNullableType(Type type, out Type? wrappedType)
+        public static bool IsNullableType(Type type, [NotNullWhen(true)] out Type? wrappedType)
         {
             var result = type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
             wrappedType = result ? type.GetGenericArguments().First() : null;
@@ -125,7 +126,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
-        public static bool IsSpecialValueTupleType(Type type, out Type? wrappedType)
+        public static bool IsSpecialValueTupleType(Type type, [NotNullWhen(true)] out Type? wrappedType)
         {
             var result = type.IsGenericType &&
                          type.GetGenericTypeDefinition() == typeof(ValueTuple<,>) &&
@@ -135,7 +136,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
-        public static bool IsSpecialTupleType(Type type, out Type? wrappedType)
+        public static bool IsSpecialTupleType(Type type, [NotNullWhen(true)] out Type? wrappedType)
         {
             var result = type.IsGenericType &&
                          type.GetGenericTypeDefinition() == typeof(Tuple<,>) &&

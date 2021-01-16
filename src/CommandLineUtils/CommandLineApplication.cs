@@ -863,7 +863,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             var validationResult = command.GetValidationResult();
-            if (validationResult != ValidationResult.Success)
+            if (validationResult != null)
             {
                 return command.ValidationErrorHandler(validationResult);
             }

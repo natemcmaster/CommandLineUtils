@@ -69,7 +69,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         [Fact]
         public async Task TestConfigureCommandLineApplication()
         {
-            CommandLineApplication<Return42Command> commandLineApp = default;
+            CommandLineApplication<Return42Command>? commandLineApp = null;
             await new HostBuilder()
                 .RunCommandLineApplicationAsync<Return42Command>(
                 Array.Empty<string>(),
@@ -80,7 +80,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         [Fact]
         public async Task TestUseCommandLineApplication()
         {
-            CommandLineApplication<Return42Command> commandLineApp = default;
+            CommandLineApplication<Return42Command>? commandLineApp = null;
             var hostBuilder = new HostBuilder();
             hostBuilder.UseCommandLineApplication<Return42Command>(Array.Empty<string>(), app => commandLineApp = app);
             var host = hostBuilder.Build();

@@ -149,7 +149,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             app.Option(template, string.Empty, CommandOptionType.SingleValue).IsRequired();
             var validation = app.GetValidationResult();
-            Assert.Equal(expected, validation.ErrorMessage);
+            Assert.NotNull(validation);
+            Assert.Equal(expected, validation!.ErrorMessage);
         }
 
         [Fact]
@@ -160,7 +161,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication();
             app.Argument("Arg", string.Empty).IsRequired();
             var validation = app.GetValidationResult();
-            Assert.Equal(expected, validation.ErrorMessage);
+            Assert.NotNull(validation);
+            Assert.Equal(expected, validation!.ErrorMessage);
         }
 
         [Subcommand(typeof(ValidationErrorSubcommand))]

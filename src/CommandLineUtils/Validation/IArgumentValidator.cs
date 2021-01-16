@@ -16,6 +16,6 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         /// <param name="argument">The argument.</param>
         /// <param name="context">The validation context.</param>
         /// <returns>The validation result. Returns <see cref="ValidationResult.Success"/> if the values pass validation.</returns>
-        ValidationResult GetValidationResult(CommandArgument argument, ValidationContext context);
+        ValidationResult? GetValidationResult(CommandArgument argument, ValidationContext context);
     }
 }

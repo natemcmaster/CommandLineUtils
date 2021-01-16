@@ -409,7 +409,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             }
         }
 
-        private string[] ExtractNamesFromEnum(Type type)
+        private string[] ExtractNamesFromEnum(Type? type)
         {
             if (type == null)
             {
