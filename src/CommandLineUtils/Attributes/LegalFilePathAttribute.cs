@@ -23,7 +23,7 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
         /// <inheritdoc />
-        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
             if (value is string path)
             {
@@ -37,7 +37,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
 
-            return new ValidationResult(FormatErrorMessage(value as string));
+            return new ValidationResult(FormatErrorMessage(value?.ToString() ?? string.Empty));
         }
     }
 }

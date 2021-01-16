@@ -35,7 +35,7 @@ namespace Microsoft.Extensions.Hosting
             CancellationToken cancellationToken = default)
             where TApp : class
         {
-            return await RunCommandLineApplicationAsync<TApp>(hostBuilder, args, null, cancellationToken);
+            return await RunCommandLineApplicationAsync<TApp>(hostBuilder, args, _ => { }, cancellationToken);
         }
 
         /// <summary>

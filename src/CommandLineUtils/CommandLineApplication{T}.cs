@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Conventions;
 using McMaster.Extensions.CommandLineUtils.HelpText;
@@ -15,6 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
     public class CommandLineApplication<TModel> : CommandLineApplication, IModelAccessor
         where TModel : class
     {
+        [AllowNull] // this is initialized in common method called in all constructors
         private Lazy<TModel> _lazy;
         private Func<TModel> _modelFactory = DefaultModelFactory;
 

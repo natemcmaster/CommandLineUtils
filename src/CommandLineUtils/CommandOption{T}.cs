@@ -53,7 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     ((IInternalCommandParamOfT)this).Parse(CultureInfo.CurrentCulture);
                 }
 
-                if (_parsedValues.Count == 0 && _hasDefaultValue)
+                if (_parsedValues.Count == 0 && _hasDefaultValue && DefaultValue != null)
                 {
                     return new[] { DefaultValue };
                 }
@@ -86,7 +86,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        private void SetBaseDefaultValue(T value)
+        private void SetBaseDefaultValue(T? value)
         {
             if (!ReflectionHelper.IsSpecialValueTupleType(typeof(T), out _))
             {

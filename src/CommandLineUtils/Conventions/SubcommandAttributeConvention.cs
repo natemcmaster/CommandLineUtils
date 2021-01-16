@@ -67,7 +67,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         private void AddSubcommandImpl<TSubCommand>(ConventionContext context)
             where TSubCommand : class
         {
-            context.Application.Command<TSubCommand>(null, null);
+            context.Application.Command<TSubCommand>(null!, null!); // Hmm, should probably rethink this...
         }
     }
 }

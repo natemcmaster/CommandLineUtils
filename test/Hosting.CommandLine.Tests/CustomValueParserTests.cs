@@ -64,15 +64,17 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
 
         class CustomType
         {
-            public string Value { get; set; }
+            public string? Value { get; set; }
         }
 
-        class CustomValueParser : IValueParser<CustomType>
+        class CustomValueParser : IValueParser<CustomType?>
         {
             public Type TargetType => typeof(CustomType);
 
-            public CustomType Parse(string? argName, string? value, CultureInfo culture)
+            public CustomType? Parse(string? argName, string? value, CultureInfo culture)
             {
+                if (value == null)
+                    return null;
                 return JsonSerializer.Deserialize<CustomType>(value);
             }
 
@@ -86,7 +88,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         class CustomOptionTypeCommand
         {
             [Option("--custom-type", CommandOptionType.SingleValue)]
-            public CustomType Option { get; set; }
+            public CustomType? Option { get; set; }
 
             private int OnExecute()
             {
@@ -126,7 +128,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         class CustomOptionTypeCommandWithAttribute
         {
             [Option("--custom-type", CommandOptionType.SingleValue)]
-            public CustomType Option { get; set; }
+            public CustomType? Option { get; set; }
 
             private int OnExecute()
             {

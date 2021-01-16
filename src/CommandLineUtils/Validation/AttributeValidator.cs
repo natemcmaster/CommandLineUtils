@@ -30,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         /// <param name="option"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public ValidationResult GetValidationResult(CommandOption option, ValidationContext context)
+        public ValidationResult? GetValidationResult(CommandOption option, ValidationContext context)
         {
             if (ValidationAttribute is RequiredAttribute && option.OptionType == CommandOptionType.NoValue)
             {
@@ -49,10 +49,10 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         /// <param name="argument"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public ValidationResult GetValidationResult(CommandArgument argument, ValidationContext context)
+        public ValidationResult? GetValidationResult(CommandArgument argument, ValidationContext context)
             => GetValidationResult(argument.Values, context);
 
-        private ValidationResult GetValidationResult(IReadOnlyList<string?>? values, ValidationContext context)
+        private ValidationResult? GetValidationResult(IReadOnlyList<string?>? values, ValidationContext context)
         {
             if (values == null)
             {
@@ -79,7 +79,7 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         /// <summary>Checks whether the command is valid using any associated validation attributes.</summary>
         /// <param name="command">The command line application to validate</param>
         /// <param name="context">The context under which validation should be performed</param>
-        public ValidationResult GetValidationResult(CommandLineApplication command, ValidationContext context)
+        public ValidationResult? GetValidationResult(CommandLineApplication command, ValidationContext context)
         {
             var model = (command as IModelAccessor)?.GetModel();
             return model != null

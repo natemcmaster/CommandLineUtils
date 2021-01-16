@@ -35,8 +35,8 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             MethodInfo? asyncMethod;
             try
             {
-                method = context.ModelType.GetMethod("OnExecute", binding);
-                asyncMethod = context.ModelType.GetMethod("OnExecuteAsync", binding);
+                method = context.ModelType?.GetMethod("OnExecute", binding);
+                asyncMethod = context.ModelType?.GetMethod("OnExecuteAsync", binding);
             }
             catch (AmbiguousMatchException ex)
             {
@@ -75,7 +75,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             throw new InvalidOperationException(Strings.InvalidOnExecuteReturnType(method.Name));
         }
 
-        private async Task<int> InvokeAsync(MethodInfo method, object instance, object[] arguments)
+        private async Task<int> InvokeAsync(MethodInfo method, object instance, object?[] arguments)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             return 0;
         }
 
-        private int Invoke(MethodInfo method, object instance, object[] arguments)
+        private int Invoke(MethodInfo method, object instance, object?[] arguments)
         {
             try
             {

@@ -27,11 +27,11 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         }
 
         /// <inheritdoc />
-        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
             if (value is not string path || path.Length == 0 || path.IndexOfAny(Path.GetInvalidPathChars()) >= 0)
             {
-                return new ValidationResult(FormatErrorMessage(value as string));
+                return new ValidationResult(FormatErrorMessage(value?.ToString() ?? string.Empty));
             }
 
             if (!Path.IsPathRooted(path)
@@ -55,7 +55,7 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
                 return ValidationResult.Success;
             }
 
-            return new ValidationResult(FormatErrorMessage(value as string));
+            return new ValidationResult(FormatErrorMessage(value?.ToString() ?? string.Empty));
         }
 
         private static string GetDefaultErrorMessage(FilePathType filePathType)

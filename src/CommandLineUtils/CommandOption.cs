@@ -137,7 +137,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Defines the underlying type of the option for the help-text-generator
         /// </summary>
-        internal Type UnderlyingType { get; set; }
+        internal Type? UnderlyingType { get; set; }
 
         /// <summary>
         /// A collection of validators that execute before invoking <see cref="CommandLineApplication.OnExecute(Func{int})"/>.

@@ -127,7 +127,7 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExtendedHelpText.set
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.FullName.get -> string?
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.FullName.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetOptions() -> System.Collections.Generic.IEnumerable<McMaster.Extensions.CommandLineUtils.CommandOption!>!
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetValidationResult() -> System.ComponentModel.DataAnnotations.ValidationResult!
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetValidationResult() -> System.ComponentModel.DataAnnotations.ValidationResult?
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.HelpOption(string! template, bool inherited) -> McMaster.Extensions.CommandLineUtils.CommandOption!
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.HelpOption(string! template) -> McMaster.Extensions.CommandLineUtils.CommandOption!
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.HelpTextGenerator.get -> McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator!
@@ -435,9 +435,9 @@ McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.Apply(McMaster.Ext
 McMaster.Extensions.CommandLineUtils.ValidateMethodConvention.ValidateMethodConvention() -> void
 McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator
 McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.AttributeValidator(System.ComponentModel.DataAnnotations.ValidationAttribute! attribute) -> void
-McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument! argument, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult!
-McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication! command, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult!
-McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption! option, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult!
+McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument! argument, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult?
+McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication! command, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult?
+McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption! option, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult?
 McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
 McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.DelegateValidator(System.Func<System.ComponentModel.DataAnnotations.ValidationContext!, System.ComponentModel.DataAnnotations.ValidationResult!>! validator) -> void
 McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
@@ -446,14 +446,14 @@ McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
 McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator! validator) -> void
 McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder<T>
 McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
-McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument! argument, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult!
+McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument! argument, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult?
 McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
-McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication! command, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult!
+McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication! command, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult?
 McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder
 McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator! validator) -> void
 McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder<T>
 McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
-McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption! option, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult!
+McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption! option, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult?
 McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
 McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator! validator) -> void
 McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder<T>

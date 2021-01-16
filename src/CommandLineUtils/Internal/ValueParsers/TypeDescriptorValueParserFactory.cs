@@ -3,6 +3,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
@@ -13,7 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     /// </summary>
     internal class TypeDescriptorValueParserFactory
     {
-        public bool TryGetParser<T>(out IValueParser parser)
+        public bool TryGetParser<T>([NotNullWhen(true)] out IValueParser? parser)
         {
             var targetType = typeof(T);
             var converter = TypeDescriptor.GetConverter(targetType);
@@ -39,7 +40,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
             private TypeConverter TypeConverter { get; }
 
-            public T Parse(string argName, string value, CultureInfo culture)
+            public T Parse(string? argName, string? value, CultureInfo culture)
             {
                 try
                 {
@@ -52,7 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 }
             }
 
-            object IValueParser.Parse(string argName, string value, CultureInfo culture)
+            object? IValueParser.Parse(string? argName, string? value, CultureInfo culture)
                 => Parse(argName, value, culture);
         }
     }

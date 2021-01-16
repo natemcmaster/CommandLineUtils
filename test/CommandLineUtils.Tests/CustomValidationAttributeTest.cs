@@ -59,7 +59,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
             }
 
-            protected override ValidationResult IsValid(object value, ValidationContext context)
+            protected override ValidationResult? IsValid(object? value, ValidationContext context)
             {
                 if (value == null || (value is string str && str != "red" && str != "blue"))
                 {
