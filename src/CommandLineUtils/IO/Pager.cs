@@ -45,7 +45,7 @@ namespace McMaster.Extensions.CommandLineUtils
 #if NET45
             // if .NET Framework, assume we're on Windows unless it's running on Mono.
             _enabled = Type.GetType("Mono.Runtime") != null;
-#elif NETSTANDARD2_0
+#elif NETSTANDARD2_0 || NETSTANDARD2_1
             _enabled = !RuntimeInformation.IsOSPlatform(OSPlatform.Windows) && !console.IsOutputRedirected;
 #else
 #error Update target frameworks
