@@ -3,7 +3,7 @@
 
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
-#if NETCOREAPP
+#if NETCOREAPP || NET5_0
 using System.IO;
 using Xunit;
 
