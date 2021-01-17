@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <Target Name="UpdateCiSettings" Condition="'$(CI)' == 'true' AND '$(IsPackable)' == 'true'">
-    <Message Importance="High" Text="##vso[build.updatebuildnumber]$(PackageVersion)" />
+    <Message Importance="High" Text="::set-output name=package_version::$(PackageVersion)" />
   </Target>
 
 </Project>

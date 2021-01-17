@@ -1,13 +1,29 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      is_stable_build:
+        description: Use a version number indicating this is a stable release
+        required: true
+        default: "false"
+      release:
+        description: Create a release
+        required: true
+        default: "false"
+    branches:
+      - main
+      - release/*
 
 env:
+  IS_STABLE_BUILD: ${{ github.event.inputs.is_stable_build }}
   BUILD_NUMBER: ${{ github.run_number }}
 
 jobs:
   build:
-    if: "!contains(github.event.head_commit.message, 'ci skip')"
+    if: "!contains(github.event.head_commit.message, 'ci skip') || github.event_name == 'workflow_dispatch'"
     strategy:
       fail-fast: false
       matrix:
@@ -15,28 +31,77 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
+    outputs:
+      package_version: ${{ steps.build_script.outputs.package_version }}
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core 2.1
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '2.1.x'
-    - name: Setup .NET Core 3.1
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '3.1.x'
-    - name: Setup .NET 5
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '5.0.x'
-    - name: Run build script
-      run: ./build.ps1 -ci
-    - uses: actions/upload-artifact@v2
-      if: ${{ matrix.os == 'windows-latest' }}
-      with:
-        name: packages
-        path: artifacts/
-    - uses: codecov/codecov-action@v1
-      with:
-        name: unittests-${{ matrix.os }}
-        fail_ci_if_error: true
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core 2.1
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "2.1.x"
+      - name: Setup .NET Core 3.1
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "3.1.x"
+      - name: Setup .NET 5
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "5.0.x"
+      - name: Run build script
+        id: build_script
+        run: ./build.ps1 -ci
+      - uses: actions/upload-artifact@v2
+        if: ${{ matrix.os == 'windows-latest' }}
+        with:
+          name: packages
+          path: artifacts/
+          if-no-files-found: error
+      - uses: codecov/codecov-action@v1
+        with:
+          name: unittests-${{ matrix.os }}
+          fail_ci_if_error: true
+  release:
+    if: "github.event.inputs.release"
+    needs: build
+    runs-on: windows-latest
+    env:
+      PACKAGE_VERSION: ${{ needs.build.outputs.package_version }}
+    steps:
+      - run: echo "Releasing ${{ env.PACKAGE_VERSION }}"
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1
+        with:
+          nuget-version: latest
+      - uses: actions/download-artifact@v2
+        with:
+          name: packages
+          path: packages
+      - name: Configure GitHub NuGet registry
+        run: nuget sources add -name github -source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -username ${{ github.repository_owner }} -password ${{ secrets.GITHUB_TOKEN }}
+      - name: Push to GitHub package registry
+        run: nuget push packages\*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source github
+      - name: Push to NuGet.org
+        run: nuget push packages\*.nupkg -ApiKey ${{ secrets.NUGET_API_KEY }} -Source https://nuget.org
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: ${{ env.PACKAGE_VERSION }}
+          tag_name: v${{ env.PACKAGE_VERSION }}
+          body: |
+            See changes in https://github.com/natemcmaster/CommandLineUtils/blob/main/CHANGELOG.md
+
+            Packages have been posted to these feeds:
+
+            #### NuGet.org
+            https://nuget.org/packages/McMaster.Extensions.CommandLineUtils/${{ env.PACKAGE_VERSION }}
+            https://nuget.org/packages/McMaster.Extensions.Hosting.CommandLine/${{ env.PACKAGE_VERSION }}
+
+            #### GitHub Package Registry
+            https://github.com/natemcmaster?tab=packages&repo_name=CommandLineUtils
+
+          draft: true
+          prerelease: ${{ env.IS_STABLE_BUILD == 'false' }} # Example: v3.1.0-beta
+          files: packages/*
