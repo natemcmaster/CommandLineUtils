@@ -1,11 +1,28 @@
 # Changelog
 
-[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v3.1.0...HEAD):
+[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.0-beta.56...HEAD):
 
+## [v4.0.0-beta.56](https://github.com/natemcmaster/CommandLineUtils/compare/v3.1.0...v4.0.0-beta.56)
+
+### Features
 * [@scott-xu] and [@natemcmaster]: feature: add API for setting default value on options and arguments, and display them in help text ([#389] and [#420])
+* [@natemcmaster]: cleanup: make .Values read-only on CommandArgument/Option ([#406])
+* [@natemcmaster]: Make options, arguments, and commands read-only collections on CommandLineApplication ([#407])
+
+### Fixes
+* [@natemcmaster]: fix: pass the generic argument version in callback on .Option() and Argument() ([#405])
+* [@natemcmaster]: add .NET Standard 2.1 and fix nullable type references ([#424] and [#425])
+
+### Other
+* [@natemcmaster]: change from Azure DevOps to GitHub workflows
 
 [#389]: https://github.com/natemcmaster/CommandLineUtils/pull/389
+[#405]: https://github.com/natemcmaster/CommandLineUtils/pull/405
+[#406]: https://github.com/natemcmaster/CommandLineUtils/pull/406
+[#407]: https://github.com/natemcmaster/CommandLineUtils/pull/407
 [#420]: https://github.com/natemcmaster/CommandLineUtils/pull/420
+[#424]: https://github.com/natemcmaster/CommandLineUtils/pull/424
+[#425]: https://github.com/natemcmaster/CommandLineUtils/pull/425
 
 ## [v3.1.0](https://github.com/natemcmaster/CommandLineUtils/compare/v3.0.0...v3.1.0)
 
