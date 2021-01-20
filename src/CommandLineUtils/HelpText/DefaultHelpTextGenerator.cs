@@ -194,7 +194,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                     var description = arg.Description;
                     var allowedValuesBeenSet = false;
 
-                    foreach (var attributeValidator in arg.Validators.Cast<AttributeValidator>())
+                    foreach (var attributeValidator in arg.Validators.OfType<AttributeValidator>())
                     {
                         if (attributeValidator?.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
                         {
@@ -251,7 +251,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                     var description = opt.Description;
                     var allowedValuesBeenSet = false;
 
-                    foreach (var attributeValidator in opt.Validators.Cast<AttributeValidator>())
+                    foreach (var attributeValidator in opt.Validators.OfType<AttributeValidator>())
                     {
                         if (attributeValidator?.ValidationAttribute is AllowedValuesAttribute allowedValuesAttribute)
                         {
