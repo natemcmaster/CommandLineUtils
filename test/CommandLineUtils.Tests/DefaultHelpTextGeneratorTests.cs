@@ -216,6 +216,9 @@ Options:
                                     Allowed values are: None, Normal, Extreme.
   -enumOpt4|--verb4[:<VERB4>]       nullable enum option desc.
                                     Allowed values are: None, Normal, Extreme.
+  -enumOpt5|--verb5 <VERB5>         enum option desc.
+                                    Allowed values are: None, Normal, Extreme.
+                                    Default value is: None.
   -?|-h|--help                      Show help information.
 
 ",
@@ -254,6 +257,9 @@ Options:
 
             [Option(CommandOptionType.SingleOrNoValue, ShortName = "enumOpt4", Description = "nullable enum option desc.")]
             public SomeEnum? Verb4 { get; set; }
+
+            [Option("-enumOpt5 | --verb5 <VERB5>", Description = "enum option desc.")]
+            public SomeEnum Verb5 { get; set; }
 
             [Argument(0, Description = "string arg desc.")]
             public string SomeStringArgument { get; set; }
