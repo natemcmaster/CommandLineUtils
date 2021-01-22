@@ -1,6 +1,17 @@
 # Changelog
 
-[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.0-beta.56...HEAD):
+[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.0-beta.74...HEAD):
+
+## [v4.0.0-beta.74](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.0-beta.56...4.0.0-beta.74)
+
+Fixes:
+
+* [@natemcmaster]: fix new CI to correctly publish symbols to nuget.org
+* [@scott-xu]:  show option types in help text when OptionAttribute.Template is set ([#429])
+* [@skirchner989]:  change to not throw when a validator is not of type AttributeValidator ([#431])
+
+[#429]: https://github.com/natemcmaster/CommandLineUtils/pull/429
+[#431]: https://github.com/natemcmaster/CommandLineUtils/pull/431
 
 ## [v4.0.0-beta.56](https://github.com/natemcmaster/CommandLineUtils/compare/v3.1.0...v4.0.0-beta.56)
 
@@ -527,6 +538,7 @@ Other:
 [@rlvandaveer]: https://github.com/rlvandaveer
 [@rmcc13]: https://github.com/rmcc13
 [@scott-xu]: https://github.com/scott-xu
+[@skirchner989]: https://github.com/skirchner989
 [@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros
 [@SteveBenz]: https://github.com/SteveBenz
