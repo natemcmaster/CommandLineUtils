@@ -21,7 +21,6 @@ on:
 
 env:
   IS_STABLE_BUILD: ${{ github.event.inputs.is_stable_build }}
-  BUILD_NUMBER: ${{ github.run_number }}
 
 jobs:
   build:
@@ -93,8 +92,10 @@ jobs:
           name: ${{ env.PACKAGE_VERSION }}
           tag_name: v${{ env.PACKAGE_VERSION }}
           body: |
+            ## Notes
             See changes in https://github.com/natemcmaster/CommandLineUtils/blob/main/CHANGELOG.md
 
+            ## How to get this update
             Packages have been posted to these feeds:
 
             #### NuGet.org
