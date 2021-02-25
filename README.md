@@ -23,7 +23,7 @@ The **roadmap** for this project is [pinned to the top of the issue list](https:
 See [documentation](https://natemcmaster.github.io/CommandLineUtils/) for API reference, samples, and tutorials.
 See also [docs/samples/](./docs/samples/) for more examples, such as:
 
- - [Hello world](./docs/samples/hello-world/)
+ - [Hello world](./docs/samples/helloworld/)
  - [Async console apps](./docs/samples/helloworld-async/)
  - [Structuring an app with subcommands](./docs/samples/subcommands/)
  - [Defining options with attributes](./docs/samples/attributes/)
