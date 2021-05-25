@@ -53,7 +53,7 @@ class BuilderApi
 
 class MustBeBlueOrRedValidator : IOptionValidator
 {
-    public ValidationResult GetValidationResult(CommandOption option, ValidationContext context)
+    public ValidationResult GetValidationResult(IOption option, ValidationContext context)
     {
         // This validator only runs if there is a value
         if (!option.HasValue()) return ValidationResult.Success;
@@ -61,7 +61,7 @@ class MustBeBlueOrRedValidator : IOptionValidator
 
         if (val != "red" && val != "blue")
         {
-            return new ValidationResult($"The value for --{option.LongName} must be 'red' or 'blue'");
+            return new ValidationResult($"The value for --{(option as IParseableOption)?.LongName} must be 'red' or 'blue'");
         }
 
         return ValidationResult.Success;

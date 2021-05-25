@@ -76,35 +76,38 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
             }
 
-            foreach (var option in GetOptions())
+            foreach (var option in GetAnyOptions())
             {
                 var context = factory.Create(option);
 
-                string? name = null;
-                if (option.LongName != null)
+                if (option is IParseableOption parseableOption)
                 {
-                    name = "--" + option.LongName;
-                }
+                    string? name = null;
+                    if (parseableOption.LongName != null)
+                    {
+                        name = "--" + parseableOption.LongName;
+                    }
 
-                if (name == null && option.ShortName != null)
-                {
-                    name = "-" + option.ShortName;
-                }
+                    if (name == null && parseableOption.ShortName != null)
+                    {
+                        name = "-" + parseableOption.ShortName;
+                    }
 
-                if (name == null && option.SymbolName != null)
-                {
-                    name = "-" + option.SymbolName;
-                }
+                    if (name == null && parseableOption.SymbolName != null)
+                    {
+                        name = "-" + parseableOption.SymbolName;
+                    }
 
-                if (name == null && option.ValueName != null)
-                {
-                    name = option.ValueName;
-                }
+                    if (name == null && parseableOption.ValueName != null)
+                    {
+                        name = parseableOption.ValueName;
+                    }
 
-                if (!string.IsNullOrEmpty(name))
-                {
-                    context.DisplayName = name;
-                    context.MemberName = name;
+                    if (!string.IsNullOrEmpty(name))
+                    {
+                        context.DisplayName = name;
+                        context.MemberName = name;
+                    }
                 }
 
                 foreach (var validator in option.Validators)

@@ -129,7 +129,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
             CommandLineApplication application,
             TextWriter output,
             IReadOnlyList<CommandArgument> visibleArguments,
-            IReadOnlyList<CommandOption> visibleOptions,
+            IReadOnlyList<IParseableOption> visibleOptions,
             IReadOnlyList<CommandLineApplication> visibleCommands)
         {
             output.Write("Usage:");
@@ -237,7 +237,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         protected virtual void GenerateOptions(
             CommandLineApplication application,
             TextWriter output,
-            IReadOnlyList<CommandOption> visibleOptions,
+            IReadOnlyList<IParseableOption> visibleOptions,
             int firstColumnWidth)
         {
             if (visibleOptions.Any())
@@ -261,18 +261,18 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                         }
                     }
 
-                    if (!allowedValuesBeenSet)
+                    if (!allowedValuesBeenSet && opt is CommandOption commandOption)
                     {
-                        var enumNames = ExtractNamesFromEnum(opt.UnderlyingType);
+                        var enumNames = ExtractNamesFromEnum(commandOption.UnderlyingType);
                         if (enumNames.Any())
                         {
                             description += $"\nAllowed values are: {string.Join(", ", enumNames)}.";
                         }
                     }
 
-                    if (!string.IsNullOrEmpty(opt.DefaultValue))
+                    if (opt is CommandOption co && !string.IsNullOrEmpty(co.DefaultValue))
                     {
-                        description += $"\nDefault value is: {opt.DefaultValue}.";
+                        description += $"\nDefault value is: {co.DefaultValue}.";
                     }
 
                     var wrappedDescription = IndentWriter?.Write(description);
@@ -344,7 +344,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// Generates the template string in the format "-{Symbol}|-{Short}|--{Long} &lt;{Value}&gt;" for display in help text.
         /// </summary>
         /// <returns>The template string</returns>
-        protected virtual string Format(CommandOption option)
+        protected virtual string Format(IParseableOption option)
         {
             var sb = new StringBuilder();
             if (!string.IsNullOrEmpty(option.SymbolName))

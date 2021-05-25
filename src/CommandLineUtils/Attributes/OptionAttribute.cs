@@ -72,7 +72,10 @@ namespace McMaster.Extensions.CommandLineUtils
             CommandOption option;
             if (Template != null)
             {
-                option = new CommandOption(Template, optionType);
+                option = new CommandOption(Template, optionType)
+                {
+                    UnderlyingType = prop.PropertyType,
+                };
             }
             else
             {

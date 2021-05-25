@@ -41,7 +41,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             if (!command.ClusterOptionsWasSetExplicitly)
             {
-                foreach (var option in AllOptions(command))
+                foreach (var option in AllOptions(command).OfType<IParseableOption>())
                 {
                     if (option.ShortName != null && option.ShortName.Length != 1)
                     {
@@ -52,7 +52,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             else if (command.ClusterOptions)
             {
-                foreach (var option in AllOptions(command))
+                foreach (var option in AllOptions(command).OfType<IParseableOption>())
                 {
                     if (option.ShortName != null && option.ShortName.Length != 1)
                     {
@@ -63,7 +63,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        internal static IEnumerable<CommandOption> AllOptions(CommandLineApplication command)
+        internal static IEnumerable<IOption> AllOptions(CommandLineApplication command)
         {
             foreach (var option in command.Options)
             {
@@ -134,14 +134,14 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private bool ProcessOption(OptionArgument arg)
         {
-            CommandOption? option = null;
+            IParseableOption? option = null;
             var value = arg.Value;
             var name = arg.Name;
             if (arg.IsShortOption)
             {
                 if (_currentCommand.ClusterOptions)
                 {
-                    var options = new List<CommandOption>();
+                    var options = new List<IParseableOption>();
                     for (var i = 0; i < arg.Name.Length; i++)
                     {
                         var ch = arg.Name.Substring(i, 1);
@@ -274,7 +274,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return true;
         }
 
-        private CommandOption? FindOption(string name, Func<CommandOption, string?> by)
+        private IParseableOption? FindOption(string name, Func<IParseableOption, string?> by)
         {
             var options = _currentCommand
                 .GetOptions()

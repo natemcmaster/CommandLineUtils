@@ -28,7 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         ValidationResult IArgumentValidator.GetValidationResult(CommandArgument argument, ValidationContext context)
             => _validator(context);
 
-        ValidationResult IOptionValidator.GetValidationResult(CommandOption option, ValidationContext context)
+        ValidationResult IOptionValidator.GetValidationResult(IOption option, ValidationContext context)
             => _validator(context);
     }
 }

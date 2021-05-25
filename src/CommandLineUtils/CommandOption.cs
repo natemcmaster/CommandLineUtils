@@ -15,7 +15,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Represents one or many command line option that is identified by flag proceeded by '-' or '--'.
     /// Options are not positional. Compare to <see cref="CommandArgument"/>.
     /// </summary>
-    public class CommandOption
+    public class CommandOption : IParseableOption
     {
         private protected readonly List<string?> _values = new();
 
@@ -244,7 +244,7 @@ namespace McMaster.Extensions.CommandLineUtils
         }
 
 
-        private bool IsEnglishLetter(char c)
+        private static bool IsEnglishLetter(char c)
         {
             return c is (>= 'a' and <= 'z') or (>= 'A' and <= 'Z');
         }

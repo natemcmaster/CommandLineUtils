@@ -1,4 +1,5 @@
 #nullable enable
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetAnyOptions() -> System.Collections.Generic.IEnumerable<McMaster.Extensions.CommandLineUtils.IOption!>!
 McMaster.Extensions.CommandLineUtils.CommandOption.DefaultValue.get -> string?
 McMaster.Extensions.CommandLineUtils.CommandOption.DefaultValue.set -> void
 McMaster.Extensions.CommandLineUtils.CommandArgument.DefaultValue.get -> string?
@@ -9,6 +10,32 @@ McMaster.Extensions.CommandLineUtils.CommandArgument.HasValue.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandArgument.TryParse(string? value) -> bool
 McMaster.Extensions.CommandLineUtils.CommandOption<T>.DefaultValue.get -> T?
 McMaster.Extensions.CommandLineUtils.CommandOption<T>.DefaultValue.set -> void
+McMaster.Extensions.CommandLineUtils.IOption
+McMaster.Extensions.CommandLineUtils.IOption.Description.get -> string?
+McMaster.Extensions.CommandLineUtils.IOption.Description.set -> void
+McMaster.Extensions.CommandLineUtils.IOption.HasValue() -> bool
+McMaster.Extensions.CommandLineUtils.IOption.Inherited.get -> bool
+McMaster.Extensions.CommandLineUtils.IOption.Inherited.set -> void
+McMaster.Extensions.CommandLineUtils.IOption.OptionType.get -> McMaster.Extensions.CommandLineUtils.CommandOptionType
+McMaster.Extensions.CommandLineUtils.IOption.Reset() -> void
+McMaster.Extensions.CommandLineUtils.IOption.TryParse(string? value) -> bool
+McMaster.Extensions.CommandLineUtils.IOption.Validators.get -> System.Collections.Generic.ICollection<McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator!>!
+McMaster.Extensions.CommandLineUtils.IOption.Value() -> string?
+McMaster.Extensions.CommandLineUtils.IOption.Values.get -> System.Collections.Generic.IReadOnlyList<string?>!
+McMaster.Extensions.CommandLineUtils.IOption<T>
+McMaster.Extensions.CommandLineUtils.IOption<T>.ParsedValue.get -> T
+McMaster.Extensions.CommandLineUtils.IOption<T>.ParsedValues.get -> System.Collections.Generic.IReadOnlyList<T>!
+McMaster.Extensions.CommandLineUtils.IParseableOption
+McMaster.Extensions.CommandLineUtils.IParseableOption.LongName.get -> string?
+McMaster.Extensions.CommandLineUtils.IParseableOption.LongName.set -> void
+McMaster.Extensions.CommandLineUtils.IParseableOption.ShortName.get -> string?
+McMaster.Extensions.CommandLineUtils.IParseableOption.ShortName.set -> void
+McMaster.Extensions.CommandLineUtils.IParseableOption.ShowInHelpText.get -> bool
+McMaster.Extensions.CommandLineUtils.IParseableOption.ShowInHelpText.set -> void
+McMaster.Extensions.CommandLineUtils.IParseableOption.SymbolName.get -> string?
+McMaster.Extensions.CommandLineUtils.IParseableOption.SymbolName.set -> void
+McMaster.Extensions.CommandLineUtils.IParseableOption.ValueName.get -> string?
+McMaster.Extensions.CommandLineUtils.IParseableOption.ValueName.set -> void
 virtual McMaster.Extensions.CommandLineUtils.CommandArgument.Reset() -> void
 virtual McMaster.Extensions.CommandLineUtils.CommandOption.Reset() -> void
 override McMaster.Extensions.CommandLineUtils.CommandArgument<T>.Reset() -> void

@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using FluentAssertions;
 using McMaster.Extensions.CommandLineUtils.Conventions;
 using Xunit;
 using Xunit.Abstractions;
@@ -48,11 +49,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void CanOverrideShortNameOnOption()
         {
             var app = Create<ShortNameOverride>();
-            var d1 = Assert.Single(app.Options, o => o.ShortName == "d1");
+            var d1 = Assert.Single(app.Options.OfType<IParseableOption>(), o => o.ShortName == "d1");
             Assert.Equal("d1", d1.ShortName);
             Assert.Equal("detail1", d1.LongName);
             Assert.Equal("DETAIL1", d1.ValueName);
-            var d2 = Assert.Single(app.Options, o => o.ShortName == "d2");
+            var d2 = Assert.Single(app.Options.OfType<IParseableOption>(), o => o.ShortName == "d2");
             Assert.Equal("d2", d2.ShortName);
             Assert.Equal("detail2", d2.LongName);
             Assert.Equal("DETAIL2", d2.ValueName);
@@ -71,7 +72,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void CanSetShortNameToEmptyString()
         {
             var app = Create<EmptyShortName>();
-            Assert.All(app.Options, o => Assert.Empty(o.ShortName));
+            app.Options.Should().HaveCount(2)
+                .And.OnlyContain(o => string.IsNullOrEmpty(((IParseableOption)o).ShortName));
         }
 
         private class AmbiguousShortOptionName
@@ -315,7 +317,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var appBuilder = typeof(CommandLineApplication<>).MakeGenericType(program);
             var app = (CommandLineApplication)Activator.CreateInstance(appBuilder, Util.EmptyArray<object>());
             app.Conventions.UseOptionAttributes();
-            return app.Options.First();
+            return app.Options.OfType<CommandOption>().First();
         }
     }
 }

@@ -30,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils.Validation
         /// <param name="option"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public ValidationResult? GetValidationResult(CommandOption option, ValidationContext context)
+        public ValidationResult? GetValidationResult(IOption option, ValidationContext context)
         {
             if (ValidationAttribute is RequiredAttribute && option.OptionType == CommandOptionType.NoValue)
             {

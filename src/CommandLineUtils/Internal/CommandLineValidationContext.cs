@@ -19,6 +19,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public ValidationContext Create(CommandArgument argument) => new(argument, _app, null);
 
-        public ValidationContext Create(CommandOption option) => new(option, _app, null);
+        public ValidationContext Create(IOption option) => new(option, _app, null);
     }
 }
