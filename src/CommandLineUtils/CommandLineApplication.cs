@@ -400,7 +400,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public TextWriter Error { get; set; }
 
         /// <summary>
-        /// Gets all command line options available to this command, including any inherited options.
+        /// Gets all command line options available to this command, including any inherited options and <see cref="MappedOption{T}"/>s.
         /// </summary>
         /// <returns>Command line options.</returns>
         public IEnumerable<IOption> GetAnyOptions()
@@ -616,6 +616,24 @@ namespace McMaster.Extensions.CommandLineUtils
             AddOption(option);
             configuration(option);
             return option;
+        }
+
+        /// <summary>
+        /// Add a new set of mapped options
+        /// </summary>
+        /// <param name="optionType"></param>
+        /// <param name="configuration"></param>
+        /// <param name="inherited"></param>
+        /// <typeparam name="T">The type of the values on the option</typeparam>
+        /// <returns>The option</returns>
+        public MappedOption<T> MappedOption<T>(CommandOptionType optionType, Action<MappedOption<T>> configuration, bool inherited)
+        {
+            var mappedOption = new MappedOption<T>(this, optionType)
+            {
+                Inherited = inherited
+            };
+            configuration(mappedOption);
+            return mappedOption;
         }
 
 #pragma warning disable RS0026 // Do not add multiple public overloads with optional parameters

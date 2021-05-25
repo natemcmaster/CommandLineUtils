@@ -150,7 +150,8 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="builder">The builder.</param>
         /// <returns>The builder.</returns>
         public static IConventionBuilder UseOptionAttributes(this IConventionBuilder builder)
-            => builder.AddConvention(new OptionAttributeConvention());
+            => builder.AddConvention(new OptionAttributeConvention())
+                .AddConvention(new MappedOptionAttributeConvention());
 
         /// <summary>
         /// Applies settings from <see cref="ArgumentAttribute" /> on the model type.

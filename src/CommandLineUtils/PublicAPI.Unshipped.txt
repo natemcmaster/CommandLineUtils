@@ -1,5 +1,14 @@
 #nullable enable
+McMaster.Extensions.CommandLineUtils.Attributes.MappedOptionAttribute
+McMaster.Extensions.CommandLineUtils.Attributes.MappedOptionAttribute.ConstantValue.get -> object?
+McMaster.Extensions.CommandLineUtils.Attributes.MappedOptionAttribute.ConstantValue.set -> void
+McMaster.Extensions.CommandLineUtils.Attributes.MappedOptionAttribute.MappedOptionAttribute(object! constantValue) -> void
+McMaster.Extensions.CommandLineUtils.Attributes.MappedOptionAttribute.MappedOptionAttribute(string! template, object! constantValue) -> void
+McMaster.Extensions.CommandLineUtils.Attributes.MappedOptionAttribute.MappedOptionAttribute(string! template, string? description, object! constantValue) -> void
+McMaster.Extensions.CommandLineUtils.Attributes.MappedOptionAttribute.OptionType.get -> McMaster.Extensions.CommandLineUtils.CommandOptionType?
+McMaster.Extensions.CommandLineUtils.Attributes.MappedOptionAttribute.OptionType.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetAnyOptions() -> System.Collections.Generic.IEnumerable<McMaster.Extensions.CommandLineUtils.IOption!>!
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.MappedOption<T>(McMaster.Extensions.CommandLineUtils.CommandOptionType optionType, System.Action<McMaster.Extensions.CommandLineUtils.MappedOption<T>!>! configuration, bool inherited) -> McMaster.Extensions.CommandLineUtils.MappedOption<T>!
 McMaster.Extensions.CommandLineUtils.CommandOption.DefaultValue.get -> string?
 McMaster.Extensions.CommandLineUtils.CommandOption.DefaultValue.set -> void
 McMaster.Extensions.CommandLineUtils.CommandArgument.DefaultValue.get -> string?
@@ -10,6 +19,13 @@ McMaster.Extensions.CommandLineUtils.CommandArgument.HasValue.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandArgument.TryParse(string? value) -> bool
 McMaster.Extensions.CommandLineUtils.CommandOption<T>.DefaultValue.get -> T?
 McMaster.Extensions.CommandLineUtils.CommandOption<T>.DefaultValue.set -> void
+McMaster.Extensions.CommandLineUtils.ConstantValueOption<T>
+McMaster.Extensions.CommandLineUtils.ConstantValueOption<T>.ConstantValue.get -> T
+McMaster.Extensions.CommandLineUtils.ConstantValueOption<T>.ConstantValueOption(string! template, T constantValue) -> void
+McMaster.Extensions.CommandLineUtils.ConstantValueOption<T>.ParsedValue.get -> T
+McMaster.Extensions.CommandLineUtils.ConstantValueOption<T>.ParsedValues.get -> System.Collections.Generic.IReadOnlyList<T>!
+McMaster.Extensions.CommandLineUtils.Conventions.MappedOptionAttributeConvention
+McMaster.Extensions.CommandLineUtils.Conventions.MappedOptionAttributeConvention.MappedOptionAttributeConvention() -> void
 McMaster.Extensions.CommandLineUtils.IOption
 McMaster.Extensions.CommandLineUtils.IOption.Description.get -> string?
 McMaster.Extensions.CommandLineUtils.IOption.Description.set -> void
@@ -36,9 +52,37 @@ McMaster.Extensions.CommandLineUtils.IParseableOption.SymbolName.get -> string?
 McMaster.Extensions.CommandLineUtils.IParseableOption.SymbolName.set -> void
 McMaster.Extensions.CommandLineUtils.IParseableOption.ValueName.get -> string?
 McMaster.Extensions.CommandLineUtils.IParseableOption.ValueName.set -> void
+McMaster.Extensions.CommandLineUtils.MappedOption<T>
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Add(string! description, string! template, T value) -> McMaster.Extensions.CommandLineUtils.ConstantValueOption<T>!
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Add(string! template, T value) -> McMaster.Extensions.CommandLineUtils.ConstantValueOption<T>!
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Description.get -> string?
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Description.set -> void
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.GetEnumerator() -> System.Collections.Generic.IEnumerator<McMaster.Extensions.CommandLineUtils.ConstantValueOption<T>!>!
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.HasValue() -> bool
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Inherited.get -> bool
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Inherited.set -> void
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Map(string! description, string! template, T value) -> McMaster.Extensions.CommandLineUtils.MappedOption<T>!
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Map(string! template, T value) -> McMaster.Extensions.CommandLineUtils.MappedOption<T>!
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.MappedOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication! commandLineApplication, McMaster.Extensions.CommandLineUtils.CommandOptionType optionType) -> void
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Mappings.get -> System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.ConstantValueOption<T>!>!
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.OptionType.get -> McMaster.Extensions.CommandLineUtils.CommandOptionType
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.ParsedValue.get -> T
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.ParsedValues.get -> System.Collections.Generic.IReadOnlyList<T>!
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.TryParse(string? value) -> bool
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.UnderlyingType.get -> System.Type!
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Validators.get -> System.Collections.Generic.ICollection<McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator!>!
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Value() -> string?
+McMaster.Extensions.CommandLineUtils.MappedOption<T>.Values.get -> System.Collections.Generic.IReadOnlyList<string?>!
+McMaster.Extensions.CommandLineUtils.Validation.SingleValueValidator
+McMaster.Extensions.CommandLineUtils.Validation.SingleValueValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument! argument, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult!
+McMaster.Extensions.CommandLineUtils.Validation.SingleValueValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.IOption! option, System.ComponentModel.DataAnnotations.ValidationContext! context) -> System.ComponentModel.DataAnnotations.ValidationResult!
+McMaster.Extensions.CommandLineUtils.Validation.SingleValueValidator.SingleValueValidator(string! errorMessage = "Only one value is supported.") -> void
+override McMaster.Extensions.CommandLineUtils.ConstantValueOption<T>.Reset() -> void
+readonly McMaster.Extensions.CommandLineUtils.MappedOption<T>._commandLineApplication -> McMaster.Extensions.CommandLineUtils.CommandLineApplication!
 virtual McMaster.Extensions.CommandLineUtils.CommandArgument.Reset() -> void
 virtual McMaster.Extensions.CommandLineUtils.CommandOption.Reset() -> void
 override McMaster.Extensions.CommandLineUtils.CommandArgument<T>.Reset() -> void
 override McMaster.Extensions.CommandLineUtils.CommandOption<T>.Reset() -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddArgument(McMaster.Extensions.CommandLineUtils.CommandArgument! argument) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddOption(McMaster.Extensions.CommandLineUtils.CommandOption! option) -> void
+virtual McMaster.Extensions.CommandLineUtils.Conventions.MappedOptionAttributeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext! context) -> void
