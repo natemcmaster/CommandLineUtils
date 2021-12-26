@@ -1,19 +1,8 @@
 # Changelog
 
-[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.0-beta.74...HEAD):
+[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.0...HEAD):
 
-## [v4.0.0-beta.74](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.0-beta.56...4.0.0-beta.74)
-
-Fixes:
-
-* [@natemcmaster]: fix new CI to correctly publish symbols to nuget.org
-* [@scott-xu]:  show option types in help text when OptionAttribute.Template is set ([#429])
-* [@skirchner989]:  change to not throw when a validator is not of type AttributeValidator ([#431])
-
-[#429]: https://github.com/natemcmaster/CommandLineUtils/pull/429
-[#431]: https://github.com/natemcmaster/CommandLineUtils/pull/431
-
-## [v4.0.0-beta.56](https://github.com/natemcmaster/CommandLineUtils/compare/v3.1.0...v4.0.0-beta.56)
+## [v4.0.0](https://github.com/natemcmaster/CommandLineUtils/compare/v3.1.0...v4.0.0)
 
 ### Features
 * [@scott-xu] and [@natemcmaster]: feature: add API for setting default value on options and arguments, and display them in help text ([#389] and [#420])
@@ -23,6 +12,13 @@ Fixes:
 ### Fixes
 * [@natemcmaster]: fix: pass the generic argument version in callback on .Option() and Argument() ([#405])
 * [@natemcmaster]: add .NET Standard 2.1 and fix nullable type references ([#424] and [#425])
+* [@natemcmaster]: fix new CI to correctly publish symbols to nuget.org
+* [@scott-xu]:  show option types in help text when OptionAttribute.Template is set ([#429])
+* [@skirchner989]:  change to not throw when a validator is not of type AttributeValidator ([#431])
+
+[#429]: https://github.com/natemcmaster/CommandLineUtils/pull/429
+[#431]: https://github.com/natemcmaster/CommandLineUtils/pull/431
+
 
 ### Other
 * [@natemcmaster]: change from Azure DevOps to GitHub workflows

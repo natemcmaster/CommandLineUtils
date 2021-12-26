@@ -1,5 +1,20 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('4.0.'))">
+Features:
+
+* @scott-xu and @natemcmaster: feature: add API for setting default value on options and arguments, and display them in help text (#389 and #420)
+* @natemcmaster: cleanup: make .Values read-only on CommandArgument/Option (#406)
+* @natemcmaster: Make options, arguments, and commands read-only collections on CommandLineApplication (#407)
+
+Fixes:
+
+* @natemcmaster: fix: pass the generic argument version in callback on .Option() and Argument() (#405)
+* @natemcmaster: add .NET Standard 2.1 and fix nullable type references (#424 and #425)
+* @natemcmaster: fix new CI to correctly publish symbols to nuget.org
+* @scott-xu: show option types in help text when OptionAttribute.Template is set (#429)
+* @skirchner989: change to not throw when a validator is not of type AttributeValidator (#431)
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.1.'))">
 Improvements:
 * @scott-xu: Show allowed values in help text (#369)
