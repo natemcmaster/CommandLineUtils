@@ -242,17 +242,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(1, PrivateSetterProgram.StaticNumber);
         }
 
-#if !NETCOREAPP3_1 && !NET5_0
-        // .NET Core 3.0 made an intentional breaking change
-        // see https://github.com/dotnet/coreclr/issues/21268
-        [Fact]
-        public void BindsToStaticReadOnlyProps()
-        {
-            CommandLineParser.ParseArgs<PrivateSetterProgram>("--static-string", "1");
-            Assert.Equal("1", PrivateSetterProgram.StaticString);
-        }
-#endif
-
         [Fact]
         public void BindsToStaticPropertiesWithSetterMethod()
         {
