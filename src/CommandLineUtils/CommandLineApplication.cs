@@ -881,10 +881,6 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 return await command._handler(handlerCancellationTokenSource.Token);
             }
-            catch (OperationCanceledException)
-            {
-                return s_exitCodeOperationCanceled;
-            }
             finally
             {
                 _context.Console.CancelKeyPress -= cancelHandler;
