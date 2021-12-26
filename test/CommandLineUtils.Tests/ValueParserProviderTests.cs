@@ -642,10 +642,10 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         public static TheoryData<Type, string, object> TupleData
             => new()
-        {
-            { typeof((bool, int?)), "", (true, default(int?)) },
-            { typeof((bool, int)), "123", (true, 123) },
-        };
+            {
+                { typeof((bool, int?)), "", (true, default(int?)) },
+                { typeof((bool, int)), "123", (true, 123) },
+            };
 
         private static readonly MethodInfo s_itParsesOptionOfTImpl
                   = typeof(ValueParserProviderTests).GetMethod(nameof(ItParsesOptionOfTImpl), BindingFlags.NonPublic | BindingFlags.Instance)!;
