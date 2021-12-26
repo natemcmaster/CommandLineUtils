@@ -53,19 +53,25 @@ McMaster.Extensions.CommandLineUtils.ArgumentAttribute.ShowInHelpText.set -> voi
 McMaster.Extensions.CommandLineUtils.ArgumentEscaper
 McMaster.Extensions.CommandLineUtils.CommandArgument
 McMaster.Extensions.CommandLineUtils.CommandArgument.CommandArgument() -> void
+McMaster.Extensions.CommandLineUtils.CommandArgument.DefaultValue.get -> string?
+McMaster.Extensions.CommandLineUtils.CommandArgument.DefaultValue.set -> void
 McMaster.Extensions.CommandLineUtils.CommandArgument.Description.get -> string?
 McMaster.Extensions.CommandLineUtils.CommandArgument.Description.set -> void
+McMaster.Extensions.CommandLineUtils.CommandArgument.HasValue.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandArgument.MultipleValues.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandArgument.MultipleValues.set -> void
 McMaster.Extensions.CommandLineUtils.CommandArgument.Name.get -> string?
 McMaster.Extensions.CommandLineUtils.CommandArgument.Name.set -> void
 McMaster.Extensions.CommandLineUtils.CommandArgument.ShowInHelpText.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandArgument.ShowInHelpText.set -> void
+McMaster.Extensions.CommandLineUtils.CommandArgument.TryParse(string? value) -> bool
 McMaster.Extensions.CommandLineUtils.CommandArgument.Validators.get -> System.Collections.Generic.ICollection<McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator!>!
 McMaster.Extensions.CommandLineUtils.CommandArgument.Value.get -> string?
 McMaster.Extensions.CommandLineUtils.CommandArgument.Values.get -> System.Collections.Generic.IReadOnlyList<string?>!
 McMaster.Extensions.CommandLineUtils.CommandArgument<T>
 McMaster.Extensions.CommandLineUtils.CommandArgument<T>.CommandArgument(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>! valueParser) -> void
+McMaster.Extensions.CommandLineUtils.CommandArgument<T>.DefaultValue.get -> T?
+McMaster.Extensions.CommandLineUtils.CommandArgument<T>.DefaultValue.set -> void
 McMaster.Extensions.CommandLineUtils.CommandArgument<T>.ParsedValue.get -> T
 McMaster.Extensions.CommandLineUtils.CommandArgument<T>.ParsedValues.get -> System.Collections.Generic.IReadOnlyList<T>!
 McMaster.Extensions.CommandLineUtils.CommandAttribute
@@ -98,7 +104,9 @@ McMaster.Extensions.CommandLineUtils.CommandAttribute.UnrecognizedArgumentHandli
 McMaster.Extensions.CommandLineUtils.CommandAttribute.UsePagerForHelpText.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandAttribute.UsePagerForHelpText.set -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddArgument(McMaster.Extensions.CommandLineUtils.CommandArgument! argument) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddName(string! name) -> void
+McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddOption(McMaster.Extensions.CommandLineUtils.CommandOption! option) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddSubcommand(McMaster.Extensions.CommandLineUtils.CommandLineApplication! subcommand) -> void
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.AllowArgumentSeparator.get -> bool
 McMaster.Extensions.CommandLineUtils.CommandLineApplication.AllowArgumentSeparator.set -> void
@@ -194,6 +202,8 @@ McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.ModelFactory
 McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
 McMaster.Extensions.CommandLineUtils.CommandOption
 McMaster.Extensions.CommandLineUtils.CommandOption.CommandOption(string! template, McMaster.Extensions.CommandLineUtils.CommandOptionType optionType) -> void
+McMaster.Extensions.CommandLineUtils.CommandOption.DefaultValue.get -> string?
+McMaster.Extensions.CommandLineUtils.CommandOption.DefaultValue.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption.Description.get -> string?
 McMaster.Extensions.CommandLineUtils.CommandOption.Description.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption.HasValue() -> bool
@@ -216,6 +226,8 @@ McMaster.Extensions.CommandLineUtils.CommandOption.ValueName.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption.Values.get -> System.Collections.Generic.IReadOnlyList<string?>!
 McMaster.Extensions.CommandLineUtils.CommandOption<T>
 McMaster.Extensions.CommandLineUtils.CommandOption<T>.CommandOption(McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>! valueParser, string! template, McMaster.Extensions.CommandLineUtils.CommandOptionType optionType) -> void
+McMaster.Extensions.CommandLineUtils.CommandOption<T>.DefaultValue.get -> T?
+McMaster.Extensions.CommandLineUtils.CommandOption<T>.DefaultValue.set -> void
 McMaster.Extensions.CommandLineUtils.CommandOption<T>.ParsedValue.get -> T
 McMaster.Extensions.CommandLineUtils.CommandOption<T>.ParsedValues.get -> System.Collections.Generic.IReadOnlyList<T>!
 McMaster.Extensions.CommandLineUtils.CommandOptionType
@@ -480,7 +492,9 @@ McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.Template.g
 McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.Template.set -> void
 McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.VersionOptionFromMemberAttribute() -> void
 McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute.VersionOptionFromMemberAttribute(string! template) -> void
+override McMaster.Extensions.CommandLineUtils.CommandArgument<T>.Reset() -> void
 override McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.Dispose() -> void
+override McMaster.Extensions.CommandLineUtils.CommandOption<T>.Reset() -> void
 static McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type! targetType, System.Func<string?, string?, System.Globalization.CultureInfo!, object!>! parser) -> McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser!
 static McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<string?, string?, System.Globalization.CultureInfo!, T>! parser) -> McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>!
 static McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<string!, System.Globalization.CultureInfo!, (bool, T)>! parser, System.Func<string?, string?, System.FormatException!>! errorSelector) -> McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>!
@@ -609,6 +623,7 @@ static McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies<TAttr
 static McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(this McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder! builder, bool ignoreCase, params string![]! allowedValues) -> McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder!
 static McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(this McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder! builder, params string![]! allowedValues) -> McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder!
 static McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(this McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder! builder, System.StringComparison comparer, params string![]! allowedValues) -> McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder!
+virtual McMaster.Extensions.CommandLineUtils.CommandArgument.Reset() -> void
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.Dispose() -> void
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetFullNameAndVersion() -> string!
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetHelpText() -> string!
@@ -616,6 +631,7 @@ virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.GetVersionTe
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.HandleParseResult(McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult! parseResult) -> void
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication.ShowHint() -> void
 virtual McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>.CreateModel() -> TModel!
+virtual McMaster.Extensions.CommandLineUtils.CommandOption.Reset() -> void
 virtual McMaster.Extensions.CommandLineUtils.ConsoleReporter.Error(string! message) -> void
 virtual McMaster.Extensions.CommandLineUtils.ConsoleReporter.Output(string! message) -> void
 virtual McMaster.Extensions.CommandLineUtils.ConsoleReporter.Verbose(string! message) -> void

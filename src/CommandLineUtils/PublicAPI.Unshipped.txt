@@ -1,17 +1,1 @@
 #nullable enable
-McMaster.Extensions.CommandLineUtils.CommandOption.DefaultValue.get -> string?
-McMaster.Extensions.CommandLineUtils.CommandOption.DefaultValue.set -> void
-McMaster.Extensions.CommandLineUtils.CommandArgument.DefaultValue.get -> string?
-McMaster.Extensions.CommandLineUtils.CommandArgument.DefaultValue.set -> void
-McMaster.Extensions.CommandLineUtils.CommandArgument<T>.DefaultValue.get -> T?
-McMaster.Extensions.CommandLineUtils.CommandArgument<T>.DefaultValue.set -> void
-McMaster.Extensions.CommandLineUtils.CommandArgument.HasValue.get -> bool
-McMaster.Extensions.CommandLineUtils.CommandArgument.TryParse(string? value) -> bool
-McMaster.Extensions.CommandLineUtils.CommandOption<T>.DefaultValue.get -> T?
-McMaster.Extensions.CommandLineUtils.CommandOption<T>.DefaultValue.set -> void
-virtual McMaster.Extensions.CommandLineUtils.CommandArgument.Reset() -> void
-virtual McMaster.Extensions.CommandLineUtils.CommandOption.Reset() -> void
-override McMaster.Extensions.CommandLineUtils.CommandArgument<T>.Reset() -> void
-override McMaster.Extensions.CommandLineUtils.CommandOption<T>.Reset() -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddArgument(McMaster.Extensions.CommandLineUtils.CommandArgument! argument) -> void
-McMaster.Extensions.CommandLineUtils.CommandLineApplication.AddOption(McMaster.Extensions.CommandLineUtils.CommandOption! option) -> void
