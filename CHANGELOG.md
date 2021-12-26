@@ -15,9 +15,11 @@
 * [@natemcmaster]: fix new CI to correctly publish symbols to nuget.org
 * [@scott-xu]:  show option types in help text when OptionAttribute.Template is set ([#429])
 * [@skirchner989]:  change to not throw when a validator is not of type AttributeValidator ([#431])
+* [@natemcmaster]: don't mask OperationCanceledException triggered by SIGINT ([#483])
 
 [#429]: https://github.com/natemcmaster/CommandLineUtils/pull/429
 [#431]: https://github.com/natemcmaster/CommandLineUtils/pull/431
+[#484]: https://github.com/natemcmaster/CommandLineUtils/pull/484
 
 
 ### Other

@@ -14,6 +14,7 @@ Fixes:
 * @natemcmaster: fix new CI to correctly publish symbols to nuget.org
 * @scott-xu: show option types in help text when OptionAttribute.Template is set (#429)
 * @skirchner989: change to not throw when a validator is not of type AttributeValidator (#431)
+* @natemcmaster: don't mask OperationCanceledException triggered by SIGINT (#483)
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.1.'))">
 Improvements:
