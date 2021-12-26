@@ -78,6 +78,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 app.Conventions.UseDefaultConventions();
                 return await app.ExecuteAsync(context.Arguments, cancellationToken);
             }
+            catch (OperationCanceledException)
+            {
+                return s_exitCodeOperationCanceled;
+            }
             catch (CommandParsingException ex)
             {
                 context.Console.Error.WriteLine(ex.Message);

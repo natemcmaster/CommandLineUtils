@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 using Moq;
 using Xunit;
@@ -1154,6 +1155,14 @@ Examples:
             await Assert.ThrowsAsync<InvalidOperationException>(async () => await run);
         }
 
+        private class DelayTilCanceledProgram
+        {
+            public async Task OnExecuteAsync(CancellationToken ct)
+            {
+                await Task.Delay(-1, ct);
+            }
+        }
+
         [Fact]
         public async Task OperationCanceledReturnsExpectedOsCode()
         {
@@ -1161,12 +1170,7 @@ Examples:
                 ? unchecked((int)0xC000013A)
                 : 130;
             var testConsole = new TestConsole(_output);
-            var app = new CommandLineApplication(testConsole);
-            app.OnExecuteAsync(async ct =>
-            {
-                await Task.Delay(-1, ct);
-            });
-            var executeTask = app.ExecuteAsync(Array.Empty<string>());
+            var executeTask = CommandLineApplication.ExecuteAsync<DelayTilCanceledProgram>(testConsole, Array.Empty<string>());
             testConsole.RaiseCancelKeyPress();
             var exitCode = await executeTask;
             Assert.Equal(expectedCode, exitCode);
