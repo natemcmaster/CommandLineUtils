@@ -1,5 +1,9 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('4.0.'))">
+Changes:
+* Update dependencies to latest .NET 6 libraries.
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.1.'))">
 Improvements:
 * @scott-xu: feature: add overload of RunCommandLineApplicationAsync to support configuring of CommandLineApplication (#363)
