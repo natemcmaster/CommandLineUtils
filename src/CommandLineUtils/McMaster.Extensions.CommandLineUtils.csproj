@@ -19,6 +19,7 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
  A community-maintained fork of Microsoft.Extensions.CommandLineUtils, plus many enhancements.
     </PackageDescription>
     <PackageTags>commandline;parsing</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1'">
@@ -29,6 +30,10 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
