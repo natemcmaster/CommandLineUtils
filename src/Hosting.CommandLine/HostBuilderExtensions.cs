@@ -139,7 +139,7 @@ namespace Microsoft.Extensions.Hosting
                 .AddSingleton<IHostLifetime, CommandLineLifetime>()
                 .AddSingleton(provider =>
                 {
-                    state.SetConsole(provider.GetService<IConsole>());
+                    state.SetConsole(provider.GetRequiredService<IConsole>());
                     return state;
                 })
                 .AddSingleton<CommandLineContext>(state);

@@ -17,7 +17,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
     internal class CommandLineService : IDisposable, ICommandLineService
     {
         private readonly CommandLineApplication _application;
-        private readonly ILogger _logger;
+        private readonly ILogger<CommandLineService>? _logger;
         private readonly CommandLineState _state;
 
         /// <summary>
@@ -27,13 +27,16 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         /// <param name="state">The command line state</param>
         /// <param name="serviceProvider">The DI service provider</param>
         /// <param name="configure">The delegate to configure the app</param>
-        public CommandLineService(ILogger<CommandLineService> logger, CommandLineState state,
-            IServiceProvider serviceProvider, Action<CommandLineApplication> configure)
+        public CommandLineService(
+            CommandLineState state,
+            IServiceProvider serviceProvider,
+            Action<CommandLineApplication> configure,
+            ILogger<CommandLineService>? logger = null)
         {
             _logger = logger;
             _state = state;
 
-            logger.LogDebug("Constructing CommandLineApplication with args [{args}]", string.Join(",", state.Arguments));
+            logger?.LogDebug("Constructing CommandLineApplication with args [{args}]", string.Join(",", state.Arguments));
             _application = new CommandLineApplication(state.Console, state.WorkingDirectory);
 
             _application.Conventions
@@ -51,7 +54,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         /// <inheritdoc />
         public async Task<int> RunAsync(CancellationToken cancellationToken)
         {
-            _logger.LogDebug("Running");
+            _logger?.LogDebug("Running");
             _state.ExitCode = await _application.ExecuteAsync(_state.Arguments, cancellationToken);
             return _state.ExitCode;
         }

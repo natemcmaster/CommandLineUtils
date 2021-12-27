@@ -16,7 +16,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
     /// </summary>
     internal class CommandLineLifetime : IHostLifetime, IDisposable
     {
-        private readonly IApplicationLifetime _applicationLifetime;
+        private readonly IHostApplicationLifetime _applicationLifetime;
         private readonly ICommandLineService _cliService;
         private readonly IConsole _console;
         private readonly IUnhandledExceptionHandler? _unhandledExceptionHandler;
@@ -24,7 +24,7 @@ namespace McMaster.Extensions.Hosting.CommandLine.Internal
         /// <summary>
         ///     Creates a new instance.
         /// </summary>
-        public CommandLineLifetime(IApplicationLifetime applicationLifetime,
+        public CommandLineLifetime(IHostApplicationLifetime applicationLifetime,
             ICommandLineService cliService,
             IConsole console,
             IUnhandledExceptionHandler? unhandledExceptionHandler = null)

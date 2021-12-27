@@ -54,7 +54,7 @@ jobs:
           name: packages
           path: artifacts/
           if-no-files-found: error
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2
         with:
           name: unittests-${{ matrix.os }}
           fail_ci_if_error: true
