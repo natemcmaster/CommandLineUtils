@@ -127,4 +127,5 @@ And more! See the [documentation](https://natemcmaster.github.io/CommandLineUtil
 
 ## Project origin and status
 
-This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which is no longer under [active development](https://github.com/aspnet/Common/issues/257). This fork, on the other hand, will continue to make improvements, release updates, and accept contributions. It is currently maintained by [@natemcmaster](https://github.com/natemcmaster).
+This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which was [completely abandoned by Microsoft](https://github.com/aspnet/Common/issues/257). This project [forked in 2017](https://github.com/natemcmaster/CommandLineUtils/commit/f039360e4e51bbf8b8eb6236894b626ec7944cec) and continued to make improvements. From 2017 to 2021, over 30 contributors added new features and fixed bugs. As of 2022, the project has entered maintenance mode, so no major changes are planned. [See this issue for details on latest project status.](https://github.com/natemcmaster/CommandLineUtils/issues/485) This project is not abandoned -- I believe this library provides a stable API and rich feature set good enough for most developers to create command line apps in .NET -- but there will be fewer fixes and changes limited to essential bug fixes.
+
