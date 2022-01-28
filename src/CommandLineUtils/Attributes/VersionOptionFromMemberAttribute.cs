@@ -64,7 +64,9 @@ namespace McMaster.Extensions.CommandLineUtils
                 };
             }
 
-            return app.VersionOption(Template, shortFormGetter, longFormGetter);
+            var option = app.VersionOption(Template, shortFormGetter, longFormGetter);
+            Configure(option);
+            return option;
         }
     }
 }
