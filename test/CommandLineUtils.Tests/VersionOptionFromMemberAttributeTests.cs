@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Linq;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
@@ -66,6 +67,20 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 new CommandLineApplication<MissingMethod>().Conventions.UseVersionOptionFromMemberAttribute();
             });
             Assert.Equal(Strings.NoPropertyOrMethodFound("Version", typeof(MissingMethod)), ex.Message);
+        }
+
+        [VersionOptionFromMember(Description = "42")]
+        private class Description
+        {
+        }
+
+        [Fact]
+        public void GetsDescriptionFromOption()
+        {
+            var app = new CommandLineApplication<Description>();
+            app.Conventions.UseVersionOptionFromMemberAttribute();
+
+            Assert.Equal("42", app.Options.First().Description);
         }
     }
 }
