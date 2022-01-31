@@ -384,7 +384,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static IValidationBuilder<int> Range(this IValidationBuilder<int> builder, int minimum, int maximum, string? errorMessage = null)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
-            var attribute = AddErrorMessage(new RangeAttribute(minimum, maximum), errorMessage );
+            var attribute = AddErrorMessage(new RangeAttribute(minimum, maximum), errorMessage);
             builder.Use(new AttributeValidator(attribute));
             return builder;
         }
