@@ -23,11 +23,10 @@ namespace McMaster.Extensions.CommandLineUtils
         public static CommandOption IsRequired(this CommandOption option, bool allowEmptyStrings = false, string? errorMessage = null)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
-            var attribute = new RequiredAttribute
+            var attribute = AddErrorMessage(new RequiredAttribute
             {
-                ErrorMessage = errorMessage,
                 AllowEmptyStrings = allowEmptyStrings
-            };
+            }, errorMessage);
             option.Validators.Add(new AttributeValidator(attribute));
             return option;
         }
@@ -60,11 +59,10 @@ namespace McMaster.Extensions.CommandLineUtils
         public static CommandArgument IsRequired(this CommandArgument argument, bool allowEmptyStrings = false, string? errorMessage = null)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
-            var attribute = new RequiredAttribute
+            var attribute = AddErrorMessage(new RequiredAttribute
             {
-                ErrorMessage = errorMessage,
                 AllowEmptyStrings = allowEmptyStrings
-            };
+            }, errorMessage);
             argument.Validators.Add(new AttributeValidator(attribute));
             return argument;
         }
@@ -386,7 +384,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static IValidationBuilder<int> Range(this IValidationBuilder<int> builder, int minimum, int maximum, string? errorMessage = null)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
-            var attribute = new RangeAttribute(minimum, maximum) { ErrorMessage = errorMessage };
+            var attribute = AddErrorMessage(new RangeAttribute(minimum, maximum), errorMessage );
             builder.Use(new AttributeValidator(attribute));
             return builder;
         }
@@ -403,7 +401,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static IValidationBuilder<double> Range(this IValidationBuilder<double> builder, double minimum, double maximum, string? errorMessage = null)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
-            var attribute = new RangeAttribute(minimum, maximum) { ErrorMessage = errorMessage };
+            var attribute = AddErrorMessage(new RangeAttribute(minimum, maximum), errorMessage);
             builder.Use(new AttributeValidator(attribute));
             return builder;
         }
@@ -458,6 +456,16 @@ namespace McMaster.Extensions.CommandLineUtils
             where T : ValidationAttribute
         {
             var attribute = (T)Activator.CreateInstance(typeof(T), ctorArgs ?? new object[0]);
+            if (errorMessage != null)
+            {
+                attribute.ErrorMessage = errorMessage;
+            }
+            return attribute;
+        }
+
+        private static T AddErrorMessage<T>(T attribute, string? errorMessage)
+            where T : ValidationAttribute
+        {
             if (errorMessage != null)
             {
                 attribute.ErrorMessage = errorMessage;
