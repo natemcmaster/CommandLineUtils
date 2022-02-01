@@ -105,7 +105,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 : base(testConsole)
             {
                 Option("-e|--email", "Email", CommandOptionType.SingleValue)
-                    .Accepts().EmailAddress();
+                    .Accepts().EmailAddress("Invalid Email");
 
                 Option("-n|--name", "Name", CommandOptionType.SingleValue)
                     .Accepts().MinLength(1);
@@ -115,6 +115,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
                 Option("-r|--regex", "Regex", CommandOptionType.SingleValue)
                   .Accepts().RegularExpression("^abc.*");
+
+                Option("-m|--mode", "Mode", CommandOptionType.SingleValue)
+                    .Accepts().Satisfies<ModeValidationAttribute>("With an error message from model validation");
             }
         }
 
@@ -131,6 +134,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             [Option, RegularExpression("^abc.*")]
             public string? Regex { get; }
+
+            [Option, ModeValidation]
+            public string? Mode { get; }
 
             private void OnExecute() { }
         }
@@ -149,6 +155,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(new[] { "-a", "abcdefghijk" }, 1)]
         [InlineData(new[] { "-r", "abcdefghijk" }, 0)]
         [InlineData(new[] { "-r", "xyz" }, 1)]
+        [InlineData(new[] { "-m", "xyz" }, 1)]
+        [InlineData(new[] { "-m", "mode" }, 0)]
         public void ValidatesAttributesOnOption(string[] args, int exitCode)
         {
             Assert.Equal(exitCode, CommandLineApplication.Execute<OptionApp>(new TestConsole(_output), args));
@@ -178,6 +186,15 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 => value is ClassLevelValidationApp app
                     && app.Arg1 != null && app.Arg1.Contains("good")
                     && app.Arg2 != null && app.Arg2.Contains("good");
+        }
+
+        [AttributeUsage(AttributeTargets.Property)]
+        private sealed class ModeValidationAttribute : ValidationAttribute
+        {
+            public override bool IsValid(object value)
+            {
+                return value is string text && text.Contains("mode");
+            }
         }
     }
 }
