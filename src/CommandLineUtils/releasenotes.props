@@ -1,6 +1,8 @@
 <Project>
   <PropertyGroup>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('4.0.'))">
+Changes since 3.1.0:
+
 Features:
 
 * @scott-xu and @natemcmaster: feature: add API for setting default value on options and arguments, and display them in help text (#389 and #420)
@@ -15,6 +17,10 @@ Fixes:
 * @scott-xu: show option types in help text when OptionAttribute.Template is set (#429)
 * @skirchner989: change to not throw when a validator is not of type AttributeValidator (#431)
 * @natemcmaster: don't mask OperationCanceledException triggered by SIGINT (#483)
+
+Updates in 4.0.1 patch:
+* @xoofx: use explicit constructors on validation attributes to workaround .NET 6 runtime trimming error (#491)
+* @jakubqwe: support the Description field of VersionOptionFromMemberAttribute (#490)
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.1.'))">
 Improvements:

@@ -1,6 +1,16 @@
 # Changelog
 
-[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.0...HEAD):
+[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.1...HEAD):
+
+## [v4.0.1](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.0...v4.0.1)
+
+### Fixes
+
+* [@xoofx]: use explicit constructors on validation attributes to workaround .NET 6 runtime trimming error ([#491])
+* [@jakubqwe]: support the Description field of VersionOptionFromMemberAttribute ([#490])
+
+[#490]: https://github.com/natemcmaster/CommandLineUtils/pull/490
+[#491]: https://github.com/natemcmaster/CommandLineUtils/pull/491
 
 ## [v4.0.0](https://github.com/natemcmaster/CommandLineUtils/compare/v3.1.0...v4.0.0)
 
@@ -524,6 +534,7 @@ Other:
 [@handcraftedsource]: https://github.com/handcraftedsource
 [@hellfirehd]: https://github.com/hellfirehd
 [@IanG]: https://github.com/IanG
+[@jakubqwe]: https://github.com/jakubqwe
 [@jcaillon]: https://github.com/jcaillon
 [@jerriep]: https://github.com/jerriep
 [@kant2002]: https://github.com/kant2002
@@ -536,12 +547,13 @@ Other:
 [@rlvandaveer]: https://github.com/rlvandaveer
 [@rmcc13]: https://github.com/rmcc13
 [@scott-xu]: https://github.com/scott-xu
-[@skirchner989]: https://github.com/skirchner989
 [@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros
+[@skirchner989]: https://github.com/skirchner989
 [@SteveBenz]: https://github.com/SteveBenz
 [@TheConstructor]: https://github.com/TheConstructor
 [@vpkopylov]: https://github.com/vpkopylov
+[@xoofx]: https://github.com/xoofx
 
 [v2.3.4]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.3...v2.3.4
 [v2.3.3]: https://github.com/natemcmaster/CommandLineUtils/compare/v2.3.2...v2.3.3
