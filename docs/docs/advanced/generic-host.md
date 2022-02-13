@@ -30,13 +30,13 @@ Generic host integration allows you to use the most current DI configuration app
 
 Then you can configure your features:
 
-[!code-csharp[Program](../../samples/dependency-injection/generic-host/Program.cs?range=27-34)]
+[!code-csharp[Program](../../samples/dependency-injection/generic-host/Program.cs?range=27-35)]
 
 And finally, run your program:
 
-[!code-csharp[Program](../../samples/dependency-injection/generic-host/Program.cs?range=35-35)]
+[!code-csharp[Program](../../samples/dependency-injection/generic-host/Program.cs?range=36-36)]
 
 Below is the full source code for the generic host services example. Notice that instance of `IGreeter` will be injected into the `Program` constructor thanks to the dependency injection.
 
-[!code-csharp[Program](../../samples/dependency-injection/custom/Program.cs?highlight=32)]
+[!code-csharp[Program](../../samples/dependency-injection/generic-host/Program.cs?highlight=42)]
 
