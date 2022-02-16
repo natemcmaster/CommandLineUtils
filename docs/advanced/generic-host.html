@@ -125,68 +125,98 @@ class Program
 {
     services.AddSingleton&lt;IGreeter, Greeter&gt;()
         .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton);
+})
 </code></pre><p>And finally, run your program:</p>
-<pre><code class="lang-csharp" name="Program">})
+<pre><code class="lang-csharp" name="Program">.RunCommandLineApplicationAsync&lt;Program&gt;(args);
 </code></pre><p>Below is the full source code for the generic host services example. Notice that instance of <code>IGreeter</code> will be injected into the <code>Program</code> constructor thanks to the dependency injection.</p>
-<pre><code class="lang-csharp" name="Program" highlight-lines="32">using System;
+<pre><code class="lang-csharp" name="Program" highlight-lines="42">using System;
+using System.Threading;
+using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
+using McMaster.Extensions.Hosting.CommandLine;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace CustomServices
 {
     #region Program
     [Command(Name = &quot;di&quot;, Description = &quot;Dependency Injection sample project&quot;)]
-    [HelpOption]
     class Program
     {
-        public static int Main(string[] args)
-        {
-            var services = new ServiceCollection()
-                .AddSingleton&lt;IMyService, MyServiceImplementation&gt;()
-                .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton)
-                .BuildServiceProvider();
 
-            var app = new CommandLineApplication&lt;Program&gt;();
-            app.Conventions
-                .UseDefaultConventions()
-                .UseConstructorInjection(services);
-            return app.Execute(args);
+        [Argument(0, Description = &quot;your name&quot;)]
+        private string Name { get; } = &quot;dependency injection&quot;;
+
+        [Option(&quot;-l|--language&quot;, Description = &quot;your desired language&quot;)]
+        [AllowedValues(&quot;english&quot;, &quot;spanish&quot;, IgnoreCase = true)]
+        public string Language { get; } = &quot;english&quot;;
+
+        public static async Task&lt;int&gt; Main(string[] args)
+        {
+            return await new HostBuilder()
+                .ConfigureLogging((context, builder) =&gt;
+                {
+                    builder.AddConsole();
+                })
+                .ConfigureServices((context, services) =&gt;
+                {
+                    services.AddSingleton&lt;IGreeter, Greeter&gt;()
+                        .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton);
+                })
+                .RunCommandLineApplicationAsync&lt;Program&gt;(args);
         }
 
-        private readonly IMyService _myService;
+        private readonly ILogger&lt;Program&gt; _logger;
+        private readonly IGreeter _greeter;
 
-        public Program(IMyService myService)
+        public Program(ILogger&lt;Program&gt; logger, IGreeter greeter)
         {
-            _myService = myService;
+            _logger = logger;
+            _greeter = greeter;
+
+            _logger.LogInformation(&quot;Constructed!&quot;);
         }
 
         private void OnExecute()
         {
-            _myService.Invoke();
+            _greeter.Greet(Name, Language);
         }
     }
     #endregion
 
-    #region IMyService
-    interface IMyService
+    #region IGreeter
+    interface IGreeter
     {
-        void Invoke();
+        void Greet(string name, string language);
     }
     #endregion
 
-    #region MyServiceImplementation
-    class MyServiceImplementation : IMyService
+    #region Greeter
+    class Greeter : IGreeter
     {
         private readonly IConsole _console;
+        private readonly ILogger&lt;Greeter&gt; _logger;
 
-        public MyServiceImplementation(IConsole console)
+        public Greeter(ILogger&lt;Greeter&gt; logger,
+            IConsole console)
         {
+            _logger = logger;
             _console = console;
+
+            _logger.LogInformation(&quot;Constructed!&quot;);
         }
 
-        public void Invoke()
+        public void Greet(string name, string language = &quot;english&quot;)
         {
-            _console.WriteLine(&quot;Hello dependency injection!&quot;);
+            string greeting;
+            switch (language)
+            {
+                case &quot;english&quot;: greeting = &quot;Hello {0}&quot;; break;
+                case &quot;spanish&quot;: greeting = &quot;Hola {0}&quot;; break;
+                default: throw new InvalidOperationException(&quot;validation should have caught this&quot;);
+            }
+            _console.WriteLine(greeting, name);
         }
     }
     #endregion
