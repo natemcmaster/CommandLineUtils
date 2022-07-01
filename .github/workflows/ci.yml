@@ -70,7 +70,7 @@ jobs:
         uses: NuGet/setup-nuget@v1
         with:
           nuget-version: latest
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: packages
           path: packages
