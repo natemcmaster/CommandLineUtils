@@ -4,11 +4,12 @@
 <script type="text/javascript" src="{{_rel}}styles/docfx.js"></script>
 <script type="text/javascript" src="{{_rel}}styles/main.js"></script>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-38984092-6"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JWDHMFE8XZ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-38984092-6');
+  gtag('config', 'G-JWDHMFE8XZ');
 </script>
