@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -93,6 +94,48 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app3.Parse();
             Assert.Equal("a", app3.Model.Arg1);
             Assert.Equal(new[] { "b", "c" }, app3.Model.Arg2);
+        }
+
+        [Subcommand(typeof(ACommand))]
+        public class Program
+        {
+        }
+
+        [Command("a")]
+        [Subcommand(typeof(BCommand))]
+        public class ACommand
+        {
+            [Argument(0)]
+            public string? Arg1 { get; set; }
+        }
+
+        [Command("b")]
+        public class BCommand
+        {
+            [Argument(0)]
+            public string? Arg1 { get; set; }
+        }
+
+        [Fact]
+        public void SameArgumentInSubcommandsCallingACommand()
+        {
+            var app1 = new CommandLineApplication<Program>();
+            app1.Conventions.UseDefaultConventions();
+            var result = app1.Parse("a", "any-value");
+            var command = result.SelectedCommand as CommandLineApplication<ACommand>;
+            Assert.NotNull(command);
+            Assert.Equal("any-value", command.Model.Arg1);
+        }
+
+        [Fact]
+        public void SameArgumentInSubcommandsCallingBCommand()
+        {
+            var app1 = new CommandLineApplication<Program>();
+            app1.Conventions.UseDefaultConventions();
+            var result = app1.Parse("a", "b", "any-value");
+            var command = result.SelectedCommand as CommandLineApplication<BCommand>;
+            Assert.NotNull(command);
+            Assert.Equal("any-value", command.Model.Arg1);
         }
     }
 }
