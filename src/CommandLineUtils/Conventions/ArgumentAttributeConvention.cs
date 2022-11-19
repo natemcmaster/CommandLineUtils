@@ -150,26 +150,30 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
-                        if (argument.Values.Count == 0)
+                        var model = cmd.GetModel();
+                        if (prop.DeclaringType.IsAssignableFrom(model.GetType()))
                         {
-                            if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
+                            if (argument.Values.Count == 0)
                             {
-                                var value = getter.Invoke(cmd.GetModel());
-                                if (value != null)
+                                if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
                                 {
-                                    argument.TryParse(value.ToString());
-                                    argument.DefaultValue = value.ToString();
+                                    var value = getter.Invoke(model);
+                                    if (value != null)
+                                    {
+                                        argument.TryParse(value.ToString());
+                                        argument.DefaultValue = value.ToString();
+                                    }
                                 }
                             }
-                        }
-                        else
-                        {
-                            setter.Invoke(
-                                cmd.GetModel(),
-                                parser.Parse(
-                                    argument.Name,
-                                    argument.Value,
-                                    convention.Application.ValueParsers.ParseCulture));
+                            else
+                            {
+                                setter.Invoke(
+                                    model,
+                                    parser.Parse(
+                                        argument.Name,
+                                        argument.Value,
+                                        convention.Application.ValueParsers.ParseCulture));
+                            }
                         }
                     }
                 });
