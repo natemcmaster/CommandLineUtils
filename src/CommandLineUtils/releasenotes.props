@@ -21,6 +21,9 @@ Fixes:
 Updates in 4.0.1 patch:
 * @xoofx: use explicit constructors on validation attributes to workaround .NET 6 runtime trimming error (#491)
 * @jakubqwe: support the Description field of VersionOptionFromMemberAttribute (#490)
+
+Update in 4.0.2 patch:
+* @ernstc: bugfix: added check on the model type before it proceeds accessing the property (#519)
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('3.1.'))">
 Improvements:
