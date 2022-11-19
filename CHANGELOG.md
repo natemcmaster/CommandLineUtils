@@ -1,6 +1,13 @@
 # Changelog
 
-[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.1...HEAD):
+[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.2...HEAD):
+
+## [v4.0.2](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.1...v4.0.2)
+
+### Fixes
+* @ernstc: bugfix: added check on the model type before it proceeds accessing the property ([#519])
+
+[#519]: https://github.com/natemcmaster/CommandLineUtils/pull/519
 
 ## [v4.0.1](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.0...v4.0.1)
 
