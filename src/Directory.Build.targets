@@ -10,8 +10,8 @@
     <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
   </ItemGroup>
 
-  <Target Name="UpdateCiSettings" Condition="'$(CI)' == 'true' AND '$(IsPackable)' == 'true'">
-    <Message Importance="High" Text="::set-output name=package_version::$(PackageVersion)" />
+  <Target Name="UpdateCiSettings" Condition="'$(CI)' == 'true' AND '$(IsPackable)' == 'true' AND '$(GITHUB_OUTPUT)' != ''">
+    <WriteLinesToFile File="$(GITHUB_OUTPUT)" Overwrite="false" Lines="package_version=$(PackageVersion)" />
   </Target>
 
 </Project>
