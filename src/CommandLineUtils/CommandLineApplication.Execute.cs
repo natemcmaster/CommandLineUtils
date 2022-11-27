@@ -129,7 +129,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static int Execute<TApp>(IConsole console, params string[] args)
             where TApp : class
         {
-            args ??= Util.EmptyArray<string>();
+            args ??= Array.Empty<string>();
             var context = new DefaultCommandLineContext(console, Directory.GetCurrentDirectory(), args);
             return Execute<TApp>(context);
         }
@@ -168,7 +168,7 @@ namespace McMaster.Extensions.CommandLineUtils
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         where TApp : class
         {
-            args ??= Util.EmptyArray<string>();
+            args ??= Array.Empty<string>();
             var context = new DefaultCommandLineContext(PhysicalConsole.Singleton, Directory.GetCurrentDirectory(), args);
             return ExecuteAsync<TApp>(context, cancellationToken);
         }
@@ -189,7 +189,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static Task<int> ExecuteAsync<TApp>(IConsole console, params string[] args)
             where TApp : class
         {
-            args ??= Util.EmptyArray<string>();
+            args ??= Array.Empty<string>();
             var context = new DefaultCommandLineContext(console, Directory.GetCurrentDirectory(), args);
             return ExecuteAsync<TApp>(context);
         }

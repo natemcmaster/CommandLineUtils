@@ -43,9 +43,9 @@ namespace McMaster.Extensions.CommandLineUtils
         private static string? TryFindDotNetExePath()
         {
             var fileName = FileName;
-#if NET45
+#if NET46_OR_GREATER
             fileName += ".exe";
-#elif NETSTANDARD2_0 || NETSTANDARD2_1
+#elif NETSTANDARD2_0_OR_GREATER
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 fileName += ".exe";
@@ -60,10 +60,17 @@ namespace McMaster.Extensions.CommandLineUtils
 #else
 #error Update target frameworks
 #endif
+            // DOTNET_ROOT specifies the location of the .NET runtimes, if they are not installed in the default location.
             var dotnetRoot = Environment.GetEnvironmentVariable("DOTNET_ROOT");
-            return !string.IsNullOrEmpty(dotnetRoot)
-                ? Path.Combine(dotnetRoot, fileName)
-                : null;
+
+            if (string.IsNullOrEmpty(dotnetRoot))
+            {
+                // fall back to default location
+                // https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#dotnet_root-dotnet_rootx86
+                dotnetRoot = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "C:\\Program Files\\dotnet" : "/usr/local/share/dotnet";
+            }
+
+            return Path.Combine(dotnetRoot, fileName);
         }
     }
 }

@@ -302,7 +302,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             pb.SetCustomAttribute(ab);
             var program = tb.CreateType();
             var appBuilder = typeof(CommandLineApplication<>).MakeGenericType(program);
-            var app = (CommandLineApplication)Activator.CreateInstance(appBuilder, Util.EmptyArray<object>());
+            var app = (CommandLineApplication)Activator.CreateInstance(appBuilder, Array.Empty<object>());
             app.Conventions.UseOptionAttributes();
             return app.Options.First();
         }

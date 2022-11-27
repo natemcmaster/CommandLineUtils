@@ -105,7 +105,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Conventions.UseCommandAttribute();
             app.Conventions.UseOnExecuteMethodFromModel();
 
-            var result = app.Execute(args?.Split(' ') ?? Util.EmptyArray<string>());
+            var result = app.Execute(args?.Split(' ') ?? Array.Empty<string>());
             Assert.Equal(expectedResult, result);
         }
 
