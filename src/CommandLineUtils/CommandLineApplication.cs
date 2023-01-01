@@ -748,7 +748,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             Reset();
 
-            args ??= Util.EmptyArray<string>();
+            args ??= Array.Empty<string>();
 
             var processor = new CommandLineProcessor(this, args);
             var result = processor.Process();

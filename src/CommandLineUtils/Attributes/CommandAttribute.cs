@@ -14,7 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class CommandAttribute : Attribute
     {
-        private string[] _names = Util.EmptyArray<string>();
+        private string[] _names = Array.Empty<string>();
 
         /// <summary>
         /// Initializes a new <see cref="CommandAttribute"/>.
@@ -55,7 +55,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 else
                 {
-                    _names = Util.EmptyArray<string>();
+                    _names = Array.Empty<string>();
                 }
             }
         }

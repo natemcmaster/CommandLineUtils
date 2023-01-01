@@ -413,7 +413,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         {
             if (type == null)
             {
-                return Util.EmptyArray<string>();
+                return Array.Empty<string>();
             }
 
             if (ReflectionHelper.IsNullableType(type, out var wrappedType))
@@ -431,7 +431,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 return Enum.GetNames(type);
             }
 
-            return Util.EmptyArray<string>();
+            return Array.Empty<string>();
         }
     }
 }

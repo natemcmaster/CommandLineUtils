@@ -131,7 +131,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                         {
                             if (!option.HasValue())
                             {
-                                setter.Invoke(modelAccessor.GetModel(), Util.EmptyArray<bool>());
+                                setter.Invoke(modelAccessor.GetModel(), Array.Empty<bool>());
                             }
 
                             var count = new bool[option.Values.Count];
