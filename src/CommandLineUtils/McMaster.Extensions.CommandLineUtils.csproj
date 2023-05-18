@@ -21,11 +21,11 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
     <PackageTags>commandline;parsing</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
-
+  
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1'">
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.DataAnnotations" Version="7.0.0" />
   </ItemGroup>
-
+  
   <ItemGroup Condition="'$(TargetFramework)' == 'net46'">
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
