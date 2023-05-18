@@ -42,10 +42,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 throw new ArgumentNullException(nameof(console));
             }
 
-#if NET46_OR_GREATER
+#if NET462_OR_GREATER
             // if .NET Framework, assume we're on Windows unless it's running on Mono.
             _enabled = Type.GetType("Mono.Runtime") != null;
-#elif NETSTANDARD2_0_OR_GREATER
+#elif NET6_0_OR_GREATER
             _enabled = !RuntimeInformation.IsOSPlatform(OSPlatform.Windows) && !console.IsOutputRedirected;
 #else
 #error Update target frameworks

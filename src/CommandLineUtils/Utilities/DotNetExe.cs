@@ -43,9 +43,9 @@ namespace McMaster.Extensions.CommandLineUtils
         private static string? TryFindDotNetExePath()
         {
             var fileName = FileName;
-#if NET46_OR_GREATER
+#if NET462_OR_GREATER
             fileName += ".exe";
-#elif NETSTANDARD2_0_OR_GREATER
+#elif NET6_0_OR_GREATER
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 fileName += ".exe";

@@ -284,7 +284,9 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 try
                 {
+#pragma warning disable CA1416
                     _original = Console.CursorVisible;
+#pragma warning restore CA1416
                 }
                 catch
                 {
