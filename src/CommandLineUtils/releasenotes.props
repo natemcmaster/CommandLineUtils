@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('4.0.'))">
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('4.1.'))">
 Changes since 4.0:
 
 * Drop support for .NET &lt; 4.6.
