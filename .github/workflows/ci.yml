@@ -86,9 +86,6 @@ jobs:
           name: ${{ env.PACKAGE_VERSION }}
           tag_name: v${{ env.PACKAGE_VERSION }}
           body: |
-            ## Notes
-            See changes in https://github.com/natemcmaster/CommandLineUtils/blob/main/CHANGELOG.md
-
             ## How to get this update
             Packages have been posted to these feeds:
 
@@ -99,6 +96,8 @@ jobs:
             #### GitHub Package Registry
             https://github.com/natemcmaster?tab=packages&repo_name=CommandLineUtils
 
-          draft: true
+          draft: false
+          append_body: true
+          generate_release_notes: true
           prerelease: ${{ env.IS_STABLE_BUILD == 'false' }} # Example: v3.1.0-beta
           files: packages/*
