@@ -174,5 +174,32 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(0, CommandLineApplication.Execute<OnlyFile>(context));
             Assert.NotEqual(0, CommandLineApplication.Execute<OnlyDir>(context));
         }
+
+        private class OptionalFileChecks
+        {
+            [DirectoryExists]
+            [Option]
+            public string[] Dir { get; } = new string[0];
+
+            [FileExists]
+            [Option]
+            public string? File { get; }
+
+            private void OnExecute() { }
+        }
+
+        [Theory]
+        [InlineData(0, new string[0])]
+        [InlineData(1, new[] { "-f", "file.txt" })]
+        [InlineData(1, new[] { "-d", "dir1" })]
+        public void OnlyValidatesOptionsIfSpecified(int exitCode, string[] args)
+        {
+            var context = new DefaultCommandLineContext(
+                new TestConsole(_output),
+                AppContext.BaseDirectory,
+                args);
+
+            Assert.Equal(exitCode, CommandLineApplication.Execute<OptionalFileChecks>(context));
+        }
     }
 }

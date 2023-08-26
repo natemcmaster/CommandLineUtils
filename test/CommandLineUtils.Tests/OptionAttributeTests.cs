@@ -151,35 +151,79 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             [Option("-a4")]
             public (bool hasValue, string value) Arg4 { get; } = (false, "Yellow");
+
+            [Option("-a5")]
+            public string[] Arg5 { get; } = new string[0];
         }
 
         [Fact]
         public void KeepsDefaultValues()
         {
-            var app1 = Create<OptionHasDefaultValues>();
-            app1.Parse("-a1", "z", "-a2", "y");
-            Assert.Equal("z", app1.Model.Arg1);
-            Assert.Equal(new[] { "y" }, app1.Model.Arg2);
+            {
+                var app1 = Create<OptionHasDefaultValues>();
+                app1.Parse("-a1", "z", "-a2", "y");
+                Assert.Equal("z", app1.Model.Arg1);
+                Assert.Equal(new[] { "y" }, app1.Model.Arg2);
+            }
 
-            var app2 = Create<OptionHasDefaultValues>();
-            app2.Parse("-a1", "z");
-            Assert.Equal("z", app2.Model.Arg1);
-            Assert.Equal(new[] { "b", "c" }, app2.Model.Arg2);
+            {
+                var app2 = Create<OptionHasDefaultValues>();
+                app2.Parse("-a1", "z");
+                Assert.Equal("z", app2.Model.Arg1);
+                Assert.Equal(new[] { "b", "c" }, app2.Model.Arg2);
+            }
+            {
+                var app3 = Create<OptionHasDefaultValues>();
+                app3.Parse();
+                Assert.Equal("a", app3.Model.Arg1);
+                Assert.Equal(new[] { "b", "c" }, app3.Model.Arg2);
+                Assert.False(app3.Model.Arg3.HasValue, "Should not have value");
+                Assert.False(app3.Model.Arg4.hasValue, "Should not have value");
+                Assert.Equal((false, "Yellow"), app3.Model.Arg4);
+                Assert.Equal(Array.Empty<string>(), app3.Model.Arg5);
+            }
 
-            var app3 = Create<OptionHasDefaultValues>();
-            app3.Parse();
-            Assert.Equal("a", app3.Model.Arg1);
-            Assert.Equal(new[] { "b", "c" }, app3.Model.Arg2);
-            Assert.False(app3.Model.Arg3.HasValue, "Should not have value");
-            Assert.False(app3.Model.Arg4.hasValue, "Should not have value");
-            Assert.Equal((false, "Yellow"), app3.Model.Arg4);
+            {
+                var app4 = Create<OptionHasDefaultValues>();
+                app4.Parse("-a3", "-a4");
+                Assert.True(app4.Model.Arg3.HasValue);
+                Assert.True(app4.Model.Arg4.hasValue);
+                Assert.True(app4.Model.Arg3);
+                Assert.Equal((true, null), app4.Model.Arg4);
+                Assert.Equal(Array.Empty<string>(), app4.Model.Arg5);
+            }
 
-            var app4 = Create<OptionHasDefaultValues>();
-            app4.Parse("-a3", "-a4");
-            Assert.True(app4.Model.Arg3.HasValue);
-            Assert.True(app4.Model.Arg4.hasValue);
-            Assert.True(app4.Model.Arg3);
-            Assert.Equal((true, null), app4.Model.Arg4);
+            {
+                var app5 = Create<OptionHasDefaultValues>();
+                app5.Parse("-a5", "a", "-a5", "b");
+                Assert.Equal(new[] { "a", "b" }, app5.Model.Arg5);
+            }
+        }
+
+        private class AppWithMultiValueStringOption
+        {
+            [Option("-o1")]
+            string[] Opt1 { get; }
+
+            [Option("-o2")]
+            string[] Opt2 { get; } = new string[0];
+        }
+
+        [Fact]
+        public void SetsDefaultValueRightForStringArrayOptions()
+        {
+            var app = Create<AppWithMultiValueStringOption>();
+            app.Parse();
+            {
+                var opt1 = app.GetOptions().Single(o => o.ShortName == "o1");
+                Assert.Null(opt1.DefaultValue);
+                Assert.Empty(opt1.Values);
+            }
+            {
+                var opt2 = app.GetOptions().Single(o => o.ShortName == "o2");
+                Assert.Null(opt2.DefaultValue);
+                Assert.Empty(opt2.Values);
+            }
         }
 
         private class PrivateSetterProgram

@@ -81,11 +81,16 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                             {
                                 if (getter.Invoke(modelAccessor.GetModel()) is IEnumerable<object> values)
                                 {
+                                    var count = 0;
                                     foreach (var value in values)
                                     {
+                                        count++;
                                         option.TryParse(value?.ToString());
                                     }
-                                    option.DefaultValue = string.Join(", ", values.Select(x => x?.ToString()));
+                                    if (count > 0)
+                                    {
+                                        option.DefaultValue = string.Join(", ", values.Select(x => x?.ToString()));
+                                    }
                                 }
                             }
                         }
