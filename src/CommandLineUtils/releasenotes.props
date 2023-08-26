@@ -1,6 +1,13 @@
 <Project>
   <PropertyGroup>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('4.0.'))">
+Changes since 4.0:
+
+* Drop support for .NET &lt; 4.6.
+* fix: find dotnet.exe correctly when DOTNET_ROOT is not set (@danmoseley)
+* fix: don't set DefaultValue to empty string for `string[]` options (@natemcmaster)
+    </PackageReleaseNotes>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('4.0.'))">
 Changes since 3.1.0:
 
 Features:
