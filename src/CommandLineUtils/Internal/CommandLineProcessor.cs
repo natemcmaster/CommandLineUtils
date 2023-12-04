@@ -519,10 +519,12 @@ namespace McMaster.Extensions.CommandLineUtils
         private sealed class CommandArgumentEnumerator : IEnumerator<CommandArgument>
         {
             private readonly IEnumerator<CommandArgument> _enumerator;
+            private bool _currentValid;
 
             public CommandArgumentEnumerator(IEnumerator<CommandArgument> enumerator)
             {
                 _enumerator = enumerator;
+                _currentValid = false;
             }
 
             public CommandArgument Current => _enumerator.Current;
@@ -533,9 +535,10 @@ namespace McMaster.Extensions.CommandLineUtils
 
             public bool MoveNext()
             {
-                if (Current == null || !Current.MultipleValues)
+                if (!_currentValid || !Current.MultipleValues)
                 {
-                    return _enumerator.MoveNext();
+                    _currentValid = _enumerator.MoveNext();
+                    return _currentValid;
                 }
 
                 // If current argument allows multiple values, we don't move forward and
