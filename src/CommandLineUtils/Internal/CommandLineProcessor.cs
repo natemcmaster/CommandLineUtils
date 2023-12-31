@@ -525,7 +525,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 _enumerator = enumerator;
             }
 
-            public CommandArgument Current => _enumerator.Current;
+            public CommandArgument Current { get; private set; } = null!;
 
             object IEnumerator.Current => Current;
 
@@ -535,7 +535,10 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 if (Current == null || !Current.MultipleValues)
                 {
-                    return _enumerator.MoveNext();
+                    var result = _enumerator.MoveNext();
+                    if (result)
+                        Current = _enumerator.Current!;
+                    return result;
                 }
 
                 // If current argument allows multiple values, we don't move forward and
