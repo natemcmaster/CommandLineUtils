@@ -5,6 +5,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using McMaster.Extensions.CommandLineUtils;
+// This is required since .NET 8 introduced a new type System.ComponentModel.DataAnnotations.AllowedValuesAttribute
+// which conflicts with the attribute in this library (added long before .NET 8.)
+using AllowedValues = McMaster.Extensions.CommandLineUtils.AllowedValuesAttribute;
 
 [MaxSizeOptionRequiresAttachmentValidation()]
 class AttributeProgram

@@ -25,7 +25,9 @@ namespace McMaster.Extensions.CommandLineUtils
             }
             else
             {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 var backingField = prop.DeclaringType.GetField($"<{prop.Name}>k__BackingField", DeclaredOnlyLookup);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
                 if (backingField == null)
                 {
                     throw new InvalidOperationException(
@@ -41,30 +43,40 @@ namespace McMaster.Extensions.CommandLineUtils
             var getter = prop.GetGetMethod(nonPublic: true);
             if (getter != null)
             {
-                return obj => getter.Invoke(obj, new object[] { });
+#pragma warning disable CS8603 // Possible null reference return.
+                return obj => getter.Invoke(obj, Array.Empty<object>());
+#pragma warning restore CS8603 // Possible null reference return.
             }
             else
             {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 var backingField = prop.DeclaringType.GetField($"<{prop.Name}>k__BackingField", DeclaredOnlyLookup);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
                 if (backingField == null)
                 {
                     throw new InvalidOperationException(
                         $"Could not find a way to get {prop.DeclaringType.FullName}.{prop.Name}. Try adding a getter.");
                 }
 
+#pragma warning disable CS8603 // Possible null reference return.
                 return obj => backingField.GetValue(obj);
+#pragma warning restore CS8603 // Possible null reference return.
             }
         }
 
         public static MethodInfo[] GetPropertyOrMethod(Type type, string name)
         {
             var members = GetAllMembers(type).ToList();
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8619 // Nullability of reference types in value doesn't match target type.
             return members
                 .OfType<MethodInfo>()
                 .Where(m => m.Name == name)
                 .Concat(members.OfType<PropertyInfo>().Where(m => m.Name == name).Select(p => p.GetMethod))
                 .Where(m => m.ReturnType == typeof(string) && m.GetParameters().Length == 0)
                 .ToArray();
+#pragma warning restore CS8619 // Nullability of reference types in value doesn't match target type.
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         public static PropertyInfo[] GetProperties(Type type)
@@ -156,7 +168,9 @@ namespace McMaster.Extensions.CommandLineUtils
                     yield return member;
                 }
 
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                 type = type.BaseType;
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
             }
         }
     }

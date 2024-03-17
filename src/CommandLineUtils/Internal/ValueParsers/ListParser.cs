@@ -24,12 +24,18 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 
         public object Parse(string? argName, IReadOnlyList<string?> values)
         {
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             var list = (IList)Activator.CreateInstance(_listType, new object[] { values.Count });
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
             foreach (var t in values)
             {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 list.Add(_elementParser.Parse(argName, t, _parserCulture));
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
+#pragma warning disable CS8603 // Possible null reference return.
             return list;
+#pragma warning restore CS8603 // Possible null reference return.
         }
     }
 }

@@ -455,12 +455,18 @@ namespace McMaster.Extensions.CommandLineUtils
         private static T GetValidationAttr<T>(string? errorMessage, object[]? ctorArgs = null)
             where T : ValidationAttribute
         {
-            var attribute = (T)Activator.CreateInstance(typeof(T), ctorArgs ?? new object[0]);
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+            var attribute = (T)Activator.CreateInstance(typeof(T), ctorArgs ?? Array.Empty<object>());
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
             if (errorMessage != null)
             {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 attribute.ErrorMessage = errorMessage;
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
+#pragma warning disable CS8603 // Possible null reference return.
             return attribute;
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
         private static T AddErrorMessage<T>(T attribute, string? errorMessage)

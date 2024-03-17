@@ -37,7 +37,7 @@ try {
     if (-not (Test-Path $docfx)) {
         mkdir -p $docfxRoot -ErrorAction Ignore | Out-Null
         $temp = (New-TemporaryFile).FullName + ".zip"
-        Invoke-WebRequest "https://www.nuget.org/api/v2/package/docfx.console/$docfxVersion" -O $temp
+        Invoke-WebRequest "https://www.nuget.org/api/v2/package/docfx.console/$docfxVersion" -OutFile $temp
         Expand-Archive $temp -DestinationPath $docfxRoot
         Remove-Item $temp
         if ($Install) {

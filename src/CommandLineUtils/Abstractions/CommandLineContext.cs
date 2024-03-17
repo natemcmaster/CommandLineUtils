@@ -11,7 +11,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     /// </summary>
     public abstract class CommandLineContext
     {
-        private string[] _args = new string[0];
+        private string[] _args = Array.Empty<string>();
         private string _workDir = Directory.GetCurrentDirectory();
         private IConsole _console = PhysicalConsole.Singleton;
 

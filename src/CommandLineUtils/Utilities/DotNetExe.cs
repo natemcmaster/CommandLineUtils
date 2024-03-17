@@ -43,9 +43,6 @@ namespace McMaster.Extensions.CommandLineUtils
         private static string? TryFindDotNetExePath()
         {
             var fileName = FileName;
-#if NET46_OR_GREATER
-            fileName += ".exe";
-#elif NETSTANDARD2_0_OR_GREATER
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 fileName += ".exe";
@@ -57,9 +54,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 return mainModule.FileName;
             }
-#else
-#error Update target frameworks
-#endif
+
             // DOTNET_ROOT specifies the location of the .NET runtimes, if they are not installed in the default location.
             var dotnetRoot = Environment.GetEnvironmentVariable("DOTNET_ROOT");
 

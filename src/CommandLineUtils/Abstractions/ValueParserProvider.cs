@@ -61,7 +61,11 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         public IValueParser GetParser(Type type)
         {
             var method = s_getParserGeneric.MakeGenericMethod(type);
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+#pragma warning disable CS8603 // Possible null reference return.
             return (IValueParser)method.Invoke(this, Array.Empty<object>());
+#pragma warning restore CS8603 // Possible null reference return.
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
         }
 
         /// <summary>
@@ -121,8 +125,12 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 {
                     return null;
                 }
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 var method = typeof(ValueTupleValueParser).GetMethod(nameof(ValueTupleValueParser.Create)).MakeGenericMethod(type.GenericTypeArguments[1]);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                 return (IValueParser)method.Invoke(null, new object[] { innerParser });
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
             }
 
             return null;

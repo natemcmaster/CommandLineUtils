@@ -15,11 +15,15 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         private readonly MethodInfo _addMethod;
         private readonly CultureInfo _parserCulture;
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public HashSetParser(Type elementType, IValueParser elementParser, CultureInfo parserCulture)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             _elementParser = elementParser;
             _listType = typeof(HashSet<>).MakeGenericType(elementType);
+#pragma warning disable CS8601 // Possible null reference assignment.
             _addMethod = _listType.GetRuntimeMethod("Add", new[] { elementType });
+#pragma warning restore CS8601 // Possible null reference assignment.
             _parserCulture = parserCulture;
         }
 
@@ -30,7 +34,9 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             {
                 _addMethod.Invoke(set, new[] { _elementParser.Parse(argName, t, _parserCulture) });
             }
+#pragma warning disable CS8603 // Possible null reference return.
             return set;
+#pragma warning restore CS8603 // Possible null reference return.
         }
     }
 }
