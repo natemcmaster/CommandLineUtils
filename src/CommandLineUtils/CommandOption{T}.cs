@@ -39,7 +39,9 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// The parsed value.
         /// </summary>
+#pragma warning disable CS8603 // Possible null reference return.
         public T ParsedValue => ParsedValues.FirstOrDefault();
+#pragma warning restore CS8603 // Possible null reference return.
 
         /// <summary>
         /// All parsed values;

@@ -877,13 +877,17 @@ namespace McMaster.Extensions.CommandLineUtils
 
             try
             {
+#pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
                 _context.Console.CancelKeyPress += cancelHandler;
+#pragma warning restore CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
 
                 return await command._handler(handlerCancellationTokenSource.Token);
             }
             finally
             {
+#pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
                 _context.Console.CancelKeyPress -= cancelHandler;
+#pragma warning restore CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
             }
         }
 
@@ -1146,7 +1150,9 @@ namespace McMaster.Extensions.CommandLineUtils
 
         internal IServiceProvider? AdditionalServices { get; set; }
 
+#pragma warning disable CS8603 // Possible null reference return.
         object IServiceProvider.GetService(Type serviceType) => _services.Value.GetService(serviceType);
+#pragma warning restore CS8603 // Possible null reference return.
 
         private sealed class ServiceProvider : IServiceProvider
         {

@@ -94,9 +94,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                             goto nextCtor;
                         }
 
+#pragma warning disable CS8604 // Possible null reference argument.
                         return () =>
                             throw new InvalidOperationException(
                                 Strings.NoParameterTypeRegistered(ctorCandidate.DeclaringType, paramType));
+#pragma warning restore CS8604 // Possible null reference argument.
                     }
 
                     args[i] = service;

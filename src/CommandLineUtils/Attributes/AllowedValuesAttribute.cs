@@ -40,7 +40,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public AllowedValuesAttribute(StringComparison comparer, params string[] allowedValues)
             : base(GetDefaultError(allowedValues))
         {
-            _allowedValues = allowedValues ?? new string[0];
+            _allowedValues = allowedValues ?? Array.Empty<string>();
             Comparer = comparer;
         }
 

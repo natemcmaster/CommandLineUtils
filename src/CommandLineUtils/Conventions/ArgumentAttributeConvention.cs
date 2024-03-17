@@ -151,6 +151,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
                         var model = cmd.GetModel();
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                         if (prop.DeclaringType.IsAssignableFrom(model.GetType()))
                         {
                             if (argument.Values.Count == 0)
@@ -175,6 +176,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                                         convention.Application.ValueParsers.ParseCulture));
                             }
                         }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
                     }
                 });
             }

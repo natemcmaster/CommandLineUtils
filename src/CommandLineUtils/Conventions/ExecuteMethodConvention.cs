@@ -79,17 +79,23 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         {
             try
             {
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                 var result = (Task)method.Invoke(instance, arguments);
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
                 if (result is Task<int> intResult)
                 {
                     return await intResult;
                 }
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 await result;
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
             catch (TargetInvocationException e)
             {
+#pragma warning disable CS8604 // Possible null reference argument.
                 ExceptionDispatchInfo.Capture(e.InnerException).Throw();
+#pragma warning restore CS8604 // Possible null reference argument.
             }
 
             return 0;
@@ -102,12 +108,16 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 var result = method.Invoke(instance, arguments);
                 if (method.ReturnType == typeof(int))
                 {
+#pragma warning disable CS8605 // Unboxing a possibly null value.
                     return (int)result;
+#pragma warning restore CS8605 // Unboxing a possibly null value.
                 }
             }
             catch (TargetInvocationException e)
             {
+#pragma warning disable CS8604 // Possible null reference argument.
                 ExceptionDispatchInfo.Capture(e.InnerException).Throw();
+#pragma warning restore CS8604 // Possible null reference argument.
             }
 
             return 0;

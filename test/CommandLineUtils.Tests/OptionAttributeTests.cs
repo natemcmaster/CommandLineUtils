@@ -153,7 +153,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             public (bool hasValue, string value) Arg4 { get; } = (false, "Yellow");
 
             [Option("-a5")]
-            public string[] Arg5 { get; } = new string[0];
+            public string[] Arg5 { get; } = Array.Empty<string>();
         }
 
         [Fact]
@@ -206,7 +206,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             string[] Opt1 { get; }
 
             [Option("-o2")]
-            string[] Opt2 { get; } = new string[0];
+            string[] Opt2 { get; } = Array.Empty<string>();
         }
 
         [Fact]
