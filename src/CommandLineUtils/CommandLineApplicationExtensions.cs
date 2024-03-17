@@ -176,9 +176,11 @@ namespace McMaster.Extensions.CommandLineUtils
             var infoVersion = assembly
                 ?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()
                 ?.InformationalVersion;
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             return string.IsNullOrWhiteSpace(infoVersion)
                 ? assembly?.GetName().Version.ToString()
                 : infoVersion;
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
 }

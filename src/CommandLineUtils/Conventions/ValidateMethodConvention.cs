@@ -59,7 +59,11 @@ namespace McMaster.Extensions.CommandLineUtils
                     }
                 }
 
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+#pragma warning disable CS8603 // Possible null reference return.
                 return (ValidationResult)method.Invoke(modelAccessor.GetModel(), arguments);
+#pragma warning restore CS8603 // Possible null reference return.
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
             });
         }
     }

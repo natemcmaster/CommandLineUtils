@@ -20,7 +20,9 @@ namespace McMaster.Extensions.CommandLineUtils
             if (type.IsArray)
             {
                 var elementType = type.GetElementType();
+#pragma warning disable CS8604 // Possible null reference argument.
                 var elementParser = valueParsers.GetParser(elementType);
+#pragma warning restore CS8604 // Possible null reference argument.
 
                 return new ArrayParser(elementType, elementParser, valueParsers.ParseCulture);
             }

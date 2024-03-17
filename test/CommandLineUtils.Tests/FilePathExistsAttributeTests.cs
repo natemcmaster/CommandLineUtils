@@ -179,7 +179,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             [DirectoryExists]
             [Option]
-            public string[] Dir { get; } = new string[0];
+            public string[] Dir { get; } = Array.Empty<string>();
 
             [FileExists]
             [Option]

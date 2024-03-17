@@ -34,7 +34,9 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 var result = method.Invoke(modelAccessor.GetModel(), arguments);
                 if (method.ReturnType == typeof(int))
                 {
+#pragma warning disable CS8605 // Unboxing a possibly null value.
                     return (int)result;
+#pragma warning restore CS8605 // Unboxing a possibly null value.
                 }
 
                 return CommandLineApplication.ValidationErrorExitCode;

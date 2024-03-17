@@ -28,7 +28,6 @@
 
   <PropertyGroup>
     <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
-    <LangVersion>9.0</LangVersion>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <Nullable>enable</Nullable>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)src\StrongName.snk</AssemblyOriginatorKeyFile>
@@ -41,7 +40,7 @@
   </PropertyGroup>
 
    <PropertyGroup>
-    <VersionPrefix>4.1.1</VersionPrefix>
+    <VersionPrefix>5.0.0</VersionPrefix>
     <VersionSuffix>beta</VersionSuffix>
     <IncludePreReleaseLabelInPackageVersion Condition="'$(IS_STABLE_BUILD)' != 'true'">true</IncludePreReleaseLabelInPackageVersion>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">$(GITHUB_RUN_NUMBER)</BuildNumber>
@@ -52,11 +51,6 @@
     <PackageVersion Condition="'$(IncludePreReleaseLabelInPackageVersion)' == 'true'">$(PackageVersion)-$(VersionSuffix)</PackageVersion>
     <InformationalVersion Condition="'$(RepositoryCommit)' != ''">$(PackageVersion)+$(RepositoryCommit)</InformationalVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <!-- For x-plat development -->
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="All" />
-  </ItemGroup>
 
   <Import Project="$(MSBuildProjectDirectory)/releasenotes.props"
           Condition="Exists('$(MSBuildProjectDirectory)/releasenotes.props')" />

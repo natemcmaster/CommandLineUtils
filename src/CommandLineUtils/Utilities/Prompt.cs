@@ -79,7 +79,7 @@ namespace McMaster.Extensions.CommandLineUtils
             Write(prompt, promptColor, promptBgColor);
             Console.Write(' ');
 
-            string resp;
+            string? resp;
             using (ShowCursor())
             {
                 resp = Console.ReadLine();
@@ -284,7 +284,9 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 try
                 {
+#pragma warning disable CA1416 // Validate platform compatibility
                     _original = Console.CursorVisible;
+#pragma warning restore CA1416 // Validate platform compatibility
                 }
                 catch
                 {
