@@ -15,16 +15,13 @@ on:
         description: Create a release
         required: true
         default: "false"
-    branches:
-      - main
-      - release/*
 
 env:
   IS_STABLE_BUILD: ${{ github.event.inputs.is_stable_build }}
 
 jobs:
   build:
-    if: "!contains(github.event.head_commit.message, 'ci skip') || github.event_name == 'workflow_dispatch'"
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') || github.event_name == 'workflow_dispatch' }}
     strategy:
       fail-fast: false
       matrix:
@@ -36,9 +33,9 @@ jobs:
       package_version: ${{ steps.build_script.outputs.package_version }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
             6.0.x
@@ -46,18 +43,19 @@ jobs:
       - name: Run build script
         id: build_script
         run: ./build.ps1 -ci
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         if: ${{ matrix.os == 'windows-latest' }}
         with:
           name: packages
           path: artifacts/
           if-no-files-found: error
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
         with:
           name: unittests-${{ matrix.os }}
           fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
   release:
-    if: "github.event.inputs.release"
+    if: ${{ github.event.inputs.release }}
     needs: build
     runs-on: windows-latest
     env:
@@ -65,10 +63,10 @@ jobs:
     steps:
       - run: echo "Releasing ${{ env.PACKAGE_VERSION }}"
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1
+        uses: NuGet/setup-nuget@v2
         with:
           nuget-version: latest
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: packages
           path: packages
@@ -79,7 +77,7 @@ jobs:
       - name: Push to NuGet.org
         run: nuget push packages\*.nupkg -ApiKey ${{ secrets.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json
       - name: Create GitHub release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
