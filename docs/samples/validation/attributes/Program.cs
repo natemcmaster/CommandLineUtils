@@ -34,7 +34,7 @@ class AttributeProgram
 
     [Option]
     [AllowedValues("low", "normal", "high", IgnoreCase = true)]
-    public string Importance { get; } = "normal";
+    public string v { get; } = "normal";
 
     [Option(Description = "The colors should be red or blue")]
     [RedOrBlue]
@@ -50,6 +50,7 @@ class AttributeProgram
         Console.WriteLine("To = " + To);
         Console.WriteLine("Message = " + Message);
         Console.WriteLine("Attachments = " + string.Join(", ", Attachments));
+        Console.WriteLine("Importance = " + Importance);
         if (MaxSize.HasValue)
         {
             Console.WriteLine("Max size = " + MaxSize.Value);
