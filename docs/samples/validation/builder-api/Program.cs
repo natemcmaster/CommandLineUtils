@@ -27,7 +27,7 @@ class BuilderApi
             .Accepts(v => v.ExistingFile());
 
         var importance = app.Option("-i|--importance <IMPORTANCE>", "Low, medium or high", CommandOptionType.SingleValue)
-            .Accepts().Values("low", "medium", "high");
+            .Accepts(v => v.Values("low", "medium", "high"));
 
         var optionColor = app.Option("--color <COLOR>", "The color. Should be 'red' or 'blue'.", CommandOptionType.SingleValue);
         optionColor.Validators.Add(new MustBeBlueOrRedValidator());
@@ -41,6 +41,7 @@ class BuilderApi
             Console.WriteLine("To = " + optionReceiver.Value());
             Console.WriteLine("Message = " + optionMessage.Value());
             Console.WriteLine("Attachments = " + string.Join(", ", attachments.Values));
+            Console.WriteLine("Importance = " + importance.Value());
             if (optionMaxSize.HasValue())
             {
                 Console.WriteLine("Max size = " + optionMaxSize.ParsedValue);
