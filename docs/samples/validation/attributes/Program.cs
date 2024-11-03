@@ -34,7 +34,7 @@ class AttributeProgram
 
     [Option]
     [AllowedValues("low", "normal", "high", IgnoreCase = true)]
-    public string v { get; } = "normal";
+    public string Importance { get; } = "normal";
 
     [Option(Description = "The colors should be red or blue")]
     [RedOrBlue]
