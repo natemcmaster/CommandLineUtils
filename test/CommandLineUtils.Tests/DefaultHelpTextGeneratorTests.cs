@@ -119,6 +119,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             });
             app.Option<(bool, SomeEnum)>("--enumOpt3 <E>", "nullable enum option desc.", CommandOptionType.SingleOrNoValue);
             app.Option<SomeEnum?>("--enumOpt4 <E>", "nullable enum option desc.", CommandOptionType.SingleOrNoValue);
+            app.Option<SomeEnum[]>("--enumOpt5 <E>", "multiple enum option desc.", CommandOptionType.MultipleValue);
             app.Argument("SomeStringArgument", "string arg desc.");
             app.Argument("RestrictedStringArgument", "restricted string arg desc.", a => a.IsRequired().Accepts().Values("Foo", "Bar"));
             app.Argument("DefaultValStringArgument", "string arg with default value desc.", a => a.DefaultValue = "Foo");
@@ -163,6 +164,8 @@ Options:
   --enumOpt3[:<E>]          nullable enum option desc.
                             Allowed values are: None, Normal, Extreme.
   --enumOpt4[:<E>]          nullable enum option desc.
+                            Allowed values are: None, Normal, Extreme.
+  --enumOpt5[:<E>]          multiple enum option desc.
                             Allowed values are: None, Normal, Extreme.
 
 ",
