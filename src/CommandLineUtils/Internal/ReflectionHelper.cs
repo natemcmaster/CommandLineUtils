@@ -14,7 +14,10 @@ namespace McMaster.Extensions.CommandLineUtils
 {
     internal static class ReflectionHelper
     {
-        private const BindingFlags DeclaredOnlyLookup = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
+        private const BindingFlags InheritedLookup = BindingFlags.Public | BindingFlags.NonPublic |
+                                                     BindingFlags.Instance | BindingFlags.Static;
+
+        private const BindingFlags DeclaredOnlyLookup = InheritedLookup | BindingFlags.DeclaredOnly;
 
         public static SetPropertyDelegate GetPropertySetter(PropertyInfo prop)
         {
@@ -158,19 +161,50 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
+        private class MethodMetadataEquality : IEqualityComparer<MethodInfo>
+        {
+            public bool Equals(MethodInfo? x, MethodInfo? y)
+            {
+                if (x == null && y == null)
+                {
+                    return true;
+                }
+
+                return x != null && y != null && x.HasSameMetadataDefinitionAs(y);
+            }
+
+            public int GetHashCode(MethodInfo obj)
+            {
+                return obj.HasMetadataToken() ? obj.GetMetadataToken().GetHashCode() : 0;
+            }
+        }
+
         private static IEnumerable<MemberInfo> GetAllMembers(Type type)
         {
-            while (type != null)
+            // Keep track of the base definitions of property getters we see so we can skip ones we've seen already
+            var baseGetters = new HashSet<MethodInfo>(new MethodMetadataEquality());
+
+            var currentType = type;
+            while (currentType != null)
             {
-                var members = type.GetMembers(DeclaredOnlyLookup);
+                var members = currentType.GetMembers(InheritedLookup);
                 foreach (var member in members)
                 {
+                    if (member is PropertyInfo property)
+                    {
+                        var getter = property.GetGetMethod(true)?.GetBaseDefinition();
+
+                        // If we have a getter, try to add it to our set. If it _wasn't_ a new element, don't yield it.
+                        if (getter != null && !baseGetters.Add(getter))
+                        {
+                            continue;
+                        }
+                    }
+
                     yield return member;
                 }
 
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                type = type.BaseType;
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                currentType = currentType.BaseType;
             }
         }
     }
