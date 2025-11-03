@@ -133,11 +133,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication<ProgramWithAsyncOnExecute>(console);
             app.Conventions.UseOnExecuteMethodFromModel();
             var executeTask = app.ExecuteAsync(Array.Empty<string>());
-            await ProgramWithAsyncOnExecute.ExecuteStarted.Task.ConfigureAwait(false);
+            await ProgramWithAsyncOnExecute.ExecuteStarted.Task.ConfigureAwait(true);
             Assert.False(app.Model.Token.IsCancellationRequested);
             Assert.NotEqual(CancellationToken.None, app.Model.Token);
             console.RaiseCancelKeyPress();
-            var result = await executeTask.ConfigureAwait(false);
+            var result = await executeTask.ConfigureAwait(true);
             Assert.Equal(4, result);
             Assert.True(app.Model.Token.IsCancellationRequested);
         }

@@ -102,7 +102,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("-m 111 subcommand", null)]
         [InlineData("subcommand -s 111 -e 123", null)]
         [InlineData("-m 111 subcommand -s 100 -e 123", null)]
-        public void ValidatorShouldGetDeserailizedModelInSubcommands(string args, string error)
+        public void ValidatorShouldGetDeserializedModelInSubcommands(string args, string? error)
         {
             var app = new CommandLineApplication<MainValidate>();
             app.Conventions.UseDefaultConventions();

@@ -304,7 +304,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.HelpOption();
             var errorMessage = "Version arg is required";
             app.Argument("version", "Arg").IsRequired(errorMessage: errorMessage);
-            app.OnValidationError((_) => Assert.False(true, "Validation callbacks should not be executed"));
+            app.OnValidationError((_) => Assert.Fail("Validation callbacks should not be executed"));
 
             Assert.Equal(0, app.Execute("--help"));
             Assert.DoesNotContain(errorMessage, sb.ToString());

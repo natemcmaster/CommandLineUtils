@@ -28,7 +28,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("--name=<VALUE>", null, null, "name", "VALUE")]
         [InlineData("-a:<VALUE> --name:<VALUE>", "a", null, "name", "VALUE")]
         [InlineData("-a=<VALUE> --name=<VALUE>", "a", null, "name", "VALUE")]
-        public void ItParsesSingleValueTemplate(string template, string shortName, string symbolName, string longName, string valueName)
+        public void ItParsesSingleValueTemplate(string template, string? shortName, string? symbolName, string? longName, string? valueName)
         {
             var opt = new CommandOption(template, CommandOptionType.SingleValue);
             Assert.Equal(shortName, opt.ShortName);
@@ -40,7 +40,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Theory]
         [InlineData("--name[:<VALUE>]", null, null, "name", "VALUE")]
         [InlineData("--name[=<VALUE>]", null, null, "name", "VALUE")]
-        public void ItParsesSingleOrNoValueTemplate(string template, string shortName, string symbolName, string longName, string valueName)
+        public void ItParsesSingleOrNoValueTemplate(string template, string? shortName, string? symbolName, string longName, string valueName)
         {
             var opt = new CommandOption(template, CommandOptionType.SingleOrNoValue);
             Assert.Equal(shortName, opt.ShortName);
