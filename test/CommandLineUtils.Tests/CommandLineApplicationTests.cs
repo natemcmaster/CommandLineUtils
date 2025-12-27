@@ -720,7 +720,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(new[] { "-t", "val", "--", "a", "--", "b" }, new[] { "a", "--", "b" }, "val")]
         [InlineData(new[] { "--", "--help" }, new[] { "--help" }, null)]
         [InlineData(new[] { "--", "--version" }, new[] { "--version" }, null)]
-        public void ArgumentSeparator(string[] input, string[] expectedRemaining, string topLevelValue)
+        public void ArgumentSeparator(string[] input, string[] expectedRemaining, string? topLevelValue)
         {
             var app = new CommandLineApplication
             {
@@ -1047,7 +1047,7 @@ Examples:
         [InlineData(null)]
         [InlineData("")]
         [InlineData("-")]
-        public void ThrowsExceptionOnInvalidArgument(string inputOption)
+        public void ThrowsExceptionOnInvalidArgument(string? inputOption)
         {
             var app = new CommandLineApplication();
 

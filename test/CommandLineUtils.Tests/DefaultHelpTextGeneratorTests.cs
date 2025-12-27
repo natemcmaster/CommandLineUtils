@@ -288,7 +288,7 @@ Options:
         [InlineData("--help", "--help", "  --help      Show help information.", "  Subcommand  ")]
         [InlineData("-?", "-?", "  -?          Show help information.", "  Subcommand  ")]
         [InlineData(null, "-?|-h|--help", "  -?|-h|--help  Show help information.", "  Subcommand    ")]
-        public void ShowHelpWithSubcommands(string helpOption, string expectedHintText, string expectedOptionsText,
+        public void ShowHelpWithSubcommands(string? helpOption, string expectedHintText, string expectedOptionsText,
             string expectedCommandsText)
         {
             var app = new CommandLineApplication { Name = "test" };
