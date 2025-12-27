@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # NuGet packages - patch updates only for LTS stability
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    ignore:
+      # Only allow patch updates (ignore minor and major)
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+
+  # Sample and test projects - allow all updates (latest versions)
+  - package-ecosystem: "nuget"
+    directories:
+      - "/docs/samples"
+      - "/test"
+    schedule:
+      interval: "monthly"
+
+  # GitHub Actions - monthly updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "quarterly"
