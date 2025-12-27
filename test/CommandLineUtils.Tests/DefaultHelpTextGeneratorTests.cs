@@ -165,7 +165,7 @@ Options:
                             Allowed values are: None, Normal, Extreme.
   --enumOpt4[:<E>]          nullable enum option desc.
                             Allowed values are: None, Normal, Extreme.
-  --enumOpt5[:<E>]          multiple enum option desc.
+  --enumOpt5 <E>            multiple enum option desc.
                             Allowed values are: None, Normal, Extreme.
 
 ",

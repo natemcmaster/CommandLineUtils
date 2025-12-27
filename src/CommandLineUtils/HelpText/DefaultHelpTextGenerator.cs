@@ -428,7 +428,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
 
             if (ReflectionHelper.IsEnumerableType(type, out var wrappedEnumerableType))
             {
-                return ExtractNamesFromEnum(wrappedType2);
+                return ExtractNamesFromEnum(wrappedEnumerableType);
             }
 
             if (type.IsEnum)
