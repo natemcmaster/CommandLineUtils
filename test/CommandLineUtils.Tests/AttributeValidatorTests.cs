@@ -94,7 +94,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("email", 1)]
         [InlineData("email@email@email", 1)]
         [InlineData("email@example.com", 0)]
-        public void ValidatesEmailArgument(string email, int exitCode)
+        public void ValidatesEmailArgument(string? email, int exitCode)
         {
             Assert.Equal(exitCode, CommandLineApplication.Execute<EmailArgumentApp>(new TestConsole(_output), email));
         }

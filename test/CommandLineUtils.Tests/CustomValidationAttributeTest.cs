@@ -12,11 +12,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(null)]
         [InlineData("-c", "red")]
         [InlineData("-c", "blue")]
-        public void CustomValidationAttributePasses(params string[] args)
+        public void CustomValidationAttributePasses(params string?[] args)
         {
             var app = new CommandLineApplication<RedBlueProgram>();
             app.Conventions.UseDefaultConventions();
-            var result = app.Parse(args ?? System.Array.Empty<string>());
+            var result = app.Parse(args ?? []);
             Assert.Equal(ValidationResult.Success, result.SelectedCommand.GetValidationResult());
             var program = Assert.IsType<CommandLineApplication<RedBlueProgram>>(result.SelectedCommand);
             Assert.Same(app, program);
@@ -30,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("-c", "")]
         [InlineData("-c", null)]
         [InlineData("-c", "green")]
-        public void CustomValidationAttributeFails(params string[] args)
+        public void CustomValidationAttributeFails(params string?[] args)
         {
             var app = new CommandLineApplication<RedBlueProgram>();
             app.Conventions.UseAttributes();

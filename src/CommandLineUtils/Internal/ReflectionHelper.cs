@@ -174,6 +174,15 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
+        public static bool IsEnumerableType(Type type, [NotNullWhen(true)] out Type? wrappedType)
+        {
+            var result = type.IsGenericType &&
+                         type.IsAssignableTo(typeof(IEnumerable<>));
+            wrappedType = result ? type.GenericTypeArguments[1] : null;
+
+            return result;
+        }
+
         private static IEnumerable<MemberInfo> GetAllMembers(Type type)
         {
             while (type != null)

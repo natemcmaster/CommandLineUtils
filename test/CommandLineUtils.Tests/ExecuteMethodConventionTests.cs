@@ -4,13 +4,11 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Moq;
 using Xunit;
 using Xunit.Abstractions;
-
-using McMaster.Extensions.CommandLineUtils;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
@@ -137,11 +135,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var app = new CommandLineApplication<ProgramWithAsyncOnExecute>(console);
             app.Conventions.UseOnExecuteMethodFromModel();
             var executeTask = app.ExecuteAsync(Array.Empty<string>());
-            await ProgramWithAsyncOnExecute.ExecuteStarted.Task.ConfigureAwait(false);
+            await ProgramWithAsyncOnExecute.ExecuteStarted.Task.ConfigureAwait(true);
             Assert.False(app.Model.Token.IsCancellationRequested);
             Assert.NotEqual(CancellationToken.None, app.Model.Token);
             console.RaiseCancelKeyPress();
-            var result = await executeTask.ConfigureAwait(false);
+            var result = await executeTask.ConfigureAwait(true);
             Assert.Equal(4, result);
             Assert.True(app.Model.Token.IsCancellationRequested);
         }
@@ -151,43 +149,43 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class MyClass(string name)
         {
             public string Name { get; } = name;
-        }
-        
-        private class ProgramWithExecuteAndKeyedArgumentInjection
-        {
-            private int OnExecute
-            (
-                [FromKeyedServices("Database1")] MyClass myClass1,
-                [FromKeyedServices("Database2")] MyClass myClass2,
-                string nonKeyedArgument
-            )
-            {
-                Assert.Equal("MyClass1", myClass1.Name);
-                Assert.Equal("MyClass2", myClass2.Name);
-                Assert.Equal("42", nonKeyedArgument);
-                return 42;
-            }
-        }
-        
-        [Fact]
-        public void OnExecuteWithKeyedArgumentsResolvesArgumentsByKey()
-        {
-            var serviceCollection = new ServiceCollection();
-            serviceCollection
-                .AddKeyedSingleton("Database1", new MyClass("MyClass1"))
-                .AddKeyedSingleton("Database2", new MyClass("MyClass2"))
-                .AddSingleton("42")
-                ;
-
-            var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentInjection>();
-
-            app.AdditionalServices = serviceCollection.BuildServiceProvider();
-
-            app.Conventions.UseOnExecuteMethodFromModel();
-            var result = app.Execute();
-            Assert.Equal(42, result);
-        }
-
-
     }
+
+    private class ProgramWithExecuteAndKeyedArgumentInjection
+    {
+        private int OnExecute
+        (
+            [FromKeyedServices("Database1")] MyClass myClass1,
+            [FromKeyedServices("Database2")] MyClass myClass2,
+            string nonKeyedArgument
+        )
+        {
+            Assert.Equal("MyClass1", myClass1.Name);
+            Assert.Equal("MyClass2", myClass2.Name);
+            Assert.Equal("42", nonKeyedArgument);
+            return 42;
+        }
+    }
+
+    [Fact]
+    public void OnExecuteWithKeyedArgumentsResolvesArgumentsByKey()
+    {
+        var serviceCollection = new ServiceCollection();
+        serviceCollection
+            .AddKeyedSingleton("Database1", new MyClass("MyClass1"))
+            .AddKeyedSingleton("Database2", new MyClass("MyClass2"))
+            .AddSingleton("42")
+            ;
+
+        var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentInjection>();
+
+        app.AdditionalServices = serviceCollection.BuildServiceProvider();
+
+        app.Conventions.UseOnExecuteMethodFromModel();
+        var result = app.Execute();
+        Assert.Equal(42, result);
+    }
+
+
+}
 }
