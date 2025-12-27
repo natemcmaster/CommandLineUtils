@@ -133,6 +133,16 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
             }
 
+            // For array and collection types, return a parser for the element type
+            if (type.IsArray)
+            {
+                var elementType = type.GetElementType();
+                if (elementType != null)
+                {
+                    return GetParser(elementType);
+                }
+            }
+
             return null;
         }
 
