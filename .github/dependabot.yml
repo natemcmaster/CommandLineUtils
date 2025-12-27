@@ -11,6 +11,10 @@ updates:
         update-types:
           - "version-update:semver-major"
           - "version-update:semver-minor"
+    groups:
+      nuget-patch:
+        patterns:
+          - "*"
 
   # Sample and test projects - allow all updates (latest versions)
   - package-ecosystem: "nuget"
@@ -19,9 +23,24 @@ updates:
       - "/test"
     schedule:
       interval: "monthly"
+    groups:
+      microsoft-extensions:
+        patterns:
+          - "Microsoft.Extensions.*"
+      test-dependencies:
+        patterns:
+          - "Microsoft.NET.Test.Sdk"
+          - "xunit*"
+          - "coverlet*"
+          - "Moq"
+          - "FluentAssertions"
 
   # GitHub Actions - monthly updates
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "quarterly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
