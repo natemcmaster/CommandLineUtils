@@ -66,7 +66,7 @@ jobs:
         uses: NuGet/setup-nuget@v2
         with:
           nuget-version: latest
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           name: packages
           path: packages
