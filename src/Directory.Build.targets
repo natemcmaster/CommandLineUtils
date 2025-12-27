@@ -1,17 +1,5 @@
 <Project InitialTargets="UpdateCiSettings">
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(DisablePublicApiAnalyzer)' != 'true'">
-    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.3" PrivateAssets="All" />
-    <AdditionalFiles Include="PublicAPI.Shipped.txt" />
-    <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
-  </ItemGroup>
-
   <Target Name="UpdateCiSettings" Condition="'$(CI)' == 'true' AND '$(IsPackable)' == 'true' AND '$(GITHUB_OUTPUT)' != ''">
     <WriteLinesToFile File="$(GITHUB_OUTPUT)" Overwrite="false" Lines="package_version=$(PackageVersion)" />
   </Target>
-
 </Project>
