@@ -502,7 +502,9 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="configuration">A callback used to configure the subcommand object.</param>
         /// <typeparam name="TModel">The model type of the subcommand.</typeparam>
         /// <returns></returns>
-        public CommandLineApplication<TModel> Command<TModel>(string name, Action<CommandLineApplication<TModel>> configuration)
+        public CommandLineApplication<TModel> Command<
+            [System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.All)]
+            TModel>(string name, Action<CommandLineApplication<TModel>> configuration)
             where TModel : class
         {
             var command = new CommandLineApplication<TModel>(this, name);

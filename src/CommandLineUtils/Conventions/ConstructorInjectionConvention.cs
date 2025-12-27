@@ -4,6 +4,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Diagnostics.CodeAnalysis;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
@@ -50,7 +51,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         private static readonly MethodInfo s_applyMethod
          = typeof(ConstructorInjectionConvention).GetRuntimeMethods().Single(m => m.Name == nameof(ApplyImpl));
 
-        private void ApplyImpl<TModel>(ConventionContext context)
+        private void ApplyImpl<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TModel>(ConventionContext context)
             where TModel : class
         {
             var constructors = typeof(TModel).GetConstructors(BindingFlags.Public | BindingFlags.Instance);
@@ -64,7 +65,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
         }
 
-        private static Func<TModel>? FindMatchedConstructor<TModel>(
+        private static Func<TModel>? FindMatchedConstructor<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TModel>(
             ConstructorInfo[] constructors,
             IServiceProvider services,
             bool throwIfNoParameterTypeRegistered = false)

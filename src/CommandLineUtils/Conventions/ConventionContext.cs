@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
@@ -16,7 +17,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// </summary>
         /// <param name="application">The application</param>
         /// <param name="modelType">The type of the model.</param>
-        public ConventionContext(CommandLineApplication application, Type? modelType)
+        public ConventionContext(CommandLineApplication application, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type? modelType)
         {
             Application = application ?? throw new ArgumentNullException(nameof(application));
             ModelType = modelType;
@@ -28,10 +29,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         public CommandLineApplication Application { get; private set; }
 
         /// <summary>
-        /// The type of the application model. Can be null when applied to <see cref="CommandLineApplication" />
-        /// instead of <see cref="CommandLineApplication{TModel}" />.
-        /// </summary>
-        public Type? ModelType { get; private set; }
+    /// The type of the application model. Can be null when applied to <see cref="CommandLineApplication" />
+    /// instead of <see cref="CommandLineApplication{TModel}" />.
+    /// </summary>
+    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]
+    public Type? ModelType { get; private set; }
 
         /// <summary>
         /// A convenience accessor for getting the application model object.

@@ -14,7 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     /// </summary>
     internal class TypeDescriptorValueParserFactory
     {
-        public bool TryGetParser<T>([NotNullWhen(true)] out IValueParser? parser)
+        public bool TryGetParser<[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.All)] T>([NotNullWhen(true)] out IValueParser? parser)
         {
             var targetType = typeof(T);
             var converter = TypeDescriptor.GetConverter(targetType);

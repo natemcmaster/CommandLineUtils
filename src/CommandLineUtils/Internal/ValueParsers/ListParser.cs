@@ -12,10 +12,10 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     internal class ListParser : ICollectionParser
     {
         private readonly IValueParser _elementParser;
-        private readonly Type _listType;
+    private readonly Type _listType;
         private readonly CultureInfo _parserCulture;
 
-        public ListParser(Type elementType, IValueParser elementParser, CultureInfo parserCulture)
+        public ListParser([System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors)] Type elementType, IValueParser elementParser, CultureInfo parserCulture)
         {
             _elementParser = elementParser;
             _listType = typeof(List<>).MakeGenericType(elementType);

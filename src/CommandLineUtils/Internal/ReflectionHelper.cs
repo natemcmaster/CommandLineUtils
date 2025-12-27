@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
     {
         private const BindingFlags DeclaredOnlyLookup = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
 
-        public static SetPropertyDelegate GetPropertySetter(PropertyInfo prop)
+    public static SetPropertyDelegate GetPropertySetter([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] PropertyInfo prop)
         {
             var setter = prop.GetSetMethod(nonPublic: true);
             if (setter != null)
@@ -38,7 +38,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        public static GetPropertyDelegate GetPropertyGetter(PropertyInfo prop)
+    public static GetPropertyDelegate GetPropertyGetter([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] PropertyInfo prop)
         {
             var getter = prop.GetGetMethod(nonPublic: true);
             if (getter != null)
@@ -64,7 +64,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        public static MethodInfo[] GetPropertyOrMethod(Type type, string name)
+    public static MethodInfo[] GetPropertyOrMethod([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type type, string name)
         {
             var members = GetAllMembers(type).ToList();
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
@@ -79,14 +79,14 @@ namespace McMaster.Extensions.CommandLineUtils
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
-        public static PropertyInfo[] GetProperties(Type type)
+    public static PropertyInfo[] GetProperties([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type type)
         {
             return GetAllMembers(type)
                 .OfType<PropertyInfo>()
                 .ToArray();
         }
 
-        public static MemberInfo[] GetMembers(Type type)
+    public static MemberInfo[] GetMembers([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type type)
         {
             return GetAllMembers(type).ToArray();
         }
@@ -158,7 +158,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
-        private static IEnumerable<MemberInfo> GetAllMembers(Type type)
+        private static IEnumerable<MemberInfo> GetAllMembers([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type type)
         {
             while (type != null)
             {

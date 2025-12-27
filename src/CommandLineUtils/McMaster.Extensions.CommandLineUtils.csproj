@@ -4,6 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
+  <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+  <IsTrimmable>true</IsTrimmable>
     <Description>Command-line parsing API.</Description>
     <PackageDescription>Command-line parsing API and utilities for console applications.
 

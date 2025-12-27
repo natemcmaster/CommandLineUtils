@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+
+    <!-- Publish single-file, self-contained, trimmed app for demonstration -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <PublishTrimmed>true</PublishTrimmed>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\CommandLineUtils\McMaster.Extensions.CommandLineUtils.csproj" />
+    <TrimmerRootAssembly Include="McMaster.Extensions.CommandLineUtils" />
+  </ItemGroup>
+
+</Project>

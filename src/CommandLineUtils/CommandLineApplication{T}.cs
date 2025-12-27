@@ -13,7 +13,9 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Describes a set of command line arguments, options, and execution behavior
     /// using a type of <typeparamref name="TModel" /> to model the application.
     /// </summary>
-    public class CommandLineApplication<TModel> : CommandLineApplication, IModelAccessor
+    public class CommandLineApplication<
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]
+        TModel> : CommandLineApplication, IModelAccessor
         where TModel : class
     {
         [AllowNull] // this is initialized in common method called in all constructors

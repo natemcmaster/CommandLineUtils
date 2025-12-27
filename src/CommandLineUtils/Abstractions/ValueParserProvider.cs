@@ -58,7 +58,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public IValueParser GetParser(Type type)
+        public IValueParser GetParser([System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.All)] Type type)
         {
             var method = s_getParserGeneric.MakeGenericMethod(type);
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
