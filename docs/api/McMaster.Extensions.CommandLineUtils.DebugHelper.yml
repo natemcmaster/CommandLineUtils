@@ -1,0 +1,205 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.DebugHelper
+  commentId: T:McMaster.Extensions.CommandLineUtils.DebugHelper
+  id: DebugHelper
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(System.String[]@)
+  - McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(System.String[]@,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: DebugHelper
+  nameWithType: DebugHelper
+  fullName: McMaster.Extensions.CommandLineUtils.DebugHelper
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DebugHelper.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: DebugHelper
+    path: ../src/CommandLineUtils/Utilities/DebugHelper.cs
+    startLine: 15
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Helps handle debug command-line arguments.
+  example: []
+  syntax:
+    content: public static class DebugHelper
+    content.vb: Public Module DebugHelper
+  inheritance:
+  - System.Object
+- uid: McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(System.String[]@)
+  commentId: M:McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(System.String[]@)
+  id: HandleDebugSwitch(System.String[]@)
+  parent: McMaster.Extensions.CommandLineUtils.DebugHelper
+  langs:
+  - csharp
+  - vb
+  name: HandleDebugSwitch(ref string[])
+  nameWithType: DebugHelper.HandleDebugSwitch(ref string[])
+  fullName: McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(ref string[])
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DebugHelper.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: HandleDebugSwitch
+    path: ../src/CommandLineUtils/Utilities/DebugHelper.cs
+    startLine: 24
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: >-
+    Pauses the application until the debugger is attached when '--debug' is passed in as the first argument.
+
+    <p>
+
+    The pause times out at 30 seconds and continues execution.
+
+    </p>
+  example: []
+  syntax:
+    content: public static void HandleDebugSwitch(ref string[] args)
+    parameters:
+    - id: args
+      type: System.String[]
+      description: The command line arguments
+    content.vb: Public Shared Sub HandleDebugSwitch(args As String())
+  overload: McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch*
+  nameWithType.vb: DebugHelper.HandleDebugSwitch(String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(String())
+  name.vb: HandleDebugSwitch(String())
+- uid: McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(System.String[]@,System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(System.String[]@,System.Int32)
+  id: HandleDebugSwitch(System.String[]@,System.Int32)
+  parent: McMaster.Extensions.CommandLineUtils.DebugHelper
+  langs:
+  - csharp
+  - vb
+  name: HandleDebugSwitch(ref string[], int)
+  nameWithType: DebugHelper.HandleDebugSwitch(ref string[], int)
+  fullName: McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(ref string[], int)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DebugHelper.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: HandleDebugSwitch
+    path: ../src/CommandLineUtils/Utilities/DebugHelper.cs
+    startLine: 33
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: >-
+    Pauses the application until the debugger is attached when '--debug' is passed in as the first argument,
+
+    with a maximum wait time in seconds.
+  example: []
+  syntax:
+    content: public static void HandleDebugSwitch(ref string[] args, int maxWaitSeconds)
+    parameters:
+    - id: args
+      type: System.String[]
+      description: The command line arguments
+    - id: maxWaitSeconds
+      type: System.Int32
+      description: Maximum number of seconds to wait. Set to 0 or less for infinite waiting.
+    content.vb: Public Shared Sub HandleDebugSwitch(args As String(), maxWaitSeconds As Integer)
+  overload: McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch*
+  nameWithType.vb: DebugHelper.HandleDebugSwitch(String(), Integer)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch(String(), Integer)
+  name.vb: HandleDebugSwitch(String(), Integer)
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch
+  href: McMaster.Extensions.CommandLineUtils.DebugHelper.html#McMaster_Extensions_CommandLineUtils_DebugHelper_HandleDebugSwitch_System_String____
+  name: HandleDebugSwitch
+  nameWithType: DebugHelper.HandleDebugSwitch
+  fullName: McMaster.Extensions.CommandLineUtils.DebugHelper.HandleDebugSwitch
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

@@ -1,0 +1,200 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe
+  commentId: T:McMaster.Extensions.CommandLineUtils.DotNetExe
+  id: DotNetExe
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+  - McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  langs:
+  - csharp
+  - vb
+  name: DotNetExe
+  nameWithType: DotNetExe
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetExe
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DotNetExe.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: DotNetExe
+    path: ../src/CommandLineUtils/Utilities/DotNetExe.cs
+    startLine: 15
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Utilities for finding the "dotnet.exe" file from the currently running .NET Core application.
+  example: []
+  syntax:
+    content: public static class DotNetExe
+    content.vb: Public Module DotNetExe
+  inheritance:
+  - System.Object
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+  commentId: P:McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+  id: FullPath
+  parent: McMaster.Extensions.CommandLineUtils.DotNetExe
+  langs:
+  - csharp
+  - vb
+  name: FullPath
+  nameWithType: DotNetExe.FullPath
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DotNetExe.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: FullPath
+    path: ../src/CommandLineUtils/Utilities/DotNetExe.cs
+    startLine: 32
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: >-
+    The full filepath to the .NET Core CLI executable.
+
+    <p>
+
+    May be <code>null</code> if the CLI cannot be found.
+
+    </p>
+  example: []
+  syntax:
+    content: public static string? FullPath { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: The path or null
+    content.vb: Public Shared ReadOnly Property FullPath As String
+  overload: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath*
+  seealso:
+  - linkId: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+    commentId: M:McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  commentId: M:McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  id: FullPathOrDefault
+  parent: McMaster.Extensions.CommandLineUtils.DotNetExe
+  langs:
+  - csharp
+  - vb
+  name: FullPathOrDefault()
+  nameWithType: DotNetExe.FullPathOrDefault()
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault()
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DotNetExe.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: FullPathOrDefault
+    path: ../src/CommandLineUtils/Utilities/DotNetExe.cs
+    startLine: 39
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: >-
+    Finds the full filepath to the .NET Core CLI executable,
+
+    or returns a string containing the default name of the .NET Core muxer ('dotnet').
+
+    <returns>The path or a string named 'dotnet'</returns>
+  example: []
+  syntax:
+    content: public static string FullPathOrDefault()
+    return:
+      type: System.String
+    content.vb: Public Shared Function FullPathOrDefault() As String
+  overload: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault*
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  commentId: M:McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  href: McMaster.Extensions.CommandLineUtils.DotNetExe.html#McMaster_Extensions_CommandLineUtils_DotNetExe_FullPathOrDefault
+  name: FullPathOrDefault()
+  nameWithType: DotNetExe.FullPathOrDefault()
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault()
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+    name: FullPathOrDefault
+    href: McMaster.Extensions.CommandLineUtils.DotNetExe.html#McMaster_Extensions_CommandLineUtils_DotNetExe_FullPathOrDefault
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+    name: FullPathOrDefault
+    href: McMaster.Extensions.CommandLineUtils.DotNetExe.html#McMaster_Extensions_CommandLineUtils_DotNetExe_FullPathOrDefault
+  - name: (
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+  href: McMaster.Extensions.CommandLineUtils.DotNetExe.html#McMaster_Extensions_CommandLineUtils_DotNetExe_FullPath
+  name: FullPath
+  nameWithType: DotNetExe.FullPath
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault
+  href: McMaster.Extensions.CommandLineUtils.DotNetExe.html#McMaster_Extensions_CommandLineUtils_DotNetExe_FullPathOrDefault
+  name: FullPathOrDefault
+  nameWithType: DotNetExe.FullPathOrDefault
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetExe.FullPathOrDefault

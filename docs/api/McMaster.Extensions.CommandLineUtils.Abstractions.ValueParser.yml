@@ -1,0 +1,711 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
+  id: ValueParser
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type,System.Func{System.String,System.String,System.Globalization.CultureInfo,System.Object})
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}})
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}},System.Func{System.String,System.String,System.FormatException})
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.String,System.Globalization.CultureInfo,``0})
+  langs:
+  - csharp
+  - vb
+  name: ValueParser
+  nameWithType: ValueParser
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Internal/ValueParsers/ValueParser.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ValueParser
+    path: ../src/CommandLineUtils/Internal/ValueParsers/ValueParser.cs
+    startLine: 13
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: >-
+    Provides methods for creating <xref href="McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser%601" data-throw-if-not-resolved="false"></xref>
+
+    boilerplate implementations.
+  example: []
+  syntax:
+    content: public static class ValueParser
+    content.vb: Public Module ValueParser
+  inheritance:
+  - System.Object
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type,System.Func{System.String,System.String,System.Globalization.CultureInfo,System.Object})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type,System.Func{System.String,System.String,System.Globalization.CultureInfo,System.Object})
+  id: Create(System.Type,System.Func{System.String,System.String,System.Globalization.CultureInfo,System.Object})
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
+  langs:
+  - csharp
+  - vb
+  name: Create(Type, Func<string?, string?, CultureInfo, object>)
+  nameWithType: ValueParser.Create(Type, Func<string?, string?, CultureInfo, object>)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type, System.Func<string?, string?, System.Globalization.CultureInfo, object>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Internal/ValueParsers/ValueParser.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Create
+    path: ../src/CommandLineUtils/Internal/ValueParsers/ValueParser.cs
+    startLine: 21
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: >-
+    Creates an <xref href="McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser" data-throw-if-not-resolved="false"></xref> implementation for a type
+
+    given a parsing function that receives an argument name, a value
+
+    to parse and a culture to use for parsing.
+  example: []
+  syntax:
+    content: public static IValueParser Create(Type targetType, Func<string?, string?, CultureInfo, object> parser)
+    parameters:
+    - id: targetType
+      type: System.Type
+    - id: parser
+      type: System.Func{System.String,System.String,System.Globalization.CultureInfo,System.Object}
+    return:
+      type: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+    content.vb: Public Shared Function Create(targetType As Type, parser As Func(Of String, String, CultureInfo, Object)) As IValueParser
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create*
+  nameWithType.vb: ValueParser.Create(Type, Func(Of String, String, CultureInfo, Object))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(System.Type, System.Func(Of String, String, System.Globalization.CultureInfo, Object))
+  name.vb: Create(Type, Func(Of String, String, CultureInfo, Object))
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.String,System.Globalization.CultureInfo,``0})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.String,System.Globalization.CultureInfo,``0})
+  id: Create``1(System.Func{System.String,System.String,System.Globalization.CultureInfo,``0})
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
+  langs:
+  - csharp
+  - vb
+  name: Create<T>(Func<string?, string?, CultureInfo, T>)
+  nameWithType: ValueParser.Create<T>(Func<string?, string?, CultureInfo, T>)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<string?, string?, System.Globalization.CultureInfo, T>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Internal/ValueParsers/ValueParser.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Create
+    path: ../src/CommandLineUtils/Internal/ValueParsers/ValueParser.cs
+    startLine: 30
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: >-
+    Creates an <xref href="McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser%601" data-throw-if-not-resolved="false"></xref> implementation given
+
+    a parsing function that receives an argument name, a value to
+
+    parse and a culture to use for parsing.
+  example: []
+  syntax:
+    content: public static IValueParser<T> Create<T>(Func<string?, string?, CultureInfo, T> parser)
+    parameters:
+    - id: parser
+      type: System.Func{System.String,System.String,System.Globalization.CultureInfo,{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{{T}}
+    content.vb: Public Shared Function Create(Of T)(parser As Func(Of String, String, CultureInfo, T)) As IValueParser(Of T)
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create*
+  nameWithType.vb: ValueParser.Create(Of T)(Func(Of String, String, CultureInfo, T))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(Of T)(System.Func(Of String, String, System.Globalization.CultureInfo, T))
+  name.vb: Create(Of T)(Func(Of String, String, CultureInfo, T))
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}})
+  id: Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}})
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
+  langs:
+  - csharp
+  - vb
+  name: Create<T>(Func<string, CultureInfo, (bool, T)>)
+  nameWithType: ValueParser.Create<T>(Func<string, CultureInfo, (bool, T)>)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<string, System.Globalization.CultureInfo, (bool, T)>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Internal/ValueParsers/ValueParser.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Create
+    path: ../src/CommandLineUtils/Internal/ValueParsers/ValueParser.cs
+    startLine: 41
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: >-
+    Creates an <xref href="McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser%601" data-throw-if-not-resolved="false"></xref> implementation given
+
+    a parsing function that receives an argument name, a value to
+
+    parse, a culture to use for parsing and returns a tuple whose
+
+    first element indicates whether parsing was successful and
+
+    second element is the parsed value.
+  example: []
+  syntax:
+    content: public static IValueParser<T> Create<T>(Func<string, CultureInfo, (bool, T)> parser)
+    parameters:
+    - id: parser
+      type: System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,{T}}}
+    typeParameters:
+    - id: T
+    return:
+      type: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{{T}}
+    content.vb: Public Shared Function Create(Of T)(parser As Func(Of String, CultureInfo, (Boolean, T))) As IValueParser(Of T)
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create*
+  nameWithType.vb: ValueParser.Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(Of T)(System.Func(Of String, System.Globalization.CultureInfo, (Boolean, T)))
+  name.vb: Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)))
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}},System.Func{System.String,System.String,System.FormatException})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}},System.Func{System.String,System.String,System.FormatException})
+  id: Create``1(System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}},System.Func{System.String,System.String,System.FormatException})
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
+  langs:
+  - csharp
+  - vb
+  name: Create<T>(Func<string, CultureInfo, (bool, T)>, Func<string?, string?, FormatException>)
+  nameWithType: ValueParser.Create<T>(Func<string, CultureInfo, (bool, T)>, Func<string?, string?, FormatException>)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create<T>(System.Func<string, System.Globalization.CultureInfo, (bool, T)>, System.Func<string?, string?, System.FormatException>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Internal/ValueParsers/ValueParser.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Create
+    path: ../src/CommandLineUtils/Internal/ValueParsers/ValueParser.cs
+    startLine: 55
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: >-
+    Creates an <xref href="McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser%601" data-throw-if-not-resolved="false"></xref> implementation given
+
+    a parsing function that receives an argument name, a value to
+
+    parse, a culture to use for parsing and returns a tuple whose
+
+    first element indicates whether parsing was successful and
+
+    second element is the parsed value. An additional parameter
+
+    specifies a function that returns the <xref href="System.FormatException" data-throw-if-not-resolved="false"></xref>
+
+    to throw, given the argument name and value, when parsing is
+
+    unsuccessful.
+  example: []
+  syntax:
+    content: public static IValueParser<T> Create<T>(Func<string, CultureInfo, (bool, T)> parser, Func<string?, string?, FormatException> errorSelector)
+    parameters:
+    - id: parser
+      type: System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,{T}}}
+    - id: errorSelector
+      type: System.Func{System.String,System.String,System.FormatException}
+    typeParameters:
+    - id: T
+    return:
+      type: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{{T}}
+    content.vb: Public Shared Function Create(Of T)(parser As Func(Of String, CultureInfo, (Boolean, T)), errorSelector As Func(Of String, String, FormatException)) As IValueParser(Of T)
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create*
+  nameWithType.vb: ValueParser.Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)), Func(Of String, String, FormatException))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create(Of T)(System.Func(Of String, System.Globalization.CultureInfo, (Boolean, T)), System.Func(Of String, String, System.FormatException))
+  name.vb: Create(Of T)(Func(Of String, CultureInfo, (Boolean, T)), Func(Of String, String, FormatException))
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html
+  name: IValueParser<T>
+  nameWithType: IValueParser<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
+  nameWithType.vb: IValueParser(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T)
+  name.vb: IValueParser(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions
+    name: Abstractions
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions
+    name: Abstractions
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.html
+  name: IValueParser
+  nameWithType: IValueParser
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_ValueParser_Create_System_Type_System_Func_System_String_System_String_System_Globalization_CultureInfo_System_Object__
+  name: Create
+  nameWithType: ValueParser.Create
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.Create
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System.Func{System.String,System.String,System.Globalization.CultureInfo,System.Object}
+  commentId: T:System.Func{System.String,System.String,System.Globalization.CultureInfo,System.Object}
+  parent: System
+  definition: System.Func`4
+  href: https://learn.microsoft.com/dotnet/api/system.func-4
+  name: Func<string, string, CultureInfo, object>
+  nameWithType: Func<string, string, CultureInfo, object>
+  fullName: System.Func<string, string, System.Globalization.CultureInfo, object>
+  nameWithType.vb: Func(Of String, String, CultureInfo, Object)
+  fullName.vb: System.Func(Of String, String, System.Globalization.CultureInfo, Object)
+  name.vb: Func(Of String, String, CultureInfo, Object)
+  spec.csharp:
+  - uid: System.Func`4
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-4
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Globalization.CultureInfo
+    name: CultureInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`4
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-4
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Globalization.CultureInfo
+    name: CultureInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Func`4
+  commentId: T:System.Func`4
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-4
+  name: Func<T1, T2, T3, TResult>
+  nameWithType: Func<T1, T2, T3, TResult>
+  fullName: System.Func<T1, T2, T3, TResult>
+  nameWithType.vb: Func(Of T1, T2, T3, TResult)
+  fullName.vb: System.Func(Of T1, T2, T3, TResult)
+  name.vb: Func(Of T1, T2, T3, TResult)
+  spec.csharp:
+  - uid: System.Func`4
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-4
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`4
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-4
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Func{System.String,System.String,System.Globalization.CultureInfo,{T}}
+  commentId: T:System.Func{System.String,System.String,System.Globalization.CultureInfo,``0}
+  parent: System
+  definition: System.Func`4
+  href: https://learn.microsoft.com/dotnet/api/system.func-4
+  name: Func<string, string, CultureInfo, T>
+  nameWithType: Func<string, string, CultureInfo, T>
+  fullName: System.Func<string, string, System.Globalization.CultureInfo, T>
+  nameWithType.vb: Func(Of String, String, CultureInfo, T)
+  fullName.vb: System.Func(Of String, String, System.Globalization.CultureInfo, T)
+  name.vb: Func(Of String, String, CultureInfo, T)
+  spec.csharp:
+  - uid: System.Func`4
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-4
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Globalization.CultureInfo
+    name: CultureInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo
+  - name: ','
+  - name: " "
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`4
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-4
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Globalization.CultureInfo
+    name: CultureInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{{T}}
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser{`0}
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  definition: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html
+  name: IValueParser<T>
+  nameWithType: IValueParser<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
+  nameWithType.vb: IValueParser(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T)
+  name.vb: IValueParser(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,{T}}}
+  commentId: T:System.Func{System.String,System.Globalization.CultureInfo,System.ValueTuple{System.Boolean,``0}}
+  parent: System
+  definition: System.Func`3
+  href: https://learn.microsoft.com/dotnet/api/system.func-3
+  name: Func<string, CultureInfo, (bool, T)>
+  nameWithType: Func<string, CultureInfo, (bool, T)>
+  fullName: System.Func<string, System.Globalization.CultureInfo, (bool, T)>
+  nameWithType.vb: Func(Of String, CultureInfo, (Boolean, T))
+  fullName.vb: System.Func(Of String, System.Globalization.CultureInfo, (Boolean, T))
+  name.vb: Func(Of String, CultureInfo, (Boolean, T))
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Globalization.CultureInfo
+    name: CultureInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Globalization.CultureInfo
+    name: CultureInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-3
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.FormatException
+  commentId: T:System.FormatException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.formatexception
+  name: FormatException
+  nameWithType: FormatException
+  fullName: System.FormatException
+- uid: System.Func{System.String,System.String,System.FormatException}
+  commentId: T:System.Func{System.String,System.String,System.FormatException}
+  parent: System
+  definition: System.Func`3
+  href: https://learn.microsoft.com/dotnet/api/system.func-3
+  name: Func<string, string, FormatException>
+  nameWithType: Func<string, string, FormatException>
+  fullName: System.Func<string, string, System.FormatException>
+  nameWithType.vb: Func(Of String, String, FormatException)
+  fullName.vb: System.Func(Of String, String, System.FormatException)
+  name.vb: Func(Of String, String, FormatException)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.FormatException
+    name: FormatException
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.formatexception
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.FormatException
+    name: FormatException
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.formatexception
+  - name: )

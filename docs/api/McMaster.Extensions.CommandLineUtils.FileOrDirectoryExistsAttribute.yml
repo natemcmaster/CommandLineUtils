@@ -1,0 +1,238 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute
+  id: FileOrDirectoryExistsAttribute
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: FileOrDirectoryExistsAttribute
+  nameWithType: FileOrDirectoryExistsAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/FileOrDirectoryExistsAttribute.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: FileOrDirectoryExistsAttribute
+    path: ../src/CommandLineUtils/Attributes/FileOrDirectoryExistsAttribute.cs
+    startLine: 12
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Specifies that the data must be an already existing file or directory.
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Property)]
+
+      public sealed class FileOrDirectoryExistsAttribute : FilePathExistsAttributeBase
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Property)>
+
+      Public NotInheritable Class FileOrDirectoryExistsAttribute Inherits FilePathExistsAttributeBase
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - System.ComponentModel.DataAnnotations.ValidationAttribute
+  - McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 128
+- uid: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.#ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.#ctor
+  id: '#ctor'
+  parent: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute
+  langs:
+  - csharp
+  - vb
+  name: FileOrDirectoryExistsAttribute()
+  nameWithType: FileOrDirectoryExistsAttribute.FileOrDirectoryExistsAttribute()
+  fullName: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.FileOrDirectoryExistsAttribute()
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/FileOrDirectoryExistsAttribute.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Attributes/FileOrDirectoryExistsAttribute.cs
+    startLine: 18
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Initializes an instance of <xref href="McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public FileOrDirectoryExistsAttribute()
+    content.vb: Public Sub New()
+  overload: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.#ctor*
+  nameWithType.vb: FileOrDirectoryExistsAttribute.New()
+  fullName.vb: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.New()
+  name.vb: New()
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Attribute
+  commentId: T:System.Attribute
+  parent: System
+  isExternal: true
+  name: Attribute
+  nameWithType: Attribute
+  fullName: System.Attribute
+- uid: System.ComponentModel.DataAnnotations.ValidationAttribute
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationAttribute
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: ValidationAttribute
+  nameWithType: ValidationAttribute
+  fullName: System.ComponentModel.DataAnnotations.ValidationAttribute
+- uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.html
+  name: FilePathExistsAttributeBase
+  nameWithType: FilePathExistsAttributeBase
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ComponentModel.DataAnnotations
+  commentId: N:System.ComponentModel.DataAnnotations
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel.DataAnnotations
+  nameWithType: System.ComponentModel.DataAnnotations
+  fullName: System.ComponentModel.DataAnnotations
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+  - name: .
+  - uid: System.ComponentModel.DataAnnotations
+    name: DataAnnotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+  - name: .
+  - uid: System.ComponentModel.DataAnnotations
+    name: DataAnnotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  commentId: N:McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  nameWithType: McMaster.Extensions.CommandLineUtils.Validation
+  fullName: McMaster.Extensions.CommandLineUtils.Validation
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Validation
+    name: Validation
+    href: McMaster.Extensions.CommandLineUtils.Validation.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Validation
+    name: Validation
+    href: McMaster.Extensions.CommandLineUtils.Validation.html
+- uid: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute
+  href: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.html
+  name: FileOrDirectoryExistsAttribute
+  nameWithType: FileOrDirectoryExistsAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute
+- uid: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.#ctor
+  href: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.html#McMaster_Extensions_CommandLineUtils_FileOrDirectoryExistsAttribute__ctor
+  name: FileOrDirectoryExistsAttribute
+  nameWithType: FileOrDirectoryExistsAttribute.FileOrDirectoryExistsAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.FileOrDirectoryExistsAttribute
+  nameWithType.vb: FileOrDirectoryExistsAttribute.New
+  fullName.vb: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute.New
+  name.vb: New

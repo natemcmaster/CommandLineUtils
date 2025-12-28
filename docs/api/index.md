@@ -1,18 +1,7 @@
----
-uid: latest_api_ref
----
 API Reference
 =============
 
-**Version 5.0** (Current)
-
-## Target Framework
-
 McMaster.Extensions.CommandLineUtils targets **.NET 8.0**.
-
-For older framework support, use previous versions:
- - Version 4.x: .NET 6.0+
- - Version 3.x: .NET Standard 2.0, .NET Framework 4.5
 
 ## Key Types
 

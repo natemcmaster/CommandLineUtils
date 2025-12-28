@@ -1,0 +1,1219 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  id: CommandLineApplicationExtensions
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,System.Boolean)
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Boolean)
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action)
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action{System.ComponentModel.DataAnnotations.ValidationResult})
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.ComponentModel.DataAnnotations.ValidationResult,System.Int32})
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Action{McMaster.Extensions.CommandLineUtils.CommandOption{``0}})
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Boolean)
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String)
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Reflection.Assembly)
+  - McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.Reflection.Assembly)
+  langs:
+  - csharp
+  - vb
+  name: CommandLineApplicationExtensions
+  nameWithType: CommandLineApplicationExtensions
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: CommandLineApplicationExtensions
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 16
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Helper methods for <xref href="McMaster.Extensions.CommandLineUtils.CommandLineApplication" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class CommandLineApplicationExtensions
+    content.vb: Public Module CommandLineApplicationExtensions
+  inheritance:
+  - System.Object
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,System.Boolean)
+  id: Argument``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,System.Boolean)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: Argument<T>(CommandLineApplication, string, string, bool)
+  nameWithType: CommandLineApplicationExtensions.Argument<T>(CommandLineApplication, string, string, bool)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument<T>(McMaster.Extensions.CommandLineUtils.CommandLineApplication, string, string, bool)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Argument
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 26
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Adds a command line argument with values that should be parsable into <code class="typeparamref">T</code>.
+  example: []
+  syntax:
+    content: public static CommandArgument<T> Argument<T>(this CommandLineApplication app, string name, string description, bool multipleValues = false)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: name
+      type: System.String
+      description: ''
+    - id: description
+      type: System.String
+      description: ''
+    - id: multipleValues
+      type: System.Boolean
+      description: ''
+    typeParameters:
+    - id: T
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandArgument{{T}}
+      description: ''
+    content.vb: Public Shared Function Argument(Of T)(app As CommandLineApplication, name As String, description As String, multipleValues As Boolean = False) As CommandArgument(Of T)
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument*
+  nameWithType.vb: CommandLineApplicationExtensions.Argument(Of T)(CommandLineApplication, String, String, Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument(Of T)(McMaster.Extensions.CommandLineUtils.CommandLineApplication, String, String, Boolean)
+  name.vb: Argument(Of T)(CommandLineApplication, String, String, Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  id: Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: Option<T>(CommandLineApplication, string, string, CommandOptionType)
+  nameWithType: CommandLineApplicationExtensions.Option<T>(CommandLineApplication, string, string, CommandOptionType)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option<T>(McMaster.Extensions.CommandLineUtils.CommandLineApplication, string, string, McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Option
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 37
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Adds a command-line option with values that should be parsable into <code class="typeparamref">T</code>.
+  example: []
+  syntax:
+    content: public static CommandOption<T> Option<T>(this CommandLineApplication app, string template, string description, CommandOptionType optionType)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: template
+      type: System.String
+      description: ''
+    - id: description
+      type: System.String
+      description: ''
+    - id: optionType
+      type: McMaster.Extensions.CommandLineUtils.CommandOptionType
+      description: ''
+    typeParameters:
+    - id: T
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOption{{T}}
+      description: ''
+    content.vb: Public Shared Function [Option](Of T)(app As CommandLineApplication, template As String, description As String, optionType As CommandOptionType) As CommandOption(Of T)
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option*
+  nameWithType.vb: CommandLineApplicationExtensions.Option(Of T)(CommandLineApplication, String, String, CommandOptionType)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option(Of T)(McMaster.Extensions.CommandLineUtils.CommandLineApplication, String, String, McMaster.Extensions.CommandLineUtils.CommandOptionType)
+  name.vb: Option(Of T)(CommandLineApplication, String, String, CommandOptionType)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Boolean)
+  id: Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Boolean)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: Option<T>(CommandLineApplication, string, string, CommandOptionType, bool)
+  nameWithType: CommandLineApplicationExtensions.Option<T>(CommandLineApplication, string, string, CommandOptionType, bool)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option<T>(McMaster.Extensions.CommandLineUtils.CommandLineApplication, string, string, McMaster.Extensions.CommandLineUtils.CommandOptionType, bool)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Option
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 49
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Adds a command-line option with values that should be parsable into <code class="typeparamref">T</code>.
+  example: []
+  syntax:
+    content: public static CommandOption<T> Option<T>(this CommandLineApplication app, string template, string description, CommandOptionType optionType, bool inherited)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: template
+      type: System.String
+      description: ''
+    - id: description
+      type: System.String
+      description: ''
+    - id: optionType
+      type: McMaster.Extensions.CommandLineUtils.CommandOptionType
+      description: ''
+    - id: inherited
+      type: System.Boolean
+      description: ''
+    typeParameters:
+    - id: T
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOption{{T}}
+      description: ''
+    content.vb: Public Shared Function [Option](Of T)(app As CommandLineApplication, template As String, description As String, optionType As CommandOptionType, inherited As Boolean) As CommandOption(Of T)
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option*
+  nameWithType.vb: CommandLineApplicationExtensions.Option(Of T)(CommandLineApplication, String, String, CommandOptionType, Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option(Of T)(McMaster.Extensions.CommandLineUtils.CommandLineApplication, String, String, McMaster.Extensions.CommandLineUtils.CommandOptionType, Boolean)
+  name.vb: Option(Of T)(CommandLineApplication, String, String, CommandOptionType, Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Action{McMaster.Extensions.CommandLineUtils.CommandOption{``0}})
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Action{McMaster.Extensions.CommandLineUtils.CommandOption{``0}})
+  id: Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Action{McMaster.Extensions.CommandLineUtils.CommandOption{``0}})
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: Option<T>(CommandLineApplication, string, string, CommandOptionType, Action<CommandOption<T>>)
+  nameWithType: CommandLineApplicationExtensions.Option<T>(CommandLineApplication, string, string, CommandOptionType, Action<CommandOption<T>>)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option<T>(McMaster.Extensions.CommandLineUtils.CommandLineApplication, string, string, McMaster.Extensions.CommandLineUtils.CommandOptionType, System.Action<McMaster.Extensions.CommandLineUtils.CommandOption<T>>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Option
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 61
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Adds a command-line option with values that should be parsable into <code class="typeparamref">T</code>.
+  example: []
+  syntax:
+    content: public static CommandOption<T> Option<T>(this CommandLineApplication app, string template, string description, CommandOptionType optionType, Action<CommandOption<T>> configuration)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: template
+      type: System.String
+      description: ''
+    - id: description
+      type: System.String
+      description: ''
+    - id: optionType
+      type: McMaster.Extensions.CommandLineUtils.CommandOptionType
+      description: ''
+    - id: configuration
+      type: System.Action{McMaster.Extensions.CommandLineUtils.CommandOption{{T}}}
+      description: ''
+    typeParameters:
+    - id: T
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOption{{T}}
+      description: ''
+    content.vb: Public Shared Function [Option](Of T)(app As CommandLineApplication, template As String, description As String, optionType As CommandOptionType, configuration As Action(Of CommandOption(Of T))) As CommandOption(Of T)
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option*
+  nameWithType.vb: CommandLineApplicationExtensions.Option(Of T)(CommandLineApplication, String, String, CommandOptionType, Action(Of CommandOption(Of T)))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option(Of T)(McMaster.Extensions.CommandLineUtils.CommandLineApplication, String, String, McMaster.Extensions.CommandLineUtils.CommandOptionType, System.Action(Of McMaster.Extensions.CommandLineUtils.CommandOption(Of T)))
+  name.vb: Option(Of T)(CommandLineApplication, String, String, CommandOptionType, Action(Of CommandOption(Of T)))
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  id: HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: HelpOption(CommandLineApplication)
+  nameWithType: CommandLineApplicationExtensions.HelpOption(CommandLineApplication)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: HelpOption
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 69
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Adds the help option with the template <code>-?|-h|--help</code>.
+  example: []
+  syntax:
+    content: public static CommandOption HelpOption(this CommandLineApplication app)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOption
+      description: ''
+    content.vb: Public Shared Function HelpOption(app As CommandLineApplication) As CommandOption
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption*
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Boolean)
+  id: HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Boolean)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: HelpOption(CommandLineApplication, bool)
+  nameWithType: CommandLineApplicationExtensions.HelpOption(CommandLineApplication, bool)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication, bool)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: HelpOption
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 78
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Adds the help option with the template <code>-?|-h|--help</code>.
+  example: []
+  syntax:
+    content: public static CommandOption HelpOption(this CommandLineApplication app, bool inherited)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: inherited
+      type: System.Boolean
+      description: ''
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOption
+      description: ''
+    content.vb: Public Shared Function HelpOption(app As CommandLineApplication, inherited As Boolean) As CommandOption
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption*
+  nameWithType.vb: CommandLineApplicationExtensions.HelpOption(CommandLineApplication, Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication, Boolean)
+  name.vb: HelpOption(CommandLineApplication, Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  id: VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: VerboseOption(CommandLineApplication)
+  nameWithType: CommandLineApplicationExtensions.VerboseOption(CommandLineApplication)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: VerboseOption
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 86
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Adds the verbose option with the template <code>-v|--verbose</code>.
+  example: []
+  syntax:
+    content: public static CommandOption VerboseOption(this CommandLineApplication app)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOption
+      description: ''
+    content.vb: Public Shared Function VerboseOption(app As CommandLineApplication) As CommandOption
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption*
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String)
+  id: VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: VerboseOption(CommandLineApplication, string)
+  nameWithType: CommandLineApplicationExtensions.VerboseOption(CommandLineApplication, string)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication, string)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: VerboseOption
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 95
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Adds the verbose option with the template <code>-v|--verbose</code>.
+  example: []
+  syntax:
+    content: public static CommandOption VerboseOption(this CommandLineApplication app, string template)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: template
+      type: System.String
+      description: ''
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOption
+      description: ''
+    content.vb: Public Shared Function VerboseOption(app As CommandLineApplication, template As String) As CommandOption
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption*
+  nameWithType.vb: CommandLineApplicationExtensions.VerboseOption(CommandLineApplication, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication, String)
+  name.vb: VerboseOption(CommandLineApplication, String)
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  id: OnExecuteAsync(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: OnExecuteAsync(CommandLineApplication, Func<CancellationToken, Task>)
+  nameWithType: CommandLineApplicationExtensions.OnExecuteAsync(CommandLineApplication, Func<CancellationToken, Task>)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: OnExecuteAsync
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 103
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Sets an async command execution handler with a return code of <code>0</code>.
+  example: []
+  syntax:
+    content: public static void OnExecuteAsync(this CommandLineApplication app, Func<CancellationToken, Task> action)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: action
+      type: System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task}
+      description: An asynchronous action to invoke when the command is selected..
+    content.vb: Public Shared Sub OnExecuteAsync(app As CommandLineApplication, action As Func(Of CancellationToken, Task))
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync*
+  nameWithType.vb: CommandLineApplicationExtensions.OnExecuteAsync(CommandLineApplication, Func(Of CancellationToken, Task))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func(Of System.Threading.CancellationToken, System.Threading.Tasks.Task))
+  name.vb: OnExecuteAsync(CommandLineApplication, Func(Of CancellationToken, Task))
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action)
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action)
+  id: OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: OnExecute(CommandLineApplication, Action)
+  nameWithType: CommandLineApplicationExtensions.OnExecute(CommandLineApplication, Action)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Action)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: OnExecute
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 115
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Sets the command execution handler with a return code of <code>0</code>.
+  example: []
+  syntax:
+    content: public static void OnExecute(this CommandLineApplication app, Action action)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: action
+      type: System.Action
+      description: An action to invoke when the command is selected.
+    content.vb: Public Shared Sub OnExecute(app As CommandLineApplication, action As Action)
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute*
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.ComponentModel.DataAnnotations.ValidationResult,System.Int32})
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.ComponentModel.DataAnnotations.ValidationResult,System.Int32})
+  id: OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.ComponentModel.DataAnnotations.ValidationResult,System.Int32})
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: OnValidationError(CommandLineApplication, Func<ValidationResult, int>)
+  nameWithType: CommandLineApplicationExtensions.OnValidationError(CommandLineApplication, Func<ValidationResult, int>)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func<System.ComponentModel.DataAnnotations.ValidationResult, int>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: OnValidationError
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 127
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Sets an action to invoke, but only when there is a validation error.
+  example: []
+  syntax:
+    content: public static void OnValidationError(this CommandLineApplication app, Func<ValidationResult, int> action)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: action
+      type: System.Func{System.ComponentModel.DataAnnotations.ValidationResult,System.Int32}
+      description: ''
+    content.vb: Public Shared Sub OnValidationError(app As CommandLineApplication, action As Func(Of ValidationResult, Integer))
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError*
+  nameWithType.vb: CommandLineApplicationExtensions.OnValidationError(CommandLineApplication, Func(Of ValidationResult, Integer))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Func(Of System.ComponentModel.DataAnnotations.ValidationResult, Integer))
+  name.vb: OnValidationError(CommandLineApplication, Func(Of ValidationResult, Integer))
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action{System.ComponentModel.DataAnnotations.ValidationResult})
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action{System.ComponentModel.DataAnnotations.ValidationResult})
+  id: OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action{System.ComponentModel.DataAnnotations.ValidationResult})
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: OnValidationError(CommandLineApplication, Action<ValidationResult>)
+  nameWithType: CommandLineApplicationExtensions.OnValidationError(CommandLineApplication, Action<ValidationResult>)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Action<System.ComponentModel.DataAnnotations.ValidationResult>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: OnValidationError
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 135
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Sets an action to invoke, but only when there is a validation error.
+  example: []
+  syntax:
+    content: public static void OnValidationError(this CommandLineApplication app, Action<ValidationResult> action)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: action
+      type: System.Action{System.ComponentModel.DataAnnotations.ValidationResult}
+      description: ''
+    content.vb: Public Shared Sub OnValidationError(app As CommandLineApplication, action As Action(Of ValidationResult))
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError*
+  nameWithType.vb: CommandLineApplicationExtensions.OnValidationError(CommandLineApplication, Action(Of ValidationResult))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Action(Of System.ComponentModel.DataAnnotations.ValidationResult))
+  name.vb: OnValidationError(CommandLineApplication, Action(Of ValidationResult))
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Reflection.Assembly)
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Reflection.Assembly)
+  id: VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Reflection.Assembly)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: VersionOptionFromAssemblyAttributes(CommandLineApplication, Assembly)
+  nameWithType: CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(CommandLineApplication, Assembly)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.Reflection.Assembly)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: VersionOptionFromAssemblyAttributes
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 155
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: >-
+    Finds <xref href="System.Reflection.AssemblyInformationalVersionAttribute" data-throw-if-not-resolved="false"></xref> on <code class="paramref">assembly</code> and uses that
+
+    to set <xref href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionVersion" data-throw-if-not-resolved="false"></xref>.
+
+    <p>
+
+    Uses the Version that is part of the <xref href="System.Reflection.AssemblyName" data-throw-if-not-resolved="false"></xref> of the specified assembly
+
+    if no <xref href="System.Reflection.AssemblyInformationalVersionAttribute" data-throw-if-not-resolved="false"></xref> is applied.
+
+    </p>
+  example: []
+  syntax:
+    content: public static CommandOption VersionOptionFromAssemblyAttributes(this CommandLineApplication app, Assembly assembly)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: assembly
+      type: System.Reflection.Assembly
+      description: ''
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOption
+    content.vb: Public Shared Function VersionOptionFromAssemblyAttributes(app As CommandLineApplication, assembly As Assembly) As CommandOption
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Either <code class="paramref">app</code> or <code class="paramref">assembly</code> is <code>null</code>.
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.Reflection.Assembly)
+  commentId: M:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.Reflection.Assembly)
+  id: VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.Reflection.Assembly)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+  langs:
+  - csharp
+  - vb
+  name: VersionOptionFromAssemblyAttributes(CommandLineApplication, string, Assembly)
+  nameWithType: CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(CommandLineApplication, string, Assembly)
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication, string, System.Reflection.Assembly)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/CommandLineApplicationExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: VersionOptionFromAssemblyAttributes
+    path: ../src/CommandLineUtils/CommandLineApplicationExtensions.cs
+    startLine: 170
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: >-
+    Finds <xref href="System.Reflection.AssemblyInformationalVersionAttribute" data-throw-if-not-resolved="false"></xref> on <code class="paramref">assembly</code> and uses that
+
+    to set <xref href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionVersion" data-throw-if-not-resolved="false"></xref>.
+
+    <p>
+
+    Uses the Version that is part of the <xref href="System.Reflection.AssemblyName" data-throw-if-not-resolved="false"></xref> of the specified assembly
+
+    if no <xref href="System.Reflection.AssemblyInformationalVersionAttribute" data-throw-if-not-resolved="false"></xref> is applied.
+
+    </p>
+  example: []
+  syntax:
+    content: public static CommandOption VersionOptionFromAssemblyAttributes(this CommandLineApplication app, string template, Assembly assembly)
+    parameters:
+    - id: app
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: template
+      type: System.String
+      description: ''
+    - id: assembly
+      type: System.Reflection.Assembly
+      description: ''
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandOption
+    content.vb: Public Shared Function VersionOptionFromAssemblyAttributes(app As CommandLineApplication, template As String, assembly As Assembly) As CommandOption
+  overload: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Either <code class="paramref">app</code> or <code class="paramref">assembly</code> is <code>null</code>.
+  nameWithType.vb: CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(CommandLineApplication, String, Assembly)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication, String, System.Reflection.Assembly)
+  name.vb: VersionOptionFromAssemblyAttributes(CommandLineApplication, String, Assembly)
+references:
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplication.html
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Argument__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_System_Boolean_
+  name: Argument
+  nameWithType: CommandLineApplicationExtensions.Argument
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument{{T}}
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandArgument{``0}
+  parent: McMaster.Extensions.CommandLineUtils
+  definition: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  href: McMaster.Extensions.CommandLineUtils.CommandArgument-1.html
+  name: CommandArgument<T>
+  nameWithType: CommandArgument<T>
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument<T>
+  nameWithType.vb: CommandArgument(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandArgument(Of T)
+  name.vb: CommandArgument(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    href: McMaster.Extensions.CommandLineUtils.CommandArgument-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    href: McMaster.Extensions.CommandLineUtils.CommandArgument-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandArgument`1
+  href: McMaster.Extensions.CommandLineUtils.CommandArgument-1.html
+  name: CommandArgument<T>
+  nameWithType: CommandArgument<T>
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument<T>
+  nameWithType.vb: CommandArgument(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandArgument(Of T)
+  name.vb: CommandArgument(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    href: McMaster.Extensions.CommandLineUtils.CommandArgument-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument
+    href: McMaster.Extensions.CommandLineUtils.CommandArgument-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_
+  name: Option
+  nameWithType: CommandLineApplicationExtensions.Option
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option
+- uid: McMaster.Extensions.CommandLineUtils.CommandOptionType
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOptionType
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.CommandOptionType.html
+  name: CommandOptionType
+  nameWithType: CommandOptionType
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOptionType
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption{{T}}
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOption{``0}
+  parent: McMaster.Extensions.CommandLineUtils
+  definition: McMaster.Extensions.CommandLineUtils.CommandOption`1
+  href: McMaster.Extensions.CommandLineUtils.CommandOption-1.html
+  name: CommandOption<T>
+  nameWithType: CommandOption<T>
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption<T>
+  nameWithType.vb: CommandOption(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandOption(Of T)
+  name.vb: CommandOption(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption`1
+    name: CommandOption
+    href: McMaster.Extensions.CommandLineUtils.CommandOption-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption`1
+    name: CommandOption
+    href: McMaster.Extensions.CommandLineUtils.CommandOption-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOption`1
+  href: McMaster.Extensions.CommandLineUtils.CommandOption-1.html
+  name: CommandOption<T>
+  nameWithType: CommandOption<T>
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption<T>
+  nameWithType.vb: CommandOption(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandOption(Of T)
+  name.vb: CommandOption(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption`1
+    name: CommandOption
+    href: McMaster.Extensions.CommandLineUtils.CommandOption-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption`1
+    name: CommandOption
+    href: McMaster.Extensions.CommandLineUtils.CommandOption-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action{McMaster.Extensions.CommandLineUtils.CommandOption{{T}}}
+  commentId: T:System.Action{McMaster.Extensions.CommandLineUtils.CommandOption{``0}}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<CommandOption<T>>
+  nameWithType: Action<CommandOption<T>>
+  fullName: System.Action<McMaster.Extensions.CommandLineUtils.CommandOption<T>>
+  nameWithType.vb: Action(Of CommandOption(Of T))
+  fullName.vb: System.Action(Of McMaster.Extensions.CommandLineUtils.CommandOption(Of T))
+  name.vb: Action(Of CommandOption(Of T))
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption`1
+    name: CommandOption
+    href: McMaster.Extensions.CommandLineUtils.CommandOption-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption`1
+    name: CommandOption
+    href: McMaster.Extensions.CommandLineUtils.CommandOption-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_
+  name: HelpOption
+  nameWithType: CommandLineApplicationExtensions.HelpOption
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOption
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.CommandOption.html
+  name: CommandOption
+  nameWithType: CommandOption
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VerboseOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_
+  name: VerboseOption
+  nameWithType: CommandLineApplicationExtensions.VerboseOption
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecuteAsync_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_Threading_CancellationToken_System_Threading_Tasks_Task__
+  name: OnExecuteAsync
+  nameWithType: CommandLineApplicationExtensions.OnExecuteAsync
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync
+- uid: System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task}
+  commentId: T:System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<CancellationToken, Task>
+  nameWithType: Func<CancellationToken, Task>
+  fullName: System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of CancellationToken, Task)
+  fullName.vb: System.Func(Of System.Threading.CancellationToken, System.Threading.Tasks.Task)
+  name.vb: Func(Of CancellationToken, Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Action_
+  name: OnExecute
+  nameWithType: CommandLineApplicationExtensions.OnExecute
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_ComponentModel_DataAnnotations_ValidationResult_System_Int32__
+  name: OnValidationError
+  nameWithType: CommandLineApplicationExtensions.OnValidationError
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError
+- uid: System.Func{System.ComponentModel.DataAnnotations.ValidationResult,System.Int32}
+  commentId: T:System.Func{System.ComponentModel.DataAnnotations.ValidationResult,System.Int32}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<ValidationResult, int>
+  nameWithType: Func<ValidationResult, int>
+  fullName: System.Func<System.ComponentModel.DataAnnotations.ValidationResult, int>
+  nameWithType.vb: Func(Of ValidationResult, Integer)
+  fullName.vb: System.Func(Of System.ComponentModel.DataAnnotations.ValidationResult, Integer)
+  name.vb: Func(Of ValidationResult, Integer)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.ComponentModel.DataAnnotations.ValidationResult
+    name: ValidationResult
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.ComponentModel.DataAnnotations.ValidationResult
+    name: ValidationResult
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Action{System.ComponentModel.DataAnnotations.ValidationResult}
+  commentId: T:System.Action{System.ComponentModel.DataAnnotations.ValidationResult}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<ValidationResult>
+  nameWithType: Action<ValidationResult>
+  fullName: System.Action<System.ComponentModel.DataAnnotations.ValidationResult>
+  nameWithType.vb: Action(Of ValidationResult)
+  fullName.vb: System.Action(Of System.ComponentModel.DataAnnotations.ValidationResult)
+  name.vb: Action(Of ValidationResult)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.ComponentModel.DataAnnotations.ValidationResult
+    name: ValidationResult
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.ComponentModel.DataAnnotations.ValidationResult
+    name: ValidationResult
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult
+  - name: )
+- uid: System.Reflection.AssemblyInformationalVersionAttribute
+  commentId: T:System.Reflection.AssemblyInformationalVersionAttribute
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assemblyinformationalversionattribute
+  name: AssemblyInformationalVersionAttribute
+  nameWithType: AssemblyInformationalVersionAttribute
+  fullName: System.Reflection.AssemblyInformationalVersionAttribute
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionVersion
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionVersion
+  parent: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OptionVersion
+  name: OptionVersion
+  nameWithType: CommandLineApplication.OptionVersion
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication.OptionVersion
+- uid: System.Reflection.AssemblyName
+  commentId: T:System.Reflection.AssemblyName
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname
+  name: AssemblyName
+  nameWithType: AssemblyName
+  fullName: System.Reflection.AssemblyName
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.html#McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Reflection_Assembly_
+  name: VersionOptionFromAssemblyAttributes
+  nameWithType: CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes
+- uid: System.Reflection.Assembly
+  commentId: T:System.Reflection.Assembly
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  name: Assembly
+  nameWithType: Assembly
+  fullName: System.Reflection.Assembly
+- uid: System.Reflection
+  commentId: N:System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Reflection
+  nameWithType: System.Reflection
+  fullName: System.Reflection
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection

@@ -1,0 +1,392 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Extensions.Hosting.HostExtensions
+  commentId: T:Microsoft.Extensions.Hosting.HostExtensions
+  id: HostExtensions
+  parent: Microsoft.Extensions.Hosting
+  children:
+  - Microsoft.Extensions.Hosting.HostExtensions.RunCommandLineApplicationAsync(Microsoft.Extensions.Hosting.IHost,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: HostExtensions
+  nameWithType: HostExtensions
+  fullName: Microsoft.Extensions.Hosting.HostExtensions
+  type: Class
+  source:
+    remote:
+      path: src/Hosting.CommandLine/HostExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: HostExtensions
+    path: ../src/Hosting.CommandLine/HostExtensions.cs
+    startLine: 16
+  assemblies:
+  - McMaster.Extensions.Hosting.CommandLine
+  namespace: Microsoft.Extensions.Hosting
+  summary: Extension methods for <xref href="Microsoft.Extensions.Hosting.IHost" data-throw-if-not-resolved="false"></xref> support.
+  example: []
+  syntax:
+    content: public static class HostExtensions
+    content.vb: Public Module HostExtensions
+  inheritance:
+  - System.Object
+- uid: Microsoft.Extensions.Hosting.HostExtensions.RunCommandLineApplicationAsync(Microsoft.Extensions.Hosting.IHost,System.Threading.CancellationToken)
+  commentId: M:Microsoft.Extensions.Hosting.HostExtensions.RunCommandLineApplicationAsync(Microsoft.Extensions.Hosting.IHost,System.Threading.CancellationToken)
+  id: RunCommandLineApplicationAsync(Microsoft.Extensions.Hosting.IHost,System.Threading.CancellationToken)
+  isExtensionMethod: true
+  parent: Microsoft.Extensions.Hosting.HostExtensions
+  langs:
+  - csharp
+  - vb
+  name: RunCommandLineApplicationAsync(IHost, CancellationToken)
+  nameWithType: HostExtensions.RunCommandLineApplicationAsync(IHost, CancellationToken)
+  fullName: Microsoft.Extensions.Hosting.HostExtensions.RunCommandLineApplicationAsync(Microsoft.Extensions.Hosting.IHost, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Hosting.CommandLine/HostExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: RunCommandLineApplicationAsync
+    path: ../src/Hosting.CommandLine/HostExtensions.cs
+    startLine: 24
+  assemblies:
+  - McMaster.Extensions.Hosting.CommandLine
+  namespace: Microsoft.Extensions.Hosting
+  summary: >-
+    Runs the app using the <xref href="McMaster.Extensions.CommandLineUtils.CommandLineApplication" data-throw-if-not-resolved="false"></xref> previously configured in
+
+    <xref href="Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCommandLineApplication%60%601(Microsoft.Extensions.Hosting.IHostBuilder%2cSystem.String%5b%5d%2cSystem.Action%7bMcMaster.Extensions.CommandLineUtils.CommandLineApplication%7b%60%600%7d%7d)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task<int> RunCommandLineApplicationAsync(this IHost host, CancellationToken cancellationToken = default)
+    parameters:
+    - id: host
+      type: Microsoft.Extensions.Hosting.IHost
+      description: A program abstraction.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Propagates notification that operations should be canceled.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Public Shared Function RunCommandLineApplicationAsync(host As IHost, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: Microsoft.Extensions.Hosting.HostExtensions.RunCommandLineApplicationAsync*
+references:
+- uid: Microsoft.Extensions.Hosting.IHost
+  commentId: T:Microsoft.Extensions.Hosting.IHost
+  parent: Microsoft.Extensions.Hosting
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihost
+  name: IHost
+  nameWithType: IHost
+  fullName: Microsoft.Extensions.Hosting.IHost
+- uid: Microsoft.Extensions.Hosting
+  commentId: N:Microsoft.Extensions.Hosting
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Hosting
+  nameWithType: Microsoft.Extensions.Hosting
+  fullName: Microsoft.Extensions.Hosting
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Hosting
+    name: Hosting
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Hosting
+    name: Hosting
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplication.html
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+- uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCommandLineApplication``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[],System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication{``0}})
+  commentId: M:Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCommandLineApplication``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[],System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication{``0}})
+  isExternal: true
+  href: Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_UseCommandLineApplication__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication___0___
+  name: UseCommandLineApplication<TApp>(IHostBuilder, string[], Action<CommandLineApplication<TApp>>)
+  nameWithType: HostBuilderExtensions.UseCommandLineApplication<TApp>(IHostBuilder, string[], Action<CommandLineApplication<TApp>>)
+  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCommandLineApplication<TApp>(Microsoft.Extensions.Hosting.IHostBuilder, string[], System.Action<McMaster.Extensions.CommandLineUtils.CommandLineApplication<TApp>>)
+  nameWithType.vb: HostBuilderExtensions.UseCommandLineApplication(Of TApp)(IHostBuilder, String(), Action(Of CommandLineApplication(Of TApp)))
+  fullName.vb: Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCommandLineApplication(Of TApp)(Microsoft.Extensions.Hosting.IHostBuilder, String(), System.Action(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TApp)))
+  name.vb: UseCommandLineApplication(Of TApp)(IHostBuilder, String(), Action(Of CommandLineApplication(Of TApp)))
+  spec.csharp:
+  - uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCommandLineApplication``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[],System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication{``0}})
+    name: UseCommandLineApplication
+    href: Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_UseCommandLineApplication__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication___0___
+  - name: <
+  - name: TApp
+  - name: '>'
+  - name: (
+  - uid: Microsoft.Extensions.Hosting.IHostBuilder
+    name: IHostBuilder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1
+    name: CommandLineApplication
+  - name: <
+  - name: TApp
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Extensions.Hosting.HostBuilderExtensions.UseCommandLineApplication``1(Microsoft.Extensions.Hosting.IHostBuilder,System.String[],System.Action{McMaster.Extensions.CommandLineUtils.CommandLineApplication{``0}})
+    name: UseCommandLineApplication
+    href: Microsoft.Extensions.Hosting.HostBuilderExtensions.html#Microsoft_Extensions_Hosting_HostBuilderExtensions_UseCommandLineApplication__1_Microsoft_Extensions_Hosting_IHostBuilder_System_String___System_Action_McMaster_Extensions_CommandLineUtils_CommandLineApplication___0___
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TApp
+  - name: )
+  - name: (
+  - uid: Microsoft.Extensions.Hosting.IHostBuilder
+    name: IHostBuilder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostbuilder
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1
+    name: CommandLineApplication
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TApp
+  - name: )
+  - name: )
+  - name: )
+- uid: Microsoft.Extensions.Hosting.HostExtensions.RunCommandLineApplicationAsync*
+  commentId: Overload:Microsoft.Extensions.Hosting.HostExtensions.RunCommandLineApplicationAsync
+  href: Microsoft.Extensions.Hosting.HostExtensions.html#Microsoft_Extensions_Hosting_HostExtensions_RunCommandLineApplicationAsync_Microsoft_Extensions_Hosting_IHost_System_Threading_CancellationToken_
+  name: RunCommandLineApplicationAsync
+  nameWithType: HostExtensions.RunCommandLineApplicationAsync
+  fullName: Microsoft.Extensions.Hosting.HostExtensions.RunCommandLineApplicationAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

@@ -1,0 +1,297 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  id: CommandLineContext
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+  - McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+  - McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+  langs:
+  - csharp
+  - vb
+  name: CommandLineContext
+  nameWithType: CommandLineContext
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: CommandLineContext
+    path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: Contains information about the execution context of the command-line application.
+  example: []
+  syntax:
+    content: public abstract class CommandLineContext
+    content.vb: Public MustInherit Class CommandLineContext
+  inheritance:
+  - System.Object
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+  id: Arguments
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  langs:
+  - csharp
+  - vb
+  name: Arguments
+  nameWithType: CommandLineContext.Arguments
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Arguments
+    path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs
+    startLine: 23
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: The arguments as provided in Program.Main.
+  remarks: Cannot be null.
+  example: []
+  syntax:
+    content: public string[] Arguments { get; protected set; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public Property Arguments As String()
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments*
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+  id: WorkingDirectory
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  langs:
+  - csharp
+  - vb
+  name: WorkingDirectory
+  nameWithType: CommandLineContext.WorkingDirectory
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WorkingDirectory
+    path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs
+    startLine: 35
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: The current working directory. Defaults to <xref href="System.IO.Directory.GetCurrentDirectory" data-throw-if-not-resolved="false"></xref>
+  remarks: Cannot be null, and must be an absolute file path.
+  example: []
+  syntax:
+    content: public string WorkingDirectory { get; protected set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WorkingDirectory As String
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory*
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+  id: Console
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  langs:
+  - csharp
+  - vb
+  name: Console
+  nameWithType: CommandLineContext.Console
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/CommandLineContext.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Console
+    path: ../src/CommandLineUtils/Abstractions/CommandLineContext.cs
+    startLine: 60
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: The console.
+  remarks: Cannot be null.
+  example: []
+  syntax:
+    content: public IConsole Console { get; protected set; }
+    parameters: []
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+    content.vb: Public Property Console As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console*
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions
+    name: Abstractions
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions
+    name: Abstractions
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.html#McMaster_Extensions_CommandLineUtils_Abstractions_CommandLineContext_Arguments
+  name: Arguments
+  nameWithType: CommandLineContext.Arguments
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Arguments
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: System.IO.Directory.GetCurrentDirectory
+  commentId: M:System.IO.Directory.GetCurrentDirectory
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.directory.getcurrentdirectory
+  name: GetCurrentDirectory()
+  nameWithType: Directory.GetCurrentDirectory()
+  fullName: System.IO.Directory.GetCurrentDirectory()
+  spec.csharp:
+  - uid: System.IO.Directory.GetCurrentDirectory
+    name: GetCurrentDirectory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.directory.getcurrentdirectory
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IO.Directory.GetCurrentDirectory
+    name: GetCurrentDirectory
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.directory.getcurrentdirectory
+  - name: (
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.html#McMaster_Extensions_CommandLineUtils_Abstractions_CommandLineContext_WorkingDirectory
+  name: WorkingDirectory
+  nameWithType: CommandLineContext.WorkingDirectory
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.WorkingDirectory
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.html#McMaster_Extensions_CommandLineUtils_Abstractions_CommandLineContext_Console
+  name: Console
+  nameWithType: CommandLineContext.Console
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.Console
+- uid: McMaster.Extensions.CommandLineUtils.IConsole
+  commentId: T:McMaster.Extensions.CommandLineUtils.IConsole
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.IConsole.html
+  name: IConsole
+  nameWithType: IConsole
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html

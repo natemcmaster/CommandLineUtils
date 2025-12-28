@@ -1,0 +1,240 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.ArgumentEscaper
+  commentId: T:McMaster.Extensions.CommandLineUtils.ArgumentEscaper
+  id: ArgumentEscaper
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable{System.String})
+  langs:
+  - csharp
+  - vb
+  name: ArgumentEscaper
+  nameWithType: ArgumentEscaper
+  fullName: McMaster.Extensions.CommandLineUtils.ArgumentEscaper
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/ArgumentEscaper.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ArgumentEscaper
+    path: ../src/CommandLineUtils/Utilities/ArgumentEscaper.cs
+    startLine: 14
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: A utility for escaping arguments for new processes.
+  example: []
+  syntax:
+    content: public static class ArgumentEscaper
+    content.vb: Public Module ArgumentEscaper
+  inheritance:
+  - System.Object
+- uid: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable{System.String})
+  id: EscapeAndConcatenate(System.Collections.Generic.IEnumerable{System.String})
+  parent: McMaster.Extensions.CommandLineUtils.ArgumentEscaper
+  langs:
+  - csharp
+  - vb
+  name: EscapeAndConcatenate(IEnumerable<string>)
+  nameWithType: ArgumentEscaper.EscapeAndConcatenate(IEnumerable<string>)
+  fullName: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/ArgumentEscaper.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: EscapeAndConcatenate
+    path: ../src/CommandLineUtils/Utilities/ArgumentEscaper.cs
+    startLine: 25
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: >-
+    Undo the processing which took place to create string[] args in Main, so that the next process will
+
+    receive the same string[] args.
+  remarks: See https://blogs.msdn.microsoft.com/twistylittlepassagesallalike/2011/04/23/everyone-quotes-command-line-arguments-the-wrong-way/
+  example: []
+  syntax:
+    content: public static string EscapeAndConcatenate(IEnumerable<string> args)
+    parameters:
+    - id: args
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The arguments
+    return:
+      type: System.String
+      description: A single string of escaped arguments
+    content.vb: Public Shared Function EscapeAndConcatenate(args As IEnumerable(Of String)) As String
+  overload: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate*
+  nameWithType.vb: ArgumentEscaper.EscapeAndConcatenate(IEnumerable(Of String))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: EscapeAndConcatenate(IEnumerable(Of String))
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate
+  href: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.html#McMaster_Extensions_CommandLineUtils_ArgumentEscaper_EscapeAndConcatenate_System_Collections_Generic_IEnumerable_System_String__
+  name: EscapeAndConcatenate
+  nameWithType: ArgumentEscaper.EscapeAndConcatenate
+  fullName: McMaster.Extensions.CommandLineUtils.ArgumentEscaper.EscapeAndConcatenate
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

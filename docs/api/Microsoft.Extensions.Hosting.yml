@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Extensions.Hosting
+  commentId: N:Microsoft.Extensions.Hosting
+  id: Microsoft.Extensions.Hosting
+  children:
+  - Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+  - Microsoft.Extensions.Hosting.HostBuilderExtensions
+  - Microsoft.Extensions.Hosting.HostExtensions
+  langs:
+  - csharp
+  - vb
+  name: Microsoft.Extensions.Hosting
+  nameWithType: Microsoft.Extensions.Hosting
+  fullName: Microsoft.Extensions.Hosting
+  type: Namespace
+  assemblies:
+  - McMaster.Extensions.Hosting.CommandLine
+references:
+- uid: Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+  commentId: T:Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+  href: Microsoft.Extensions.Hosting.HostBuilderContextExtensions.html
+  name: HostBuilderContextExtensions
+  nameWithType: HostBuilderContextExtensions
+  fullName: Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+- uid: Microsoft.Extensions.Hosting.HostBuilderExtensions
+  commentId: T:Microsoft.Extensions.Hosting.HostBuilderExtensions
+  href: Microsoft.Extensions.Hosting.HostBuilderExtensions.html
+  name: HostBuilderExtensions
+  nameWithType: HostBuilderExtensions
+  fullName: Microsoft.Extensions.Hosting.HostBuilderExtensions
+- uid: Microsoft.Extensions.Hosting.HostExtensions
+  commentId: T:Microsoft.Extensions.Hosting.HostExtensions
+  href: Microsoft.Extensions.Hosting.HostExtensions.html
+  name: HostExtensions
+  nameWithType: HostExtensions
+  fullName: Microsoft.Extensions.Hosting.HostExtensions

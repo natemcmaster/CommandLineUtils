@@ -1,0 +1,490 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Prompt
+  commentId: T:McMaster.Extensions.CommandLineUtils.Prompt
+  id: Prompt
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  - McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  - McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  - McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  - McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  langs:
+  - csharp
+  - vb
+  name: Prompt
+  nameWithType: Prompt
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Prompt
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 13
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Utilities for getting input from an interactive console.
+  example: []
+  syntax:
+    content: public static class Prompt
+    content.vb: Public Module Prompt
+  inheritance:
+  - System.Object
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(System.String,System.Boolean,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: GetYesNo(System.String,System.Boolean,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  parent: McMaster.Extensions.CommandLineUtils.Prompt
+  langs:
+  - csharp
+  - vb
+  name: GetYesNo(string, bool, ConsoleColor?, ConsoleColor?)
+  nameWithType: Prompt.GetYesNo(string, bool, ConsoleColor?, ConsoleColor?)
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(string, bool, System.ConsoleColor?, System.ConsoleColor?)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetYesNo
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 28
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: >-
+    Gets a yes/no response from the console after displaying a <code class="paramref">prompt</code>.
+
+    <p>
+
+    The parsing is case insensitive. Valid responses include: yes, no, y, n.
+
+    </p>
+  example: []
+  syntax:
+    content: public static bool GetYesNo(string prompt, bool defaultAnswer, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+    parameters:
+    - id: prompt
+      type: System.String
+      description: The question to display on the command line
+    - id: defaultAnswer
+      type: System.Boolean
+      description: If the user provides an empty response, which value should be returned
+    - id: promptColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console color to display
+    - id: promptBgColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console background color for the prompt
+    return:
+      type: System.Boolean
+      description: True is 'yes'
+    content.vb: Public Shared Function GetYesNo(prompt As String, defaultAnswer As Boolean, promptColor As ConsoleColor? = Nothing, promptBgColor As ConsoleColor? = Nothing) As Boolean
+  overload: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo*
+  nameWithType.vb: Prompt.GetYesNo(String, Boolean, ConsoleColor?, ConsoleColor?)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo(String, Boolean, System.ConsoleColor?, System.ConsoleColor?)
+  name.vb: GetYesNo(String, Boolean, ConsoleColor?, ConsoleColor?)
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetString(System.String,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: GetString(System.String,System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  parent: McMaster.Extensions.CommandLineUtils.Prompt
+  langs:
+  - csharp
+  - vb
+  name: GetString(string, string?, ConsoleColor?, ConsoleColor?)
+  nameWithType: Prompt.GetString(string, string?, ConsoleColor?, ConsoleColor?)
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetString(string, string?, System.ConsoleColor?, System.ConsoleColor?)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetString
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 71
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Gets a console response from the console after displaying a <code class="paramref">prompt</code>.
+  example: []
+  syntax:
+    content: public static string? GetString(string prompt, string? defaultValue = null, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+    parameters:
+    - id: prompt
+      type: System.String
+      description: The question to display on command line
+    - id: defaultValue
+      type: System.String
+      description: If the user enters a blank response, return this value instead.
+    - id: promptColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console color to use for the prompt
+    - id: promptBgColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console background color for the prompt
+    return:
+      type: System.String
+      description: The response the user gave. Can be null or empty
+    content.vb: Public Shared Function GetString(prompt As String, defaultValue As String = Nothing, promptColor As ConsoleColor? = Nothing, promptBgColor As ConsoleColor? = Nothing) As String
+  overload: McMaster.Extensions.CommandLineUtils.Prompt.GetString*
+  nameWithType.vb: Prompt.GetString(String, String, ConsoleColor?, ConsoleColor?)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetString(String, String, System.ConsoleColor?, System.ConsoleColor?)
+  name.vb: GetString(String, String, ConsoleColor?, ConsoleColor?)
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: GetPassword(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  parent: McMaster.Extensions.CommandLineUtils.Prompt
+  langs:
+  - csharp
+  - vb
+  name: GetPassword(string, ConsoleColor?, ConsoleColor?)
+  nameWithType: Prompt.GetPassword(string, ConsoleColor?, ConsoleColor?)
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(string, System.ConsoleColor?, System.ConsoleColor?)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetPassword
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 99
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Gets a response that contains a password. Input is masked with an asterisk.
+  example: []
+  syntax:
+    content: public static string GetPassword(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+    parameters:
+    - id: prompt
+      type: System.String
+      description: The question to display on command line
+    - id: promptColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console color to use for the prompt
+    - id: promptBgColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console background color for the prompt
+    return:
+      type: System.String
+      description: The password as plaintext. Can be null or empty.
+    content.vb: Public Shared Function GetPassword(prompt As String, promptColor As ConsoleColor? = Nothing, promptBgColor As ConsoleColor? = Nothing) As String
+  overload: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword*
+  nameWithType.vb: Prompt.GetPassword(String, ConsoleColor?, ConsoleColor?)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword(String, System.ConsoleColor?, System.ConsoleColor?)
+  name.vb: GetPassword(String, ConsoleColor?, ConsoleColor?)
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: GetPasswordAsSecureString(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  parent: McMaster.Extensions.CommandLineUtils.Prompt
+  langs:
+  - csharp
+  - vb
+  name: GetPasswordAsSecureString(string, ConsoleColor?, ConsoleColor?)
+  nameWithType: Prompt.GetPasswordAsSecureString(string, ConsoleColor?, ConsoleColor?)
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(string, System.ConsoleColor?, System.ConsoleColor?)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetPasswordAsSecureString
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 126
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Gets a response as a SecureString object. Input is masked with an asterisk.
+  example: []
+  syntax:
+    content: public static SecureString GetPasswordAsSecureString(string prompt, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+    parameters:
+    - id: prompt
+      type: System.String
+      description: The question to display on the command line
+    - id: promptColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console color to use for the prompt
+    - id: promptBgColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console background color for the prompt
+    return:
+      type: System.Security.SecureString
+      description: A finalized SecureString object, may be empty.
+    content.vb: Public Shared Function GetPasswordAsSecureString(prompt As String, promptColor As ConsoleColor? = Nothing, promptBgColor As ConsoleColor? = Nothing) As SecureString
+  overload: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString*
+  nameWithType.vb: Prompt.GetPasswordAsSecureString(String, ConsoleColor?, ConsoleColor?)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString(String, System.ConsoleColor?, System.ConsoleColor?)
+  name.vb: GetPasswordAsSecureString(String, ConsoleColor?, ConsoleColor?)
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:McMaster.Extensions.CommandLineUtils.Prompt.GetInt(System.String,System.Nullable{System.Int32},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: GetInt(System.String,System.Nullable{System.Int32},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  parent: McMaster.Extensions.CommandLineUtils.Prompt
+  langs:
+  - csharp
+  - vb
+  name: GetInt(string, int?, ConsoleColor?, ConsoleColor?)
+  nameWithType: Prompt.GetInt(string, int?, ConsoleColor?, ConsoleColor?)
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(string, int?, System.ConsoleColor?, System.ConsoleColor?)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/Prompt.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetInt
+    path: ../src/CommandLineUtils/Utilities/Prompt.cs
+    startLine: 216
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Gets an integer response from the console after displaying a <code class="paramref">prompt</code>.
+  example: []
+  syntax:
+    content: public static int GetInt(string prompt, int? defaultAnswer = null, ConsoleColor? promptColor = null, ConsoleColor? promptBgColor = null)
+    parameters:
+    - id: prompt
+      type: System.String
+      description: The question to display on the command line
+    - id: defaultAnswer
+      type: System.Nullable{System.Int32}
+      description: If the user provides an empty response, which value should be returned
+    - id: promptColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console color to display
+    - id: promptBgColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The console background color for the prompt
+    return:
+      type: System.Int32
+      description: The response as a number
+    content.vb: Public Shared Function GetInt(prompt As String, defaultAnswer As Integer? = Nothing, promptColor As ConsoleColor? = Nothing, promptBgColor As ConsoleColor? = Nothing) As Integer
+  overload: McMaster.Extensions.CommandLineUtils.Prompt.GetInt*
+  nameWithType.vb: Prompt.GetInt(String, Integer?, ConsoleColor?, ConsoleColor?)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Prompt.GetInt(String, Integer?, System.ConsoleColor?, System.ConsoleColor?)
+  name.vb: GetInt(String, Integer?, ConsoleColor?, ConsoleColor?)
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo
+  href: McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetYesNo_System_String_System_Boolean_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  name: GetYesNo
+  nameWithType: Prompt.GetYesNo
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetYesNo
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Nullable{System.ConsoleColor}
+  commentId: T:System.Nullable{System.ConsoleColor}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.consolecolor
+  name: ConsoleColor?
+  nameWithType: ConsoleColor?
+  fullName: System.ConsoleColor?
+  spec.csharp:
+  - uid: System.ConsoleColor
+    name: ConsoleColor
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.consolecolor
+  - name: '?'
+  spec.vb:
+  - uid: System.ConsoleColor
+    name: ConsoleColor
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.consolecolor
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetString*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetString
+  href: McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetString_System_String_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  name: GetString
+  nameWithType: Prompt.GetString
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetString
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetPassword
+  href: McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetPassword_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  name: GetPassword
+  nameWithType: Prompt.GetPassword
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPassword
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString
+  href: McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetPasswordAsSecureString_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  name: GetPasswordAsSecureString
+  nameWithType: Prompt.GetPasswordAsSecureString
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetPasswordAsSecureString
+- uid: System.Security.SecureString
+  commentId: T:System.Security.SecureString
+  parent: System.Security
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.security.securestring
+  name: SecureString
+  nameWithType: SecureString
+  fullName: System.Security.SecureString
+- uid: System.Security
+  commentId: N:System.Security
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Security
+  nameWithType: System.Security
+  fullName: System.Security
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Security
+    name: Security
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.security
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Security
+    name: Security
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.security
+- uid: McMaster.Extensions.CommandLineUtils.Prompt.GetInt*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Prompt.GetInt
+  href: McMaster.Extensions.CommandLineUtils.Prompt.html#McMaster_Extensions_CommandLineUtils_Prompt_GetInt_System_String_System_Nullable_System_Int32__System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  name: GetInt
+  nameWithType: Prompt.GetInt
+  fullName: McMaster.Extensions.CommandLineUtils.Prompt.GetInt
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
