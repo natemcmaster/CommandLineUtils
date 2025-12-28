@@ -58,7 +58,11 @@ jobs:
   release:
     if: ${{ github.event.inputs.release }}
     needs: build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write      # for creating GitHub releases
+      id-token: write      # for NuGet trusted publishing (OIDC)
+      packages: write      # for GitHub Package Registry
     env:
       PACKAGE_VERSION: ${{ needs.build.outputs.package_version }}
     steps:
@@ -74,9 +78,13 @@ jobs:
       - name: Configure GitHub NuGet registry
         run: nuget sources add -name github -source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -username ${{ github.repository_owner }} -password ${{ secrets.GITHUB_TOKEN }}
       - name: Push to GitHub package registry
-        run: nuget push packages\*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source github -SkipDuplicate
+        run: nuget push packages/*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source github -SkipDuplicate
+      - name: NuGet login (trusted publishing)
+        uses: nuget/login@v1
+        with:
+          user: natemcmaster
       - name: Push to NuGet.org
-        run: nuget push packages\*.nupkg -ApiKey ${{ secrets.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push packages/*.nupkg --api-key ${{ env.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         env:
