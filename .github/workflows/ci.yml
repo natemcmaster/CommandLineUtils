@@ -76,11 +76,12 @@ jobs:
       - name: Push to GitHub package registry
         run: dotnet nuget push packages/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source github --skip-duplicate
       - name: NuGet login (trusted publishing)
+        id: nuget-login
         uses: nuget/login@v1
         with:
           user: natemcmaster
       - name: Push to NuGet.org
-        run: dotnet nuget push packages/*.nupkg --api-key ${{ env.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push packages/*.nupkg --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         env:
