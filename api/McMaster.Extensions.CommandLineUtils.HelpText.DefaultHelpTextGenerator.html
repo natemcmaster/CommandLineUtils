@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DefaultHelpTextGenerator </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DefaultHelpTextGenerator ">
+      
+      <meta name="description" content="A default implementation of help text generation.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/natemcmaster/CommandLineUtils/new/main/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="CommandLineUtils">
+            CommandLineUtils
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator">
+
+
+
+  <h1 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator" class="text-break">
+Class DefaultHelpTextGenerator  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="McMaster.html">McMaster</a>.<a class="xref" href="McMaster.Extensions.html">Extensions</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.html">CommandLineUtils</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.HelpText.html">HelpText</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>McMaster.Extensions.CommandLineUtils.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A default implementation of help text generation.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DefaultHelpTextGenerator : IHelpTextGenerator</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">DefaultHelpTextGenerator</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html">IHelpTextGenerator</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.#ctor*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator__ctor" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.#ctor">
+  DefaultHelpTextGenerator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html">DefaultHelpTextGenerator</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DefaultHelpTextGenerator()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_ColumnSeparatorLength" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.ColumnSeparatorLength">
+  ColumnSeparatorLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of spaces between columns.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const int ColumnSeparatorLength = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_IndentWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_IndentWriter" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter">
+  IndentWriter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The hanging indent writer used for formatting indented and wrapped
+descriptions for options and arguments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected HangingIndentWriter? IndentWriter { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.html">HangingIndentWriter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_MaxLineLength_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_MaxLineLength" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength">
+  MaxLineLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override the console width disregarding any value from the executing environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? MaxLineLength { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Singleton_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Singleton" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton">
+  Singleton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A singleton instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html">DefaultHelpTextGenerator</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DefaultHelpTextGenerator Singleton { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html">DefaultHelpTextGenerator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_SortCommandsByName_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_SortCommandsByName" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName">
+  SortCommandsByName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if commands are ordered by name in generated help text</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SortCommandsByName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Format_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Format_McMaster_Extensions_CommandLineUtils_CommandOption_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format(McMaster.Extensions.CommandLineUtils.CommandOption)">
+  Format(CommandOption)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L347"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates the template string in the format &quot;-{Symbol}|-{Short}|--{Long} &lt;{Value}&gt;&quot; for display in help text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string Format(CommandOption option)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The template string</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Generate_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)">
+  Generate(CommandLineApplication, TextWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate help text for the application.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Generate(CommandLineApplication application, TextWriter output)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>application</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateArguments_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateArguments_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Int32_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Int32)">
+  GenerateArguments(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandArgument&gt;, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate the lines that show information about arguments</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void GenerateArguments(CommandLineApplication application, TextWriter output, IReadOnlyList&lt;CommandArgument&gt; visibleArguments, int firstColumnWidth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>application</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd><p>The app</p>
+</dd>
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd><p>Help text output</p>
+</dd>
+    <dt><code>visibleArguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a>&gt;</dt>
+    <dd><p>Arguments not hidden from help text</p>
+</dd>
+    <dt><code>firstColumnWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width of the first column of commands, arguments, and options</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateBody_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateBody_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)">
+  GenerateBody(CommandLineApplication, TextWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate detailed help information</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void GenerateBody(CommandLineApplication application, TextWriter output)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>application</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd><p>The application</p>
+</dd>
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd><p>Help text output</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateCommands_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateCommands_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Int32_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Int32)">
+  GenerateCommands(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandLineApplication&gt;, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L295"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate the lines that show information about subcommands</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void GenerateCommands(CommandLineApplication application, TextWriter output, IReadOnlyList&lt;CommandLineApplication&gt; visibleCommands, int firstColumnWidth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>application</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd><p>The app</p>
+</dd>
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd><p>Help text output</p>
+</dd>
+    <dt><code>visibleCommands</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>&gt;</dt>
+    <dd><p>Commands not hidden from help text</p>
+</dd>
+    <dt><code>firstColumnWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width of the first column of commands, arguments, and options</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateFooter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateFooter_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)">
+  GenerateFooter(CommandLineApplication, TextWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L335"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate the last lines of help text output</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void GenerateFooter(CommandLineApplication application, TextWriter output)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>application</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd><p>The app</p>
+</dd>
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd><p>Help text output</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateHeader_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateHeader_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)">
+  GenerateHeader(CommandLineApplication, TextWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate the first few lines of help output text</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void GenerateHeader(CommandLineApplication application, TextWriter output)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>application</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd><p>The app</p>
+</dd>
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd><p>Help text output</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateOptions_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateOptions_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Int32_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Int32)">
+  GenerateOptions(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandOption&gt;, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate the lines that show information about options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void GenerateOptions(CommandLineApplication application, TextWriter output, IReadOnlyList&lt;CommandOption&gt; visibleOptions, int firstColumnWidth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>application</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd><p>The app</p>
+</dd>
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd><p>Help text output</p>
+</dd>
+    <dt><code>visibleOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a>&gt;</dt>
+    <dd><p>Options not hidden from help text</p>
+</dd>
+    <dt><code>firstColumnWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width of the first column of commands, arguments, and options</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateUsage_" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateUsage_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__" data-uid="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication})">
+  GenerateUsage(CommandLineApplication, TextWriter, IReadOnlyList&lt;CommandArgument&gt;, IReadOnlyList&lt;CommandOption&gt;, IReadOnlyList&lt;CommandLineApplication&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generate the line that shows usage</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void GenerateUsage(CommandLineApplication application, TextWriter output, IReadOnlyList&lt;CommandArgument&gt; visibleArguments, IReadOnlyList&lt;CommandOption&gt; visibleOptions, IReadOnlyList&lt;CommandLineApplication&gt; visibleCommands)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>application</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd><p>The app</p>
+</dd>
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd><p>Help text output</p>
+</dd>
+    <dt><code>visibleArguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a>&gt;</dt>
+    <dd><p>Arguments not hidden from help text</p>
+</dd>
+    <dt><code>visibleOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a>&gt;</dt>
+    <dd><p>Options not hidden from help text</p>
+</dd>
+    <dt><code>visibleCommands</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>&gt;</dt>
+    <dd><p>Commands not hidden from help text</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs/#L16" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

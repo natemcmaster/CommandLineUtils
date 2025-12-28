@@ -1,81 +1,90 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Options </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Options ">
-    <meta name="generator" content="docfx 2.56.6.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <title>Options </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Options ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/natemcmaster/CommandLineUtils/blob/main/docs/docs/options.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" height="55" src="../logo.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="CommandLineUtils">
+            CommandLineUtils
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="options">
+
+        <article data-uid="options">
 <h1 id="options">Options</h1>
 
 <p>When a command executes, the raw <code>string[] args</code> value can be separated into two different categories: options and arguments.</p>
@@ -83,7 +92,8 @@
 but they can be made mandatory.</p>
 <p>Arguments are positional and values are specified based by order. Arguments are covered in <a class="xref" href="arguments.html">this document.</a></p>
 <pre><code>mycommand.exe abc --verbose --path:logs/ --message=Hello xyz
-</code></pre><p>This sample breaks down in the following way:</p>
+</code></pre>
+<p>This sample breaks down in the following way:</p>
 <table>
 <thead>
 <tr>
@@ -94,7 +104,7 @@ but they can be made mandatory.</p>
 <tbody>
 <tr>
 <td><code>mycommand.exe</code></td>
-<td>the name of the command (handled by the operating system. In .NET, this value isn&#39;t part of <code>string[] args</code>.</td>
+<td>the name of the command (handled by the operating system. In .NET, this value isn't part of <code>string[] args</code>.</td>
 </tr>
 <tr>
 <td><code>abc</code></td>
@@ -118,22 +128,24 @@ but they can be made mandatory.</p>
 </tr>
 </tbody>
 </table>
-<p>Options are represented by the <a class="xref" href="../v3.0/api/McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a> type.
+<p>Options are represented by the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a> type.
 They have two defining characteristics.</p>
 <ul>
 <li>Names - options can be identified by multiple names, such as a long name (e.g. &quot;message&quot;) or a short name, which is usually a single character.
-An option must have at least one name.<ul>
+An option must have at least one name.
+<ul>
 <li>Short names are used with a single dash <code>-v</code></li>
 <li>Long names are used with two dashes <code>--verbose</code></li>
 </ul>
 </li>
-<li>Type<ul>
+<li>Type
+<ul>
 <li>No value - options do not have a value.
 They are either considered &quot;specified&quot; or &quot;absent&quot;.
 These are also sometimes called flags or switches.
 <code>--verbose</code></li>
 <li>Single value - an option which must have a single value specified.
-The value can be specified with &#39; &#39;, &#39;:&#39; or &#39;=&#39; to separate the value from the name.
+The value can be specified with ' ', ':' or '=' to separate the value from the name.
 <code>--name value</code>, <code>--name=value</code>, <code>--name:value</code></li>
 <li>Multiple values - an option can be specified multiple times with multiple values.
 <code>--name one --name two</code></li>
@@ -143,17 +155,18 @@ Unlike &quot;single value&quot;, these cannot be specified as <code>--name value
 </ul>
 </li>
 </ul>
-<div class="tabGroup" id="tabgroup_O36EgeKSIa">
+<div class="tabGroup" id="tabgroup_1">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_O36EgeKSIa_using-attributes" role="tab" aria-controls="tabpanel_O36EgeKSIa_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+<a href="#tabpanel_1_using-attributes" role="tab" aria-controls="tabpanel_1_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_O36EgeKSIa_using-builder-api" role="tab" aria-controls="tabpanel_O36EgeKSIa_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+<a href="#tabpanel_1_using-builder-api" role="tab" aria-controls="tabpanel_1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
 </li>
 </ul>
-<section id="tabpanel_O36EgeKSIa_using-attributes" role="tabpanel" data-tab="using-attributes">
-<p><a class="xref" href="../v3.0/api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a> can be used on properties to define options.
+<section id="tabpanel_1_using-attributes" role="tabpanel" data-tab="using-attributes">
+
+<p><a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a> can be used on properties to define options.
 When specified, name and type are inferred, but they can be listed explicitly.
 The inferred short name (with &quot;-&quot; prefix) is the first letter of property name in lowercase.
 The inferred long name (with &quot;--&quot; prefix) is the property name in <a href="https://en.wikipedia.org/wiki/Letter_case">kebab case</a> (e.g. &quot;--log-level&quot; for LogLevel).
@@ -187,8 +200,10 @@ Note that option names are case sensitive, and using different case is an error,
 
     public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
 }
-</code></pre></section>
-<section id="tabpanel_O36EgeKSIa_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+</code></pre>
+</section>
+<section id="tabpanel_1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+
 <p>When using the builder API, name and type must be specified explicitly.</p>
 <pre><code class="lang-c#">public class Program
 {
@@ -204,22 +219,24 @@ Note that option names are case sensitive, and using different case is an error,
         return app.Execute(args);
     }
 }
-</code></pre></section>
+</code></pre>
+</section>
 </div>
 <h2 id="flag-counting">Flag counting</h2>
-<p>A common scenario for options is to allow specifying a value-less option 
+<p>A common scenario for options is to allow specifying a value-less option
 multiple times without value. The library supports counting flags by using <code>bool[]</code>
-or by checking for the number of values in <a class="xref" href="../v3.0/api/McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_Values">Values</a>.</p>
-<div class="tabGroup" id="tabgroup_O36EgeKSIa-1">
+or by checking for the number of values in <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_Values">Values</a>.</p>
+<div class="tabGroup" id="tabgroup_2">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_O36EgeKSIa-1_using-attributes" role="tab" aria-controls="tabpanel_O36EgeKSIa-1_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+<a href="#tabpanel_2_using-attributes" role="tab" aria-controls="tabpanel_2_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_O36EgeKSIa-1_using-builder-api" role="tab" aria-controls="tabpanel_O36EgeKSIa-1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+<a href="#tabpanel_2_using-builder-api" role="tab" aria-controls="tabpanel_2_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
 </li>
 </ul>
-<section id="tabpanel_O36EgeKSIa-1_using-attributes" role="tabpanel" data-tab="using-attributes">
+<section id="tabpanel_2_using-attributes" role="tabpanel" data-tab="using-attributes">
+
 <p>Requires <strong>2.3</strong> and newer.</p>
 <pre><code class="lang-c#">//
 // Expected
@@ -229,18 +246,20 @@ public class Program
 {
     [Option]
     public bool[] Verbose { get; set; }
-
+    
     public void OnExecute()
     {
        Console.WriteLine(&quot;Verbose count = &quot; + Verbose.Length);
     }
-
+  
     public static int Main(string[] args) 
         // result: &quot;Verbose count = 3&quot;
         =&gt; CommandLineApplication.Execute&lt;Program&gt;(&quot;-v&quot;, &quot;-v&quot;, &quot;-v&quot;);
 }
-</code></pre></section>
-<section id="tabpanel_O36EgeKSIa-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+</code></pre>
+</section>
+<section id="tabpanel_2_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+
 <p>When using the builder API, name and type must be specified explicitly.</p>
 <pre><code class="lang-c#">public class Program
 {
@@ -249,21 +268,23 @@ public class Program
         var app = new CommandLineApplication();
 
         var verbose = app.Option(&quot;-v|--verbose&quot;, &quot;Show verbose output&quot;, CommandOptionType.NoValue);
-
+   
         app.OnExecute(()
             =&gt; Console.WriteLine(&quot;Verbose count = &quot; + verbose.Values.Count); );
-
+   
         // result: &quot;Verbose count = 3&quot;
         return app.Execute(&quot;-v&quot;, &quot;-v&quot;, &quot;-v&quot;);
     }
 }
-</code></pre></section>
+</code></pre>
+</section>
 </div>
 <h2 id="examples">Examples</h2>
 <p>The follow examples show how different inputs will be handled.</p>
 <pre><code class="lang-c#">[Option(&quot;-v|--Verbose&quot;)]
 public bool Verbose { get; }
-</code></pre><table>
+</code></pre>
+<table>
 <thead>
 <tr>
 <th>Inputs</th>
@@ -284,7 +305,8 @@ public bool Verbose { get; }
 <p>When you override the default option type to <code>CommandOptionType.SingleValue</code>, you get different behavior.</p>
 <pre><code class="lang-c#">[Option(&quot;-v|--Verbose&quot;, CommandOptionType.SingleValue)]
 public bool Verbose { get; }
-</code></pre><table>
+</code></pre>
+<table>
 <thead>
 <tr>
 <th>Inputs</th>
@@ -293,7 +315,7 @@ public bool Verbose { get; }
 </thead>
 <tbody>
 <tr>
-<td> (not specified)</td>
+<td>(not specified)</td>
 <td><code>false</code></td>
 </tr>
 <tr>
@@ -317,7 +339,8 @@ public bool Verbose { get; }
 <p>If &quot;Verbose&quot; were a string type:</p>
 <pre><code class="lang-c#">[Option(&quot;-v|--Verbose&quot;, CommandOptionType.SingleValue)]
 public string Verbose { get; }
-</code></pre><table>
+</code></pre>
+<table>
 <thead>
 <tr>
 <th>Inputs</th>
@@ -326,7 +349,7 @@ public string Verbose { get; }
 </thead>
 <tbody>
 <tr>
-<td> (not specified)</td>
+<td>(not specified)</td>
 <td><code>null</code></td>
 </tr>
 <tr>
@@ -350,7 +373,8 @@ public string Verbose { get; }
 <p>If &quot;Verbose&quot; accepted multiple values:</p>
 <pre><code class="lang-c#">[Option(&quot;-v|--Verbose&quot;, CommandOptionType.MultipleValue)]
 public string[] Verbose { get; }
-</code></pre><table>
+</code></pre>
+<table>
 <thead>
 <tr>
 <th>Inputs</th>
@@ -359,7 +383,7 @@ public string[] Verbose { get; }
 </thead>
 <tbody>
 <tr>
-<td> (not specified)</td>
+<td>(not specified)</td>
 <td><code>null</code></td>
 </tr>
 <tr>
@@ -379,7 +403,8 @@ public string[] Verbose { get; }
 <p>If &quot;Verbose&quot; accepted single or no value:</p>
 <pre><code class="lang-c#">[Option(&quot;-v|--Verbose&quot;, CommandOptionType.SingleOrNoValue)]
 public (bool hasValue, string value) Verbose { get; }
-</code></pre><table>
+</code></pre>
+<table>
 <thead>
 <tr>
 <th>Inputs</th>
@@ -388,7 +413,7 @@ public (bool hasValue, string value) Verbose { get; }
 </thead>
 <tbody>
 <tr>
-<td> (not specified)</td>
+<td>(not specified)</td>
 <td><code>(false, null)</code></td>
 </tr>
 <tr>
@@ -409,53 +434,30 @@ public (bool hasValue, string value) Verbose { get; }
 </tr>
 </tbody>
 </table>
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/docs/docs/options.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/docs/docs/options.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-             
-            
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JWDHMFE8XZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-JWDHMFE8XZ');
-    </script>
+    </footer>
   </body>
 </html>

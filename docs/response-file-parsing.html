@@ -1,109 +1,120 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>@-files (Response File Parsing) </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="@-files (Response File Parsing) ">
-    <meta name="generator" content="docfx 2.56.6.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <title>@-files (Response File Parsing) </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="@-files (Response File Parsing) ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/natemcmaster/CommandLineUtils/blob/main/docs/docs/response-file-parsing.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" height="55" src="../logo.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="CommandLineUtils">
+            CommandLineUtils
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="response-file-parsing">
+
+        <article data-uid="response-file-parsing">
 <h1 id="-files-response-file-parsing">@-files (Response File Parsing)</h1>
 
-<p><strong>CommandLineUtils</strong> support parsing of response files. The command-line parser treats arguments beginning with &#39;@&#39; as a file path to a response file.</p>
+<p><strong>CommandLineUtils</strong> support parsing of response files. The command-line parser treats arguments beginning with '@' as a file path to a response file.</p>
 <pre><code>myapp.exe @args.txt
-</code></pre><p>A response file contains additional arguments that will be treated as if they were passed in on the command line.</p>
+</code></pre>
+<p>A response file contains additional arguments that will be treated as if they were passed in on the command line.</p>
 <ul>
 <li>Response files can have comments that begin with the # symbol.</li>
 <li>You cannot use the backslash character (<code>\</code>) to concatenate lines.</li>
 </ul>
 <p>By default, response file parsing is disabled for your application and all sub-commands. You can enable response file parsing using either the Builder API or Attributes.</p>
-<div class="tabGroup" id="tabgroup_5s6AVonhGs">
+<div class="tabGroup" id="tabgroup_1">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_5s6AVonhGs_using-attributes" role="tab" aria-controls="tabpanel_5s6AVonhGs_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+<a href="#tabpanel_1_using-attributes" role="tab" aria-controls="tabpanel_1_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_5s6AVonhGs_using-builder-api" role="tab" aria-controls="tabpanel_5s6AVonhGs_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+<a href="#tabpanel_1_using-builder-api" role="tab" aria-controls="tabpanel_1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
 </li>
 </ul>
-<section id="tabpanel_5s6AVonhGs_using-attributes" role="tabpanel" data-tab="using-attributes">
-<p>When using Attributes, you can enable response file parsing by setting the <a class="xref" href="../v3.0/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../v3.0/api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a>.</p>
-<pre><code class="lang-csharp" highlight-lines="1">[Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you&#39;ve done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
+<section id="tabpanel_1_using-attributes" role="tabpanel" data-tab="using-attributes">
+
+<p>When using Attributes, you can enable response file parsing by setting the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a>.</p>
+<pre><code class="lang-csharp" highlight-lines="1">[Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you've done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
 [Subcommand(typeof(ListCommand))]
 class Program
 {
     public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
 
-    [Argument(0, &quot;The description of what you&#39;ve done&quot;)]
+    [Argument(0, &quot;The description of what you've done&quot;)]
     public string Description { get; }
 
     [Option(CommandOptionType.MultipleValue, LongName = &quot;tag&quot;, Description = &quot;A tag for the item&quot;)]
@@ -127,8 +138,9 @@ class ListCommand
     }
 }
 </code></pre></section>
-<section id="tabpanel_5s6AVonhGs_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
-<p>When using the Builder API, you can enable response file parsing by setting the <a class="xref" href="../v3.0/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../v3.0/api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
+<section id="tabpanel_1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+
+<p>When using the Builder API, you can enable response file parsing by setting the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
 <pre><code class="lang-csharp" highlight-lines="9">class Program
 {
     public static int Main(string[] args)
@@ -136,12 +148,12 @@ class ListCommand
         var app = new CommandLineApplication
         {
             Name = &quot;done&quot;,
-            Description = &quot;Keep track on things you&#39;ve done&quot;,
+            Description = &quot;Keep track on things you've done&quot;,
             ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated
         };
 
         app.HelpOption(inherited: true);
-        var argumentDescription = app.Argument(&quot;Description&quot;, &quot;The description of what you&#39;ve done&quot;);
+        var argumentDescription = app.Argument(&quot;Description&quot;, &quot;The description of what you've done&quot;);
         var optionTags = app.Option(&quot;-t|--tag &lt;TAGS&gt;&quot;, &quot;A tag for the item&quot;, CommandOptionType.MultipleValue);
 
         app.Command(&quot;list&quot;, listCommand =&gt;
@@ -164,56 +176,65 @@ class ListCommand
         return app.Execute(args);
 </code></pre></section>
 </div>
+
 <p>In the example above, the <code>ResponseFileHandling</code> property has been set to <code>ResponseFileHandling.ParseArgsAsLineSeparated</code> meaning that each argument or option will be on its own line.</p>
-<p>Let&#39;s assume that you want to run the application with the following command:</p>
+<p>Let's assume that you want to run the application with the following command:</p>
 <pre><code class="lang-text">done &quot;Completed the Boston marathon&quot; --tag major --tag fitness
-</code></pre><p>You can achieve the same result by creating a file called <code>input.txt</code> with the following contents:</p>
+</code></pre>
+<p>You can achieve the same result by creating a file called <code>input.txt</code> with the following contents:</p>
 <pre><code class="lang-text">Completed the Boston marathon
 --tag
 major
 --tag
 fitness
-</code></pre><p>And then passing that file on the command-line instead:</p>
+</code></pre>
+<p>And then passing that file on the command-line instead:</p>
 <pre><code class="lang-text">done @input.txt
-</code></pre><h2 id="using-in-combination-with-sub-commands">Using in combination with sub-commands</h2>
+</code></pre>
+<h2 id="using-in-combination-with-sub-commands">Using in combination with sub-commands</h2>
 <p>You can specify sub-commands in the response file, and <strong>CommandLineUtils</strong> will execute the correct sub-command. Given the previous code sample, when passing the following response file</p>
 <pre><code class="lang-text">list
 --tag
 major
 --tag
 fitness
-</code></pre><p>The <code>list</code> command will be executed, and the values of <code>major</code> and <code>fitness</code> will be passed for the <code>Tags</code> option.</p>
+</code></pre>
+<p>The <code>list</code> command will be executed, and the values of <code>major</code> and <code>fitness</code> will be passed for the <code>Tags</code> option.</p>
 <h2 id="combining-response-files-with-arguments">Combining response files with arguments</h2>
 <p>You can pass a combination of command-line arguments and response files. For example, you can specify the following response file:</p>
 <pre><code class="lang-text">--tag
 major
 --tag
 fitness
-</code></pre><p>And then pass that in combination with other command-line arguments, e.g.:</p>
+</code></pre>
+<p>And then pass that in combination with other command-line arguments, e.g.:</p>
 <pre><code class="lang-text">done &quot;Completed the Boston marathon&quot; @input.txt
-</code></pre><p>This would be the equivalent of executing</p>
+</code></pre>
+<p>This would be the equivalent of executing</p>
 <pre><code class="lang-text">done &quot;Completed the Boston marathon&quot; --tag major --tag fitness
-</code></pre><p>You can also use it in combination with sub-commands:</p>
+</code></pre>
+<p>You can also use it in combination with sub-commands:</p>
 <pre><code class="lang-text">done list @input.txt
-</code></pre><p>This will execute the <code>list</code> command and pass the values of <code>major</code> and <code>fitness</code> for the <code>Tags</code> option.</p>
+</code></pre>
+<p>This will execute the <code>list</code> command and pass the values of <code>major</code> and <code>fitness</code> for the <code>Tags</code> option.</p>
 <p>When using sub-commands, you need to take care to explicitly set the <code>ResponseFileHandling</code> property for the sub-commands as well.</p>
-<div class="tabGroup" id="tabgroup_5s6AVonhGs-1">
+<div class="tabGroup" id="tabgroup_2">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_5s6AVonhGs-1_using-attributes" role="tab" aria-controls="tabpanel_5s6AVonhGs-1_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
+<a href="#tabpanel_2_using-attributes" role="tab" aria-controls="tabpanel_2_using-attributes" data-tab="using-attributes" tabindex="0" aria-selected="true">Using Attributes</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_5s6AVonhGs-1_using-builder-api" role="tab" aria-controls="tabpanel_5s6AVonhGs-1_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
+<a href="#tabpanel_2_using-builder-api" role="tab" aria-controls="tabpanel_2_using-builder-api" data-tab="using-builder-api" tabindex="-1">Using Builder API</a>
 </li>
 </ul>
-<section id="tabpanel_5s6AVonhGs-1_using-attributes" role="tabpanel" data-tab="using-attributes">
-<pre><code class="lang-csharp" highlight-lines="19">[Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you&#39;ve done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
+<section id="tabpanel_2_using-attributes" role="tabpanel" data-tab="using-attributes">
+<pre><code class="lang-csharp" highlight-lines="19">[Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you've done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
 [Subcommand(typeof(ListCommand))]
 class Program
 {
     public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
 
-    [Argument(0, &quot;The description of what you&#39;ve done&quot;)]
+    [Argument(0, &quot;The description of what you've done&quot;)]
     public string Description { get; }
 
     [Option(CommandOptionType.MultipleValue, LongName = &quot;tag&quot;, Description = &quot;A tag for the item&quot;)]
@@ -237,7 +258,7 @@ class ListCommand
     }
 }
 </code></pre></section>
-<section id="tabpanel_5s6AVonhGs-1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_2_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-csharp" highlight-lines="18">class Program
 {
     public static int Main(string[] args)
@@ -245,12 +266,12 @@ class ListCommand
         var app = new CommandLineApplication
         {
             Name = &quot;done&quot;,
-            Description = &quot;Keep track on things you&#39;ve done&quot;,
+            Description = &quot;Keep track on things you've done&quot;,
             ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated
         };
 
         app.HelpOption(inherited: true);
-        var argumentDescription = app.Argument(&quot;Description&quot;, &quot;The description of what you&#39;ve done&quot;);
+        var argumentDescription = app.Argument(&quot;Description&quot;, &quot;The description of what you've done&quot;);
         var optionTags = app.Option(&quot;-t|--tag &lt;TAGS&gt;&quot;, &quot;A tag for the item&quot;, CommandOptionType.MultipleValue);
 
         app.Command(&quot;list&quot;, listCommand =&gt;
@@ -276,55 +297,33 @@ class ListCommand
 </code></pre></section>
 </div>
 <h2 id="space-separated-arguments">Space separated arguments</h2>
-<p>You can set the <code>ResponseFileHandling</code> property to <a class="xref" href="../v3.0/api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html#McMaster_Extensions_CommandLineUtils_ResponseFileHandling_ParseArgsAsSpaceSeparated">ParseArgsAsSpaceSeparated</a>. In this case, each argument in the response file needs to be separated by a space, instead of a new line, e.g.</p>
+<p>You can set the <code>ResponseFileHandling</code> property to <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html#McMaster_Extensions_CommandLineUtils_ResponseFileHandling_ParseArgsAsSpaceSeparated">ParseArgsAsSpaceSeparated</a>. In this case, each argument in the response file needs to be separated by a space, instead of a new line, e.g.</p>
 <pre><code class="lang-text">&quot;Completed the Boston marathon&quot; --tag major --tag fitness
-</code></pre></article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/docs/docs/response-file-parsing.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/docs/docs/response-file-parsing.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-             
-            
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JWDHMFE8XZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-JWDHMFE8XZ');
-    </script>
+    </footer>
   </body>
 </html>

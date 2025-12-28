@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CommandLineApplicationExtensions </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CommandLineApplicationExtensions ">
+      
+      <meta name="description" content="Helper methods for .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/natemcmaster/CommandLineUtils/new/main/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="CommandLineUtils">
+            CommandLineUtils
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions">
+
+
+
+  <h1 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions" class="text-break">
+Class CommandLineApplicationExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="McMaster.html">McMaster</a>.<a class="xref" href="McMaster.Extensions.html">Extensions</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.html">CommandLineUtils</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>McMaster.Extensions.CommandLineUtils.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Helper methods for <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class CommandLineApplicationExtensions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">CommandLineApplicationExtensions</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Argument_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Argument__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_System_Boolean_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Argument``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,System.Boolean)">
+  Argument&lt;T&gt;(CommandLineApplication, string, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a command line argument with values that should be parsable into <code class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandArgument&lt;T&gt; Argument&lt;T&gt;(this CommandLineApplication app, string name, string description, bool multipleValues = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>multipleValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument-1.html">CommandArgument</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)">
+  HelpOption(CommandLineApplication)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the help option with the template <code>-?|-h|--help</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption HelpOption(this CommandLineApplication app)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_HelpOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Boolean_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.HelpOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Boolean)">
+  HelpOption(CommandLineApplication, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the help option with the template <code>-?|-h|--help</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption HelpOption(this CommandLineApplication app, bool inherited)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>inherited</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecute_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Action_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecute(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action)">
+  OnExecute(CommandLineApplication, Action)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the command execution handler with a return code of <code>0</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void OnExecute(this CommandLineApplication app, Action action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd><p>An action to invoke when the command is selected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecuteAsync_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnExecuteAsync_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_Threading_CancellationToken_System_Threading_Tasks_Task__" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnExecuteAsync(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})">
+  OnExecuteAsync(CommandLineApplication, Func&lt;CancellationToken, Task&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets an async command execution handler with a return code of <code>0</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void OnExecuteAsync(this CommandLineApplication app, Func&lt;CancellationToken, Task&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</dt>
+    <dd><p>An asynchronous action to invoke when the command is selected..</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Action_System_ComponentModel_DataAnnotations_ValidationResult__" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Action{System.ComponentModel.DataAnnotations.ValidationResult})">
+  OnValidationError(CommandLineApplication, Action&lt;ValidationResult&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets an action to invoke, but only when there is a validation error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void OnValidationError(this CommandLineApplication app, Action&lt;ValidationResult&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult">ValidationResult</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_OnValidationError_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_ComponentModel_DataAnnotations_ValidationResult_System_Int32__" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.OnValidationError(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.ComponentModel.DataAnnotations.ValidationResult,System.Int32})">
+  OnValidationError(CommandLineApplication, Func&lt;ValidationResult, int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets an action to invoke, but only when there is a validation error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void OnValidationError(this CommandLineApplication app, Func&lt;ValidationResult, int&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult">ValidationResult</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)">
+  Option&lt;T&gt;(CommandLineApplication, string, string, CommandOptionType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a command-line option with values that should be parsable into <code class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption&lt;T&gt; Option&lt;T&gt;(this CommandLineApplication app, string template, string description, CommandOptionType optionType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>optionType</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_System_Action_McMaster_Extensions_CommandLineUtils_CommandOption___0___" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Action{McMaster.Extensions.CommandLineUtils.CommandOption{``0}})">
+  Option&lt;T&gt;(CommandLineApplication, string, string, CommandOptionType, Action&lt;CommandOption&lt;T&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a command-line option with values that should be parsable into <code class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption&lt;T&gt; Option&lt;T&gt;(this CommandLineApplication app, string template, string description, CommandOptionType optionType, Action&lt;CommandOption&lt;T&gt;&gt; configuration)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>optionType</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a></dt>
+    <dd></dd>
+    <dt><code>configuration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_Option__1_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_System_Boolean_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.Option``1(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType,System.Boolean)">
+  Option&lt;T&gt;(CommandLineApplication, string, string, CommandOptionType, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a command-line option with values that should be parsable into <code class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption&lt;T&gt; Option&lt;T&gt;(this CommandLineApplication app, string template, string description, CommandOptionType optionType, bool inherited)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>optionType</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a></dt>
+    <dd></dd>
+    <dt><code>inherited</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VerboseOption_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VerboseOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication)">
+  VerboseOption(CommandLineApplication)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the verbose option with the template <code>-v|--verbose</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption VerboseOption(this CommandLineApplication app)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VerboseOption_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VerboseOption_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VerboseOption(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String)">
+  VerboseOption(CommandLineApplication, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the verbose option with the template <code>-v|--verbose</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption VerboseOption(this CommandLineApplication app, string template)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Reflection_Assembly_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Reflection.Assembly)">
+  VersionOptionFromAssemblyAttributes(CommandLineApplication, Assembly)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assemblyinformationalversionattribute">AssemblyInformationalVersionAttribute</a> on <code class="paramref">assembly</code> and uses that
+to set <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OptionVersion">OptionVersion</a>.</p>
+<p>
+Uses the Version that is part of the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname">AssemblyName</a> of the specified assembly
+if no <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assemblyinformationalversionattribute">AssemblyInformationalVersionAttribute</a> is applied.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption VersionOptionFromAssemblyAttributes(this CommandLineApplication app, Assembly assembly)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>assembly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Either <code class="paramref">app</code> or <code class="paramref">assembly</code> is <code>null</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_CommandLineApplicationExtensions_VersionOptionFromAssemblyAttributes_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_String_System_Reflection_Assembly_" data-uid="McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions.VersionOptionFromAssemblyAttributes(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.String,System.Reflection.Assembly)">
+  VersionOptionFromAssemblyAttributes(CommandLineApplication, string, Assembly)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assemblyinformationalversionattribute">AssemblyInformationalVersionAttribute</a> on <code class="paramref">assembly</code> and uses that
+to set <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_OptionVersion">OptionVersion</a>.</p>
+<p>
+Uses the Version that is part of the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assemblyname">AssemblyName</a> of the specified assembly
+if no <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assemblyinformationalversionattribute">AssemblyInformationalVersionAttribute</a> is applied.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption VersionOptionFromAssemblyAttributes(this CommandLineApplication app, string template, Assembly assembly)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>app</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>assembly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Either <code class="paramref">app</code> or <code class="paramref">assembly</code> is <code>null</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/CommandLineApplicationExtensions.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

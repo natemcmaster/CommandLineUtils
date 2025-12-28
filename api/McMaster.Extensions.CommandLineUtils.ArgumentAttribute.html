@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ArgumentAttribute </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ArgumentAttribute ">
+      
+      <meta name="description" content="Represents one or many positional command line arguments. Arguments are parsed based the  given.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/natemcmaster/CommandLineUtils/new/main/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_ArgumentAttribute.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.ArgumentAttribute%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="CommandLineUtils">
+            CommandLineUtils
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute">
+
+
+
+  <h1 id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute" class="text-break">
+Class ArgumentAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/ArgumentAttribute.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="McMaster.html">McMaster</a>.<a class="xref" href="McMaster.Extensions.html">Extensions</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.html">CommandLineUtils</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>McMaster.Extensions.CommandLineUtils.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents one or many positional command line arguments.
+Arguments are parsed based the <a class="xref" href="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html#McMaster_Extensions_CommandLineUtils_ArgumentAttribute_Order">Order</a> given.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Property)]
+public sealed class ArgumentAttribute : Attribute</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">Attribute</span></div>
+      <div><span class="xref">ArgumentAttribute</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute__ctor_System_Int32_" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32)">
+  ArgumentAttribute(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/ArgumentAttribute.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new <a class="xref" href="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html">ArgumentAttribute</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ArgumentAttribute(int order)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>order</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The order</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute__ctor_System_Int32_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32,System.String)">
+  ArgumentAttribute(int, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/ArgumentAttribute.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new <a class="xref" href="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html">ArgumentAttribute</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ArgumentAttribute(int order, string? name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>order</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The order</p>
+</dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute__ctor_System_Int32_System_String_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.#ctor(System.Int32,System.String,System.String)">
+  ArgumentAttribute(int, string?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/ArgumentAttribute.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new <a class="xref" href="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html">ArgumentAttribute</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ArgumentAttribute(int order, string? name, string? description)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>order</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The order</p>
+</dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name</p>
+</dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The description</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute_Description_" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.Description*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute_Description" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.Description">
+  Description
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/ArgumentAttribute.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A description of the argument.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Description { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html#McMaster_Extensions_CommandLineUtils_CommandArgument_Description">Description</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute_Name_" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.Name*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute_Name" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/ArgumentAttribute.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the argument.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Name { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html#McMaster_Extensions_CommandLineUtils_CommandArgument_Name">Name</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute_Order_" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.Order*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute_Order" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.Order">
+  Order
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/ArgumentAttribute.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The order in which the argument is expected, relative to other arguments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Order { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute_ShowInHelpText_" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.ShowInHelpText*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ArgumentAttribute_ShowInHelpText" data-uid="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.ShowInHelpText">
+  ShowInHelpText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/ArgumentAttribute.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if the argument appears in the generated help-text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowInHelpText { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html#McMaster_Extensions_CommandLineUtils_CommandArgument_ShowInHelpText">ShowInHelpText</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a></div>
+  </div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/ArgumentAttribute.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

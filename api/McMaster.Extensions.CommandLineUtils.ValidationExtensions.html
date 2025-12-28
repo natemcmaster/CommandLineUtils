@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ValidationExtensions </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ValidationExtensions ">
+      
+      <meta name="description" content="Extension methods for adding validation rules to options and arguments.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/natemcmaster/CommandLineUtils/new/main/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_ValidationExtensions.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.ValidationExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="CommandLineUtils">
+            CommandLineUtils
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions">
+
+
+
+  <h1 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions" class="text-break">
+Class ValidationExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="McMaster.html">McMaster</a>.<a class="xref" href="McMaster.Extensions.html">Extensions</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.html">CommandLineUtils</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>McMaster.Extensions.CommandLineUtils.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Extension methods for adding validation rules to options and arguments.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ValidationExtensions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ValidationExtensions</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_McMaster_Extensions_CommandLineUtils_CommandArgument_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument)">
+  Accepts(CommandArgument)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a builder for specifying a set of rules used to determine if input is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IArgumentValidationBuilder Accepts(this CommandArgument argument)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>argument</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a></dt>
+    <dd><p>The argument.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.html">IArgumentValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_McMaster_Extensions_CommandLineUtils_CommandArgument_System_Action_McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidationBuilder__" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder})">
+  Accepts(CommandArgument, Action&lt;IArgumentValidationBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies a set of rules used to determine if input is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandArgument Accepts(this CommandArgument argument, Action&lt;IArgumentValidationBuilder&gt; configure)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>argument</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a></dt>
+    <dd><p>The argument.</p>
+</dd>
+    <dt><code>configure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.html">IArgumentValidationBuilder</a>&gt;</dt>
+    <dd><p>A function to configure rules on the validation builder.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a></dt>
+    <dd><p>The argument.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_McMaster_Extensions_CommandLineUtils_CommandOption_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandOption)">
+  Accepts(CommandOption)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a builder for specifying a set of rules used to determine if input is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IOptionValidationBuilder Accepts(this CommandOption option)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.html">IOptionValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_McMaster_Extensions_CommandLineUtils_CommandOption_System_Action_McMaster_Extensions_CommandLineUtils_Validation_IOptionValidationBuilder__" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts(McMaster.Extensions.CommandLineUtils.CommandOption,System.Action{McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder})">
+  Accepts(CommandOption, Action&lt;IOptionValidationBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies a set of rules used to determine if input is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption Accepts(this CommandOption option, Action&lt;IOptionValidationBuilder&gt; configure)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>configure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.html">IOptionValidationBuilder</a>&gt;</dt>
+    <dd><p>A function to configure rules on the validation builder.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts__1_McMaster_Extensions_CommandLineUtils_CommandArgument___0__" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0})">
+  Accepts&lt;T&gt;(CommandArgument&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a builder for specifying a set of rules used to determine if input is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IArgumentValidationBuilder&lt;T&gt; Accepts&lt;T&gt;(this CommandArgument&lt;T&gt; argument)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>argument</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument-1.html">CommandArgument</a>&lt;T&gt;</dt>
+    <dd><p>The argument.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.html">IArgumentValidationBuilder</a>&lt;T&gt;</dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts__1_McMaster_Extensions_CommandLineUtils_CommandArgument___0__System_Action_McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidationBuilder___0___" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Action{McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder{``0}})">
+  Accepts&lt;T&gt;(CommandArgument&lt;T&gt;, Action&lt;IArgumentValidationBuilder&lt;T&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies a set of rules used to determine if input is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandArgument&lt;T&gt; Accepts&lt;T&gt;(this CommandArgument&lt;T&gt; argument, Action&lt;IArgumentValidationBuilder&lt;T&gt;&gt; configure)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>argument</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument-1.html">CommandArgument</a>&lt;T&gt;</dt>
+    <dd><p>The argument.</p>
+</dd>
+    <dt><code>configure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.html">IArgumentValidationBuilder</a>&lt;T&gt;&gt;</dt>
+    <dd><p>A function to configure rules on the validation builder.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument-1.html">CommandArgument</a>&lt;T&gt;</dt>
+    <dd><p>The argument.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts__1_McMaster_Extensions_CommandLineUtils_CommandOption___0__" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandOption{``0})">
+  Accepts&lt;T&gt;(CommandOption&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a builder for specifying a set of rules used to determine if input is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IOptionValidationBuilder&lt;T&gt; Accepts&lt;T&gt;(this CommandOption&lt;T&gt; option)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;</dt>
+    <dd><p>The option.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.html">IOptionValidationBuilder</a>&lt;T&gt;</dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Accepts__1_McMaster_Extensions_CommandLineUtils_CommandOption___0__System_Action_McMaster_Extensions_CommandLineUtils_Validation_IOptionValidationBuilder___0___" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Accepts``1(McMaster.Extensions.CommandLineUtils.CommandOption{``0},System.Action{McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder{``0}})">
+  Accepts&lt;T&gt;(CommandOption&lt;T&gt;, Action&lt;IOptionValidationBuilder&lt;T&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies a set of rules used to determine if input is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption&lt;T&gt; Accepts&lt;T&gt;(this CommandOption&lt;T&gt; option, Action&lt;IOptionValidationBuilder&lt;T&gt;&gt; configure)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;</dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>configure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.html">IOptionValidationBuilder</a>&lt;T&gt;&gt;</dt>
+    <dd><p>A function to configure rules on the validation builder.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;</dt>
+    <dd><p>The option.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_EmailAddress_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_EmailAddress_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)">
+  EmailAddress(IValidationBuilder, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be a valid email address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder EmailAddress(this IValidationBuilder builder, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Enum_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Enum__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)">
+  Enum&lt;TEnum&gt;(IValidationBuilder, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>
+Specifies that values must be one of the values in a given set.
+</p>
+<p>
+By default, value comparison is case-sensitive. To make matches case-insensitive, set <code class="paramref">ignoreCase</code> to <code>true</code>.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder Enum&lt;TEnum&gt;(this IValidationBuilder builder, bool ignoreCase = false) where TEnum : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>ignoreCase</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Ignore case when parsing enums.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TEnum</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When <code class="typeparamref">TEnum</code> is not an enum.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingDirectory_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)">
+  ExistingDirectory(IValidationBuilder, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L290"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be a path to a directory that already exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder ExistingDirectory(this IValidationBuilder builder, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFile_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)">
+  ExistingFile(IValidationBuilder, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be a path to a file that already exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder ExistingFile(this IValidationBuilder builder, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFileOrDirectory_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)">
+  ExistingFileOrDirectory(IValidationBuilder, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L308"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be a valid file path or directory, and the file path must already exist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder ExistingFileOrDirectory(this IValidationBuilder builder, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_McMaster_Extensions_CommandLineUtils_CommandArgument_System_Boolean_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Boolean,System.String)">
+  IsRequired(CommandArgument, bool, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates the argument is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandArgument IsRequired(this CommandArgument argument, bool allowEmptyStrings = false, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>argument</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a></dt>
+    <dd><p>The argument.</p>
+</dd>
+    <dt><code>allowEmptyStrings</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicates whether an empty string is allowed.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The custom error message to display. See also: <span class="xref">System.ComponentModel.DataAnnotations.ValidationAttribute.ErrorMessage</span>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a></dt>
+    <dd><p>The argument.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_McMaster_Extensions_CommandLineUtils_CommandOption_System_Boolean_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired(McMaster.Extensions.CommandLineUtils.CommandOption,System.Boolean,System.String)">
+  IsRequired(CommandOption, bool, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates the option is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption IsRequired(this CommandOption option, bool allowEmptyStrings = false, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>allowEmptyStrings</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicates whether an empty string is allowed.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The custom error message to display. See also: <span class="xref">System.ComponentModel.DataAnnotations.ValidationAttribute.ErrorMessage</span>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired__1_McMaster_Extensions_CommandLineUtils_CommandArgument___0__System_Boolean_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandArgument{``0},System.Boolean,System.String)">
+  IsRequired&lt;T&gt;(CommandArgument&lt;T&gt;, bool, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates the argument is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandArgument&lt;T&gt; IsRequired&lt;T&gt;(this CommandArgument&lt;T&gt; argument, bool allowEmptyStrings = false, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>argument</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument-1.html">CommandArgument</a>&lt;T&gt;</dt>
+    <dd><p>The argument.</p>
+</dd>
+    <dt><code>allowEmptyStrings</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicates whether an empty string is allowed.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The custom error message to display. See also: <span class="xref">System.ComponentModel.DataAnnotations.ValidationAttribute.ErrorMessage</span>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument-1.html">CommandArgument</a>&lt;T&gt;</dt>
+    <dd><p>The argument.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_IsRequired__1_McMaster_Extensions_CommandLineUtils_CommandOption___0__System_Boolean_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.IsRequired``1(McMaster.Extensions.CommandLineUtils.CommandOption{``0},System.Boolean,System.String)">
+  IsRequired&lt;T&gt;(CommandOption&lt;T&gt;, bool, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates the option is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption&lt;T&gt; IsRequired&lt;T&gt;(this CommandOption&lt;T&gt; option, bool allowEmptyStrings = false, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;</dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>allowEmptyStrings</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicates whether an empty string is allowed.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The custom error message to display. See also: <span class="xref">System.ComponentModel.DataAnnotations.ValidationAttribute.ErrorMessage</span>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption-1.html">CommandOption</a>&lt;T&gt;</dt>
+    <dd><p>The option.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)">
+  LegalFilePath(IValidationBuilder, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L326"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be legal file paths.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder LegalFilePath(this IValidationBuilder builder, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_MaxLength_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_MaxLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)">
+  MaxLength(IValidationBuilder, int, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L346"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be a string no more than <code class="paramref">length</code> characters long.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder MaxLength(this IValidationBuilder builder, int length, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum length.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_MinLength_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_MinLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)">
+  MinLength(IValidationBuilder, int, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L336"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be a string at least <code class="paramref">length</code> characters long.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder MinLength(this IValidationBuilder builder, int length, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder</p>
+</dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The minimum length.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingDirectory_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)">
+  NonExistingDirectory(IValidationBuilder, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be a path to a directory that does not already exist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder NonExistingDirectory(this IValidationBuilder builder, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFile_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)">
+  NonExistingFile(IValidationBuilder, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L281"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be a path to a file that does not already exist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder NonExistingFile(this IValidationBuilder builder, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFileOrDirectory_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)">
+  NonExistingFileOrDirectory(IValidationBuilder, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be a valid file path or directory, and the file path must not already exist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder NonExistingFileOrDirectory(this IValidationBuilder builder, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_McMaster_Extensions_CommandLineUtils_CommandArgument_System_Func_System_ComponentModel_DataAnnotations_ValidationContext_System_ComponentModel_DataAnnotations_ValidationResult__" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandArgument,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})">
+  OnValidate(CommandArgument, Func&lt;ValidationContext, ValidationResult&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L427"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a validator that runs after parsing is complete and before command execution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandArgument OnValidate(this CommandArgument argument, Func&lt;ValidationContext, ValidationResult&gt; validate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>argument</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a></dt>
+    <dd><p>The argument.</p>
+</dd>
+    <dt><code>validate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext">ValidationContext</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult">ValidationResult</a>&gt;</dt>
+    <dd><p>The callback. Return <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult.success">Success</a> if there is no error.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandArgument.html">CommandArgument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Func_System_ComponentModel_DataAnnotations_ValidationContext_System_ComponentModel_DataAnnotations_ValidationResult__" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})">
+  OnValidate(CommandLineApplication, Func&lt;ValidationContext, ValidationResult&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L415"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a validator that runs after parsing is complete and before command execution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandLineApplication OnValidate(this CommandLineApplication command, Func&lt;ValidationContext, ValidationResult&gt; validate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd><p>The command.</p>
+</dd>
+    <dt><code>validate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext">ValidationContext</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult">ValidationResult</a>&gt;</dt>
+    <dd><p>The callback. Return <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult.success">Success</a> if there is no error.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_OnValidate_McMaster_Extensions_CommandLineUtils_CommandOption_System_Func_System_ComponentModel_DataAnnotations_ValidationContext_System_ComponentModel_DataAnnotations_ValidationResult__" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.OnValidate(McMaster.Extensions.CommandLineUtils.CommandOption,System.Func{System.ComponentModel.DataAnnotations.ValidationContext,System.ComponentModel.DataAnnotations.ValidationResult})">
+  OnValidate(CommandOption, Func&lt;ValidationContext, ValidationResult&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L439"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a validator that runs after parsing is complete and before command execution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommandOption OnValidate(this CommandOption option, Func&lt;ValidationContext, ValidationResult&gt; validate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>validate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext">ValidationContext</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult">ValidationResult</a>&gt;</dt>
+    <dd><p>The callback. Return <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult.success">Success</a> if there is no error.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html">CommandOption</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Range_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Range_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Double__System_Double_System_Double_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder{System.Double},System.Double,System.Double,System.String)">
+  Range(IValidationBuilder&lt;double&gt;, double, double, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L401"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be in a given range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder&lt;double&gt; Range(this IValidationBuilder&lt;double&gt; builder, double minimum, double maximum, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html">IValidationBuilder</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>minimum</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The minimum allowed value.</p>
+</dd>
+    <dt><code>maximum</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maximum allowed value.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html">IValidationBuilder</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Range_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Range_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32__System_Int32_System_Int32_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Range(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder{System.Int32},System.Int32,System.Int32,System.String)">
+  Range(IValidationBuilder&lt;int&gt;, int, int, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L384"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be in a given range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder&lt;int&gt; Range(this IValidationBuilder&lt;int&gt; builder, int minimum, int maximum, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html">IValidationBuilder</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>minimum</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The minimum allowed value.</p>
+</dd>
+    <dt><code>maximum</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum allowed value.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html">IValidationBuilder</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_RegularExpression_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_RegularExpression_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.String)">
+  RegularExpression(IValidationBuilder, string, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L356"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must match a regular expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder RegularExpression(this IValidationBuilder builder, string pattern, string? errorMessage = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>pattern</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The regular expression.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Satisfies_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Satisfies__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_Object___" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Object[])">
+  Satisfies&lt;TAttribute&gt;(IValidationBuilder, string?, params object[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must satisfy the requirements of the validation attribute of type <code class="typeparamref">TAttribute</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder Satisfies&lt;TAttribute&gt;(this IValidationBuilder builder, string? errorMessage = null, params object[] ctorArgs) where TAttribute : ValidationAttribute</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A custom error message to display.</p>
+</dd>
+    <dt><code>ctorArgs</code> <span class="xref">object</span>[]</dt>
+    <dd><p>Constructor arguments for <code class="typeparamref">TAttribute</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TAttribute</code></dt>
+    <dd><p>The validation attribute type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_System_String___" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])">
+  Values(IValidationBuilder, bool, params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be one of the values in a given set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder Values(this IValidationBuilder builder, bool ignoreCase, params string[] allowedValues)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>ignoreCase</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Ignore case when comparing inputs to <code class="paramref">allowedValues</code>.</p>
+</dd>
+    <dt><code>allowedValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Allowed values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_StringComparison_System_String___" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])">
+  Values(IValidationBuilder, StringComparison, params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that values must be one of the values in a given set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder Values(this IValidationBuilder builder, StringComparison comparer, params string[] allowedValues)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>comparer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.stringcomparison">StringComparison</a></dt>
+    <dd><p>The comparer used to determine if values match.</p>
+</dd>
+    <dt><code>allowedValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Allowed values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String___" data-uid="McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])">
+  Values(IValidationBuilder, params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>
+Specifies that values must be one of the values in a given set.
+</p>
+<p>
+By default, value comparison is case-sensitive. To make matches case-insensitive, use <a class="xref" href="McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_System_String___">Values(IValidationBuilder, bool, params string[])</a>.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValidationBuilder Values(this IValidationBuilder builder, params string[] allowedValues)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+    <dt><code>allowedValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Allowed values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html">IValidationBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Validation/ValidationExtensions.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class OptionAttribute </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class OptionAttribute ">
+      
+      <meta name="description" content="Represents one or many command line option that is identified by flag proceeded by &#39;-&#39; or &#39;--&#39;. Options are not positional. Compare to .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/natemcmaster/CommandLineUtils/new/main/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_OptionAttribute.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.OptionAttribute%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="CommandLineUtils">
+            CommandLineUtils
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute">
+
+
+
+  <h1 id="McMaster_Extensions_CommandLineUtils_OptionAttribute" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute" class="text-break">
+Class OptionAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/OptionAttribute.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="McMaster.html">McMaster</a>.<a class="xref" href="McMaster.Extensions.html">Extensions</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.html">CommandLineUtils</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>McMaster.Extensions.CommandLineUtils.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents one or many command line option that is identified by flag proceeded by '-' or '--'.
+Options are not positional. Compare to <a class="xref" href="McMaster.Extensions.CommandLineUtils.ArgumentAttribute.html">ArgumentAttribute</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Property)]
+public sealed class OptionAttribute : OptionAttributeBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">Attribute</span></div>
+      <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html">OptionAttributeBase</a></div>
+      <div><span class="xref">OptionAttribute</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html#McMaster_Extensions_CommandLineUtils_OptionAttributeBase_Template">OptionAttributeBase.Template</a>
+    </div>
+    <div>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html#McMaster_Extensions_CommandLineUtils_OptionAttributeBase_ShortName">OptionAttributeBase.ShortName</a>
+    </div>
+    <div>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html#McMaster_Extensions_CommandLineUtils_OptionAttributeBase_LongName">OptionAttributeBase.LongName</a>
+    </div>
+    <div>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html#McMaster_Extensions_CommandLineUtils_OptionAttributeBase_SymbolName">OptionAttributeBase.SymbolName</a>
+    </div>
+    <div>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html#McMaster_Extensions_CommandLineUtils_OptionAttributeBase_ValueName">OptionAttributeBase.ValueName</a>
+    </div>
+    <div>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html#McMaster_Extensions_CommandLineUtils_OptionAttributeBase_Description">OptionAttributeBase.Description</a>
+    </div>
+    <div>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html#McMaster_Extensions_CommandLineUtils_OptionAttributeBase_ShowInHelpText">OptionAttributeBase.ShowInHelpText</a>
+    </div>
+    <div>
+      <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html#McMaster_Extensions_CommandLineUtils_OptionAttributeBase_Inherited">OptionAttributeBase.Inherited</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor">
+  OptionAttribute()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/OptionAttribute.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OptionAttribute()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_McMaster_Extensions_CommandLineUtils_CommandOptionType_" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(McMaster.Extensions.CommandLineUtils.CommandOptionType)">
+  OptionAttribute(CommandOptionType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/OptionAttribute.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OptionAttribute(CommandOptionType optionType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a></dt>
+    <dd><p>The optionType</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_System_String_" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String)">
+  OptionAttribute(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/OptionAttribute.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OptionAttribute(string template)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string template. This is parsed into <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_ShortName">ShortName</a> and <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_LongName">LongName</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)">
+  OptionAttribute(string, CommandOptionType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/OptionAttribute.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OptionAttribute(string template, CommandOptionType optionType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The template</p>
+</dd>
+    <dt><code>optionType</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a></dt>
+    <dd><p>The option type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_OptionAttribute__ctor_System_String_System_String_McMaster_Extensions_CommandLineUtils_CommandOptionType_" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.#ctor(System.String,System.String,McMaster.Extensions.CommandLineUtils.CommandOptionType)">
+  OptionAttribute(string?, string?, CommandOptionType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/OptionAttribute.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new <a class="xref" href="McMaster.Extensions.CommandLineUtils.OptionAttribute.html">OptionAttribute</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OptionAttribute(string? template, string? description, CommandOptionType optionType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>template</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The template</p>
+</dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The option description</p>
+</dd>
+    <dt><code>optionType</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a></dt>
+    <dd><p>The option type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_OptionAttribute_OptionType_" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionType*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_OptionAttribute_OptionType" data-uid="McMaster.Extensions.CommandLineUtils.OptionAttribute.OptionType">
+  OptionType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/OptionAttribute.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Defines the type of the option. When not set, this will be inferred from the CLR type of the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandOptionType? OptionType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOptionType.html">CommandOptionType</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandOption.html#McMaster_Extensions_CommandLineUtils_CommandOption_OptionType">OptionType</a></div>
+    </dd>
+  </dl>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Attributes/OptionAttribute.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
