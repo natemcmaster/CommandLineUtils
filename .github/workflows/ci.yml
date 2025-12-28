@@ -67,18 +67,14 @@ jobs:
       PACKAGE_VERSION: ${{ needs.build.outputs.package_version }}
     steps:
       - run: echo "Releasing ${{ env.PACKAGE_VERSION }}"
-      - name: Setup NuGet
-        uses: NuGet/setup-nuget@v2
-        with:
-          nuget-version: latest
       - uses: actions/download-artifact@v7
         with:
           name: packages
           path: packages
       - name: Configure GitHub NuGet registry
-        run: nuget sources add -name github -source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -username ${{ github.repository_owner }} -password ${{ secrets.GITHUB_TOKEN }}
+        run: dotnet nuget add source --name github --username ${{ github.repository_owner }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
       - name: Push to GitHub package registry
-        run: nuget push packages/*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source github -SkipDuplicate
+        run: dotnet nuget push packages/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source github --skip-duplicate
       - name: NuGet login (trusted publishing)
         uses: nuget/login@v1
         with:
