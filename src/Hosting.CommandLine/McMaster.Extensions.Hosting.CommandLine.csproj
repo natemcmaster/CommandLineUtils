@@ -16,11 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="PublicAPI.Shipped.txt" />
-    <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CommandLineUtils\McMaster.Extensions.CommandLineUtils.csproj" />
   </ItemGroup>
 </Project>

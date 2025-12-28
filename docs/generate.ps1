@@ -18,7 +18,7 @@ try {
 
     $buildRoot = "$PSScriptRoot/../.build/docs"
     $targetDir = "$buildRoot/gh-pages"
-    mkdir -p $buildRoot -ErrorAction Ignore | Out-Null
+    New-Item -ItemType Directory -Path $buildRoot -Force | Out-Null
 
     exec git worktree prune 2>&1 | out-null
     if (-not (git worktree list --porcelain | Select-String 'gh-pages')) {
