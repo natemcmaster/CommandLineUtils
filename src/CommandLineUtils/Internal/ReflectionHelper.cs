@@ -161,6 +161,24 @@ namespace McMaster.Extensions.CommandLineUtils
             return result;
         }
 
+        public static bool IsEnumerableType(Type type, [NotNullWhen(true)] out Type? wrappedType)
+        {
+            if (type.IsArray)
+            {
+                wrappedType = type.GetElementType()!;
+                return true;
+            }
+
+            if (type.IsGenericType)
+            {
+                wrappedType = type.GenericTypeArguments[0];
+                return true;
+            }
+
+            wrappedType = null;
+            return false;
+        }
+
         private class MethodMetadataEquality : IEqualityComparer<MethodInfo>
         {
             public bool Equals(MethodInfo? x, MethodInfo? y)

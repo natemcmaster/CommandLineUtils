@@ -197,7 +197,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             private void OnExecute()
             {
-                Assert.True(false, "This should not execute");
+                Assert.Fail("This should not execute");
             }
         }
 

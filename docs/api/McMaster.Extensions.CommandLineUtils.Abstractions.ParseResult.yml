@@ -1,0 +1,215 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+  id: ParseResult
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  - McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand
+  langs:
+  - csharp
+  - vb
+  name: ParseResult
+  nameWithType: ParseResult
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/ParseResult.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ParseResult
+    path: ../src/CommandLineUtils/Abstractions/ParseResult.cs
+    startLine: 10
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: The result of parsing command line arguments.
+  example: []
+  syntax:
+    content: public class ParseResult
+    content.vb: Public Class ParseResult
+  inheritance:
+  - System.Object
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  id: '#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication)'
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+  langs:
+  - csharp
+  - vb
+  name: ParseResult(CommandLineApplication)
+  nameWithType: ParseResult.ParseResult(CommandLineApplication)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ParseResult(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/ParseResult.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Abstractions/ParseResult.cs
+    startLine: 16
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: Initializes <xref href="McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ParseResult(CommandLineApplication selectedCommand)
+    parameters:
+    - id: selectedCommand
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: The command selected for execution.
+    content.vb: Public Sub New(selectedCommand As CommandLineApplication)
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.#ctor*
+  nameWithType.vb: ParseResult.New(CommandLineApplication)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.New(McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  name.vb: New(CommandLineApplication)
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand
+  id: SelectedCommand
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+  langs:
+  - csharp
+  - vb
+  name: SelectedCommand
+  nameWithType: ParseResult.SelectedCommand
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/ParseResult.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: SelectedCommand
+    path: ../src/CommandLineUtils/Abstractions/ParseResult.cs
+    startLine: 24
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: The application or subcommand that matches the command line arguments.
+  example: []
+  syntax:
+    content: public CommandLineApplication SelectedCommand { get; set; }
+    parameters: []
+    return:
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+    content.vb: Public Property SelectedCommand As CommandLineApplication
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand*
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions
+    name: Abstractions
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions
+    name: Abstractions
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html
+  name: ParseResult
+  nameWithType: ParseResult
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.#ctor
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html#McMaster_Extensions_CommandLineUtils_Abstractions_ParseResult__ctor_McMaster_Extensions_CommandLineUtils_CommandLineApplication_
+  name: ParseResult
+  nameWithType: ParseResult.ParseResult
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.ParseResult
+  nameWithType.vb: ParseResult.New
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.New
+  name.vb: New
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplication.html
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.html#McMaster_Extensions_CommandLineUtils_Abstractions_ParseResult_SelectedCommand
+  name: SelectedCommand
+  nameWithType: ParseResult.SelectedCommand
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult.SelectedCommand

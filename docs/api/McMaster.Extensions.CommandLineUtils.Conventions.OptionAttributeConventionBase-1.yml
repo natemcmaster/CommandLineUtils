@@ -1,0 +1,135 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+  id: OptionAttributeConventionBase`1
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: OptionAttributeConventionBase<TAttribute>
+  nameWithType: OptionAttributeConventionBase<TAttribute>
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase<TAttribute>
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/OptionAttributeConventionBase.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: OptionAttributeConventionBase
+    path: ../src/CommandLineUtils/Conventions/OptionAttributeConventionBase.cs
+    startLine: 16
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: Shared implementation for adding conventions based on <xref href="McMaster.Extensions.CommandLineUtils.OptionAttributeBase" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public abstract class OptionAttributeConventionBase<TAttribute> where TAttribute : OptionAttributeBase'
+    typeParameters:
+    - id: TAttribute
+      description: ''
+    content.vb: Public MustInherit Class OptionAttributeConventionBase(Of TAttribute As OptionAttributeBase)
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention
+  - McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention
+  nameWithType.vb: OptionAttributeConventionBase(Of TAttribute)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase(Of TAttribute)
+  name.vb: OptionAttributeConventionBase(Of TAttribute)
+references:
+- uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  commentId: T:McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.OptionAttributeBase.html
+  name: OptionAttributeBase
+  nameWithType: OptionAttributeBase
+  fullName: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+- uid: McMaster.Extensions.CommandLineUtils.Conventions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Conventions
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Conventions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Conventions
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions
+    name: Conventions
+    href: McMaster.Extensions.CommandLineUtils.Conventions.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions
+    name: Conventions
+    href: McMaster.Extensions.CommandLineUtils.Conventions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

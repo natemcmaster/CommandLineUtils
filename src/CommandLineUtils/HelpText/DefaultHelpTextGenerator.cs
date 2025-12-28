@@ -426,6 +426,11 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
                 return ExtractNamesFromEnum(wrappedType2);
             }
 
+            if (ReflectionHelper.IsEnumerableType(type, out var wrappedEnumerableType))
+            {
+                return ExtractNamesFromEnum(wrappedEnumerableType);
+            }
+
             if (type.IsEnum)
             {
                 return Enum.GetNames(type);

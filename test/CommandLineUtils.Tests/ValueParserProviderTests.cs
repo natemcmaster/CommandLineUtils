@@ -141,17 +141,32 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         // Workaround https://github.com/dotnet/roslyn/issues/33199 https://github.com/xunit/xunit/issues/1897
 #nullable disable
+        public static IEnumerable<object[]> GetDoublePointSymbolsData()
+        {
+            using (new InCulture(CultureInfo.InvariantCulture))
+            {
+                var format = CultureInfo.CurrentCulture.NumberFormat;
+                return
+                [
+                    [format.PositiveInfinitySymbol, double.PositiveInfinity],
+                    [format.NegativeInfinitySymbol, double.NegativeInfinity],
+                    [format.NaNSymbol, double.NaN]
+                ];
+            }
+        }
+
+
         public static IEnumerable<object[]> GetFloatingPointSymbolsData()
         {
             using (new InCulture(CultureInfo.InvariantCulture))
             {
                 var format = CultureInfo.CurrentCulture.NumberFormat;
-                return new[]
-                {
-                    new object[] { format.PositiveInfinitySymbol, float.PositiveInfinity },
-                    new object[] { format.NegativeInfinitySymbol, float.NegativeInfinity },
-                    new object[] { format.NaNSymbol, float.NaN},
-                };
+                return
+                [
+                    [format.PositiveInfinitySymbol, float.PositiveInfinity],
+                    [format.NegativeInfinitySymbol, float.NegativeInfinity],
+                    [format.NaNSymbol, float.NaN]
+                ];
             }
         }
 #nullable enable
@@ -267,11 +282,11 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Theory]
-        [InlineData("0.0", 0.0)]
-        [InlineData("123456789.987654321", 123456789.987654321)]
-        [InlineData("-123.456", -123.456)]
+        [InlineData("0.0", 0.0D)]
+        [InlineData("123456789.987654321", 123456789.987654321D)]
+        [InlineData("-123.456", -123.456D)]
         [InlineData("-1E10", -1E10)]
-        [MemberData(nameof(GetFloatingPointSymbolsData))]
+        [MemberData(nameof(GetDoublePointSymbolsData))]
         [InlineData("", null)]
         public void ParsesDoubleNullable(string arg, double? result)
         {
@@ -401,8 +416,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void ParsesStringSet()
         {
             var parsed = CommandLineParser.ParseArgs<Program>("--string-set", "first", "--string-set", "second");
-            Assert.Contains("first", parsed.StringSet);
-            Assert.Contains("second", parsed.StringSet);
+            Assert.Contains("first", parsed.StringSet!);
+            Assert.Contains("second", parsed.StringSet!);
         }
 
         [Theory]
@@ -420,7 +435,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("--value-tuple:", "")]
         [InlineData("--value-tuple: ", " ")]
         [InlineData("--value-tuple:path", "path")]
-        public void ParsesValueTupleOfBoolAndType(string input, string expected)
+        public void ParsesValueTupleOfBoolAndType(string input, string? expected)
         {
             var parsed = CommandLineParser.ParseArgs<Program>(input);
             Assert.True(parsed.ValueTuple.HasValue);
@@ -527,7 +542,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var parsed = CommandLineParser.ParseArgs<Program>(args.ToArray());
             Assert.NotNull(parsed.Flags);
             Assert.Equal(repeat, parsed.Flags?.Length);
-            Assert.All(parsed.Flags, value => Assert.True(value));
+            Assert.All(parsed.Flags!, Assert.True);
         }
 
         [Theory]
@@ -631,7 +646,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(typeof(Color), null, default(Color))]
         [InlineData(typeof(Color?), "", null)]
         [MemberData(nameof(TupleData))]
-        public void ItParsesParamofT(Type type, string input, object expected)
+        public void ItParsesParamofT(Type type, string? input, object? expected)
         {
             using (new InCulture(CultureInfo.InvariantCulture))
             {

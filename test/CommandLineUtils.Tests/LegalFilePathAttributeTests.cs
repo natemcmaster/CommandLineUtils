@@ -46,7 +46,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(null)]
         [InlineData("")]
         [InlineData("\0")]
-        public void FailsInvalidLegalFilePaths(string filePath)
+        public void FailsInvalidLegalFilePaths(string? filePath)
         {
             var console = new TestConsole(_output);
             Assert.NotEqual(0, CommandLineApplication.Execute<App>(console, filePath));

@@ -33,23 +33,24 @@ jobs:
       package_version: ${{ steps.build_script.outputs.package_version }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
-            6.0.x
-            8.0.x
+            8.x
+            9.x
+            10.x
       - name: Run build script
         id: build_script
         run: ./build.ps1 -ci
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: ${{ matrix.os == 'windows-latest' }}
         with:
           name: packages
           path: artifacts/
           if-no-files-found: error
-      - uses: codecov/codecov-action@v4
+      - uses: codecov/codecov-action@v5
         with:
           name: unittests-${{ matrix.os }}
           fail_ci_if_error: true
@@ -66,7 +67,7 @@ jobs:
         uses: NuGet/setup-nuget@v2
         with:
           nuget-version: latest
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           name: packages
           path: packages

@@ -1,4 +1,4 @@
-#requires -version 5
+#!/usr/bin/env pwsh
 param(
     [string]$SourceCommit,
     [string]$ApiToken,

@@ -1,0 +1,332 @@
+### YamlMime:TableOfContent
+items:
+- uid: McMaster.Extensions.CommandLineUtils
+  name: McMaster.Extensions.CommandLineUtils
+  type: Namespace
+  items:
+  - uid: McMaster.Extensions.CommandLineUtils.AllowedValuesAttribute
+    name: AllowedValuesAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.ArgumentAttribute
+    name: ArgumentAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.ArgumentEscaper
+    name: ArgumentEscaper
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument`1
+    name: CommandArgument<T>
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.CommandAttribute
+    name: CommandAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+    name: CommandLineApplication
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplicationExtensions
+    name: CommandLineApplicationExtensions
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1
+    name: CommandLineApplication<TModel>
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption
+    name: CommandOption
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOptionType
+    name: CommandOptionType
+    type: Enum
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption`1
+    name: CommandOption<T>
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.CommandParsingException
+    name: CommandParsingException
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+    name: ConsoleExtensions
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.ConsoleReporter
+    name: ConsoleReporter
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.ConventionBuilderExtensions
+    name: ConventionBuilderExtensions
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.DebugHelper
+    name: DebugHelper
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.DirectoryExistsAttribute
+    name: DirectoryExistsAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.DirectoryNotExistsAttribute
+    name: DirectoryNotExistsAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.DotNetCliContext
+    name: DotNetCliContext
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.DotNetExe
+    name: DotNetExe
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.FileExistsAttribute
+    name: FileExistsAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.FileNotExistsAttribute
+    name: FileNotExistsAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.FileOrDirectoryExistsAttribute
+    name: FileOrDirectoryExistsAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.FileOrDirectoryNotExistsAttribute
+    name: FileOrDirectoryNotExistsAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.HelpOptionAttribute
+    name: HelpOptionAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.IConsole
+    name: IConsole
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter
+    name: IReporter
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute
+    name: LegalFilePathAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.MissingParameterlessConstructorException
+    name: MissingParameterlessConstructorException
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.NullConsole
+    name: NullConsole
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.NullReporter
+    name: NullReporter
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.OptionAttribute
+    name: OptionAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.OptionAttributeBase
+    name: OptionAttributeBase
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Pager
+    name: Pager
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.PhysicalConsole
+    name: PhysicalConsole
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Prompt
+    name: Prompt
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+    name: ResponseFileHandling
+    type: Enum
+  - uid: McMaster.Extensions.CommandLineUtils.SubcommandAttribute
+    name: SubcommandAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
+    name: SuppressDefaultHelpOptionAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling
+    name: UnrecognizedArgumentHandling
+    type: Enum
+  - uid: McMaster.Extensions.CommandLineUtils.UnrecognizedCommandParsingException
+    name: UnrecognizedCommandParsingException
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.ValidateMethodConvention
+    name: ValidateMethodConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+    name: ValidationExtensions
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.VersionOptionAttribute
+    name: VersionOptionAttribute
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute
+    name: VersionOptionFromMemberAttribute
+    type: Class
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  type: Namespace
+  items:
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+    name: CommandLineContext
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IModelAccessor
+    name: IModelAccessor
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+    name: IValueParser
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+    name: IValueParser<T>
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.ParseResult
+    name: ParseResult
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser
+    name: ValueParser
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider
+    name: ValueParserProvider
+    type: Class
+- uid: McMaster.Extensions.CommandLineUtils.Conventions
+  name: McMaster.Extensions.CommandLineUtils.Conventions
+  type: Namespace
+  items:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.AppNameFromEntryAssemblyConvention
+    name: AppNameFromEntryAssemblyConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ArgumentAttributeConvention
+    name: ArgumentAttributeConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.AttributeConvention
+    name: AttributeConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.CommandAttributeConvention
+    name: CommandAttributeConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention
+    name: CommandNameFromTypeConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ConstructorInjectionConvention
+    name: ConstructorInjectionConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+    name: ConventionContext
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+    name: DefaultHelpOptionConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ExecuteMethodConvention
+    name: ExecuteMethodConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.HelpOptionAttributeConvention
+    name: HelpOptionAttributeConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+    name: IConvention
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConventionBuilder
+    name: IConventionBuilder
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IMemberConvention
+    name: IMemberConvention
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConvention
+    name: OptionAttributeConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1
+    name: OptionAttributeConventionBase<TAttribute>
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ParentPropertyConvention
+    name: ParentPropertyConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.RemainingArgsPropertyConvention
+    name: RemainingArgsPropertyConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention
+    name: SubcommandAttributeConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.SubcommandPropertyConvention
+    name: SubcommandPropertyConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ValidationErrorMethodConvention
+    name: ValidationErrorMethodConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionAttributeConvention
+    name: VersionOptionAttributeConvention
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.VersionOptionFromMemberAttributeConvention
+    name: VersionOptionFromMemberAttributeConvention
+    type: Class
+- uid: McMaster.Extensions.CommandLineUtils.Errors
+  name: McMaster.Extensions.CommandLineUtils.Errors
+  type: Namespace
+  items:
+  - uid: McMaster.Extensions.CommandLineUtils.Errors.SubcommandCycleException
+    name: SubcommandCycleException
+    type: Class
+- uid: McMaster.Extensions.CommandLineUtils.HelpText
+  name: McMaster.Extensions.CommandLineUtils.HelpText
+  type: Namespace
+  items:
+  - uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+    name: DefaultHelpTextGenerator
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+    name: HangingIndentWriter
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+    name: IHelpTextGenerator
+    type: Interface
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  type: Namespace
+  items:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator
+    name: AttributeValidator
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+    name: DelegateValidator
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+    name: FilePathExistsAttributeBase
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+    name: FilePathNotExistsAttributeBase
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+    name: IArgumentValidationBuilder
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+    name: IArgumentValidationBuilder<T>
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+    name: IArgumentValidator
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+    name: ICommandValidator
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder
+    name: IOptionValidationBuilder
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder`1
+    name: IOptionValidationBuilder<T>
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+    name: IOptionValidator
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder`1
+    name: IValidationBuilder<T>
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidator
+    name: IValidator
+    type: Interface
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder
+    name: ValidationBuilder
+    type: Class
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder`1
+    name: ValidationBuilder<T>
+    type: Class
+- uid: McMaster.Extensions.Hosting.CommandLine
+  name: McMaster.Extensions.Hosting.CommandLine
+  type: Namespace
+  items:
+  - uid: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler
+    name: IUnhandledExceptionHandler
+    type: Interface
+- uid: Microsoft.Extensions.Hosting
+  name: Microsoft.Extensions.Hosting
+  type: Namespace
+  items:
+  - uid: Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+    name: HostBuilderContextExtensions
+    type: Class
+  - uid: Microsoft.Extensions.Hosting.HostBuilderExtensions
+    name: HostBuilderExtensions
+    type: Class
+  - uid: Microsoft.Extensions.Hosting.HostExtensions
+    name: HostExtensions
+    type: Class
+memberLayout: SamePage

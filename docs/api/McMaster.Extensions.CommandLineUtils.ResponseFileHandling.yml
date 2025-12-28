@@ -1,0 +1,192 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+  commentId: T:McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+  id: ResponseFileHandling
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.ResponseFileHandling.Disabled
+  - McMaster.Extensions.CommandLineUtils.ResponseFileHandling.ParseArgsAsLineSeparated
+  - McMaster.Extensions.CommandLineUtils.ResponseFileHandling.ParseArgsAsSpaceSeparated
+  langs:
+  - csharp
+  - vb
+  name: ResponseFileHandling
+  nameWithType: ResponseFileHandling
+  fullName: McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+  type: Enum
+  source:
+    remote:
+      path: src/CommandLineUtils/ResponseFileHandling.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ResponseFileHandling
+    path: ../src/CommandLineUtils/ResponseFileHandling.cs
+    startLine: 15
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: >-
+    <p>
+
+    Specifies options for how to handle response files. The parser treats arguments beginning with '@' as a file path to a response file.
+
+    </p>
+
+    <p>
+
+    A response file contains additional arguments that will be treated as if they were passed in on the command line.
+
+    Response files can have comments that begin with the # symbol.
+
+    You cannot use the backslash character (\) to concatenate lines.
+
+    </p>
+  example: []
+  syntax:
+    content: public enum ResponseFileHandling
+    content.vb: Public Enum ResponseFileHandling
+- uid: McMaster.Extensions.CommandLineUtils.ResponseFileHandling.Disabled
+  commentId: F:McMaster.Extensions.CommandLineUtils.ResponseFileHandling.Disabled
+  id: Disabled
+  parent: McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+  langs:
+  - csharp
+  - vb
+  name: Disabled
+  nameWithType: ResponseFileHandling.Disabled
+  fullName: McMaster.Extensions.CommandLineUtils.ResponseFileHandling.Disabled
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/ResponseFileHandling.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Disabled
+    path: ../src/CommandLineUtils/ResponseFileHandling.cs
+    startLine: 20
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Do not parse response files or treat arguments with '@' as a response file
+  example: []
+  syntax:
+    content: Disabled = 0
+    return:
+      type: McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+- uid: McMaster.Extensions.CommandLineUtils.ResponseFileHandling.ParseArgsAsSpaceSeparated
+  commentId: F:McMaster.Extensions.CommandLineUtils.ResponseFileHandling.ParseArgsAsSpaceSeparated
+  id: ParseArgsAsSpaceSeparated
+  parent: McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+  langs:
+  - csharp
+  - vb
+  name: ParseArgsAsSpaceSeparated
+  nameWithType: ResponseFileHandling.ParseArgsAsSpaceSeparated
+  fullName: McMaster.Extensions.CommandLineUtils.ResponseFileHandling.ParseArgsAsSpaceSeparated
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/ResponseFileHandling.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ParseArgsAsSpaceSeparated
+    path: ../src/CommandLineUtils/ResponseFileHandling.cs
+    startLine: 30
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: >-
+    <p>
+
+    Multiple arguments may appear on one line. Arguments are separate by spaces.
+
+    </p>
+
+    <p>
+
+    Double and single quotes can be used to wrap arguments containing spaces.
+
+    </p>
+  example: []
+  syntax:
+    content: ParseArgsAsSpaceSeparated = 1
+    return:
+      type: McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+- uid: McMaster.Extensions.CommandLineUtils.ResponseFileHandling.ParseArgsAsLineSeparated
+  commentId: F:McMaster.Extensions.CommandLineUtils.ResponseFileHandling.ParseArgsAsLineSeparated
+  id: ParseArgsAsLineSeparated
+  parent: McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+  langs:
+  - csharp
+  - vb
+  name: ParseArgsAsLineSeparated
+  nameWithType: ResponseFileHandling.ParseArgsAsLineSeparated
+  fullName: McMaster.Extensions.CommandLineUtils.ResponseFileHandling.ParseArgsAsLineSeparated
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/ResponseFileHandling.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ParseArgsAsLineSeparated
+    path: ../src/CommandLineUtils/ResponseFileHandling.cs
+    startLine: 40
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: >-
+    <p>
+
+    Each line in the file is treated as an argument, regardless of whitespace on the line.
+
+    </p>
+
+    <p>
+
+    Lines beginning with # are skipped.
+
+    </p>
+  example: []
+  syntax:
+    content: ParseArgsAsLineSeparated = 2
+    return:
+      type: McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+  commentId: T:McMaster.Extensions.CommandLineUtils.ResponseFileHandling
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.ResponseFileHandling.html
+  name: ResponseFileHandling
+  nameWithType: ResponseFileHandling
+  fullName: McMaster.Extensions.CommandLineUtils.ResponseFileHandling

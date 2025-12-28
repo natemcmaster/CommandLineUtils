@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
+  id: SuppressDefaultHelpOptionAttribute
+  parent: McMaster.Extensions.CommandLineUtils
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: SuppressDefaultHelpOptionAttribute
+  nameWithType: SuppressDefaultHelpOptionAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.SuppressDefaultHelpOptionAttribute
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/SuppressDefaultHelpOptionAttribute.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: SuppressDefaultHelpOptionAttribute
+    path: ../src/CommandLineUtils/Attributes/SuppressDefaultHelpOptionAttribute.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Suppress <xref href="McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class)]
+
+      public sealed class SuppressDefaultHelpOptionAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.Class)>
+
+      Public NotInheritable Class SuppressDefaultHelpOptionAttribute Inherits Attribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 5
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  href: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html
+  name: DefaultHelpOptionConvention
+  nameWithType: DefaultHelpOptionConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Attribute
+  commentId: T:System.Attribute
+  parent: System
+  isExternal: true
+  name: Attribute
+  nameWithType: Attribute
+  fullName: System.Attribute
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

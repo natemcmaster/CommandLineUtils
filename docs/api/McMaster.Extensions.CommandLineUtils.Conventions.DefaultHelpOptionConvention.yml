@@ -1,0 +1,262 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  id: DefaultHelpOptionConvention
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.#ctor(System.String)
+  - McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  - McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.DefaultHelpTemplate
+  langs:
+  - csharp
+  - vb
+  name: DefaultHelpOptionConvention
+  nameWithType: DefaultHelpOptionConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/DefaultHelpOptionConvention.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: DefaultHelpOptionConvention
+    path: ../src/CommandLineUtils/Conventions/DefaultHelpOptionConvention.cs
+    startLine: 10
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: Adds a help option of --help if no other help option is specified.
+  example: []
+  syntax:
+    content: 'public class DefaultHelpOptionConvention : IConvention'
+    content.vb: Public Class DefaultHelpOptionConvention Implements IConvention
+  inheritance:
+  - System.Object
+  implements:
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.DefaultHelpTemplate
+  commentId: F:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.DefaultHelpTemplate
+  id: DefaultHelpTemplate
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  langs:
+  - csharp
+  - vb
+  name: DefaultHelpTemplate
+  nameWithType: DefaultHelpOptionConvention.DefaultHelpTemplate
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.DefaultHelpTemplate
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/DefaultHelpOptionConvention.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: DefaultHelpTemplate
+    path: ../src/CommandLineUtils/Conventions/DefaultHelpOptionConvention.cs
+    startLine: 15
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: The default help template.
+  example: []
+  syntax:
+    content: public const string DefaultHelpTemplate = "-?|-h|--help"
+    return:
+      type: System.String
+    content.vb: Public Const DefaultHelpTemplate As String = "-?|-h|--help"
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.#ctor(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  langs:
+  - csharp
+  - vb
+  name: DefaultHelpOptionConvention(string)
+  nameWithType: DefaultHelpOptionConvention.DefaultHelpOptionConvention(string)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.DefaultHelpOptionConvention(string)
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/DefaultHelpOptionConvention.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Conventions/DefaultHelpOptionConvention.cs
+    startLine: 22
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: Initializes an instance of <xref href="McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public DefaultHelpOptionConvention(string template)
+    parameters:
+    - id: template
+      type: System.String
+      description: ''
+    content.vb: Public Sub New(template As String)
+  overload: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.#ctor*
+  nameWithType.vb: DefaultHelpOptionConvention.New(String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.New(String)
+  name.vb: New(String)
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  id: Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  langs:
+  - csharp
+  - vb
+  name: Apply(ConventionContext)
+  nameWithType: DefaultHelpOptionConvention.Apply(ConventionContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Conventions/DefaultHelpOptionConvention.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Apply
+    path: ../src/CommandLineUtils/Conventions/DefaultHelpOptionConvention.cs
+    startLine: 28
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Conventions
+  summary: Apply the convention.
+  example: []
+  syntax:
+    content: public void Apply(ConventionContext context)
+    parameters:
+    - id: context
+      type: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+      description: The context in which the convention is applied.
+    content.vb: Public Sub Apply(context As ConventionContext)
+  overload: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Conventions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Conventions
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Conventions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Conventions
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions
+    name: Conventions
+    href: McMaster.Extensions.CommandLineUtils.Conventions.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions
+    name: Conventions
+    href: McMaster.Extensions.CommandLineUtils.Conventions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  href: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html
+  name: IConvention
+  nameWithType: IConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+  href: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html
+  name: DefaultHelpOptionConvention
+  nameWithType: DefaultHelpOptionConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.#ctor
+  href: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_DefaultHelpOptionConvention__ctor_System_String_
+  name: DefaultHelpOptionConvention
+  nameWithType: DefaultHelpOptionConvention.DefaultHelpOptionConvention
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.DefaultHelpOptionConvention
+  nameWithType.vb: DefaultHelpOptionConvention.New
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.New
+  name.vb: New
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply
+  href: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_DefaultHelpOptionConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_
+  name: Apply
+  nameWithType: DefaultHelpOptionConvention.Apply
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.DefaultHelpOptionConvention.Apply
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  parent: McMaster.Extensions.CommandLineUtils.Conventions.IConvention
+  href: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_IConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_
+  name: Apply(ConventionContext)
+  nameWithType: IConvention.Apply(ConventionContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+    name: Apply
+    href: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_IConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+    name: ConventionContext
+    href: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)
+    name: Apply
+    href: McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html#McMaster_Extensions_CommandLineUtils_Conventions_IConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+    name: ConventionContext
+    href: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext
+  parent: McMaster.Extensions.CommandLineUtils.Conventions
+  href: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html
+  name: ConventionContext
+  nameWithType: ConventionContext
+  fullName: McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext

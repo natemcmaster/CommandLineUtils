@@ -1,0 +1,1743 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder
+  id: IOptionValidationBuilder
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  children:
+  - McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator)
+  langs:
+  - csharp
+  - vb
+  name: IOptionValidationBuilder
+  nameWithType: IOptionValidationBuilder
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/IOptionValidationBuilder.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IOptionValidationBuilder
+    path: ../src/CommandLineUtils/Validation/IOptionValidationBuilder.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  summary: Creates a collection of validators for <xref href="McMaster.Extensions.CommandLineUtils.CommandOption" data-throw-if-not-resolved="false"></xref>.
+  remarks: Custom validation extension methods that only apply to <xref href="McMaster.Extensions.CommandLineUtils.CommandOption" data-throw-if-not-resolved="false"></xref> should hang off this type.
+  example: []
+  syntax:
+    content: 'public interface IOptionValidationBuilder : IValidationBuilder'
+    content.vb: Public Interface IOptionValidationBuilder Inherits IValidationBuilder
+  inheritedMembers:
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+  extensionMethods:
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(System.String)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(System.Boolean)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(System.String)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(System.String)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(System.String)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(System.String)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(System.Int32,System.String)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(System.Int32,System.String)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(System.String)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(System.String)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(System.String)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(System.String,System.String)
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(System.String,System.Object[])
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.Boolean,System.String[])
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.StringComparison,System.String[])
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.String[])
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator)
+  id: Use(McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder
+  langs:
+  - csharp
+  - vb
+  name: Use(IOptionValidator)
+  nameWithType: IOptionValidationBuilder.Use(IOptionValidator)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/IOptionValidationBuilder.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Use
+    path: ../src/CommandLineUtils/Validation/IOptionValidationBuilder.cs
+    startLine: 17
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  summary: Use the given <xref href="McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: void Use(IOptionValidator validator)
+    parameters:
+    - id: validator
+      type: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+      description: The validator.
+    content.vb: Sub Use(validator As IOptionValidator)
+  overload: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.Use*
+references:
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOption
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.CommandOption.html
+  name: CommandOption
+  nameWithType: CommandOption
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  commentId: N:McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  nameWithType: McMaster.Extensions.CommandLineUtils.Validation
+  fullName: McMaster.Extensions.CommandLineUtils.Validation
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Validation
+    name: Validation
+    href: McMaster.Extensions.CommandLineUtils.Validation.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Validation
+    name: Validation
+    href: McMaster.Extensions.CommandLineUtils.Validation.html
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html#McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_Use_McMaster_Extensions_CommandLineUtils_Validation_IValidator_
+  name: Use(IValidator)
+  nameWithType: IValidationBuilder.Use(IValidator)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+    name: Use
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html#McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_Use_McMaster_Extensions_CommandLineUtils_Validation_IValidator_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidator
+    name: IValidator
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidator.html
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.Use(McMaster.Extensions.CommandLineUtils.Validation.IValidator)
+    name: Use
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html#McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_Use_McMaster_Extensions_CommandLineUtils_Validation_IValidator_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidator
+    name: IValidator
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidator.html
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_EmailAddress_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: EmailAddress(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.EmailAddress(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.EmailAddress(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: EmailAddress(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: EmailAddress
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_EmailAddress_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: EmailAddress
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_EmailAddress_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Enum__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_
+  name: Enum<TEnum>(IValidationBuilder, bool)
+  nameWithType: ValidationExtensions.Enum<TEnum>(IValidationBuilder, bool)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum<TEnum>(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, bool)
+  nameWithType.vb: ValidationExtensions.Enum(Of TEnum)(IValidationBuilder, Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum(Of TEnum)(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, Boolean)
+  name.vb: Enum(Of TEnum)(IValidationBuilder, Boolean)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+    name: Enum
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Enum__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_
+  - name: <
+  - name: TEnum
+  - name: '>'
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+    name: Enum
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Enum__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnum
+  - name: )
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: ExistingDirectory(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.ExistingDirectory(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.ExistingDirectory(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: ExistingDirectory(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: ExistingFile(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.ExistingFile(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.ExistingFile(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: ExistingFile(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingFile
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingFile
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: ExistingFileOrDirectory(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.ExistingFileOrDirectory(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.ExistingFileOrDirectory(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: ExistingFileOrDirectory(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingFileOrDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingFileOrDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: LegalFilePath(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.LegalFilePath(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.LegalFilePath(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: LegalFilePath(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: LegalFilePath
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: LegalFilePath
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(System.Int32,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MaxLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  name: MaxLength(IValidationBuilder, int, string)
+  nameWithType: ValidationExtensions.MaxLength(IValidationBuilder, int, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, int, string)
+  nameWithType.vb: ValidationExtensions.MaxLength(IValidationBuilder, Integer, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, Integer, String)
+  name.vb: MaxLength(IValidationBuilder, Integer, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+    name: MaxLength
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MaxLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+    name: MaxLength
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MaxLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(System.Int32,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MinLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  name: MinLength(IValidationBuilder, int, string)
+  nameWithType: ValidationExtensions.MinLength(IValidationBuilder, int, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, int, string)
+  nameWithType.vb: ValidationExtensions.MinLength(IValidationBuilder, Integer, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, Integer, String)
+  name.vb: MinLength(IValidationBuilder, Integer, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+    name: MinLength
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MinLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+    name: MinLength
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MinLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: NonExistingDirectory(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.NonExistingDirectory(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.NonExistingDirectory(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: NonExistingDirectory(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: NonExistingFile(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.NonExistingFile(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.NonExistingFile(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: NonExistingFile(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingFile
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingFile
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: NonExistingFileOrDirectory(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.NonExistingFileOrDirectory(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.NonExistingFileOrDirectory(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: NonExistingFileOrDirectory(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingFileOrDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingFileOrDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(System.String,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.String)
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.String)
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_RegularExpression_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_String_
+  name: RegularExpression(IValidationBuilder, string, string)
+  nameWithType: ValidationExtensions.RegularExpression(IValidationBuilder, string, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string, string)
+  nameWithType.vb: ValidationExtensions.RegularExpression(IValidationBuilder, String, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String, String)
+  name.vb: RegularExpression(IValidationBuilder, String, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.String)
+    name: RegularExpression
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_RegularExpression_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.String)
+    name: RegularExpression
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_RegularExpression_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(System.String,System.Object[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Object[])
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Object[])
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Satisfies__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_Object___
+  name: Satisfies<TAttribute>(IValidationBuilder, string, params object[])
+  nameWithType: ValidationExtensions.Satisfies<TAttribute>(IValidationBuilder, string, params object[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies<TAttribute>(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string, params object[])
+  nameWithType.vb: ValidationExtensions.Satisfies(Of TAttribute)(IValidationBuilder, String, ParamArray Object())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies(Of TAttribute)(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String, ParamArray Object())
+  name.vb: Satisfies(Of TAttribute)(IValidationBuilder, String, ParamArray Object())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Object[])
+    name: Satisfies
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Satisfies__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_Object___
+  - name: <
+  - name: TAttribute
+  - name: '>'
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Object[])
+    name: Satisfies
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Satisfies__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_Object___
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TAttribute
+  - name: )
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: (
+  - name: )
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.Boolean,System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_System_String___
+  name: Values(IValidationBuilder, bool, params string[])
+  nameWithType: ValidationExtensions.Values(IValidationBuilder, bool, params string[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, bool, params string[])
+  nameWithType.vb: ValidationExtensions.Values(IValidationBuilder, Boolean, ParamArray String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, Boolean, ParamArray String())
+  name.vb: Values(IValidationBuilder, Boolean, ParamArray String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.StringComparison,System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_StringComparison_System_String___
+  name: Values(IValidationBuilder, StringComparison, params string[])
+  nameWithType: ValidationExtensions.Values(IValidationBuilder, StringComparison, params string[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.StringComparison, params string[])
+  nameWithType.vb: ValidationExtensions.Values(IValidationBuilder, StringComparison, ParamArray String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.StringComparison, ParamArray String())
+  name.vb: Values(IValidationBuilder, StringComparison, ParamArray String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_StringComparison_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.StringComparison
+    name: StringComparison
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.stringcomparison
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_StringComparison_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.StringComparison
+    name: StringComparison
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.stringcomparison
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+  parent: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  definition: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String___
+  name: Values(IValidationBuilder, params string[])
+  nameWithType: ValidationExtensions.Values(IValidationBuilder, params string[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, params string[])
+  nameWithType.vb: ValidationExtensions.Values(IValidationBuilder, ParamArray String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, ParamArray String())
+  name.vb: Values(IValidationBuilder, ParamArray String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  name: IValidationBuilder
+  nameWithType: IValidationBuilder
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_EmailAddress_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: EmailAddress(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.EmailAddress(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.EmailAddress(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: EmailAddress(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: EmailAddress
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_EmailAddress_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.EmailAddress(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: EmailAddress
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_EmailAddress_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  commentId: T:McMaster.Extensions.CommandLineUtils.ValidationExtensions
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html
+  name: ValidationExtensions
+  nameWithType: ValidationExtensions
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Enum__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_
+  name: Enum<TEnum>(IValidationBuilder, bool)
+  nameWithType: ValidationExtensions.Enum<TEnum>(IValidationBuilder, bool)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum<TEnum>(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, bool)
+  nameWithType.vb: ValidationExtensions.Enum(Of TEnum)(IValidationBuilder, Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum(Of TEnum)(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, Boolean)
+  name.vb: Enum(Of TEnum)(IValidationBuilder, Boolean)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+    name: Enum
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Enum__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_
+  - name: <
+  - name: TEnum
+  - name: '>'
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Enum``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean)
+    name: Enum
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Enum__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnum
+  - name: )
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: ExistingDirectory(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.ExistingDirectory(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.ExistingDirectory(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: ExistingDirectory(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: ExistingFile(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.ExistingFile(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.ExistingFile(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: ExistingFile(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingFile
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingFile
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: ExistingFileOrDirectory(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.ExistingFileOrDirectory(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.ExistingFileOrDirectory(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: ExistingFileOrDirectory(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingFileOrDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.ExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: ExistingFileOrDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_ExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: LegalFilePath(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.LegalFilePath(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.LegalFilePath(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: LegalFilePath(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: LegalFilePath
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.LegalFilePath(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: LegalFilePath
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_LegalFilePath_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MaxLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  name: MaxLength(IValidationBuilder, int, string)
+  nameWithType: ValidationExtensions.MaxLength(IValidationBuilder, int, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, int, string)
+  nameWithType.vb: ValidationExtensions.MaxLength(IValidationBuilder, Integer, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, Integer, String)
+  name.vb: MaxLength(IValidationBuilder, Integer, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+    name: MaxLength
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MaxLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MaxLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+    name: MaxLength
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MaxLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MinLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  name: MinLength(IValidationBuilder, int, string)
+  nameWithType: ValidationExtensions.MinLength(IValidationBuilder, int, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, int, string)
+  nameWithType.vb: ValidationExtensions.MinLength(IValidationBuilder, Integer, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, Integer, String)
+  name.vb: MinLength(IValidationBuilder, Integer, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+    name: MinLength
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MinLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.MinLength(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Int32,System.String)
+    name: MinLength
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_MinLength_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Int32_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: NonExistingDirectory(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.NonExistingDirectory(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.NonExistingDirectory(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: NonExistingDirectory(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: NonExistingFile(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.NonExistingFile(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.NonExistingFile(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: NonExistingFile(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingFile
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFile(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingFile
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFile_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  name: NonExistingFileOrDirectory(IValidationBuilder, string)
+  nameWithType: ValidationExtensions.NonExistingFileOrDirectory(IValidationBuilder, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string)
+  nameWithType.vb: ValidationExtensions.NonExistingFileOrDirectory(IValidationBuilder, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String)
+  name.vb: NonExistingFileOrDirectory(IValidationBuilder, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingFileOrDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.NonExistingFileOrDirectory(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String)
+    name: NonExistingFileOrDirectory
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_NonExistingFileOrDirectory_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.String)
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_RegularExpression_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_String_
+  name: RegularExpression(IValidationBuilder, string, string)
+  nameWithType: ValidationExtensions.RegularExpression(IValidationBuilder, string, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string, string)
+  nameWithType.vb: ValidationExtensions.RegularExpression(IValidationBuilder, String, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String, String)
+  name.vb: RegularExpression(IValidationBuilder, String, String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.String)
+    name: RegularExpression
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_RegularExpression_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.RegularExpression(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.String)
+    name: RegularExpression
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_RegularExpression_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_String_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Object[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Object[])
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Satisfies__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_Object___
+  name: Satisfies<TAttribute>(IValidationBuilder, string, params object[])
+  nameWithType: ValidationExtensions.Satisfies<TAttribute>(IValidationBuilder, string, params object[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies<TAttribute>(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, string, params object[])
+  nameWithType.vb: ValidationExtensions.Satisfies(Of TAttribute)(IValidationBuilder, String, ParamArray Object())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies(Of TAttribute)(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, String, ParamArray Object())
+  name.vb: Satisfies(Of TAttribute)(IValidationBuilder, String, ParamArray Object())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Object[])
+    name: Satisfies
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Satisfies__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_Object___
+  - name: <
+  - name: TAttribute
+  - name: '>'
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Satisfies``1(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String,System.Object[])
+    name: Satisfies
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Satisfies__1_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String_System_Object___
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TAttribute
+  - name: )
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: (
+  - name: )
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_System_String___
+  name: Values(IValidationBuilder, bool, params string[])
+  nameWithType: ValidationExtensions.Values(IValidationBuilder, bool, params string[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, bool, params string[])
+  nameWithType.vb: ValidationExtensions.Values(IValidationBuilder, Boolean, ParamArray String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, Boolean, ParamArray String())
+  name.vb: Values(IValidationBuilder, Boolean, ParamArray String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.Boolean,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_Boolean_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_StringComparison_System_String___
+  name: Values(IValidationBuilder, StringComparison, params string[])
+  nameWithType: ValidationExtensions.Values(IValidationBuilder, StringComparison, params string[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.StringComparison, params string[])
+  nameWithType.vb: ValidationExtensions.Values(IValidationBuilder, StringComparison, ParamArray String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, System.StringComparison, ParamArray String())
+  name.vb: Values(IValidationBuilder, StringComparison, ParamArray String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_StringComparison_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.StringComparison
+    name: StringComparison
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.stringcomparison
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.StringComparison,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_StringComparison_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.StringComparison
+    name: StringComparison
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.stringcomparison
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String___
+  name: Values(IValidationBuilder, params string[])
+  nameWithType: ValidationExtensions.Values(IValidationBuilder, params string[])
+  fullName: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, params string[])
+  nameWithType.vb: ValidationExtensions.Values(IValidationBuilder, ParamArray String())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder, ParamArray String())
+  name.vb: Values(IValidationBuilder, ParamArray String())
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.ValidationExtensions.Values(McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder,System.String[])
+    name: Values
+    href: McMaster.Extensions.CommandLineUtils.ValidationExtensions.html#McMaster_Extensions_CommandLineUtils_ValidationExtensions_Values_McMaster_Extensions_CommandLineUtils_Validation_IValidationBuilder_System_String___
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html
+  name: IOptionValidator
+  nameWithType: IOptionValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.Use*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.Use
+  href: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.html#McMaster_Extensions_CommandLineUtils_Validation_IOptionValidationBuilder_Use_McMaster_Extensions_CommandLineUtils_Validation_IOptionValidator_
+  name: Use
+  nameWithType: IOptionValidationBuilder.Use
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.Use

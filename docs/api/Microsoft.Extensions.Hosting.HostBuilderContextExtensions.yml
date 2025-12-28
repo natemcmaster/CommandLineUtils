@@ -1,0 +1,176 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+  commentId: T:Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+  id: HostBuilderContextExtensions
+  parent: Microsoft.Extensions.Hosting
+  children:
+  - Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext(Microsoft.Extensions.Hosting.HostBuilderContext)
+  langs:
+  - csharp
+  - vb
+  name: HostBuilderContextExtensions
+  nameWithType: HostBuilderContextExtensions
+  fullName: Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+  type: Class
+  source:
+    remote:
+      path: src/Hosting.CommandLine/HostBuilderContextExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: HostBuilderContextExtensions
+    path: ../src/Hosting.CommandLine/HostBuilderContextExtensions.cs
+    startLine: 11
+  assemblies:
+  - McMaster.Extensions.Hosting.CommandLine
+  namespace: Microsoft.Extensions.Hosting
+  summary: Extensions methods for the <xref href="Microsoft.Extensions.Hosting.HostBuilderContext" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static class HostBuilderContextExtensions
+    content.vb: Public Module HostBuilderContextExtensions
+  inheritance:
+  - System.Object
+- uid: Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext(Microsoft.Extensions.Hosting.HostBuilderContext)
+  commentId: M:Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext(Microsoft.Extensions.Hosting.HostBuilderContext)
+  id: GetCommandLineContext(Microsoft.Extensions.Hosting.HostBuilderContext)
+  isExtensionMethod: true
+  parent: Microsoft.Extensions.Hosting.HostBuilderContextExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetCommandLineContext(HostBuilderContext)
+  nameWithType: HostBuilderContextExtensions.GetCommandLineContext(HostBuilderContext)
+  fullName: Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext(Microsoft.Extensions.Hosting.HostBuilderContext)
+  type: Method
+  source:
+    remote:
+      path: src/Hosting.CommandLine/HostBuilderContextExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetCommandLineContext
+    path: ../src/Hosting.CommandLine/HostBuilderContextExtensions.cs
+    startLine: 18
+  assemblies:
+  - McMaster.Extensions.Hosting.CommandLine
+  namespace: Microsoft.Extensions.Hosting
+  summary: Get the <xref href="McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext" data-throw-if-not-resolved="false"></xref> used to run the app
+  example: []
+  syntax:
+    content: public static CommandLineContext GetCommandLineContext(this HostBuilderContext context)
+    parameters:
+    - id: context
+      type: Microsoft.Extensions.Hosting.HostBuilderContext
+      description: This instance
+    return:
+      type: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+      description: The <xref href="McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext" data-throw-if-not-resolved="false"></xref> used to run the app
+    content.vb: Public Shared Function GetCommandLineContext(context As HostBuilderContext) As CommandLineContext
+  overload: Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext*
+references:
+- uid: Microsoft.Extensions.Hosting.HostBuilderContext
+  commentId: T:Microsoft.Extensions.Hosting.HostBuilderContext
+  parent: Microsoft.Extensions.Hosting
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.hostbuildercontext
+  name: HostBuilderContext
+  nameWithType: HostBuilderContext
+  fullName: Microsoft.Extensions.Hosting.HostBuilderContext
+- uid: Microsoft.Extensions.Hosting
+  commentId: N:Microsoft.Extensions.Hosting
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Hosting
+  nameWithType: Microsoft.Extensions.Hosting
+  fullName: Microsoft.Extensions.Hosting
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Hosting
+    name: Hosting
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Hosting
+    name: Hosting
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext.html
+  name: CommandLineContext
+  nameWithType: CommandLineContext
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext
+- uid: Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext*
+  commentId: Overload:Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext
+  href: Microsoft.Extensions.Hosting.HostBuilderContextExtensions.html#Microsoft_Extensions_Hosting_HostBuilderContextExtensions_GetCommandLineContext_Microsoft_Extensions_Hosting_HostBuilderContext_
+  name: GetCommandLineContext
+  nameWithType: HostBuilderContextExtensions.GetCommandLineContext
+  fullName: Microsoft.Extensions.Hosting.HostBuilderContextExtensions.GetCommandLineContext
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions
+    name: Abstractions
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions
+    name: Abstractions
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.html
