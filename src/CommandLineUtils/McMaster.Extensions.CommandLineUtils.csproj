@@ -31,9 +31,4 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
     <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="4.14.0" PrivateAssets="All" />
   </ItemGroup>
 
-  <ItemGroup>
-    <AdditionalFiles Include="PublicAPI.Shipped.txt" />
-    <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
-  </ItemGroup>
-
 </Project>

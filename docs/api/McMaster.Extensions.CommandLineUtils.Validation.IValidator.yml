@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IValidator
+  id: IValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IValidator
+  nameWithType: IValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidator
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/IValidator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IValidator
+    path: ../src/CommandLineUtils/Validation/IValidator.cs
+    startLine: 8
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  summary: Provides validation for <xref href="McMaster.Extensions.CommandLineUtils.CommandArgument" data-throw-if-not-resolved="false"></xref> and <xref href="McMaster.Extensions.CommandLineUtils.CommandOption" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface IValidator : IOptionValidator, IArgumentValidator'
+    content.vb: Public Interface IValidator Inherits IOptionValidator, IArgumentValidator
+  inheritedMembers:
+  - McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  - McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+references:
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandArgument
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.CommandArgument.html
+  name: CommandArgument
+  nameWithType: CommandArgument
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOption
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.CommandOption.html
+  name: CommandOption
+  nameWithType: CommandOption
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  commentId: N:McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  nameWithType: McMaster.Extensions.CommandLineUtils.Validation
+  fullName: McMaster.Extensions.CommandLineUtils.Validation
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Validation
+    name: Validation
+    href: McMaster.Extensions.CommandLineUtils.Validation.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Validation
+    name: Validation
+    href: McMaster.Extensions.CommandLineUtils.Validation.html
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html#McMaster_Extensions_CommandLineUtils_Validation_IOptionValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandOption_System_ComponentModel_DataAnnotations_ValidationContext_
+  name: GetValidationResult(CommandOption, ValidationContext)
+  nameWithType: IOptionValidator.GetValidationResult(CommandOption, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption, System.ComponentModel.DataAnnotations.ValidationContext)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: GetValidationResult
+    href: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html#McMaster_Extensions_CommandLineUtils_Validation_IOptionValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandOption_System_ComponentModel_DataAnnotations_ValidationContext_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption
+    name: CommandOption
+    href: McMaster.Extensions.CommandLineUtils.CommandOption.html
+  - name: ','
+  - name: " "
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandOption,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: GetValidationResult
+    href: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html#McMaster_Extensions_CommandLineUtils_Validation_IOptionValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandOption_System_ComponentModel_DataAnnotations_ValidationContext_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption
+    name: CommandOption
+    href: McMaster.Extensions.CommandLineUtils.CommandOption.html
+  - name: ','
+  - name: " "
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html#McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandArgument_System_ComponentModel_DataAnnotations_ValidationContext_
+  name: GetValidationResult(CommandArgument, ValidationContext)
+  nameWithType: IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument, System.ComponentModel.DataAnnotations.ValidationContext)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: GetValidationResult
+    href: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html#McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandArgument_System_ComponentModel_DataAnnotations_ValidationContext_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    href: McMaster.Extensions.CommandLineUtils.CommandArgument.html
+  - name: ','
+  - name: " "
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: GetValidationResult
+    href: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html#McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandArgument_System_ComponentModel_DataAnnotations_ValidationContext_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    href: McMaster.Extensions.CommandLineUtils.CommandArgument.html
+  - name: ','
+  - name: " "
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html
+  name: IOptionValidator
+  nameWithType: IOptionValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html
+  name: IArgumentValidator
+  nameWithType: IArgumentValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator

@@ -1,0 +1,218 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  id: IArgumentValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  children:
+  - McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  langs:
+  - csharp
+  - vb
+  name: IArgumentValidator
+  nameWithType: IArgumentValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/IArgumentValidator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IArgumentValidator
+    path: ../src/CommandLineUtils/Validation/IArgumentValidator.cs
+    startLine: 10
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  summary: Provides validation for a <xref href="McMaster.Extensions.CommandLineUtils.CommandArgument" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public interface IArgumentValidator
+    content.vb: Public Interface IArgumentValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  id: GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  langs:
+  - csharp
+  - vb
+  name: GetValidationResult(CommandArgument, ValidationContext)
+  nameWithType: IArgumentValidator.GetValidationResult(CommandArgument, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult(McMaster.Extensions.CommandLineUtils.CommandArgument, System.ComponentModel.DataAnnotations.ValidationContext)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Validation/IArgumentValidator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GetValidationResult
+    path: ../src/CommandLineUtils/Validation/IArgumentValidator.cs
+    startLine: 18
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Validation
+  summary: Validates the values specified for <xref href="McMaster.Extensions.CommandLineUtils.CommandArgument.Values" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ValidationResult? GetValidationResult(CommandArgument argument, ValidationContext context)
+    parameters:
+    - id: argument
+      type: McMaster.Extensions.CommandLineUtils.CommandArgument
+      description: The argument.
+    - id: context
+      type: System.ComponentModel.DataAnnotations.ValidationContext
+      description: The validation context.
+    return:
+      type: System.ComponentModel.DataAnnotations.ValidationResult
+      description: The validation result. Returns <xref href="System.ComponentModel.DataAnnotations.ValidationResult.Success" data-throw-if-not-resolved="false"></xref> if the values pass validation.
+    content.vb: Function GetValidationResult(argument As CommandArgument, context As ValidationContext) As ValidationResult
+  overload: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult*
+references:
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandArgument
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.CommandArgument.html
+  name: CommandArgument
+  nameWithType: CommandArgument
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  commentId: N:McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  nameWithType: McMaster.Extensions.CommandLineUtils.Validation
+  fullName: McMaster.Extensions.CommandLineUtils.Validation
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Validation
+    name: Validation
+    href: McMaster.Extensions.CommandLineUtils.Validation.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Validation
+    name: Validation
+    href: McMaster.Extensions.CommandLineUtils.Validation.html
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: McMaster.Extensions.CommandLineUtils.CommandArgument.Values
+  commentId: P:McMaster.Extensions.CommandLineUtils.CommandArgument.Values
+  parent: McMaster.Extensions.CommandLineUtils.CommandArgument
+  href: McMaster.Extensions.CommandLineUtils.CommandArgument.html#McMaster_Extensions_CommandLineUtils_CommandArgument_Values
+  name: Values
+  nameWithType: CommandArgument.Values
+  fullName: McMaster.Extensions.CommandLineUtils.CommandArgument.Values
+- uid: System.ComponentModel.DataAnnotations.ValidationResult.Success
+  commentId: F:System.ComponentModel.DataAnnotations.ValidationResult.Success
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult.success
+  name: Success
+  nameWithType: ValidationResult.Success
+  fullName: System.ComponentModel.DataAnnotations.ValidationResult.Success
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
+  href: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html#McMaster_Extensions_CommandLineUtils_Validation_IArgumentValidator_GetValidationResult_McMaster_Extensions_CommandLineUtils_CommandArgument_System_ComponentModel_DataAnnotations_ValidationContext_
+  name: GetValidationResult
+  nameWithType: IArgumentValidator.GetValidationResult
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.GetValidationResult
+- uid: System.ComponentModel.DataAnnotations.ValidationContext
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationContext
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext
+  name: ValidationContext
+  nameWithType: ValidationContext
+  fullName: System.ComponentModel.DataAnnotations.ValidationContext
+- uid: System.ComponentModel.DataAnnotations.ValidationResult
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationResult
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult
+  name: ValidationResult
+  nameWithType: ValidationResult
+  fullName: System.ComponentModel.DataAnnotations.ValidationResult
+- uid: System.ComponentModel.DataAnnotations
+  commentId: N:System.ComponentModel.DataAnnotations
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel.DataAnnotations
+  nameWithType: System.ComponentModel.DataAnnotations
+  fullName: System.ComponentModel.DataAnnotations
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+  - name: .
+  - uid: System.ComponentModel.DataAnnotations
+    name: DataAnnotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+  - name: .
+  - uid: System.ComponentModel.DataAnnotations
+    name: DataAnnotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations

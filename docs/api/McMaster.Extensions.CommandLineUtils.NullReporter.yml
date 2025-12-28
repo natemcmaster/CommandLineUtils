@@ -1,0 +1,444 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter
+  commentId: T:McMaster.Extensions.CommandLineUtils.NullReporter
+  id: NullReporter
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.NullReporter.Error(System.String)
+  - McMaster.Extensions.CommandLineUtils.NullReporter.Output(System.String)
+  - McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+  - McMaster.Extensions.CommandLineUtils.NullReporter.Verbose(System.String)
+  - McMaster.Extensions.CommandLineUtils.NullReporter.Warn(System.String)
+  langs:
+  - csharp
+  - vb
+  name: NullReporter
+  nameWithType: NullReporter
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: NullReporter
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 10
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: A reporter that does nothing.
+  example: []
+  syntax:
+    content: 'public class NullReporter : IReporter'
+    content.vb: Public Class NullReporter Implements IReporter
+  inheritance:
+  - System.Object
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+  commentId: P:McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+  id: Singleton
+  parent: McMaster.Extensions.CommandLineUtils.NullReporter
+  langs:
+  - csharp
+  - vb
+  name: Singleton
+  nameWithType: NullReporter.Singleton
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Singleton
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 18
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: A shared instance of <xref href="McMaster.Extensions.CommandLineUtils.NullReporter" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static IReporter Singleton { get; }
+    parameters: []
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IReporter
+    content.vb: Public Shared ReadOnly Property Singleton As IReporter
+  overload: McMaster.Extensions.CommandLineUtils.NullReporter.Singleton*
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Verbose(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.NullReporter.Verbose(System.String)
+  id: Verbose(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.NullReporter
+  langs:
+  - csharp
+  - vb
+  name: Verbose(string)
+  nameWithType: NullReporter.Verbose(string)
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Verbose(string)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Verbose
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 21
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Report a verbose message.
+  example: []
+  syntax:
+    content: public void Verbose(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Sub Verbose(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.NullReporter.Verbose*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  nameWithType.vb: NullReporter.Verbose(String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.NullReporter.Verbose(String)
+  name.vb: Verbose(String)
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Output(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.NullReporter.Output(System.String)
+  id: Output(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.NullReporter
+  langs:
+  - csharp
+  - vb
+  name: Output(string)
+  nameWithType: NullReporter.Output(string)
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Output(string)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Output
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 25
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Report console output.
+  example: []
+  syntax:
+    content: public void Output(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Sub Output(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.NullReporter.Output*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  nameWithType.vb: NullReporter.Output(String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.NullReporter.Output(String)
+  name.vb: Output(String)
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Warn(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.NullReporter.Warn(System.String)
+  id: Warn(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.NullReporter
+  langs:
+  - csharp
+  - vb
+  name: Warn(string)
+  nameWithType: NullReporter.Warn(string)
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Warn(string)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Warn
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 29
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Report a warning.
+  example: []
+  syntax:
+    content: public void Warn(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Sub Warn(message As String)
+  overload: McMaster.Extensions.CommandLineUtils.NullReporter.Warn*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  nameWithType.vb: NullReporter.Warn(String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.NullReporter.Warn(String)
+  name.vb: Warn(String)
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Error(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.NullReporter.Error(System.String)
+  id: Error(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.NullReporter
+  langs:
+  - csharp
+  - vb
+  name: Error(string)
+  nameWithType: NullReporter.Error(string)
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Error(string)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/NullReporter.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Error
+    path: ../src/CommandLineUtils/IO/NullReporter.cs
+    startLine: 33
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Report an error.
+  example: []
+  syntax:
+    content: public void Error(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: ''
+    content.vb: Public Sub [Error](message As String)
+  overload: McMaster.Extensions.CommandLineUtils.NullReporter.Error*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  nameWithType.vb: NullReporter.Error(String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.NullReporter.Error(String)
+  name.vb: Error(String)
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: McMaster.Extensions.CommandLineUtils.IReporter
+  commentId: T:McMaster.Extensions.CommandLineUtils.IReporter
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.IReporter.html
+  name: IReporter
+  nameWithType: IReporter
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter
+  commentId: T:McMaster.Extensions.CommandLineUtils.NullReporter
+  href: McMaster.Extensions.CommandLineUtils.NullReporter.html
+  name: NullReporter
+  nameWithType: NullReporter
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Singleton*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+  href: McMaster.Extensions.CommandLineUtils.NullReporter.html#McMaster_Extensions_CommandLineUtils_NullReporter_Singleton
+  name: Singleton
+  nameWithType: NullReporter.Singleton
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Singleton
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Verbose*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullReporter.Verbose
+  href: McMaster.Extensions.CommandLineUtils.NullReporter.html#McMaster_Extensions_CommandLineUtils_NullReporter_Verbose_System_String_
+  name: Verbose
+  nameWithType: NullReporter.Verbose
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Verbose
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Verbose_System_String_
+  name: Verbose(string)
+  nameWithType: IReporter.Verbose(string)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(string)
+  nameWithType.vb: IReporter.Verbose(String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(String)
+  name.vb: Verbose(String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+    name: Verbose
+    href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Verbose_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Verbose(System.String)
+    name: Verbose
+    href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Verbose_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Output*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullReporter.Output
+  href: McMaster.Extensions.CommandLineUtils.NullReporter.html#McMaster_Extensions_CommandLineUtils_NullReporter_Output_System_String_
+  name: Output
+  nameWithType: NullReporter.Output
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Output
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Output_System_String_
+  name: Output(string)
+  nameWithType: IReporter.Output(string)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Output(string)
+  nameWithType.vb: IReporter.Output(String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.IReporter.Output(String)
+  name.vb: Output(String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+    name: Output
+    href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Output_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Output(System.String)
+    name: Output
+    href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Output_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Warn*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullReporter.Warn
+  href: McMaster.Extensions.CommandLineUtils.NullReporter.html#McMaster_Extensions_CommandLineUtils_NullReporter_Warn_System_String_
+  name: Warn
+  nameWithType: NullReporter.Warn
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Warn
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Warn_System_String_
+  name: Warn(string)
+  nameWithType: IReporter.Warn(string)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Warn(string)
+  nameWithType.vb: IReporter.Warn(String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.IReporter.Warn(String)
+  name.vb: Warn(String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+    name: Warn
+    href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Warn_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Warn(System.String)
+    name: Warn
+    href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Warn_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.NullReporter.Error*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.NullReporter.Error
+  href: McMaster.Extensions.CommandLineUtils.NullReporter.html#McMaster_Extensions_CommandLineUtils_NullReporter_Error_System_String_
+  name: Error
+  nameWithType: NullReporter.Error
+  fullName: McMaster.Extensions.CommandLineUtils.NullReporter.Error
+- uid: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+  parent: McMaster.Extensions.CommandLineUtils.IReporter
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Error_System_String_
+  name: Error(string)
+  nameWithType: IReporter.Error(string)
+  fullName: McMaster.Extensions.CommandLineUtils.IReporter.Error(string)
+  nameWithType.vb: IReporter.Error(String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.IReporter.Error(String)
+  name.vb: Error(String)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+    name: Error
+    href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Error_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.IReporter.Error(System.String)
+    name: Error
+    href: McMaster.Extensions.CommandLineUtils.IReporter.html#McMaster_Extensions_CommandLineUtils_IReporter_Error_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )

@@ -1,0 +1,1120 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  id: DefaultHelpTextGenerator
+  parent: McMaster.Extensions.CommandLineUtils.HelpText
+  children:
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.#ctor
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.ColumnSeparatorLength
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format(McMaster.Extensions.CommandLineUtils.CommandOption)
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Int32)
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Int32)
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Int32)
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication})
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton
+  - McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName
+  langs:
+  - csharp
+  - vb
+  name: DefaultHelpTextGenerator
+  nameWithType: DefaultHelpTextGenerator
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: DefaultHelpTextGenerator
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 15
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: A default implementation of help text generation.
+  example: []
+  syntax:
+    content: 'public class DefaultHelpTextGenerator : IHelpTextGenerator'
+    content.vb: Public Class DefaultHelpTextGenerator Implements IHelpTextGenerator
+  inheritance:
+  - System.Object
+  implements:
+  - McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.ColumnSeparatorLength
+  commentId: F:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.ColumnSeparatorLength
+  id: ColumnSeparatorLength
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: ColumnSeparatorLength
+  nameWithType: DefaultHelpTextGenerator.ColumnSeparatorLength
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.ColumnSeparatorLength
+  type: Field
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ColumnSeparatorLength
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 20
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: The number of spaces between columns.
+  example: []
+  syntax:
+    content: protected const int ColumnSeparatorLength = 2
+    return:
+      type: System.Int32
+    content.vb: Protected Const ColumnSeparatorLength As Integer = 2
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter
+  commentId: P:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter
+  id: IndentWriter
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: IndentWriter
+  nameWithType: DefaultHelpTextGenerator.IndentWriter
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IndentWriter
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 27
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: >-
+    The hanging indent writer used for formatting indented and wrapped
+
+    descriptions for options and arguments.
+  example: []
+  syntax:
+    content: protected HangingIndentWriter? IndentWriter { get; set; }
+    parameters: []
+    return:
+      type: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+    content.vb: Protected Property IndentWriter As HangingIndentWriter
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter*
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton
+  commentId: P:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton
+  id: Singleton
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: Singleton
+  nameWithType: DefaultHelpTextGenerator.Singleton
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Singleton
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 32
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: A singleton instance of <xref href="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static DefaultHelpTextGenerator Singleton { get; }
+    parameters: []
+    return:
+      type: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+    content.vb: Public Shared ReadOnly Property Singleton As DefaultHelpTextGenerator
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton*
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.#ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.#ctor
+  id: '#ctor'
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: DefaultHelpTextGenerator()
+  nameWithType: DefaultHelpTextGenerator.DefaultHelpTextGenerator()
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.DefaultHelpTextGenerator()
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 37
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Initializes a new instance of <xref href="McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public DefaultHelpTextGenerator()
+    content.vb: Public Sub New()
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.#ctor*
+  nameWithType.vb: DefaultHelpTextGenerator.New()
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.New()
+  name.vb: New()
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName
+  commentId: P:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName
+  id: SortCommandsByName
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: SortCommandsByName
+  nameWithType: DefaultHelpTextGenerator.SortCommandsByName
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: SortCommandsByName
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 42
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Determines if commands are ordered by name in generated help text
+  example: []
+  syntax:
+    content: public bool SortCommandsByName { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SortCommandsByName As Boolean
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName*
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength
+  commentId: P:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength
+  id: MaxLineLength
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: MaxLineLength
+  nameWithType: DefaultHelpTextGenerator.MaxLineLength
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength
+  type: Property
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: MaxLineLength
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 47
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Override the console width disregarding any value from the executing environment.
+  example: []
+  syntax:
+    content: public int? MaxLineLength { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property MaxLineLength As Integer?
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength*
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  id: Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: Generate(CommandLineApplication, TextWriter)
+  nameWithType: DefaultHelpTextGenerator.Generate(CommandLineApplication, TextWriter)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Generate
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 62
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Generate help text for the application.
+  example: []
+  syntax:
+    content: public virtual void Generate(CommandLineApplication application, TextWriter output)
+    parameters:
+    - id: application
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: ''
+    - id: output
+      type: System.IO.TextWriter
+      description: ''
+    content.vb: Public Overridable Sub Generate(application As CommandLineApplication, output As TextWriter)
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate*
+  implements:
+  - McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  id: GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: GenerateHeader(CommandLineApplication, TextWriter)
+  nameWithType: DefaultHelpTextGenerator.GenerateHeader(CommandLineApplication, TextWriter)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GenerateHeader
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 74
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Generate the first few lines of help output text
+  example: []
+  syntax:
+    content: protected virtual void GenerateHeader(CommandLineApplication application, TextWriter output)
+    parameters:
+    - id: application
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: The app
+    - id: output
+      type: System.IO.TextWriter
+      description: Help text output
+    content.vb: Protected Overridable Sub GenerateHeader(application As CommandLineApplication, output As TextWriter)
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader*
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  id: GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: GenerateBody(CommandLineApplication, TextWriter)
+  nameWithType: DefaultHelpTextGenerator.GenerateBody(CommandLineApplication, TextWriter)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GenerateBody
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 97
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Generate detailed help information
+  example: []
+  syntax:
+    content: protected virtual void GenerateBody(CommandLineApplication application, TextWriter output)
+    parameters:
+    - id: application
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: The application
+    - id: output
+      type: System.IO.TextWriter
+      description: Help text output
+    content.vb: Protected Overridable Sub GenerateBody(application As CommandLineApplication, output As TextWriter)
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody*
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication})
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication})
+  id: GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication})
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: GenerateUsage(CommandLineApplication, TextWriter, IReadOnlyList<CommandArgument>, IReadOnlyList<CommandOption>, IReadOnlyList<CommandLineApplication>)
+  nameWithType: DefaultHelpTextGenerator.GenerateUsage(CommandLineApplication, TextWriter, IReadOnlyList<CommandArgument>, IReadOnlyList<CommandOption>, IReadOnlyList<CommandLineApplication>)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandArgument>, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandOption>, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandLineApplication>)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GenerateUsage
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 127
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Generate the line that shows usage
+  example: []
+  syntax:
+    content: protected virtual void GenerateUsage(CommandLineApplication application, TextWriter output, IReadOnlyList<CommandArgument> visibleArguments, IReadOnlyList<CommandOption> visibleOptions, IReadOnlyList<CommandLineApplication> visibleCommands)
+    parameters:
+    - id: application
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: The app
+    - id: output
+      type: System.IO.TextWriter
+      description: Help text output
+    - id: visibleArguments
+      type: System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument}
+      description: Arguments not hidden from help text
+    - id: visibleOptions
+      type: System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption}
+      description: Options not hidden from help text
+    - id: visibleCommands
+      type: System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication}
+      description: Commands not hidden from help text
+    content.vb: Protected Overridable Sub GenerateUsage(application As CommandLineApplication, output As TextWriter, visibleArguments As IReadOnlyList(Of CommandArgument), visibleOptions As IReadOnlyList(Of CommandOption), visibleCommands As IReadOnlyList(Of CommandLineApplication))
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage*
+  nameWithType.vb: DefaultHelpTextGenerator.GenerateUsage(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandArgument), IReadOnlyList(Of CommandOption), IReadOnlyList(Of CommandLineApplication))
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandArgument), System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandOption), System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication))
+  name.vb: GenerateUsage(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandArgument), IReadOnlyList(Of CommandOption), IReadOnlyList(Of CommandLineApplication))
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Int32)
+  id: GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument},System.Int32)
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: GenerateArguments(CommandLineApplication, TextWriter, IReadOnlyList<CommandArgument>, int)
+  nameWithType: DefaultHelpTextGenerator.GenerateArguments(CommandLineApplication, TextWriter, IReadOnlyList<CommandArgument>, int)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandArgument>, int)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GenerateArguments
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 179
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Generate the lines that show information about arguments
+  example: []
+  syntax:
+    content: protected virtual void GenerateArguments(CommandLineApplication application, TextWriter output, IReadOnlyList<CommandArgument> visibleArguments, int firstColumnWidth)
+    parameters:
+    - id: application
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: The app
+    - id: output
+      type: System.IO.TextWriter
+      description: Help text output
+    - id: visibleArguments
+      type: System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument}
+      description: Arguments not hidden from help text
+    - id: firstColumnWidth
+      type: System.Int32
+      description: The width of the first column of commands, arguments, and options
+    content.vb: Protected Overridable Sub GenerateArguments(application As CommandLineApplication, output As TextWriter, visibleArguments As IReadOnlyList(Of CommandArgument), firstColumnWidth As Integer)
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments*
+  nameWithType.vb: DefaultHelpTextGenerator.GenerateArguments(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandArgument), Integer)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandArgument), Integer)
+  name.vb: GenerateArguments(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandArgument), Integer)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Int32)
+  id: GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption},System.Int32)
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: GenerateOptions(CommandLineApplication, TextWriter, IReadOnlyList<CommandOption>, int)
+  nameWithType: DefaultHelpTextGenerator.GenerateOptions(CommandLineApplication, TextWriter, IReadOnlyList<CommandOption>, int)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandOption>, int)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GenerateOptions
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 236
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Generate the lines that show information about options
+  example: []
+  syntax:
+    content: protected virtual void GenerateOptions(CommandLineApplication application, TextWriter output, IReadOnlyList<CommandOption> visibleOptions, int firstColumnWidth)
+    parameters:
+    - id: application
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: The app
+    - id: output
+      type: System.IO.TextWriter
+      description: Help text output
+    - id: visibleOptions
+      type: System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption}
+      description: Options not hidden from help text
+    - id: firstColumnWidth
+      type: System.Int32
+      description: The width of the first column of commands, arguments, and options
+    content.vb: Protected Overridable Sub GenerateOptions(application As CommandLineApplication, output As TextWriter, visibleOptions As IReadOnlyList(Of CommandOption), firstColumnWidth As Integer)
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions*
+  nameWithType.vb: DefaultHelpTextGenerator.GenerateOptions(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandOption), Integer)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandOption), Integer)
+  name.vb: GenerateOptions(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandOption), Integer)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Int32)
+  id: GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter,System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication},System.Int32)
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: GenerateCommands(CommandLineApplication, TextWriter, IReadOnlyList<CommandLineApplication>, int)
+  nameWithType: DefaultHelpTextGenerator.GenerateCommands(CommandLineApplication, TextWriter, IReadOnlyList<CommandLineApplication>, int)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandLineApplication>, int)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GenerateCommands
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 294
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Generate the lines that show information about subcommands
+  example: []
+  syntax:
+    content: protected virtual void GenerateCommands(CommandLineApplication application, TextWriter output, IReadOnlyList<CommandLineApplication> visibleCommands, int firstColumnWidth)
+    parameters:
+    - id: application
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: The app
+    - id: output
+      type: System.IO.TextWriter
+      description: Help text output
+    - id: visibleCommands
+      type: System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication}
+      description: Commands not hidden from help text
+    - id: firstColumnWidth
+      type: System.Int32
+      description: The width of the first column of commands, arguments, and options
+    content.vb: Protected Overridable Sub GenerateCommands(application As CommandLineApplication, output As TextWriter, visibleCommands As IReadOnlyList(Of CommandLineApplication), firstColumnWidth As Integer)
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands*
+  nameWithType.vb: DefaultHelpTextGenerator.GenerateCommands(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandLineApplication), Integer)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter, System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication), Integer)
+  name.vb: GenerateCommands(CommandLineApplication, TextWriter, IReadOnlyList(Of CommandLineApplication), Integer)
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  id: GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: GenerateFooter(CommandLineApplication, TextWriter)
+  nameWithType: DefaultHelpTextGenerator.GenerateFooter(CommandLineApplication, TextWriter)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: GenerateFooter
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 334
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Generate the last lines of help text output
+  example: []
+  syntax:
+    content: protected virtual void GenerateFooter(CommandLineApplication application, TextWriter output)
+    parameters:
+    - id: application
+      type: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+      description: The app
+    - id: output
+      type: System.IO.TextWriter
+      description: Help text output
+    content.vb: Protected Overridable Sub GenerateFooter(application As CommandLineApplication, output As TextWriter)
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter*
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format(McMaster.Extensions.CommandLineUtils.CommandOption)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format(McMaster.Extensions.CommandLineUtils.CommandOption)
+  id: Format(McMaster.Extensions.CommandLineUtils.CommandOption)
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  langs:
+  - csharp
+  - vb
+  name: Format(CommandOption)
+  nameWithType: DefaultHelpTextGenerator.Format(CommandOption)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format(McMaster.Extensions.CommandLineUtils.CommandOption)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Format
+    path: ../src/CommandLineUtils/HelpText/DefaultHelpTextGenerator.cs
+    startLine: 346
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.HelpText
+  summary: Generates the template string in the format "-{Symbol}|-{Short}|--{Long} &lt;{Value}&gt;" for display in help text.
+  example: []
+  syntax:
+    content: protected virtual string Format(CommandOption option)
+    parameters:
+    - id: option
+      type: McMaster.Extensions.CommandLineUtils.CommandOption
+    return:
+      type: System.String
+      description: The template string
+    content.vb: Protected Overridable Function Format([option] As CommandOption) As String
+  overload: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format*
+references:
+- uid: McMaster.Extensions.CommandLineUtils.HelpText
+  commentId: N:McMaster.Extensions.CommandLineUtils.HelpText
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.HelpText
+  nameWithType: McMaster.Extensions.CommandLineUtils.HelpText
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.HelpText
+    name: HelpText
+    href: McMaster.Extensions.CommandLineUtils.HelpText.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.HelpText
+    name: HelpText
+    href: McMaster.Extensions.CommandLineUtils.HelpText.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+  commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+  parent: McMaster.Extensions.CommandLineUtils.HelpText
+  href: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html
+  name: IHelpTextGenerator
+  nameWithType: IHelpTextGenerator
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_IndentWriter
+  name: IndentWriter
+  nameWithType: DefaultHelpTextGenerator.IndentWriter
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.IndentWriter
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+  parent: McMaster.Extensions.CommandLineUtils.HelpText
+  href: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter.html
+  name: HangingIndentWriter
+  nameWithType: HangingIndentWriter
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.HangingIndentWriter
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  commentId: T:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+  parent: McMaster.Extensions.CommandLineUtils.HelpText
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html
+  name: DefaultHelpTextGenerator
+  nameWithType: DefaultHelpTextGenerator
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Singleton
+  name: Singleton
+  nameWithType: DefaultHelpTextGenerator.Singleton
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Singleton
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.#ctor
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator__ctor
+  name: DefaultHelpTextGenerator
+  nameWithType: DefaultHelpTextGenerator.DefaultHelpTextGenerator
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.DefaultHelpTextGenerator
+  nameWithType.vb: DefaultHelpTextGenerator.New
+  fullName.vb: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.New
+  name.vb: New
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_SortCommandsByName
+  name: SortCommandsByName
+  nameWithType: DefaultHelpTextGenerator.SortCommandsByName
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.SortCommandsByName
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_MaxLineLength
+  name: MaxLineLength
+  nameWithType: DefaultHelpTextGenerator.MaxLineLength
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.MaxLineLength
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  name: Generate
+  nameWithType: DefaultHelpTextGenerator.Generate
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Generate
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  commentId: M:McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+  parent: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator
+  isExternal: true
+  href: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  name: Generate(CommandLineApplication, TextWriter)
+  nameWithType: IHelpTextGenerator.Generate(CommandLineApplication, TextWriter)
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication, System.IO.TextWriter)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+    name: Generate
+    href: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+    name: CommandLineApplication
+    href: McMaster.Extensions.CommandLineUtils.CommandLineApplication.html
+  - name: ','
+  - name: " "
+  - uid: System.IO.TextWriter
+    name: TextWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textwriter
+  - name: )
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.Generate(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.IO.TextWriter)
+    name: Generate
+    href: McMaster.Extensions.CommandLineUtils.HelpText.IHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_IHelpTextGenerator_Generate_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  - name: (
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+    name: CommandLineApplication
+    href: McMaster.Extensions.CommandLineUtils.CommandLineApplication.html
+  - name: ','
+  - name: " "
+  - uid: System.IO.TextWriter
+    name: TextWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textwriter
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplication.html
+  name: CommandLineApplication
+  nameWithType: CommandLineApplication
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+- uid: System.IO.TextWriter
+  commentId: T:System.IO.TextWriter
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.textwriter
+  name: TextWriter
+  nameWithType: TextWriter
+  fullName: System.IO.TextWriter
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateHeader_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  name: GenerateHeader
+  nameWithType: DefaultHelpTextGenerator.GenerateHeader
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateBody_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  name: GenerateBody
+  nameWithType: DefaultHelpTextGenerator.GenerateBody
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateBody
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateUsage_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__
+  name: GenerateUsage
+  nameWithType: DefaultHelpTextGenerator.GenerateUsage
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage
+- uid: System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument}
+  commentId: T:System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandArgument}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<CommandArgument>
+  nameWithType: IReadOnlyList<CommandArgument>
+  fullName: System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandArgument>
+  nameWithType.vb: IReadOnlyList(Of CommandArgument)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandArgument)
+  name.vb: IReadOnlyList(Of CommandArgument)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    href: McMaster.Extensions.CommandLineUtils.CommandArgument.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: McMaster.Extensions.CommandLineUtils.CommandArgument
+    name: CommandArgument
+    href: McMaster.Extensions.CommandLineUtils.CommandArgument.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption}
+  commentId: T:System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandOption}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<CommandOption>
+  nameWithType: IReadOnlyList<CommandOption>
+  fullName: System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandOption>
+  nameWithType.vb: IReadOnlyList(Of CommandOption)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandOption)
+  name.vb: IReadOnlyList(Of CommandOption)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption
+    name: CommandOption
+    href: McMaster.Extensions.CommandLineUtils.CommandOption.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: McMaster.Extensions.CommandLineUtils.CommandOption
+    name: CommandOption
+    href: McMaster.Extensions.CommandLineUtils.CommandOption.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication}
+  commentId: T:System.Collections.Generic.IReadOnlyList{McMaster.Extensions.CommandLineUtils.CommandLineApplication}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<CommandLineApplication>
+  nameWithType: IReadOnlyList<CommandLineApplication>
+  fullName: System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandLineApplication>
+  nameWithType.vb: IReadOnlyList(Of CommandLineApplication)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of McMaster.Extensions.CommandLineUtils.CommandLineApplication)
+  name.vb: IReadOnlyList(Of CommandLineApplication)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+    name: CommandLineApplication
+    href: McMaster.Extensions.CommandLineUtils.CommandLineApplication.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication
+    name: CommandLineApplication
+    href: McMaster.Extensions.CommandLineUtils.CommandLineApplication.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateArguments_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandArgument__System_Int32_
+  name: GenerateArguments
+  nameWithType: DefaultHelpTextGenerator.GenerateArguments
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateArguments
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateOptions_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandOption__System_Int32_
+  name: GenerateOptions
+  nameWithType: DefaultHelpTextGenerator.GenerateOptions
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateCommands_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_System_Collections_Generic_IReadOnlyList_McMaster_Extensions_CommandLineUtils_CommandLineApplication__System_Int32_
+  name: GenerateCommands
+  nameWithType: DefaultHelpTextGenerator.GenerateCommands
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateCommands
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_GenerateFooter_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_IO_TextWriter_
+  name: GenerateFooter
+  nameWithType: DefaultHelpTextGenerator.GenerateFooter
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateFooter
+- uid: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format
+  href: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.html#McMaster_Extensions_CommandLineUtils_HelpText_DefaultHelpTextGenerator_Format_McMaster_Extensions_CommandLineUtils_CommandOption_
+  name: Format
+  nameWithType: DefaultHelpTextGenerator.Format
+  fullName: McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.Format
+- uid: McMaster.Extensions.CommandLineUtils.CommandOption
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandOption
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.CommandOption.html
+  name: CommandOption
+  nameWithType: CommandOption
+  fullName: McMaster.Extensions.CommandLineUtils.CommandOption
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

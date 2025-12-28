@@ -1,0 +1,252 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  commentId: N:McMaster.Extensions.CommandLineUtils.Validation
+  id: McMaster.Extensions.CommandLineUtils.Validation
+  children:
+  - McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator
+  - McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  - McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+  - McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+  - McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  - McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+  - McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  - McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  - McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder
+  - McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder`1
+  - McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder`1
+  - McMaster.Extensions.CommandLineUtils.Validation.IValidator
+  - McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder
+  - McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  nameWithType: McMaster.Extensions.CommandLineUtils.Validation
+  fullName: McMaster.Extensions.CommandLineUtils.Validation
+  type: Namespace
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase.html
+  name: FilePathExistsAttributeBase
+  nameWithType: FilePathExistsAttributeBase
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathExistsAttributeBase
+- uid: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase.html
+  name: FilePathNotExistsAttributeBase
+  nameWithType: FilePathNotExistsAttributeBase
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.FilePathNotExistsAttributeBase
+- uid: McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator
+  href: McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator.html
+  name: AttributeValidator
+  nameWithType: AttributeValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.AttributeValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+  href: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator.html
+  name: DelegateValidator
+  nameWithType: DelegateValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.DelegateValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder.html
+  name: IArgumentValidationBuilder
+  nameWithType: IArgumentValidationBuilder
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+  href: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.html
+  name: IArgumentValidationBuilder<T>
+  nameWithType: IArgumentValidationBuilder<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder<T>
+  nameWithType.vb: IArgumentValidationBuilder(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder(Of T)
+  name.vb: IArgumentValidationBuilder(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+    name: IArgumentValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder`1
+    name: IArgumentValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidationBuilder-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator.html
+  name: IArgumentValidator
+  nameWithType: IArgumentValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IArgumentValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator.html
+  name: ICommandValidator
+  nameWithType: ICommandValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.ICommandValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder.html
+  name: IOptionValidationBuilder
+  nameWithType: IOptionValidationBuilder
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder`1
+  href: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.html
+  name: IOptionValidationBuilder<T>
+  nameWithType: IOptionValidationBuilder<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder<T>
+  nameWithType.vb: IOptionValidationBuilder(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder(Of T)
+  name.vb: IOptionValidationBuilder(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder`1
+    name: IOptionValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder`1
+    name: IOptionValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidationBuilder-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator.html
+  name: IOptionValidator
+  nameWithType: IOptionValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IOptionValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder.html
+  name: IValidationBuilder
+  nameWithType: IValidationBuilder
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder`1
+  href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html
+  name: IValidationBuilder<T>
+  nameWithType: IValidationBuilder<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder<T>
+  nameWithType.vb: IValidationBuilder(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder(Of T)
+  name.vb: IValidationBuilder(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder`1
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder`1
+    name: IValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.IValidationBuilder-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation.IValidator
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.IValidator
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.IValidator.html
+  name: IValidator
+  nameWithType: IValidator
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.IValidator
+- uid: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder
+  parent: McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder.html
+  name: ValidationBuilder
+  nameWithType: ValidationBuilder
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder
+- uid: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder`1
+  href: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder-1.html
+  name: ValidationBuilder<T>
+  nameWithType: ValidationBuilder<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder<T>
+  nameWithType.vb: ValidationBuilder(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder(Of T)
+  name.vb: ValidationBuilder(Of T)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder`1
+    name: ValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder`1
+    name: ValidationBuilder
+    href: McMaster.Extensions.CommandLineUtils.Validation.ValidationBuilder-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: McMaster.Extensions.CommandLineUtils.Validation
+  commentId: N:McMaster.Extensions.CommandLineUtils.Validation
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Validation
+  nameWithType: McMaster.Extensions.CommandLineUtils.Validation
+  fullName: McMaster.Extensions.CommandLineUtils.Validation
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Validation
+    name: Validation
+    href: McMaster.Extensions.CommandLineUtils.Validation.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Validation
+    name: Validation
+    href: McMaster.Extensions.CommandLineUtils.Validation.html

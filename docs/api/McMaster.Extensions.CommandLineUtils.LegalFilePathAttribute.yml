@@ -1,0 +1,319 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute
+  id: LegalFilePathAttribute
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.#ctor
+  - McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  langs:
+  - csharp
+  - vb
+  name: LegalFilePathAttribute
+  nameWithType: LegalFilePathAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: LegalFilePathAttribute
+    path: ../src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
+    startLine: 12
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Specifies that a value must be a legal file path.
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Property)]
+
+      public sealed class LegalFilePathAttribute : ValidationAttribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Property)>
+
+      Public NotInheritable Class LegalFilePathAttribute Inherits ValidationAttribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - System.ComponentModel.DataAnnotations.ValidationAttribute
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 128
+- uid: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.#ctor
+  commentId: M:McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.#ctor
+  id: '#ctor'
+  parent: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute
+  langs:
+  - csharp
+  - vb
+  name: LegalFilePathAttribute()
+  nameWithType: LegalFilePathAttribute.LegalFilePathAttribute()
+  fullName: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.LegalFilePathAttribute()
+  type: Constructor
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: .ctor
+    path: ../src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
+    startLine: 18
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Initializes an instance of <xref href="McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LegalFilePathAttribute()
+    content.vb: Public Sub New()
+  overload: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.#ctor*
+  nameWithType.vb: LegalFilePathAttribute.New()
+  fullName.vb: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.New()
+  name.vb: New()
+- uid: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  id: IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsValid(object?, ValidationContext)
+  nameWithType: LegalFilePathAttribute.IsValid(object?, ValidationContext)
+  fullName: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.IsValid(object?, System.ComponentModel.DataAnnotations.ValidationContext)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IsValid
+    path: ../src/CommandLineUtils/Attributes/LegalFilePathAttribute.cs
+    startLine: 25
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Validates the specified value with respect to the current validation attribute.
+  example: []
+  syntax:
+    content: protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value to validate.
+    - id: validationContext
+      type: System.ComponentModel.DataAnnotations.ValidationContext
+      description: The context information about the validation operation.
+    return:
+      type: System.ComponentModel.DataAnnotations.ValidationResult
+      description: An instance of the <xref href="System.ComponentModel.DataAnnotations.ValidationResult" data-throw-if-not-resolved="false"></xref> class.
+    content.vb: Protected Overrides Function IsValid(value As Object, validationContext As ValidationContext) As ValidationResult
+  overridden: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  overload: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.IsValid*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: The current attribute is malformed.
+  - type: System.NotImplementedException
+    commentId: T:System.NotImplementedException
+    description: <xref href="System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object%2cSystem.ComponentModel.DataAnnotations.ValidationContext)" data-throw-if-not-resolved="false"></xref> has not been implemented by a derived class.
+  nameWithType.vb: LegalFilePathAttribute.IsValid(Object, ValidationContext)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.IsValid(Object, System.ComponentModel.DataAnnotations.ValidationContext)
+  name.vb: IsValid(Object, ValidationContext)
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Attribute
+  commentId: T:System.Attribute
+  parent: System
+  isExternal: true
+  name: Attribute
+  nameWithType: Attribute
+  fullName: System.Attribute
+- uid: System.ComponentModel.DataAnnotations.ValidationAttribute
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationAttribute
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  name: ValidationAttribute
+  nameWithType: ValidationAttribute
+  fullName: System.ComponentModel.DataAnnotations.ValidationAttribute
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ComponentModel.DataAnnotations
+  commentId: N:System.ComponentModel.DataAnnotations
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel.DataAnnotations
+  nameWithType: System.ComponentModel.DataAnnotations
+  fullName: System.ComponentModel.DataAnnotations
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+  - name: .
+  - uid: System.ComponentModel.DataAnnotations
+    name: DataAnnotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+  - name: .
+  - uid: System.ComponentModel.DataAnnotations
+    name: DataAnnotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations
+- uid: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute
+  commentId: T:McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute
+  href: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.html
+  name: LegalFilePathAttribute
+  nameWithType: LegalFilePathAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute
+- uid: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.#ctor*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.#ctor
+  href: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.html#McMaster_Extensions_CommandLineUtils_LegalFilePathAttribute__ctor
+  name: LegalFilePathAttribute
+  nameWithType: LegalFilePathAttribute.LegalFilePathAttribute
+  fullName: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.LegalFilePathAttribute
+  nameWithType.vb: LegalFilePathAttribute.New
+  fullName.vb: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.New
+  name.vb: New
+- uid: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  commentId: M:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+  parent: System.ComponentModel.DataAnnotations.ValidationAttribute
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext
+  name: IsValid(object, ValidationContext)
+  nameWithType: ValidationAttribute.IsValid(object, ValidationContext)
+  fullName: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(object, System.ComponentModel.DataAnnotations.ValidationContext)
+  nameWithType.vb: ValidationAttribute.IsValid(Object, ValidationContext)
+  fullName.vb: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(Object, System.ComponentModel.DataAnnotations.ValidationContext)
+  name.vb: IsValid(Object, ValidationContext)
+  spec.csharp:
+  - uid: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: IsValid
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext
+  - name: )
+  spec.vb:
+  - uid: System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)
+    name: IsValid
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.ComponentModel.DataAnnotations.ValidationContext
+    name: ValidationContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext
+  - name: )
+- uid: System.ComponentModel.DataAnnotations.ValidationResult
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationResult
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationresult
+  name: ValidationResult
+  nameWithType: ValidationResult
+  fullName: System.ComponentModel.DataAnnotations.ValidationResult
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: System.NotImplementedException
+  commentId: T:System.NotImplementedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.notimplementedexception
+  name: NotImplementedException
+  nameWithType: NotImplementedException
+  fullName: System.NotImplementedException
+- uid: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.IsValid*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.IsValid
+  href: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.html#McMaster_Extensions_CommandLineUtils_LegalFilePathAttribute_IsValid_System_Object_System_ComponentModel_DataAnnotations_ValidationContext_
+  name: IsValid
+  nameWithType: LegalFilePathAttribute.IsValid
+  fullName: McMaster.Extensions.CommandLineUtils.LegalFilePathAttribute.IsValid
+- uid: System.ComponentModel.DataAnnotations.ValidationContext
+  commentId: T:System.ComponentModel.DataAnnotations.ValidationContext
+  parent: System.ComponentModel.DataAnnotations
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.dataannotations.validationcontext
+  name: ValidationContext
+  nameWithType: ValidationContext
+  fullName: System.ComponentModel.DataAnnotations.ValidationContext

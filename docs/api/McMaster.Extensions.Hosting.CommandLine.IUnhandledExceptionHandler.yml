@@ -1,0 +1,156 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler
+  commentId: T:McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler
+  id: IUnhandledExceptionHandler
+  parent: McMaster.Extensions.Hosting.CommandLine
+  children:
+  - McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.HandleException(System.Exception)
+  langs:
+  - csharp
+  - vb
+  name: IUnhandledExceptionHandler
+  nameWithType: IUnhandledExceptionHandler
+  fullName: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler
+  type: Interface
+  source:
+    remote:
+      path: src/Hosting.CommandLine/IUnhandledExceptionHandler.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IUnhandledExceptionHandler
+    path: ../src/Hosting.CommandLine/IUnhandledExceptionHandler.cs
+    startLine: 13
+  assemblies:
+  - McMaster.Extensions.Hosting.CommandLine
+  namespace: McMaster.Extensions.Hosting.CommandLine
+  summary: >-
+    Used by <xref href="McMaster.Extensions.Hosting.CommandLine.Internal.CommandLineLifetime" data-throw-if-not-resolved="false"></xref> to handle exceptions that are emitted from the
+
+    <xref href="McMaster.Extensions.CommandLineUtils.CommandLineApplication%601" data-throw-if-not-resolved="false"></xref> e.g. during parsing or execution
+  example: []
+  syntax:
+    content: public interface IUnhandledExceptionHandler
+    content.vb: Public Interface IUnhandledExceptionHandler
+- uid: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.HandleException(System.Exception)
+  commentId: M:McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.HandleException(System.Exception)
+  id: HandleException(System.Exception)
+  parent: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler
+  langs:
+  - csharp
+  - vb
+  name: HandleException(Exception)
+  nameWithType: IUnhandledExceptionHandler.HandleException(Exception)
+  fullName: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.HandleException(System.Exception)
+  type: Method
+  source:
+    remote:
+      path: src/Hosting.CommandLine/IUnhandledExceptionHandler.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: HandleException
+    path: ../src/Hosting.CommandLine/IUnhandledExceptionHandler.cs
+    startLine: 19
+  assemblies:
+  - McMaster.Extensions.Hosting.CommandLine
+  namespace: McMaster.Extensions.Hosting.CommandLine
+  summary: Handle otherwise uncaught exception. You are free to log, rethrow, … the exception
+  example: []
+  syntax:
+    content: void HandleException(Exception e)
+    parameters:
+    - id: e
+      type: System.Exception
+      description: An otherwise uncaught exception
+    content.vb: Sub HandleException(e As Exception)
+  overload: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.HandleException*
+references:
+- uid: McMaster.Extensions.Hosting.CommandLine.Internal.CommandLineLifetime
+  commentId: T:McMaster.Extensions.Hosting.CommandLine.Internal.CommandLineLifetime
+  name: CommandLineLifetime
+  nameWithType: CommandLineLifetime
+  fullName: McMaster.Extensions.Hosting.CommandLine.Internal.CommandLineLifetime
+- uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.CommandLineApplication`1
+  href: McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html
+  name: CommandLineApplication<TModel>
+  nameWithType: CommandLineApplication<TModel>
+  fullName: McMaster.Extensions.CommandLineUtils.CommandLineApplication<TModel>
+  nameWithType.vb: CommandLineApplication(Of TModel)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.CommandLineApplication(Of TModel)
+  name.vb: CommandLineApplication(Of TModel)
+  spec.csharp:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1
+    name: CommandLineApplication
+    href: McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html
+  - name: <
+  - name: TModel
+  - name: '>'
+  spec.vb:
+  - uid: McMaster.Extensions.CommandLineUtils.CommandLineApplication`1
+    name: CommandLineApplication
+    href: McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TModel
+  - name: )
+- uid: McMaster.Extensions.Hosting.CommandLine
+  commentId: N:McMaster.Extensions.Hosting.CommandLine
+  href: McMaster.html
+  name: McMaster.Extensions.Hosting.CommandLine
+  nameWithType: McMaster.Extensions.Hosting.CommandLine
+  fullName: McMaster.Extensions.Hosting.CommandLine
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.Hosting
+    name: Hosting
+    href: McMaster.Extensions.Hosting.html
+  - name: .
+  - uid: McMaster.Extensions.Hosting.CommandLine
+    name: CommandLine
+    href: McMaster.Extensions.Hosting.CommandLine.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.Hosting
+    name: Hosting
+    href: McMaster.Extensions.Hosting.html
+  - name: .
+  - uid: McMaster.Extensions.Hosting.CommandLine
+    name: CommandLine
+    href: McMaster.Extensions.Hosting.CommandLine.html
+- uid: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.HandleException*
+  commentId: Overload:McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.HandleException
+  href: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.html#McMaster_Extensions_Hosting_CommandLine_IUnhandledExceptionHandler_HandleException_System_Exception_
+  name: HandleException
+  nameWithType: IUnhandledExceptionHandler.HandleException
+  fullName: McMaster.Extensions.Hosting.CommandLine.IUnhandledExceptionHandler.HandleException
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

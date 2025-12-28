@@ -1,0 +1,1805 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  commentId: T:McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  id: ConsoleExtensions
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  - McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  langs:
+  - csharp
+  - vb
+  name: ConsoleExtensions
+  nameWithType: ConsoleExtensions
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: ConsoleExtensions
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 8
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Helper methods for <xref href="McMaster.Extensions.CommandLineUtils.IConsole" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class ConsoleExtensions
+    content.vb: Public Module ConsoleExtensions
+  inheritance:
+  - System.Object
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 20
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Writes an empty line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: the console.
+    content.vb: Public Shared Function WriteLine(console As IConsole) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, string)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, string)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 32
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Writes a string followed by a line terminator.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, string value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.String
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: the console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, value As String) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, String)
+  name.vb: WriteLine(IConsole, String)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, string, params object[])
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, string, params object[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, string, params object[])
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 45
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, string format, params object[] arg)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: format
+      type: System.String
+      description: The format string.
+    - id: arg
+      type: System.Object[]
+      description: Argument used to format.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, format As String, ParamArray arg As Object()) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, String, ParamArray Object())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, String, ParamArray Object())
+  name.vb: WriteLine(IConsole, String, ParamArray Object())
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, string, object)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, string, object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, string, object)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 58
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, string format, object arg0)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: format
+      type: System.String
+      description: The format string.
+    - id: arg0
+      type: System.Object
+      description: The first argument to replace in the format string.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, format As String, arg0 As Object) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, String, Object)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, String, Object)
+  name.vb: WriteLine(IConsole, String, Object)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, string, object, object)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, string, object, object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, string, object, object)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 72
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, string format, object arg0, object arg1)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: format
+      type: System.String
+      description: The format string.
+    - id: arg0
+      type: System.Object
+      description: The first argument to replace in the format string.
+    - id: arg1
+      type: System.Object
+      description: The second argument to replace in the format string.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, format As String, arg0 As Object, arg1 As Object) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, String, Object, Object)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, String, Object, Object)
+  name.vb: WriteLine(IConsole, String, Object, Object)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, string, object, object, object)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, string, object, object, object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, string, object, object, object)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 87
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, string format, object arg0, object arg1, object arg2)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: format
+      type: System.String
+      description: The format string.
+    - id: arg0
+      type: System.Object
+      description: The first argument to replace in the format string.
+    - id: arg1
+      type: System.Object
+      description: The second argument to replace in the format string.
+    - id: arg2
+      type: System.Object
+      description: The third argument to replace in the format string.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, format As String, arg0 As Object, arg1 As Object, arg2 As Object) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, String, Object, Object, Object)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, String, Object, Object, Object)
+  name.vb: WriteLine(IConsole, String, Object, Object, Object)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, ulong)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, ulong)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, ulong)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 99
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, ulong value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.UInt64
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, value As ULong) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, ULong)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, ULong)
+  name.vb: WriteLine(IConsole, ULong)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, bool)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, bool)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, bool)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 111
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, bool value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Boolean
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, value As Boolean) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, Boolean)
+  name.vb: WriteLine(IConsole, Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, char)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, char)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, char)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 123
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, char value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Char
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, value As Char) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Char)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, Char)
+  name.vb: WriteLine(IConsole, Char)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, char[])
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, char[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, char[])
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 135
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes an array of characters as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, char[] buffer)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: buffer
+      type: System.Char[]
+      description: The buffer.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, buffer As Char()) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Char())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, Char())
+  name.vb: WriteLine(IConsole, Char())
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, char[], int, int)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, char[], int, int)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, char[], int, int)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 149
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a portion of a character buffer as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, char[] buffer, int index, int count)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: buffer
+      type: System.Char[]
+      description: The buffer.
+    - id: index
+      type: System.Int32
+      description: The start index.
+    - id: count
+      type: System.Int32
+      description: The number of characters to write.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, buffer As Char(), index As Integer, count As Integer) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Char(), Integer, Integer)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, Char(), Integer, Integer)
+  name.vb: WriteLine(IConsole, Char(), Integer, Integer)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, decimal)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, decimal)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, decimal)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 161
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, decimal value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Decimal
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, value As Decimal) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Decimal)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, Decimal)
+  name.vb: WriteLine(IConsole, Decimal)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, double)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, double)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, double)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 173
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, double value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Double
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, value As Double) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Double)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, Double)
+  name.vb: WriteLine(IConsole, Double)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, uint)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, uint)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, uint)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 185
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, uint value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.UInt32
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, value As UInteger) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, UInteger)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, UInteger)
+  name.vb: WriteLine(IConsole, UInteger)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, int)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, int)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, int)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 197
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, int value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Int32
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, value As Integer) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Integer)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, Integer)
+  name.vb: WriteLine(IConsole, Integer)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, object)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, object)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 209
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, object value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Object
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, value As Object) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Object)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, Object)
+  name.vb: WriteLine(IConsole, Object)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, float)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, float)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, float)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 221
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, float value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Single
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, value As Single) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Single)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, Single)
+  name.vb: WriteLine(IConsole, Single)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  id: WriteLine(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteLine(IConsole, long)
+  nameWithType: ConsoleExtensions.WriteLine(IConsole, long)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, long)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: WriteLine
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 233
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value as a new line.
+  example: []
+  syntax:
+    content: public static IConsole WriteLine(this IConsole console, long value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Int64
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function WriteLine(console As IConsole, value As Long) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  nameWithType.vb: ConsoleExtensions.WriteLine(IConsole, Long)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine(McMaster.Extensions.CommandLineUtils.IConsole, Long)
+  name.vb: WriteLine(IConsole, Long)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, string)
+  nameWithType: ConsoleExtensions.Write(IConsole, string)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, string)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 249
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Writes a string console output.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, string value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.String
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: the console.
+    content.vb: Public Shared Function Write(console As IConsole, value As String) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, String)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, String)
+  name.vb: Write(IConsole, String)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object[])
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, string, params object[])
+  nameWithType: ConsoleExtensions.Write(IConsole, string, params object[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, string, params object[])
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 262
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, string format, params object[] arg)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: format
+      type: System.String
+      description: The format string.
+    - id: arg
+      type: System.Object[]
+      description: Argument used to format.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, format As String, ParamArray arg As Object()) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, String, ParamArray Object())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, String, ParamArray Object())
+  name.vb: Write(IConsole, String, ParamArray Object())
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, string, object)
+  nameWithType: ConsoleExtensions.Write(IConsole, string, object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, string, object)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 275
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, string format, object arg0)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: format
+      type: System.String
+      description: The format string.
+    - id: arg0
+      type: System.Object
+      description: The first argument to replace in the format string.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, format As String, arg0 As Object) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, String, Object)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, String, Object)
+  name.vb: Write(IConsole, String, Object)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, string, object, object)
+  nameWithType: ConsoleExtensions.Write(IConsole, string, object, object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, string, object, object)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 289
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, string format, object arg0, object arg1)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: format
+      type: System.String
+      description: The format string.
+    - id: arg0
+      type: System.Object
+      description: The first argument to replace in the format string.
+    - id: arg1
+      type: System.Object
+      description: The second argument to replace in the format string.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, format As String, arg0 As Object, arg1 As Object) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, String, Object, Object)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, String, Object, Object)
+  name.vb: Write(IConsole, String, Object, Object)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.String,System.Object,System.Object,System.Object)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, string, object, object, object)
+  nameWithType: ConsoleExtensions.Write(IConsole, string, object, object, object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, string, object, object, object)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 304
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, string format, object arg0, object arg1, object arg2)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: format
+      type: System.String
+      description: The format string.
+    - id: arg0
+      type: System.Object
+      description: The first argument to replace in the format string.
+    - id: arg1
+      type: System.Object
+      description: The second argument to replace in the format string.
+    - id: arg2
+      type: System.Object
+      description: The third argument to replace in the format string.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, format As String, arg0 As Object, arg1 As Object, arg2 As Object) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, String, Object, Object, Object)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, String, Object, Object, Object)
+  name.vb: Write(IConsole, String, Object, Object, Object)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt32)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, uint)
+  nameWithType: ConsoleExtensions.Write(IConsole, uint)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, uint)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 316
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, uint value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.UInt32
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, value As UInteger) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, UInteger)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, UInteger)
+  name.vb: Write(IConsole, UInteger)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Decimal)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, decimal)
+  nameWithType: ConsoleExtensions.Write(IConsole, decimal)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, decimal)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 328
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, decimal value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Decimal
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, value As Decimal) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Decimal)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, Decimal)
+  name.vb: Write(IConsole, Decimal)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int32)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, int)
+  nameWithType: ConsoleExtensions.Write(IConsole, int)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, int)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 340
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, int value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Int32
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, value As Integer) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Integer)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, Integer)
+  name.vb: Write(IConsole, Integer)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.UInt64)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, ulong)
+  nameWithType: ConsoleExtensions.Write(IConsole, ulong)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, ulong)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 352
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, ulong value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.UInt64
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, value As ULong) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, ULong)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, ULong)
+  name.vb: Write(IConsole, ULong)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Boolean)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, bool)
+  nameWithType: ConsoleExtensions.Write(IConsole, bool)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, bool)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 364
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, bool value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Boolean
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, value As Boolean) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Boolean)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, Boolean)
+  name.vb: Write(IConsole, Boolean)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, char)
+  nameWithType: ConsoleExtensions.Write(IConsole, char)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, char)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 376
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, char value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Char
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, value As Char) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Char)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, Char)
+  name.vb: Write(IConsole, Char)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[])
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, char[])
+  nameWithType: ConsoleExtensions.Write(IConsole, char[])
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, char[])
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 388
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes an array of characters.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, char[] buffer)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: buffer
+      type: System.Char[]
+      description: The buffer.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, buffer As Char()) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Char())
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, Char())
+  name.vb: Write(IConsole, Char())
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Char[],System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, char[], int, int)
+  nameWithType: ConsoleExtensions.Write(IConsole, char[], int, int)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, char[], int, int)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 402
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a portion of a character buffer.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, char[] buffer, int index, int count)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: buffer
+      type: System.Char[]
+      description: The buffer.
+    - id: index
+      type: System.Int32
+      description: The start index.
+    - id: count
+      type: System.Int32
+      description: The number of characters to write.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, buffer As Char(), index As Integer, count As Integer) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Char(), Integer, Integer)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, Char(), Integer, Integer)
+  name.vb: Write(IConsole, Char(), Integer, Integer)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Double)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, double)
+  nameWithType: ConsoleExtensions.Write(IConsole, double)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, double)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 414
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, double value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Double
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, value As Double) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Double)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, Double)
+  name.vb: Write(IConsole, Double)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Int64)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, long)
+  nameWithType: ConsoleExtensions.Write(IConsole, long)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, long)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 426
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, long value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Int64
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, value As Long) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Long)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, Long)
+  name.vb: Write(IConsole, Long)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Object)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, object)
+  nameWithType: ConsoleExtensions.Write(IConsole, object)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, object)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 438
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, object value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Object
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, value As Object) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Object)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, Object)
+  name.vb: Write(IConsole, Object)
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  commentId: M:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  id: Write(McMaster.Extensions.CommandLineUtils.IConsole,System.Single)
+  isExtensionMethod: true
+  parent: McMaster.Extensions.CommandLineUtils.ConsoleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Write(IConsole, float)
+  nameWithType: ConsoleExtensions.Write(IConsole, float)
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, float)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/IO/ConsoleExtensions.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Write
+    path: ../src/CommandLineUtils/IO/ConsoleExtensions.cs
+    startLine: 450
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: Formats and writes a value.
+  example: []
+  syntax:
+    content: public static IConsole Write(this IConsole console, float value)
+    parameters:
+    - id: console
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    - id: value
+      type: System.Single
+      description: The value.
+    return:
+      type: McMaster.Extensions.CommandLineUtils.IConsole
+      description: The console.
+    content.vb: Public Shared Function Write(console As IConsole, value As Single) As IConsole
+  overload: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  nameWithType.vb: ConsoleExtensions.Write(IConsole, Single)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write(McMaster.Extensions.CommandLineUtils.IConsole, Single)
+  name.vb: Write(IConsole, Single)
+references:
+- uid: McMaster.Extensions.CommandLineUtils.IConsole
+  commentId: T:McMaster.Extensions.CommandLineUtils.IConsole
+  parent: McMaster.Extensions.CommandLineUtils
+  href: McMaster.Extensions.CommandLineUtils.IConsole.html
+  name: IConsole
+  nameWithType: IConsole
+  fullName: McMaster.Extensions.CommandLineUtils.IConsole
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+  href: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_WriteLine_McMaster_Extensions_CommandLineUtils_IConsole_
+  name: WriteLine
+  nameWithType: ConsoleExtensions.WriteLine
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.WriteLine
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Object[]
+  isExternal: true
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Char
+  commentId: T:System.Char
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.char
+  name: char
+  nameWithType: char
+  fullName: char
+  nameWithType.vb: Char
+  fullName.vb: Char
+  name.vb: Char
+- uid: System.Char[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.char
+  name: char[]
+  nameWithType: char[]
+  fullName: char[]
+  nameWithType.vb: Char()
+  fullName.vb: Char()
+  name.vb: Char()
+  spec.csharp:
+  - uid: System.Char
+    name: char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Char
+    name: Char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Decimal
+  commentId: T:System.Decimal
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal
+  nameWithType: decimal
+  fullName: decimal
+  nameWithType.vb: Decimal
+  fullName.vb: Decimal
+  name.vb: Decimal
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write
+  href: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.html#McMaster_Extensions_CommandLineUtils_ConsoleExtensions_Write_McMaster_Extensions_CommandLineUtils_IConsole_System_String_
+  name: Write
+  nameWithType: ConsoleExtensions.Write
+  fullName: McMaster.Extensions.CommandLineUtils.ConsoleExtensions.Write

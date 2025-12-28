@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.DotNetCliContext
+  commentId: T:McMaster.Extensions.CommandLineUtils.DotNetCliContext
+  id: DotNetCliContext
+  parent: McMaster.Extensions.CommandLineUtils
+  children:
+  - McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose
+  langs:
+  - csharp
+  - vb
+  name: DotNetCliContext
+  nameWithType: DotNetCliContext
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetCliContext
+  type: Class
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DotNetCliContext.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: DotNetCliContext
+    path: ../src/CommandLineUtils/Utilities/DotNetCliContext.cs
+    startLine: 12
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: APIs related to .NET Core CLI.
+  example: []
+  syntax:
+    content: public static class DotNetCliContext
+    content.vb: Public Module DotNetCliContext
+  inheritance:
+  - System.Object
+- uid: McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose
+  commentId: M:McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose
+  id: IsGlobalVerbose
+  parent: McMaster.Extensions.CommandLineUtils.DotNetCliContext
+  langs:
+  - csharp
+  - vb
+  name: IsGlobalVerbose()
+  nameWithType: DotNetCliContext.IsGlobalVerbose()
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose()
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Utilities/DotNetCliContext.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IsGlobalVerbose
+    path: ../src/CommandLineUtils/Utilities/DotNetCliContext.cs
+    startLine: 17
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils
+  summary: '`dotnet --diagnostics` was specified.'
+  example: []
+  syntax:
+    content: public static bool IsGlobalVerbose()
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsGlobalVerbose() As Boolean
+  overload: McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose*
+references:
+- uid: McMaster.Extensions.CommandLineUtils
+  commentId: N:McMaster.Extensions.CommandLineUtils
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils
+  nameWithType: McMaster.Extensions.CommandLineUtils
+  fullName: McMaster.Extensions.CommandLineUtils
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose
+  href: McMaster.Extensions.CommandLineUtils.DotNetCliContext.html#McMaster_Extensions_CommandLineUtils_DotNetCliContext_IsGlobalVerbose
+  name: IsGlobalVerbose
+  nameWithType: DotNetCliContext.IsGlobalVerbose
+  fullName: McMaster.Extensions.CommandLineUtils.DotNetCliContext.IsGlobalVerbose
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

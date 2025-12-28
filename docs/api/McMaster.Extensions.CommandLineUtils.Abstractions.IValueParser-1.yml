@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  id: IValueParser`1
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  children:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse(System.String,System.String,System.Globalization.CultureInfo)
+  langs:
+  - csharp
+  - vb
+  name: IValueParser<T>
+  nameWithType: IValueParser<T>
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>
+  type: Interface
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/IValueParser{T}.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: IValueParser
+    path: ../src/CommandLineUtils/Abstractions/IValueParser{T}.cs
+    startLine: 10
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: A parser that can convert string into <code class="typeparamref">T</code>.
+  example: []
+  syntax:
+    content: 'public interface IValueParser<out T> : IValueParser'
+    typeParameters:
+    - id: T
+    content.vb: Public Interface IValueParser(Of Out T) Inherits IValueParser
+  inheritedMembers:
+  - McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  nameWithType.vb: IValueParser(Of T)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T)
+  name.vb: IValueParser(Of T)
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse(System.String,System.String,System.Globalization.CultureInfo)
+  commentId: M:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse(System.String,System.String,System.Globalization.CultureInfo)
+  id: Parse(System.String,System.String,System.Globalization.CultureInfo)
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1
+  langs:
+  - csharp
+  - vb
+  name: Parse(string?, string?, CultureInfo)
+  nameWithType: IValueParser<T>.Parse(string?, string?, CultureInfo)
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>.Parse(string?, string?, System.Globalization.CultureInfo)
+  type: Method
+  source:
+    remote:
+      path: src/CommandLineUtils/Abstractions/IValueParser{T}.cs
+      branch: main
+      repo: https://github.com/natemcmaster/CommandLineUtils.git
+    id: Parse
+    path: ../src/CommandLineUtils/Abstractions/IValueParser{T}.cs
+    startLine: 20
+  assemblies:
+  - McMaster.Extensions.CommandLineUtils
+  namespace: McMaster.Extensions.CommandLineUtils.Abstractions
+  summary: Parses the raw string value.
+  example: []
+  syntax:
+    content: T Parse(string? argName, string? value, CultureInfo culture)
+    parameters:
+    - id: argName
+      type: System.String
+      description: The name of the argument this value will be bound to.
+    - id: value
+      type: System.String
+      description: The raw string value to parse.
+    - id: culture
+      type: System.Globalization.CultureInfo
+      description: The culture that should be used to parse values.
+    return:
+      type: '{T}'
+      description: The parsed value object.
+    content.vb: Function Parse(argName As String, value As String, culture As CultureInfo) As T
+  overload: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse*
+  nameWithType.vb: IValueParser(Of T).Parse(String, String, CultureInfo)
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T).Parse(String, String, System.Globalization.CultureInfo)
+  name.vb: Parse(String, String, CultureInfo)
+references:
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions
+  commentId: N:McMaster.Extensions.CommandLineUtils.Abstractions
+  href: McMaster.html
+  name: McMaster.Extensions.CommandLineUtils.Abstractions
+  nameWithType: McMaster.Extensions.CommandLineUtils.Abstractions
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions
+  spec.csharp:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions
+    name: Abstractions
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.html
+  spec.vb:
+  - uid: McMaster
+    name: McMaster
+    href: McMaster.html
+  - name: .
+  - uid: McMaster.Extensions
+    name: Extensions
+    href: McMaster.Extensions.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils
+    name: CommandLineUtils
+    href: McMaster.Extensions.CommandLineUtils.html
+  - name: .
+  - uid: McMaster.Extensions.CommandLineUtils.Abstractions
+    name: Abstractions
+    href: McMaster.Extensions.CommandLineUtils.Abstractions.html
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  commentId: P:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.html#McMaster_Extensions_CommandLineUtils_Abstractions_IValueParser_TargetType
+  name: TargetType
+  nameWithType: IValueParser.TargetType
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.TargetType
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  commentId: T:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+  parent: McMaster.Extensions.CommandLineUtils.Abstractions
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.html
+  name: IValueParser
+  nameWithType: IValueParser
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser
+- uid: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse*
+  commentId: Overload:McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser`1.Parse
+  href: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser-1.html#McMaster_Extensions_CommandLineUtils_Abstractions_IValueParser_1_Parse_System_String_System_String_System_Globalization_CultureInfo_
+  name: Parse
+  nameWithType: IValueParser<T>.Parse
+  fullName: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser<T>.Parse
+  nameWithType.vb: IValueParser(Of T).Parse
+  fullName.vb: McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser(Of T).Parse
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Globalization.CultureInfo
+  commentId: T:System.Globalization.CultureInfo
+  parent: System.Globalization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo
+  name: CultureInfo
+  nameWithType: CultureInfo
+  fullName: System.Globalization.CultureInfo
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Globalization
+  commentId: N:System.Globalization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Globalization
+  nameWithType: System.Globalization
+  fullName: System.Globalization
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Globalization
+    name: Globalization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Globalization
+    name: Globalization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
