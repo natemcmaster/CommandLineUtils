@@ -35,11 +35,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
-            8.0.x
-            9.0.x
+            8.x
+            9.x
+            10.x
       - name: Run build script
         id: build_script
         run: ./build.ps1 -ci

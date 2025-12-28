@@ -1,15 +1,10 @@
 #!/usr/bin/env pwsh
 param(
     [switch]$Serve,
-    [switch]$Install,
     [switch]$NoBuild
 )
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version 2
-
-if (-not (Test-Path variable:\IsCoreCLR)) {
-    $IsWindows = $true
-}
 
 Import-Module -Force -Scope Local "$PSScriptRoot/../src/common.psm1"
 
@@ -31,19 +26,8 @@ try {
         exec git worktree add $targetDir gh-pages 2>&1 | out-null
     }
 
-    $docfxVersion = '2.56.6'
-    $docfxRoot = "$buildRoot/packages/docfx.console/$docfxVersion"
-    $docfx = "$docfxRoot/tools/docfx.exe"
-    if (-not (Test-Path $docfx)) {
-        mkdir -p $docfxRoot -ErrorAction Ignore | Out-Null
-        $temp = (New-TemporaryFile).FullName + ".zip"
-        Invoke-WebRequest "https://www.nuget.org/api/v2/package/docfx.console/$docfxVersion" -OutFile $temp
-        Expand-Archive $temp -DestinationPath $docfxRoot
-        Remove-Item $temp
-        if ($Install) {
-            exit 1
-        }
-    }
+    # Restore docfx as a local .NET tool
+    exec dotnet tool restore
 
     Push-Location $targetDir
     exec git reset --hard
@@ -60,12 +44,7 @@ try {
             $arguments += '--serve'
         }
 
-        if ($IsWindows) {
-            exec $docfx docs/docfx.json @arguments
-        }
-        else {
-            exec mono $docfx docs/docfx.json @arguments
-        }
+        exec dotnet tool run docfx docs/docfx.json @arguments
     }
     finally {
         Push-Location $targetDir
