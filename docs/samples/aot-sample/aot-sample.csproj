@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- AOT Publishing Settings -->
+    <PublishAot>true</PublishAot>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <InvariantGlobalization>true</InvariantGlobalization>
+
+    <!-- Suppress trim/AOT warnings for now - the library still uses reflection internally -->
+    <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
+    <TrimmerSingleWarn>false</TrimmerSingleWarn>
+    <EnableTrimAnalyzer>false</EnableTrimAnalyzer>
+    <EnableAotAnalyzer>false</EnableAotAnalyzer>
+    <IlcTreatWarningsAsErrors>false</IlcTreatWarningsAsErrors>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+
+    <!-- Suppress specific AOT warnings -->
+    <NoWarn>$(NoWarn);IL2026;IL2060;IL2072;IL2075;IL2087;IL2091;IL3050</NoWarn>
+  </PropertyGroup>
+
+  <!-- Expose PublishAot to the source generator (normally handled by the NuGet package's .props file) -->
+  <ItemGroup>
+    <CompilerVisibleProperty Include="PublishAot" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\CommandLineUtils\McMaster.Extensions.CommandLineUtils.csproj" />
+    <!-- Reference the source generator directly for AOT metadata generation -->
+    <ProjectReference Include="..\..\..\src\CommandLineUtils.Generators\McMaster.Extensions.CommandLineUtils.Generators.csproj"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Preserve command types for AOT -->
+    <TrimmerRootDescriptor Include="rd.xml" />
+  </ItemGroup>
+
+</Project>

@@ -2,10 +2,10 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Linq;
 using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Errors;
+using McMaster.Extensions.CommandLineUtils.SourceGeneration;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
@@ -18,33 +18,91 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// <inheritdoc />
         public virtual void Apply(ConventionContext context)
         {
-            var modelAccessor = context.ModelAccessor;
-            if (context.ModelType == null || modelAccessor == null)
+            // MetadataProvider is always available (generated or reflection-based via DefaultMetadataResolver)
+            var provider = context.MetadataProvider;
+            if (provider == null || context.ModelAccessor == null)
             {
                 return;
             }
 
-            var attributes = context.ModelType.GetCustomAttributes<SubcommandAttribute>();
-
-            foreach (var attribute in attributes)
+            foreach (var subMeta in provider.Subcommands)
             {
-                var contextArgs = new object[] { context };
-                foreach (var type in attribute.Types)
-                {
-                    AssertSubcommandIsNotCycled(type, context.Application);
+                AssertSubcommandIsNotCycled(subMeta.SubcommandType, context.Application);
 
-                    var impl = s_addSubcommandMethod.MakeGenericMethod(type);
-                    try
-                    {
-                        impl.Invoke(this, contextArgs);
-                    }
-                    catch (TargetInvocationException ex)
-                    {
-                        // unwrap
-                        throw ex.InnerException ?? ex;
-                    }
-                }
+                // Get the subcommand's metadata provider (from factory or registry, with fallback to reflection)
+                var subProvider = subMeta.MetadataProviderFactory?.Invoke()
+                    ?? DefaultMetadataResolver.Instance.GetProvider(subMeta.SubcommandType);
+
+                // Get the subcommand name
+                var name = GetSubcommandName(subMeta.SubcommandType, subProvider);
+
+                // AddSubcommandFromMetadata will call AddSubcommand which validates
+                // for duplicate names and throws if necessary
+                AddSubcommandFromMetadata(context, subMeta.SubcommandType, subProvider, name);
             }
+        }
+
+        private static string GetSubcommandName(Type subcommandType, ICommandMetadataProvider provider)
+        {
+            var commandInfo = provider.CommandInfo;
+            if (!string.IsNullOrEmpty(commandInfo?.Name))
+            {
+                // Normalize to lowercase for consistent duplicate detection
+                return commandInfo.Name.ToLowerInvariant();
+            }
+
+            // Infer name from type name, stripping "Command" suffix (like CommandNameFromTypeConvention)
+            var name = subcommandType.Name;
+            if (name.EndsWith("Command", StringComparison.OrdinalIgnoreCase))
+            {
+                name = name.Substring(0, name.Length - "Command".Length);
+            }
+            return name.ToLowerInvariant();
+        }
+
+        private void AddSubcommandFromMetadata(ConventionContext context, Type subcommandType, ICommandMetadataProvider provider, string name)
+        {
+            var commandInfo = provider.CommandInfo;
+
+            // Use reflection to create the proper generic CommandLineApplication<T> type
+            // This maintains compatibility with code that expects CommandLineApplication<T>
+            var genericType = typeof(CommandLineApplication<>).MakeGenericType(subcommandType);
+
+            // Get the internal constructor: CommandLineApplication<T>(CommandLineApplication parent, string name)
+            var constructor = genericType.GetConstructor(
+                BindingFlags.NonPublic | BindingFlags.Instance,
+                null,
+                new[] { typeof(CommandLineApplication), typeof(string) },
+                null);
+
+            if (constructor == null)
+            {
+                throw new InvalidOperationException(
+                    $"Could not find internal constructor for CommandLineApplication<{subcommandType.Name}>");
+            }
+
+            CommandLineApplication subApp;
+            try
+            {
+                subApp = (CommandLineApplication)constructor.Invoke(new object[] { context.Application, name });
+            }
+            catch (TargetInvocationException ex) when (ex.InnerException != null)
+            {
+                // Unwrap TargetInvocationException to throw the actual exception
+                System.Runtime.ExceptionServices.ExceptionDispatchInfo.Capture(ex.InnerException).Throw();
+                throw; // Unreachable, but required for compiler
+            }
+
+            // Register the subcommand with the parent
+            context.Application.AddSubcommand(subApp);
+
+            // Apply command metadata using the ApplyTo method which handles all properties
+            commandInfo?.ApplyTo(subApp);
+
+            // Note: Do NOT call UseDefaultConventions() here!
+            // Conventions are automatically inherited from the parent in the subcommand constructor.
+            // Calling UseDefaultConventions() would cause conventions to be applied twice,
+            // resulting in duplicate options, arguments, and subcommands.
         }
 
         private void AssertSubcommandIsNotCycled(Type modelType, CommandLineApplication? parentCommand)
@@ -58,16 +116,6 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 }
                 parentCommand = parentCommand.Parent;
             }
-        }
-
-        private static readonly MethodInfo s_addSubcommandMethod
-            = typeof(SubcommandAttributeConvention).GetRuntimeMethods()
-                .Single(m => m.Name == nameof(AddSubcommandImpl));
-
-        private void AddSubcommandImpl<TSubCommand>(ConventionContext context)
-            where TSubCommand : class
-        {
-            context.Application.Command<TSubCommand>(null!, null!); // Hmm, should probably rethink this...
         }
     }
 }
