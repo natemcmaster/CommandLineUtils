@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -39,7 +39,7 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
 
   <!-- Pack the source generator into analyzers folder for NuGet package -->
   <ItemGroup>
-    <None Include="$(OutputPath)..\CommandLineUtils.Generators\netstandard2.0\McMaster.Extensions.CommandLineUtils.Generators.dll"
+    <None Include="$(OutputPath)..\..\..\McMaster.Extensions.CommandLineUtils.Generators\$(Configuration)\netstandard2.0\McMaster.Extensions.CommandLineUtils.Generators.dll"
           Pack="true"
           PackagePath="analyzers/dotnet/cs"
           Visible="false" />
