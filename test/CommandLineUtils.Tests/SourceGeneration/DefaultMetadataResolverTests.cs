@@ -7,7 +7,15 @@ using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests.SourceGeneration
 {
-    public class DefaultMetadataResolverTests
+    /// <summary>
+    /// Collection for tests that use CommandMetadataRegistry (shared state).
+    /// Tests in this collection run sequentially to avoid interference.
+    /// </summary>
+    [CollectionDefinition("MetadataRegistry", DisableParallelization = true)]
+    public class MetadataRegistryCollection { }
+
+    [Collection("MetadataRegistry")]
+    public class DefaultMetadataResolverTests : IDisposable
     {
         [Command(Name = "registered")]
         private class RegisteredCommand { }
@@ -124,6 +132,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests.SourceGeneration
         public void ImplementsIMetadataResolver()
         {
             Assert.IsAssignableFrom<IMetadataResolver>(DefaultMetadataResolver.Instance);
+        }
+
+        public void Dispose()
+        {
+            CommandMetadataRegistry.Clear();
+            DefaultMetadataResolver.Instance.ClearCache();
         }
     }
 }

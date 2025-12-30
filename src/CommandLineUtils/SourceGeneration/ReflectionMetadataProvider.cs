@@ -424,7 +424,7 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
 
         private VersionOptionMetadata? ExtractVersionOption()
         {
-            // Check type-level attribute
+            // Check type-level VersionOptionAttribute
             var typeAttr = _modelType.GetCustomAttribute<VersionOptionAttribute>();
             if (typeAttr != null)
             {
@@ -436,7 +436,31 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
                 };
             }
 
-            // Check property-level attribute
+            // Check type-level VersionOptionFromMemberAttribute
+            var fromMemberAttr = _modelType.GetCustomAttribute<VersionOptionFromMemberAttribute>();
+            if (fromMemberAttr != null)
+            {
+                Func<object, string?>? versionGetter = null;
+
+                if (!string.IsNullOrEmpty(fromMemberAttr.MemberName))
+                {
+                    var members = ReflectionHelper.GetPropertyOrMethod(_modelType, fromMemberAttr.MemberName);
+                    if (members.Length > 0)
+                    {
+                        var method = members[0];
+                        versionGetter = obj => method.Invoke(obj, Array.Empty<object>()) as string;
+                    }
+                }
+
+                return new VersionOptionMetadata
+                {
+                    Template = fromMemberAttr.Template,
+                    Description = fromMemberAttr.Description,
+                    VersionGetter = versionGetter
+                };
+            }
+
+            // Check property-level VersionOptionAttribute
             var props = ReflectionHelper.GetProperties(_modelType);
             foreach (var prop in props)
             {

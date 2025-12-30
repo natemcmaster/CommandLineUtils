@@ -27,23 +27,34 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            var prop = context.ModelType.GetProperty("RemainingArguments", PropertyBindingFlags);
-            prop ??= context.ModelType.GetProperty("RemainingArgs", PropertyBindingFlags);
-            if (prop == null)
+            // Try to get setter from generated metadata first (AOT-friendly)
+            var specialProperties = context.MetadataProvider?.SpecialProperties;
+            var setter = specialProperties?.RemainingArgumentsSetter;
+            var propType = specialProperties?.RemainingArgumentsType;
+
+            // Fall back to reflection if no generated metadata
+            if (setter == null)
             {
-                return;
+                var prop = context.ModelType.GetProperty("RemainingArguments", PropertyBindingFlags);
+                prop ??= context.ModelType.GetProperty("RemainingArgs", PropertyBindingFlags);
+                if (prop == null)
+                {
+                    return;
+                }
+
+                var reflectionSetter = ReflectionHelper.GetPropertySetter(prop);
+                setter = (obj, val) => reflectionSetter(obj, val);
+                propType = prop.PropertyType;
             }
 
-            var setter = ReflectionHelper.GetPropertySetter(prop);
-
-            if (prop.PropertyType == typeof(string[]))
+            if (propType == typeof(string[]))
             {
                 context.Application.OnParsingComplete(r =>
                     setter(modelAccessor.GetModel(), r.SelectedCommand.RemainingArguments.ToArray()));
                 return;
             }
 
-            if (!typeof(IReadOnlyList<string>).IsAssignableFrom(prop.PropertyType))
+            if (!typeof(IReadOnlyList<string>).IsAssignableFrom(propType))
             {
                 throw new InvalidOperationException(Strings.RemainingArgsPropsIsUnassignable(context.ModelType));
             }

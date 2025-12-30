@@ -15,12 +15,17 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
         public string FullTypeName { get; set; } = "";
         public string Namespace { get; set; } = "";
         public string ClassName { get; set; } = "";
+        /// <summary>
+        /// The inferred command name (kebab-case, minus "Command" suffix).
+        /// </summary>
+        public string InferredName { get; set; } = "";
         public CommandAttributeData CommandAttribute { get; set; } = new();
         public List<OptionData> Options { get; } = new();
         public List<ArgumentData> Arguments { get; } = new();
         public List<SubcommandData> Subcommands { get; } = new();
         public HelpOptionData? HelpOption { get; set; }
         public VersionOptionData? VersionOption { get; set; }
+        public SpecialPropertiesData SpecialProperties { get; set; } = new();
         public bool HasOnExecute { get; set; }
         public bool OnExecuteIsAsync { get; set; }
         public bool OnExecuteReturnsInt { get; set; }
@@ -28,5 +33,10 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
         public bool OnExecuteHasCancellationToken { get; set; }
         public bool HasOnValidate { get; set; }
         public bool HasOnValidationError { get; set; }
+
+        /// <summary>
+        /// Public constructors of the command class, ordered by parameter count descending.
+        /// </summary>
+        public List<ConstructorData> Constructors { get; } = new();
     }
 }

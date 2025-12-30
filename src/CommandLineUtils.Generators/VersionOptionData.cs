@@ -4,7 +4,7 @@
 namespace McMaster.Extensions.CommandLineUtils.Generators
 {
     /// <summary>
-    /// Data for [VersionOption] attribute.
+    /// Data for [VersionOption] or [VersionOptionFromMember] attribute.
     /// </summary>
     internal sealed class VersionOptionData
     {
@@ -12,5 +12,9 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
         public string? Template { get; set; }
         public string? Version { get; set; }
         public string? Description { get; set; }
+        /// <summary>
+        /// For [VersionOptionFromMember]: the name of the method or property that returns the version.
+        /// </summary>
+        public string? MemberName { get; set; }
     }
 }

@@ -27,6 +27,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
         private const string SubcommandAttributeFullName = "McMaster.Extensions.CommandLineUtils.SubcommandAttribute";
         private const string HelpOptionAttributeFullName = "McMaster.Extensions.CommandLineUtils.HelpOptionAttribute";
         private const string VersionOptionAttributeFullName = "McMaster.Extensions.CommandLineUtils.VersionOptionAttribute";
+        private const string VersionOptionFromMemberAttributeFullName = "McMaster.Extensions.CommandLineUtils.VersionOptionFromMemberAttribute";
 
         /// <inheritdoc />
         public void Initialize(IncrementalGeneratorInitializationContext context)
@@ -106,6 +107,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
                 FullTypeName = typeSymbol.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat.WithGlobalNamespaceStyle(SymbolDisplayGlobalNamespaceStyle.Omitted)),
                 Namespace = typeSymbol.ContainingNamespace?.ToDisplayString() ?? "",
                 ClassName = typeSymbol.Name,
+                InferredName = InferCommandName(typeSymbol.Name),
                 CommandAttribute = ExtractCommandAttributeData(commandAttr)
             };
 
@@ -118,19 +120,102 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
                 }
             }
 
-            // Extract subcommands from [Subcommand] attributes
+            // Extract subcommands and type-level options from attributes
             foreach (var attr in typeSymbol.GetAttributes())
             {
-                if (attr.AttributeClass?.ToDisplayString() == SubcommandAttributeFullName)
+                var attrName = attr.AttributeClass?.ToDisplayString();
+                if (attrName == SubcommandAttributeFullName)
                 {
                     ExtractSubcommandMetadata(attr, info);
+                }
+                else if (attrName == HelpOptionAttributeFullName && info.HelpOption == null)
+                {
+                    info.HelpOption = ExtractTypeLevelHelpOptionData(attr);
+                }
+                else if (attrName == VersionOptionAttributeFullName && info.VersionOption == null)
+                {
+                    info.VersionOption = ExtractTypeLevelVersionOptionData(attr);
+                }
+                else if (attrName == VersionOptionFromMemberAttributeFullName && info.VersionOption == null)
+                {
+                    info.VersionOption = ExtractVersionOptionFromMemberData(attr);
                 }
             }
 
             // Check for OnExecute/OnExecuteAsync methods
             ExtractExecuteMethods(typeSymbol, info);
 
+            // Extract special properties (Parent, Subcommand, RemainingArguments)
+            ExtractSpecialProperties(typeSymbol, info);
+
+            // Extract constructor info for dependency injection
+            ExtractConstructors(typeSymbol, info);
+
             return info;
+        }
+
+        private static void ExtractSpecialProperties(INamedTypeSymbol typeSymbol, CommandInfo info)
+        {
+            foreach (var member in typeSymbol.GetMembers())
+            {
+                if (member is not IPropertySymbol property)
+                    continue;
+
+                // Check for Parent property
+                if (property.Name == "Parent" && property.SetMethod != null)
+                {
+                    info.SpecialProperties.ParentPropertyName = property.Name;
+                    info.SpecialProperties.ParentPropertyType = property.Type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+                }
+
+                // Check for Subcommand property
+                if (property.Name == "Subcommand" && property.SetMethod != null)
+                {
+                    info.SpecialProperties.SubcommandPropertyName = property.Name;
+                    info.SpecialProperties.SubcommandPropertyType = property.Type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+                }
+
+                // Check for RemainingArguments or RemainingArgs property
+                if ((property.Name == "RemainingArguments" || property.Name == "RemainingArgs") && property.SetMethod != null)
+                {
+                    var typeStr = property.Type.ToDisplayString();
+                    // Must be string[] or IReadOnlyList<string> or compatible
+                    // Handle nullable annotations (string?[], string[]?, etc.)
+                    if (typeStr.Contains("string[]") ||
+                        typeStr.Contains("String[]") ||
+                        typeStr.Contains("IReadOnlyList<string>") ||
+                        typeStr.Contains("List<string>") ||
+                        typeStr.Contains("IEnumerable<string>") ||
+                        (property.Type is IArrayTypeSymbol arrayType && arrayType.ElementType.SpecialType == SpecialType.System_String))
+                    {
+                        info.SpecialProperties.RemainingArgumentsPropertyName = property.Name;
+                        info.SpecialProperties.RemainingArgumentsPropertyType = property.Type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+                    }
+                }
+            }
+        }
+
+        private static void ExtractConstructors(INamedTypeSymbol typeSymbol, CommandInfo info)
+        {
+            // Get all public instance constructors, ordered by parameter count descending
+            var constructors = typeSymbol.InstanceConstructors
+                .Where(c => c.DeclaredAccessibility == Accessibility.Public)
+                .OrderByDescending(c => c.Parameters.Length)
+                .ToArray();
+
+            foreach (var ctor in constructors)
+            {
+                var ctorData = new ConstructorData();
+                foreach (var param in ctor.Parameters)
+                {
+                    ctorData.Parameters.Add(new ConstructorParameterData
+                    {
+                        TypeName = param.Type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat),
+                        Name = param.Name
+                    });
+                }
+                info.Constructors.Add(ctorData);
+            }
         }
 
         private static CommandAttributeData ExtractCommandAttributeData(AttributeData attr)
@@ -457,6 +542,101 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             return data;
         }
 
+        private static HelpOptionData ExtractTypeLevelHelpOptionData(AttributeData attr)
+        {
+            var data = new HelpOptionData();
+
+            // Template from constructor
+            if (attr.ConstructorArguments.Length > 0 && attr.ConstructorArguments[0].Value is string template)
+            {
+                data.Template = template;
+            }
+
+            foreach (var arg in attr.NamedArguments)
+            {
+                switch (arg.Key)
+                {
+                    case "Template":
+                        data.Template = arg.Value.Value?.ToString();
+                        break;
+                    case "Description":
+                        data.Description = arg.Value.Value?.ToString();
+                        break;
+                    case "Inherited":
+                        data.Inherited = (bool?)arg.Value.Value;
+                        break;
+                }
+            }
+
+            return data;
+        }
+
+        private static VersionOptionData ExtractVersionOptionFromMemberData(AttributeData attr)
+        {
+            var data = new VersionOptionData();
+
+            // Template from constructor (optional first argument)
+            if (attr.ConstructorArguments.Length > 0 && attr.ConstructorArguments[0].Value is string template)
+            {
+                data.Template = template;
+            }
+
+            foreach (var arg in attr.NamedArguments)
+            {
+                switch (arg.Key)
+                {
+                    case "Template":
+                        data.Template = arg.Value.Value?.ToString();
+                        break;
+                    case "MemberName":
+                        data.MemberName = arg.Value.Value?.ToString();
+                        break;
+                    case "Description":
+                        data.Description = arg.Value.Value?.ToString();
+                        break;
+                }
+            }
+
+            return data;
+        }
+
+        private static VersionOptionData ExtractTypeLevelVersionOptionData(AttributeData attr)
+        {
+            var data = new VersionOptionData();
+
+            // Version from first constructor argument (single-arg constructor)
+            if (attr.ConstructorArguments.Length == 1 && attr.ConstructorArguments[0].Value is string version)
+            {
+                data.Version = version;
+            }
+            // Two-arg constructor: (template, version)
+            else if (attr.ConstructorArguments.Length >= 2)
+            {
+                if (attr.ConstructorArguments[0].Value is string tmpl)
+                    data.Template = tmpl;
+                if (attr.ConstructorArguments[1].Value is string ver)
+                    data.Version = ver;
+            }
+
+            foreach (var arg in attr.NamedArguments)
+            {
+                switch (arg.Key)
+                {
+                    case "Template":
+                        data.Template = arg.Value.Value?.ToString();
+                        break;
+                    case "Version":
+                        data.Version = arg.Value.Value?.ToString();
+                        break;
+                    case "Description":
+                        data.Description = arg.Value.Value?.ToString();
+                        break;
+                }
+            }
+
+            return data;
+        }
+
         /// <summary>
         /// Extracts validation attributes (e.g., [Required], [Range], [StringLength]) from a property.
         /// </summary>
@@ -692,8 +872,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             GenerateValidationErrorHandler(sb, info, indent);
 
             // SpecialProperties
-            sb.AppendLine($"{indent}    public SpecialPropertiesMetadata? SpecialProperties => null; // TODO: Implement");
-            sb.AppendLine();
+            GenerateSpecialPropertiesProperty(sb, info, indent);
 
             // HelpOption
             GenerateHelpOptionProperty(sb, info, indent);
@@ -714,24 +893,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine();
 
             // Nested model factory
-            sb.AppendLine($"{indent}    private sealed class GeneratedModelFactory : IModelFactory<{info.ClassName}>");
-            sb.AppendLine($"{indent}    {{");
-            sb.AppendLine($"{indent}        private readonly IServiceProvider? _services;");
-            sb.AppendLine();
-            sb.AppendLine($"{indent}        public GeneratedModelFactory(IServiceProvider? services) => _services = services;");
-            sb.AppendLine();
-            sb.AppendLine($"{indent}        public {info.ClassName} Create()");
-            sb.AppendLine($"{indent}        {{");
-            sb.AppendLine($"{indent}            if (_services != null)");
-            sb.AppendLine($"{indent}            {{");
-            sb.AppendLine($"{indent}                var instance = _services.GetService(typeof({info.ClassName})) as {info.ClassName};");
-            sb.AppendLine($"{indent}                if (instance != null) return instance;");
-            sb.AppendLine($"{indent}            }}");
-            sb.AppendLine($"{indent}            return new {info.ClassName}();");
-            sb.AppendLine($"{indent}        }}");
-            sb.AppendLine();
-            sb.AppendLine($"{indent}        object IModelFactory.Create() => Create();");
-            sb.AppendLine($"{indent}    }}");
+            GenerateModelFactory(sb, info, indent);
 
             sb.AppendLine($"{indent}}}");
 
@@ -883,8 +1045,9 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             var cmd = info.CommandAttribute;
             sb.AppendLine($"{indent}    public CommandMetadata? CommandInfo => new CommandMetadata");
             sb.AppendLine($"{indent}    {{");
-            if (cmd.Name != null)
-                sb.AppendLine($"{indent}        Name = \"{EscapeString(cmd.Name)}\",");
+            // Use explicit name if set, otherwise use inferred name from class name
+            var commandName = cmd.Name ?? info.InferredName;
+            sb.AppendLine($"{indent}        Name = \"{EscapeString(commandName)}\",");
             if (cmd.AdditionalNames?.Length > 0)
                 sb.AppendLine($"{indent}        AdditionalNames = new[] {{ {string.Join(", ", cmd.AdditionalNames.Select(n => $"\"{EscapeString(n)}\""))} }},");
             if (cmd.Description != null)
@@ -1024,6 +1187,49 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine();
         }
 
+        private static void GenerateSpecialPropertiesProperty(StringBuilder sb, CommandInfo info, string indent)
+        {
+            var sp = info.SpecialProperties;
+            if (!sp.HasAny)
+            {
+                sb.AppendLine($"{indent}    public SpecialPropertiesMetadata? SpecialProperties => null;");
+            }
+            else
+            {
+                sb.AppendLine($"{indent}    public SpecialPropertiesMetadata? SpecialProperties => new SpecialPropertiesMetadata");
+                sb.AppendLine($"{indent}    {{");
+
+                if (sp.ParentPropertyName != null)
+                {
+                    sb.AppendLine($"{indent}        ParentSetter = static (obj, val) => (({info.ClassName})obj).{sp.ParentPropertyName} = ({sp.ParentPropertyType})val!,");
+                    sb.AppendLine($"{indent}        ParentType = typeof({sp.ParentPropertyType}),");
+                }
+
+                if (sp.SubcommandPropertyName != null)
+                {
+                    sb.AppendLine($"{indent}        SubcommandSetter = static (obj, val) => (({info.ClassName})obj).{sp.SubcommandPropertyName} = ({sp.SubcommandPropertyType})val!,");
+                    sb.AppendLine($"{indent}        SubcommandType = typeof({sp.SubcommandPropertyType}),");
+                }
+
+                if (sp.RemainingArgumentsPropertyName != null)
+                {
+                    // Handle string[] vs IReadOnlyList<string>
+                    if (sp.RemainingArgumentsPropertyType == "string[]")
+                    {
+                        sb.AppendLine($"{indent}        RemainingArgumentsSetter = static (obj, val) => (({info.ClassName})obj).{sp.RemainingArgumentsPropertyName} = val is string[] arr ? arr : ((System.Collections.Generic.IReadOnlyList<string>)val!).ToArray(),");
+                    }
+                    else
+                    {
+                        sb.AppendLine($"{indent}        RemainingArgumentsSetter = static (obj, val) => (({info.ClassName})obj).{sp.RemainingArgumentsPropertyName} = ({sp.RemainingArgumentsPropertyType})val!,");
+                    }
+                    sb.AppendLine($"{indent}        RemainingArgumentsType = typeof({sp.RemainingArgumentsPropertyType}),");
+                }
+
+                sb.AppendLine($"{indent}    }};");
+            }
+            sb.AppendLine();
+        }
+
         private static void GenerateHelpOptionProperty(StringBuilder sb, CommandInfo info, string indent)
         {
             if (info.HelpOption == null)
@@ -1061,9 +1267,83 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
                     sb.AppendLine($"{indent}        Version = \"{EscapeString(info.VersionOption.Version)}\",");
                 if (info.VersionOption.Description != null)
                     sb.AppendLine($"{indent}        Description = \"{EscapeString(info.VersionOption.Description)}\",");
+                if (info.VersionOption.MemberName != null)
+                    sb.AppendLine($"{indent}        VersionGetter = static (obj) => (({info.ClassName})obj).{info.VersionOption.MemberName},");
                 sb.AppendLine($"{indent}    }};");
             }
             sb.AppendLine();
+        }
+
+        private static void GenerateModelFactory(StringBuilder sb, CommandInfo info, string indent)
+        {
+            sb.AppendLine($"{indent}    private sealed class GeneratedModelFactory : IModelFactory<{info.ClassName}>");
+            sb.AppendLine($"{indent}    {{");
+            sb.AppendLine($"{indent}        private readonly IServiceProvider? _services;");
+            sb.AppendLine();
+            sb.AppendLine($"{indent}        public GeneratedModelFactory(IServiceProvider? services) => _services = services;");
+            sb.AppendLine();
+            sb.AppendLine($"{indent}        public {info.ClassName} Create()");
+            sb.AppendLine($"{indent}        {{");
+
+            // First, try to get the model type directly from the service provider
+            sb.AppendLine($"{indent}            if (_services != null)");
+            sb.AppendLine($"{indent}            {{");
+            sb.AppendLine($"{indent}                var instance = _services.GetService(typeof({info.ClassName})) as {info.ClassName};");
+            sb.AppendLine($"{indent}                if (instance != null) return instance;");
+
+            // Generate code for each constructor with parameters (ordered by parameter count descending)
+            var constructorsWithParams = info.Constructors.Where(c => c.Parameters.Count > 0).ToList();
+            if (constructorsWithParams.Count > 0)
+            {
+                sb.AppendLine();
+                sb.AppendLine($"{indent}                // Try to create using constructor injection");
+
+                for (int ctorIdx = 0; ctorIdx < constructorsWithParams.Count; ctorIdx++)
+                {
+                    var ctor = constructorsWithParams[ctorIdx];
+
+                    // Generate variable declarations for each parameter
+                    for (int paramIdx = 0; paramIdx < ctor.Parameters.Count; paramIdx++)
+                    {
+                        var param = ctor.Parameters[paramIdx];
+                        sb.AppendLine($"{indent}                var p{ctorIdx}_{paramIdx} = _services.GetService(typeof({param.TypeName})) as {param.TypeName};");
+                    }
+
+                    // Check if all parameters were resolved
+                    var allParamsCheck = string.Join(" && ", Enumerable.Range(0, ctor.Parameters.Count).Select(i => $"p{ctorIdx}_{i} != null"));
+                    sb.AppendLine($"{indent}                if ({allParamsCheck})");
+                    sb.AppendLine($"{indent}                {{");
+
+                    // Create instance with resolved parameters
+                    var paramList = string.Join(", ", Enumerable.Range(0, ctor.Parameters.Count).Select(i => $"p{ctorIdx}_{i}"));
+                    sb.AppendLine($"{indent}                    return new {info.ClassName}({paramList});");
+                    sb.AppendLine($"{indent}                }}");
+                }
+            }
+
+            sb.AppendLine($"{indent}            }}");
+
+            // Check if there's a default constructor
+            var hasDefaultConstructor = info.Constructors.Any(c => c.Parameters.Count == 0);
+            if (hasDefaultConstructor)
+            {
+                sb.AppendLine($"{indent}            return new {info.ClassName}();");
+            }
+            else if (info.Constructors.Count > 0)
+            {
+                // No default constructor - we need to throw if we get here
+                sb.AppendLine($"{indent}            throw new InvalidOperationException(\"Unable to create instance of {info.ClassName}. No services registered for constructor parameters.\");");
+            }
+            else
+            {
+                // No public constructors at all - try anyway (will fail at compile time if not possible)
+                sb.AppendLine($"{indent}            return new {info.ClassName}();");
+            }
+
+            sb.AppendLine($"{indent}        }}");
+            sb.AppendLine();
+            sb.AppendLine($"{indent}        object IModelFactory.Create() => Create();");
+            sb.AppendLine($"{indent}    }}");
         }
 
         private static string GenerateModuleInitializer(ImmutableArray<CommandInfo> commands)
@@ -1108,6 +1388,83 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
                 .Replace("\n", "\\n")
                 .Replace("\r", "\\r")
                 .Replace("\t", "\\t");
+        }
+
+        /// <summary>
+        /// Infers a command name from a type name by stripping the "Command" suffix
+        /// and converting to kebab-case.
+        /// </summary>
+        private static string InferCommandName(string typeName)
+        {
+            const string cmd = "Command";
+            if (typeName.Length > cmd.Length && typeName.EndsWith(cmd))
+            {
+                typeName = typeName.Substring(0, typeName.Length - cmd.Length);
+            }
+
+            return ToKebabCase(typeName);
+        }
+
+        /// <summary>
+        /// Converts a PascalCase or camelCase string to kebab-case.
+        /// </summary>
+        private static string ToKebabCase(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return str;
+            }
+
+            var sb = new StringBuilder();
+            var i = 0;
+            var addDash = false;
+
+            for (; i < str.Length; i++)
+            {
+                var ch = str[i];
+                if (!char.IsLetterOrDigit(ch))
+                {
+                    continue;
+                }
+
+                addDash = !char.IsUpper(ch);
+                sb.Append(char.ToLowerInvariant(ch));
+                i++;
+                break;
+            }
+
+            for (; i < str.Length; i++)
+            {
+                var ch = str[i];
+                if (char.IsUpper(ch))
+                {
+                    if (addDash)
+                    {
+                        addDash = false;
+                        sb.Append('-');
+                    }
+
+                    sb.Append(char.ToLowerInvariant(ch));
+                }
+                else if (char.IsLetterOrDigit(ch))
+                {
+                    addDash = true;
+                    sb.Append(ch);
+                }
+                else
+                {
+                    addDash = false;
+                    sb.Append('-');
+                }
+            }
+
+            // trim trailing slashes
+            while (sb.Length > 0 && sb[sb.Length - 1] == '-')
+            {
+                sb.Remove(sb.Length - 1, 1);
+            }
+
+            return sb.ToString();
         }
 
         // Marker attribute that can be used to opt-in to generation

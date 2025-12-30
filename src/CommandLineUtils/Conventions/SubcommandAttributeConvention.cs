@@ -47,17 +47,12 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             var commandInfo = provider.CommandInfo;
             if (!string.IsNullOrEmpty(commandInfo?.Name))
             {
-                // Normalize to lowercase for consistent duplicate detection
-                return commandInfo.Name.ToLowerInvariant();
+                // Use the explicit name as-is
+                return commandInfo.Name;
             }
 
-            // Infer name from type name, stripping "Command" suffix (like CommandNameFromTypeConvention)
-            var name = subcommandType.Name;
-            if (name.EndsWith("Command", StringComparison.OrdinalIgnoreCase))
-            {
-                name = name.Substring(0, name.Length - "Command".Length);
-            }
-            return name.ToLowerInvariant();
+            // Infer name from type name using CommandNameFromTypeConvention logic
+            return CommandNameFromTypeConvention.GetCommandName(subcommandType.Name);
         }
 
         private void AddSubcommandFromMetadata(ConventionContext context, Type subcommandType, ICommandMetadataProvider provider, string name)
