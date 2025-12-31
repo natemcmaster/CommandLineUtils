@@ -10,7 +10,8 @@
           "src": "../",
           "exclude": [
             "**/bin/**",
-            "**/obj/**"
+            "**/obj/**",
+            "**/CommandLineUtils.Generators/**"
           ]
         }
       ],

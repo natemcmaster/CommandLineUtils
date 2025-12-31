@@ -261,5 +261,230 @@ namespace McMaster.Extensions.CommandLineUtils.Tests.SourceGeneration
             Assert.Equal(typeof(SubCmd1), subProvider.ModelType);
             Assert.NotNull(subProvider.SpecialProperties?.ParentSetter);
         }
+
+        #region Additional Coverage Tests
+
+        [Command(Name = "prop-help")]
+        private class CommandWithPropertyLevelHelpOption
+        {
+            [HelpOption("-h|--help")]
+            public bool ShowHelp { get; set; }
+        }
+
+        [Fact]
+        public void ExtractsHelpOption_FromProperty()
+        {
+            var provider = new ReflectionMetadataProvider(typeof(CommandWithPropertyLevelHelpOption));
+
+            Assert.NotNull(provider.HelpOption);
+            Assert.Equal("-h|--help", provider.HelpOption!.Template);
+        }
+
+        [Command(Name = "prop-version")]
+        private class CommandWithPropertyLevelVersionOption
+        {
+            [VersionOption("--version")]
+            public string Version => "1.0.0";
+        }
+
+        [Fact]
+        public void ExtractsVersionOption_FromProperty()
+        {
+            var provider = new ReflectionMetadataProvider(typeof(CommandWithPropertyLevelVersionOption));
+
+            Assert.NotNull(provider.VersionOption);
+            Assert.Equal("--version", provider.VersionOption!.Template);
+            Assert.NotNull(provider.VersionOption.VersionGetter);
+        }
+
+        [Command(Name = "ambiguous-execute")]
+        private class CommandWithBothExecuteMethods
+        {
+            internal int OnExecute() => 0;
+            internal System.Threading.Tasks.Task<int> OnExecuteAsync(System.Threading.CancellationToken ct) => System.Threading.Tasks.Task.FromResult(0);
+        }
+
+        [Fact]
+        public async System.Threading.Tasks.Task AmbiguousOnExecute_ReturnsErrorHandler()
+        {
+            var provider = new ReflectionMetadataProvider(typeof(CommandWithBothExecuteMethods));
+
+            Assert.NotNull(provider.ExecuteHandler);
+
+            var instance = new CommandWithBothExecuteMethods();
+            var app = new CommandLineApplication();
+
+            await Assert.ThrowsAsync<InvalidOperationException>(
+                () => provider.ExecuteHandler!.InvokeAsync(instance, app, System.Threading.CancellationToken.None));
+        }
+
+        [Command(Name = "invalid-validate")]
+        private class CommandWithInvalidOnValidate
+        {
+            internal int OnValidate() => 0;
+        }
+
+        [Fact]
+        public void OnValidate_WithWrongReturnType_Throws()
+        {
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                var provider = new ReflectionMetadataProvider(typeof(CommandWithInvalidOnValidate));
+                _ = provider.ValidateHandler;
+            });
+        }
+
+        [Command(Name = "void-async")]
+        private class CommandWithVoidAsyncExecute
+        {
+            internal Task OnExecuteAsync() => Task.CompletedTask;
+        }
+
+        [Fact]
+        public void ExtractsOnExecuteAsync_WithTaskReturnType()
+        {
+            var provider = new ReflectionMetadataProvider(typeof(CommandWithVoidAsyncExecute));
+
+            Assert.NotNull(provider.ExecuteHandler);
+            Assert.True(provider.ExecuteHandler!.IsAsync);
+        }
+
+        [Command(Name = "inferred-names")]
+        private class CommandWithInferredOptionNames
+        {
+            [Option(Description = "An option with inferred names")]
+            public string? MyLongOption { get; set; }
+        }
+
+        [Fact]
+        public void InfersOptionNames_WhenNoTemplateSpecified()
+        {
+            var provider = new ReflectionMetadataProvider(typeof(CommandWithInferredOptionNames));
+
+            var option = provider.Options.FirstOrDefault(o => o.PropertyName == "MyLongOption");
+            Assert.NotNull(option);
+            Assert.Equal("my-long-option", option!.LongName);
+            Assert.Equal("m", option.ShortName);
+        }
+
+        [Command(Name = "uri-option")]
+        private class CommandWithUriOption
+        {
+            [Option("-u|--url")]
+            public Uri? Url { get; set; }
+        }
+
+        [Fact]
+        public void InfersOptionType_ForCustomParserTypes()
+        {
+            var provider = new ReflectionMetadataProvider(typeof(CommandWithUriOption));
+
+            var option = provider.Options.FirstOrDefault(o => o.PropertyName == "Url");
+            Assert.NotNull(option);
+            Assert.Equal(CommandOptionType.SingleValue, option!.OptionType);
+        }
+
+        [Command(Name = "remaining-short", UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue)]
+        private class CommandWithRemainingArgsShortName
+        {
+            public string[]? RemainingArgs { get; set; }
+        }
+
+        [Fact]
+        public void ExtractsRemainingArgs_WithShortName()
+        {
+            var provider = new ReflectionMetadataProvider(typeof(CommandWithRemainingArgsShortName));
+
+            Assert.NotNull(provider.SpecialProperties);
+            Assert.NotNull(provider.SpecialProperties!.RemainingArgumentsSetter);
+        }
+
+        [Command(Name = "missing-member")]
+        [VersionOptionFromMember(MemberName = "NonExistentMember")]
+        private class CommandWithMissingVersionMember
+        {
+        }
+
+        [Fact]
+        public void VersionOptionFromMember_WithMissingMember_HasNullGetter()
+        {
+            var provider = new ReflectionMetadataProvider(typeof(CommandWithMissingVersionMember));
+
+            Assert.NotNull(provider.VersionOption);
+            Assert.Null(provider.VersionOption!.VersionGetter);
+        }
+
+        [Command(Name = "hidden-arg")]
+        private class CommandWithHiddenArgument
+        {
+            [Argument(0, ShowInHelpText = false)]
+            public string? HiddenArg { get; set; }
+        }
+
+        [Fact]
+        public void ExtractsArgumentShowInHelpText()
+        {
+            var provider = new ReflectionMetadataProvider(typeof(CommandWithHiddenArgument));
+
+            var hiddenArg = provider.Arguments.FirstOrDefault(a => a.PropertyName == "HiddenArg");
+            Assert.NotNull(hiddenArg);
+            Assert.False(hiddenArg!.ShowInHelpText);
+        }
+
+        [Command(Name = "conflicting")]
+        private class CommandWithConflictingAttributes
+        {
+            [Option("-v|--value")]
+            [Argument(0)]
+            public string? Value { get; set; }
+        }
+
+        [Fact]
+        public void ThrowsOnConflictingOptionAndArgument()
+        {
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                var provider = new ReflectionMetadataProvider(typeof(CommandWithConflictingAttributes));
+                _ = provider.Options;
+            });
+        }
+
+        [Command(Name = "help-prop")]
+        private class CommandWithHelpOptionProperty
+        {
+            [Option("-n|--name")]
+            public string? Name { get; set; }
+
+            [HelpOption]
+            public bool ShowHelp { get; set; }
+        }
+
+        [Fact]
+        public void ExcludesHelpOptionFromOptions()
+        {
+            var provider = new ReflectionMetadataProvider(typeof(CommandWithHelpOptionProperty));
+
+            Assert.DoesNotContain(provider.Options, o => o.PropertyName == "ShowHelp");
+        }
+
+        [Command(Name = "version-prop")]
+        private class CommandWithVersionOptionProperty
+        {
+            [Option("-n|--name")]
+            public string? Name { get; set; }
+
+            [VersionOption("-v|--version")]
+            public string Version => "1.0.0";
+        }
+
+        [Fact]
+        public void ExcludesVersionOptionFromOptions()
+        {
+            var provider = new ReflectionMetadataProvider(typeof(CommandWithVersionOptionProperty));
+
+            Assert.DoesNotContain(provider.Options, o => o.PropertyName == "Version");
+        }
+
+        #endregion
     }
 }
