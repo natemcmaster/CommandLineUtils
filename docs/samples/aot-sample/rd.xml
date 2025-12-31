@@ -1,0 +1,7 @@
+<linker>
+  <assembly fullname="aot-sample" preserve="all">
+    <type fullname="AotSample.Program" preserve="all" />
+    <type fullname="AotSample.GreetCommand" preserve="all" />
+    <type fullname="AotSample.InfoCommand" preserve="all" />
+  </assembly>
+</linker>

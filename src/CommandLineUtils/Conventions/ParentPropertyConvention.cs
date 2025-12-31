@@ -1,6 +1,7 @@
 // Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 
@@ -21,13 +22,22 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            var parentProp = context.ModelType.GetProperty("Parent", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            if (parentProp == null)
+            // Try to get setter from generated metadata first (AOT-friendly)
+            var specialProperties = context.MetadataProvider?.SpecialProperties;
+            var setter = specialProperties?.ParentSetter;
+
+            // Fall back to reflection if no generated metadata
+            if (setter == null)
             {
-                return;
+                var parentProp = context.ModelType.GetProperty("Parent", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                if (parentProp == null)
+                {
+                    return;
+                }
+                var reflectionSetter = ReflectionHelper.GetPropertySetter(parentProp);
+                setter = (obj, val) => reflectionSetter(obj, val);
             }
 
-            var setter = ReflectionHelper.GetPropertySetter(parentProp);
             context.Application.OnParsingComplete(r =>
             {
                 var subcommand = r.SelectedCommand;

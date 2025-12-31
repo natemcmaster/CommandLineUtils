@@ -22,8 +22,19 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 return;
             }
 
-            var attribute = context.ModelType.GetCustomAttribute<CommandAttribute>();
-            attribute?.Configure(context.Application);
+            // Use the metadata provider - it uses generated metadata if available,
+            // or falls back to reflection-based extraction.
+            var provider = context.MetadataProvider;
+            if (provider?.CommandInfo != null)
+            {
+                provider.CommandInfo.ApplyTo(context.Application);
+            }
+            else
+            {
+                // Fallback: direct attribute access (for backward compatibility if MetadataProvider is null)
+                var attribute = context.ModelType.GetCustomAttribute<CommandAttribute>();
+                attribute?.Configure(context.Application);
+            }
 
             foreach (var subcommand in context.Application.Commands)
             {
@@ -33,6 +44,9 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 }
             }
 
+            // Note: ValidationAttribute processing still uses reflection as this is
+            // about adding validators, not extracting command metadata.
+            // The validation attributes are processed by the validation conventions.
             foreach (var attr in context.ModelType.GetCustomAttributes<ValidationAttribute>())
             {
                 context.Application.Validators.Add(new AttributeValidator(attr));

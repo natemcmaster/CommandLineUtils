@@ -163,5 +163,75 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             Assert.Equal(0, CommandLineApplication.Execute<SimpleVersionApp>(new TestConsole(_output), arg));
         }
+
+        #region Inherited VersionOption Tests
+
+        private class BaseWithVersionOption
+        {
+            [VersionOption("-V|--version", "1.0.0")]
+            public bool ShowVersion { get; set; }
+        }
+
+        private class DerivedFromVersionBase : BaseWithVersionOption
+        {
+            [Option("-n|--name")]
+            public string? Name { get; set; }
+        }
+
+        [Fact]
+        public void InheritedVersionOption_IsRecognized()
+        {
+            var app = new CommandLineApplication<DerivedFromVersionBase>();
+            app.Conventions.UseDefaultConventions();
+
+            Assert.NotNull(app.OptionVersion);
+            Assert.Equal("V", app.OptionVersion?.ShortName);
+            Assert.Equal("version", app.OptionVersion?.LongName);
+        }
+
+        [Fact]
+        public void ApplyingVersionOptionConventionTwice_DoesNotThrow()
+        {
+            // This tests the skip logic in OptionAttributeConventionBase.AddOption
+            // When the same VersionOption is processed twice, it should skip rather than throw
+            var app = new CommandLineApplication<DerivedFromVersionBase>();
+
+            // Apply VersionOption convention twice - second application should skip
+            app.Conventions.UseVersionOptionAttribute();
+            app.Conventions.UseVersionOptionAttribute();
+
+            Assert.NotNull(app.OptionVersion);
+            Assert.Equal("V", app.OptionVersion?.ShortName);
+        }
+
+        private class BaseWithLongOnlyVersionOption
+        {
+            [VersionOption("--version", "1.0.0")]
+            public bool ShowVersion { get; set; }
+        }
+
+        private class DerivedFromLongOnlyVersionBase : BaseWithLongOnlyVersionOption
+        {
+            [Option("--name")]
+            public string? Name { get; set; }
+        }
+
+        [Fact]
+        public void ApplyingVersionOptionConventionTwice_WithLongOnlyOption_DoesNotThrow()
+        {
+            // This tests the skip logic in OptionAttributeConventionBase.AddOption lines 61-63
+            // When VersionOption has only long name (no short name), the long name skip logic is tested
+            var app = new CommandLineApplication<DerivedFromLongOnlyVersionBase>();
+
+            // Apply VersionOption convention twice - second application should skip via long name check
+            app.Conventions.UseVersionOptionAttribute();
+            app.Conventions.UseVersionOptionAttribute();
+
+            Assert.NotNull(app.OptionVersion);
+            Assert.Empty(app.OptionVersion?.ShortName ?? "");
+            Assert.Equal("version", app.OptionVersion?.LongName);
+        }
+
+        #endregion
     }
 }

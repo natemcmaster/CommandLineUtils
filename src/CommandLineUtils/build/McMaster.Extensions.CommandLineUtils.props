@@ -1,0 +1,6 @@
+<Project>
+  <!-- Expose MSBuild properties to Roslyn analyzers/source generators -->
+  <ItemGroup>
+    <CompilerVisibleProperty Include="PublishAot" />
+  </ItemGroup>
+</Project>

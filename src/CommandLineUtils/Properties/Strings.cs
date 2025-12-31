@@ -42,8 +42,15 @@ namespace McMaster.Extensions.CommandLineUtils
             => $"Could not automatically determine the {nameof(CommandOptionType)} for type {member.PropertyType.FullName}. " +
                     $"Set the {nameof(OptionAttribute.OptionType)} on the {nameof(OptionAttribute)} declaration for {member.DeclaringType?.FullName}.{member.Name}.";
 
+        public static string CannotDetermineOptionType(string propertyName, Type propertyType, Type? declaringType)
+            => $"Could not automatically determine the {nameof(CommandOptionType)} for type {propertyType.FullName}. " +
+                    $"Set the {nameof(OptionAttribute.OptionType)} on the {nameof(OptionAttribute)} declaration for {declaringType?.FullName}.{propertyName}.";
+
         public static string OptionNameIsAmbiguous(string optionName, PropertyInfo first, PropertyInfo second)
             => $"Ambiguous option name. Both {first.DeclaringType?.FullName}.{first.Name} and {second.DeclaringType?.FullName}.{second.Name} produce a CommandOption with the name '{optionName}'.";
+
+        public static string OptionNameIsAmbiguous(string optionName, string firstPropertyName, Type? firstDeclaringType, string secondPropertyName, Type? secondDeclaringType)
+            => $"Ambiguous option name. Both {firstDeclaringType?.FullName}.{firstPropertyName} and {secondDeclaringType?.FullName}.{secondPropertyName} produce a CommandOption with the name '{optionName}'.";
 
         public static string DuplicateSubcommandName(string commandName)
             => $"The subcommand name '{commandName}' has already been been specified. Subcommand names must be unique.";
@@ -65,6 +72,9 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static string DuplicateArgumentPosition(int order, PropertyInfo first, PropertyInfo second)
             => $"Duplicate value for argument order. Both {first.DeclaringType?.FullName}.{first.Name} and {second.DeclaringType?.FullName}.{second.Name} have set Order = {order}.";
+
+        public static string DuplicateArgumentPosition(int order, string firstPropertyName, Type? firstDeclaringType, string secondPropertyName, Type? secondDeclaringType)
+            => $"Duplicate value for argument order. Both {firstDeclaringType?.FullName}.{firstPropertyName} and {secondDeclaringType?.FullName}.{secondPropertyName} have set Order = {order}.";
 
         public static string OnlyLastArgumentCanAllowMultipleValues(string? lastArgName)
             => $"The last argument '{lastArgName}' accepts multiple values. No more argument can be added.";

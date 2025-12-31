@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <PropertyGroup>
+    <LangVersion>latest</LangVersion>
     <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <Nullable>enable</Nullable>
