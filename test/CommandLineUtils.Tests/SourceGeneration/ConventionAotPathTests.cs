@@ -18,14 +18,16 @@ namespace McMaster.Extensions.CommandLineUtils.Tests.SourceGeneration
     {
         public ConventionAotPathTests()
         {
-            // Clean up registry before each test
+            // Clean up registry and resolver cache before each test
             CommandMetadataRegistry.Clear();
+            DefaultMetadataResolver.Instance.ClearCache();
         }
 
         public void Dispose()
         {
-            // Clean up registry after each test
+            // Clean up registry and resolver cache after each test
             CommandMetadataRegistry.Clear();
+            DefaultMetadataResolver.Instance.ClearCache();
         }
 
         #region Test Models
