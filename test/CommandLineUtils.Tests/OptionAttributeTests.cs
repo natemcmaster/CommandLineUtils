@@ -414,6 +414,60 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(10, model.Count);
         }
 
+        [Fact]
+        public void ApplyingOptionConventionTwice_DoesNotThrow()
+        {
+            // This tests the skip logic in OptionAttributeConventionBase.AddOption
+            // When the same option is processed twice, it should skip rather than throw
+            var app = new CommandLineApplication<DerivedCommand>();
+
+            // Apply OptionAttribute convention twice - second application should skip
+            app.Conventions.UseOptionAttributes();
+            app.Conventions.UseOptionAttributes();
+
+            // Should have options from both base and derived class (not duplicates)
+            Assert.Equal(3, app.Options.Count);
+            Assert.Single(app.Options, o => o.LongName == "verbose");
+            Assert.Single(app.Options, o => o.LongName == "name");
+            Assert.Single(app.Options, o => o.LongName == "count");
+        }
+
+        private class BaseCommandWithLongOnlyOptions
+        {
+            [Option(ShortName = "", LongName = "verbose", Description = "Enable verbose output")]
+            public bool Verbose { get; set; }
+
+            [Option(ShortName = "", LongName = "name", Description = "The name")]
+            public string? Name { get; set; }
+        }
+
+        private class DerivedFromLongOnlyBase : BaseCommandWithLongOnlyOptions
+        {
+            [Option(ShortName = "", LongName = "count", Description = "The count")]
+            public int Count { get; set; }
+        }
+
+        [Fact]
+        public void ApplyingOptionConventionTwice_WithLongOnlyOptions_DoesNotThrow()
+        {
+            // This tests the skip logic in OptionAttributeConventionBase.AddOption lines 61-63
+            // When options have only long names (no short names), the long name skip logic is tested
+            var app = new CommandLineApplication<DerivedFromLongOnlyBase>();
+
+            // Apply OptionAttribute convention twice - second application should skip
+            app.Conventions.UseOptionAttributes();
+            app.Conventions.UseOptionAttributes();
+
+            // Should have options from both base and derived class (not duplicates)
+            Assert.Equal(3, app.Options.Count);
+            Assert.Single(app.Options, o => o.LongName == "verbose");
+            Assert.Single(app.Options, o => o.LongName == "name");
+            Assert.Single(app.Options, o => o.LongName == "count");
+
+            // Verify short names are empty
+            Assert.All(app.Options, o => Assert.Empty(o.ShortName));
+        }
+
         #endregion
     }
 }
