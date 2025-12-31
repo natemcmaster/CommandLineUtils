@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using McMaster.Extensions.CommandLineUtils.SourceGeneration;
 using Xunit;
 
@@ -17,6 +18,31 @@ namespace McMaster.Extensions.CommandLineUtils.Tests.SourceGeneration
 
         [Command(Name = "generic")]
         private class GenericTestCommand { }
+
+        /// <summary>
+        /// A mock typed metadata provider for testing the generic Register and TryGetProvider methods.
+        /// </summary>
+        private class MockTypedMetadataProvider<TModel> : ICommandMetadataProvider<TModel>
+            where TModel : class
+        {
+            public Type ModelType => typeof(TModel);
+            public IReadOnlyList<OptionMetadata> Options => Array.Empty<OptionMetadata>();
+            public IReadOnlyList<ArgumentMetadata> Arguments => Array.Empty<ArgumentMetadata>();
+            public IReadOnlyList<SubcommandMetadata> Subcommands => Array.Empty<SubcommandMetadata>();
+            public CommandMetadata? CommandInfo => null;
+            public IExecuteHandler? ExecuteHandler => null;
+            public IValidateHandler? ValidateHandler => null;
+            public IValidationErrorHandler? ValidationErrorHandler => null;
+            public SpecialPropertiesMetadata? SpecialProperties => null;
+            public HelpOptionMetadata? HelpOption => null;
+            public VersionOptionMetadata? VersionOption => null;
+
+            public IModelFactory GetModelFactory(IServiceProvider? services)
+                => throw new NotImplementedException();
+
+            IModelFactory<TModel> ICommandMetadataProvider<TModel>.GetModelFactory(IServiceProvider? services)
+                => throw new NotImplementedException();
+        }
 
         public CommandMetadataRegistryTests()
         {
@@ -145,5 +171,59 @@ namespace McMaster.Extensions.CommandLineUtils.Tests.SourceGeneration
             Assert.False(result);
             Assert.Null(retrieved);
         }
+
+        #region Generic Method Coverage Tests
+
+        [Fact]
+        public void RegisterGeneric_AddsTypedProviderToRegistry()
+        {
+            var provider = new MockTypedMetadataProvider<GenericTestCommand>();
+
+            CommandMetadataRegistry.Register(provider);
+
+            Assert.True(CommandMetadataRegistry.HasMetadata(typeof(GenericTestCommand)));
+        }
+
+        [Fact]
+        public void TryGetProviderGeneric_ReturnsTrue_WhenTypedProviderRegistered()
+        {
+            var provider = new MockTypedMetadataProvider<GenericTestCommand>();
+            CommandMetadataRegistry.Register(provider);
+
+            var result = CommandMetadataRegistry.TryGetProvider<GenericTestCommand>(out var retrieved);
+
+            Assert.True(result);
+            Assert.Same(provider, retrieved);
+        }
+
+        [Fact]
+        public void HasMetadataGeneric_ReturnsTrue_WhenRegistered()
+        {
+            var provider = new MockTypedMetadataProvider<GenericTestCommand>();
+            CommandMetadataRegistry.Register(provider);
+
+            Assert.True(CommandMetadataRegistry.HasMetadata<GenericTestCommand>());
+        }
+
+        [Fact]
+        public void HasMetadataGeneric_ReturnsFalse_WhenNotRegistered()
+        {
+            Assert.False(CommandMetadataRegistry.HasMetadata<GenericTestCommand>());
+        }
+
+        [Fact]
+        public void RegisterGeneric_OverwritesExistingTypedProvider()
+        {
+            var provider1 = new MockTypedMetadataProvider<GenericTestCommand>();
+            var provider2 = new MockTypedMetadataProvider<GenericTestCommand>();
+            CommandMetadataRegistry.Register(provider1);
+
+            CommandMetadataRegistry.Register(provider2);
+
+            CommandMetadataRegistry.TryGetProvider<GenericTestCommand>(out var retrieved);
+            Assert.Same(provider2, retrieved);
+        }
+
+        #endregion
     }
 }
