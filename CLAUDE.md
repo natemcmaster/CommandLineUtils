@@ -105,3 +105,9 @@ Uses xUnit with FluentAssertions and Moq. Convention tests inherit from `Convent
 ```bash
 dotnet test --collect:"XPlat Code Coverage"
 ```
+
+## Claude Commands
+
+Custom commands for Claude Code are in `.claude/commands/`:
+
+- `/code-review <pr-number>` - Review pull request changes for substantive issues (bugs, security, correctness). Focuses on high-value feedback appropriate for open source contributions.
