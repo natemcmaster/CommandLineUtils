@@ -7,9 +7,9 @@ using Microsoft.CodeAnalysis;
 namespace McMaster.Extensions.CommandLineUtils.Generators
 {
     /// <summary>
-    /// Information about a command class.
+    /// Data about a command class.
     /// </summary>
-    internal sealed class CommandInfo
+    internal sealed class CommandData
     {
         public INamedTypeSymbol TypeSymbol { get; set; } = null!;
         public string FullTypeName { get; set; } = "";

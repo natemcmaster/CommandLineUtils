@@ -51,7 +51,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
                 .ForAttributeWithMetadataName(
                     CommandAttributeFullName,
                     predicate: static (node, _) => node is ClassDeclarationSyntax,
-                    transform: static (ctx, ct) => GetCommandInfo(ctx, ct))
+                    transform: static (ctx, ct) => GetCommandData(ctx, ct))
                 .Where(static m => m is not null)
                 .Select(static (m, _) => m!);
 
@@ -83,7 +83,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             });
         }
 
-        private static CommandInfo? GetCommandInfo(GeneratorAttributeSyntaxContext context, CancellationToken cancellationToken)
+        private static CommandData? GetCommandData(GeneratorAttributeSyntaxContext context, CancellationToken cancellationToken)
         {
             if (context.TargetSymbol is not INamedTypeSymbol typeSymbol)
             {
@@ -101,7 +101,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
                 return null;
             }
 
-            var info = new CommandInfo
+            var info = new CommandData
             {
                 TypeSymbol = typeSymbol,
                 FullTypeName = typeSymbol.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat.WithGlobalNamespaceStyle(SymbolDisplayGlobalNamespaceStyle.Omitted)),
@@ -154,7 +154,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             return info;
         }
 
-        private static void ExtractSpecialProperties(INamedTypeSymbol typeSymbol, CommandInfo info)
+        private static void ExtractSpecialProperties(INamedTypeSymbol typeSymbol, CommandData info)
         {
             foreach (var member in typeSymbol.GetMembers())
             {
@@ -195,7 +195,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             }
         }
 
-        private static void ExtractConstructors(INamedTypeSymbol typeSymbol, CommandInfo info)
+        private static void ExtractConstructors(INamedTypeSymbol typeSymbol, CommandData info)
         {
             // Get all public instance constructors, ordered by parameter count descending
             var constructors = typeSymbol.InstanceConstructors
@@ -285,7 +285,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             return data;
         }
 
-        private static void ExtractPropertyMetadata(IPropertySymbol property, CommandInfo info)
+        private static void ExtractPropertyMetadata(IPropertySymbol property, CommandData info)
         {
             foreach (var attr in property.GetAttributes())
             {
@@ -723,7 +723,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             }
         }
 
-        private static void ExtractSubcommandMetadata(AttributeData attr, CommandInfo info)
+        private static void ExtractSubcommandMetadata(AttributeData attr, CommandData info)
         {
             if (attr.ConstructorArguments.Length > 0)
             {
@@ -751,7 +751,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             }
         }
 
-        private static void ExtractExecuteMethods(INamedTypeSymbol typeSymbol, CommandInfo info)
+        private static void ExtractExecuteMethods(INamedTypeSymbol typeSymbol, CommandData info)
         {
             foreach (var member in typeSymbol.GetMembers())
             {
@@ -781,7 +781,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             }
         }
 
-        private static void AnalyzeExecuteMethod(IMethodSymbol method, CommandInfo info)
+        private static void AnalyzeExecuteMethod(IMethodSymbol method, CommandData info)
         {
             // Check return type
             if (method.ReturnType.SpecialType == SpecialType.System_Int32)
@@ -813,7 +813,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             }
         }
 
-        private static string GenerateMetadataProvider(CommandInfo info)
+        private static string GenerateMetadataProvider(CommandData info)
         {
             var sb = new StringBuilder();
 
@@ -859,8 +859,8 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             // Subcommands
             GenerateSubcommandsProperty(sb, info, indent);
 
-            // CommandInfo
-            GenerateCommandInfoProperty(sb, info, indent);
+            // CommandData
+            GenerateCommandDataProperty(sb, info, indent);
 
             // ExecuteHandler
             GenerateExecuteHandler(sb, info, indent);
@@ -905,7 +905,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             return sb.ToString();
         }
 
-        private static void GenerateOptionsProperty(StringBuilder sb, CommandInfo info, string indent)
+        private static void GenerateOptionsProperty(StringBuilder sb, CommandData info, string indent)
         {
             if (info.Options.Count == 0)
             {
@@ -953,7 +953,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine();
         }
 
-        private static void GenerateArgumentsProperty(StringBuilder sb, CommandInfo info, string indent)
+        private static void GenerateArgumentsProperty(StringBuilder sb, CommandData info, string indent)
         {
             if (info.Arguments.Count == 0)
             {
@@ -1016,7 +1016,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine($"{indent}}},");
         }
 
-        private static void GenerateSubcommandsProperty(StringBuilder sb, CommandInfo info, string indent)
+        private static void GenerateSubcommandsProperty(StringBuilder sb, CommandData info, string indent)
         {
             if (info.Subcommands.Count == 0)
             {
@@ -1030,7 +1030,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
                 {
                     sb.AppendLine($"{indent}        new SubcommandMetadata(typeof({sub.TypeName}))");
                     sb.AppendLine($"{indent}        {{");
-                    sb.AppendLine($"{indent}            MetadataProviderFactory = () => CommandMetadataRegistry.TryGetProvider(typeof({sub.TypeName}), out var p) ? p : throw new InvalidOperationException(\"No metadata provider for \" + typeof({sub.TypeName}))");
+                    sb.AppendLine($"{indent}            MetadataProviderFactory = () => CommandMetadataRegistry.TryGetProvider(typeof({sub.TypeName}), out var p) ? p : DefaultMetadataResolver.Instance.GetProvider(typeof({sub.TypeName}))");
                     sb.AppendLine($"{indent}        }},");
                 }
                 sb.AppendLine($"{indent}    }};");
@@ -1040,10 +1040,10 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine();
         }
 
-        private static void GenerateCommandInfoProperty(StringBuilder sb, CommandInfo info, string indent)
+        private static void GenerateCommandDataProperty(StringBuilder sb, CommandData info, string indent)
         {
             var cmd = info.CommandAttribute;
-            sb.AppendLine($"{indent}    public CommandMetadata? CommandInfo => new CommandMetadata");
+            sb.AppendLine($"{indent}    public CommandMetadata? CommandData => new CommandMetadata");
             sb.AppendLine($"{indent}    {{");
             // Use explicit name if set, otherwise use inferred name from class name
             var commandName = cmd.Name ?? info.InferredName;
@@ -1074,7 +1074,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine();
         }
 
-        private static void GenerateExecuteHandler(StringBuilder sb, CommandInfo info, string indent)
+        private static void GenerateExecuteHandler(StringBuilder sb, CommandData info, string indent)
         {
             if (!info.HasOnExecute)
             {
@@ -1090,9 +1090,6 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
                 sb.AppendLine();
                 sb.AppendLine($"{indent}        public bool IsAsync => {(info.OnExecuteIsAsync ? "true" : "false")};");
                 sb.AppendLine();
-                sb.AppendLine($"{indent}        public async Task<int> InvokeAsync(object model, CommandLineApplication app, CancellationToken cancellationToken)");
-                sb.AppendLine($"{indent}        {{");
-                sb.AppendLine($"{indent}            var typedModel = ({info.ClassName})model;");
 
                 // Build the argument list based on what parameters the method has
                 var args = new List<string>();
@@ -1108,7 +1105,10 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
 
                 if (info.OnExecuteIsAsync)
                 {
-                    // OnExecuteAsync method
+                    // OnExecuteAsync method - use async/await
+                    sb.AppendLine($"{indent}        public async Task<int> InvokeAsync(object model, CommandLineApplication app, CancellationToken cancellationToken)");
+                    sb.AppendLine($"{indent}        {{");
+                    sb.AppendLine($"{indent}            var typedModel = ({info.ClassName})model;");
                     if (info.OnExecuteReturnsInt)
                     {
                         sb.AppendLine($"{indent}            return await typedModel.OnExecuteAsync({argsString});");
@@ -1121,15 +1121,18 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
                 }
                 else
                 {
-                    // OnExecute method
+                    // OnExecute method - use Task.FromResult to avoid async warnings
+                    sb.AppendLine($"{indent}        public Task<int> InvokeAsync(object model, CommandLineApplication app, CancellationToken cancellationToken)");
+                    sb.AppendLine($"{indent}        {{");
+                    sb.AppendLine($"{indent}            var typedModel = ({info.ClassName})model;");
                     if (info.OnExecuteReturnsInt)
                     {
-                        sb.AppendLine($"{indent}            return typedModel.OnExecute({argsString});");
+                        sb.AppendLine($"{indent}            return Task.FromResult(typedModel.OnExecute({argsString}));");
                     }
                     else
                     {
                         sb.AppendLine($"{indent}            typedModel.OnExecute({argsString});");
-                        sb.AppendLine($"{indent}            return 0;");
+                        sb.AppendLine($"{indent}            return Task.FromResult(0);");
                     }
                 }
 
@@ -1139,7 +1142,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine();
         }
 
-        private static void GenerateValidateHandler(StringBuilder sb, CommandInfo info, string indent)
+        private static void GenerateValidateHandler(StringBuilder sb, CommandData info, string indent)
         {
             if (!info.HasOnValidate)
             {
@@ -1163,7 +1166,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine();
         }
 
-        private static void GenerateValidationErrorHandler(StringBuilder sb, CommandInfo info, string indent)
+        private static void GenerateValidationErrorHandler(StringBuilder sb, CommandData info, string indent)
         {
             if (!info.HasOnValidationError)
             {
@@ -1187,7 +1190,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine();
         }
 
-        private static void GenerateSpecialPropertiesProperty(StringBuilder sb, CommandInfo info, string indent)
+        private static void GenerateSpecialPropertiesProperty(StringBuilder sb, CommandData info, string indent)
         {
             var sp = info.SpecialProperties;
             if (!sp.HasAny)
@@ -1230,7 +1233,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine();
         }
 
-        private static void GenerateHelpOptionProperty(StringBuilder sb, CommandInfo info, string indent)
+        private static void GenerateHelpOptionProperty(StringBuilder sb, CommandData info, string indent)
         {
             if (info.HelpOption == null)
             {
@@ -1251,7 +1254,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine();
         }
 
-        private static void GenerateVersionOptionProperty(StringBuilder sb, CommandInfo info, string indent)
+        private static void GenerateVersionOptionProperty(StringBuilder sb, CommandData info, string indent)
         {
             if (info.VersionOption == null)
             {
@@ -1274,7 +1277,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine();
         }
 
-        private static void GenerateModelFactory(StringBuilder sb, CommandInfo info, string indent)
+        private static void GenerateModelFactory(StringBuilder sb, CommandData info, string indent)
         {
             sb.AppendLine($"{indent}    private sealed class GeneratedModelFactory : IModelFactory<{info.ClassName}>");
             sb.AppendLine($"{indent}    {{");
@@ -1331,8 +1334,12 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             }
             else if (info.Constructors.Count > 0)
             {
-                // No default constructor - we need to throw if we get here
-                sb.AppendLine($"{indent}            throw new InvalidOperationException(\"Unable to create instance of {info.ClassName}. No services registered for constructor parameters.\");");
+                // No default constructor - provide specific error messages
+                sb.AppendLine($"{indent}            if (_services == null)");
+                sb.AppendLine($"{indent}            {{");
+                sb.AppendLine($"{indent}                throw new InvalidOperationException(\"Unable to create instance of {info.ClassName}. The type requires constructor parameters but no IServiceProvider was configured. Use CommandLineApplication.Execute<T>(args, services) to provide services.\");");
+                sb.AppendLine($"{indent}            }}");
+                sb.AppendLine($"{indent}            throw new InvalidOperationException(\"Unable to create instance of {info.ClassName}. Required service(s) not registered in the IServiceProvider.\");");
             }
             else
             {
@@ -1346,7 +1353,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine($"{indent}    }}");
         }
 
-        private static string GenerateModuleInitializer(ImmutableArray<CommandInfo> commands)
+        private static string GenerateModuleInitializer(ImmutableArray<CommandData> commands)
         {
             var sb = new StringBuilder();
 

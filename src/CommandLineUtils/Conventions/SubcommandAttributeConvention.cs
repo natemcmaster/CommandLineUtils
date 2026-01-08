@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Errors;
@@ -55,7 +56,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             return CommandNameFromTypeConvention.GetCommandName(subcommandType.Name);
         }
 
-        private void AddSubcommandFromMetadata(ConventionContext context, Type subcommandType, ICommandMetadataProvider provider, string name)
+        private void AddSubcommandFromMetadata(
+            ConventionContext context,
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)] Type subcommandType,
+            ICommandMetadataProvider provider,
+            string name)
         {
             var commandInfo = provider.CommandInfo;
 
