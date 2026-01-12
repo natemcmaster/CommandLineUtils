@@ -72,20 +72,40 @@ X.Y.Z patch:
 
 **Format:** `* [@contributor]: description ([#PR])`
 
+**For pre-releases (beta, rc):**
+- Add changes under existing "Unreleased changes" section (do NOT create new version header)
+- Update the comparison link to point from last stable tag to main branch HEAD
+- Rationale: Build number suffix (e.g., `-beta.{BUILD_NUMBER}`) is unknown until CI runs
+
+```markdown
+## [Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/vX.Y.Z...main)
+
+### Breaking changes
+* [@user]: description ([#123])
+
+### Features
+* [@user]: description ([#124])
+
+### Fixes
+* [@user]: description ([#125])
+
+[#123]: https://github.com/natemcmaster/CommandLineUtils/pull/123
+[#124]: https://github.com/natemcmaster/CommandLineUtils/pull/124
+[#125]: https://github.com/natemcmaster/CommandLineUtils/pull/125
+```
+
+**For stable releases:**
+- Create new version header with exact tag comparison
+- Insert AFTER "Unreleased changes" section
+
 ```markdown
 ## [vX.Y.Z](https://github.com/natemcmaster/CommandLineUtils/compare/vX.Y.Z-1...vX.Y.Z)
 
 ### Features
 * [@user]: description ([#123])
 
-### Fixes
-* [@user]: description ([#124])
-
 [#123]: https://github.com/natemcmaster/CommandLineUtils/pull/123
-[#124]: https://github.com/natemcmaster/CommandLineUtils/pull/124
 ```
-
-Insert after "Unreleased changes" line.
 
 ### 6. Update Directory.Build.props
 

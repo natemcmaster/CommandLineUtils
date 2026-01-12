@@ -1,6 +1,58 @@
 # Changelog
 
-[Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.2...HEAD):
+## [Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.1.1...main)
+
+### Breaking changes
+* [@natemcmaster]: drop support for .NET Standard 2 and < .NET 6
+
+### Features
+* [@robertmclaws]: Full AOT Support for .NET 8+ ([#582])
+* [@magneticflux-]: Allow overridden properties that inherit attributes ([#556])
+
+### Fixes
+* [@natemcmaster]: Fix AOT code generation type safety issues ([#583])
+* [@sensslen]: Properly determine allowed values for multiple values arguments ([#553])
+* [@natemcmaster]: Correct bugs in multiple value enum option help text ([#563])
+* [@natemcmaster]: Normalize line endings in PowerShell scripts
+* [@natemcmaster]: Update .NET settings in CI builds ([#564])
+
+### Docs
+* [@tlogik]: Fix incorrect validation example ([#551])
+
+### Other
+* [@Chris-Wolfgang]: Upgrade dotnet and dependencies to latest LTS versions ([#561])
+* [@natemcmaster]: Update tests to .NET 10
+* [@natemcmaster]: Use NuGet trusted publishing with OIDC
+* [@dependabot]: Update GitHub Actions ([#568])
+* [@natemcmaster]: Upgrade docfx to 2.78.4
+
+[#551]: https://github.com/natemcmaster/CommandLineUtils/pull/551
+[#553]: https://github.com/natemcmaster/CommandLineUtils/pull/553
+[#556]: https://github.com/natemcmaster/CommandLineUtils/pull/556
+[#561]: https://github.com/natemcmaster/CommandLineUtils/pull/561
+[#563]: https://github.com/natemcmaster/CommandLineUtils/pull/563
+[#564]: https://github.com/natemcmaster/CommandLineUtils/pull/564
+[#568]: https://github.com/natemcmaster/CommandLineUtils/pull/568
+[#582]: https://github.com/natemcmaster/CommandLineUtils/pull/582
+[#583]: https://github.com/natemcmaster/CommandLineUtils/pull/583
+
+## [v4.1.1](https://github.com/natemcmaster/CommandLineUtils/compare/v4.1.0...v4.1.1)
+
+### Fixes
+* [@sallerga]: Fix unknown command throws System.InvalidOperationException: Enumeration already finished ([#542])
+
+[#541]: https://github.com/natemcmaster/CommandLineUtils/issues/541
+[#542]: https://github.com/natemcmaster/CommandLineUtils/pull/542
+[@sallerga]: https://github.com/sallerga
+
+## [v4.1.0](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.2...v4.1.0)
+
+### Changes
+* Drop support for .NET < 4.6.
+* [@danmoseley]: fix: find dotnet.exe correctly when DOTNET_ROOT is not set
+* [@natemcmaster]: fix: don't set DefaultValue to empty string for `string[]` options
+
+[@danmoseley]: https://github.com/danmoseley
 
 ## [v4.0.2](https://github.com/natemcmaster/CommandLineUtils/compare/v4.0.1...v4.0.2)
 
