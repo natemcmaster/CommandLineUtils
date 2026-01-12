@@ -130,6 +130,55 @@ The build script runs the complete validation pipeline including tests, samples,
 
 This approach ensures code correctness, prevents regressions, and validates that tests actually catch the issues they're meant to detect. The test suite already has good coverage and patterns to follow.
 
+## Commit Guidelines
+
+**IMPORTANT:** Use Conventional Commit format for all commit messages. This ensures consistency and enables automated changelog generation.
+
+**Format:** `<type>[optional scope]: <description>`
+
+**Common types:**
+- `feat:` New feature or enhancement
+- `fix:` Bug fix
+- `docs:` Documentation changes only
+- `test:` Adding or updating tests
+- `refactor:` Code changes that neither fix bugs nor add features
+- `perf:` Performance improvements
+- `chore:` Build scripts, dependencies, tooling
+
+**Examples:**
+```
+feat: add support for nested subcommands
+fix: resolve null reference in argument parser
+docs: update getting started guide
+test: add coverage for validation attributes
+refactor: simplify help text generation logic
+```
+
+**Multi-line commits:** For complex changes, use a blank line followed by a detailed body:
+```
+fix: resolve race condition in async command execution
+
+The ExecuteAsync method was not properly awaiting disposal of
+resources, leading to intermittent failures in concurrent scenarios.
+Added proper async/await pattern and additional test coverage.
+```
+
+**Skipping CI:** For commits that don't require CI validation (documentation, README updates, comment changes), add `[ci skip]` on its own line in the commit body. **IMPORTANT:** Never include `[ci skip]` in the first line of the commit message.
+
+```
+docs: update installation instructions
+
+[ci skip]
+```
+
+```
+docs: fix typo in API documentation
+
+[ci skip]
+```
+
+This prevents unnecessary CI builds and saves resources for changes that don't affect code functionality.
+
 ## Release Management
 
 Release notes are managed in two places:
