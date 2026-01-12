@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Linq;
 using McMaster.Extensions.CommandLineUtils.SourceGeneration;
 using Xunit;
 
@@ -19,6 +20,21 @@ namespace McMaster.Extensions.CommandLineUtils.Tests.SourceGeneration
             public ParentCommand? Parent { get; set; }
             public object? Subcommand { get; set; }
             public string[]? RemainingArguments { get; set; }
+        }
+
+        private class CommandWithNullableArrayRemainingArgs
+        {
+            public string[]? RemainingArguments { get; set; }
+        }
+
+        private class CommandWithNullableElementArrayRemainingArgs
+        {
+            public string?[]? RemainingArguments { get; set; }
+        }
+
+        private class CommandWithReadOnlyListRemainingArgs
+        {
+            public System.Collections.Generic.IReadOnlyList<string>? RemainingArguments { get; set; }
         }
 
         [Fact]
@@ -130,5 +146,95 @@ namespace McMaster.Extensions.CommandLineUtils.Tests.SourceGeneration
 
             Assert.Null(child.Parent);
         }
+
+        #region RemainingArguments Array Conversion Tests
+
+        [Fact]
+        public void RemainingArgumentsSetter_ArrayType_ConvertsFromIReadOnlyList()
+        {
+            // This simulates the CORRECT generated code for array types:
+            // They need conversion from IReadOnlyList to array
+            var metadata = new SpecialPropertiesMetadata
+            {
+                RemainingArgumentsSetter = static (obj, val) =>
+                    ((CommandWithNullableArrayRemainingArgs)obj).RemainingArguments =
+                        val is string[] arr ? arr : ((System.Collections.Generic.IReadOnlyList<string>)val!).ToArray(),
+                RemainingArgumentsType = typeof(string[])
+            };
+
+            var command = new CommandWithNullableArrayRemainingArgs();
+            System.Collections.Generic.IReadOnlyList<string> input = new[] { "arg1", "arg2" };
+
+            // Should convert IReadOnlyList to array
+            metadata.RemainingArgumentsSetter!(command, input);
+
+            Assert.NotNull(command.RemainingArguments);
+            Assert.Equal(2, command.RemainingArguments.Length);
+            Assert.Equal("arg1", command.RemainingArguments[0]);
+            Assert.Equal("arg2", command.RemainingArguments[1]);
+        }
+
+        [Fact]
+        public void RemainingArgumentsSetter_ArrayType_AcceptsArrayDirectly()
+        {
+            // Array types can also accept arrays directly without conversion
+            var metadata = new SpecialPropertiesMetadata
+            {
+                RemainingArgumentsSetter = static (obj, val) =>
+                    ((CommandWithNullableArrayRemainingArgs)obj).RemainingArguments =
+                        val is string[] arr ? arr : ((System.Collections.Generic.IReadOnlyList<string>)val!).ToArray(),
+                RemainingArgumentsType = typeof(string[])
+            };
+
+            var command = new CommandWithNullableArrayRemainingArgs();
+            var input = new[] { "arg1", "arg2" };
+
+            metadata.RemainingArgumentsSetter!(command, input);
+
+            Assert.Same(input, command.RemainingArguments);
+        }
+
+        [Fact]
+        public void RemainingArgumentsSetter_ReadOnlyListType_CastsDirectly()
+        {
+            // Non-array collection types should use direct cast (no conversion)
+            var metadata = new SpecialPropertiesMetadata
+            {
+                RemainingArgumentsSetter = static (obj, val) =>
+                    ((CommandWithReadOnlyListRemainingArgs)obj).RemainingArguments =
+                        (System.Collections.Generic.IReadOnlyList<string>?)val,
+                RemainingArgumentsType = typeof(System.Collections.Generic.IReadOnlyList<string>)
+            };
+
+            var command = new CommandWithReadOnlyListRemainingArgs();
+            System.Collections.Generic.IReadOnlyList<string> input = new[] { "arg1", "arg2" };
+
+            metadata.RemainingArgumentsSetter!(command, input);
+
+            Assert.Same(input, command.RemainingArguments);
+        }
+
+        [Fact]
+        public void RemainingArgumentsSetter_NullableElementArray_ConvertsFromIReadOnlyList()
+        {
+            // Nullable element arrays (string?[]) should still use array conversion
+            var metadata = new SpecialPropertiesMetadata
+            {
+                RemainingArgumentsSetter = static (obj, val) =>
+                    ((CommandWithNullableElementArrayRemainingArgs)obj).RemainingArguments =
+                        val is string?[] arr ? arr : ((System.Collections.Generic.IReadOnlyList<string>)val!).ToArray(),
+                RemainingArgumentsType = typeof(string?[])
+            };
+
+            var command = new CommandWithNullableElementArrayRemainingArgs();
+            System.Collections.Generic.IReadOnlyList<string> input = new[] { "arg1", "arg2" };
+
+            metadata.RemainingArgumentsSetter!(command, input);
+
+            Assert.NotNull(command.RemainingArguments);
+            Assert.Equal(2, command.RemainingArguments.Length);
+        }
+
+        #endregion
     }
 }
