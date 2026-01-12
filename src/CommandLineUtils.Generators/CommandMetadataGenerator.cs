@@ -1043,7 +1043,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
         private static void GenerateCommandDataProperty(StringBuilder sb, CommandData info, string indent)
         {
             var cmd = info.CommandAttribute;
-            sb.AppendLine($"{indent}    public CommandMetadata? CommandData => new CommandMetadata");
+            sb.AppendLine($"{indent}    public CommandMetadata? CommandInfo => new CommandMetadata");
             sb.AppendLine($"{indent}    {{");
             // Use explicit name if set, otherwise use inferred name from class name
             var commandName = cmd.Name ?? info.InferredName;
