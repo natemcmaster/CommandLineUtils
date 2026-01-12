@@ -10,6 +10,8 @@ using Xunit.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
 {
+    // Uses shared static CommandMetadataRegistry - must not run in parallel with other registry tests
+    [Collection("MetadataRegistry")]
     public class RemainingArgsPropertyConventionTests : ConventionTestBase
     {
         public RemainingArgsPropertyConventionTests(ITestOutputHelper output) : base(output)
