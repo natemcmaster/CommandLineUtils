@@ -26,8 +26,6 @@ Other:
 * @natemcmaster: Use NuGet trusted publishing with OIDC
 * @dependabot: Update GitHub Actions (#568)
 * @natemcmaster: Upgrade docfx to 2.78.4
-
-See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/main/CHANGELOG.md#v500-beta
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('4.1.'))">
 Changes since 4.0:

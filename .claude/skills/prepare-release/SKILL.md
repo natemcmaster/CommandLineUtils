@@ -53,8 +53,6 @@ Features:
 
 Fixes:
 * @user: description (#125)
-
-See more details here: https://github.com/natemcmaster/CommandLineUtils/blob/main/CHANGELOG.md#vXYZ
 </PackageReleaseNotes>
 ```
 
