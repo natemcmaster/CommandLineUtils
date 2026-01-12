@@ -115,7 +115,7 @@ namespace McMaster.Extensions.CommandLineUtils
             set => _modelFactory = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        private protected override ConventionContext CreateConventionContext() => new(this, typeof(TModel));
+        private protected override ConventionContext CreateConventionContext(Type? modelType) => new(this, typeof(TModel));
 
         /// <inheritdoc />
         public override void Dispose()

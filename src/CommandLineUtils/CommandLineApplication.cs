@@ -106,10 +106,31 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
+        /// <summary>
+        /// Constructor for subcommands with a known model type (used for AOT-compatible subcommand creation).
+        /// </summary>
+        internal CommandLineApplication(CommandLineApplication parent, string name, Type modelType)
+            : this(parent, parent._helpTextGenerator, parent._context, modelType)
+        {
+            if (name != null)
+            {
+                Name = name;
+            }
+        }
+
         internal CommandLineApplication(
             CommandLineApplication? parent,
             IHelpTextGenerator helpTextGenerator,
             CommandLineContext context)
+            : this(parent, helpTextGenerator, context, null)
+        {
+        }
+
+        internal CommandLineApplication(
+            CommandLineApplication? parent,
+            IHelpTextGenerator helpTextGenerator,
+            CommandLineContext context,
+            Type? modelType)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             Parent = parent;
@@ -125,7 +146,7 @@ namespace McMaster.Extensions.CommandLineUtils
             _clusterOptions = parent?._clusterOptions;
             UsePagerForHelpText = parent?.UsePagerForHelpText ?? false;
 
-            _conventionContext = CreateConventionContext();
+            _conventionContext = CreateConventionContext(modelType);
 
             if (Parent != null)
             {
@@ -457,6 +478,25 @@ namespace McMaster.Extensions.CommandLineUtils
             _subcommands.Add(subcommand);
         }
 
+        /// <summary>
+        /// Add a subcommand using a model factory (AOT-compatible).
+        /// </summary>
+        /// <param name="name">The name of the subcommand.</param>
+        /// <param name="modelType">The type of the model.</param>
+        /// <param name="modelFactory">Factory to create instances of the model.</param>
+        /// <returns>The created subcommand.</returns>
+        internal CommandLineApplication AddSubcommand(string name, Type modelType, SourceGeneration.IModelFactory modelFactory)
+        {
+            AssertCommandNameIsUnique(name, null);
+
+            var command = new CommandLineApplicationWithModel(this, name, modelType, modelFactory);
+
+            command.Parent = this;
+            _subcommands.Add(command);
+
+            return command;
+        }
+
         private void AssertCommandNameIsUnique(string? name, CommandLineApplication? commandToIgnore)
         {
             if (string.IsNullOrEmpty(name))
@@ -473,7 +513,10 @@ namespace McMaster.Extensions.CommandLineUtils
 
                 if (cmd.MatchesName(name))
                 {
-                    throw new InvalidOperationException(Strings.DuplicateSubcommandName(name));
+                    // Find which name of the existing command matches (case-insensitively)
+                    // For the error message, use the existing command's matching name in its original case
+                    var matchingName = cmd.Names.FirstOrDefault(n => string.Equals(n, name, StringComparison.OrdinalIgnoreCase)) ?? name;
+                    throw new InvalidOperationException(Strings.DuplicateSubcommandName(matchingName));
                 }
             }
         }
@@ -1112,7 +1155,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public IConventionBuilder Conventions => _builder ??= new Builder(this);
 
-        private protected virtual ConventionContext CreateConventionContext() => new(this, null);
+        private protected virtual ConventionContext CreateConventionContext(Type? modelType) => new(this, modelType);
 
         private bool _settingContext;
         internal void SetContext(CommandLineContext context)
