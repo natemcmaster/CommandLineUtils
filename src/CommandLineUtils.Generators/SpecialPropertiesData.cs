@@ -39,6 +39,11 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
         public string? RemainingArgumentsPropertyType { get; set; }
 
         /// <summary>
+        /// Whether the RemainingArguments property is an array type (vs IReadOnlyList, IEnumerable, etc).
+        /// </summary>
+        public bool RemainingArgumentsIsArray { get; set; }
+
+        /// <summary>
         /// Whether any special properties exist.
         /// </summary>
         public bool HasAny =>

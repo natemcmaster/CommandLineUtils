@@ -190,6 +190,8 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
                     {
                         info.SpecialProperties.RemainingArgumentsPropertyName = property.Name;
                         info.SpecialProperties.RemainingArgumentsPropertyType = property.Type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+                        // Track whether this is an array type (needs special handling for conversion from IReadOnlyList)
+                        info.SpecialProperties.RemainingArgumentsIsArray = property.Type is IArrayTypeSymbol;
                     }
                 }
             }
@@ -823,6 +825,7 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
             sb.AppendLine("using System;");
             sb.AppendLine("using System.Collections.Generic;");
             sb.AppendLine("using System.ComponentModel.DataAnnotations;");
+            sb.AppendLine("using System.Linq;");
             sb.AppendLine("using System.Threading;");
             sb.AppendLine("using System.Threading.Tasks;");
             sb.AppendLine("using McMaster.Extensions.CommandLineUtils;");
@@ -1216,8 +1219,9 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
 
                 if (sp.RemainingArgumentsPropertyName != null)
                 {
-                    // Handle string[] vs IReadOnlyList<string>
-                    if (sp.RemainingArgumentsPropertyType == "string[]")
+                    // Handle string[] vs IReadOnlyList<string> based on actual type analysis (not string comparison)
+                    // Array types need conversion from IReadOnlyList, collection types can be cast directly
+                    if (sp.RemainingArgumentsIsArray)
                     {
                         sb.AppendLine($"{indent}        RemainingArgumentsSetter = static (obj, val) => (({info.ClassName})obj).{sp.RemainingArgumentsPropertyName} = val is string[] arr ? arr : ((System.Collections.Generic.IReadOnlyList<string>)val!).ToArray(),");
                     }
@@ -1306,19 +1310,20 @@ namespace McMaster.Extensions.CommandLineUtils.Generators
                     var ctor = constructorsWithParams[ctorIdx];
 
                     // Generate variable declarations for each parameter
+                    // Use intermediate 'service' variable to avoid 'as' operator issues with value types
                     for (int paramIdx = 0; paramIdx < ctor.Parameters.Count; paramIdx++)
                     {
                         var param = ctor.Parameters[paramIdx];
-                        sb.AppendLine($"{indent}                var p{ctorIdx}_{paramIdx} = _services.GetService(typeof({param.TypeName})) as {param.TypeName};");
+                        sb.AppendLine($"{indent}                var service{ctorIdx}_{paramIdx} = _services.GetService(typeof({param.TypeName}));");
                     }
 
-                    // Check if all parameters were resolved
-                    var allParamsCheck = string.Join(" && ", Enumerable.Range(0, ctor.Parameters.Count).Select(i => $"p{ctorIdx}_{i} != null"));
+                    // Check if all parameters were resolved (check service objects, not cast results)
+                    var allParamsCheck = string.Join(" && ", Enumerable.Range(0, ctor.Parameters.Count).Select(i => $"service{ctorIdx}_{i} != null"));
                     sb.AppendLine($"{indent}                if ({allParamsCheck})");
                     sb.AppendLine($"{indent}                {{");
 
-                    // Create instance with resolved parameters
-                    var paramList = string.Join(", ", Enumerable.Range(0, ctor.Parameters.Count).Select(i => $"p{ctorIdx}_{i}"));
+                    // Create instance with resolved parameters (cast to correct types)
+                    var paramList = string.Join(", ", Enumerable.Range(0, ctor.Parameters.Count).Select(i => $"({ctor.Parameters[i].TypeName})service{ctorIdx}_{i}!"));
                     sb.AppendLine($"{indent}                    return new {info.ClassName}({paramList});");
                     sb.AppendLine($"{indent}                }}");
                 }
