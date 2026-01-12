@@ -8,6 +8,8 @@ using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests.SourceGeneration
 {
+    // Uses shared static CommandMetadataRegistry - must not run in parallel with other registry tests
+    [Collection("MetadataRegistry")]
     public class MetadataProviderTests
     {
         [Command(Name = "test", Description = "A test command")]

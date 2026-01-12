@@ -14,6 +14,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests.SourceGeneration
     /// Tests for the AOT-friendly code paths in conventions.
     /// These tests exercise the generated metadata paths in conventions.
     /// </summary>
+    // Uses shared static CommandMetadataRegistry - must not run in parallel with other registry tests
+    [Collection("MetadataRegistry")]
     public class ConventionAotPathTests : IDisposable
     {
         public ConventionAotPathTests()
