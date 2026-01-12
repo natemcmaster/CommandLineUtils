@@ -118,8 +118,10 @@ dotnet test --collect:"XPlat Code Coverage"
 
 This approach ensures code correctness, prevents regressions, and validates that tests actually catch the issues they're meant to detect. The test suite already has good coverage and patterns to follow.
 
-## Claude Commands
+## Release Management
 
-Custom commands for Claude Code are in `.claude/commands/`:
+Release notes are managed in two places:
+1. **`src/CommandLineUtils/releasenotes.props`** - XML format for NuGet's `<PackageReleaseNotes>`
+2. **`CHANGELOG.md`** - Markdown format for GitHub
 
-- `/code-review <pr-number>` - Review pull request changes for substantive issues (bugs, security, correctness). Focuses on high-value feedback appropriate for open source contributions.
+The `/prepare-release` skill automates release note generation by analyzing git history and formatting changes appropriately.
