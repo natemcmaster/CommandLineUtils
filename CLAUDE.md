@@ -106,6 +106,18 @@ Uses xUnit with FluentAssertions and Moq. Convention tests inherit from `Convent
 dotnet test --collect:"XPlat Code Coverage"
 ```
 
+## Development Workflow
+
+**Test-Driven Development:** When implementing new features or fixing bugs, prefer writing tests first:
+
+1. Write a failing test that demonstrates the desired behavior or reproduces the bug
+2. Run the test to confirm it fails as expected
+3. Implement the minimum code needed to make the test pass
+4. Run tests to verify the fix
+5. Refactor if needed while keeping tests green
+
+This approach ensures code correctness, prevents regressions, and validates that tests actually catch the issues they're meant to detect. The test suite already has good coverage and patterns to follow.
+
 ## Claude Commands
 
 Custom commands for Claude Code are in `.claude/commands/`:
