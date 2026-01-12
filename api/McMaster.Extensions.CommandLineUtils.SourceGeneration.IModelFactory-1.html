@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class SubcommandAttributeConvention </title>
+      <title>Interface IModelFactory&lt;TModel&gt; </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class SubcommandAttributeConvention ">
+      <meta name="title" content="Interface IModelFactory&lt;TModel&gt; ">
       
-      <meta name="description" content="Creates a subcommand for each  on the model type of .">
+      <meta name="description" content="Strongly-typed factory for creating model instances without reflection.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/natemcmaster/CommandLineUtils/new/main/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_Conventions_SubcommandAttributeConvention.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/natemcmaster/CommandLineUtils/new/main/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_SourceGeneration_IModelFactory_1.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,45 +84,37 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention">
+        <article data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory`1">
 
 
 
-  <h1 id="McMaster_Extensions_CommandLineUtils_Conventions_SubcommandAttributeConvention" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention" class="text-break">
-Class SubcommandAttributeConvention  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/SubcommandAttributeConvention.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <h1 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_IModelFactory_1" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory`1" class="text-break">
+Interface IModelFactory&lt;TModel&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/Handlers/IModelFactory.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="McMaster.html">McMaster</a>.<a class="xref" href="McMaster.Extensions.html">Extensions</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.html">CommandLineUtils</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.html">Conventions</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="McMaster.html">McMaster</a>.<a class="xref" href="McMaster.Extensions.html">Extensions</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.html">CommandLineUtils</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.html">SourceGeneration</a></dd></dl>
   <dl><dt>Assembly</dt><dd>McMaster.Extensions.CommandLineUtils.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Creates a subcommand for each <a class="xref" href="McMaster.Extensions.CommandLineUtils.SubcommandAttribute.html">SubcommandAttribute</a>
-on the model type of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication-1.html">CommandLineApplication&lt;TModel&gt;</a>.</p>
+  <div class="markdown summary"><p>Strongly-typed factory for creating model instances without reflection.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SubcommandAttributeConvention : IConvention</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IModelFactory&lt;TModel&gt; : IModelFactory where TModel : class</code></pre>
   </div>
 
 
 
-
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
-    <dd>
-      <div><span class="xref">object</span></div>
-      <div><span class="xref">SubcommandAttributeConvention</span></div>
-    </dd>
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TModel</code></dt>
+    <dd><p>The model type to create.</p>
+</dd>
   </dl>
 
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.IConvention.html">IConvention</a></div>
-    </dd>
-  </dl>
+
 
 
 
@@ -135,28 +127,28 @@ on the model type of <a class="xref" href="McMaster.Extensions.CommandLineUtils.
 </h2>
 
 
-  <a id="McMaster_Extensions_CommandLineUtils_Conventions_SubcommandAttributeConvention_Apply_" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.Apply*"></a>
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_IModelFactory_1_Create_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory`1.Create*"></a>
 
-  <h3 id="McMaster_Extensions_CommandLineUtils_Conventions_SubcommandAttributeConvention_Apply_McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.SubcommandAttributeConvention.Apply(McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext)">
-  Apply(ConventionContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/SubcommandAttributeConvention.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_IModelFactory_1_Create" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory`1.Create">
+  Create()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/Handlers/IModelFactory.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Apply the convention.</p>
+  <div class="markdown level1 summary"><p>Creates a new model instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void Apply(ConventionContext context)</code></pre>
+    <pre><code class="lang-csharp hljs">TModel Create()</code></pre>
   </div>
 
-  <h4 class="section">Parameters</h4>
+
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><code>context</code> <a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html">ConventionContext</a></dt>
-    <dd><p>The context in which the convention is applied.</p>
+    <dt><span class="xref">TModel</span></dt>
+    <dd><p>A new instance of the model.</p>
 </dd>
   </dl>
-
 
 
 
@@ -172,7 +164,7 @@ on the model type of <a class="xref" href="McMaster.Extensions.CommandLineUtils.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/SubcommandAttributeConvention.cs/#L17" class="edit-link">Edit this page</a>
+          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/Handlers/IModelFactory.cs/#L24" class="edit-link">Edit this page</a>
         </div>
 
 

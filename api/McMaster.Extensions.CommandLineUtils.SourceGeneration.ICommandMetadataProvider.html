@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface ICommandMetadataProvider </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface ICommandMetadataProvider ">
+      
+      <meta name="description" content="Provides metadata about a command model type. Implemented by both reflection-based and source-generated providers.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/natemcmaster/CommandLineUtils/new/main/apiSpec/new?filename=McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider.md&amp;value=---%0Auid%3A%20McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="CommandLineUtils">
+            CommandLineUtils
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider">
+
+
+
+  <h1 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider" class="text-break">
+Interface ICommandMetadataProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="McMaster.html">McMaster</a>.<a class="xref" href="McMaster.Extensions.html">Extensions</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.html">CommandLineUtils</a>.<a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.html">SourceGeneration</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>McMaster.Extensions.CommandLineUtils.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides metadata about a command model type.
+Implemented by both reflection-based and source-generated providers.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ICommandMetadataProvider</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_Arguments_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.Arguments*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_Arguments" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.Arguments">
+  Arguments
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets metadata for all arguments defined on the model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IReadOnlyList&lt;ArgumentMetadata&gt; Arguments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.html">ArgumentMetadata</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_CommandInfo_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.CommandInfo*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_CommandInfo" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.CommandInfo">
+  CommandInfo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets metadata about the command itself (name, description, etc.).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CommandMetadata? CommandInfo { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.html">CommandMetadata</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_ExecuteHandler_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ExecuteHandler*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_ExecuteHandler" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ExecuteHandler">
+  ExecuteHandler
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the execute handler if one is defined (OnExecute/OnExecuteAsync).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IExecuteHandler? ExecuteHandler { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler.html">IExecuteHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_HelpOption_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.HelpOption*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_HelpOption" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.HelpOption">
+  HelpOption
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets help option metadata if defined.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">HelpOptionMetadata? HelpOption { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata.html">HelpOptionMetadata</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_ModelType_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ModelType*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_ModelType" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ModelType">
+  ModelType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the model type this provider handles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Type ModelType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_Options_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.Options*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_Options" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.Options">
+  Options
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets metadata for all options defined on the model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IReadOnlyList&lt;OptionMetadata&gt; Options { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.html">OptionMetadata</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_SpecialProperties_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.SpecialProperties*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_SpecialProperties" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.SpecialProperties">
+  SpecialProperties
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets property accessors for setting Parent, RemainingArgs, Subcommand.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SpecialPropertiesMetadata? SpecialProperties { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.html">SpecialPropertiesMetadata</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_Subcommands_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.Subcommands*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_Subcommands" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.Subcommands">
+  Subcommands
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets metadata for subcommand types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IReadOnlyList&lt;SubcommandMetadata&gt; Subcommands { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata.html">SubcommandMetadata</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_ValidateHandler_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ValidateHandler*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_ValidateHandler" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ValidateHandler">
+  ValidateHandler
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the validate handler if one is defined (OnValidate).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IValidateHandler? ValidateHandler { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler.html">IValidateHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_ValidationErrorHandler_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ValidationErrorHandler*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_ValidationErrorHandler" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ValidationErrorHandler">
+  ValidationErrorHandler
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the validation error handler if one is defined (OnValidationError).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IValidationErrorHandler? ValidationErrorHandler { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidationErrorHandler.html">IValidationErrorHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_VersionOption_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.VersionOption*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_VersionOption" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.VersionOption">
+  VersionOption
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets version option metadata if defined.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">VersionOptionMetadata? VersionOption { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.html">VersionOptionMetadata</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_GetModelFactory_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.GetModelFactory*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_SourceGeneration_ICommandMetadataProvider_GetModelFactory_System_IServiceProvider_" data-uid="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.GetModelFactory(System.IServiceProvider)">
+  GetModelFactory(IServiceProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a model factory for the type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IModelFactory GetModelFactory(IServiceProvider? services)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
+    <dd><p>Optional service provider for dependency injection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory.html">IModelFactory</a></dt>
+    <dd><p>A factory that can create model instances.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/SourceGeneration/ICommandMetadataProvider.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

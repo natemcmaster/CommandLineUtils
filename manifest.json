@@ -1072,6 +1072,286 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.yml\" sourcestartlinenumber=\"1\">Metadata about a command argument, extracted at compile time or via reflection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.yml\" sourcestartlinenumber=\"1\">Metadata about a command from the [Command] attribute.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadataRegistry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadataRegistry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadataRegistry",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadataRegistry.yml\" sourcestartlinenumber=\"1\">Registry for source-generated command metadata.\nSource generators register metadata providers here via module initializers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.DefaultMetadataResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.DefaultMetadataResolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.DefaultMetadataResolver",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.DefaultMetadataResolver.yml\" sourcestartlinenumber=\"1\">Default implementation that checks the registry first, falls back to reflection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata.yml\" sourcestartlinenumber=\"1\">Metadata for the [HelpOption] attribute.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider<TModel>",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider-1.yml\" sourcestartlinenumber=\"1\">Strongly-typed metadata provider for a specific model type.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.yml\" sourcestartlinenumber=\"1\">Provides metadata about a command model type.\nImplemented by both reflection-based and source-generated providers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler<TModel>",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler-1.yml\" sourcestartlinenumber=\"1\">Strongly-typed handler for executing the OnExecute/OnExecuteAsync method.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler.yml\" sourcestartlinenumber=\"1\">Handles execution of the OnExecute/OnExecuteAsync method without reflection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IMetadataResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IMetadataResolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.IMetadataResolver",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IMetadataResolver.yml\" sourcestartlinenumber=\"1\">Resolves command metadata for a type using either generated or reflection-based providers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory<TModel>",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory-1.yml\" sourcestartlinenumber=\"1\">Strongly-typed factory for creating model instances without reflection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory.yml\" sourcestartlinenumber=\"1\">Factory for creating model instances without reflection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler<TModel>",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler-1.yml\" sourcestartlinenumber=\"1\">Strongly-typed handler for validation via OnValidate method.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler.yml\" sourcestartlinenumber=\"1\">Handles validation via OnValidate method without reflection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidationErrorHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidationErrorHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidationErrorHandler",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidationErrorHandler.yml\" sourcestartlinenumber=\"1\">Handles validation errors via OnValidationError method without reflection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.yml\" sourcestartlinenumber=\"1\">Metadata about a command option, extracted at compile time or via reflection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.yml\" sourcestartlinenumber=\"1\">Metadata for special well-known properties (Parent, Subcommand, RemainingArguments).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata.yml\" sourcestartlinenumber=\"1\">Metadata about a subcommand, extracted at compile time or via reflection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata",
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.yml\" sourcestartlinenumber=\"1\">Metadata for the [VersionOption] attribute.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/McMaster.Extensions.CommandLineUtils.SourceGeneration.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "McMaster.Extensions.CommandLineUtils.SourceGeneration",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/McMaster.Extensions.CommandLineUtils.SubcommandAttribute.yml",
       "output": {
         ".html": {

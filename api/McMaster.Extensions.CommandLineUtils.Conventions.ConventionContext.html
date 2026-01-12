@@ -89,7 +89,7 @@
 
 
   <h1 id="McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext" class="text-break">
-Class ConventionContext  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Class ConventionContext  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -132,7 +132,7 @@ Class ConventionContext  <a class="header-action link-secondary" title="View sou
 
   <h3 id="McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext__ctor_McMaster_Extensions_CommandLineUtils_CommandLineApplication_System_Type_" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.#ctor(McMaster.Extensions.CommandLineUtils.CommandLineApplication,System.Type)">
   ConventionContext(CommandLineApplication, Type?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes an instance of <a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html">ConventionContext</a>.</p>
@@ -172,7 +172,7 @@ Class ConventionContext  <a class="header-action link-secondary" title="View sou
 
   <h3 id="McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_Application" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.Application">
   Application
-  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The application to which the convention is applied.</p>
@@ -200,11 +200,79 @@ Class ConventionContext  <a class="header-action link-secondary" title="View sou
 
 
 
+  <a id="McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_HasGeneratedMetadata_" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.HasGeneratedMetadata*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_HasGeneratedMetadata" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.HasGeneratedMetadata">
+  HasGeneratedMetadata
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether source-generated metadata is available for the model type.
+When true, metadata was generated at compile time and can be used without reflection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasGeneratedMetadata { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_MetadataProvider_" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.MetadataProvider*"></a>
+
+  <h3 id="McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_MetadataProvider" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.MetadataProvider">
+  MetadataProvider
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the metadata provider for the model type.
+Returns null if <a class="xref" href="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.html#McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_ModelType">ModelType</a> is null.
+This provider may contain source-generated metadata (AOT-friendly)
+or fall back to reflection-based metadata extraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommandMetadataProvider? MetadataProvider { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.html">ICommandMetadataProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_ModelAccessor_" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelAccessor*"></a>
 
   <h3 id="McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_ModelAccessor" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelAccessor">
   ModelAccessor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A convenience accessor for getting the application model object.
@@ -238,7 +306,7 @@ Can be null when applied to <a class="xref" href="McMaster.Extensions.CommandLin
 
   <h3 id="McMaster_Extensions_CommandLineUtils_Conventions_ConventionContext_ModelType" data-uid="McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.ModelType">
   ModelType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The type of the application model. Can be null when applied to <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>
@@ -271,7 +339,7 @@ instead of <a class="xref" href="McMaster.Extensions.CommandLineUtils.CommandLin
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L12" class="edit-link">Edit this page</a>
+          <a href="https://github.com/natemcmaster/CommandLineUtils/blob/main/src/CommandLineUtils/Conventions/ConventionContext.cs/#L13" class="edit-link">Edit this page</a>
         </div>
 
 
