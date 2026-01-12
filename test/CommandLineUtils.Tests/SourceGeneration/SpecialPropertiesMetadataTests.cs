@@ -235,22 +235,6 @@ namespace McMaster.Extensions.CommandLineUtils.Tests.SourceGeneration
             Assert.Equal(2, command.RemainingArguments.Length);
         }
 
-        [Fact]
-        public void BugDemo_DirectCastFails_WhenIReadOnlyListPassedToArrayProperty()
-        {
-            // This demonstrates what happens with the BUGGY code when string comparison fails
-            // It would try to cast IReadOnlyList directly to array, causing InvalidCastException
-
-            System.Collections.Generic.IReadOnlyList<string> input = new[] { "arg1", "arg2" };
-
-            // This simulates the buggy generated code for nullable arrays (string[]?)
-            // when the string comparison fails: (string[]?)val
-            Assert.Throws<InvalidCastException>(() =>
-            {
-                var _ = (string[]?)input; // Can't cast IReadOnlyList to array!
-            });
-        }
-
         #endregion
     }
 }
