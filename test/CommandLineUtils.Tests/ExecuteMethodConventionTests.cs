@@ -4,6 +4,8 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils;
+using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using Xunit;
 using Xunit.Abstractions;
@@ -141,5 +143,49 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(4, result);
             Assert.True(app.Model.Token.IsCancellationRequested);
         }
+
+
+
+        private class MyClass(string name)
+        {
+            public string Name { get; } = name;
     }
+
+    private class ProgramWithExecuteAndKeyedArgumentInjection
+    {
+        private int OnExecute
+        (
+            [FromKeyedServices("Database1")] MyClass myClass1,
+            [FromKeyedServices("Database2")] MyClass myClass2,
+            string nonKeyedArgument
+        )
+        {
+            Assert.Equal("MyClass1", myClass1.Name);
+            Assert.Equal("MyClass2", myClass2.Name);
+            Assert.Equal("42", nonKeyedArgument);
+            return 42;
+        }
+    }
+
+    [Fact]
+    public void OnExecuteWithKeyedArgumentsResolvesArgumentsByKey()
+    {
+        var serviceCollection = new ServiceCollection();
+        serviceCollection
+            .AddKeyedSingleton("Database1", new MyClass("MyClass1"))
+            .AddKeyedSingleton("Database2", new MyClass("MyClass2"))
+            .AddSingleton("42")
+            ;
+
+        var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentInjection>();
+
+        app.AdditionalServices = serviceCollection.BuildServiceProvider();
+
+        app.Conventions.UseOnExecuteMethodFromModel();
+        var result = app.Execute();
+        Assert.Equal(42, result);
+    }
+
+
+}
 }

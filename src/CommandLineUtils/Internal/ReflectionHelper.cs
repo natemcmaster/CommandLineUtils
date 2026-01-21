@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -24,7 +25,7 @@ namespace McMaster.Extensions.CommandLineUtils
             var setter = prop.GetSetMethod(nonPublic: true);
             if (setter != null)
             {
-                return (obj, value) => setter.Invoke(obj, new object?[] { value });
+                return (obj, value) => setter.Invoke(obj, [value]);
             }
             else
             {
@@ -47,7 +48,7 @@ namespace McMaster.Extensions.CommandLineUtils
             if (getter != null)
             {
 #pragma warning disable CS8603 // Possible null reference return.
-                return obj => getter.Invoke(obj, Array.Empty<object>());
+                return obj => getter.Invoke(obj, []);
 #pragma warning restore CS8603 // Possible null reference return.
             }
             else
@@ -125,8 +126,23 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 else
                 {
-                    var service = command.AdditionalServices?.GetService(methodParam.ParameterType);
-                    arguments[i] = service ?? throw new InvalidOperationException(Strings.UnsupportedParameterTypeOnMethod(method.Name, methodParam));
+                    // Check for FromKeyedServicesAttribute
+                    var keyedAttr = methodParam.GetCustomAttribute<FromKeyedServicesAttribute>();
+                    if (keyedAttr != null)
+                    {
+                        if (command.AdditionalServices is not IKeyedServiceProvider keyedServiceProvider)
+                        {
+                            throw new InvalidOperationException("AdditionalServices does not support keyed service resolution.");
+                        }
+
+                        arguments[i] = keyedServiceProvider.GetKeyedService(methodParam.ParameterType, keyedAttr.Key)
+                                       ?? throw new InvalidOperationException($"No keyed service found for type {methodParam.ParameterType} and key '{keyedAttr.Key}'.");
+                    }
+                    else
+                    {
+                        var service = command.AdditionalServices?.GetService(methodParam.ParameterType);
+                        arguments[i] = service ?? throw new InvalidOperationException(Strings.UnsupportedParameterTypeOnMethod(method.Name, methodParam));
+                    }
                 }
             }
 

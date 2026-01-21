@@ -95,7 +95,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             public ThrowsInCtorClass()
             {
-                throw new XunitException("Parent comand object should not be initialized.\n" + Environment.StackTrace);
+                throw new XunitException("Parent command object should not be initialized.\n" + Environment.StackTrace);
             }
 
             public void OnExecute() { }
@@ -124,7 +124,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
-        public void ItDoesNotInitalizeClassUnlessNecessary()
+        public void ItDoesNotInitializeClassUnlessNecessary()
         {
             using var app = new CommandLineApplication<ThrowsInCtorClass>(new TestConsole(_output));
             app.Conventions.UseDefaultConventions();
@@ -139,7 +139,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
-        public void ItDoesNotInitalizeParentClassUnlessNecessary()
+        public void ItDoesNotInitializeParentClassUnlessNecessary()
         {
             using var app = new CommandLineApplication<ThrowsInCtorClass>(new TestConsole(_output));
             app.Conventions.UseDefaultConventions();
