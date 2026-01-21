@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased changes](https://github.com/natemcmaster/CommandLineUtils/compare/v4.1.1...main)
+## [v5.0.0](https://github.com/natemcmaster/CommandLineUtils/compare/v4.1.1...v5.0.0)
 
 ### Breaking changes
 * [@natemcmaster]: drop support for .NET Standard 2 and < .NET 6
@@ -584,9 +584,11 @@ Other:
 [@bording]: https://github.com/bording
 [@cbcrouse]: https://github.com/cbcrouse
 [@chaami]: https://github.com/chaami
+[@Chris-Wolfgang]: https://github.com/Chris-Wolfgang
 [@couven92]: https://github.com/couven92
 [@cuperman007]: https://github.com/cuperman007
 [@danielmeza]: https://github.com/danielmeza
+[@dependabot]: https://github.com/apps/dependabot
 [@demosdemon]: https://github.com/demosdemon
 [@ejball]: https://github.com/ejball
 [@EricStG]: https://github.com/EricStG
@@ -602,15 +604,19 @@ Other:
 [@lucastheisen]: https://github.com/lucastheisen
 [@lvermeulen]: https://github.com/lvermeulen
 [@MadbHatter]: https://github.com/MadbHatter
+[@magneticflux-]: https://github.com/magneticflux-
 [@mpipo]: https://github.com/mpipo
 [@rlvandaveer]: https://github.com/rlvandaveer
 [@rmcc13]: https://github.com/rmcc13
+[@robertmclaws]: https://github.com/robertmclaws
 [@scott-xu]: https://github.com/scott-xu
 [@SeanFeldman]: https://github.com/SeanFeldman
 [@sebastienros]: https://github.com/sebastienros
+[@sensslen]: https://github.com/sensslen
 [@skirchner989]: https://github.com/skirchner989
 [@SteveBenz]: https://github.com/SteveBenz
 [@TheConstructor]: https://github.com/TheConstructor
+[@tlogik]: https://github.com/tlogik
 [@vpkopylov]: https://github.com/vpkopylov
 [@xoofx]: https://github.com/xoofx
 

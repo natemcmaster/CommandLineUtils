@@ -660,3 +660,168 @@ virtual McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.G
 virtual McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateHeader(McMaster.Extensions.CommandLineUtils.CommandLineApplication! application, System.IO.TextWriter! output) -> void
 virtual McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateOptions(McMaster.Extensions.CommandLineUtils.CommandLineApplication! application, System.IO.TextWriter! output, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandOption!>! visibleOptions, int firstColumnWidth) -> void
 virtual McMaster.Extensions.CommandLineUtils.HelpText.DefaultHelpTextGenerator.GenerateUsage(McMaster.Extensions.CommandLineUtils.CommandLineApplication! application, System.IO.TextWriter! output, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandArgument!>! visibleArguments, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandOption!>! visibleOptions, System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.CommandLineApplication!>! visibleCommands) -> void
+McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.HasGeneratedMetadata.get -> bool
+McMaster.Extensions.CommandLineUtils.Conventions.ConventionContext.MetadataProvider.get -> McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.ArgumentMetadata(string! propertyName, System.Type! propertyType, int order, System.Func<object!, object?>! getter, System.Action<object!, object?>! setter) -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.DeclaringType.get -> System.Type?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.DeclaringType.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.Description.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.Description.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.Getter.get -> System.Func<object!, object?>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.MultipleValues.get -> bool
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.MultipleValues.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.Name.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.Name.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.Order.get -> int
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.PropertyName.get -> string!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.PropertyType.get -> System.Type!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.Setter.get -> System.Action<object!, object?>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.ShowInHelpText.get -> bool
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.ShowInHelpText.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.Validators.get -> System.Collections.Generic.IReadOnlyList<System.ComponentModel.DataAnnotations.ValidationAttribute!>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata.Validators.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.AdditionalNames.get -> string![]?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.AdditionalNames.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.AllowArgumentSeparator.get -> bool?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.AllowArgumentSeparator.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.ApplyTo(McMaster.Extensions.CommandLineUtils.CommandLineApplication! app) -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.ClusterOptions.get -> bool?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.ClusterOptions.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.CommandMetadata() -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.Description.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.Description.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.ExtendedHelpText.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.ExtendedHelpText.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.FullName.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.FullName.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.Name.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.Name.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.OptionsComparison.get -> System.StringComparison?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.OptionsComparison.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.ParseCulture.get -> System.Globalization.CultureInfo?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.ParseCulture.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.ResponseFileHandling.get -> McMaster.Extensions.CommandLineUtils.ResponseFileHandling?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.ResponseFileHandling.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.ShowInHelpText.get -> bool
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.ShowInHelpText.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.UnrecognizedArgumentHandling.get -> McMaster.Extensions.CommandLineUtils.UnrecognizedArgumentHandling?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.UnrecognizedArgumentHandling.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.UsePagerForHelpText.get -> bool?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata.UsePagerForHelpText.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadataRegistry
+McMaster.Extensions.CommandLineUtils.SourceGeneration.DefaultMetadataResolver
+McMaster.Extensions.CommandLineUtils.SourceGeneration.DefaultMetadataResolver.GetProvider(System.Type! modelType) -> McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.DefaultMetadataResolver.GetProvider<TModel>() -> McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider<TModel!>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.DefaultMetadataResolver.HasGeneratedMetadata(System.Type! modelType) -> bool
+McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata
+McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata.Description.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata.Description.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata.HelpOptionMetadata() -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata.Inherited.get -> bool
+McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata.Inherited.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata.Template.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata.Template.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.Arguments.get -> System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.SourceGeneration.ArgumentMetadata!>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.CommandInfo.get -> McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadata?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ExecuteHandler.get -> McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.GetModelFactory(System.IServiceProvider? services) -> McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.HelpOption.get -> McMaster.Extensions.CommandLineUtils.SourceGeneration.HelpOptionMetadata?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ModelType.get -> System.Type!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.Options.get -> System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata!>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.SpecialProperties.get -> McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.Subcommands.get -> System.Collections.Generic.IReadOnlyList<McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata!>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ValidateHandler.get -> McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.ValidationErrorHandler.get -> McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidationErrorHandler?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider.VersionOption.get -> McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider<TModel>
+McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider<TModel>.GetModelFactory(System.IServiceProvider? services) -> McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory<TModel!>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler.InvokeAsync(object! model, McMaster.Extensions.CommandLineUtils.CommandLineApplication! app, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<int>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler.IsAsync.get -> bool
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler<TModel>
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IExecuteHandler<TModel>.InvokeAsync(TModel! model, McMaster.Extensions.CommandLineUtils.CommandLineApplication! app, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<int>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IMetadataResolver
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IMetadataResolver.GetProvider(System.Type! modelType) -> McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IMetadataResolver.GetProvider<TModel>() -> McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider<TModel!>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IMetadataResolver.HasGeneratedMetadata(System.Type! modelType) -> bool
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory.Create() -> object!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory<TModel>
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IModelFactory<TModel>.Create() -> TModel!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler.Invoke(object! model, System.ComponentModel.DataAnnotations.ValidationContext! validationContext, McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext! commandContext) -> System.ComponentModel.DataAnnotations.ValidationResult?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler<TModel>
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidateHandler<TModel>.Invoke(TModel! model, System.ComponentModel.DataAnnotations.ValidationContext! validationContext, McMaster.Extensions.CommandLineUtils.Abstractions.CommandLineContext! commandContext) -> System.ComponentModel.DataAnnotations.ValidationResult?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidationErrorHandler
+McMaster.Extensions.CommandLineUtils.SourceGeneration.IValidationErrorHandler.Invoke(object! model, System.ComponentModel.DataAnnotations.ValidationResult! validationResult) -> int
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.DeclaringType.get -> System.Type?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.DeclaringType.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.Description.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.Description.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.Getter.get -> System.Func<object!, object?>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.Inherited.get -> bool
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.Inherited.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.LongName.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.LongName.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.OptionMetadata(string! propertyName, System.Type! propertyType, System.Func<object!, object?>! getter, System.Action<object!, object?>! setter) -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.OptionType.get -> McMaster.Extensions.CommandLineUtils.CommandOptionType
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.OptionType.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.OptionTypeExplicitlySet.get -> bool
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.OptionTypeExplicitlySet.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.PropertyName.get -> string!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.PropertyType.get -> System.Type!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.Setter.get -> System.Action<object!, object?>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.ShortName.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.ShortName.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.ShowInHelpText.get -> bool
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.ShowInHelpText.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.SymbolName.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.SymbolName.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.Template.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.Template.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.Validators.get -> System.Collections.Generic.IReadOnlyList<System.ComponentModel.DataAnnotations.ValidationAttribute!>!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.Validators.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.ValueName.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.OptionMetadata.ValueName.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.ParentSetter.get -> System.Action<object!, object?>?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.ParentSetter.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.ParentType.get -> System.Type?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.ParentType.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.RemainingArgumentsSetter.get -> System.Action<object!, object?>?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.RemainingArgumentsSetter.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.RemainingArgumentsType.get -> System.Type?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.RemainingArgumentsType.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.SpecialPropertiesMetadata() -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.SubcommandSetter.get -> System.Action<object!, object?>?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.SubcommandSetter.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.SubcommandType.get -> System.Type?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SpecialPropertiesMetadata.SubcommandType.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata.CommandName.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata.CommandName.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata.MetadataProviderFactory.get -> System.Func<McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider!>?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata.MetadataProviderFactory.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata.SubcommandMetadata(System.Type! subcommandType) -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.SubcommandMetadata.SubcommandType.get -> System.Type!
+McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata
+McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.Description.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.Description.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.Template.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.Template.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.Version.get -> string?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.Version.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.VersionGetter.get -> System.Func<object!, string?>?
+McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.VersionGetter.init -> void
+McMaster.Extensions.CommandLineUtils.SourceGeneration.VersionOptionMetadata.VersionOptionMetadata() -> void
+static McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadataRegistry.HasMetadata(System.Type! modelType) -> bool
+static McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadataRegistry.HasMetadata<TModel>() -> bool
+static McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadataRegistry.Register(System.Type! modelType, McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider! provider) -> void
+static McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadataRegistry.Register<TModel>(McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider<TModel!>! provider) -> void
+static McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadataRegistry.TryGetProvider(System.Type! modelType, out McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider? provider) -> bool
+static McMaster.Extensions.CommandLineUtils.SourceGeneration.CommandMetadataRegistry.TryGetProvider<TModel>(out McMaster.Extensions.CommandLineUtils.SourceGeneration.ICommandMetadataProvider<TModel!>? provider) -> bool
+static readonly McMaster.Extensions.CommandLineUtils.SourceGeneration.DefaultMetadataResolver.Instance -> McMaster.Extensions.CommandLineUtils.SourceGeneration.DefaultMetadataResolver!
