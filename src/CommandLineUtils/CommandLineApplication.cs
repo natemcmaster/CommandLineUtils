@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -13,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Conventions;
+using McMaster.Extensions.CommandLineUtils.Extensions;
 using McMaster.Extensions.CommandLineUtils.HelpText;
 using McMaster.Extensions.CommandLineUtils.Internal;
 
@@ -221,7 +221,7 @@ namespace McMaster.Extensions.CommandLineUtils
         {
             get
             {
-                if (!string.IsNullOrEmpty(Name))
+                if (!Name.IsNullOrEmpty())
                 {
                     yield return Name;
                 }
@@ -499,7 +499,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private void AssertCommandNameIsUnique(string? name, CommandLineApplication? commandToIgnore)
         {
-            if (string.IsNullOrEmpty(name))
+            if (name.IsNullOrEmpty())
             {
                 return;
             }

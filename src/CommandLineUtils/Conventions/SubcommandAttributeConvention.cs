@@ -6,6 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Errors;
+using McMaster.Extensions.CommandLineUtils.Extensions;
 using McMaster.Extensions.CommandLineUtils.SourceGeneration;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
@@ -46,7 +47,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         private static string GetSubcommandName(Type subcommandType, ICommandMetadataProvider provider)
         {
             var commandInfo = provider.CommandInfo;
-            if (!string.IsNullOrEmpty(commandInfo?.Name))
+            if (!(commandInfo?.Name).IsNullOrEmpty())
             {
                 // Use the explicit name as-is
                 return commandInfo.Name;
@@ -58,7 +59,10 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
         private void AddSubcommandFromMetadata(
             ConventionContext context,
-            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)] Type subcommandType,
+#if NET6_0_OR_GREATER
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]
+#endif
+            Type subcommandType,
             ICommandMetadataProvider provider,
             string name)
         {

@@ -11,7 +11,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
     /// <summary>
     /// Validation error handler that uses reflection to invoke OnValidationError.
     /// </summary>
+#if NET6_0_OR_GREATER
     [RequiresUnreferencedCode("Uses reflection to invoke method")]
+#endif
     internal sealed class ReflectionValidationErrorHandler : IValidationErrorHandler
     {
         private readonly MethodInfo _method;

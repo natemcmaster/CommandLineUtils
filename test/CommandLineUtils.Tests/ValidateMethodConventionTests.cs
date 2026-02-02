@@ -25,7 +25,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Conventions.UseOnValidateMethodFromModel();
             var result = app.GetValidationResult();
             Assert.NotEqual(ValidationResult.Success, result);
-            Assert.Equal("Failed", result.ErrorMessage);
+            Assert.Equal("Failed", result?.ErrorMessage);
         }
 
         private class ProgramWithBadOnValidate
@@ -49,7 +49,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             [Option]
             public int? Middle { get; }
 
-            private ValidationResult OnValidate(ValidationContext context, CommandLineContext appContext)
+            private ValidationResult? OnValidate(ValidationContext context, CommandLineContext appContext)
             {
                 if (this.Middle.HasValue && this.Middle < 0)
                 {
@@ -71,7 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             [Option]
             public int End { get; private set; } = Int32.MaxValue;
 
-            private ValidationResult OnValidate(ValidationContext context, CommandLineContext appContext)
+            private ValidationResult? OnValidate(ValidationContext context, CommandLineContext appContext)
             {
                 if (this.Start >= this.End)
                 {
@@ -119,7 +119,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             else
             {
                 Assert.NotEqual(ValidationResult.Success, result);
-                Assert.Equal(error, result.ErrorMessage);
+                Assert.Equal(error, result?.ErrorMessage);
             }
         }
     }

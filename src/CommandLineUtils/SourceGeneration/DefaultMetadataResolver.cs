@@ -30,7 +30,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
         /// For full AOT compatibility, ensure the CommandLineUtils.Generators package is referenced
         /// and the source generator runs during compilation.
         /// </remarks>
+#if NET6_0_OR_GREATER
         [RequiresUnreferencedCode("Falls back to reflection when no generated metadata is available. Use the source generator for AOT compatibility.")]
+#endif
         public ICommandMetadataProvider GetProvider(Type modelType)
         {
             // Check for generated metadata first (AOT-safe path)
@@ -50,7 +52,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
         /// For full AOT compatibility, ensure the CommandLineUtils.Generators package is referenced
         /// and the source generator runs during compilation.
         /// </remarks>
+#if NET6_0_OR_GREATER
         [RequiresUnreferencedCode("Falls back to reflection when no generated metadata is available. Use the source generator for AOT compatibility.")]
+#endif
         public ICommandMetadataProvider<TModel> GetProvider<TModel>() where TModel : class
         {
             // Check for generated metadata first (AOT-safe path)
@@ -78,7 +82,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
             return CommandMetadataRegistry.HasMetadata(modelType);
         }
 
+#if NET6_0_OR_GREATER
         [RequiresUnreferencedCode("Uses reflection to analyze the model type")]
+#endif
         private static ICommandMetadataProvider CreateReflectionProvider(Type modelType)
         {
             // This creates a reflection-based implementation of ICommandMetadataProvider

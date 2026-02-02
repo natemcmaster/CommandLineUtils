@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
+using McMaster.Extensions.CommandLineUtils.Extensions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -325,7 +326,7 @@ namespace McMaster.Extensions.CommandLineUtils
 
                     var suggestions = Enumerable.Empty<string>();
 
-                    if (_currentCommand.MakeSuggestionsInErrorMessage && !string.IsNullOrEmpty(value))
+                    if (_currentCommand.MakeSuggestionsInErrorMessage && !value.IsNullOrEmpty())
                     {
                         suggestions = SuggestionCreator.GetTopSuggestions(_currentCommand, value);
                     }

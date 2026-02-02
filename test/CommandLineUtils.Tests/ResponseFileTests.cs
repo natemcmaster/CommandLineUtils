@@ -269,7 +269,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             });
             var rspFile = CreateResponseFile(" 'lorem ipsum' ", "dolor sit amet");
             app.Execute("save", "@" + rspFile);
-            Assert.Collection(wordArgs?.Values,
+            Assert.Collection(wordArgs?.Values ?? [],
                 a => Assert.Equal("lorem ipsum", a),
                 a => Assert.Equal("dolor", a),
                 a => Assert.Equal("sit", a),

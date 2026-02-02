@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using McMaster.Extensions.CommandLineUtils.Extensions;
 using McMaster.Extensions.CommandLineUtils.SourceGeneration;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
@@ -32,33 +33,33 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 var (template, shortName, longName) = GetOptionNames(optMeta);
 
                 // Check for same-class conflicts (options in the same provider with conflicting names)
-                if (!string.IsNullOrEmpty(shortName) && addedShortOptions.TryGetValue(shortName, out var existingShort))
+                if (!shortName.IsNullOrEmpty() && addedShortOptions.TryGetValue(shortName, out var existingShort))
                 {
                     throw new InvalidOperationException(
                         Strings.OptionNameIsAmbiguous(shortName, optMeta.PropertyName, optMeta.DeclaringType, existingShort.PropertyName, existingShort.DeclaringType));
                 }
-                if (!string.IsNullOrEmpty(longName) && addedLongOptions.TryGetValue(longName, out var existingLong))
+                if (!longName.IsNullOrEmpty() && addedLongOptions.TryGetValue(longName, out var existingLong))
                 {
                     throw new InvalidOperationException(
                         Strings.OptionNameIsAmbiguous(longName, optMeta.PropertyName, optMeta.DeclaringType, existingLong.PropertyName, existingLong.DeclaringType));
                 }
 
                 // Check if option already exists from parent command (inherited options)
-                if (!string.IsNullOrEmpty(shortName) && context.Application._shortOptions.ContainsKey(shortName))
+                if (!shortName.IsNullOrEmpty() && context.Application._shortOptions.ContainsKey(shortName))
                 {
                     continue; // Skip - option already registered by parent
                 }
-                if (!string.IsNullOrEmpty(longName) && context.Application._longOptions.ContainsKey(longName))
+                if (!longName.IsNullOrEmpty() && context.Application._longOptions.ContainsKey(longName))
                 {
                     continue; // Skip - option already registered by parent
                 }
 
                 // Track this option
-                if (!string.IsNullOrEmpty(shortName))
+                if (!shortName.IsNullOrEmpty())
                 {
                     addedShortOptions[shortName] = optMeta;
                 }
-                if (!string.IsNullOrEmpty(longName))
+                if (!longName.IsNullOrEmpty())
                 {
                     addedLongOptions[longName] = optMeta;
                 }
@@ -74,18 +75,18 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             string? shortName = meta.ShortName;
             string? longName = meta.LongName;
 
-            if (string.IsNullOrEmpty(template))
+            if (template.IsNullOrEmpty())
             {
                 // Build template from ShortName/LongName
-                if (!string.IsNullOrEmpty(shortName) && !string.IsNullOrEmpty(longName))
+                if (!shortName.IsNullOrEmpty() && !longName.IsNullOrEmpty())
                 {
                     template = $"-{shortName}|--{longName}";
                 }
-                else if (!string.IsNullOrEmpty(longName))
+                else if (!longName.IsNullOrEmpty())
                 {
                     template = $"--{longName}";
                 }
-                else if (!string.IsNullOrEmpty(shortName))
+                else if (!shortName.IsNullOrEmpty())
                 {
                     template = $"-{shortName}";
                 }
@@ -99,17 +100,17 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             else
             {
                 // Parse short/long names from template if not already set
-                if (string.IsNullOrEmpty(shortName) || string.IsNullOrEmpty(longName))
+                if (shortName.IsNullOrEmpty() || longName.IsNullOrEmpty())
                 {
                     var parts = template.Split('|');
                     foreach (var part in parts)
                     {
                         var trimmed = part.Trim();
-                        if (trimmed.StartsWith("--") && string.IsNullOrEmpty(longName))
+                        if (trimmed.StartsWith("--") && longName.IsNullOrEmpty())
                         {
                             longName = trimmed.Substring(2).Split(' ', '<', ':', '=')[0];
                         }
-                        else if (trimmed.StartsWith("-") && string.IsNullOrEmpty(shortName))
+                        else if (trimmed.StartsWith("-") && shortName.IsNullOrEmpty())
                         {
                             shortName = trimmed.Substring(1).Split(' ', '<', ':', '=')[0];
                         }
@@ -175,12 +176,12 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
 
             // Register names for duplicate checking
-            if (!string.IsNullOrEmpty(option.ShortName))
+            if (!option.ShortName.IsNullOrEmpty())
             {
                 context.Application._shortOptions.TryAdd(option.ShortName, null!);
             }
 
-            if (!string.IsNullOrEmpty(option.LongName))
+            if (!option.LongName.IsNullOrEmpty())
             {
                 context.Application._longOptions.TryAdd(option.LongName, null!);
             }

@@ -188,12 +188,32 @@ namespace McMaster.Extensions.CommandLineUtils
                     return true;
                 }
 
-                return x != null && y != null && x.HasSameMetadataDefinitionAs(y);
+                if (x == null || y == null)
+                {
+                    return false;
+                }
+
+#if NET_6_0_OR_GREATER
+                return x.HasSameMetadataDefinitionAs(y);
+#else
+                return x.MetadataToken == y.MetadataToken && x.Module.Equals(y.Module);
+#endif
             }
 
             public int GetHashCode(MethodInfo obj)
             {
+#if NET_6_0_OR_GREATER
                 return obj.HasMetadataToken() ? obj.GetMetadataToken().GetHashCode() : 0;
+#else
+                try
+                {
+                    return obj.MetadataToken.GetHashCode();
+                }
+                catch
+                {
+                    return 0;
+                }
+#endif
             }
         }
 

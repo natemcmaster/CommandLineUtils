@@ -7,6 +7,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
+using McMaster.Extensions.CommandLineUtils.Extensions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -49,7 +50,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
 
             var mainModule = Process.GetCurrentProcess().MainModule;
-            if (!string.IsNullOrEmpty(mainModule?.FileName)
+            if (!(mainModule?.FileName).IsNullOrEmpty()
                 && Path.GetFileName(mainModule.FileName).Equals(fileName, StringComparison.OrdinalIgnoreCase))
             {
                 return mainModule.FileName;
