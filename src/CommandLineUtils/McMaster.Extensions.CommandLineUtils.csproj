@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <_IsWindows Condition="$([MSBuild]::IsOSPlatform('Windows'))">true</_IsWindows>
+    
     <TargetFrameworks Condition="$(_IsWindows) == 'true'">net8.0;net472</TargetFrameworks>
-    <TargetFrameworks Condition="$(_IsWindows) == 'false'">net8.0</TargetFrameworks>
+    <TargetFrameworks Condition="$(_IsWindows) != 'true'">net8.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
     <Description>Command-line parsing API.</Description>
