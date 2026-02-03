@@ -58,7 +58,7 @@ jobs:
   release:
     if: ${{ github.event.inputs.release }}
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
       contents: write      # for creating GitHub releases
       id-token: write      # for NuGet trusted publishing (OIDC)
