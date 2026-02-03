@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net10.0;net472</TargetFrameworks>
-    <!-- Once xunit supports nullable reference types, I might reconsider -->
+    <_IsWindows Condition="$([MSBuild]::IsOSPlatform('Windows'))">true</_IsWindows>
+    <TargetFrameworks Condition="$(_IsWindows) == 'true'">net8.0;net10.0;net472</TargetFrameworks>
+    <TargetFrameworks Condition="$(_IsWindows) == 'false'">net8.0;net10.0</TargetFrameworks>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <PropertyGroup Condition="  '$(TargetFramework)' == 'net472' ">
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net472' ">
     <LangVersion>12.0</LangVersion>
   </PropertyGroup>
 
