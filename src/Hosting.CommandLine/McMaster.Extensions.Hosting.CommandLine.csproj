@@ -1,10 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <_IsWindows Condition="$([MSBuild]::IsOSPlatform('Windows'))">true</_IsWindows>
-    
-    <TargetFrameworks Condition="$(_IsWindows) == 'true'">net8.0;net472</TargetFrameworks>
-    <TargetFrameworks Condition="$(_IsWindows) != 'true'">net8.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
     <Description>Provides command-line parsing API integration with the generic host API (Microsoft.Extensions.Hosting).</Description>
@@ -18,7 +15,7 @@
     <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="4.14.0" PrivateAssets="All" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="PolySharp" Version="1.15.0">
       <PrivateAssets>all</PrivateAssets>
