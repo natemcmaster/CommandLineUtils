@@ -30,7 +30,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     outputs:
-      package_version: ${{ steps.build_script.outputs.package_version }}
+      package_version: ${{ steps.build_script_windows.outputs.package_version }}
 
     steps:
       - uses: actions/checkout@v6
@@ -43,11 +43,11 @@ jobs:
             10.x
       - name: Run build script windows
         if: ${{ matrix.os == 'windows-latest' }}
-        id: build_script
+        id: build_script_windows
         run: ./build.ps1 -ci -skipCoverage
       - name: Run build script non windows
         if: ${{ matrix.os != 'windows-latest' }}
-        id: build_script
+        id: build_script_non_windows
         run: ./build.ps1 -ci
       - uses: actions/upload-artifact@v6
         if: ${{ matrix.os == 'windows-latest' }}
