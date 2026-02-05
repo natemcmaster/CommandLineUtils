@@ -205,14 +205,7 @@ namespace McMaster.Extensions.CommandLineUtils
 #if NET_6_0_OR_GREATER
                 return obj.HasMetadataToken() ? obj.GetMetadataToken().GetHashCode() : 0;
 #else
-                try
-                {
-                    return obj.MetadataToken.GetHashCode();
-                }
-                catch
-                {
-                    return 0;
-                }
+                return obj.MetadataToken?.GetHashCode() ?? 0;
 #endif
             }
         }
