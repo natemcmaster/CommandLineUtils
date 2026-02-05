@@ -4,7 +4,9 @@ param(
     [ValidateSet('Debug', 'Release')]
     $Configuration = $null,
     [switch]
-    $ci
+    $ci,
+    [switch]
+    $skipCoverage
 )
 
 Set-StrictMode -Version 1
@@ -27,11 +29,16 @@ if ($ci) {
     $formatArgs += '--check'
 }
 
+$coverageCollectArgument = '--collect:"XPlat Code Coverage"'
+if( $skipCoverage ) {
+    $coverageCollectArgument = ''
+}
+
 exec dotnet tool run dotnet-format -- -v detailed @formatArgs "$PSScriptRoot/CommandLineUtils.sln"
 exec dotnet tool run dotnet-format -- -v detailed @formatArgs "$PSScriptRoot/docs/samples/samples.sln"
 exec dotnet build --configuration $Configuration '-warnaserror:CS1591'
 exec dotnet pack --no-build --configuration $Configuration -o $artifacts
 exec dotnet build --configuration $Configuration "$PSScriptRoot/docs/samples/samples.sln"
-exec dotnet test --no-build --configuration $Configuration --collect:"XPlat Code Coverage"
+exec dotnet test --no-build --configuration $Configuration $coverageCollectArgument
 
 write-host -f green 'BUILD SUCCEEDED'
