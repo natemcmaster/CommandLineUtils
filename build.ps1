@@ -31,7 +31,7 @@ if ($ci) {
 
 [string[]] $testArgs = @('--no-build', '--configuration', $Configuration)
 if (!$skipCoverage) {
-    $testArgs += '--collect:"XPlat Code Coverage"'
+    $testArgs += "--collect:`"XPlat Code Coverage`""
 }
 
 exec dotnet tool run dotnet-format -- -v detailed @formatArgs "$PSScriptRoot/CommandLineUtils.sln"
