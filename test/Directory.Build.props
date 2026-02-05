@@ -2,7 +2,5 @@
   <Import Project="..\Directory.Build.props" />
   <PropertyGroup>
     <DefaultItemExcludes>$(DefaultItemExcludes);TestResults\**</DefaultItemExcludes>
-    <!-- Disable strong name signing for test assemblies to avoid .NET Framework verification issues -->
-    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 </Project>
