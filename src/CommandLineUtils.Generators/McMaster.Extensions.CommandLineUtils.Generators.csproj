@@ -10,6 +10,8 @@
     <IsPackable>false</IsPackable>
     <RootNamespace>McMaster.Extensions.CommandLineUtils.Generators</RootNamespace>
     <IncludeBuildOutput>false</IncludeBuildOutput>
+    <!-- Source generators should not be strong-named as they run in the compiler process -->
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
