@@ -39,6 +39,11 @@ exec dotnet tool run dotnet-format -- -v detailed @formatArgs "$PSScriptRoot/doc
 exec dotnet build --configuration $Configuration '-warnaserror:CS1591'
 exec dotnet pack --no-build --configuration $Configuration -o $artifacts
 exec dotnet build --configuration $Configuration "$PSScriptRoot/docs/samples/samples.sln"
-exec dotnet test @testArgs
+
+if ($skipCoverage) {
+    exec dotnet test --no-build --configuration $Configuration
+} else {
+    exec dotnet test --no-build --configuration $Configuration --collect:"XPlat Code Coverage"
+}
 
 write-host -f green 'BUILD SUCCEEDED'
