@@ -8,7 +8,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using McMaster.Extensions.CommandLineUtils.Extensions;
 
 namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
 {
@@ -448,7 +447,7 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
             {
                 Func<object, string?>? versionGetter = null;
 
-                if (!fromMemberAttr.MemberName.IsNullOrEmpty())
+                if (!string.IsNullOrEmpty(fromMemberAttr.MemberName))
                 {
                     var members = ReflectionHelper.GetPropertyOrMethod(_modelType, fromMemberAttr.MemberName);
                     if (members.Length > 0)

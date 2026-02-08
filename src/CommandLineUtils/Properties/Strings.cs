@@ -64,7 +64,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static string BothOptionAndVersionOptionAttributesCannotBeSpecified(PropertyInfo prop)
             => $"Cannot specify both {nameof(OptionAttribute)} and {nameof(VersionOptionAttribute)} on property {prop.DeclaringType?.Name}.{prop.Name}.";
 
-        internal static string UnsupportedParameterTypeOnMethod(string? methodName, ParameterInfo methodParam)
+        internal static string UnsupportedParameterTypeOnMethod(string methodName, ParameterInfo methodParam)
             => $"Unsupported type on {methodName} '{methodParam.ParameterType.FullName}' on parameter {methodParam.Name}.";
 
         public static string BothHelpOptionAndVersionOptionAttributesCannotBeSpecified(PropertyInfo prop)

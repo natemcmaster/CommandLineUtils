@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
-using McMaster.Extensions.CommandLineUtils.Extensions;
 using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
@@ -39,7 +38,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 throw new InvalidOperationException(Strings.NoValueTypesMustBeBoolean);
             }
 
-            if (!option.ShortName.IsNullOrEmpty())
+            if (!string.IsNullOrEmpty(option.ShortName))
             {
                 if (context.Application._shortOptions.TryGetValue(option.ShortName, out var otherProp))
                 {
@@ -54,7 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 context.Application._shortOptions.Add(option.ShortName, prop);
             }
 
-            if (!option.LongName.IsNullOrEmpty())
+            if (!string.IsNullOrEmpty(option.LongName))
             {
                 if (context.Application._longOptions.TryGetValue(option.LongName, out var otherProp))
                 {

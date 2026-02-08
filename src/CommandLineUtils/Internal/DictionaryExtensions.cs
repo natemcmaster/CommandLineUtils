@@ -3,11 +3,12 @@
 
 using System.Collections.Generic;
 
-namespace McMaster.Extensions.CommandLineUtils.Extensions
+namespace McMaster.Extensions.CommandLineUtils
 {
     internal static class DictionaryExtensions
     {
-#if !NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER
+#elif NET472_OR_GREATER
         public static bool TryAdd<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             if (dictionary.ContainsKey(key))
@@ -17,6 +18,8 @@ namespace McMaster.Extensions.CommandLineUtils.Extensions
             dictionary.Add(key, value);
             return true;
         }
+#else
+#error Target framework misconfiguration
 #endif
     }
 }
