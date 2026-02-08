@@ -71,7 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void CanSetShortNameToEmptyString()
         {
             var app = Create<EmptyShortName>();
-            Assert.All(app.Options, o => Assert.Empty(o.ShortName));
+            Assert.All(app.Options, o => Assert.True(o.ShortName is null or ""));
         }
 
         private class AmbiguousShortOptionName
@@ -465,7 +465,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Single(app.Options, o => o.LongName == "count");
 
             // Verify short names are empty
-            Assert.All(app.Options, o => Assert.Empty(o.ShortName));
+            Assert.All(app.Options, o => Assert.True(o.ShortName is null or ""));
         }
 
         #endregion

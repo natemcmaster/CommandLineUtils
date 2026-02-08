@@ -1,4 +1,4 @@
-﻿// Copyright (c) Nate McMaster.
+// Copyright (c) Nate McMaster.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
@@ -158,6 +158,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<ExecuteWithUnknownTypes>());
             var method = typeof(ExecuteWithUnknownTypes).GetMethod("OnExecute", BindingFlags.Instance | BindingFlags.NonPublic);
+            Assert.NotNull(method);
             var param = Assert.Single(method.GetParameters());
             Assert.Equal(Strings.UnsupportedParameterTypeOnMethod(method.Name, param), ex.Message);
         }

@@ -3,7 +3,7 @@
 
 // This file has been modified from the original form. See Notice.txt in the project root for more information.
 
-#if NETCOREAPP3_1_OR_GREATER
+#if NET6_0_OR_GREATER
 using System.IO;
 using Xunit;
 

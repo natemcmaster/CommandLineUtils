@@ -34,7 +34,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<RedBlueProgram>();
             app.Conventions.UseAttributes();
-            var result = app.Parse(args);
+            var result = app.Parse(args!);
             var validationResult = result.SelectedCommand.GetValidationResult();
             Assert.NotEqual(ValidationResult.Success, validationResult);
             var program = Assert.IsType<CommandLineApplication<RedBlueProgram>>(result.SelectedCommand);

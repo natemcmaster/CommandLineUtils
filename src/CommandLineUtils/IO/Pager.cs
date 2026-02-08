@@ -122,8 +122,11 @@ namespace McMaster.Extensions.CommandLineUtils
                     FileName = "less",
                     Arguments = ArgumentEscaper.EscapeAndConcatenate(args),
                     RedirectStandardInput = true,
-#if NET46_OR_GREATER
+#if NET472_OR_GREATER
                     UseShellExecute = false,
+#elif NET6_0_OR_GREATER
+#else
+#error Target framework misconfiguration
 #endif
                 }
             };
