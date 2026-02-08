@@ -2,5 +2,6 @@
   <Import Project="..\Directory.Build.props" />
   <PropertyGroup>
     <DefaultItemExcludes>$(DefaultItemExcludes);TestResults\**</DefaultItemExcludes>
+    <RunSettingsFilePath>$(MSBuildThisFileDirectory)\.runsettings</RunSettingsFilePath>
   </PropertyGroup>
 </Project>
