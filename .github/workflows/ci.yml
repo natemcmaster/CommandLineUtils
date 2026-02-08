@@ -43,7 +43,7 @@ jobs:
             10.x
       - name: Run build script
         id: build_script
-        run: ./build.ps1 -ci
+        run: ./build.ps1 -ci ${{ matrix.os == 'windows-latest' && '-skipCoverage' || '' }}
       - uses: actions/upload-artifact@v6
         if: ${{ matrix.os == 'windows-latest' }}
         with:
@@ -51,6 +51,7 @@ jobs:
           path: artifacts/
           if-no-files-found: error
       - uses: codecov/codecov-action@v5
+        if: ${{ matrix.os != 'windows-latest' }}
         with:
           name: unittests-${{ matrix.os }}
           fail_ci_if_error: true
@@ -58,7 +59,7 @@ jobs:
   release:
     if: ${{ github.event.inputs.release }}
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
       contents: write      # for creating GitHub releases
       id-token: write      # for NuGet trusted publishing (OIDC)

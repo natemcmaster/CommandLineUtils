@@ -11,7 +11,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
     /// <summary>
     /// Model factory that uses Activator.CreateInstance or DI with constructor injection.
     /// </summary>
+#if NET6_0_OR_GREATER
     [RequiresUnreferencedCode("Uses Activator.CreateInstance or DI with constructor injection")]
+#endif
     internal sealed class ActivatorModelFactory : IModelFactory
     {
         private readonly Type _modelType;

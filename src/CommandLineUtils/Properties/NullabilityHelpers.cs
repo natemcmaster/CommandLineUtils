@@ -15,7 +15,7 @@ namespace System.Diagnostics.CodeAnalysis
     }
 
     // https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.codeanalysis.allownullattribute
-    [System.AttributeUsage(System.AttributeTargets.Field | System.AttributeTargets.Parameter | System.AttributeTargets.Property, Inherited=false)]
+    [System.AttributeUsage(System.AttributeTargets.Field | System.AttributeTargets.Parameter | System.AttributeTargets.Property, Inherited = false)]
     internal sealed class AllowNullAttribute : Attribute { }
 }
 #endif

@@ -158,8 +158,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ex = Assert.Throws<InvalidOperationException>(
                 () => CommandLineApplication.Execute<ExecuteWithUnknownTypes>());
             var method = typeof(ExecuteWithUnknownTypes).GetMethod("OnExecute", BindingFlags.Instance | BindingFlags.NonPublic);
-            var param = Assert.Single(method.GetParameters());
-            Assert.Equal(Strings.UnsupportedParameterTypeOnMethod(method.Name, param), ex.Message);
+            var param = Assert.Single(method?.GetParameters() ?? []);
+            Assert.Equal(Strings.UnsupportedParameterTypeOnMethod(method?.Name, param), ex.Message);
         }
 
         private class ExecuteAsyncWithInt
@@ -312,7 +312,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [Command("sub")]
         private class Subcommand
         {
-            public DisposableParentCommand Parent { get; }
+            public DisposableParentCommand? Parent { get; }
 
             public void OnExecute()
             {

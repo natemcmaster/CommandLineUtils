@@ -12,7 +12,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
     /// <summary>
     /// Execute handler that uses reflection to invoke OnExecute/OnExecuteAsync.
     /// </summary>
+#if NET6_0_OR_GREATER
     [RequiresUnreferencedCode("Uses reflection to invoke method")]
+#endif
     internal sealed class ReflectionExecuteHandler : IExecuteHandler
     {
         private readonly MethodInfo _method;

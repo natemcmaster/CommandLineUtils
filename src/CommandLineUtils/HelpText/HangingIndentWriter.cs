@@ -4,6 +4,7 @@
 using System;
 using System.Linq;
 using System.Text;
+using McMaster.Extensions.CommandLineUtils.Extensions;
 
 namespace McMaster.Extensions.CommandLineUtils.HelpText
 {
@@ -46,7 +47,7 @@ namespace McMaster.Extensions.CommandLineUtils.HelpText
         /// <returns>Dynamically wrapped description with explicit newlines preserved.</returns>
         public string Write(string? input)
         {
-            if (string.IsNullOrWhiteSpace(input))
+            if (input.IsNullOrWhiteSpace())
             {
                 return string.Empty;
             }

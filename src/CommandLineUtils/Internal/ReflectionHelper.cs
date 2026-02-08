@@ -188,12 +188,37 @@ namespace McMaster.Extensions.CommandLineUtils
                     return true;
                 }
 
-                return x != null && y != null && x.HasSameMetadataDefinitionAs(y);
+                if (x == null || y == null)
+                {
+                    return false;
+                }
+
+#if NET_6_0_OR_GREATER
+                return x.HasSameMetadataDefinitionAs(y);
+#else
+                return x.MetadataToken == y.MetadataToken && x.Module.Equals(y.Module);
+#endif
             }
 
             public int GetHashCode(MethodInfo obj)
             {
+#if NET_6_0_OR_GREATER
                 return obj.HasMetadataToken() ? obj.GetMetadataToken().GetHashCode() : 0;
+#else
+                // see https://github.com/dotnet/dotnet/blob/b0f34d51fccc69fd334253924abd8d6853fad7aa/src/runtime/src/libraries/System.Reflection.TypeExtensions/src/System/Reflection/TypeExtensions.cs#L496
+                int token = obj.MetadataToken;
+
+                // Tokens have MSB = table index, 3 LSBs = row index
+                // row index of 0 is a nil token
+                const int rowMask = 0x00FFFFFF;
+                if ((token & rowMask) == 0)
+                {
+                    // Nil token is returned for edge cases like typeof(byte[]).MetadataToken.
+                    return 0;
+                }
+
+                return token;
+#endif
             }
         }
 

@@ -12,7 +12,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
     /// <summary>
     /// Validate handler that uses reflection to invoke OnValidate.
     /// </summary>
+#if NET6_0_OR_GREATER
     [RequiresUnreferencedCode("Uses reflection to invoke method")]
+#endif
     internal sealed class ReflectionValidateHandler : IValidateHandler
     {
         private readonly MethodInfo _method;

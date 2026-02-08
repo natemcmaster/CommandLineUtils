@@ -8,6 +8,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils.Extensions;
 
 namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
 {
@@ -15,7 +16,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
     /// Provides command metadata by analyzing a type using reflection.
     /// This is the fallback when generated metadata is not available.
     /// </summary>
+#if NET6_0_OR_GREATER
     [RequiresUnreferencedCode("Uses reflection to analyze the model type")]
+#endif
     internal sealed class ReflectionMetadataProvider : ICommandMetadataProvider
     {
         private const BindingFlags MethodLookup = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
@@ -442,7 +445,7 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
             {
                 Func<object, string?>? versionGetter = null;
 
-                if (!string.IsNullOrEmpty(fromMemberAttr.MemberName))
+                if (!fromMemberAttr.MemberName.IsNullOrEmpty())
                 {
                     var members = ReflectionHelper.GetPropertyOrMethod(_modelType, fromMemberAttr.MemberName);
                     if (members.Length > 0)
