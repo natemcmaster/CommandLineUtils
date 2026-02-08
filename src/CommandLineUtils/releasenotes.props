@@ -26,6 +26,9 @@ Other:
 * @natemcmaster: Use NuGet trusted publishing with OIDC
 * @dependabot: Update GitHub Actions (#568)
 * @natemcmaster: Upgrade docfx to 2.78.4
+
+Updates in 5.0.1 patch:
+* @sensslen: Restore target framework compilation for .NET Framework (#591)
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('4.1.'))">
 Changes since 4.0:

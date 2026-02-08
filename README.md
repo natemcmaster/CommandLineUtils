@@ -138,3 +138,15 @@ If you need help with this project, please ...
 
 This is a fork of [Microsoft.Extensions.CommandLineUtils](https://github.com/aspnet/Common), which was [completely abandoned by Microsoft](https://github.com/aspnet/Common/issues/257). This project [forked in 2017](https://github.com/natemcmaster/CommandLineUtils/commit/f039360e4e51bbf8b8eb6236894b626ec7944cec) and continued to make improvements. From 2017 to 2021, over 30 contributors added new features and fixed bugs. As of 2022, the project has entered maintenance mode, so no major changes are planned. [See this issue for details on latest project status.](https://github.com/natemcmaster/CommandLineUtils/issues/485) This project is not abandoned -- I believe this library provides a stable API and rich feature set good enough for most developers to create command line apps in .NET -- but only the most critical of bugs will be fixed (such as security issues).
 
+## Supported .NET Versions
+
+Framework      | Version | Reason
+---------------|---------|--------------------
+`dotnet`       | 8.0     | Lowest Microsoft LTS version at time of release. See <https://endoflife.date/dotnet>
+.NET Framework | 4.7.2   | Lowest .NET Framework version fully compatible with [.NET Standard 2.0][netstandard-guidance]
+
+_Why not directly compile for .NET Standard?_
+
+Microsoft guidance says ".NET 5 and later versions adopt a different approach to establishing uniformity that eliminates the need for .NET Standard in most scenarios." Compiling for 2 frameworks appears to be sufficient, so we avoid added complexity.
+
+[netstandard-guidance]: https://learn.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-0

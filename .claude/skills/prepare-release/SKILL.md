@@ -23,16 +23,20 @@ Run git commands to analyze commits since last release:
 - `git log --grep` for PR merges
 - Look for conventional commit patterns: `fix:`, `feat:`, `break:`, `docs:`, etc.
 
-### 3. Categorize Changes
+### 3. Filter and Categorize Changes
 
-Group into categories (in this order):
+**Exclude from release notes:**
+- Dependabot / automated dependency bump commits (e.g., `chore(deps): Bump ...`). These are routine maintenance and not user-facing.
+- CI/tooling-only changes (e.g., updating GitHub Actions workflows, claude workflows) unless they affect the shipped package.
+
+Group remaining changes into categories (in this order):
 
 1. **Breaking changes** (major versions only) - API removals, behavior changes
 2. **Features** - New functionality or APIs
 3. **Fixes** - Bug fixes and corrections
 4. **Improvements** - Performance or usability enhancements
 5. **Docs** - Documentation-only changes
-6. **Other** - Infrastructure, tooling, CI/CD
+6. **Other** - Infrastructure, tooling, CI/CD (only if user-facing or noteworthy)
 
 ### 4. Generate releasenotes.props Entry
 
@@ -57,12 +61,28 @@ Fixes:
 ```
 
 **Patch versions:**
-```xml
-<PackageReleaseNotes Condition="'$(VersionPrefix)' == 'X.Y.Z'">
-$(PackageReleaseNotes)
 
-X.Y.Z patch:
+Append the patch notes directly at the end of the existing parent version's `StartsWith('X.Y.')` block. Do NOT create a separate conditional block. Add the patch section just before the closing `</PackageReleaseNotes>` tag of the parent version:
+
+```xml
+<PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('X.Y.'))">
+...existing X.Y.0 release notes...
+
+Updates in X.Y.Z patch:
 * @user: fix description (#123)
+</PackageReleaseNotes>
+```
+
+For multiple patches, append each one in order at the end of the same block:
+
+```xml
+...existing X.Y.0 release notes...
+
+Updates in X.Y.1 patch:
+* @user: fix description (#123)
+
+Updates in X.Y.2 patch:
+* @user: another fix (#456)
 </PackageReleaseNotes>
 ```
 
@@ -196,10 +216,7 @@ See https://natemcmaster.github.io/CommandLineUtils/vX.0/upgrade-guide.html
 
 ### Patch Versions
 
-Use `$(PackageReleaseNotes)` to inherit parent version's notes.
-
-For first patch (X.Y.1), create new conditional entry after parent.
-For subsequent patches, add BEFORE existing patches but AFTER minor version.
+Append patch notes directly into the existing parent version's `StartsWith('X.Y.')` block in `releasenotes.props`. Do NOT create a separate conditional block or use `$(PackageReleaseNotes)` inheritance. Each patch gets an "Updates in X.Y.Z patch:" section appended at the end of the parent block.
 
 ## Quality Checklist
 

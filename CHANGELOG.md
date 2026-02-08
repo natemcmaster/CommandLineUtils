@@ -1,5 +1,12 @@
 # Changelog
 
+## [v5.0.1](https://github.com/natemcmaster/CommandLineUtils/compare/v5.0.0...v5.0.1)
+
+### Features
+* [@sensslen]: Restore target framework compilation for .NET Framework ([#591])
+
+[#591]: https://github.com/natemcmaster/CommandLineUtils/pull/591
+
 ## [v5.0.0](https://github.com/natemcmaster/CommandLineUtils/compare/v4.1.1...v5.0.0)
 
 ### Breaking changes
