@@ -55,9 +55,6 @@
     <InformationalVersion Condition="'$(RepositoryCommit)' != ''">$(PackageVersion)+$(RepositoryCommit)</InformationalVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-  </ItemGroup>
-
   <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == '.NETFramework' ">
     <!-- Backfills features of .NET 8 for older versions of .NET -->
     <PackageReference Include="PolySharp" Version="1.15.0" PrivateAssets="All" />

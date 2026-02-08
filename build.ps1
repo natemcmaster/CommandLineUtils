@@ -27,7 +27,6 @@ if ($ci) {
     $formatArgs += '--check'
 }
 
-
 exec dotnet tool run dotnet-format -- -v detailed @formatArgs "$PSScriptRoot/CommandLineUtils.sln"
 exec dotnet tool run dotnet-format -- -v detailed @formatArgs "$PSScriptRoot/docs/samples/samples.sln"
 exec dotnet build --configuration $Configuration '-warnaserror:CS1591'
