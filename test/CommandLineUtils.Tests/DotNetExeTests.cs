@@ -22,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
     }
 }
-#elif NET472
+#elif NET472_OR_GREATER
 #else
 #error Update target frameworks
 #endif

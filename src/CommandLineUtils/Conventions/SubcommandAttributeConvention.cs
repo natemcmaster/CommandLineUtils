@@ -61,6 +61,9 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             ConventionContext context,
 #if NET6_0_OR_GREATER
             [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]
+#elif NET472_OR_GREATER
+#else
+#error Target framework misconfiguration
 #endif
             Type subcommandType,
             ICommandMetadataProvider provider,

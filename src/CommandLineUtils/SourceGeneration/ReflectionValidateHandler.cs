@@ -14,6 +14,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
     /// </summary>
 #if NET6_0_OR_GREATER
     [RequiresUnreferencedCode("Uses reflection to invoke method")]
+#elif NET472_OR_GREATER
+#else
+#error Target framework misconfiguration
 #endif
     internal sealed class ReflectionValidateHandler : IValidateHandler
     {

@@ -13,6 +13,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
     /// </summary>
 #if NET6_0_OR_GREATER
     [RequiresUnreferencedCode("Uses Activator.CreateInstance or DI with constructor injection")]
+#elif NET472_OR_GREATER
+#else
+#error Target framework misconfiguration
 #endif
     internal sealed class ActivatorModelFactory : IModelFactory
     {

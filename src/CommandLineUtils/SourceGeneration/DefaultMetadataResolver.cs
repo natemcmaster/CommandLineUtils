@@ -32,6 +32,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
         /// </remarks>
 #if NET6_0_OR_GREATER
         [RequiresUnreferencedCode("Falls back to reflection when no generated metadata is available. Use the source generator for AOT compatibility.")]
+#elif NET472_OR_GREATER
+#else
+#error Target framework misconfiguration
 #endif
         public ICommandMetadataProvider GetProvider(Type modelType)
         {
@@ -54,6 +57,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
         /// </remarks>
 #if NET6_0_OR_GREATER
         [RequiresUnreferencedCode("Falls back to reflection when no generated metadata is available. Use the source generator for AOT compatibility.")]
+#elif NET472_OR_GREATER
+#else
+#error Target framework misconfiguration
 #endif
         public ICommandMetadataProvider<TModel> GetProvider<TModel>() where TModel : class
         {
@@ -84,6 +90,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
 
 #if NET6_0_OR_GREATER
         [RequiresUnreferencedCode("Uses reflection to analyze the model type")]
+#elif NET472_OR_GREATER
+#else
+#error Target framework misconfiguration
 #endif
         private static ICommandMetadataProvider CreateReflectionProvider(Type modelType)
         {
