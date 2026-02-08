@@ -31,6 +31,8 @@
     <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <Nullable>enable</Nullable>
+    <!-- .NET Framework does not support nullable checks as well as .NET 8+ -->
+    <Nullable Condition="'$(TargetFramework)' == 'net472'">annotations</Nullable>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)src\StrongName.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
 
@@ -52,6 +54,11 @@
     <PackageVersion Condition="'$(IncludePreReleaseLabelInPackageVersion)' == 'true'">$(PackageVersion)-$(VersionSuffix)</PackageVersion>
     <InformationalVersion Condition="'$(RepositoryCommit)' != ''">$(PackageVersion)+$(RepositoryCommit)</InformationalVersion>
   </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == '.NETFramework' ">
+    <!-- Backfills features of .NET 8 for older versions of .NET -->
+    <PackageReference Include="PolySharp" Version="1.15.0" PrivateAssets="All" />
+  </ItemGroup>
 
   <Import Project="$(MSBuildProjectDirectory)/releasenotes.props"
           Condition="Exists('$(MSBuildProjectDirectory)/releasenotes.props')" />
