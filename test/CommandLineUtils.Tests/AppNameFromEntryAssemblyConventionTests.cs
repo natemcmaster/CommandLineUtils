@@ -16,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 return;
             }
 
-            var expected = Assembly.GetEntryAssembly()?.GetName().Name;
+            var expected = Assembly.GetEntryAssembly().GetName().Name;
             var app = new CommandLineApplication();
             app.Conventions.SetAppNameFromEntryAssembly();
             Assert.Equal(expected, app.Name);

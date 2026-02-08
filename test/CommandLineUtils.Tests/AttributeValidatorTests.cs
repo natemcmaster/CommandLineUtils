@@ -39,7 +39,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(typeof(PhoneAttribute), "(800) 555-5555", "xyz")]
         public void ItExecutesValidationAttribute(Type attributeType, string validValue, string invalidValue)
         {
-            var attr = Assert.IsAssignableFrom<ValidationAttribute>(Activator.CreateInstance(attributeType));
+            var attr = (ValidationAttribute)Activator.CreateInstance(attributeType);
             var app = new CommandLineApplication();
             var arg = app.Argument("arg", "arg");
             var validator = new AttributeValidator(attr);
@@ -53,7 +53,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             arg.Reset();
             arg.TryParse(invalidValue);
             var result = validator.GetValidationResult(arg, context);
-            Assert.NotNull(result?.ErrorMessage);
+            Assert.NotNull(result);
             Assert.NotEmpty(result.ErrorMessage);
         }
 
@@ -61,7 +61,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(typeof(ClassLevelValidationAttribute), "good", "also good", "bad", "also bad")]
         public void ItExecutesClassLevelValidationAttribute(Type attributeType, string validProp1Value, string validProp2Value, string invalidProp1Value, string invalidProp2Value)
         {
-            var attr = Assert.IsAssignableFrom<ValidationAttribute>(Activator.CreateInstance(attributeType));
+            var attr = (ValidationAttribute)Activator.CreateInstance(attributeType);
             var app = new CommandLineApplication<ClassLevelValidationApp>();
             var validator = new AttributeValidator(attr);
             var factory = new CommandLineValidationContextFactory(app);
@@ -76,7 +76,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Model.Arg2 = invalidProp2Value;
 
             var result = validator.GetValidationResult(app, context);
-            Assert.NotNull(result?.ErrorMessage);
+            Assert.NotNull(result);
             Assert.NotEmpty(result.ErrorMessage);
         }
 
@@ -96,7 +96,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("email@example.com", 0)]
         public void ValidatesEmailArgument(string? email, int exitCode)
         {
-            Assert.Equal(exitCode, CommandLineApplication.Execute<EmailArgumentApp>(new TestConsole(_output), email!));
+            Assert.Equal(exitCode, CommandLineApplication.Execute<EmailArgumentApp>(new TestConsole(_output), email));
         }
 
         private class OptionBuilderApp : CommandLineApplication
@@ -165,7 +165,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
         private sealed class ThrowingValidationAttribute : ValidationAttribute
         {
-            public override bool IsValid(object? value)
+            public override bool IsValid(object value)
             {
                 throw new InvalidOperationException();
             }
@@ -182,7 +182,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [AttributeUsage(AttributeTargets.Class)]
         private sealed class ClassLevelValidationAttribute : ValidationAttribute
         {
-            public override bool IsValid(object? value)
+            public override bool IsValid(object value)
                 => value is ClassLevelValidationApp app
                     && app.Arg1 != null && app.Arg1.Contains("good")
                     && app.Arg2 != null && app.Arg2.Contains("good");
@@ -191,7 +191,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [AttributeUsage(AttributeTargets.Property)]
         private sealed class ModeValidationAttribute : ValidationAttribute
         {
-            public override bool IsValid(object? value)
+            public override bool IsValid(object value)
             {
                 return value is string text && text.Contains("mode");
             }

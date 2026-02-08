@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Reflection;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -89,7 +88,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var ex = Assert.Throws<InvalidOperationException>(() =>
                 new CommandLineApplication<DuplicateOptionAttributes>().Conventions.UseVersionOptionAttribute());
-            var prop = Assert.IsAssignableFrom<PropertyInfo>(typeof(DuplicateOptionAttributes).GetProperty(nameof(DuplicateOptionAttributes.IsVersionOption)));
+            var prop = typeof(DuplicateOptionAttributes).GetProperty(nameof(DuplicateOptionAttributes.IsVersionOption));
             Assert.Equal(Strings.BothOptionAndVersionOptionAttributesCannotBeSpecified(prop), ex.Message);
         }
 
@@ -105,7 +104,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var ex = Assert.Throws<InvalidOperationException>(() =>
                 new CommandLineApplication<DuplicateOptionAttributes2>().Conventions.UseVersionOptionAttribute());
-            var prop = Assert.IsAssignableFrom<PropertyInfo>(typeof(DuplicateOptionAttributes2).GetProperty(nameof(DuplicateOptionAttributes.IsVersionOption)));
+            var prop = typeof(DuplicateOptionAttributes2).GetProperty(nameof(DuplicateOptionAttributes
+                .IsVersionOption));
             Assert.Equal(Strings.BothHelpOptionAndVersionOptionAttributesCannotBeSpecified(prop), ex.Message);
         }
 

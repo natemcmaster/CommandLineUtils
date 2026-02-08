@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using System.Reflection;
 using System.Text;
 using Xunit;
 using Xunit.Abstractions;
@@ -91,7 +90,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var ex = Assert.Throws<InvalidOperationException>(() =>
                 new CommandLineApplication<DuplicateOptionAttributes>().Conventions.UseHelpOptionAttribute());
-            var prop = Assert.IsAssignableFrom<PropertyInfo>(typeof(DuplicateOptionAttributes).GetProperty(nameof(DuplicateOptionAttributes.IsHelpOption)));
+            var prop = typeof(DuplicateOptionAttributes).GetProperty(nameof(DuplicateOptionAttributes.IsHelpOption));
             Assert.Equal(Strings.BothOptionAndHelpOptionAttributesCannotBeSpecified(prop), ex.Message);
         }
 

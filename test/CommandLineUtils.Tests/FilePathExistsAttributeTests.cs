@@ -45,7 +45,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 .GetValidationResult();
 
             Assert.NotEqual(ValidationResult.Success, result);
-            Assert.Equal($"The file path '{filePath}' does not exist.", result?.ErrorMessage);
+            Assert.Equal($"The file path '{filePath}' does not exist.", result.ErrorMessage);
 
             var console = new TestConsole(_output);
             Assert.NotEqual(0, CommandLineApplication.Execute<App>(console, filePath!));
@@ -95,7 +95,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(ValidationResult.Success, success);
 
             Assert.NotEqual(ValidationResult.Success, fails);
-            Assert.Equal("The file path 'exists.txt' does not exist.", fails?.ErrorMessage);
+            Assert.Equal("The file path 'exists.txt' does not exist.", fails.ErrorMessage);
 
             var console = new TestConsole(_output);
             var context = new DefaultCommandLineContext(console, appNotInBaseDir.WorkingDirectory, new[] { "exists.txt" });

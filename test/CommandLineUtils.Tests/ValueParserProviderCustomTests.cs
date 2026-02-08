@@ -144,7 +144,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.Conventions.UseAttributes();
             app.Parse(test);
 
-            var actual = Assert.IsAssignableFrom<DateTimeOffset>(typeof(DateParserProgram).GetProperty(property)?.GetMethod?.Invoke(app.Model, null));
+            var actual = (DateTimeOffset)typeof(DateParserProgram).GetProperty(property).GetMethod.Invoke(app.Model, null);
             Assert.Equal(expected, actual);
         }
 

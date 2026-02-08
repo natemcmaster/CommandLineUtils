@@ -51,7 +51,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 .GetValidationResult();
 
             Assert.NotEqual(ValidationResult.Success, result);
-            Assert.Equal($"The file path '{filePath}' already exists.", result?.ErrorMessage);
+            Assert.Equal($"The file path '{filePath}' already exists.", result.ErrorMessage);
 
             var console = new TestConsole(_output);
             Assert.NotEqual(0, CommandLineApplication.Execute<App>(console, filePath));
@@ -90,7 +90,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
                 .GetValidationResult();
 
             Assert.NotEqual(ValidationResult.Success, fails);
-            Assert.Equal("The file path 'exists.txt' already exists.", fails?.ErrorMessage);
+            Assert.Equal("The file path 'exists.txt' already exists.", fails.ErrorMessage);
 
             Assert.Equal(ValidationResult.Success, success);
 

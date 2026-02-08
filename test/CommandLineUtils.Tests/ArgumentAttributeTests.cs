@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Reflection;
+using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -43,8 +43,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Equal(
                 Strings.DuplicateArgumentPosition(
                     0,
-                    Assert.IsAssignableFrom<PropertyInfo>(typeof(DuplicateArguments).GetProperty("AlsoFirst")),
-                    Assert.IsAssignableFrom<PropertyInfo>(typeof(DuplicateArguments).GetProperty("First"))),
+                    typeof(DuplicateArguments).GetProperty("AlsoFirst"),
+                    typeof(DuplicateArguments).GetProperty("First")),
                 ex.Message);
         }
 

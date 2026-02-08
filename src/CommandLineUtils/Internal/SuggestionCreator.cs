@@ -3,7 +3,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using McMaster.Extensions.CommandLineUtils.Extensions;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
@@ -46,17 +45,17 @@ namespace McMaster.Extensions.CommandLineUtils
 
             foreach (var option in command.GetOptions().Where(o => o.ShowInHelpText))
             {
-                if (!option.LongName.IsNullOrEmpty())
+                if (!string.IsNullOrEmpty(option.LongName))
                 {
                     yield return option.LongName;
                 }
 
-                if (!option.ShortName.IsNullOrEmpty())
+                if (!string.IsNullOrEmpty(option.ShortName))
                 {
                     yield return option.ShortName;
                 }
 
-                if (!option.SymbolName.IsNullOrEmpty())
+                if (!string.IsNullOrEmpty(option.SymbolName))
                 {
                     yield return option.SymbolName;
                 }

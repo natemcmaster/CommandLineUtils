@@ -31,7 +31,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ex = Assert.Throws<InvalidOperationException>(
                 () => Create<AppWithUnknownOptionType>());
             Assert.Equal(
-                Strings.CannotDetermineOptionType(Assert.IsAssignableFrom<PropertyInfo>(typeof(AppWithUnknownOptionType).GetProperty("Option"))),
+                Strings.CannotDetermineOptionType(typeof(AppWithUnknownOptionType).GetProperty("Option")),
                 ex.Message);
         }
 
@@ -71,7 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void CanSetShortNameToEmptyString()
         {
             var app = Create<EmptyShortName>();
-            Assert.All(app.Options, o => Assert.Empty(o.ShortName ?? "test"));
+            Assert.All(app.Options, o => Assert.Empty(o.ShortName));
         }
 
         private class AmbiguousShortOptionName
@@ -91,8 +91,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Equal(
                 Strings.OptionNameIsAmbiguous("m",
-                    Assert.IsAssignableFrom<PropertyInfo>(typeof(AmbiguousShortOptionName).GetProperty("Mode")),
-                    Assert.IsAssignableFrom<PropertyInfo>(typeof(AmbiguousShortOptionName).GetProperty("Message"))),
+                    typeof(AmbiguousShortOptionName).GetProperty("Mode"),
+                    typeof(AmbiguousShortOptionName).GetProperty("Message")),
                 ex.Message);
         }
 
@@ -113,8 +113,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Equal(
                 Strings.OptionNameIsAmbiguous("no-edit",
-                    Assert.IsAssignableFrom<PropertyInfo>(typeof(AmbiguousLongOptionName).GetProperty("NoEdit")),
-                    Assert.IsAssignableFrom<PropertyInfo>(typeof(AmbiguousLongOptionName).GetProperty("ManuallySetToNoEdit"))),
+                    typeof(AmbiguousLongOptionName).GetProperty("NoEdit"),
+                    typeof(AmbiguousLongOptionName).GetProperty("ManuallySetToNoEdit")),
                 ex.Message);
         }
 
@@ -133,7 +133,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Equal(
                 Strings.BothOptionAndArgumentAttributesCannotBeSpecified(
-                    Assert.IsAssignableFrom<PropertyInfo>(typeof(BothOptionAndArgument).GetProperty("NotPossible"))),
+                    typeof(BothOptionAndArgument).GetProperty("NotPossible")),
                 ex.Message);
         }
 
@@ -203,7 +203,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class AppWithMultiValueStringOption
         {
             [Option("-o1")]
-            string[]? Opt1 { get; }
+            string[] Opt1 { get; }
 
             [Option("-o2")]
             string[] Opt2 { get; } = Array.Empty<string>();
@@ -341,12 +341,12 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var tb = mb.DefineType("Program");
             var pb = tb.DefineProperty(propName, PropertyAttributes.None, propType, Array.Empty<Type>());
             tb.DefineField($"<{propName}>k__BackingField", propType, FieldAttributes.Private);
-            var ctor = Assert.IsAssignableFrom<ConstructorInfo>(typeof(OptionAttribute).GetConstructor(Array.Empty<Type>()));
+            var ctor = typeof(OptionAttribute).GetConstructor(Array.Empty<Type>());
             var ab = new CustomAttributeBuilder(ctor, Array.Empty<object>());
             pb.SetCustomAttribute(ab);
             var program = tb.CreateType();
             var appBuilder = typeof(CommandLineApplication<>).MakeGenericType(program);
-            var app = Assert.IsAssignableFrom<CommandLineApplication>(Activator.CreateInstance(appBuilder, Array.Empty<object>()));
+            var app = (CommandLineApplication)Activator.CreateInstance(appBuilder, Array.Empty<object>());
             app.Conventions.UseOptionAttributes();
             return app.Options.First();
         }
@@ -465,7 +465,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Single(app.Options, o => o.LongName == "count");
 
             // Verify short names are empty
-            Assert.All(app.Options, o => Assert.Empty(o.ShortName ?? "test"));
+            Assert.All(app.Options, o => Assert.Empty(o.ShortName));
         }
 
         #endregion

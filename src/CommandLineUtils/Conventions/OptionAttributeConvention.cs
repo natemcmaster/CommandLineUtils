@@ -33,33 +33,33 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
                 var (template, shortName, longName) = GetOptionNames(optMeta);
 
                 // Check for same-class conflicts (options in the same provider with conflicting names)
-                if (!shortName.IsNullOrEmpty() && addedShortOptions.TryGetValue(shortName, out var existingShort))
+                if (!string.IsNullOrEmpty(shortName) && addedShortOptions.TryGetValue(shortName, out var existingShort))
                 {
                     throw new InvalidOperationException(
                         Strings.OptionNameIsAmbiguous(shortName, optMeta.PropertyName, optMeta.DeclaringType, existingShort.PropertyName, existingShort.DeclaringType));
                 }
-                if (!longName.IsNullOrEmpty() && addedLongOptions.TryGetValue(longName, out var existingLong))
+                if (!string.IsNullOrEmpty(longName) && addedLongOptions.TryGetValue(longName, out var existingLong))
                 {
                     throw new InvalidOperationException(
                         Strings.OptionNameIsAmbiguous(longName, optMeta.PropertyName, optMeta.DeclaringType, existingLong.PropertyName, existingLong.DeclaringType));
                 }
 
                 // Check if option already exists from parent command (inherited options)
-                if (!shortName.IsNullOrEmpty() && context.Application._shortOptions.ContainsKey(shortName))
+                if (!string.IsNullOrEmpty(shortName) && context.Application._shortOptions.ContainsKey(shortName))
                 {
                     continue; // Skip - option already registered by parent
                 }
-                if (!longName.IsNullOrEmpty() && context.Application._longOptions.ContainsKey(longName))
+                if (!string.IsNullOrEmpty(longName) && context.Application._longOptions.ContainsKey(longName))
                 {
                     continue; // Skip - option already registered by parent
                 }
 
                 // Track this option
-                if (!shortName.IsNullOrEmpty())
+                if (!string.IsNullOrEmpty(shortName))
                 {
                     addedShortOptions[shortName] = optMeta;
                 }
-                if (!longName.IsNullOrEmpty())
+                if (!string.IsNullOrEmpty(longName))
                 {
                     addedLongOptions[longName] = optMeta;
                 }
@@ -75,18 +75,18 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             string? shortName = meta.ShortName;
             string? longName = meta.LongName;
 
-            if (template.IsNullOrEmpty())
+            if (string.IsNullOrEmpty(template))
             {
                 // Build template from ShortName/LongName
-                if (!shortName.IsNullOrEmpty() && !longName.IsNullOrEmpty())
+                if (!string.IsNullOrEmpty(shortName) && !string.IsNullOrEmpty(longName))
                 {
                     template = $"-{shortName}|--{longName}";
                 }
-                else if (!longName.IsNullOrEmpty())
+                else if (!string.IsNullOrEmpty(longName))
                 {
                     template = $"--{longName}";
                 }
-                else if (!shortName.IsNullOrEmpty())
+                else if (!string.IsNullOrEmpty(shortName))
                 {
                     template = $"-{shortName}";
                 }
@@ -100,17 +100,17 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             else
             {
                 // Parse short/long names from template if not already set
-                if (shortName.IsNullOrEmpty() || longName.IsNullOrEmpty())
+                if (string.IsNullOrEmpty(shortName) || string.IsNullOrEmpty(longName))
                 {
                     var parts = template.Split('|');
                     foreach (var part in parts)
                     {
                         var trimmed = part.Trim();
-                        if (trimmed.StartsWith("--") && longName.IsNullOrEmpty())
+                        if (trimmed.StartsWith("--") && string.IsNullOrEmpty(longName))
                         {
                             longName = trimmed.Substring(2).Split(' ', '<', ':', '=')[0];
                         }
-                        else if (trimmed.StartsWith("-") && shortName.IsNullOrEmpty())
+                        else if (trimmed.StartsWith("-") && string.IsNullOrEmpty(shortName))
                         {
                             shortName = trimmed.Substring(1).Split(' ', '<', ':', '=')[0];
                         }
@@ -176,12 +176,12 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
 
             // Register names for duplicate checking
-            if (!option.ShortName.IsNullOrEmpty())
+            if (!string.IsNullOrEmpty(option.ShortName))
             {
                 context.Application._shortOptions.TryAdd(option.ShortName, null!);
             }
 
-            if (!option.LongName.IsNullOrEmpty())
+            if (!string.IsNullOrEmpty(option.LongName))
             {
                 context.Application._longOptions.TryAdd(option.LongName, null!);
             }
