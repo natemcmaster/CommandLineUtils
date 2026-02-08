@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using Xunit;
 
 namespace McMaster.Extensions.CommandLineUtils.Tests
@@ -35,7 +34,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<RedBlueProgram>();
             app.Conventions.UseAttributes();
-            var result = app.Parse(args.Select(a => a!).ToArray());
+            var result = app.Parse(args);
             var validationResult = result.SelectedCommand.GetValidationResult();
             Assert.NotEqual(ValidationResult.Success, validationResult);
             var program = Assert.IsType<CommandLineApplication<RedBlueProgram>>(result.SelectedCommand);

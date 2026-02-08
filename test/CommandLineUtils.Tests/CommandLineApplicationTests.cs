@@ -492,7 +492,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             // (does not throw)
             app.Execute("k", "run", unexpectedOption);
             Assert.Empty(testCmd.RemainingArguments);
-            var arg = Assert.Single(subCmd?.RemainingArguments ?? []);
+            var arg = Assert.Single(subCmd?.RemainingArguments);
             Assert.Equal(unexpectedOption, arg);
         }
 
@@ -697,9 +697,9 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.Contains(subcmd1.GetOptions(), o => o.LongName == "nest1");
             Assert.Contains(subcmd1.GetOptions(), o => o.LongName == "global");
 
-            Assert.Contains(subcmd2?.GetOptions() ?? [], o => o.LongName == "nest2");
-            Assert.Contains(subcmd2?.GetOptions() ?? [], o => o.LongName == "nest1");
-            Assert.Contains(subcmd2?.GetOptions() ?? [], o => o.LongName == "global");
+            Assert.Contains(subcmd2?.GetOptions(), o => o.LongName == "nest2");
+            Assert.Contains(subcmd2?.GetOptions(), o => o.LongName == "nest1");
+            Assert.Contains(subcmd2?.GetOptions(), o => o.LongName == "global");
 
             Assert.ThrowsAny<CommandParsingException>(() => app.Execute("--nest2", "N2", "--nest1", "N1", "-g", "G"));
             Assert.ThrowsAny<CommandParsingException>(() => app.Execute("lvl1", "--nest2", "N2", "--nest1", "N1", "-g", "G"));
