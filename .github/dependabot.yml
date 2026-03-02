@@ -2,7 +2,7 @@ version: 2
 updates:
   # NuGet packages - patch updates only for LTS stability
   - package-ecosystem: "nuget"
-    directory: "/"
+    directory: "/src"
     schedule:
       interval: "monthly"
     ignore:
