@@ -424,7 +424,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention",
-      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.yml\" sourcestartlinenumber=\"1\">Sets the command name based on the model type, if is not otherwise set.</p>\n<p>\nThis attempts to infer a command name using a few rules, such as using kebab-case\nand trimming \"Command\" from the name of the type.\n<example>AddCommand =&gt; \"add\"</example>\n<example>RemoveItemCommand =&gt; \"remove-item\"</example>\n</p>\n"
+      "Summary": "<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.yml\" sourcestartlinenumber=\"1\">Sets the command name based on the model type, if is not otherwise set.</p>\n<p>\nThis attempts to infer a command name using a few rules, such as using kebab-case\nand trimming \"Command\" from the name of the type.\n<p sourcefile=\"api/McMaster.Extensions.CommandLineUtils.Conventions.CommandNameFromTypeConvention.yml\" sourcestartlinenumber=\"7\"><example>AddCommand =&gt; &quot;add&quot;</example>\n<example>RemoveItemCommand =&gt; &quot;remove-item&quot;</example></p>\n\n"
     },
     {
       "type": "ManagedReference",
