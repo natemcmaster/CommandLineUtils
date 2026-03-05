@@ -44,7 +44,7 @@ jobs:
       - name: Run build script
         id: build_script
         run: ./build.ps1 -ci
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: ${{ matrix.os == 'windows-latest' }}
         with:
           name: packages
@@ -67,7 +67,7 @@ jobs:
       PACKAGE_VERSION: ${{ needs.build.outputs.package_version }}
     steps:
       - run: echo "Releasing ${{ env.PACKAGE_VERSION }}"
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
           name: packages
           path: packages
