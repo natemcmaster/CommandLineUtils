@@ -186,6 +186,45 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         Assert.Equal(42, result);
     }
 
+    private class ProgramWithExecuteAndKeyedArgumentNoKeyedProvider
+    {
+        private int OnExecute([FromKeyedServices("Key1")] MyClass myClass)
+        {
+            return 0;
+        }
+    }
+
+    [Fact]
+    public void OnExecute_when_AdditionalServices_does_not_support_keyed_services_throws()
+    {
+        var mock = new Mock<IServiceProvider>();
+        var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentNoKeyedProvider>();
+        app.AdditionalServices = mock.Object;
+        app.Conventions.UseOnExecuteMethodFromModel();
+
+        var ex = Assert.Throws<InvalidOperationException>(() => app.Execute());
+        Assert.Contains("does not implement IKeyedServiceProvider", ex.Message);
+    }
+
+    private class ProgramWithExecuteAndKeyedArgumentMissing
+    {
+        private int OnExecute([FromKeyedServices("NonExistentKey")] MyClass myClass)
+        {
+            return 0;
+        }
+    }
+
+    [Fact]
+    public void OnExecute_when_keyed_service_not_registered_throws()
+    {
+        var serviceCollection = new ServiceCollection();
+        var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentMissing>();
+        app.AdditionalServices = serviceCollection.BuildServiceProvider();
+        app.Conventions.UseOnExecuteMethodFromModel();
+
+        var ex = Assert.Throws<InvalidOperationException>(() => app.Execute());
+        Assert.Contains("No keyed service found", ex.Message);
+    }
 
 }
 }
