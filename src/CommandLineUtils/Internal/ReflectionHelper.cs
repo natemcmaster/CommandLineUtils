@@ -9,13 +9,42 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace McMaster.Extensions.CommandLineUtils
 {
     internal static class ReflectionHelper
     {
         private const BindingFlags DeclaredOnlyLookup = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
+
+        // Cached reflection handles for keyed DI support (available in .NET 8+ when
+        // Microsoft.Extensions.DependencyInjection.Abstractions is present at runtime).
+        // By resolving these via reflection the core library avoids a hard dependency on
+        // the DI abstractions package.
+        private static readonly Type? s_fromKeyedServicesAttributeType;
+        private static readonly PropertyInfo? s_keyProperty;
+        private static readonly Type? s_keyedServiceProviderType;
+        private static readonly MethodInfo? s_getKeyedServiceMethod;
+
+        static ReflectionHelper()
+        {
+            s_fromKeyedServicesAttributeType = Type.GetType(
+                "Microsoft.Extensions.DependencyInjection.FromKeyedServicesAttribute, Microsoft.Extensions.DependencyInjection.Abstractions");
+
+            if (s_fromKeyedServicesAttributeType != null)
+            {
+                s_keyProperty = s_fromKeyedServicesAttributeType.GetProperty("Key");
+            }
+
+            s_keyedServiceProviderType = Type.GetType(
+                "Microsoft.Extensions.DependencyInjection.IKeyedServiceProvider, Microsoft.Extensions.DependencyInjection.Abstractions");
+
+            if (s_keyedServiceProviderType != null)
+            {
+                s_getKeyedServiceMethod = s_keyedServiceProviderType.GetMethod(
+                    "GetKeyedService",
+                    new[] { typeof(Type), typeof(object) });
+            }
+        }
 
         public static SetPropertyDelegate GetPropertySetter(PropertyInfo prop)
         {
@@ -123,15 +152,9 @@ namespace McMaster.Extensions.CommandLineUtils
                 }
                 else
                 {
-                    // Check for FromKeyedServicesAttribute
-                    var keyedAttr = methodParam.GetCustomAttribute<FromKeyedServicesAttribute>();
-                    if (keyedAttr != null)
+                    if (TryResolveKeyedService(methodParam, command, out var keyedService))
                     {
-
-                        var keyedServiceProvider = (IKeyedServiceProvider)command.AdditionalServices!;
-
-                        arguments[i] = keyedServiceProvider.GetKeyedService(methodParam.ParameterType, keyedAttr.Key)
-                                       ?? throw new InvalidOperationException($"No keyed service found for type {methodParam.ParameterType} and key '{keyedAttr.Key}'.");
+                        arguments[i] = keyedService;
                     }
                     else
                     {
@@ -188,6 +211,57 @@ namespace McMaster.Extensions.CommandLineUtils
 
             wrappedType = null;
             return false;
+        }
+
+        private static bool TryResolveKeyedService(
+            ParameterInfo parameter,
+            CommandLineApplication command,
+            out object? service)
+        {
+            service = null;
+
+            // If keyed services types aren't available at runtime, skip
+            if (s_fromKeyedServicesAttributeType == null ||
+                s_keyProperty == null ||
+                s_keyedServiceProviderType == null ||
+                s_getKeyedServiceMethod == null)
+            {
+                return false;
+            }
+
+            // Check if parameter has [FromKeyedServices] attribute
+            var keyedAttr = parameter.GetCustomAttribute(s_fromKeyedServicesAttributeType);
+            if (keyedAttr == null)
+            {
+                return false;
+            }
+
+            // Get the key from the attribute
+            var key = s_keyProperty.GetValue(keyedAttr);
+
+            // Check if the service provider supports keyed services
+            if (command.AdditionalServices == null ||
+                !s_keyedServiceProviderType.IsInstanceOfType(command.AdditionalServices))
+            {
+                throw new InvalidOperationException(
+                    $"Parameter '{parameter.Name}' has [FromKeyedServices] attribute, " +
+                    "but AdditionalServices does not implement IKeyedServiceProvider. " +
+                    "Ensure you're using a DI container that supports keyed services (.NET 8+).");
+            }
+
+            // Invoke GetKeyedService via reflection
+            service = s_getKeyedServiceMethod.Invoke(
+                command.AdditionalServices,
+                new[] { parameter.ParameterType, key });
+
+            if (service == null)
+            {
+                throw new InvalidOperationException(
+                    $"No keyed service found for type '{parameter.ParameterType}' " +
+                    $"with key '{key}'.");
+            }
+
+            return true;
         }
 
         private static IEnumerable<MemberInfo> GetAllMembers(Type type)
