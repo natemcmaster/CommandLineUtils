@@ -103,5 +103,86 @@ return app.Execute(args);
 Uses xUnit with FluentAssertions and Moq. Convention tests inherit from `ConventionTestBase` and use `Create<T>()` factory method.
 
 ```bash
+# Quick test run (may not catch all issues)
 dotnet test --collect:"XPlat Code Coverage"
+
+# Full validation (REQUIRED before committing)
+pwsh -File build.ps1
 ```
+
+**IMPORTANT:** Always run the full `build.ps1` script before committing changes. `dotnet test` alone may pass while the full build fails due to:
+- Sample project compilation issues
+- Source generator output problems
+- Integration test failures
+- Code coverage requirements
+
+The build script runs the complete validation pipeline including tests, samples, and packaging.
+
+## Development Workflow
+
+**Test-Driven Development:** When implementing new features or fixing bugs, prefer writing tests first:
+
+1. Write a failing test that demonstrates the desired behavior or reproduces the bug
+2. Run the test to confirm it fails as expected
+3. Implement the minimum code needed to make the test pass
+4. Run the **full build script** (`pwsh -File build.ps1`) to verify the fix
+5. Refactor if needed while keeping tests green
+
+This approach ensures code correctness, prevents regressions, and validates that tests actually catch the issues they're meant to detect. The test suite already has good coverage and patterns to follow.
+
+## Commit Guidelines
+
+**IMPORTANT:** Use Conventional Commit format for all commit messages. This ensures consistency and enables automated changelog generation.
+
+**Format:** `<type>[optional scope]: <description>`
+
+**Common types:**
+- `feat:` New feature or enhancement
+- `fix:` Bug fix
+- `docs:` Documentation changes only
+- `test:` Adding or updating tests
+- `refactor:` Code changes that neither fix bugs nor add features
+- `perf:` Performance improvements
+- `chore:` Build scripts, dependencies, tooling
+
+**Examples:**
+```
+feat: add support for nested subcommands
+fix: resolve null reference in argument parser
+docs: update getting started guide
+test: add coverage for validation attributes
+refactor: simplify help text generation logic
+```
+
+**Multi-line commits:** For complex changes, use a blank line followed by a detailed body:
+```
+fix: resolve race condition in async command execution
+
+The ExecuteAsync method was not properly awaiting disposal of
+resources, leading to intermittent failures in concurrent scenarios.
+Added proper async/await pattern and additional test coverage.
+```
+
+**Skipping CI:** For commits that don't require CI validation (documentation, README updates, comment changes), add `[ci skip]` on its own line in the commit body. **IMPORTANT:** Never include `[ci skip]` in the first line of the commit message.
+
+```
+docs: update installation instructions
+
+[ci skip]
+```
+
+```
+docs: fix typo in API documentation
+
+[ci skip]
+```
+
+This prevents unnecessary CI builds and saves resources for changes that don't affect code functionality.
+
+## Release Management
+
+Release notes are managed in two places:
+1. **`src/CommandLineUtils/releasenotes.props`** - XML format for NuGet's `<PackageReleaseNotes>`
+2. **`CHANGELOG.md`** - Markdown format for GitHub
+
+The `/prepare-release` skill automates release note generation by analyzing git history and formatting changes appropriately.

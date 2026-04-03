@@ -49,7 +49,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void FailsInvalidLegalFilePaths(string? filePath)
         {
             var console = new TestConsole(_output);
-            Assert.NotEqual(0, CommandLineApplication.Execute<App>(console, filePath));
+            Assert.NotEqual(0, CommandLineApplication.Execute<App>(console, filePath!));
         }
     }
 }

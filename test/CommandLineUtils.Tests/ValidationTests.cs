@@ -50,7 +50,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             app.OnValidate(_ =>
             {
                 called = true;
-                return ValidationResult.Success;
+                return ValidationResult.Success!;
             });
             Assert.Equal(0, app.Execute());
             Assert.True(called);

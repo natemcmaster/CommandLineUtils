@@ -12,7 +12,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData(null)]
         [InlineData("-c", "red")]
         [InlineData("-c", "blue")]
-        public void CustomValidationAttributePasses(params string?[] args)
+        public void CustomValidationAttributePasses(params string[]? args)
         {
             var app = new CommandLineApplication<RedBlueProgram>();
             app.Conventions.UseDefaultConventions();
@@ -34,7 +34,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var app = new CommandLineApplication<RedBlueProgram>();
             app.Conventions.UseAttributes();
-            var result = app.Parse(args);
+            var result = app.Parse(args!);
             var validationResult = result.SelectedCommand.GetValidationResult();
             Assert.NotEqual(ValidationResult.Success, validationResult);
             var program = Assert.IsType<CommandLineApplication<RedBlueProgram>>(result.SelectedCommand);
@@ -43,7 +43,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             {
                 Assert.Equal(args[1], app.Model.Color);
             }
-            Assert.Equal("The value for --color must be 'red' or 'blue'", validationResult.ErrorMessage);
+            Assert.Equal("The value for --color must be 'red' or 'blue'", validationResult?.ErrorMessage);
         }
 
         private class RedBlueProgram

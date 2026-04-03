@@ -14,7 +14,10 @@ namespace McMaster.Extensions.CommandLineUtils
 {
     internal static class ReflectionHelper
     {
-        private const BindingFlags DeclaredOnlyLookup = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
+        private const BindingFlags InheritedLookup = BindingFlags.Public | BindingFlags.NonPublic |
+                                                     BindingFlags.Instance | BindingFlags.Static;
+
+        private const BindingFlags DeclaredOnlyLookup = InheritedLookup | BindingFlags.DeclaredOnly;
 
         // Cached reflection handles for keyed DI support (available in .NET 8+ when
         // Microsoft.Extensions.DependencyInjection.Abstractions is present at runtime).
@@ -264,19 +267,79 @@ namespace McMaster.Extensions.CommandLineUtils
             return true;
         }
 
+        private class MethodMetadataEquality : IEqualityComparer<MethodInfo>
+        {
+            public bool Equals(MethodInfo? x, MethodInfo? y)
+            {
+                if (x == null && y == null)
+                {
+                    return true;
+                }
+
+                if (x == null || y == null)
+                {
+                    return false;
+                }
+
+#if NET6_0_OR_GREATER
+                return x.HasSameMetadataDefinitionAs(y);
+#elif NET472_OR_GREATER
+                return x.MetadataToken == y.MetadataToken && x.Module.Equals(y.Module);
+#else
+#error Target framework misconfiguration
+#endif
+            }
+
+            public int GetHashCode(MethodInfo obj)
+            {
+#if NET6_0_OR_GREATER
+                return obj.HasMetadataToken() ? obj.GetMetadataToken().GetHashCode() : 0;
+#elif NET472_OR_GREATER
+                // see https://github.com/dotnet/dotnet/blob/b0f34d51fccc69fd334253924abd8d6853fad7aa/src/runtime/src/libraries/System.Reflection.TypeExtensions/src/System/Reflection/TypeExtensions.cs#L496
+                int token = obj.MetadataToken;
+
+                // Tokens have MSB = table index, 3 LSBs = row index
+                // row index of 0 is a nil token
+                const int rowMask = 0x00FFFFFF;
+                if ((token & rowMask) == 0)
+                {
+                    // Nil token is returned for edge cases like typeof(byte[]).MetadataToken.
+                    return 0;
+                }
+
+                return token;
+#else
+#error Target framework misconfiguration
+#endif
+            }
+        }
+
         private static IEnumerable<MemberInfo> GetAllMembers(Type type)
         {
-            while (type != null)
+            // Keep track of the base definitions of property getters we see so we can skip ones we've seen already
+            var baseGetters = new HashSet<MethodInfo>(new MethodMetadataEquality());
+
+            var currentType = type;
+            while (currentType != null)
             {
-                var members = type.GetMembers(DeclaredOnlyLookup);
+                var members = currentType.GetMembers(InheritedLookup);
                 foreach (var member in members)
                 {
+                    if (member is PropertyInfo property)
+                    {
+                        var getter = property.GetGetMethod(true)?.GetBaseDefinition();
+
+                        // If we have a getter, try to add it to our set. If it _wasn't_ a new element, don't yield it.
+                        if (getter != null && !baseGetters.Add(getter))
+                        {
+                            continue;
+                        }
+                    }
+
                     yield return member;
                 }
 
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                type = type.BaseType;
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                currentType = currentType.BaseType;
             }
         }
     }

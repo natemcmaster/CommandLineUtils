@@ -29,7 +29,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("m_Field", "m-field")]
         public void ToKebabCase(string? input, string? expected)
         {
-            Assert.Equal(expected, input.ToKebabCase());
+            Assert.Equal(expected, input!.ToKebabCase());
         }
 
         [Theory]
@@ -41,7 +41,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         [InlineData("MSBuildTask", "MSBUILD_TASK")]
         public void ToConstantCase(string? input, string? expected)
         {
-            Assert.Equal(expected, input.ToConstantCase());
+            Assert.Equal(expected, input!.ToConstantCase());
         }
     }
 }

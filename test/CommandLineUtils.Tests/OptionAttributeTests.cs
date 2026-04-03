@@ -31,7 +31,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var ex = Assert.Throws<InvalidOperationException>(
                 () => Create<AppWithUnknownOptionType>());
             Assert.Equal(
-                Strings.CannotDetermineOptionType(typeof(AppWithUnknownOptionType).GetProperty("Option")),
+                Strings.CannotDetermineOptionType(Assert.IsAssignableFrom<PropertyInfo>(typeof(AppWithUnknownOptionType).GetProperty("Option"))),
                 ex.Message);
         }
 
@@ -71,7 +71,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         public void CanSetShortNameToEmptyString()
         {
             var app = Create<EmptyShortName>();
-            Assert.All(app.Options, o => Assert.Empty(o.ShortName));
+            Assert.All(app.Options, o => Assert.True(o.ShortName is null or ""));
         }
 
         private class AmbiguousShortOptionName
@@ -91,8 +91,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Equal(
                 Strings.OptionNameIsAmbiguous("m",
-                    typeof(AmbiguousShortOptionName).GetProperty("Mode"),
-                    typeof(AmbiguousShortOptionName).GetProperty("Message")),
+                    Assert.IsAssignableFrom<PropertyInfo>(typeof(AmbiguousShortOptionName).GetProperty("Mode")),
+                    Assert.IsAssignableFrom<PropertyInfo>(typeof(AmbiguousShortOptionName).GetProperty("Message"))),
                 ex.Message);
         }
 
@@ -113,8 +113,8 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Equal(
                 Strings.OptionNameIsAmbiguous("no-edit",
-                    typeof(AmbiguousLongOptionName).GetProperty("NoEdit"),
-                    typeof(AmbiguousLongOptionName).GetProperty("ManuallySetToNoEdit")),
+                    Assert.IsAssignableFrom<PropertyInfo>(typeof(AmbiguousLongOptionName).GetProperty("NoEdit")),
+                    Assert.IsAssignableFrom<PropertyInfo>(typeof(AmbiguousLongOptionName).GetProperty("ManuallySetToNoEdit"))),
                 ex.Message);
         }
 
@@ -133,7 +133,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Equal(
                 Strings.BothOptionAndArgumentAttributesCannotBeSpecified(
-                    typeof(BothOptionAndArgument).GetProperty("NotPossible")),
+                    Assert.IsAssignableFrom<PropertyInfo>(typeof(BothOptionAndArgument).GetProperty("NotPossible"))),
                 ex.Message);
         }
 
@@ -203,7 +203,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class AppWithMultiValueStringOption
         {
             [Option("-o1")]
-            string[] Opt1 { get; }
+            string[]? Opt1 { get; }
 
             [Option("-o2")]
             string[] Opt2 { get; } = Array.Empty<string>();
@@ -341,14 +341,133 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             var tb = mb.DefineType("Program");
             var pb = tb.DefineProperty(propName, PropertyAttributes.None, propType, Array.Empty<Type>());
             tb.DefineField($"<{propName}>k__BackingField", propType, FieldAttributes.Private);
-            var ctor = typeof(OptionAttribute).GetConstructor(Array.Empty<Type>());
+            var ctor = Assert.IsAssignableFrom<ConstructorInfo>(typeof(OptionAttribute).GetConstructor(Array.Empty<Type>()));
             var ab = new CustomAttributeBuilder(ctor, Array.Empty<object>());
             pb.SetCustomAttribute(ab);
             var program = tb.CreateType();
             var appBuilder = typeof(CommandLineApplication<>).MakeGenericType(program);
-            var app = (CommandLineApplication)Activator.CreateInstance(appBuilder, Array.Empty<object>());
+            var app = Assert.IsAssignableFrom<CommandLineApplication>(Activator.CreateInstance(appBuilder, Array.Empty<object>()));
             app.Conventions.UseOptionAttributes();
             return app.Options.First();
         }
+
+        #region Inherited Option Tests
+
+        private class BaseCommand
+        {
+            [Option("-v|--verbose", Description = "Enable verbose output")]
+            public bool Verbose { get; set; }
+
+            [Option("-n|--name <NAME>", Description = "The name")]
+            public string? Name { get; set; }
+        }
+
+        private class DerivedCommand : BaseCommand
+        {
+            [Option("-c|--count <COUNT>", Description = "The count")]
+            public int Count { get; set; }
+        }
+
+        [Fact]
+        public void InheritedOptions_DoNotCauseAmbiguityError()
+        {
+            // This tests that when the same property is processed multiple times
+            // (which can happen with inheritance), it doesn't throw an ambiguity error
+            var app = Create<DerivedCommand>();
+
+            // Should have options from both base and derived class
+            Assert.Equal(3, app.Options.Count);
+
+            var verbose = Assert.Single(app.Options, o => o.LongName == "verbose");
+            Assert.Equal("v", verbose.ShortName);
+
+            var name = Assert.Single(app.Options, o => o.LongName == "name");
+            Assert.Equal("n", name.ShortName);
+
+            var count = Assert.Single(app.Options, o => o.LongName == "count");
+            Assert.Equal("c", count.ShortName);
+        }
+
+        [Fact]
+        public void InheritedShortOption_DoesNotConflict_WhenSameProperty()
+        {
+            // Create an app with inherited options and verify short names work
+            var app = Create<DerivedCommand>();
+            app.Parse("-v", "-n", "test", "-c", "5");
+
+            var model = app.Model;
+            Assert.True(model.Verbose);
+            Assert.Equal("test", model.Name);
+            Assert.Equal(5, model.Count);
+        }
+
+        [Fact]
+        public void InheritedLongOption_DoesNotConflict_WhenSameProperty()
+        {
+            // Create an app with inherited options and verify long names work
+            var app = Create<DerivedCommand>();
+            app.Parse("--verbose", "--name", "test", "--count", "10");
+
+            var model = app.Model;
+            Assert.True(model.Verbose);
+            Assert.Equal("test", model.Name);
+            Assert.Equal(10, model.Count);
+        }
+
+        [Fact]
+        public void ApplyingOptionConventionTwice_DoesNotThrow()
+        {
+            // This tests the skip logic in OptionAttributeConventionBase.AddOption
+            // When the same option is processed twice, it should skip rather than throw
+            var app = new CommandLineApplication<DerivedCommand>();
+
+            // Apply OptionAttribute convention twice - second application should skip
+            app.Conventions.UseOptionAttributes();
+            app.Conventions.UseOptionAttributes();
+
+            // Should have options from both base and derived class (not duplicates)
+            Assert.Equal(3, app.Options.Count);
+            Assert.Single(app.Options, o => o.LongName == "verbose");
+            Assert.Single(app.Options, o => o.LongName == "name");
+            Assert.Single(app.Options, o => o.LongName == "count");
+        }
+
+        private class BaseCommandWithLongOnlyOptions
+        {
+            [Option(ShortName = "", LongName = "verbose", Description = "Enable verbose output")]
+            public bool Verbose { get; set; }
+
+            [Option(ShortName = "", LongName = "name", Description = "The name")]
+            public string? Name { get; set; }
+        }
+
+        private class DerivedFromLongOnlyBase : BaseCommandWithLongOnlyOptions
+        {
+            [Option(ShortName = "", LongName = "count", Description = "The count")]
+            public int Count { get; set; }
+        }
+
+        [Fact]
+        public void ApplyingOptionConventionTwice_WithLongOnlyOptions_DoesNotThrow()
+        {
+            // This tests the skip logic in OptionAttributeConventionBase.AddOption lines 61-63
+            // When options have only long names (no short names), the long name skip logic is tested
+            var app = new CommandLineApplication<DerivedFromLongOnlyBase>();
+
+            // Apply OptionAttribute convention twice - second application should skip
+            app.Conventions.UseOptionAttributes();
+            app.Conventions.UseOptionAttributes();
+
+            // Should have options from both base and derived class (not duplicates)
+            Assert.Equal(3, app.Options.Count);
+            Assert.Single(app.Options, o => o.LongName == "verbose");
+            Assert.Single(app.Options, o => o.LongName == "name");
+            Assert.Single(app.Options, o => o.LongName == "count");
+
+            // Verify short names are empty
+            Assert.All(app.Options, o => Assert.True(o.ShortName is null or ""));
+        }
+
+        #endregion
     }
 }

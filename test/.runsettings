@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- File name extension must be .runsettings -->
+<RunSettings>
+  <!--
+    Workaround for failure to run tests on .NET FX on v3.3.1 MSTest packages.
+    https://github.com/MarcoRossignoli/coverlet/blob/445f765396223689e9de7a1c0f724b8037549d4c/Documentation/KnownIssues.md#tests-fail-if-assembly-is-strong-named
+  -->
+  <RunConfiguration>  
+    <DisableAppDomain>True</DisableAppDomain>
+  </RunConfiguration>
+</RunSettings>

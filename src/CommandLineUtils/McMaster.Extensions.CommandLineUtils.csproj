@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net8.0;net472</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
     <Description>Command-line parsing API.</Description>
@@ -26,7 +26,35 @@ McMaster.Extensions.CommandLineUtils.ArgumentEscaper
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.103" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="4.14.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+
+  <!-- Include the source generator for AOT support -->
+  <ItemGroup>
+    <ProjectReference Include="..\CommandLineUtils.Generators\McMaster.Extensions.CommandLineUtils.Generators.csproj"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+  <!-- Pack the source generator into analyzers folder for NuGet package -->
+  <ItemGroup>
+    <None Include="$(OutputPath)..\..\McMaster.Extensions.CommandLineUtils.Generators\$(Configuration)\netstandard2.0\McMaster.Extensions.CommandLineUtils.Generators.dll"
+          Pack="true"
+          PackagePath="analyzers/dotnet/cs"
+          Visible="false" />
+  </ItemGroup>
+
+  <!-- Include build props to expose MSBuild properties to the analyzer -->
+  <ItemGroup>
+    <None Include="build\McMaster.Extensions.CommandLineUtils.props"
+          Pack="true"
+          PackagePath="build\"
+          Visible="false" />
   </ItemGroup>
 
 </Project>

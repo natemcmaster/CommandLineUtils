@@ -42,6 +42,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             {
                 if (context.Application._shortOptions.TryGetValue(option.ShortName, out var otherProp))
                 {
+                    // If it's the same property (inherited from base class), skip rather than throw
+                    if (prop == otherProp || (prop.DeclaringType == otherProp.DeclaringType && prop.Name == otherProp.Name))
+                    {
+                        return; // Already registered, skip
+                    }
                     throw new InvalidOperationException(
                         Strings.OptionNameIsAmbiguous(option.ShortName, prop, otherProp));
                 }
@@ -52,6 +57,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             {
                 if (context.Application._longOptions.TryGetValue(option.LongName, out var otherProp))
                 {
+                    // If it's the same property (inherited from base class), skip rather than throw
+                    if (prop == otherProp || (prop.DeclaringType == otherProp.DeclaringType && prop.Name == otherProp.Name))
+                    {
+                        return; // Already registered, skip
+                    }
                     throw new InvalidOperationException(
                         Strings.OptionNameIsAmbiguous(option.LongName, prop, otherProp));
                 }

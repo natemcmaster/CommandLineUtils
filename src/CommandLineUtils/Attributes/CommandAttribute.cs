@@ -161,6 +161,16 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private bool? _clusterOptions;
 
+        /// <summary>
+        /// Gets whether <see cref="ClusterOptions"/> was explicitly set.
+        /// </summary>
+        internal bool ClusterOptionsWasSet => _clusterOptions.HasValue;
+
+        /// <summary>
+        /// Gets whether <see cref="UnrecognizedArgumentHandling"/> was explicitly set.
+        /// </summary>
+        internal bool UnrecognizedArgumentHandlingWasSet => _unrecognizedArgumentHandling.HasValue;
+
         internal void Configure(CommandLineApplication app)
         {
             // this might have been set from SubcommandAttribute

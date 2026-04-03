@@ -4,11 +4,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
-using McMaster.Extensions.CommandLineUtils.Validation;
+using McMaster.Extensions.CommandLineUtils.SourceGeneration;
 
 namespace McMaster.Extensions.CommandLineUtils.Conventions
 {
@@ -21,35 +18,40 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         /// <inheritdoc />
         public virtual void Apply(ConventionContext context)
         {
-            if (context.ModelType == null)
+            // MetadataProvider is always available (generated or reflection-based via DefaultMetadataResolver)
+            var provider = context.MetadataProvider;
+            if (provider == null)
             {
                 return;
             }
 
-            var props = ReflectionHelper.GetProperties(context.ModelType);
-            if (props == null)
-            {
-                return;
-            }
+            ApplyFromMetadata(context, provider);
+        }
 
+        private void ApplyFromMetadata(ConventionContext context, ICommandMetadataProvider provider)
+        {
             var argOrder = new SortedList<int, CommandArgument>();
-            var argPropOrder = new Dictionary<int, PropertyInfo>();
+            var argMetaByOrder = new Dictionary<int, ArgumentMetadata>();
 
-            foreach (var prop in props)
+            foreach (var argMeta in provider.Arguments)
             {
-                var argumentAttr = prop.GetCustomAttribute<ArgumentAttribute>();
-                if (argumentAttr == null)
+                // Check for duplicate argument positions
+                if (argMetaByOrder.TryGetValue(argMeta.Order, out var existingMeta))
                 {
-                    continue;
-                }
-
-                if (prop.GetCustomAttributes().OfType<OptionAttributeBase>().Any())
-                {
+                    // List the duplicate (current) property first, then the existing one
                     throw new InvalidOperationException(
-                        Strings.BothOptionAndArgumentAttributesCannotBeSpecified(prop));
+                        Strings.DuplicateArgumentPosition(
+                            argMeta.Order,
+                            argMeta.PropertyName,
+                            argMeta.DeclaringType,
+                            existingMeta.PropertyName,
+                            existingMeta.DeclaringType));
                 }
 
-                AddArgument(prop, argumentAttr, context, argOrder, argPropOrder);
+                var argument = CreateArgumentFromMetadata(argMeta);
+                argOrder.Add(argMeta.Order, argument);
+                argMetaByOrder.Add(argMeta.Order, argMeta);
+                AddArgumentFromMetadata(context, argument, argMeta);
             }
 
             foreach (var arg in argOrder)
@@ -68,118 +70,126 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
         }
 
-        private void AddArgument(PropertyInfo prop,
-            ArgumentAttribute argumentAttr,
-            ConventionContext convention,
-            SortedList<int, CommandArgument> argOrder,
-            Dictionary<int, PropertyInfo> argPropOrder)
+        private static CommandArgument CreateArgumentFromMetadata(ArgumentMetadata meta)
         {
-            var argument = argumentAttr.Configure(prop);
-
-            foreach (var attr in prop.GetCustomAttributes().OfType<ValidationAttribute>())
+            var argument = new CommandArgument
             {
-                argument.Validators.Add(new AttributeValidator(attr));
-            }
+                Name = meta.Name ?? meta.PropertyName,
+                Description = meta.Description ?? string.Empty
+            };
 
             argument.MultipleValues =
-                prop.PropertyType.IsArray
-                || (typeof(IEnumerable).IsAssignableFrom(prop.PropertyType)
-                    && prop.PropertyType != typeof(string));
+                meta.PropertyType.IsArray
+                || (typeof(IEnumerable).IsAssignableFrom(meta.PropertyType)
+                    && meta.PropertyType != typeof(string));
 
-            if (argPropOrder.TryGetValue(argumentAttr.Order, out var otherProp))
+            argument.ShowInHelpText = meta.ShowInHelpText;
+
+            // Set underlying type for help text generator (enum allowed values display)
+            argument.UnderlyingType = meta.PropertyType;
+
+            // Apply validation attributes from metadata
+            foreach (var validator in meta.Validators)
             {
-                throw new InvalidOperationException(
-                    Strings.DuplicateArgumentPosition(argumentAttr.Order, prop, otherProp));
+                argument.Validators.Add(new Validation.AttributeValidator(validator));
             }
 
-            argPropOrder.Add(argumentAttr.Order, prop);
-            argOrder.Add(argumentAttr.Order, argument);
+            return argument;
+        }
 
-            var getter = ReflectionHelper.GetPropertyGetter(prop);
-            var setter = ReflectionHelper.GetPropertySetter(prop);
+        private void AddArgumentFromMetadata(ConventionContext context, CommandArgument argument, ArgumentMetadata meta)
+        {
+            var modelAccessor = context.ModelAccessor;
+            if (modelAccessor == null)
+            {
+                return;
+            }
+
+            var getter = meta.Getter;
+            var setter = meta.Setter;
 
             if (argument.MultipleValues)
             {
-                convention.Application.OnParsingComplete(r =>
+                context.Application.OnParsingComplete(r =>
                 {
                     var collectionParser = CollectionParserProvider.Default.GetParser(
-                        prop.PropertyType,
-                        convention.Application.ValueParsers);
+                        meta.PropertyType,
+                        context.Application.ValueParsers);
                     if (collectionParser == null)
                     {
-                        throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
+                        throw new InvalidOperationException(
+                            $"Cannot determine parser type for property '{meta.PropertyName}'");
                     }
 
                     if (argument.Values.Count == 0)
                     {
+                        // Read the initial property value and use as default
+                        if (!ReflectionHelper.IsSpecialValueTupleType(meta.PropertyType, out _))
+                        {
+                            if (getter(modelAccessor.GetModel()) is IEnumerable values
+                                && meta.PropertyType != typeof(string))
+                            {
+                                var valueList = new System.Collections.Generic.List<string>();
+                                foreach (var value in values)
+                                {
+                                    if (value != null)
+                                    {
+                                        valueList.Add(value.ToString() ?? string.Empty);
+                                    }
+                                }
+                                if (valueList.Count > 0)
+                                {
+                                    argument.DefaultValue = string.Join(", ", valueList);
+                                }
+                            }
+                        }
                         return;
                     }
 
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
-                        if (argument.Values.Count == 0)
-                        {
-                            if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
-                            {
-                                if (getter.Invoke(cmd.GetModel()) is IEnumerable<object> values)
-                                {
-                                    foreach (var value in values)
-                                    {
-                                        argument.TryParse(value?.ToString());
-                                    }
-                                    argument.DefaultValue = string.Join(", ", values.Select(x => x?.ToString()));
-                                }
-                            }
-                        }
-                        else
-                        {
-                            setter.Invoke(cmd.GetModel(), collectionParser.Parse(argument.Name, argument.Values));
-                        }
+                        setter(cmd.GetModel(), collectionParser.Parse(argument.Name, argument.Values));
                     }
                 });
             }
             else
             {
-                convention.Application.OnParsingComplete(r =>
+                context.Application.OnParsingComplete(r =>
                 {
-                    var parser = convention.Application.ValueParsers.GetParser(prop.PropertyType);
+                    var parser = context.Application.ValueParsers.GetParser(meta.PropertyType);
                     if (parser == null)
                     {
-                        throw new InvalidOperationException(Strings.CannotDetermineParserType(prop));
+                        throw new InvalidOperationException(
+                            $"Cannot determine parser type for property '{meta.PropertyName}'");
+                    }
+
+                    if (argument.Values.Count == 0)
+                    {
+                        // Read the initial property value and use as default
+                        if (!ReflectionHelper.IsSpecialValueTupleType(meta.PropertyType, out _))
+                        {
+                            var value = getter(modelAccessor.GetModel());
+                            if (value != null)
+                            {
+                                argument.DefaultValue = value.ToString();
+                            }
+                        }
+                        return;
                     }
 
                     if (r.SelectedCommand is IModelAccessor cmd)
                     {
                         var model = cmd.GetModel();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                        if (prop.DeclaringType.IsAssignableFrom(model.GetType()))
-                        {
-                            if (argument.Values.Count == 0)
-                            {
-                                if (!ReflectionHelper.IsSpecialValueTupleType(prop.PropertyType, out _))
-                                {
-                                    var value = getter.Invoke(model);
-                                    if (value != null)
-                                    {
-                                        argument.TryParse(value.ToString());
-                                        argument.DefaultValue = value.ToString();
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                setter.Invoke(
-                                    model,
-                                    parser.Parse(
-                                        argument.Name,
-                                        argument.Value,
-                                        convention.Application.ValueParsers.ParseCulture));
-                            }
-                        }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+                        setter(
+                            model,
+                            parser.Parse(
+                                argument.Name,
+                                argument.Value,
+                                context.Application.ValueParsers.ParseCulture));
                     }
                 });
             }
         }
+
     }
 }

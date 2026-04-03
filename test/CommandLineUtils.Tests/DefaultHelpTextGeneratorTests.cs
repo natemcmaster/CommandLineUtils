@@ -79,7 +79,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             Assert.True(indexOfA > indexOfB);
         }
 
-        private string GetHelpText(CommandLineApplication app, DefaultHelpTextGenerator generator, string helpOption = null)
+        private string GetHelpText(CommandLineApplication app, DefaultHelpTextGenerator generator, string? helpOption = null)
         {
             var sb = new StringBuilder();
             app.Out = new StringWriter(sb);
@@ -90,7 +90,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
             return helpText;
         }
 
-        private string GetHelpText(CommandLineApplication app, string helpOption = null)
+        private string GetHelpText(CommandLineApplication app, string? helpOption = null)
         {
             var generator = new DefaultHelpTextGenerator
             {
@@ -232,12 +232,12 @@ Options:
         public class MyApp
         {
             [Option(ShortName = "strOpt", ValueName = "STR_OPT", Description = "str option desc.")]
-            public string strOpt { get; set; }
+            public string? strOpt { get; set; }
 
             [Option(ShortName = "rStrOpt", ValueName = "STR_OPT", Description = "restricted str option desc.")]
             [Required]
             [AllowedValues("Foo", "Bar")]
-            public string rStrOpt { get; set; }
+            public string? rStrOpt { get; set; }
 
             [Option(ShortName = "dStrOpt", ValueName = "STR_OPT", Description = "str option with default value desc.")]
             public string dStrOpt { get; set; } = "Foo";
@@ -265,12 +265,12 @@ Options:
             public SomeEnum Verb5 { get; set; }
 
             [Argument(0, Description = "string arg desc.")]
-            public string SomeStringArgument { get; set; }
+            public string? SomeStringArgument { get; set; }
 
             [Argument(1, Description = "restricted string arg desc.")]
             [Required]
             [AllowedValues("Foo", "Bar")]
-            public string RestrictedStringArgument { get; set; }
+            public string? RestrictedStringArgument { get; set; }
 
             [Argument(2, Description = "string arg with default value desc.")]
             public string DefaultValStringArgument { get; set; } = "Foo";

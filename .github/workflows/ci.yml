@@ -44,13 +44,13 @@ jobs:
       - name: Run build script
         id: build_script
         run: ./build.ps1 -ci
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: ${{ matrix.os == 'windows-latest' }}
         with:
           name: packages
           path: artifacts/
           if-no-files-found: error
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v6
         with:
           name: unittests-${{ matrix.os }}
           fail_ci_if_error: true
@@ -58,25 +58,30 @@ jobs:
   release:
     if: ${{ github.event.inputs.release }}
     needs: build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write      # for creating GitHub releases
+      id-token: write      # for NuGet trusted publishing (OIDC)
+      packages: write      # for GitHub Package Registry
     env:
       PACKAGE_VERSION: ${{ needs.build.outputs.package_version }}
     steps:
       - run: echo "Releasing ${{ env.PACKAGE_VERSION }}"
-      - name: Setup NuGet
-        uses: NuGet/setup-nuget@v2
-        with:
-          nuget-version: latest
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
           name: packages
           path: packages
       - name: Configure GitHub NuGet registry
-        run: nuget sources add -name github -source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -username ${{ github.repository_owner }} -password ${{ secrets.GITHUB_TOKEN }}
+        run: dotnet nuget add source --name github --username ${{ github.repository_owner }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
       - name: Push to GitHub package registry
-        run: nuget push packages\*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source github -SkipDuplicate
+        run: dotnet nuget push packages/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source github --skip-duplicate
+      - name: NuGet login (trusted publishing)
+        id: nuget-login
+        uses: nuget/login@v1
+        with:
+          user: natemcmaster
       - name: Push to NuGet.org
-        run: nuget push packages\*.nupkg -ApiKey ${{ secrets.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push packages/*.nupkg --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         env:

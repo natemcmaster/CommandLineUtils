@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using Xunit;
 using Xunit.Abstractions;
@@ -90,7 +91,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         {
             var ex = Assert.Throws<InvalidOperationException>(() =>
                 new CommandLineApplication<DuplicateOptionAttributes>().Conventions.UseHelpOptionAttribute());
-            var prop = typeof(DuplicateOptionAttributes).GetProperty(nameof(DuplicateOptionAttributes.IsHelpOption));
+            var prop = Assert.IsAssignableFrom<PropertyInfo>(typeof(DuplicateOptionAttributes).GetProperty(nameof(DuplicateOptionAttributes.IsHelpOption)));
             Assert.Equal(Strings.BothOptionAndHelpOptionAttributesCannotBeSpecified(prop), ex.Message);
         }
 
@@ -223,5 +224,75 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Contains(helpNeedle, outData);
         }
+
+        #region Inherited HelpOption Tests
+
+        private class BaseWithHelpOption
+        {
+            [HelpOption("-h|--help")]
+            public bool ShowHelp { get; set; }
+        }
+
+        private class DerivedFromHelpBase : BaseWithHelpOption
+        {
+            [Option("-n|--name")]
+            public string? Name { get; set; }
+        }
+
+        [Fact]
+        public void InheritedHelpOption_IsRecognized()
+        {
+            var app = new CommandLineApplication<DerivedFromHelpBase>();
+            app.Conventions.UseDefaultConventions();
+
+            Assert.NotNull(app.OptionHelp);
+            Assert.Equal("h", app.OptionHelp?.ShortName);
+            Assert.Equal("help", app.OptionHelp?.LongName);
+        }
+
+        [Fact]
+        public void ApplyingHelpOptionConventionTwice_DoesNotThrow()
+        {
+            // This tests the skip logic in OptionAttributeConventionBase.AddOption
+            // When the same HelpOption is processed twice, it should skip rather than throw
+            var app = new CommandLineApplication<DerivedFromHelpBase>();
+
+            // Apply HelpOption convention twice - second application should skip
+            app.Conventions.UseHelpOptionAttribute();
+            app.Conventions.UseHelpOptionAttribute();
+
+            Assert.NotNull(app.OptionHelp);
+            Assert.Equal("h", app.OptionHelp?.ShortName);
+        }
+
+        private class BaseWithLongOnlyHelpOption
+        {
+            [HelpOption("--help")]
+            public bool ShowHelp { get; set; }
+        }
+
+        private class DerivedFromLongOnlyHelpBase : BaseWithLongOnlyHelpOption
+        {
+            [Option("--name")]
+            public string? Name { get; set; }
+        }
+
+        [Fact]
+        public void ApplyingHelpOptionConventionTwice_WithLongOnlyOption_DoesNotThrow()
+        {
+            // This tests the skip logic in OptionAttributeConventionBase.AddOption lines 61-63
+            // When HelpOption has only long name (no short name), the long name skip logic is tested
+            var app = new CommandLineApplication<DerivedFromLongOnlyHelpBase>();
+
+            // Apply HelpOption convention twice - second application should skip via long name check
+            app.Conventions.UseHelpOptionAttribute();
+            app.Conventions.UseHelpOptionAttribute();
+
+            Assert.NotNull(app.OptionHelp);
+            Assert.Empty(app.OptionHelp?.ShortName ?? "");
+            Assert.Equal("help", app.OptionHelp?.LongName);
+        }
+
+        #endregion
     }
 }

@@ -1,5 +1,10 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('5.0.'))">
+Changes since 4.x:
+* Drop support for .NET Standard 2 and &lt; .NET 6
+* Update dependencies to latest .NET 8 libraries.
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('4.0.'))">
 Changes:
 * Update dependencies to latest .NET 6 libraries.
