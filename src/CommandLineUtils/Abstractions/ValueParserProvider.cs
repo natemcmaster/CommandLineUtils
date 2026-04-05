@@ -100,11 +100,6 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 return EnumParser.Create(type);
             }
 
-            if (_defaultValueParserFactory.TryGetParser<T>(out parser))
-            {
-                return parser;
-            }
-
             if (ReflectionHelper.IsNullableType(type, out var wrappedType))
             {
                 if (wrappedType.IsEnum)
@@ -116,6 +111,11 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
                 {
                     return new NullableValueParser(parser);
                 }
+            }
+
+            if (_defaultValueParserFactory.TryGetParser<T>(out parser))
+            {
+                return parser;
             }
 
             if (ReflectionHelper.IsSpecialValueTupleType(type, out var wrappedType2))
