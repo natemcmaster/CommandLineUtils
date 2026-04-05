@@ -149,82 +149,82 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         private class MyClass(string name)
         {
             public string Name { get; } = name;
-    }
-
-    private class ProgramWithExecuteAndKeyedArgumentInjection
-    {
-        private int OnExecute
-        (
-            [FromKeyedServices("Database1")] MyClass myClass1,
-            [FromKeyedServices("Database2")] MyClass myClass2,
-            string nonKeyedArgument
-        )
-        {
-            Assert.Equal("MyClass1", myClass1.Name);
-            Assert.Equal("MyClass2", myClass2.Name);
-            Assert.Equal("42", nonKeyedArgument);
-            return 42;
         }
-    }
 
-    [Fact]
-    public void OnExecuteWithKeyedArgumentsResolvesArgumentsByKey()
-    {
-        var serviceCollection = new ServiceCollection();
-        serviceCollection
-            .AddKeyedSingleton("Database1", new MyClass("MyClass1"))
-            .AddKeyedSingleton("Database2", new MyClass("MyClass2"))
-            .AddSingleton("42")
-            ;
-
-        var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentInjection>();
-
-        app.AdditionalServices = serviceCollection.BuildServiceProvider();
-
-        app.Conventions.UseOnExecuteMethodFromModel();
-        var result = app.Execute();
-        Assert.Equal(42, result);
-    }
-
-    private class ProgramWithExecuteAndKeyedArgumentNoKeyedProvider
-    {
-        private int OnExecute([FromKeyedServices("Key1")] MyClass myClass)
+        private class ProgramWithExecuteAndKeyedArgumentInjection
         {
-            return 0;
+            private int OnExecute
+            (
+                [FromKeyedServices("Database1")] MyClass myClass1,
+                [FromKeyedServices("Database2")] MyClass myClass2,
+                string nonKeyedArgument
+            )
+            {
+                Assert.Equal("MyClass1", myClass1.Name);
+                Assert.Equal("MyClass2", myClass2.Name);
+                Assert.Equal("42", nonKeyedArgument);
+                return 42;
+            }
         }
-    }
 
-    [Fact]
-    public void OnExecute_when_AdditionalServices_does_not_support_keyed_services_throws()
-    {
-        var mock = new Mock<IServiceProvider>();
-        var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentNoKeyedProvider>();
-        app.AdditionalServices = mock.Object;
-        app.Conventions.UseOnExecuteMethodFromModel();
-
-        var ex = Assert.Throws<InvalidOperationException>(() => app.Execute());
-        Assert.Contains("does not implement IKeyedServiceProvider", ex.Message);
-    }
-
-    private class ProgramWithExecuteAndKeyedArgumentMissing
-    {
-        private int OnExecute([FromKeyedServices("NonExistentKey")] MyClass myClass)
+        [Fact]
+        public void OnExecuteWithKeyedArgumentsResolvesArgumentsByKey()
         {
-            return 0;
+            var serviceCollection = new ServiceCollection();
+            serviceCollection
+                .AddKeyedSingleton("Database1", new MyClass("MyClass1"))
+                .AddKeyedSingleton("Database2", new MyClass("MyClass2"))
+                .AddSingleton("42")
+                ;
+
+            var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentInjection>();
+
+            app.AdditionalServices = serviceCollection.BuildServiceProvider();
+
+            app.Conventions.UseOnExecuteMethodFromModel();
+            var result = app.Execute();
+            Assert.Equal(42, result);
         }
+
+        private class ProgramWithExecuteAndKeyedArgumentNoKeyedProvider
+        {
+            private int OnExecute([FromKeyedServices("Key1")] MyClass myClass)
+            {
+                return 0;
+            }
+        }
+
+        [Fact]
+        public void OnExecute_when_AdditionalServices_does_not_support_keyed_services_throws()
+        {
+            var mock = new Mock<IServiceProvider>();
+            var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentNoKeyedProvider>();
+            app.AdditionalServices = mock.Object;
+            app.Conventions.UseOnExecuteMethodFromModel();
+
+            var ex = Assert.Throws<InvalidOperationException>(() => app.Execute());
+            Assert.Contains("does not implement IKeyedServiceProvider", ex.Message);
+        }
+
+        private class ProgramWithExecuteAndKeyedArgumentMissing
+        {
+            private int OnExecute([FromKeyedServices("NonExistentKey")] MyClass myClass)
+            {
+                return 0;
+            }
+        }
+
+        [Fact]
+        public void OnExecute_when_keyed_service_not_registered_throws()
+        {
+            var serviceCollection = new ServiceCollection();
+            var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentMissing>();
+            app.AdditionalServices = serviceCollection.BuildServiceProvider();
+            app.Conventions.UseOnExecuteMethodFromModel();
+
+            var ex = Assert.Throws<InvalidOperationException>(() => app.Execute());
+            Assert.Contains("No keyed service found", ex.Message);
+        }
+
     }
-
-    [Fact]
-    public void OnExecute_when_keyed_service_not_registered_throws()
-    {
-        var serviceCollection = new ServiceCollection();
-        var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentMissing>();
-        app.AdditionalServices = serviceCollection.BuildServiceProvider();
-        app.Conventions.UseOnExecuteMethodFromModel();
-
-        var ex = Assert.Throws<InvalidOperationException>(() => app.Execute());
-        Assert.Contains("No keyed service found", ex.Message);
-    }
-
-}
 }
