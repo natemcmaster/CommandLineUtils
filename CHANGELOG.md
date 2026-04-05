@@ -7,7 +7,9 @@
 
 ### Fixes
 * [@claude]: Validate dotnet path exists before returning from `TryFindDotNetExePath` ([#600])
+* [@claude]: Fix nullable type lookup bypassing custom value parsers registered via `AddOrReplace` ([#559])
 
+[#559]: https://github.com/natemcmaster/CommandLineUtils/issues/559
 [#560]: https://github.com/natemcmaster/CommandLineUtils/pull/560
 [#600]: https://github.com/natemcmaster/CommandLineUtils/issues/600
 
