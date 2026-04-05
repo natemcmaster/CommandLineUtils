@@ -244,9 +244,7 @@ namespace McMaster.Extensions.CommandLineUtils
                 !s_keyedServiceProviderType.IsInstanceOfType(command.AdditionalServices))
             {
                 throw new InvalidOperationException(
-                    $"Parameter '{parameter.Name}' has [FromKeyedServices] attribute, " +
-                    "but AdditionalServices does not implement IKeyedServiceProvider. " +
-                    "Ensure you're using a DI container that supports keyed services (.NET 8+).");
+                    Strings.KeyedServiceProviderNotSupported(parameter.Name));
             }
 
             // Invoke GetKeyedService via reflection
@@ -257,8 +255,7 @@ namespace McMaster.Extensions.CommandLineUtils
             if (service == null)
             {
                 throw new InvalidOperationException(
-                    $"No keyed service found for type '{parameter.ParameterType}' " +
-                    $"with key '{key}'.");
+                    Strings.NoKeyedServiceFound(parameter.ParameterType, key));
             }
 
             return true;
