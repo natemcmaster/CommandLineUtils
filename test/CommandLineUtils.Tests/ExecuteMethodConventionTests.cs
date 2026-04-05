@@ -195,7 +195,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
-        public void OnExecute_when_AdditionalServices_does_not_support_keyed_services_throws()
+        public void OnExecuteWhenAdditionalServicesDoesNotSupportKeyedServicesThrows()
         {
             var mock = new Mock<IServiceProvider>();
             var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentNoKeyedProvider>();
@@ -215,7 +215,7 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
         }
 
         [Fact]
-        public void OnExecute_when_keyed_service_not_registered_throws()
+        public void OnExecuteWhenKeyedServiceNotRegisteredThrows()
         {
             var serviceCollection = new ServiceCollection();
             var app = new CommandLineApplication<ProgramWithExecuteAndKeyedArgumentMissing>();
