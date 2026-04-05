@@ -108,72 +108,72 @@
 <section id="tabpanel_1_using-attributes" role="tabpanel" data-tab="using-attributes">
 
 <p>When using Attributes, you can enable response file parsing by setting the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html#McMaster_Extensions_CommandLineUtils_CommandAttribute_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandAttribute.html">CommandAttribute</a>.</p>
-<pre><code class="lang-csharp" highlight-lines="1">[Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you've done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
-[Subcommand(typeof(ListCommand))]
-class Program
+<pre><code class="lang-csharp" highlight-lines="1">namespace ResponseFileParsing
 {
-    public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
-
-    [Argument(0, &quot;The description of what you've done&quot;)]
-    public string Description { get; }
-
-    [Option(CommandOptionType.MultipleValue, LongName = &quot;tag&quot;, Description = &quot;A tag for the item&quot;)]
-    public string[] Tags { get; }
-
-    private void OnExecute()
+    [Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you've done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
+    [Subcommand(typeof(ListCommand))]
+    class Program
     {
-        //...
+        public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
+
+        [Argument(0, &quot;The description of what you've done&quot;)]
+        public string Description { get; }
+
+        [Option(CommandOptionType.MultipleValue, LongName = &quot;tag&quot;, Description = &quot;A tag for the item&quot;)]
+        public string[] Tags { get; }
+
+        private void OnExecute()
+        {
+            //...
+        }
     }
-}
 
-[Command(Description = &quot;List all done items&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
-class ListCommand
-{
-    [Option(CommandOptionType.MultipleValue, LongName = &quot;tag&quot;, Description = &quot;Only list items with the corresponding tag(s)&quot;)]
-    public string[] Tags { get; }
-
-    private void OnExecute()
+    [Command(Description = &quot;List all done items&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
+    class ListCommand
     {
-        //...
-    }
-}
+        [Option(CommandOptionType.MultipleValue, LongName = &quot;tag&quot;, Description = &quot;Only list items with the corresponding tag(s)&quot;)]
+        public string[] Tags { get; }
+
+        private void OnExecute()
+        {
+            //...
 </code></pre></section>
 <section id="tabpanel_1_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
 
 <p>When using the Builder API, you can enable response file parsing by setting the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html#McMaster_Extensions_CommandLineUtils_CommandLineApplication_ResponseFileHandling">ResponseFileHandling</a> property of the <a class="xref" href="../api/McMaster.Extensions.CommandLineUtils.CommandLineApplication.html">CommandLineApplication</a>.</p>
-<pre><code class="lang-csharp" highlight-lines="9">class Program
+<pre><code class="lang-csharp" highlight-lines="9">namespace ResponseFileParsing
 {
-    public static int Main(string[] args)
+    class Program
     {
-        var app = new CommandLineApplication
+        public static int Main(string[] args)
         {
-            Name = &quot;done&quot;,
-            Description = &quot;Keep track on things you've done&quot;,
-            ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated
-        };
+            var app = new CommandLineApplication
+            {
+                Name = &quot;done&quot;,
+                Description = &quot;Keep track on things you've done&quot;,
+                ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated
+            };
 
-        app.HelpOption(inherited: true);
-        var argumentDescription = app.Argument(&quot;Description&quot;, &quot;The description of what you've done&quot;);
-        var optionTags = app.Option(&quot;-t|--tag &lt;TAGS&gt;&quot;, &quot;A tag for the item&quot;, CommandOptionType.MultipleValue);
+            app.HelpOption(inherited: true);
+            var argumentDescription = app.Argument(&quot;Description&quot;, &quot;The description of what you've done&quot;);
+            var optionTags = app.Option(&quot;-t|--tag &lt;TAGS&gt;&quot;, &quot;A tag for the item&quot;, CommandOptionType.MultipleValue);
 
-        app.Command(&quot;list&quot;, listCommand =&gt;
-        {
-            listCommand.ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated;
+            app.Command(&quot;list&quot;, listCommand =&gt;
+            {
+                listCommand.ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated;
 
-            var optionListTags = listCommand.Option(&quot;-t|--tag &lt;TAGS&gt;&quot;, &quot;Only list items with the corresponding tag(s)&quot;, CommandOptionType.MultipleValue);
+                var optionListTags = listCommand.Option(&quot;-t|--tag &lt;TAGS&gt;&quot;, &quot;Only list items with the corresponding tag(s)&quot;, CommandOptionType.MultipleValue);
 
-            listCommand.OnExecute(() =&gt;
+                listCommand.OnExecute(() =&gt;
+                {
+                    //...
+                });
+            });
+
+            app.OnExecute(() =&gt;
             {
                 //...
             });
-        });
-
-        app.OnExecute(() =&gt;
-        {
-            //...
-        });
-
-        return app.Execute(args);
 </code></pre></section>
 </div>
 
@@ -228,72 +228,72 @@ fitness
 </li>
 </ul>
 <section id="tabpanel_2_using-attributes" role="tabpanel" data-tab="using-attributes">
-<pre><code class="lang-csharp" highlight-lines="19">[Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you've done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
-[Subcommand(typeof(ListCommand))]
-class Program
+<pre><code class="lang-csharp" highlight-lines="19">namespace ResponseFileParsing
 {
-    public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
-
-    [Argument(0, &quot;The description of what you've done&quot;)]
-    public string Description { get; }
-
-    [Option(CommandOptionType.MultipleValue, LongName = &quot;tag&quot;, Description = &quot;A tag for the item&quot;)]
-    public string[] Tags { get; }
-
-    private void OnExecute()
+    [Command(Name = &quot;done&quot;, Description = &quot;Keep track on things you've done&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
+    [Subcommand(typeof(ListCommand))]
+    class Program
     {
-        //...
+        public static int Main(string[] args) =&gt; CommandLineApplication.Execute&lt;Program&gt;(args);
+
+        [Argument(0, &quot;The description of what you've done&quot;)]
+        public string Description { get; }
+
+        [Option(CommandOptionType.MultipleValue, LongName = &quot;tag&quot;, Description = &quot;A tag for the item&quot;)]
+        public string[] Tags { get; }
+
+        private void OnExecute()
+        {
+            //...
+        }
     }
-}
 
-[Command(Description = &quot;List all done items&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
-class ListCommand
-{
-    [Option(CommandOptionType.MultipleValue, LongName = &quot;tag&quot;, Description = &quot;Only list items with the corresponding tag(s)&quot;)]
-    public string[] Tags { get; }
-
-    private void OnExecute()
+    [Command(Description = &quot;List all done items&quot;, ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated)]
+    class ListCommand
     {
-        //...
-    }
-}
+        [Option(CommandOptionType.MultipleValue, LongName = &quot;tag&quot;, Description = &quot;Only list items with the corresponding tag(s)&quot;)]
+        public string[] Tags { get; }
+
+        private void OnExecute()
+        {
+            //...
 </code></pre></section>
 <section id="tabpanel_2_using-builder-api" role="tabpanel" data-tab="using-builder-api" aria-hidden="true" hidden="hidden">
-<pre><code class="lang-csharp" highlight-lines="18">class Program
+<pre><code class="lang-csharp" highlight-lines="18">namespace ResponseFileParsing
 {
-    public static int Main(string[] args)
+    class Program
     {
-        var app = new CommandLineApplication
+        public static int Main(string[] args)
         {
-            Name = &quot;done&quot;,
-            Description = &quot;Keep track on things you've done&quot;,
-            ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated
-        };
+            var app = new CommandLineApplication
+            {
+                Name = &quot;done&quot;,
+                Description = &quot;Keep track on things you've done&quot;,
+                ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated
+            };
 
-        app.HelpOption(inherited: true);
-        var argumentDescription = app.Argument(&quot;Description&quot;, &quot;The description of what you've done&quot;);
-        var optionTags = app.Option(&quot;-t|--tag &lt;TAGS&gt;&quot;, &quot;A tag for the item&quot;, CommandOptionType.MultipleValue);
+            app.HelpOption(inherited: true);
+            var argumentDescription = app.Argument(&quot;Description&quot;, &quot;The description of what you've done&quot;);
+            var optionTags = app.Option(&quot;-t|--tag &lt;TAGS&gt;&quot;, &quot;A tag for the item&quot;, CommandOptionType.MultipleValue);
 
-        app.Command(&quot;list&quot;, listCommand =&gt;
-        {
-            listCommand.ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated;
+            app.Command(&quot;list&quot;, listCommand =&gt;
+            {
+                listCommand.ResponseFileHandling = ResponseFileHandling.ParseArgsAsLineSeparated;
 
-            var optionListTags = listCommand.Option(&quot;-t|--tag &lt;TAGS&gt;&quot;, &quot;Only list items with the corresponding tag(s)&quot;, CommandOptionType.MultipleValue);
+                var optionListTags = listCommand.Option(&quot;-t|--tag &lt;TAGS&gt;&quot;, &quot;Only list items with the corresponding tag(s)&quot;, CommandOptionType.MultipleValue);
 
-            listCommand.OnExecute(() =&gt;
+                listCommand.OnExecute(() =&gt;
+                {
+                    //...
+                });
+            });
+
+            app.OnExecute(() =&gt;
             {
                 //...
             });
-        });
 
-        app.OnExecute(() =&gt;
-        {
-            //...
-        });
-
-        return app.Execute(args);
-    }
-}
+            return app.Execute(args);
 </code></pre></section>
 </div>
 <h2 id="space-separated-arguments">Space separated arguments</h2>
