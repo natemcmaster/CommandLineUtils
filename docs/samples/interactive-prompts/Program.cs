@@ -19,7 +19,7 @@ class Program
             promptColor: ConsoleColor.White,
             promptBgColor: ConsoleColor.DarkGreen);
 
-        Console.WriteLine($"Hello, there { name ?? "anonymous console user"}.");
+        Console.WriteLine($"Hello, there {name ?? "anonymous console user"}.");
 
         var age = Prompt.GetInt("How old are you?",
             promptColor: ConsoleColor.White,
@@ -32,13 +32,13 @@ class Program
         Console.Write($"Your password contains {password.Length} characters. ");
         switch (password.Length)
         {
-            case int _ when (password.Length < 2):
+            case int _ when password.Length < 2:
                 Console.WriteLine("Your password is so short you might as well not have one.");
                 break;
-            case int _ when (password.Length < 4):
+            case int _ when password.Length < 4:
                 Console.WriteLine("Your password is too short. You should pick a better one");
                 break;
-            case int _ when (password.Length < 10):
+            case int _ when password.Length < 10:
                 Console.WriteLine("Your password is too okay, I guess.");
                 break;
             default:

@@ -24,11 +24,11 @@ exec dotnet tool restore
 
 [string[]] $formatArgs=@()
 if ($ci) {
-    $formatArgs += '--check'
+    $formatArgs += '--verify-no-changes'
 }
 
-exec dotnet tool run dotnet-format -- -v detailed @formatArgs "$PSScriptRoot/CommandLineUtils.sln"
-exec dotnet tool run dotnet-format -- -v detailed @formatArgs "$PSScriptRoot/docs/samples/samples.sln"
+exec dotnet format -- @formatArgs "$PSScriptRoot/CommandLineUtils.sln"
+exec dotnet format -- @formatArgs "$PSScriptRoot/docs/samples/samples.sln"
 exec dotnet build --configuration $Configuration '-warnaserror:CS1591'
 exec dotnet pack --no-build --configuration $Configuration -o $artifacts
 exec dotnet build --configuration $Configuration "$PSScriptRoot/docs/samples/samples.sln"

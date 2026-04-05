@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
-using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.Internal;
 using McMaster.Extensions.CommandLineUtils.SourceGeneration;
