@@ -96,7 +96,7 @@ return app.Execute(args);
 - Nullable reference types enabled
 - Warnings treated as errors
 - Code style enforced in build (`EnforceCodeStyleInBuild=true`)
-- Format check: `dotnet tool run dotnet-format`
+- Run `dotnet format` to auto-fix formatting before committing
 
 ## Testing
 
@@ -129,6 +129,17 @@ The build script runs the complete validation pipeline including tests, samples,
 5. Refactor if needed while keeping tests green
 
 This approach ensures code correctness, prevents regressions, and validates that tests actually catch the issues they're meant to detect. The test suite already has good coverage and patterns to follow.
+
+## Pull Requests
+
+When asked to fix an issue or implement a change via GitHub, follow this workflow:
+
+1. Create a branch with the `claude/` prefix (e.g., `claude/fix-null-ref`, `claude/issue-123`). Never push directly to `main`.
+2. Make the changes, following the TDD approach described above when applicable.
+3. Run `pwsh -File build.ps1` to validate the full build passes before pushing.
+4. Push the branch and open a PR.
+5. Link the PR to the relevant issue using `Fixes #N` in the PR body.
+6. Keep PRs focused — only change what's needed to address the issue. Don't refactor surrounding code or add unrelated improvements.
 
 ## Commit Guidelines
 

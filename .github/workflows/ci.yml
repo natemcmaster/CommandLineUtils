@@ -33,14 +33,7 @@ jobs:
       package_version: ${{ steps.build_script.outputs.package_version }}
 
     steps:
-      - uses: actions/checkout@v6
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v5
-        with:
-          dotnet-version: |
-            8.x
-            9.x
-            10.x
+      - uses: ./.github/actions/setup-dotnet
       - name: Run build script
         id: build_script
         run: ./build.ps1 -ci

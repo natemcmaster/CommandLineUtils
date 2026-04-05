@@ -1,0 +1,21 @@
+name: Setup .NET
+description: Checkout the repository and install .NET SDK versions used by this project
+
+inputs:
+  fetch-depth:
+    description: Number of commits to fetch (0 for full history)
+    default: "1"
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v6
+      with:
+        fetch-depth: ${{ inputs.fetch-depth }}
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v5
+      with:
+        dotnet-version: |
+          8.x
+          9.x
+          10.x
