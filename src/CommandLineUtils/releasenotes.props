@@ -1,5 +1,11 @@
 <Project>
   <PropertyGroup>
+    <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('5.1.'))">
+Changes since 5.0:
+
+Features:
+* @Chris-Wolfgang: Add support for keyed dependency injection via [FromKeyedServices] attribute (#560)
+    </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('5.0.'))">
 Changes since 4.1:
 

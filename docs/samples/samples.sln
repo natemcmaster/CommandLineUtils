@@ -65,6 +65,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "helloworld\He
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldAttributes", "helloworld-attributes\HelloWorldAttributes.csproj", "{81F83C18-B60C-4A3F-8896-4B280A8F06D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyedServices", "dependency-injection\keyed\KeyedServices.csproj", "{30674755-09B2-41DC-8AAD-31AC4541E562}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -375,6 +377,18 @@ Global
 		{81F83C18-B60C-4A3F-8896-4B280A8F06D6}.Release|x64.Build.0 = Release|Any CPU
 		{81F83C18-B60C-4A3F-8896-4B280A8F06D6}.Release|x86.ActiveCfg = Release|Any CPU
 		{81F83C18-B60C-4A3F-8896-4B280A8F06D6}.Release|x86.Build.0 = Release|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Debug|x64.Build.0 = Debug|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Debug|x86.Build.0 = Debug|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Release|x64.ActiveCfg = Release|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Release|x64.Build.0 = Release|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Release|x86.ActiveCfg = Release|Any CPU
+		{30674755-09B2-41DC-8AAD-31AC4541E562}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -394,6 +408,7 @@ Global
 		{1EE15348-5FF4-4988-AEA4-3E267ED4C288} = {75E74B42-039E-4661-B39C-160363B6884A}
 		{A4F3D30A-4124-49B0-A888-F81CE682F491} = {13EC390A-3D6F-4A7E-A02C-D3CBA197FA40}
 		{B38FF032-9AFB-481F-A432-DFA7A5100C3A} = {13EC390A-3D6F-4A7E-A02C-D3CBA197FA40}
+		{30674755-09B2-41DC-8AAD-31AC4541E562} = {E03982B3-80F2-4D55-9501-378EACE93E5B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43B81702-C1EF-43B6-B57D-C630AD1F555D}

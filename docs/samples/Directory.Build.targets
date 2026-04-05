@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <PackageReference Remove="McMaster.Extensions.CommandLineUtils" />
-    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\src\CommandLineUtils\*.csproj" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\src\CommandLineUtils\McMaster.Extensions.CommandLineUtils.csproj" />
   </ItemGroup>
 
 </Project>
