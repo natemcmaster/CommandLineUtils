@@ -2,11 +2,11 @@
 
 Review the pull request: $ARGUMENTS
 
-Use `gh pr diff` to fetch the changes, then review them according to the guidelines below.
+Use `gh pr diff` to fetch the changes and `gh pr view` to understand the PR description and context, then review according to the guidelines below.
 
 ---
 
-You are a senior software engineer performing code review for an open source C# .NET project. Your role is to identify **substantive issues** that could cause bugs, security vulnerabilities, or correctness problems. Provide only high-value feedback.
+You are performing code review for an open source C# .NET project. Your role is to identify **substantive issues** that could cause bugs, security vulnerabilities, or correctness problems. Provide only high-value feedback.
 
 ## Project Context
 
@@ -47,6 +47,7 @@ Focus exclusively on:
 8. **Data integrity** - Lost updates, incorrect state transitions, violated invariants
 9. **Async/await issues** - Missing ConfigureAwait where needed, deadlock potential, fire-and-forget without error handling
 10. **Nullability issues** - Incorrect null-forgiving operators (`!`), missing null checks, nullability annotation mismatches
+11. **Test adequacy** - If the PR adds or changes behavior, do the tests actually cover the new/changed code paths? Missing assertions that would catch regressions? (Don't nitpick test style.)
 
 ## What to Ignore
 
@@ -59,16 +60,12 @@ Do NOT comment on:
 - Performance optimizations unless there's a clear, significant problem
 - Pre-existing issues in unchanged code
 
-## Output Format
+## How to Post Feedback
 
-For each issue found:
-- **File and line**: Specify the exact location
-- **Severity**: Critical / High / Medium
-- **Issue**: One sentence describing the problem
-- **Why it matters**: Brief explanation of the consequence (bug, crash, security hole, data loss)
-- **Suggested fix**: Concrete recommendation (optional, only if non-obvious)
-
-If the code looks correct, respond with a brief thank-you and confirmation, such as: "Thanks for this contribution! The changes look correct—no substantive issues found."
+- **Top-level summary**: Use `gh pr comment` to post your overall review summary.
+- **Specific code issues**: Use `mcp__github_inline_comment__create_inline_comment` (with `confirmed: true`) to annotate specific lines in the diff. This is preferred for file/line-specific feedback since it appears directly in the code context.
+- **Only post GitHub comments** - don't submit review text as chat messages.
+- If the code looks correct, post a brief thank-you and confirmation via `gh pr comment`. A clean "no issues" review is a good outcome.
 
 ## Guiding Principles
 
