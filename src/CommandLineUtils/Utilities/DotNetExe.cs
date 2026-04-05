@@ -65,7 +65,13 @@ namespace McMaster.Extensions.CommandLineUtils
                 dotnetRoot = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "C:\\Program Files\\dotnet" : "/usr/local/share/dotnet";
             }
 
-            return Path.Combine(dotnetRoot, fileName);
+            return FindDotNetInRoot(dotnetRoot, fileName);
+        }
+
+        internal static string? FindDotNetInRoot(string dotnetRoot, string fileName)
+        {
+            var dotnetPath = Path.Combine(dotnetRoot, fileName);
+            return File.Exists(dotnetPath) ? dotnetPath : null;
         }
     }
 }
