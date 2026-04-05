@@ -15,12 +15,7 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
     /// Provides command metadata by analyzing a type using reflection.
     /// This is the fallback when generated metadata is not available.
     /// </summary>
-#if NET6_0_OR_GREATER
     [RequiresUnreferencedCode("Uses reflection to analyze the model type")]
-#elif NET472_OR_GREATER
-#else
-#error Target framework misconfiguration
-#endif
     internal sealed class ReflectionMetadataProvider : ICommandMetadataProvider
     {
         private const BindingFlags MethodLookup = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;

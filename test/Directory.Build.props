@@ -3,5 +3,8 @@
   <PropertyGroup>
     <DefaultItemExcludes>$(DefaultItemExcludes);TestResults\**</DefaultItemExcludes>
     <RunSettingsFilePath>$(MSBuildThisFileDirectory)\.runsettings</RunSettingsFilePath>
+    <!-- Enable unnecessary usings/imports on build https://github.com/dotnet/roslyn/issues/41640 -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
 </Project>

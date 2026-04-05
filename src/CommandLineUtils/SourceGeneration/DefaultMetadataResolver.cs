@@ -30,12 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
         /// For full AOT compatibility, ensure the CommandLineUtils.Generators package is referenced
         /// and the source generator runs during compilation.
         /// </remarks>
-#if NET6_0_OR_GREATER
         [RequiresUnreferencedCode("Falls back to reflection when no generated metadata is available. Use the source generator for AOT compatibility.")]
-#elif NET472_OR_GREATER
-#else
-#error Target framework misconfiguration
-#endif
         public ICommandMetadataProvider GetProvider(Type modelType)
         {
             // Check for generated metadata first (AOT-safe path)

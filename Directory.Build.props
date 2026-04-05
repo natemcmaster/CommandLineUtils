@@ -60,6 +60,10 @@
     <PackageReference Include="PolySharp" Version="1.15.0" PrivateAssets="All" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <PolySharpIncludeRuntimeSupportedAttributes>true</PolySharpIncludeRuntimeSupportedAttributes>
+  </PropertyGroup>
+
   <Import Project="$(MSBuildProjectDirectory)/releasenotes.props"
           Condition="Exists('$(MSBuildProjectDirectory)/releasenotes.props')" />
 
