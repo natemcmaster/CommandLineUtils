@@ -153,9 +153,9 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     arguments[i] = cancellationToken;
                 }
-                else if (TryResolveKeyedService(methodParam, command, out var keyedService))
+                else if (TryGetKeyedServiceKey(methodParam, out var key))
                 {
-                    arguments[i] = keyedService;
+                    arguments[i] = ResolveKeyedService(methodParam, key, command);
                 }
                 else
                 {
@@ -213,14 +213,12 @@ namespace McMaster.Extensions.CommandLineUtils
             return false;
         }
 
-        private static bool TryResolveKeyedService(
+        private static bool TryGetKeyedServiceKey(
             ParameterInfo parameter,
-            CommandLineApplication command,
-            out object? service)
+            out object? key)
         {
-            service = null;
+            key = null;
 
-            // If keyed services types aren't available at runtime, skip
             if (s_fromKeyedServicesAttributeType == null ||
                 s_keyProperty == null ||
                 s_keyedServiceProviderType == null ||
@@ -229,26 +227,29 @@ namespace McMaster.Extensions.CommandLineUtils
                 return false;
             }
 
-            // Check if parameter has [FromKeyedServices] attribute
             var keyedAttr = parameter.GetCustomAttribute(s_fromKeyedServicesAttributeType);
             if (keyedAttr == null)
             {
                 return false;
             }
 
-            // Get the key from the attribute
-            var key = s_keyProperty.GetValue(keyedAttr);
+            key = s_keyProperty.GetValue(keyedAttr);
+            return true;
+        }
 
-            // Check if the service provider supports keyed services
+        private static object ResolveKeyedService(
+            ParameterInfo parameter,
+            object? key,
+            CommandLineApplication command)
+        {
             if (command.AdditionalServices == null ||
-                !s_keyedServiceProviderType.IsInstanceOfType(command.AdditionalServices))
+                !s_keyedServiceProviderType!.IsInstanceOfType(command.AdditionalServices))
             {
                 throw new InvalidOperationException(
                     Strings.KeyedServiceProviderNotSupported(parameter.Name));
             }
 
-            // Invoke GetKeyedService via reflection
-            service = s_getKeyedServiceMethod.Invoke(
+            var service = s_getKeyedServiceMethod!.Invoke(
                 command.AdditionalServices,
                 [parameter.ParameterType, key]);
 
@@ -258,7 +259,7 @@ namespace McMaster.Extensions.CommandLineUtils
                     Strings.NoKeyedServiceFound(parameter.ParameterType, key));
             }
 
-            return true;
+            return service;
         }
 
         private class MethodMetadataEquality : IEqualityComparer<MethodInfo>
