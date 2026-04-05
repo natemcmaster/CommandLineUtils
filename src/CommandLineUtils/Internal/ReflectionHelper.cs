@@ -19,12 +19,42 @@ namespace McMaster.Extensions.CommandLineUtils
 
         private const BindingFlags DeclaredOnlyLookup = InheritedLookup | BindingFlags.DeclaredOnly;
 
+        // Cached reflection handles for keyed DI support (available in .NET 8+ when
+        // Microsoft.Extensions.DependencyInjection.Abstractions is present at runtime).
+        // By resolving these via reflection the core library avoids a hard dependency on
+        // the DI abstractions package.
+        private static readonly Type? s_fromKeyedServicesAttributeType;
+        private static readonly PropertyInfo? s_keyProperty;
+        private static readonly Type? s_keyedServiceProviderType;
+        private static readonly MethodInfo? s_getKeyedServiceMethod;
+
+        static ReflectionHelper()
+        {
+            s_fromKeyedServicesAttributeType = Type.GetType(
+                "Microsoft.Extensions.DependencyInjection.FromKeyedServicesAttribute, Microsoft.Extensions.DependencyInjection.Abstractions");
+
+            if (s_fromKeyedServicesAttributeType != null)
+            {
+                s_keyProperty = s_fromKeyedServicesAttributeType.GetProperty("Key");
+            }
+
+            s_keyedServiceProviderType = Type.GetType(
+                "Microsoft.Extensions.DependencyInjection.IKeyedServiceProvider, Microsoft.Extensions.DependencyInjection.Abstractions");
+
+            if (s_keyedServiceProviderType != null)
+            {
+                s_getKeyedServiceMethod = s_keyedServiceProviderType.GetMethod(
+                    "GetKeyedService",
+                    [typeof(Type), typeof(object)]);
+            }
+        }
+
         public static SetPropertyDelegate GetPropertySetter(PropertyInfo prop)
         {
             var setter = prop.GetSetMethod(nonPublic: true);
             if (setter != null)
             {
-                return (obj, value) => setter.Invoke(obj, new object?[] { value });
+                return (obj, value) => setter.Invoke(obj, [value]);
             }
             else
             {
@@ -47,7 +77,7 @@ namespace McMaster.Extensions.CommandLineUtils
             if (getter != null)
             {
 #pragma warning disable CS8603 // Possible null reference return.
-                return obj => getter.Invoke(obj, Array.Empty<object>());
+                return obj => getter.Invoke(obj, []);
 #pragma warning restore CS8603 // Possible null reference return.
             }
             else
@@ -123,6 +153,10 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     arguments[i] = cancellationToken;
                 }
+                else if (TryGetKeyedServiceKey(methodParam, out var key))
+                {
+                    arguments[i] = ResolveKeyedService(methodParam, key, command);
+                }
                 else
                 {
                     var service = command.AdditionalServices?.GetService(methodParam.ParameterType);
@@ -177,6 +211,55 @@ namespace McMaster.Extensions.CommandLineUtils
 
             wrappedType = null;
             return false;
+        }
+
+        private static bool TryGetKeyedServiceKey(
+            ParameterInfo parameter,
+            out object? key)
+        {
+            key = null;
+
+            if (s_fromKeyedServicesAttributeType == null ||
+                s_keyProperty == null ||
+                s_keyedServiceProviderType == null ||
+                s_getKeyedServiceMethod == null)
+            {
+                return false;
+            }
+
+            var keyedAttr = parameter.GetCustomAttribute(s_fromKeyedServicesAttributeType);
+            if (keyedAttr == null)
+            {
+                return false;
+            }
+
+            key = s_keyProperty.GetValue(keyedAttr);
+            return true;
+        }
+
+        private static object ResolveKeyedService(
+            ParameterInfo parameter,
+            object? key,
+            CommandLineApplication command)
+        {
+            if (command.AdditionalServices == null ||
+                !s_keyedServiceProviderType!.IsInstanceOfType(command.AdditionalServices))
+            {
+                throw new InvalidOperationException(
+                    Strings.KeyedServiceProviderNotSupported(parameter.Name));
+            }
+
+            var service = s_getKeyedServiceMethod!.Invoke(
+                command.AdditionalServices,
+                [parameter.ParameterType, key]);
+
+            if (service == null)
+            {
+                throw new InvalidOperationException(
+                    Strings.NoKeyedServiceFound(parameter.ParameterType, key));
+            }
+
+            return service;
         }
 
         private class MethodMetadataEquality : IEqualityComparer<MethodInfo>

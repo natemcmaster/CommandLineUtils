@@ -111,5 +111,13 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static string NoMatchedConstructorFound(Type modelType)
             => $"Could not found any matched constructors of type '{modelType}'.";
+
+        public static string KeyedServiceProviderNotSupported(string? parameterName)
+            => $"Parameter '{parameterName}' has [FromKeyedServices] attribute, " +
+                "but AdditionalServices does not implement IKeyedServiceProvider. " +
+                "Ensure you're using a DI container that supports keyed services (.NET 8+).";
+
+        public static string NoKeyedServiceFound(Type serviceType, object? key)
+            => $"No keyed service found for type '{serviceType}' with key '{key}'.";
     }
 }
