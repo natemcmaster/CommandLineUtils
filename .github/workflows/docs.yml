@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v6
     - uses: ./.github/actions/setup-dotnet
     - name: Run docs generation
       run: ./docs/generate.ps1
