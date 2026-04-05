@@ -45,7 +45,7 @@ namespace McMaster.Extensions.CommandLineUtils
             {
                 s_getKeyedServiceMethod = s_keyedServiceProviderType.GetMethod(
                     "GetKeyedService",
-                    new[] { typeof(Type), typeof(object) });
+                    [typeof(Type), typeof(object)]);
             }
         }
 
@@ -153,17 +153,14 @@ namespace McMaster.Extensions.CommandLineUtils
                 {
                     arguments[i] = cancellationToken;
                 }
+                else if (TryResolveKeyedService(methodParam, command, out var keyedService))
+                {
+                    arguments[i] = keyedService;
+                }
                 else
                 {
-                    if (TryResolveKeyedService(methodParam, command, out var keyedService))
-                    {
-                        arguments[i] = keyedService;
-                    }
-                    else
-                    {
-                        var service = command.AdditionalServices?.GetService(methodParam.ParameterType);
-                        arguments[i] = service ?? throw new InvalidOperationException(Strings.UnsupportedParameterTypeOnMethod(method.Name, methodParam));
-                    }
+                    var service = command.AdditionalServices?.GetService(methodParam.ParameterType);
+                    arguments[i] = service ?? throw new InvalidOperationException(Strings.UnsupportedParameterTypeOnMethod(method.Name, methodParam));
                 }
             }
 
@@ -255,7 +252,7 @@ namespace McMaster.Extensions.CommandLineUtils
             // Invoke GetKeyedService via reflection
             service = s_getKeyedServiceMethod.Invoke(
                 command.AdditionalServices,
-                new[] { parameter.ParameterType, key });
+                [parameter.ParameterType, key]);
 
             if (service == null)
             {
