@@ -5,7 +5,11 @@
 ### Features
 * [@Chris-Wolfgang]: Add support for keyed dependency injection via `[FromKeyedServices]` attribute ([#560])
 
+### Fixes
+* [@claude]: Validate dotnet path exists before returning from `TryFindDotNetExePath` ([#600])
+
 [#560]: https://github.com/natemcmaster/CommandLineUtils/pull/560
+[#600]: https://github.com/natemcmaster/CommandLineUtils/issues/600
 
 ## [v5.0.1](https://github.com/natemcmaster/CommandLineUtils/compare/v5.0.0...v5.0.1)
 
