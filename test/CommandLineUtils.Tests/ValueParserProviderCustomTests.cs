@@ -339,5 +339,71 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             Assert.Contains("parser", ex.Message);
         }
+
+        private class CustomTimeSpanParser : IValueParser<TimeSpan>
+        {
+            public Type TargetType => typeof(TimeSpan);
+
+            public TimeSpan Parse(string? argName, string? value, CultureInfo culture)
+            {
+                if (value != null && value.EndsWith("s"))
+                {
+                    var seconds = int.Parse(value.Substring(0, value.Length - 1), culture);
+                    return TimeSpan.FromSeconds(seconds);
+                }
+
+                return TimeSpan.Parse(value!, culture);
+            }
+
+            object? IValueParser.Parse(string? argName, string? value, CultureInfo culture)
+                => Parse(argName, value, culture);
+        }
+
+        private class NullableTimeSpanOptionProgram
+        {
+            [Option("--timeout", CommandOptionType.SingleValue)]
+            public TimeSpan? Timeout { get; set; }
+        }
+
+        private class NonNullableTimeSpanOptionProgram
+        {
+            [Option("--timeout", CommandOptionType.SingleValue)]
+            public TimeSpan Timeout { get; set; }
+        }
+
+        [Fact]
+        public void CustomParserWorksForNullableBuiltInType()
+        {
+            var app = new CommandLineApplication<NullableTimeSpanOptionProgram>();
+            app.ValueParsers.AddOrReplace(new CustomTimeSpanParser());
+            app.Conventions.UseDefaultConventions();
+
+            app.Parse("--timeout", "15s");
+
+            Assert.Equal(TimeSpan.FromSeconds(15), app.Model.Timeout);
+        }
+
+        [Fact]
+        public void CustomParserWorksForNonNullableBuiltInType()
+        {
+            var app = new CommandLineApplication<NonNullableTimeSpanOptionProgram>();
+            app.ValueParsers.AddOrReplace(new CustomTimeSpanParser());
+            app.Conventions.UseDefaultConventions();
+
+            app.Parse("--timeout", "15s");
+
+            Assert.Equal(TimeSpan.FromSeconds(15), app.Model.Timeout);
+        }
+
+        [Fact]
+        public void NullableBuiltInTypeUsesDefaultParserWhenNoCustomParser()
+        {
+            var app = new CommandLineApplication<NullableTimeSpanOptionProgram>();
+            app.Conventions.UseDefaultConventions();
+
+            app.Parse("--timeout", "00:00:15");
+
+            Assert.Equal(TimeSpan.FromSeconds(15), app.Model.Timeout);
+        }
     }
 }

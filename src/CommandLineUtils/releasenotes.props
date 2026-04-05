@@ -8,6 +8,7 @@ Features:
 
 Fixes:
 * @claude: Validate dotnet path exists before returning from TryFindDotNetExePath (#600)
+* @claude: Fix nullable type lookup bypassing custom value parsers registered via AddOrReplace (#559)
     </PackageReleaseNotes>
     <PackageReleaseNotes Condition="$(VersionPrefix.StartsWith('5.0.'))">
 Changes since 4.1:
