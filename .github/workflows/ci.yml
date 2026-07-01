@@ -33,7 +33,7 @@ jobs:
       package_version: ${{ steps.build_script.outputs.package_version }}
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup-dotnet
       - name: Run build script
         id: build_script
@@ -44,7 +44,7 @@ jobs:
           name: packages
           path: artifacts/
           if-no-files-found: error
-      - uses: codecov/codecov-action@v6
+      - uses: codecov/codecov-action@v7
         with:
           name: unittests-${{ matrix.os }}
           fail_ci_if_error: true
@@ -77,7 +77,7 @@ jobs:
       - name: Push to NuGet.org
         run: dotnet nuget push packages/*.nupkg --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
       - name: Create GitHub release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
