@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
 {
@@ -21,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
         /// <param name="setter">Delegate to set the property value on a model instance.</param>
         public OptionMetadata(
             string propertyName,
-            Type propertyType,
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type propertyType,
             Func<object, object?> getter,
             Action<object, object?> setter)
         {
@@ -39,6 +40,7 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
         /// <summary>
         /// The CLR type of the property.
         /// </summary>
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]
         public Type PropertyType { get; }
 
         /// <summary>

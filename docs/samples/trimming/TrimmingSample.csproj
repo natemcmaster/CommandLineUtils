@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <IsPackable>false</IsPackable>
+
+    <!-- Publish self-contained, trimmed, single-file to exercise the library under trimming,
+         matching the repro in https://github.com/natemcmaster/CommandLineUtils/issues/539. -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <PublishTrimmed>true</PublishTrimmed>
+
+    <!-- Fail the build if the trimmer finds a problem, so this sample doubles as a regression
+         check for #539 instead of only a manual demo. -->
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\CommandLineUtils\McMaster.Extensions.CommandLineUtils.csproj" />
+  </ItemGroup>
+
+</Project>

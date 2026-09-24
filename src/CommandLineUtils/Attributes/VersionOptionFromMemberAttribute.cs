@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -39,7 +40,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public new string Template { get; set; }
 
-        internal CommandOption Configure(CommandLineApplication app, Type type, Func<object> targetInstanceFactory)
+        internal CommandOption Configure(CommandLineApplication app, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type type, Func<object> targetInstanceFactory)
         {
             Func<string>? shortFormGetter = null;
             Func<string>? longFormGetter = null;

@@ -23,11 +23,19 @@ namespace McMaster.Extensions.CommandLineUtils
         // Microsoft.Extensions.DependencyInjection.Abstractions is present at runtime).
         // By resolving these via reflection the core library avoids a hard dependency on
         // the DI abstractions package.
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
         private static readonly Type? s_fromKeyedServicesAttributeType;
         private static readonly PropertyInfo? s_keyProperty;
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)]
         private static readonly Type? s_keyedServiceProviderType;
         private static readonly MethodInfo? s_getKeyedServiceMethod;
 
+        [UnconditionalSuppressMessage("Trimming", "IL2065",
+            Justification = "Type.GetType is used to softly-detect the optional " +
+                "Microsoft.Extensions.DependencyInjection.Abstractions package at runtime by its well-known, " +
+                "fixed type names. When that package is trimmed away, Type.GetType returns null and keyed-service " +
+                "support is simply disabled (see the null checks below); when it is present and referenced by the " +
+                "app, its public surface is preserved because the app itself references these types.")]
         static ReflectionHelper()
         {
             s_fromKeyedServicesAttributeType = Type.GetType(
@@ -49,6 +57,11 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
+        [UnconditionalSuppressMessage("Trimming", "IL2075",
+            Justification = "prop.DeclaringType is not itself annotated (PropertyInfo.DeclaringType has no " +
+                "DynamicallyAccessedMembers support), but prop was obtained by reflecting over a model type " +
+                "that flows from an annotated (DynamicallyAccessedMemberTypes.All) entry point, so its backing " +
+                "field is preserved by trimming.")]
         public static SetPropertyDelegate GetPropertySetter(PropertyInfo prop)
         {
             var setter = prop.GetSetMethod(nonPublic: true);
@@ -71,6 +84,8 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
+        [UnconditionalSuppressMessage("Trimming", "IL2075",
+            Justification = "See GetPropertySetter.")]
         public static GetPropertyDelegate GetPropertyGetter(PropertyInfo prop)
         {
             var getter = prop.GetGetMethod(nonPublic: true);
@@ -97,7 +112,7 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        public static MethodInfo[] GetPropertyOrMethod(Type type, string name)
+        public static MethodInfo[] GetPropertyOrMethod([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type type, string name)
         {
             var members = GetAllMembers(type).ToList();
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
@@ -112,14 +127,14 @@ namespace McMaster.Extensions.CommandLineUtils
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
-        public static PropertyInfo[] GetProperties(Type type)
+        public static PropertyInfo[] GetProperties([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type type)
         {
             return GetAllMembers(type)
                 .OfType<PropertyInfo>()
                 .ToArray();
         }
 
-        public static MemberInfo[] GetMembers(Type type)
+        public static MemberInfo[] GetMembers([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type type)
         {
             return GetAllMembers(type).ToArray();
         }
@@ -309,7 +324,12 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        private static IEnumerable<MemberInfo> GetAllMembers(Type type)
+        [UnconditionalSuppressMessage("Trimming", "IL2075",
+            Justification = "currentType walks the DynamicallyAccessedMemberTypes.All-annotated type's base " +
+                "type chain. Type.BaseType's return value is not itself annotated, but preserving a type's " +
+                "members (via the All annotation on the original 'type' argument) also preserves its base " +
+                "types' members, so the members read here are not trimmed away.")]
+        private static IEnumerable<MemberInfo> GetAllMembers([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type type)
         {
             // Keep track of the base definitions of property getters we see so we can skip ones we've seen already
             var baseGetters = new HashSet<MethodInfo>(new MethodMetadataEquality());

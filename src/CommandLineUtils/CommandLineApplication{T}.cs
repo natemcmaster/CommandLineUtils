@@ -13,7 +13,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// Describes a set of command line arguments, options, and execution behavior
     /// using a type of <typeparamref name="TModel" /> to model the application.
     /// </summary>
-    public class CommandLineApplication<TModel> : CommandLineApplication, IModelAccessor
+    public class CommandLineApplication<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TModel> : CommandLineApplication, IModelAccessor
         where TModel : class
     {
         [AllowNull] // this is initialized in common method called in all constructors
@@ -96,6 +96,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public TModel Model => _lazy.Value;
 
+        [return: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]
         Type IModelAccessor.GetModelType() => typeof(TModel);
 
         object IModelAccessor.GetModel() => Model;
@@ -115,7 +116,7 @@ namespace McMaster.Extensions.CommandLineUtils
             set => _modelFactory = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        private protected override ConventionContext CreateConventionContext(Type? modelType) => new(this, typeof(TModel));
+        private protected override ConventionContext CreateConventionContext([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type? modelType) => new(this, typeof(TModel));
 
         /// <inheritdoc />
         public override void Dispose()
