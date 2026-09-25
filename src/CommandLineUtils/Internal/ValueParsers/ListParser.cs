@@ -4,6 +4,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace McMaster.Extensions.CommandLineUtils.Abstractions
@@ -12,10 +13,15 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     internal class ListParser : ICollectionParser
     {
         private readonly IValueParser _elementParser;
+
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]
         private readonly Type _listType;
         private readonly CultureInfo _parserCulture;
 
-        public ListParser(Type elementType, IValueParser elementParser, CultureInfo parserCulture)
+        public ListParser(
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] Type elementType,
+            IValueParser elementParser,
+            CultureInfo parserCulture)
         {
             _elementParser = elementParser;
             _listType = typeof(List<>).MakeGenericType(elementType);

@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Validation;
@@ -17,6 +18,11 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
     public abstract class OptionAttributeConventionBase<TAttribute>
         where TAttribute : OptionAttributeBase
     {
+        [UnconditionalSuppressMessage("Trimming", "IL2072",
+            Justification = "prop.PropertyType is not itself annotated (PropertyInfo.PropertyType has no " +
+                "DynamicallyAccessedMembers support), but prop was obtained from ConventionContext.ModelType, " +
+                "which is annotated with DynamicallyAccessedMemberTypes.All, so prop's declaring type - and " +
+                "therefore prop's own type - is preserved by trimming.")]
         private protected void AddOption(ConventionContext context, CommandOption option, PropertyInfo prop)
         {
             var modelAccessor = context.ModelAccessor;

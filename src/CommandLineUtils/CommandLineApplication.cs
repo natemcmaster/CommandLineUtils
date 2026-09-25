@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -108,7 +109,10 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <summary>
         /// Constructor for subcommands with a known model type (used for AOT-compatible subcommand creation).
         /// </summary>
-        internal CommandLineApplication(CommandLineApplication parent, string name, Type modelType)
+        internal CommandLineApplication(
+            CommandLineApplication parent,
+            string name,
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type modelType)
             : this(parent, parent._helpTextGenerator, parent._context, modelType)
         {
             if (name != null)
@@ -129,7 +133,7 @@ namespace McMaster.Extensions.CommandLineUtils
             CommandLineApplication? parent,
             IHelpTextGenerator helpTextGenerator,
             CommandLineContext context,
-            Type? modelType)
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type? modelType)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             Parent = parent;
@@ -484,7 +488,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="modelType">The type of the model.</param>
         /// <param name="modelFactory">Factory to create instances of the model.</param>
         /// <returns>The created subcommand.</returns>
-        internal CommandLineApplication AddSubcommand(string name, Type modelType, SourceGeneration.IModelFactory modelFactory)
+        internal CommandLineApplication AddSubcommand(string name, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type modelType, SourceGeneration.IModelFactory modelFactory)
         {
             AssertCommandNameIsUnique(name, null);
 
@@ -544,7 +548,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="configuration">A callback used to configure the subcommand object.</param>
         /// <typeparam name="TModel">The model type of the subcommand.</typeparam>
         /// <returns></returns>
-        public CommandLineApplication<TModel> Command<TModel>(string name, Action<CommandLineApplication<TModel>> configuration)
+        public CommandLineApplication<TModel> Command<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TModel>(string name, Action<CommandLineApplication<TModel>> configuration)
             where TModel : class
         {
             var command = new CommandLineApplication<TModel>(this, name);
@@ -628,7 +632,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="inherited"></param>
         /// <typeparam name="T">The type of the values on the option</typeparam>
         /// <returns>The option</returns>
-        public CommandOption<T> Option<T>(string template, string description, CommandOptionType optionType, Action<CommandOption<T>> configuration, bool inherited)
+        public CommandOption<T> Option<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(string template, string description, CommandOptionType optionType, Action<CommandOption<T>> configuration, bool inherited)
         {
             var parser = ValueParsers.GetParser<T>();
 
@@ -692,7 +696,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="multipleValues"></param>
         /// <typeparam name="T">The type of the values on the option</typeparam>
         /// <returns></returns>
-        public CommandArgument<T> Argument<T>(string name, string description, Action<CommandArgument<T>> configuration, bool multipleValues = false)
+        public CommandArgument<T> Argument<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(string name, string description, Action<CommandArgument<T>> configuration, bool multipleValues = false)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         {
             var parser = ValueParsers.GetParser<T>();
@@ -1154,7 +1158,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public IConventionBuilder Conventions => _builder ??= new Builder(this);
 
-        private protected virtual ConventionContext CreateConventionContext(Type? modelType) => new(this, modelType);
+        private protected virtual ConventionContext CreateConventionContext([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type? modelType) => new(this, modelType);
 
         private bool _settingContext;
         internal void SetContext(CommandLineContext context)

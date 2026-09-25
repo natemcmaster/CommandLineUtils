@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -29,7 +30,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
-        public static int Execute<TApp>(CommandLineContext context)
+        public static int Execute<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TApp>(CommandLineContext context)
             where TApp : class
             => ExecuteAsync<TApp>(context).GetAwaiter().GetResult();
 
@@ -47,7 +48,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
-        public static async Task<int> ExecuteAsync<TApp>(CommandLineContext context, CancellationToken cancellationToken = default)
+        public static async Task<int> ExecuteAsync<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TApp>(CommandLineContext context, CancellationToken cancellationToken = default)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
             where TApp : class
         {
@@ -109,7 +110,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
-        public static int Execute<TApp>(params string[] args)
+        public static int Execute<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TApp>(params string[] args)
             where TApp : class
             => Execute<TApp>(PhysicalConsole.Singleton, args);
 
@@ -126,7 +127,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
-        public static int Execute<TApp>(IConsole console, params string[] args)
+        public static int Execute<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TApp>(IConsole console, params string[] args)
             where TApp : class
         {
             args ??= Array.Empty<string>();
@@ -146,7 +147,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
-        public static Task<int> ExecuteAsync<TApp>(params string[] args)
+        public static Task<int> ExecuteAsync<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TApp>(params string[] args)
         where TApp : class
             => ExecuteAsync<TApp>(PhysicalConsole.Singleton, args);
 
@@ -164,7 +165,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
-        public static Task<int> ExecuteAsync<TApp>(string[] args, CancellationToken cancellationToken = default)
+        public static Task<int> ExecuteAsync<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TApp>(string[] args, CancellationToken cancellationToken = default)
 #pragma warning restore RS0026 // Do not add multiple public overloads with optional parameters
         where TApp : class
         {
@@ -186,7 +187,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <typeparam name="TApp">A type that should be bound to the arguments.</typeparam>
         /// <exception cref="InvalidOperationException">Thrown when attributes are incorrectly configured.</exception>
         /// <returns>The process exit code</returns>
-        public static Task<int> ExecuteAsync<TApp>(IConsole console, params string[] args)
+        public static Task<int> ExecuteAsync<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TApp>(IConsole console, params string[] args)
             where TApp : class
         {
             args ??= Array.Empty<string>();

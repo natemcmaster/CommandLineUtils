@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 
@@ -15,7 +16,12 @@ namespace McMaster.Extensions.CommandLineUtils
 
         public static CollectionParserProvider Default { get; } = new CollectionParserProvider();
 
-        public ICollectionParser? GetParser(Type type, ValueParserProvider valueParsers)
+        [UnconditionalSuppressMessage("Trimming", "IL2072",
+            Justification = "type is annotated with DynamicallyAccessedMemberTypes.All, so its element/generic " +
+                "argument type (an array element or the sole type argument of a single-generic-parameter " +
+                "collection interface/List<>) is reachable through it, even though Type.GetElementType()/" +
+                "GetGenericArguments() do not themselves carry a matching annotation on their return value.")]
+        public ICollectionParser? GetParser([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type type, ValueParserProvider valueParsers)
         {
             if (type.IsArray)
             {

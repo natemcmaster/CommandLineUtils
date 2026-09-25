@@ -14,7 +14,10 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     /// </summary>
     internal class TypeDescriptorValueParserFactory
     {
-        public bool TryGetParser<T>([NotNullWhen(true)] out IValueParser? parser)
+        [RequiresUnreferencedCode("Uses System.ComponentModel.TypeDescriptor.GetConverter, which requires " +
+            "unreferenced code. This is a fallback used only for option/argument types that are not one of " +
+            "the library's built-in value parsers (primitives, enums, DateTime, Uri, etc.).")]
+        public bool TryGetParser<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>([NotNullWhen(true)] out IValueParser? parser)
         {
             var targetType = typeof(T);
             var converter = TypeDescriptor.GetConverter(targetType);

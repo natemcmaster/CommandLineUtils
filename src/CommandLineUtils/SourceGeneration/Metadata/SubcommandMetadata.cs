@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
 {
@@ -14,7 +15,9 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
         /// Initializes a new instance of the <see cref="SubcommandMetadata"/> class.
         /// </summary>
         /// <param name="subcommandType">The type of the subcommand.</param>
-        public SubcommandMetadata(Type subcommandType)
+        public SubcommandMetadata(
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]
+            Type subcommandType)
         {
             SubcommandType = subcommandType ?? throw new ArgumentNullException(nameof(subcommandType));
         }
@@ -22,6 +25,7 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
         /// <summary>
         /// The type of the subcommand.
         /// </summary>
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]
         public Type SubcommandType { get; }
 
         /// <summary>

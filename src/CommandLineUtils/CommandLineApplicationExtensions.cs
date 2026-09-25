@@ -5,6 +5,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="description"></param>
         /// <param name="multipleValues"></param>
         /// <returns></returns>
-        public static CommandArgument<T> Argument<T>(this CommandLineApplication app, string name, string description, bool multipleValues = false)
+        public static CommandArgument<T> Argument<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(this CommandLineApplication app, string name, string description, bool multipleValues = false)
             => app.Argument<T>(name, description, _ => { }, multipleValues);
 
         /// <summary>
@@ -35,7 +36,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="description"></param>
         /// <param name="optionType"></param>
         /// <returns></returns>
-        public static CommandOption<T> Option<T>(this CommandLineApplication app, string template, string description, CommandOptionType optionType)
+        public static CommandOption<T> Option<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(this CommandLineApplication app, string template, string description, CommandOptionType optionType)
             => app.Option<T>(template, description, optionType, _ => { }, inherited: false);
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="optionType"></param>
         /// <param name="inherited"></param>
         /// <returns></returns>
-        public static CommandOption<T> Option<T>(this CommandLineApplication app, string template, string description, CommandOptionType optionType, bool inherited)
+        public static CommandOption<T> Option<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(this CommandLineApplication app, string template, string description, CommandOptionType optionType, bool inherited)
             => app.Option<T>(template, description, optionType, _ => { }, inherited);
 
         /// <summary>
@@ -59,7 +60,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="optionType"></param>
         /// <param name="configuration"></param>
         /// <returns></returns>
-        public static CommandOption<T> Option<T>(this CommandLineApplication app, string template, string description, CommandOptionType optionType, Action<CommandOption<T>> configuration)
+        public static CommandOption<T> Option<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(this CommandLineApplication app, string template, string description, CommandOptionType optionType, Action<CommandOption<T>> configuration)
             => app.Option<T>(template, description, optionType, configuration, inherited: false);
 
         /// <summary>

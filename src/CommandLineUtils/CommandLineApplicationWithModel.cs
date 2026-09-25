@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 using McMaster.Extensions.CommandLineUtils.SourceGeneration;
 
@@ -13,6 +14,7 @@ namespace McMaster.Extensions.CommandLineUtils
     /// </summary>
     internal sealed class CommandLineApplicationWithModel : CommandLineApplication, IModelAccessor
     {
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]
         private readonly Type _modelType;
         private readonly IModelFactory _modelFactory;
         private readonly Lazy<object> _lazyModel;
@@ -20,7 +22,7 @@ namespace McMaster.Extensions.CommandLineUtils
         internal CommandLineApplicationWithModel(
             CommandLineApplication parent,
             string name,
-            Type modelType,
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type modelType,
             IModelFactory modelFactory)
             : base(parent, name, modelType)
         {
@@ -34,6 +36,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// </summary>
         public object Model => _lazyModel.Value;
 
+        [return: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]
         Type IModelAccessor.GetModelType() => _modelType;
 
         object IModelAccessor.GetModel() => Model;
