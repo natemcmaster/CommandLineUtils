@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 
@@ -32,6 +33,10 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         }
 
         /// <inheritdoc />
+        [UnconditionalSuppressMessage("Trimming", "IL2060",
+            Justification = "context.ModelType is annotated with DynamicallyAccessedMemberTypes.All, so the " +
+                "members ApplyImpl<TModel> needs from it are preserved even though MakeGenericMethod's own use " +
+                "of context.ModelType cannot be statically verified by the trimmer.")]
         public virtual void Apply(ConventionContext context)
         {
             if (_additionalServices != null)
@@ -50,7 +55,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
         private static readonly MethodInfo s_applyMethod
          = typeof(ConstructorInjectionConvention).GetRuntimeMethods().Single(m => m.Name == nameof(ApplyImpl));
 
-        private void ApplyImpl<TModel>(ConventionContext context)
+        private void ApplyImpl<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TModel>(ConventionContext context)
             where TModel : class
         {
             var constructors = typeof(TModel).GetConstructors(BindingFlags.Public | BindingFlags.Instance);
@@ -64,7 +69,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
             }
         }
 
-        private static Func<TModel>? FindMatchedConstructor<TModel>(
+        private static Func<TModel>? FindMatchedConstructor<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TModel>(
             ConstructorInfo[] constructors,
             IServiceProvider services,
             bool throwIfNoParameterTypeRegistered = false)

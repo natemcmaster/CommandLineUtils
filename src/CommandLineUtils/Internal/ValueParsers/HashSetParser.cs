@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
 
@@ -11,12 +12,17 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
     internal class HashSetParser : ICollectionParser
     {
         private readonly IValueParser _elementParser;
+
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.PublicMethods)]
         private readonly Type _listType;
         private readonly MethodInfo _addMethod;
         private readonly CultureInfo _parserCulture;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        public HashSetParser(Type elementType, IValueParser elementParser, CultureInfo parserCulture)
+        public HashSetParser(
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.PublicMethods)] Type elementType,
+            IValueParser elementParser,
+            CultureInfo parserCulture)
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             _elementParser = elementParser;

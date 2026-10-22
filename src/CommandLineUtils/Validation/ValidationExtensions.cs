@@ -3,6 +3,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using McMaster.Extensions.CommandLineUtils.Validation;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -333,6 +334,10 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="length">The minimum length.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
+        [UnconditionalSuppressMessage("Trimming", "IL2026",
+            Justification = "MinLengthAttribute's IsValid uses reflection to find a 'Count' property only on " +
+                "values that are not already ICollection/ICollection<T>. This library uses MinLength for string " +
+                "and collection option/argument values, whose Count/Length members are not trimmed.")]
         public static IValidationBuilder MinLength(this IValidationBuilder builder, int length, string? errorMessage = null)
             => builder.Satisfies(new MinLengthAttribute(length), errorMessage);
 
@@ -343,6 +348,10 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="length">The maximum length.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
+        [UnconditionalSuppressMessage("Trimming", "IL2026",
+            Justification = "MaxLengthAttribute's IsValid uses reflection to find a 'Count' property only on " +
+                "values that are not already ICollection/ICollection<T>. This library uses MaxLength for string " +
+                "and collection option/argument values, whose Count/Length members are not trimmed.")]
         public static IValidationBuilder MaxLength(this IValidationBuilder builder, int length, string? errorMessage = null)
             => builder.Satisfies(new MaxLengthAttribute(length), errorMessage);
 
@@ -364,7 +373,7 @@ namespace McMaster.Extensions.CommandLineUtils
         /// <param name="ctorArgs">Constructor arguments for <typeparamref name="TAttribute"/>.</param>
         /// <param name="errorMessage">A custom error message to display.</param>
         /// <returns>The builder.</returns>
-        public static IValidationBuilder Satisfies<TAttribute>(this IValidationBuilder builder, string? errorMessage = null, params object[] ctorArgs)
+        public static IValidationBuilder Satisfies<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TAttribute>(this IValidationBuilder builder, string? errorMessage = null, params object[] ctorArgs)
             where TAttribute : ValidationAttribute
         {
             var attribute = GetValidationAttr<TAttribute>(errorMessage, ctorArgs);
@@ -452,7 +461,7 @@ namespace McMaster.Extensions.CommandLineUtils
             return builder;
         }
 
-        private static T GetValidationAttr<T>(string? errorMessage, object[]? ctorArgs = null)
+        private static T GetValidationAttr<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] T>(string? errorMessage, object[]? ctorArgs = null)
             where T : ValidationAttribute
         {
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
