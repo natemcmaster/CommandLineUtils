@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 
@@ -95,6 +96,11 @@ namespace McMaster.Extensions.CommandLineUtils
             return option;
         }
 
+        [UnconditionalSuppressMessage("Trimming", "IL2072",
+            Justification = "prop.PropertyType is not itself annotated (PropertyInfo.PropertyType has no " +
+                "DynamicallyAccessedMembers support), but prop's declaring model type flows from " +
+                "CommandLineApplication.Execute<TApp>'s DynamicallyAccessedMemberTypes.All-annotated TApp, so " +
+                "prop's own type is preserved by trimming.")]
         private CommandOptionType GetOptionType(PropertyInfo prop, ValueParserProvider valueParsers)
         {
             CommandOptionType optionType;

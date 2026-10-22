@@ -17,6 +17,10 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
     public class SubcommandAttributeConvention : IConvention
     {
         /// <inheritdoc />
+        [UnconditionalSuppressMessage("Trimming", "IL2026",
+            Justification = "Falls back to reflection only when a subcommand type has no source-generated or " +
+                "factory-provided metadata. AddSubcommandFromMetadata annotates subcommandType with the " +
+                "constructor accessed member types it needs, so the members it reflects over are preserved.")]
         public virtual void Apply(ConventionContext context)
         {
             // MetadataProvider is always available (generated or reflection-based via DefaultMetadataResolver)
@@ -58,7 +62,7 @@ namespace McMaster.Extensions.CommandLineUtils.Conventions
 
         private void AddSubcommandFromMetadata(
             ConventionContext context,
-            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]
             Type subcommandType,
             ICommandMetadataProvider provider,
             string name)

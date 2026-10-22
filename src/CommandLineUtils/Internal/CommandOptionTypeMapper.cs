@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using McMaster.Extensions.CommandLineUtils.Abstractions;
 
 namespace McMaster.Extensions.CommandLineUtils
@@ -15,7 +16,7 @@ namespace McMaster.Extensions.CommandLineUtils
         public static CommandOptionTypeMapper Default { get; } = new CommandOptionTypeMapper();
 
         public bool TryGetOptionType(
-            Type clrType,
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type clrType,
             ValueParserProvider valueParsers,
             out CommandOptionType optionType)
         {
@@ -31,7 +32,14 @@ namespace McMaster.Extensions.CommandLineUtils
             }
         }
 
-        public CommandOptionType GetOptionType(Type clrType, ValueParserProvider? valueParsers = null)
+        [UnconditionalSuppressMessage("Trimming", "IL2072",
+            Justification = "wrappedType/wrappedType2/wrappedType3 are generic type arguments extracted from " +
+                "clrType (Nullable<T>/ValueTuple<bool,T>/Tuple<bool,T>) via ReflectionHelper's Is*Type helpers, " +
+                "which do not themselves propagate DynamicallyAccessedMembers annotations. clrType is annotated " +
+                "with DynamicallyAccessedMemberTypes.All, and preserving a closed generic type also preserves " +
+                "its type arguments' members.")]
+        [UnconditionalSuppressMessage("Trimming", "IL2067", Justification = "See the IL2072 suppression above.")]
+        public CommandOptionType GetOptionType([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type clrType, ValueParserProvider? valueParsers = null)
         {
             if (clrType == typeof(bool) || clrType == typeof(bool[]))
             {

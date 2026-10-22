@@ -4,6 +4,13 @@
     <TargetFrameworks>net8.0;net472</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
+    <!--
+      Opt this library into trim analysis. .NET Framework (net472) does not support trimming,
+      so only the net8.0 build is annotated and validated against the ILLink trim analyzer.
+      See https://github.com/natemcmaster/CommandLineUtils/issues/539
+    -->
+    <IsTrimmable Condition="'$(TargetFramework)' == 'net8.0'">true</IsTrimmable>
+    <EnableTrimAnalyzer Condition="'$(TargetFramework)' == 'net8.0'">true</EnableTrimAnalyzer>
     <Description>Command-line parsing API.</Description>
     <PackageDescription>Command-line parsing API and utilities for console applications.
 

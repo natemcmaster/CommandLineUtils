@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -48,17 +49,29 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// </remarks>
         public CultureInfo ParseCulture { get; set; } = CultureInfo.CurrentCulture;
 
-        private static readonly MethodInfo s_getParserGeneric
-            = typeof(ValueParserProvider)
+        private static readonly MethodInfo s_getParserGeneric;
+
+        [UnconditionalSuppressMessage("Trimming", "IL2111",
+            Justification = "GetParser<T>() is looked up here purely so GetParser(Type) can re-dispatch to it " +
+                "generically below; the annotations on its T parameter are honored because the Type passed " +
+                "into GetParser(Type) is itself annotated with DynamicallyAccessedMemberTypes.All.")]
+        static ValueParserProvider()
+        {
+            s_getParserGeneric = typeof(ValueParserProvider)
                 .GetMethods(BindingFlags.Instance | BindingFlags.Public)
                 .Single(m => m.Name == nameof(GetParser) && m.IsGenericMethod);
+        }
 
         /// <summary>
         /// Returns a parser registered for the given type.
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public IValueParser GetParser(Type type)
+        [UnconditionalSuppressMessage("Trimming", "IL2060",
+            Justification = "type is annotated with DynamicallyAccessedMemberTypes.All, so the members " +
+                "GetParser<T>() needs from it are preserved even though MakeGenericMethod's own use of type " +
+                "cannot be statically verified by the trimmer.")]
+        public IValueParser GetParser([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Type type)
         {
             var method = s_getParserGeneric.MakeGenericMethod(type);
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
@@ -76,7 +89,7 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
         /// </remarks>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public IValueParser<T>? GetParser<T>()
+        public IValueParser<T>? GetParser<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>()
         {
             var parser = GetParserImpl<T>();
             return parser switch
@@ -87,7 +100,17 @@ namespace McMaster.Extensions.CommandLineUtils.Abstractions
             };
         }
 
-        internal IValueParser? GetParserImpl<T>()
+        [UnconditionalSuppressMessage("Trimming", "IL2026",
+            Justification = "TryGetParser<T> (TypeDescriptor-based) is only reached when T is not one of the " +
+                "stock value-parser types, an enum, or Nullable<T> thereof. T is annotated with " +
+                "DynamicallyAccessedMemberTypes.All so its members survive trimming when this fallback runs.")]
+        [UnconditionalSuppressMessage("Trimming", "IL2072",
+            Justification = "type is typeof(T) where T is annotated with DynamicallyAccessedMemberTypes.All, so " +
+                "the array/wrapped element types reached through Type.GetElementType() and ReflectionHelper's " +
+                "Is*Type helpers are reachable through T even though those helpers do not themselves carry a " +
+                "matching annotation on their return/out value.")]
+        [UnconditionalSuppressMessage("Trimming", "IL2067", Justification = "See the IL2072 suppression above.")]
+        internal IValueParser? GetParserImpl<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>()
         {
             var type = typeof(T);
             if (_parsers.TryGetValue(type, out var parser))

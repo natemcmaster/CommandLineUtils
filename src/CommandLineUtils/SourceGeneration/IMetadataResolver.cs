@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
 {
@@ -16,6 +17,7 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
         /// </summary>
         /// <param name="modelType">The model type.</param>
         /// <returns>A metadata provider for the type.</returns>
+        [RequiresUnreferencedCode("Falls back to reflection when no generated metadata is available. Use the source generator for AOT compatibility.")]
         ICommandMetadataProvider GetProvider(Type modelType);
 
         /// <summary>
@@ -24,6 +26,7 @@ namespace McMaster.Extensions.CommandLineUtils.SourceGeneration
         /// </summary>
         /// <typeparam name="TModel">The model type.</typeparam>
         /// <returns>A metadata provider for the type.</returns>
+        [RequiresUnreferencedCode("Falls back to reflection when no generated metadata is available. Use the source generator for AOT compatibility.")]
         ICommandMetadataProvider<TModel> GetProvider<TModel>() where TModel : class;
 
         /// <summary>
