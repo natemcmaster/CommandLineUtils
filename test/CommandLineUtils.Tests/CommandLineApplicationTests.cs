@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using McMaster.Extensions.CommandLineUtils.HelpText;
 using Moq;
 using Xunit;
 using Xunit.Abstractions;
@@ -45,6 +46,21 @@ namespace McMaster.Extensions.CommandLineUtils.Tests
 
             app.Execute("test");
             Assert.Empty(verboseOption.Values);
+        }
+
+        [Fact]
+        public void HelpTextGeneratorPropagatesToExistingSubcommands()
+        {
+            var app = new CommandLineApplication();
+            var sub = app.Command("sub", _ => { });
+            var custom = new Mock<IHelpTextGenerator>().Object;
+            var subCustom = new Mock<IHelpTextGenerator>().Object;
+            var other = app.Command("other", c => c.HelpTextGenerator = subCustom);
+
+            app.HelpTextGenerator = custom;
+
+            Assert.Same(custom, sub.HelpTextGenerator);
+            Assert.Same(subCustom, other.HelpTextGenerator);
         }
 
         [Fact]

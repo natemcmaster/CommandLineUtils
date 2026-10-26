@@ -162,12 +162,26 @@ namespace McMaster.Extensions.CommandLineUtils
         public CommandLineApplication? Parent { get; set; }
 
         /// <summary>
-        /// The help text generator to use.
+        /// The help text generator to use. Setting this also updates subcommands that use the previous generator.
         /// </summary>
         public IHelpTextGenerator HelpTextGenerator
         {
             get => _helpTextGenerator;
-            set => _helpTextGenerator = value ?? throw new ArgumentNullException(nameof(value));
+            set
+            {
+                var previous = _helpTextGenerator;
+                _helpTextGenerator = value ?? throw new ArgumentNullException(nameof(value));
+
+                // Subcommands copy the generator when they are created, so propagate the change to
+                // any that were added (e.g. by conventions) before this was set.
+                foreach (var command in _subcommands)
+                {
+                    if (ReferenceEquals(command._helpTextGenerator, previous))
+                    {
+                        command.HelpTextGenerator = value;
+                    }
+                }
+            }
         }
 
         /// <summary>

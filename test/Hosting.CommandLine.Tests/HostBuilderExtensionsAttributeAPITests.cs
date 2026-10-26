@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading.Tasks;
 using McMaster.Extensions.CommandLineUtils;
 using McMaster.Extensions.CommandLineUtils.Conventions;
+using McMaster.Extensions.CommandLineUtils.HelpText;
 using McMaster.Extensions.Hosting.CommandLine.Tests.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -110,6 +111,22 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
             Assert.Equal(new string[] { "return42" }, ex.NearestMatches);
         }
 
+        [Theory]
+        [InlineData("--help")]
+        [InlineData("sub", "--help")]
+        public async Task TestCustomHelpTextGenerator(params string[] args)
+        {
+            var helpTextGenerator = new Mock<IHelpTextGenerator>();
+            helpTextGenerator
+                .Setup(g => g.Generate(It.IsAny<CommandLineApplication>(), It.IsAny<TextWriter>()))
+                .Verifiable();
+            await new HostBuilder()
+                .ConfigureServices(collection => collection.AddSingleton<IConsole>(new TestConsole(_output)))
+                .RunCommandLineApplicationAsync<HelpParentCommand>(args,
+                    app => app.HelpTextGenerator = helpTextGenerator.Object);
+            Mock.Verify(helpTextGenerator);
+        }
+
         [Fact]
         public async Task ItRethrowsThrownExceptions()
         {
@@ -168,6 +185,19 @@ namespace McMaster.Extensions.Hosting.CommandLine.Tests
         [Command]
         [Subcommand(typeof(Return42Command))]
         class ParentCommand
+        {
+        }
+
+        [Command]
+        [HelpOption]
+        [Subcommand(typeof(HelpSubCommand))]
+        class HelpParentCommand
+        {
+        }
+
+        [Command("sub")]
+        [HelpOption]
+        class HelpSubCommand
         {
         }
 
